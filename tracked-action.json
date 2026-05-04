@@ -1,0 +1,702 @@
+[
+  {
+    "id": 1,
+    "layer": "syntax",
+    "topic": "Declare a primitive @tracked property (string)",
+    "instruction": "How do I declare a @tracked string property in a Glimmer component?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class PlayerNameComponent extends Component {\n  @tracked playerName = 'Shakib Al Hasan';\n\n  <template>\n    <p>Current player: {{this.playerName}}</p>\n  </template>\n}\n```\nUse the `@tracked` decorator from `@glimmer/tracking` before a class field to make it reactive. When `playerName` changes, the template automatically re-renders. Always initialize string properties with a default string value to avoid undefined rendering issues."
+  },
+  {
+    "id": 2,
+    "layer": "syntax",
+    "topic": "Declare a primitive @tracked property (number)",
+    "instruction": "How do I declare a @tracked number property for storing a cricket score?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ScoreDisplayComponent extends Component {\n  @tracked runs = 0;\n\n  <template>\n    <span class=\"text-2xl font-bold\">{{this.runs}}</span>\n  </template>\n}\n```\nDeclare a `@tracked` number property just like a string — prefix the class field with the `@tracked` decorator. Initializing to `0` ensures the template always renders a valid number. Any assignment like `this.runs = 45` will trigger a re-render."
+  },
+  {
+    "id": 3,
+    "layer": "syntax",
+    "topic": "Declare a primitive @tracked property (boolean)",
+    "instruction": "Show me how to declare a @tracked boolean property in a GJS component.",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class InningsStatusComponent extends Component {\n  @tracked isInningsComplete = false;\n\n  <template>\n    {{#if this.isInningsComplete}}\n      <p class=\"text-green-600\">Innings Complete</p>\n    {{else}}\n      <p class=\"text-yellow-500\">Innings In Progress</p>\n    {{/if}}\n  </template>\n}\n```\nBoolean `@tracked` properties work exactly like string or number ones. Initialize to `false` or `true` explicitly — never leave it undefined when using it in `{{if}}` conditionals, even though `undefined` is falsy."
+  },
+  {
+    "id": 4,
+    "layer": "syntax",
+    "topic": "Declare multiple @tracked properties in one class",
+    "instruction": "How do I declare multiple @tracked properties in a single Glimmer component?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class MatchScoreComponent extends Component {\n  @tracked runs = 0;\n  @tracked wickets = 0;\n  @tracked overs = 0;\n  @tracked isLive = true;\n  @tracked currentBatsman = '';\n\n  <template>\n    <div class=\"flex gap-4\">\n      <span>{{this.runs}}/{{this.wickets}}</span>\n      <span>{{this.overs}} ov</span>\n      <span>{{this.currentBatsman}}</span>\n    </div>\n  </template>\n}\n```\nEach `@tracked` property is declared independently on its own line. You can have as many `@tracked` properties as needed — each one is independently reactive. Glimmer tracks which specific properties the template reads and only re-renders when those change."
+  },
+  {
+    "id": 5,
+    "layer": "syntax",
+    "topic": "@tracked property with a default value",
+    "instruction": "How do I initialize a @tracked property with a meaningful default value?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class MatchFormatComponent extends Component {\n  @tracked selectedFormat = 'T20';\n  @tracked oversLimit = 20;\n  @tracked teamName = 'Bangladesh';\n\n  <template>\n    <p>Format: {{this.selectedFormat}} | Overs: {{this.oversLimit}} | Team: {{this.teamName}}</p>\n  </template>\n}\n```\nDefault values are set inline using the class field initializer syntax. These defaults are used when the component first renders. Providing meaningful defaults avoids empty or broken initial UI states."
+  },
+  {
+    "id": 6,
+    "layer": "syntax",
+    "topic": "@tracked property initialized to null",
+    "instruction": "When should I initialize a @tracked property to null and how do I do it?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class PlayerDetailComponent extends Component {\n  @tracked selectedPlayer = null;\n\n  <template>\n    {{#if this.selectedPlayer}}\n      <p>{{this.selectedPlayer.name}} — {{this.selectedPlayer.runs}} runs</p>\n    {{else}}\n      <p class=\"text-gray-400\">No player selected</p>\n    {{/if}}\n  </template>\n}\n```\nInitialize to `null` when the value is intentionally absent — like before a user makes a selection or before data is fetched. Always guard with `{{#if}}` before accessing properties on a nullable tracked value to avoid template errors."
+  },
+  {
+    "id": 7,
+    "layer": "syntax",
+    "topic": "@tracked property initialized to undefined",
+    "instruction": "How do I declare a @tracked property that starts as undefined?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class VenueComponent extends Component {\n  @tracked venue = undefined;\n\n  <template>\n    {{#if this.venue}}\n      <p>Venue: {{this.venue}}</p>\n    {{/if}}\n  </template>\n}\n```\nYou can explicitly set `= undefined` or omit the initializer entirely — both result in `undefined`. Prefer `null` when the absence is intentional and meaningful; use `undefined` only when the property may not be set at all. Always check before rendering."
+  },
+  {
+    "id": 8,
+    "layer": "syntax",
+    "topic": "Read a @tracked value inside <template>",
+    "instruction": "How do I display a @tracked property value inside the GJS template?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class BatsmanScoreComponent extends Component {\n  @tracked batsmanName = 'Mushfiqur Rahim';\n  @tracked runs = 87;\n  @tracked balls = 102;\n\n  <template>\n    <div class=\"p-4 bg-white rounded shadow\">\n      <h2 class=\"font-bold\">{{this.batsmanName}}</h2>\n      <p>{{this.runs}} ({{this.balls}} balls)</p>\n    </div>\n  </template>\n}\n```\nAccess `@tracked` properties in the template using `{{this.propertyName}}` syntax. The template automatically subscribes to these values and re-renders whenever they change. No special syntax needed beyond the standard Handlebars double-curly syntax."
+  },
+  {
+    "id": 9,
+    "layer": "syntax",
+    "topic": "Update a @tracked value inside an @action",
+    "instruction": "How do I update a @tracked property from inside an @action method?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class RunCounterComponent extends Component {\n  @tracked runs = 0;\n\n  @action\n  addRun() {\n    this.runs = this.runs + 1;\n  }\n\n  <template>\n    <p class=\"text-xl\">Runs: {{this.runs}}</p>\n    <button {{on \"click\" this.addRun}} class=\"btn\">Add Run</button>\n  </template>\n}\n```\nAssign directly to the `@tracked` property using `this.propertyName = newValue`. This simple assignment triggers Glimmer's reactivity system and schedules a re-render. Always use `@action` on the method to ensure correct `this` binding when called from the template."
+  },
+  {
+    "id": 10,
+    "layer": "syntax",
+    "topic": "@action decorator on a regular method",
+    "instruction": "Show me how to use the @action decorator on a regular class method.",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class WicketTrackerComponent extends Component {\n  @tracked wickets = 0;\n\n  @action\n  recordWicket() {\n    this.wickets = this.wickets + 1;\n  }\n\n  <template>\n    <p>Wickets: {{this.wickets}}</p>\n    <button {{on \"click\" this.recordWicket}}>Out!</button>\n  </template>\n}\n```\nImport `action` from `@ember/object` and place `@action` on the line immediately before the method definition. The `@action` decorator binds `this` correctly so that when the method is passed as an event handler in the template, it still refers to the component instance."
+  },
+  {
+    "id": 11,
+    "layer": "syntax",
+    "topic": "@action on an arrow function class field",
+    "instruction": "How do I use an arrow function class field as an event handler without @action?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class BallCounterComponent extends Component {\n  @tracked balls = 0;\n\n  // Arrow function class field — this is auto-bound, no @action needed\n  incrementBall = () => {\n    this.balls = this.balls + 1;\n  };\n\n  <template>\n    <p>Balls: {{this.balls}}</p>\n    <button {{on \"click\" this.incrementBall}}>Ball</button>\n  </template>\n}\n```\nArrow function class fields capture `this` lexically at definition time, so they are already correctly bound without `@action`. This is a valid alternative, but the `@action` decorator pattern is more conventional in Ember and makes intent clearer. Either approach works correctly."
+  },
+  {
+    "id": 12,
+    "layer": "syntax",
+    "topic": "Multiple @action methods in one component",
+    "instruction": "How do I define multiple @action methods in a single GJS component?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class ScoreControlComponent extends Component {\n  @tracked runs = 0;\n  @tracked wickets = 0;\n  @tracked extras = 0;\n\n  @action\n  addRun() {\n    this.runs = this.runs + 1;\n  }\n\n  @action\n  addWicket() {\n    this.wickets = this.wickets + 1;\n  }\n\n  @action\n  addExtra() {\n    this.extras = this.extras + 1;\n  }\n\n  <template>\n    <p>{{this.runs}}/{{this.wickets}} + {{this.extras}} extras</p>\n    <button {{on \"click\" this.addRun}}>Run</button>\n    <button {{on \"click\" this.addWicket}}>Wicket</button>\n    <button {{on \"click\" this.addExtra}}>Extra</button>\n  </template>\n}\n```\nEach `@action` method is decorated independently. There is no limit on the number of `@action` methods in a component. Each handles a specific user interaction, keeping the logic clean and focused."
+  },
+  {
+    "id": 13,
+    "layer": "syntax",
+    "topic": "getter that reads a @tracked value (derived state)",
+    "instruction": "How do I create a getter that derives its value from a @tracked property?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class StrikeRateComponent extends Component {\n  @tracked runs = 54;\n  @tracked balls = 40;\n\n  get strikeRate() {\n    if (this.balls === 0) return '0.00';\n    return ((this.runs / this.balls) * 100).toFixed(2);\n  }\n\n  <template>\n    <p>Strike Rate: {{this.strikeRate}}</p>\n  </template>\n}\n```\nNative JavaScript getters automatically participate in Glimmer's autotracking. When the getter reads `this.runs` or `this.balls`, Glimmer registers those as dependencies. Whenever either `@tracked` property changes, the getter's result is recomputed and the template updates. No `@tracked` decorator is needed on the getter itself."
+  },
+  {
+    "id": 14,
+    "layer": "syntax",
+    "topic": "getter with conditional logic based on @tracked",
+    "instruction": "How do I write a getter that returns different values based on a @tracked boolean?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class MatchStatusComponent extends Component {\n  @tracked isLive = true;\n  @tracked runs = 145;\n  @tracked wickets = 3;\n\n  get statusLabel() {\n    return this.isLive ? `LIVE: ${this.runs}/${this.wickets}` : 'Match Ended';\n  }\n\n  get statusColor() {\n    return this.isLive ? 'text-red-600 font-bold' : 'text-gray-500';\n  }\n\n  <template>\n    <span class={{this.statusColor}}>{{this.statusLabel}}</span>\n  </template>\n}\n```\nGetters can contain any conditional logic — if/else, ternary, switch. Glimmer tracks every `@tracked` property the getter reads during its execution and invalidates the cache when any of them change. Multiple getters can read the same `@tracked` property independently."
+  },
+  {
+    "id": 15,
+    "layer": "syntax",
+    "topic": "setter that updates a @tracked property",
+    "instruction": "How do I write a setter that updates a @tracked property in Glimmer?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class OversInputComponent extends Component {\n  @tracked _overs = 0;\n\n  get overs() {\n    return this._overs;\n  }\n\n  set overs(value) {\n    this._overs = Number(value);\n  }\n\n  get overLabel() {\n    return `${this._overs} overs bowled`;\n  }\n\n  <template>\n    <p>{{this.overLabel}}</p>\n  </template>\n}\n```\nDefine a getter/setter pair where the setter updates a backing `@tracked` property (conventionally prefixed with `_`). The setter runs your custom logic (like type coercion) before updating the reactive value. Glimmer reactivity flows through the `@tracked` backing field."
+  },
+  {
+    "id": 16,
+    "layer": "syntax",
+    "topic": "@tracked array — correct way to add item (spread)",
+    "instruction": "What is the correct way to add an item to a @tracked array in Glimmer?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class BattingOrderComponent extends Component {\n  @tracked batsmen = ['Tamim', 'Liton', 'Shakib'];\n\n  @action\n  addBatsman(name) {\n    this.batsmen = [...this.batsmen, name];\n  }\n\n  <template>\n    {{#each this.batsmen as |batsman|}}\n      <p>{{batsman}}</p>\n    {{/each}}\n    <button {{on \"click\" (fn this.addBatsman 'Mushfiq')}}>Add Mushfiq</button>\n  </template>\n}\n```\nAlways replace the array reference entirely using the spread operator: `this.array = [...this.array, newItem]`. Mutating the array with `.push()` does not trigger reactivity because the array reference stays the same. Glimmer only detects the change when `this.batsmen` is assigned a new value."
+  },
+  {
+    "id": 17,
+    "layer": "syntax",
+    "topic": "@tracked array — correct way to remove item (filter)",
+    "instruction": "How do I correctly remove an item from a @tracked array?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class PlayerListComponent extends Component {\n  @tracked players = ['Tamim', 'Liton', 'Shakib', 'Mushfiq'];\n\n  @action\n  removePlayer(name) {\n    this.players = this.players.filter(p => p !== name);\n  }\n\n  <template>\n    {{#each this.players as |player|}}\n      <div class=\"flex gap-2\">\n        <span>{{player}}</span>\n        <button {{on \"click\" (fn this.removePlayer player)}}>Remove</button>\n      </div>\n    {{/each}}\n  </template>\n}\n```\nUse `.filter()` to create a new array without the unwanted item, then assign it back to the `@tracked` property. `.filter()` returns a new array reference, which triggers Glimmer's reactivity. Never use `.splice()` on a `@tracked` array — it mutates in place and won't re-render."
+  },
+  {
+    "id": 18,
+    "layer": "syntax",
+    "topic": "@tracked array — correct way to replace item (map)",
+    "instruction": "How do I replace a specific item inside a @tracked array?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class ScoreEditorComponent extends Component {\n  @tracked innings = [\n    { batsman: 'Tamim', runs: 45 },\n    { batsman: 'Liton', runs: 32 },\n    { batsman: 'Shakib', runs: 78 },\n  ];\n\n  @action\n  updateRuns(batsmanName, newRuns) {\n    this.innings = this.innings.map(entry =>\n      entry.batsman === batsmanName ? { ...entry, runs: newRuns } : entry\n    );\n  }\n\n  <template>\n    {{#each this.innings as |entry|}}\n      <p>{{entry.batsman}}: {{entry.runs}}</p>\n    {{/each}}\n  </template>\n}\n```\nUse `.map()` to iterate and return a new array where the target item is replaced with a new object (spread the old item and override changed fields). Both `.map()` and the object spread ensure immutability, which is required for Glimmer to detect the change."
+  },
+  {
+    "id": 19,
+    "layer": "syntax",
+    "topic": "@tracked array — replace entire array",
+    "instruction": "How do I replace an entire @tracked array with new data?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class SquadComponent extends Component {\n  @tracked squad = ['Tamim', 'Liton', 'Shakib'];\n\n  @action\n  loadTestSquad() {\n    this.squad = ['Mominul', 'Najmul', 'Shakib', 'Mushfiq', 'Litton', 'Mehidy'];\n  }\n\n  @action\n  clearSquad() {\n    this.squad = [];\n  }\n\n  <template>\n    {{#each this.squad as |player|}}\n      <p>{{player}}</p>\n    {{/each}}\n    <button {{on \"click\" this.loadTestSquad}}>Load Test Squad</button>\n    <button {{on \"click\" this.clearSquad}}>Clear</button>\n  </template>\n}\n```\nAssigning a completely new array to a `@tracked` property is always safe and triggers a re-render. This is the cleanest approach when you want to replace all data at once, such as after an API response or switching between match formats."
+  },
+  {
+    "id": 20,
+    "layer": "syntax",
+    "topic": "@tracked object — correct way to update a property (spread)",
+    "instruction": "How do I correctly update a single property of a @tracked object?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class PlayerProfileComponent extends Component {\n  @tracked player = {\n    name: 'Shakib Al Hasan',\n    runs: 4500,\n    wickets: 220,\n    role: 'All-rounder',\n  };\n\n  @action\n  updateRuns(newRuns) {\n    this.player = { ...this.player, runs: newRuns };\n  }\n\n  <template>\n    <p>{{this.player.name}} — {{this.player.runs}} runs</p>\n  </template>\n}\n```\nSpread the existing object and override only the changed field: `this.obj = { ...this.obj, field: newValue }`. This creates a new object reference, which is what Glimmer detects. Directly writing `this.player.runs = newRuns` mutates the existing object and will NOT trigger a re-render."
+  },
+  {
+    "id": 21,
+    "layer": "syntax",
+    "topic": "@tracked object — replace entire object",
+    "instruction": "How do I replace an entire @tracked object with a new one?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class MatchSummaryComponent extends Component {\n  @tracked matchDetails = {\n    team: 'Bangladesh',\n    opponent: 'India',\n    venue: 'Mirpur',\n    result: 'TBD',\n  };\n\n  @action\n  loadNextMatch() {\n    this.matchDetails = {\n      team: 'Bangladesh',\n      opponent: 'Pakistan',\n      venue: 'Chittagong',\n      result: 'TBD',\n    };\n  }\n\n  <template>\n    <p>{{this.matchDetails.team}} vs {{this.matchDetails.opponent}} at {{this.matchDetails.venue}}</p>\n    <button {{on \"click\" this.loadNextMatch}}>Next Match</button>\n  </template>\n}\n```\nAssigning a completely new object literal to the `@tracked` property always triggers a re-render because the reference changes. This is the safest and most readable approach when all fields are being replaced, such as after loading fresh data from an API."
+  },
+  {
+    "id": 22,
+    "layer": "syntax",
+    "topic": "TrackedArray from tracked-built-ins — import and usage",
+    "instruction": "How do I use TrackedArray from tracked-built-ins in a Glimmer component?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { TrackedArray } from 'tracked-built-ins';\nimport { action } from '@ember/object';\n\nexport default class BowlingFiguresComponent extends Component {\n  bowlers = new TrackedArray(['Mustafizur', 'Taskin', 'Shoriful']);\n\n  @action\n  addBowler(name) {\n    this.bowlers.push(name); // mutation is fine with TrackedArray\n  }\n\n  @action\n  removeLast() {\n    this.bowlers.pop();\n  }\n\n  <template>\n    {{#each this.bowlers as |bowler|}}\n      <p>{{bowler}}</p>\n    {{/each}}\n    <button {{on \"click\" (fn this.addBowler 'Nasum')}}>Add Nasum</button>\n  </template>\n}\n```\n`TrackedArray` wraps a native array and makes all mutation methods (`.push()`, `.pop()`, `.splice()`, etc.) reactive. Import it from `tracked-built-ins`. Note that `bowlers` itself does not need `@tracked` — the `TrackedArray` instance handles reactivity internally for all mutations."
+  },
+  {
+    "id": 23,
+    "layer": "syntax",
+    "topic": "TrackedObject from tracked-built-ins — import and usage",
+    "instruction": "How do I use TrackedObject from tracked-built-ins in a GJS component?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { TrackedObject } from 'tracked-built-ins';\nimport { action } from '@ember/object';\n\nexport default class PlayerStatsComponent extends Component {\n  stats = new TrackedObject({\n    runs: 0,\n    wickets: 0,\n    catches: 0,\n  });\n\n  @action\n  addRun() {\n    this.stats.runs += 1; // direct property mutation is reactive\n  }\n\n  @action\n  addWicket() {\n    this.stats.wickets += 1;\n  }\n\n  <template>\n    <p>R: {{this.stats.runs}} W: {{this.stats.wickets}} C: {{this.stats.catches}}</p>\n    <button {{on \"click\" this.addRun}}>Run</button>\n    <button {{on \"click\" this.addWicket}}>Wicket</button>\n  </template>\n}\n```\n`TrackedObject` wraps a plain object so that direct property mutations become reactive. Import from `tracked-built-ins`. Unlike a plain `@tracked` object, you can do `this.stats.runs += 1` directly without replacing the whole object. This is ideal for objects with many independently-updated fields."
+  },
+  {
+    "id": 24,
+    "layer": "syntax",
+    "topic": "@tracked used with {{if}} in template",
+    "instruction": "How do I use a @tracked boolean with {{if}} in a GJS template?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class DRSPanelComponent extends Component {\n  @tracked isDRSAvailable = true;\n\n  @action\n  useReview() {\n    this.isDRSAvailable = false;\n  }\n\n  <template>\n    {{#if this.isDRSAvailable}}\n      <div class=\"bg-green-100 p-3 rounded\">\n        <p>DRS Available</p>\n        <button {{on \"click\" this.useReview}} class=\"btn-primary\">Use Review</button>\n      </div>\n    {{else}}\n      <div class=\"bg-red-100 p-3 rounded\">\n        <p class=\"text-red-700\">No Reviews Remaining</p>\n      </div>\n    {{/if}}\n  </template>\n}\n```\nThe `{{#if}}` block re-evaluates whenever the `@tracked` boolean changes. The `{{else}}` block is rendered when the value is falsy. Using `@tracked` with `{{if}}` is the standard pattern for conditional rendering in Glimmer — the UI stays in sync automatically."
+  },
+  {
+    "id": 25,
+    "layer": "syntax",
+    "topic": "@tracked used with {{each}} in template",
+    "instruction": "How do I render a @tracked array using {{each}} in a GJS template?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class TeamRosterComponent extends Component {\n  @tracked players = [\n    { id: 1, name: 'Tamim Iqbal', role: 'Opener' },\n    { id: 2, name: 'Shakib Al Hasan', role: 'All-rounder' },\n    { id: 3, name: 'Mushfiqur Rahim', role: 'Wicket-keeper' },\n  ];\n\n  <template>\n    <ul class=\"divide-y\">\n      {{#each this.players as |player|}}\n        <li class=\"py-2\">\n          <span class=\"font-medium\">{{player.name}}</span>\n          <span class=\"text-sm text-gray-500 ml-2\">{{player.role}}</span>\n        </li>\n      {{/each}}\n    </ul>\n  </template>\n}\n```\n`{{#each}}` iterates over the `@tracked` array and re-renders the list whenever the array reference changes. Always replace the array (not mutate) to trigger the update. Use `as |item|` to access each element, and optionally `as |item index|` to get the index."
+  },
+  {
+    "id": 26,
+    "layer": "syntax",
+    "topic": "@action passed as @arg to child component",
+    "instruction": "How do I pass an @action from a parent component to a child via @arg?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\n// Child component\nclass ScoreButtonComponent extends Component {\n  <template>\n    <button {{on \"click\" @onScore}} class=\"btn-primary\">\n      +{{@runsValue}} Runs\n    </button>\n  </template>\n}\n\n// Parent component\nexport default class MatchControlComponent extends Component {\n  @tracked totalRuns = 0;\n\n  @action\n  addRuns(runs) {\n    this.totalRuns = this.totalRuns + runs;\n  }\n\n  <template>\n    <p class=\"text-2xl\">Total: {{this.totalRuns}}</p>\n    <ScoreButtonComponent @onScore={{fn this.addRuns 4}} @runsValue={{4}} />\n    <ScoreButtonComponent @onScore={{fn this.addRuns 6}} @runsValue={{6}} />\n  </template>\n}\n```\nPass the `@action` using `@argName={{this.actionName}}` in the parent template. The child calls it via `@onScore` without needing to know about the parent's state. Use `{{fn}}` to partially apply arguments when passing the action."
+  },
+  {
+    "id": 27,
+    "layer": "syntax",
+    "topic": "@action called with arguments from template using {{fn}}",
+    "instruction": "How do I pass arguments to an @action from the template using {{fn}}?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class RunScorerComponent extends Component {\n  @tracked runs = 0;\n\n  @action\n  addRuns(amount) {\n    this.runs = this.runs + amount;\n  }\n\n  <template>\n    <p class=\"text-3xl font-bold\">{{this.runs}}</p>\n    <div class=\"flex gap-2\">\n      <button {{on \"click\" (fn this.addRuns 1)}}>1</button>\n      <button {{on \"click\" (fn this.addRuns 2)}}>2</button>\n      <button {{on \"click\" (fn this.addRuns 4)}}>4</button>\n      <button {{on \"click\" (fn this.addRuns 6)}}>6</button>\n    </div>\n  </template>\n}\n```\nThe `{{fn}}` helper creates a new function that pre-fills the specified arguments when called. `(fn this.addRuns 4)` produces a function that calls `this.addRuns(4)` when the button is clicked. This avoids defining separate `@action` methods for each value."
+  },
+  {
+    "id": 28,
+    "layer": "syntax",
+    "topic": "@action that toggles a boolean @tracked",
+    "instruction": "How do I write an @action that toggles a boolean @tracked property?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class ScoreboardToggleComponent extends Component {\n  @tracked isExpanded = false;\n\n  @action\n  toggleExpanded() {\n    this.isExpanded = !this.isExpanded;\n  }\n\n  <template>\n    <button {{on \"click\" this.toggleExpanded}} class=\"btn\">\n      {{if this.isExpanded 'Hide' 'Show'}} Scorecard\n    </button>\n    {{#if this.isExpanded}}\n      <div class=\"mt-4 p-4 bg-white rounded shadow\">\n        <p>Full scorecard details here...</p>\n      </div>\n    {{/if}}\n  </template>\n}\n```\nToggling is simply `this.flag = !this.flag`. The inline `{{if}}` helper (without `#`) is used for simple conditional expressions directly in attribute or text positions. This pattern is the most common for show/hide, expand/collapse, and open/close UI states."
+  },
+  {
+    "id": 29,
+    "layer": "syntax",
+    "topic": "@action that increments a number @tracked",
+    "instruction": "How do I write an @action that increments a @tracked number property?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class OverCounterComponent extends Component {\n  @tracked currentOver = 0;\n  @tracked maxOvers = 20;\n\n  @action\n  nextOver() {\n    if (this.currentOver < this.maxOvers) {\n      this.currentOver = this.currentOver + 1;\n    }\n  }\n\n  get isComplete() {\n    return this.currentOver >= this.maxOvers;\n  }\n\n  <template>\n    <p>Over: {{this.currentOver}} / {{this.maxOvers}}</p>\n    <button {{on \"click\" this.nextOver}} disabled={{this.isComplete}}>Next Over</button>\n  </template>\n}\n```\nUse `this.count = this.count + 1` (or `this.count += 1` — both work). Always include boundary checks in the action if there is a max limit. Using a getter for derived booleans like `isComplete` keeps the action logic clean."
+  },
+  {
+    "id": 30,
+    "layer": "syntax",
+    "topic": "@action that resets all @tracked properties",
+    "instruction": "How do I write an @action that resets all @tracked properties to their initial values?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class InningsTrackerComponent extends Component {\n  @tracked runs = 0;\n  @tracked wickets = 0;\n  @tracked overs = 0;\n  @tracked currentBatsman = '';\n  @tracked isLive = false;\n\n  @action\n  resetInnings() {\n    this.runs = 0;\n    this.wickets = 0;\n    this.overs = 0;\n    this.currentBatsman = '';\n    this.isLive = false;\n  }\n\n  <template>\n    <p>{{this.runs}}/{{this.wickets}} ({{this.overs}} ov)</p>\n    <button {{on \"click\" this.resetInnings}}>Reset Innings</button>\n  </template>\n}\n```\nAssign each `@tracked` property back to its initial value inside the reset action. Glimmer batches all the updates made within a single action into one re-render, so resetting many properties at once is efficient — it does not cause multiple renders."
+  },
+  {
+    "id": 31,
+    "layer": "syntax",
+    "topic": "@action that updates a nested @tracked object property",
+    "instruction": "How do I update a specific property inside a @tracked object from an @action?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class PlayerCardComponent extends Component {\n  @tracked player = {\n    name: 'Liton Das',\n    runs: 34,\n    balls: 28,\n    fours: 4,\n    sixes: 1,\n  };\n\n  @action\n  addFour() {\n    this.player = { ...this.player, runs: this.player.runs + 4, fours: this.player.fours + 1, balls: this.player.balls + 1 };\n  }\n\n  @action\n  addSix() {\n    this.player = { ...this.player, runs: this.player.runs + 6, sixes: this.player.sixes + 1, balls: this.player.balls + 1 };\n  }\n\n  <template>\n    <p>{{this.player.name}}: {{this.player.runs}} ({{this.player.balls}}) 4s:{{this.player.fours}} 6s:{{this.player.sixes}}</p>\n    <button {{on \"click\" this.addFour}}>4</button>\n    <button {{on \"click\" this.addSix}}>6</button>\n  </template>\n}\n```\nAlways use the spread pattern `{ ...this.player, changedField: newValue }` to update nested properties. Multiple fields can be updated in one spread operation. Never directly mutate `this.player.runs = x` — it changes the property without changing the object reference, so Glimmer won't detect it."
+  },
+  {
+    "id": 32,
+    "layer": "syntax",
+    "topic": "@action bound to {{on \"input\"}} for live text updates",
+    "instruction": "How do I bind an @action to an input's 'input' event for live text tracking?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class PlayerSearchComponent extends Component {\n  @tracked searchQuery = '';\n\n  @action\n  updateQuery(event) {\n    this.searchQuery = event.target.value;\n  }\n\n  get displayQuery() {\n    return this.searchQuery || 'Type a player name...';\n  }\n\n  <template>\n    <input\n      type=\"text\"\n      value={{this.searchQuery}}\n      {{on \"input\" this.updateQuery}}\n      class=\"border rounded px-3 py-2\"\n      placeholder=\"Search player\"\n    />\n    <p class=\"mt-2 text-sm text-gray-600\">{{this.displayQuery}}</p>\n  </template>\n}\n```\nBind `{{on \"input\" this.handler}}` to capture every keystroke. The handler receives the native DOM `Event` object; extract the value with `event.target.value`. Set the `value` attribute (not `@value`) to reflect the current `@tracked` state, creating a controlled input pattern."
+  },
+  {
+    "id": 33,
+    "layer": "syntax",
+    "topic": "@action bound to {{on \"change\"}} for select/checkbox",
+    "instruction": "How do I handle a select dropdown change using @action and {{on \"change\"}}?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class FormatSelectorComponent extends Component {\n  @tracked selectedFormat = 'T20';\n  formats = ['T20', 'ODI', 'Test'];\n\n  @action\n  onFormatChange(event) {\n    this.selectedFormat = event.target.value;\n  }\n\n  <template>\n    <select {{on \"change\" this.onFormatChange}} class=\"border rounded px-2 py-1\">\n      {{#each this.formats as |format|}}\n        <option value={{format}} selected={{eq format this.selectedFormat}}>{{format}}</option>\n      {{/each}}\n    </select>\n    <p>Selected: {{this.selectedFormat}}</p>\n  </template>\n}\n```\nUse `{{on \"change\"}}` for `<select>` and `<input type=\"checkbox\">` elements. For checkboxes, use `event.target.checked` instead of `event.target.value`. The `eq` helper compares values for the `selected` attribute binding."
+  },
+  {
+    "id": 34,
+    "layer": "syntax",
+    "topic": "@action bound to {{on \"submit\"}} on a form element",
+    "instruction": "How do I handle form submission with @action and {{on \"submit\"}}?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class ScoreEntryFormComponent extends Component {\n  @tracked runs = '';\n  @tracked batsman = '';\n  @tracked submitted = false;\n\n  @action\n  handleSubmit(event) {\n    event.preventDefault();\n    this.submitted = true;\n    // process this.runs and this.batsman\n  }\n\n  <template>\n    <form {{on \"submit\" this.handleSubmit}} class=\"flex flex-col gap-3\">\n      <input\n        type=\"text\"\n        placeholder=\"Batsman name\"\n        value={{this.batsman}}\n        {{on \"input\" (fn (mut this.batsman) (get-value))}}\n      />\n      <input type=\"number\" placeholder=\"Runs\" />\n      <button type=\"submit\">Submit Score</button>\n    </form>\n    {{#if this.submitted}}\n      <p class=\"text-green-600\">Score submitted!</p>\n    {{/if}}\n  </template>\n}\n```\nAlways call `event.preventDefault()` in a form submit handler to prevent the browser's default page reload. Bind to the `<form>` element's `submit` event rather than the button's `click` event — this also handles Enter key submissions correctly."
+  },
+  {
+    "id": 35,
+    "layer": "syntax",
+    "topic": "@action that calls this.args callback after updating local state",
+    "instruction": "How do I update local @tracked state and then call a parent callback from @args?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class PlayerSelectorComponent extends Component {\n  @tracked selectedPlayer = null;\n\n  @action\n  selectPlayer(player) {\n    this.selectedPlayer = player;\n    this.args.onPlayerSelected?.(player);\n  }\n\n  <template>\n    {{#each @players as |player|}}\n      <button {{on \"click\" (fn this.selectPlayer player)}} class=\"btn\">\n        {{player.name}}\n      </button>\n    {{/each}}\n    {{#if this.selectedPlayer}}\n      <p>Selected: {{this.selectedPlayer.name}}</p>\n    {{/if}}\n  </template>\n}\n```\nUpdate local `@tracked` state first, then call the parent callback using `this.args.callbackName?.()`. The optional chaining `?.` prevents errors if the parent didn't pass the callback. This pattern lets the component manage its own UI state while still notifying the parent of important events."
+  },
+  {
+    "id": 36,
+    "layer": "syntax",
+    "topic": "getter returning a formatted string from @tracked",
+    "instruction": "How do I write a getter that formats a @tracked value into a display string?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ScoreSummaryComponent extends Component {\n  @tracked runs = 187;\n  @tracked wickets = 4;\n  @tracked overs = 32;\n  @tracked balls = 3;\n\n  get scoreString() {\n    return `${this.runs}/${this.wickets} (${this.overs}.${this.balls} ov)`;\n  }\n\n  get runRate() {\n    const totalOvers = this.overs + this.balls / 6;\n    if (totalOvers === 0) return '0.00';\n    return (this.runs / totalOvers).toFixed(2);\n  }\n\n  <template>\n    <div class=\"text-center\">\n      <p class=\"text-3xl font-bold\">{{this.scoreString}}</p>\n      <p class=\"text-sm text-gray-500\">RR: {{this.runRate}}</p>\n    </div>\n  </template>\n}\n```\nUse template literals in getters to produce formatted strings. The getter re-runs whenever any of the `@tracked` properties it reads change. Keeping formatting logic in getters keeps the template clean and the logic testable."
+  },
+  {
+    "id": 37,
+    "layer": "syntax",
+    "topic": "getter returning a filtered array from @tracked array",
+    "instruction": "How do I write a getter that filters a @tracked array based on a @tracked search query?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class PlayerSearchListComponent extends Component {\n  @tracked allPlayers = [\n    'Tamim Iqbal', 'Shakib Al Hasan', 'Mushfiqur Rahim',\n    'Liton Das', 'Mehidy Hasan', 'Taskin Ahmed',\n  ];\n  @tracked query = '';\n\n  get filteredPlayers() {\n    const q = this.query.toLowerCase().trim();\n    if (!q) return this.allPlayers;\n    return this.allPlayers.filter(name => name.toLowerCase().includes(q));\n  }\n\n  @action\n  updateQuery(event) {\n    this.query = event.target.value;\n  }\n\n  <template>\n    <input {{on \"input\" this.updateQuery}} placeholder=\"Search...\" class=\"border rounded px-2 py-1\" />\n    {{#each this.filteredPlayers as |player|}}\n      <p>{{player}}</p>\n    {{/each}}\n  </template>\n}\n```\nThe `filteredPlayers` getter reads both `this.query` and `this.allPlayers`, so it automatically re-runs when either changes. Computing the filtered list in a getter is preferred over storing it in a separate `@tracked` array, which would require manual synchronization."
+  },
+  {
+    "id": 38,
+    "layer": "syntax",
+    "topic": "getter returning a sorted array from @tracked array",
+    "instruction": "How do I write a getter that returns a sorted version of a @tracked array?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class TopScorersComponent extends Component {\n  @tracked players = [\n    { name: 'Shakib', runs: 4500 },\n    { name: 'Tamim', runs: 8000 },\n    { name: 'Mushfiq', runs: 5200 },\n    { name: 'Mahmudullah', runs: 4100 },\n  ];\n  @tracked sortDir = 'desc';\n\n  get sortedPlayers() {\n    return [...this.players].sort((a, b) =>\n      this.sortDir === 'desc' ? b.runs - a.runs : a.runs - b.runs\n    );\n  }\n\n  @action\n  toggleSort() {\n    this.sortDir = this.sortDir === 'desc' ? 'asc' : 'desc';\n  }\n\n  <template>\n    <button {{on \"click\" this.toggleSort}}>Sort {{this.sortDir}}</button>\n    {{#each this.sortedPlayers as |player|}}\n      <p>{{player.name}}: {{player.runs}}</p>\n    {{/each}}\n  </template>\n}\n```\nAlways spread the array before sorting: `[...this.players].sort(...)`. The native `.sort()` mutates in place — if you called it directly on `this.players`, you'd mutate the tracked array without triggering reactivity. Spreading creates a new array that `.sort()` can safely mutate."
+  },
+  {
+    "id": 39,
+    "layer": "syntax",
+    "topic": "getter returning a computed number (e.g., total runs)",
+    "instruction": "How do I write a getter that computes a total from a @tracked array of objects?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class InningsTotalComponent extends Component {\n  @tracked innings = [\n    { batsman: 'Tamim', runs: 78 },\n    { batsman: 'Liton', runs: 45 },\n    { batsman: 'Shakib', runs: 120 },\n    { batsman: 'Mushfiq', runs: 34 },\n  ];\n\n  get totalRuns() {\n    return this.innings.reduce((sum, entry) => sum + entry.runs, 0);\n  }\n\n  get averageRuns() {\n    if (this.innings.length === 0) return 0;\n    return (this.totalRuns / this.innings.length).toFixed(1);\n  }\n\n  <template>\n    <p class=\"font-bold\">Total: {{this.totalRuns}}</p>\n    <p>Average: {{this.averageRuns}}</p>\n  </template>\n}\n```\nUse `.reduce()` inside a getter for sum calculations. The `averageRuns` getter reads `this.totalRuns` (another getter) and `this.innings` — Glimmer tracks both. Guard against division by zero when computing averages."
+  },
+  {
+    "id": 40,
+    "layer": "syntax",
+    "topic": "getter returning a boolean (e.g., isValid, isEmpty)",
+    "instruction": "How do I write a getter that returns a boolean based on @tracked state?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class ScoreFormComponent extends Component {\n  @tracked batsmanName = '';\n  @tracked runs = '';\n  @tracked balls = '';\n\n  get isFormValid() {\n    return (\n      this.batsmanName.trim().length > 0 &&\n      Number(this.runs) >= 0 &&\n      Number(this.balls) > 0\n    );\n  }\n\n  get isEmpty() {\n    return !this.batsmanName && !this.runs && !this.balls;\n  }\n\n  @action\n  handleSubmit() {\n    if (!this.isFormValid) return;\n    // submit logic\n  }\n\n  <template>\n    <button {{on \"click\" this.handleSubmit}} disabled={{not this.isFormValid}}>\n      Submit\n    </button>\n    {{#if this.isEmpty}}\n      <p class=\"text-gray-400\">Fill in the form above</p>\n    {{/if}}\n  </template>\n}\n```\nBoolean getters are ideal for computed validation states. They keep `disabled` attribute binding and `{{if}}` checks declarative. The `not` helper inverts the boolean in the template without needing a separate `isFormInvalid` getter."
+  },
+  {
+    "id": 41,
+    "layer": "syntax",
+    "topic": "setter that validates before updating @tracked",
+    "instruction": "How do I write a setter that validates a value before updating a @tracked property?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class OversLimitComponent extends Component {\n  @tracked _maxOvers = 20;\n  @tracked validationError = '';\n\n  get maxOvers() {\n    return this._maxOvers;\n  }\n\n  set maxOvers(value) {\n    const parsed = Number(value);\n    if (!Number.isInteger(parsed) || parsed < 1 || parsed > 50) {\n      this.validationError = 'Overs must be a whole number between 1 and 50';\n      return;\n    }\n    this.validationError = '';\n    this._maxOvers = parsed;\n  }\n\n  <template>\n    <p>Max Overs: {{this.maxOvers}}</p>\n    {{#if this.validationError}}\n      <p class=\"text-red-600 text-sm\">{{this.validationError}}</p>\n    {{/if}}\n  </template>\n}\n```\nThe setter intercepts the assignment, validates the value, and either rejects it (with an error message) or commits it to the backing `@tracked` field. This centralizes validation logic and keeps `@action` methods clean. The `validationError` is itself `@tracked` so it renders reactively."
+  },
+  {
+    "id": 42,
+    "layer": "syntax",
+    "topic": "setter used with <Input @value={{...}} @onChange={{...}} />",
+    "instruction": "How do I use a setter with Ember's <Input> component for two-way binding?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class BatsmanNameInputComponent extends Component {\n  @tracked _batsmanName = '';\n\n  get batsmanName() {\n    return this._batsmanName;\n  }\n\n  set batsmanName(value) {\n    this._batsmanName = value.trimStart();\n  }\n\n  @action\n  onNameChange(value) {\n    this.batsmanName = value; // triggers the setter\n  }\n\n  <template>\n    <Input\n      @value={{this.batsmanName}}\n      @onChange={{this.onNameChange}}\n      class=\"border rounded px-3 py-2\"\n      placeholder=\"Enter batsman name\"\n    />\n    <p>Name: {{this.batsmanName}}</p>\n  </template>\n}\n```\nEmber's `<Input>` component calls the `@onChange` handler with the new string value (not an event object). Route the value through a setter to apply normalization or validation automatically. The getter/setter pair works seamlessly with `<Input @value={{...}}>`."
+  },
+  {
+    "id": 43,
+    "layer": "syntax",
+    "topic": "Reading @tracked value in a getter that also uses @args",
+    "instruction": "How do I write a getter that combines a @tracked property with @args from the parent?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class PlayerScoreCardComponent extends Component {\n  // @args: { baseRuns: number, playerName: string }\n  @tracked bonusRuns = 0;\n\n  get totalRuns() {\n    return (this.args.baseRuns ?? 0) + this.bonusRuns;\n  }\n\n  get playerHeading() {\n    return `${this.args.playerName} — ${this.totalRuns} runs`;\n  }\n\n  <template>\n    <h3 class=\"font-bold\">{{this.playerHeading}}</h3>\n    <p>Base: {{@baseRuns}} | Bonus: {{this.bonusRuns}} | Total: {{this.totalRuns}}</p>\n  </template>\n}\n```\nGetters that read both `this.args.*` and `this.someTracked` are reactive to both. The getter re-runs whenever either the parent passes new args OR the local `@tracked` property changes. This makes derived values that combine parent data and local state straightforward to express."
+  },
+  {
+    "id": 44,
+    "layer": "syntax",
+    "topic": "Chained getters — one getter reading another getter",
+    "instruction": "How do I chain getters so one getter depends on another getter in Glimmer?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class MatchAnalyticsComponent extends Component {\n  @tracked runs = 180;\n  @tracked balls = 120;\n  @tracked wickets = 4;\n\n  get strikeRate() {\n    if (this.balls === 0) return 0;\n    return (this.runs / this.balls) * 100;\n  }\n\n  get strikeRateLabel() {\n    const sr = this.strikeRate;\n    if (sr >= 150) return 'Explosive';\n    if (sr >= 100) return 'Good';\n    if (sr >= 70) return 'Steady';\n    return 'Slow';\n  }\n\n  get summary() {\n    return `${this.runs}/${this.wickets} — SR: ${this.strikeRate.toFixed(1)} (${this.strikeRateLabel})`;\n  }\n\n  <template>\n    <p>{{this.summary}}</p>\n  </template>\n}\n```\nGlimmer tracks getter dependencies transitively. When `this.runs` changes, `strikeRate` is invalidated, which invalidates `strikeRateLabel` and `summary` too. All three update correctly in a single re-render. Chain getters freely — there is no performance penalty unless the computations are expensive (use `@cached` then)."
+  },
+  {
+    "id": 45,
+    "layer": "syntax",
+    "topic": "@tracked property reset in willDestroy",
+    "instruction": "How do I reset or clean up a @tracked property when the component is destroyed?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class LiveTickerComponent extends Component {\n  @tracked intervalId = null;\n  @tracked elapsedSeconds = 0;\n\n  constructor(owner, args) {\n    super(owner, args);\n    this.intervalId = setInterval(() => {\n      this.elapsedSeconds = this.elapsedSeconds + 1;\n    }, 1000);\n  }\n\n  willDestroy() {\n    super.willDestroy();\n    if (this.intervalId) {\n      clearInterval(this.intervalId);\n      this.intervalId = null;\n    }\n  }\n\n  <template>\n    <p>Elapsed: {{this.elapsedSeconds}}s</p>\n  </template>\n}\n```\nUse `willDestroy()` to cancel timers, unsubscribe from events, or nullify references before the component is removed. Always call `super.willDestroy()` first. Avoid updating `@tracked` properties in `willDestroy` that would trigger rendering — the component is being torn down."
+  },
+  {
+    "id": 46,
+    "layer": "syntax",
+    "topic": "Two sibling components each with independent @tracked state",
+    "instruction": "How do two sibling Glimmer components maintain independent @tracked state?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nclass TeamScoreComponent extends Component {\n  @tracked runs = 0;\n  @tracked wickets = 0;\n\n  @action addRun() { this.runs = this.runs + 1; }\n  @action addWicket() { this.wickets = this.wickets + 1; }\n\n  <template>\n    <div class=\"p-4 border rounded\">\n      <h3 class=\"font-bold\">{{@teamName}}</h3>\n      <p>{{this.runs}}/{{this.wickets}}</p>\n      <button {{on \"click\" this.addRun}}>Run</button>\n      <button {{on \"click\" this.addWicket}}>Wicket</button>\n    </div>\n  </template>\n}\n\nexport default class MatchScoreComponent extends Component {\n  <template>\n    <div class=\"flex gap-4\">\n      <TeamScoreComponent @teamName=\"Bangladesh\" />\n      <TeamScoreComponent @teamName=\"India\" />\n    </div>\n  </template>\n}\n```\nEach rendered instance of `TeamScoreComponent` gets its own class instance with its own `@tracked` properties. Clicking \"Run\" on one does not affect the other. Component state is always local to the instance — this is a fundamental aspect of Glimmer's component model."
+  },
+  {
+    "id": 47,
+    "layer": "syntax",
+    "topic": "Parent component passing @tracked value down as @arg",
+    "instruction": "How do I pass a @tracked value from a parent component down to a child as an @arg?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nclass ScoreDisplayComponent extends Component {\n  // @args: { runs: number, wickets: number }\n  <template>\n    <div class=\"text-center text-2xl font-bold\">\n      {{@runs}}/{{@wickets}}\n    </div>\n  </template>\n}\n\nexport default class LiveScoreBoardComponent extends Component {\n  @tracked runs = 0;\n  @tracked wickets = 0;\n\n  @action addRun() { this.runs = this.runs + 1; }\n  @action addWicket() { this.wickets = this.wickets + 1; }\n\n  <template>\n    <ScoreDisplayComponent @runs={{this.runs}} @wickets={{this.wickets}} />\n    <button {{on \"click\" this.addRun}}>+Run</button>\n    <button {{on \"click\" this.addWicket}}>+Wicket</button>\n  </template>\n}\n```\nPass `@tracked` values as args using `@argName={{this.trackedProp}}`. When the parent's `@tracked` value changes, the child re-renders automatically — Glimmer propagates the change through the args system. The child receives the current value; it does not need to know it's `@tracked` in the parent."
+  },
+  {
+    "id": 48,
+    "layer": "syntax",
+    "topic": "Child component emitting action to update parent @tracked",
+    "instruction": "How does a child component call a parent @action to update the parent's @tracked state?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nclass RunButtonComponent extends Component {\n  // @args: { onScore: (runs: number) => void }\n  <template>\n    <div class=\"flex gap-1\">\n      <button {{on \"click\" (fn @onScore 1)}}>1</button>\n      <button {{on \"click\" (fn @onScore 4)}}>4</button>\n      <button {{on \"click\" (fn @onScore 6)}}>6</button>\n    </div>\n  </template>\n}\n\nexport default class InningsComponent extends Component {\n  @tracked totalRuns = 0;\n\n  @action\n  recordScore(runs) {\n    this.totalRuns = this.totalRuns + runs;\n  }\n\n  <template>\n    <p class=\"text-3xl\">{{this.totalRuns}}</p>\n    <RunButtonComponent @onScore={{this.recordScore}} />\n  </template>\n}\n```\nThe child calls `@onScore` (the parent's action) directly via `{{fn @onScore 1}}`. The parent's `@tracked` state updates and both the parent and child re-render as needed. This one-way data flow pattern keeps children stateless and reusable."
+  },
+  {
+    "id": 49,
+    "layer": "syntax",
+    "topic": "@tracked used with Tailwind dynamic class binding",
+    "instruction": "How do I dynamically apply Tailwind CSS classes based on a @tracked property?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class MatchStatusBadgeComponent extends Component {\n  @tracked status = 'live'; // 'live' | 'upcoming' | 'completed'\n\n  get badgeClasses() {\n    const base = 'px-3 py-1 rounded-full text-sm font-semibold';\n    const statusMap = {\n      live: 'bg-red-100 text-red-700',\n      upcoming: 'bg-yellow-100 text-yellow-700',\n      completed: 'bg-green-100 text-green-700',\n    };\n    return `${base} ${statusMap[this.status] ?? 'bg-gray-100 text-gray-700'}`;\n  }\n\n  get statusLabel() {\n    return this.status.toUpperCase();\n  }\n\n  <template>\n    <span class={{this.badgeClasses}}>{{this.statusLabel}}</span>\n  </template>\n}\n```\nBind Tailwind classes dynamically by computing the full class string in a getter and using `class={{this.getter}}`. Avoid conditional class concatenation directly in the template — a getter keeps the logic readable and testable. Always include all possible Tailwind classes in source files so the JIT compiler doesn't purge them."
+  },
+  {
+    "id": 50,
+    "layer": "syntax",
+    "topic": "Component with @tracked loading boolean + @tracked data array",
+    "instruction": "How do I set up a component with both a @tracked loading state and a @tracked data array?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class MatchListComponent extends Component {\n  @tracked isLoading = false;\n  @tracked matches = [];\n  @tracked error = null;\n\n  @action\n  async loadMatches() {\n    this.isLoading = true;\n    this.error = null;\n    try {\n      const response = await fetch('/api/matches');\n      this.matches = await response.json();\n    } catch (err) {\n      this.error = err.message;\n    } finally {\n      this.isLoading = false;\n    }\n  }\n\n  <template>\n    <button {{on \"click\" this.loadMatches}} disabled={{this.isLoading}}>\n      {{if this.isLoading 'Loading...' 'Load Matches'}}\n    </button>\n    {{#if this.error}}\n      <p class=\"text-red-600\">{{this.error}}</p>\n    {{/if}}\n    {{#each this.matches as |match|}}\n      <p>{{match.name}}</p>\n    {{/each}}\n  </template>\n}\n```\nThe trio of `isLoading`, `matches`, and `error` covers the three states of an async operation: pending, success, and failure. Using `finally` ensures `isLoading` is always reset even if the fetch throws. All three `@tracked` properties update within the same async action, but Glimmer batches synchronous updates."
+  },
+  {
+    "id": 51,
+    "layer": "syntax",
+    "topic": "@tracked string used as input value with two-way-like pattern",
+    "instruction": "How do I create a two-way-like input binding using @tracked string in GJS?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class PlayerNameInputComponent extends Component {\n  @tracked playerName = '';\n\n  @action\n  onInput(event) {\n    this.playerName = event.target.value;\n  }\n\n  get displayName() {\n    return this.playerName || 'Anonymous Player';\n  }\n\n  <template>\n    <input\n      type=\"text\"\n      value={{this.playerName}}\n      {{on \"input\" this.onInput}}\n      class=\"border rounded px-3 py-2 w-full\"\n      placeholder=\"Enter player name\"\n    />\n    <p class=\"mt-2\">Hello, <strong>{{this.displayName}}</strong>!</p>\n  </template>\n}\n```\nGlimmer does not have true two-way binding like Angular's `[(ngModel)]`. Instead, implement it manually: set `value={{this.trackedProp}}` to reflect state, and update the state on `input` event. This explicit pattern makes data flow clear and keeps reactivity predictable."
+  },
+  {
+    "id": 52,
+    "layer": "syntax",
+    "topic": "@tracked number used for pagination (currentPage)",
+    "instruction": "How do I implement basic pagination using a @tracked currentPage number?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class MatchPaginationComponent extends Component {\n  @tracked currentPage = 1;\n  pageSize = 10;\n\n  get totalPages() {\n    return Math.ceil((this.args.totalMatches ?? 0) / this.pageSize);\n  }\n\n  get isFirstPage() { return this.currentPage === 1; }\n  get isLastPage() { return this.currentPage >= this.totalPages; }\n\n  @action\n  prevPage() {\n    if (!this.isFirstPage) this.currentPage = this.currentPage - 1;\n  }\n\n  @action\n  nextPage() {\n    if (!this.isLastPage) this.currentPage = this.currentPage + 1;\n  }\n\n  <template>\n    <div class=\"flex items-center gap-3\">\n      <button {{on \"click\" this.prevPage}} disabled={{this.isFirstPage}}>Prev</button>\n      <span>Page {{this.currentPage}} of {{this.totalPages}}</span>\n      <button {{on \"click\" this.nextPage}} disabled={{this.isLastPage}}>Next</button>\n    </div>\n  </template>\n}\n```\nUse a `@tracked` number for the current page and compute `totalPages` as a getter from `@args`. Guard boundary actions with boolean getters. `pageSize` is a plain (non-tracked) property since it never changes at runtime."
+  },
+  {
+    "id": 53,
+    "layer": "syntax",
+    "topic": "@tracked boolean for toggling a mobile menu open/close",
+    "instruction": "How do I implement a mobile menu toggle using a @tracked boolean?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class MobileNavComponent extends Component {\n  @tracked isMenuOpen = false;\n\n  @action\n  toggleMenu() {\n    this.isMenuOpen = !this.isMenuOpen;\n  }\n\n  @action\n  closeMenu() {\n    this.isMenuOpen = false;\n  }\n\n  <template>\n    <nav class=\"relative\">\n      <button\n        {{on \"click\" this.toggleMenu}}\n        class=\"md:hidden p-2\"\n        aria-expanded={{this.isMenuOpen}}\n      >\n        {{if this.isMenuOpen '✕' '☰'}}\n      </button>\n      <div class=\"{{if this.isMenuOpen 'block' 'hidden'}} md:flex gap-4\">\n        <a href=\"/matches\" {{on \"click\" this.closeMenu}}>Matches</a>\n        <a href=\"/teams\" {{on \"click\" this.closeMenu}}>Teams</a>\n        <a href=\"/players\" {{on \"click\" this.closeMenu}}>Players</a>\n      </div>\n    </nav>\n  </template>\n}\n```\nA single `@tracked` boolean drives the entire menu open/close state. Use `aria-expanded` for accessibility. The `closeMenu` action allows links inside the menu to close it on click, providing a good UX for single-page navigation."
+  },
+  {
+    "id": 54,
+    "layer": "syntax",
+    "topic": "@tracked for controlling a modal visibility",
+    "instruction": "How do I control modal visibility using a @tracked boolean in Glimmer?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class PlayerDetailModalComponent extends Component {\n  @tracked isModalOpen = false;\n  @tracked selectedPlayer = null;\n\n  @action\n  openModal(player) {\n    this.selectedPlayer = player;\n    this.isModalOpen = true;\n  }\n\n  @action\n  closeModal() {\n    this.isModalOpen = false;\n    this.selectedPlayer = null;\n  }\n\n  <template>\n    {{#each @players as |player|}}\n      <button {{on \"click\" (fn this.openModal player)}} class=\"btn\">\n        {{player.name}}\n      </button>\n    {{/each}}\n\n    {{#if this.isModalOpen}}\n      <div class=\"fixed inset-0 bg-black/50 flex items-center justify-center\" role=\"dialog\">\n        <div class=\"bg-white rounded-xl p-6 max-w-md w-full\">\n          <h2 class=\"text-xl font-bold\">{{this.selectedPlayer.name}}</h2>\n          <p>Runs: {{this.selectedPlayer.runs}}</p>\n          <button {{on \"click\" this.closeModal}} class=\"mt-4 btn\">Close</button>\n        </div>\n      </div>\n    {{/if}}\n  </template>\n}\n```\nCombine `isModalOpen` boolean with `selectedPlayer` object — both are `@tracked`. Opening sets both; closing resets both. The `{{#if}}` block completely removes the modal DOM when closed, which is better for accessibility than hiding with CSS."
+  },
+  {
+    "id": 55,
+    "layer": "syntax",
+    "topic": "@tracked array of selected filter tags",
+    "instruction": "How do I manage an array of selected filter tags using @tracked?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class MatchFilterTagsComponent extends Component {\n  allFormats = ['T20', 'ODI', 'Test', 'T10'];\n  @tracked selectedFormats = [];\n\n  isSelected(format) {\n    return this.selectedFormats.includes(format);\n  }\n\n  @action\n  toggleFormat(format) {\n    if (this.isSelected(format)) {\n      this.selectedFormats = this.selectedFormats.filter(f => f !== format);\n    } else {\n      this.selectedFormats = [...this.selectedFormats, format];\n    }\n  }\n\n  get activeCount() {\n    return this.selectedFormats.length;\n  }\n\n  <template>\n    <div class=\"flex gap-2 flex-wrap\">\n      {{#each this.allFormats as |format|}}\n        <button\n          {{on \"click\" (fn this.toggleFormat format)}}\n          class=\"px-3 py-1 rounded-full border {{if (this.isSelected format) 'bg-blue-600 text-white' 'bg-white text-gray-700'}}\"\n        >\n          {{format}}\n        </button>\n      {{/each}}\n    </div>\n    <p>{{this.activeCount}} format(s) selected</p>\n  </template>\n}\n```\nStore selected tags in a `@tracked` array. Toggle by filtering (remove) or spreading (add). Note that `isSelected` is a regular method (not a getter) because it takes an argument — call it using `(this.isSelected format)` syntax in the template."
+  },
+  {
+    "id": 56,
+    "layer": "syntax",
+    "topic": "@tracked object representing form field values",
+    "instruction": "How do I use a @tracked object to hold all form field values together?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class MatchEntryFormComponent extends Component {\n  @tracked formData = {\n    homeTeam: '',\n    awayTeam: '',\n    venue: '',\n    format: 'T20',\n    date: '',\n  };\n\n  @action\n  updateField(field, event) {\n    this.formData = { ...this.formData, [field]: event.target.value };\n  }\n\n  @action\n  handleSubmit(event) {\n    event.preventDefault();\n    this.args.onSubmit?.(this.formData);\n  }\n\n  <template>\n    <form {{on \"submit\" this.handleSubmit}} class=\"flex flex-col gap-3\">\n      <input placeholder=\"Home Team\" value={{this.formData.homeTeam}}\n        {{on \"input\" (fn this.updateField 'homeTeam')}} />\n      <input placeholder=\"Away Team\" value={{this.formData.awayTeam}}\n        {{on \"input\" (fn this.updateField 'awayTeam')}} />\n      <input placeholder=\"Venue\" value={{this.formData.venue}}\n        {{on \"input\" (fn this.updateField 'venue')}} />\n      <button type=\"submit\">Create Match</button>\n    </form>\n  </template>\n}\n```\nGroup related form fields in a single `@tracked` object. Use a generic `updateField(fieldName, event)` action with `{{fn}}` to avoid writing one action per field. The computed property key `[field]` in the spread update pattern targets only the changed field."
+  },
+  {
+    "id": 57,
+    "layer": "syntax",
+    "topic": "@tracked object representing API error details",
+    "instruction": "How do I store structured API error details in a @tracked object?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class PlayerFetchComponent extends Component {\n  @tracked player = null;\n  @tracked isLoading = false;\n  @tracked apiError = null; // { status: number, message: string }\n\n  @action\n  async fetchPlayer(id) {\n    this.isLoading = true;\n    this.apiError = null;\n    try {\n      const response = await fetch(`/api/players/${id}`);\n      if (!response.ok) {\n        this.apiError = { status: response.status, message: `Error ${response.status}: Failed to load player` };\n        return;\n      }\n      this.player = await response.json();\n    } catch (err) {\n      this.apiError = { status: 0, message: err.message };\n    } finally {\n      this.isLoading = false;\n    }\n  }\n\n  <template>\n    {{#if this.apiError}}\n      <div class=\"bg-red-50 border border-red-200 rounded p-3\">\n        <p class=\"text-red-700\">{{this.apiError.message}}</p>\n        <p class=\"text-xs text-red-400\">Status: {{this.apiError.status}}</p>\n      </div>\n    {{/if}}\n    {{#if this.player}}\n      <p>{{this.player.name}}</p>\n    {{/if}}\n  </template>\n}\n```\nStore error details as a structured object rather than just a string. This allows rendering different parts of the error (status code, message, retry URL, etc.) separately in the template. Initialize to `null` and reset it at the start of each new request."
+  },
+  {
+    "id": 58,
+    "layer": "syntax",
+    "topic": "@tracked for active tab index in a tab bar",
+    "instruction": "How do I implement a tab bar using @tracked for the active tab index?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class MatchTabsComponent extends Component {\n  tabs = ['Scorecard', 'Commentary', 'Statistics', 'Squads'];\n  @tracked activeTab = 0;\n\n  @action\n  setActiveTab(index) {\n    this.activeTab = index;\n  }\n\n  get activeTabName() {\n    return this.tabs[this.activeTab];\n  }\n\n  <template>\n    <div class=\"border-b flex\">\n      {{#each this.tabs as |tab index|}}\n        <button\n          {{on \"click\" (fn this.setActiveTab index)}}\n          class=\"px-4 py-2 {{if (eq index this.activeTab) 'border-b-2 border-blue-600 text-blue-600' 'text-gray-600'}}\"\n        >\n          {{tab}}\n        </button>\n      {{/each}}\n    </div>\n    <div class=\"p-4\">\n      <p>Showing: {{this.activeTabName}}</p>\n    </div>\n  </template>\n}\n```\nStore the active tab as a number index. Use `{{#each tabs as |tab index|}}` to get the index for comparison and click handler. The `eq` helper compares the current index with `activeTab` to apply the active styling."
+  },
+  {
+    "id": 59,
+    "layer": "syntax",
+    "topic": "@tracked for controlling accordion expand/collapse",
+    "instruction": "How do I build an accordion that tracks expanded state with @tracked?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class MatchAccordionComponent extends Component {\n  sections = [\n    { id: 'batting', title: 'Batting Scorecard' },\n    { id: 'bowling', title: 'Bowling Figures' },\n    { id: 'fow', title: 'Fall of Wickets' },\n  ];\n\n  @tracked expandedId = null;\n\n  @action\n  toggleSection(id) {\n    this.expandedId = this.expandedId === id ? null : id;\n  }\n\n  isExpanded(id) {\n    return this.expandedId === id;\n  }\n\n  <template>\n    {{#each this.sections as |section|}}\n      <div class=\"border rounded mb-2\">\n        <button\n          {{on \"click\" (fn this.toggleSection section.id)}}\n          class=\"w-full text-left px-4 py-3 font-medium flex justify-between\"\n        >\n          {{section.title}}\n          <span>{{if (this.isExpanded section.id) '▲' '▼'}}</span>\n        </button>\n        {{#if (this.isExpanded section.id)}}\n          <div class=\"px-4 py-3 border-t\">\n            <p>Content for {{section.title}}</p>\n          </div>\n        {{/if}}\n      </div>\n    {{/each}}\n  </template>\n}\n```\nStore only the currently expanded section's ID (or `null`). Clicking an already-expanded section collapses it. This \"exclusive open\" pattern is common for accordions. `isExpanded` is a regular method because it takes an argument."
+  },
+  {
+    "id": 60,
+    "layer": "syntax",
+    "topic": "@tracked to store fetched match data (initially null)",
+    "instruction": "How do I use @tracked to store data fetched from an API, starting as null?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class LiveMatchComponent extends Component {\n  @tracked match = null;\n  @tracked isLoading = false;\n\n  constructor(owner, args) {\n    super(owner, args);\n    this.loadMatch();\n  }\n\n  @action\n  async loadMatch() {\n    this.isLoading = true;\n    try {\n      const response = await fetch(`/api/matches/${this.args.matchId}`);\n      this.match = await response.json();\n    } finally {\n      this.isLoading = false;\n    }\n  }\n\n  <template>\n    {{#if this.isLoading}}\n      <div class=\"animate-pulse\">Loading match data...</div>\n    {{else if this.match}}\n      <div>\n        <h2>{{this.match.homeTeam}} vs {{this.match.awayTeam}}</h2>\n        <p>{{this.match.venue}} — {{this.match.format}}</p>\n      </div>\n    {{else}}\n      <p class=\"text-gray-400\">No match data available.</p>\n    {{/if}}\n  </template>\n}\n```\nInitialize async data as `null` and show a loading state until the fetch completes. The `{{else if}}` chain cleanly handles loading, success, and empty states. Triggering the initial fetch from `constructor` is acceptable for simple cases; ember-concurrency tasks are better for complex async flows."
+  },
+  {
+    "id": 61,
+    "layer": "syntax",
+    "topic": "@action that makes an element editable inline",
+    "instruction": "How do I implement inline editing with @tracked and @action in Glimmer?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class InlineEditPlayerComponent extends Component {\n  @tracked isEditing = false;\n  @tracked draftName = '';\n\n  @action\n  startEdit() {\n    this.draftName = this.args.player.name;\n    this.isEditing = true;\n  }\n\n  @action\n  saveEdit() {\n    this.args.onSave?.(this.draftName.trim());\n    this.isEditing = false;\n  }\n\n  @action\n  cancelEdit() {\n    this.isEditing = false;\n    this.draftName = '';\n  }\n\n  @action\n  updateDraft(event) {\n    this.draftName = event.target.value;\n  }\n\n  <template>\n    {{#if this.isEditing}}\n      <div class=\"flex gap-2\">\n        <input value={{this.draftName}} {{on \"input\" this.updateDraft}} class=\"border rounded px-2\" />\n        <button {{on \"click\" this.saveEdit}} class=\"text-green-600\">Save</button>\n        <button {{on \"click\" this.cancelEdit}} class=\"text-gray-500\">Cancel</button>\n      </div>\n    {{else}}\n      <div class=\"flex gap-2 items-center\">\n        <span>{{@player.name}}</span>\n        <button {{on \"click\" this.startEdit}} class=\"text-blue-500 text-sm\">Edit</button>\n      </div>\n    {{/if}}\n  </template>\n}\n```\nUse two `@tracked` properties: `isEditing` to toggle modes, and `draftName` to hold the in-progress edit without modifying the original. Only commit on save; discard on cancel. This prevents half-edited data from leaking to the parent."
+  },
+  {
+    "id": 62,
+    "layer": "syntax",
+    "topic": "@action that copies text to clipboard",
+    "instruction": "How do I implement a copy-to-clipboard action with @tracked feedback state?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class ShareMatchLinkComponent extends Component {\n  @tracked copied = false;\n  #resetTimer = null;\n\n  @action\n  async copyLink() {\n    const url = `https://spordium.com/match/${this.args.matchId}`;\n    try {\n      await navigator.clipboard.writeText(url);\n      this.copied = true;\n      clearTimeout(this.#resetTimer);\n      this.#resetTimer = setTimeout(() => {\n        this.copied = false;\n      }, 2000);\n    } catch {\n      console.error('Clipboard write failed');\n    }\n  }\n\n  willDestroy() {\n    super.willDestroy();\n    clearTimeout(this.#resetTimer);\n  }\n\n  <template>\n    <button {{on \"click\" this.copyLink}} class=\"flex items-center gap-2 btn\">\n      {{if this.copied '✓ Copied!' 'Copy Link'}}\n    </button>\n  </template>\n}\n```\nStore clipboard feedback in a `@tracked` boolean. Use a timer to automatically reset after 2 seconds. Store the timer ID in a private class field (`#`) rather than `@tracked` since it doesn't need to trigger re-renders. Clear the timer in `willDestroy` to prevent memory leaks."
+  },
+  {
+    "id": 63,
+    "layer": "syntax",
+    "topic": "@action that handles keyboard event (Enter key)",
+    "instruction": "How do I handle an Enter key press with @action in a GJS component?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class SearchBarComponent extends Component {\n  @tracked query = '';\n  @tracked submitted = false;\n\n  @action\n  onInput(event) {\n    this.query = event.target.value;\n    this.submitted = false;\n  }\n\n  @action\n  onKeydown(event) {\n    if (event.key === 'Enter' && this.query.trim()) {\n      this.submitSearch();\n    } else if (event.key === 'Escape') {\n      this.query = '';\n    }\n  }\n\n  @action\n  submitSearch() {\n    this.submitted = true;\n    this.args.onSearch?.(this.query.trim());\n  }\n\n  <template>\n    <input\n      type=\"search\"\n      value={{this.query}}\n      {{on \"input\" this.onInput}}\n      {{on \"keydown\" this.onKeydown}}\n      class=\"border rounded px-3 py-2 w-full\"\n      placeholder=\"Search players, teams, matches...\"\n    />\n    {{#if this.submitted}}\n      <p class=\"text-sm text-green-600\">Searching for: {{this.query}}</p>\n    {{/if}}\n  </template>\n}\n```\nBind `{{on \"keydown\"}}` and check `event.key` for specific keys. `'Enter'` submits, `'Escape'` clears. This is cleaner than checking `event.keyCode` (deprecated). Separate the search logic into its own method so it can be called from both keyboard and button click."
+  },
+  {
+    "id": 64,
+    "layer": "syntax",
+    "topic": "@action debounced using a simple timer variable",
+    "instruction": "How do I debounce an @action using a plain timer variable in a GJS component?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class PlayerSearchDebounceComponent extends Component {\n  @tracked query = '';\n  @tracked results = [];\n  #debounceTimer = null;\n\n  @action\n  onInput(event) {\n    this.query = event.target.value;\n    clearTimeout(this.#debounceTimer);\n    this.#debounceTimer = setTimeout(() => {\n      this.fetchResults(this.query);\n    }, 300);\n  }\n\n  async fetchResults(q) {\n    if (!q.trim()) { this.results = []; return; }\n    const response = await fetch(`/api/players?search=${encodeURIComponent(q)}`);\n    this.results = await response.json();\n  }\n\n  willDestroy() {\n    super.willDestroy();\n    clearTimeout(this.#debounceTimer);\n  }\n\n  <template>\n    <input {{on \"input\" this.onInput}} placeholder=\"Search player\" class=\"border rounded px-3 py-2\" />\n    {{#each this.results as |player|}}\n      <p>{{player.name}}</p>\n    {{/each}}\n  </template>\n}\n```\nStore the debounce timer ID in a private class field (not `@tracked`). Cancel the previous timer on each input. Always cancel in `willDestroy` to prevent the callback from running on an unmounted component. For more complex debouncing, prefer an ember-concurrency `restartable` task."
+  },
+  {
+    "id": 65,
+    "layer": "syntax",
+    "topic": "@action that dispatches to a parent via @args callback",
+    "instruction": "How do I dispatch an event to a parent component using an @args callback from an @action?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class RunEntryComponent extends Component {\n  @tracked runs = 0;\n  @tracked isValid = true;\n\n  @action\n  setRuns(event) {\n    const value = Number(event.target.value);\n    if (value < 0 || value > 6) {\n      this.isValid = false;\n      return;\n    }\n    this.isValid = true;\n    this.runs = value;\n    this.args.onRunsEntered?.(value);\n  }\n\n  <template>\n    <div>\n      <input\n        type=\"number\"\n        min=\"0\"\n        max=\"6\"\n        value={{this.runs}}\n        {{on \"change\" this.setRuns}}\n        class=\"border rounded px-2 {{if (not this.isValid) 'border-red-500'}}\"\n      />\n      {{#if (not this.isValid)}}\n        <p class=\"text-red-500 text-sm\">Runs must be 0–6</p>\n      {{/if}}\n    </div>\n  </template>\n}\n```\nValidate locally before dispatching to the parent. Call the parent callback using `this.args.callbackName?.(payload)`. The optional chaining `?.` ensures nothing breaks if the parent didn't provide the callback. Keep local validation state in `@tracked` to provide immediate visual feedback."
+  },
+  {
+    "id": 66,
+    "layer": "syntax",
+    "topic": "getter computing strike rate from runs and balls",
+    "instruction": "How do I write a getter that computes a cricket strike rate from @tracked runs and balls?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class BatsmanCardComponent extends Component {\n  @tracked runs = 0;\n  @tracked balls = 0;\n\n  get strikeRate() {\n    if (this.balls === 0) return '-';\n    return ((this.runs / this.balls) * 100).toFixed(2);\n  }\n\n  get strikeRateClass() {\n    if (this.balls === 0) return 'text-gray-400';\n    const sr = (this.runs / this.balls) * 100;\n    if (sr >= 150) return 'text-green-600 font-bold';\n    if (sr >= 80) return 'text-yellow-600';\n    return 'text-red-600';\n  }\n\n  @action addRun() { this.runs = this.runs + 1; this.balls = this.balls + 1; }\n  @action addDot() { this.balls = this.balls + 1; }\n\n  <template>\n    <p>{{this.runs}} ({{this.balls}}) SR: <span class={{this.strikeRateClass}}>{{this.strikeRate}}</span></p>\n    <button {{on \"click\" this.addRun}}>Run</button>\n    <button {{on \"click\" this.addDot}}>Dot</button>\n  </template>\n}\n```\nAlways guard against division by zero by checking `this.balls === 0` before computing. Return a display-safe default like `'-'` for the zero case. Computing both the value and its CSS class in separate getters keeps the template clean."
+  },
+  {
+    "id": 67,
+    "layer": "syntax",
+    "topic": "getter computing economy rate from runs and overs",
+    "instruction": "How do I compute a bowler's economy rate from @tracked runs and overs using a getter?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class BowlerFiguresComponent extends Component {\n  @tracked runsConceded = 0;\n  @tracked oversBowled = 0;\n  @tracked ballsBowled = 0;\n\n  get totalOversDecimal() {\n    return this.oversBowled + this.ballsBowled / 6;\n  }\n\n  get economyRate() {\n    if (this.totalOversDecimal === 0) return '-';\n    return (this.runsConceded / this.totalOversDecimal).toFixed(2);\n  }\n\n  get oversDisplay() {\n    return `${this.oversBowled}.${this.ballsBowled}`;\n  }\n\n  @action\n  addRunConceded(runs) {\n    this.runsConceded = this.runsConceded + runs;\n    this.addBall();\n  }\n\n  @action\n  addBall() {\n    if (this.ballsBowled >= 5) {\n      this.ballsBowled = 0;\n      this.oversBowled = this.oversBowled + 1;\n    } else {\n      this.ballsBowled = this.ballsBowled + 1;\n    }\n  }\n\n  <template>\n    <p>{{this.runsConceded}}/{{this.oversDisplay}} Eco: {{this.economyRate}}</p>\n  </template>\n}\n```\nBreak the computation into a `totalOversDecimal` helper getter and a `economyRate` display getter. This makes each getter simple and individually testable. Chained getters are efficiently invalidated by Glimmer when any underlying `@tracked` property changes."
+  },
+  {
+    "id": 68,
+    "layer": "syntax",
+    "topic": "getter that returns 'Yet to bat' or score string",
+    "instruction": "How do I write a getter that shows 'Yet to bat' or a score string conditionally?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class BatsmanStatusComponent extends Component {\n  @tracked hasBatted = false;\n  @tracked runs = 0;\n  @tracked balls = 0;\n  @tracked isOut = false;\n\n  get statusDisplay() {\n    if (!this.hasBatted) return 'Yet to bat';\n    if (this.isOut) return `${this.runs} (${this.balls}b) †`;\n    return `${this.runs}* (${this.balls}b)`;\n  }\n\n  get rowClass() {\n    if (!this.hasBatted) return 'text-gray-400 italic';\n    if (this.isOut) return 'text-gray-700';\n    return 'text-green-700 font-medium';\n  }\n\n  <template>\n    <td class={{this.rowClass}}>{{this.statusDisplay}}</td>\n  </template>\n}\n```\nMulti-branch getters using `if/else if/else` read naturally and handle all cases explicitly. The asterisk `*` conventionally marks a not-out batsman. Combining status and styling logic into separate getters keeps the template a single `class` binding and one text interpolation."
+  },
+  {
+    "id": 69,
+    "layer": "syntax",
+    "topic": "getter that maps a status code to a human label",
+    "instruction": "How do I map a @tracked status code to a human-readable label using a getter?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nconst STATUS_LABELS = {\n  1: 'Scheduled',\n  2: 'Live',\n  3: 'Completed',\n  4: 'Abandoned',\n  5: 'Postponed',\n};\n\nconst STATUS_COLORS = {\n  1: 'text-blue-600',\n  2: 'text-red-600 animate-pulse',\n  3: 'text-green-600',\n  4: 'text-gray-500',\n  5: 'text-yellow-600',\n};\n\nexport default class MatchStatusComponent extends Component {\n  @tracked statusCode = 1;\n\n  get statusLabel() {\n    return STATUS_LABELS[this.statusCode] ?? 'Unknown';\n  }\n\n  get statusColor() {\n    return STATUS_COLORS[this.statusCode] ?? 'text-gray-400';\n  }\n\n  <template>\n    <span class={{this.statusColor}}>{{this.statusLabel}}</span>\n  </template>\n}\n```\nDefine lookup maps as module-level constants (not inside the class) to avoid recreating them on every render. The getter simply indexes into the map. Nullish coalescing `??` provides a safe fallback for unmapped codes."
+  },
+  {
+    "id": 70,
+    "layer": "syntax",
+    "topic": "getter computing percentage (e.g., team run rate)",
+    "instruction": "How do I compute a percentage from two @tracked numbers using a getter?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class RunRateProgressComponent extends Component {\n  @tracked currentRuns = 156;\n  @tracked targetRuns = 240;\n\n  get percentage() {\n    if (this.targetRuns === 0) return 0;\n    return Math.min(100, (this.currentRuns / this.targetRuns) * 100);\n  }\n\n  get percentageDisplay() {\n    return `${this.percentage.toFixed(1)}%`;\n  }\n\n  get runsNeeded() {\n    return Math.max(0, this.targetRuns - this.currentRuns);\n  }\n\n  <template>\n    <div class=\"w-full bg-gray-200 rounded-full h-4\">\n      <div\n        class=\"bg-blue-600 h-4 rounded-full transition-all\"\n        style=\"width: {{this.percentageDisplay}}\"\n      ></div>\n    </div>\n    <p class=\"text-sm mt-1\">{{this.currentRuns}}/{{this.targetRuns}} — {{this.runsNeeded}} needed</p>\n  </template>\n}\n```\nUse `Math.min(100, ...)` to cap at 100% and `Math.max(0, ...)` to prevent negative values. Separate display formatting (`percentageDisplay`) from the raw number (`percentage`) so the raw value is usable in comparisons without re-parsing strings."
+  },
+  {
+    "id": 71,
+    "layer": "syntax",
+    "topic": "@tracked with getter — show/hide a tooltip",
+    "instruction": "How do I show and hide a tooltip using @tracked and a getter in Glimmer?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class StatTooltipComponent extends Component {\n  @tracked isTooltipVisible = false;\n\n  get tooltipClasses() {\n    const base = 'absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-gray-900 text-white text-xs rounded whitespace-nowrap';\n    return `${base} ${this.isTooltipVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`;\n  }\n\n  @action showTooltip() { this.isTooltipVisible = true; }\n  @action hideTooltip() { this.isTooltipVisible = false; }\n\n  <template>\n    <div class=\"relative inline-block\">\n      <span\n        {{on \"mouseenter\" this.showTooltip}}\n        {{on \"mouseleave\" this.hideTooltip}}\n        class=\"cursor-help underline decoration-dotted\"\n      >\n        {{@label}}\n      </span>\n      <div class={{this.tooltipClasses}} role=\"tooltip\">\n        {{@tooltipText}}\n      </div>\n    </div>\n  </template>\n}\n```\nUsing CSS opacity + `pointer-events-none` keeps the tooltip in the DOM for accessibility but visually hides it. `mouseenter`/`mouseleave` are more reliable than `mouseover`/`mouseout` for hover detection since they don't bubble through child elements."
+  },
+  {
+    "id": 72,
+    "layer": "syntax",
+    "topic": "@tracked storing sort direction (asc | desc)",
+    "instruction": "How do I track sort direction as a @tracked string ('asc' | 'desc') in a component?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class SortableScoreTableComponent extends Component {\n  @tracked sortDir = 'desc';\n\n  get sortIcon() {\n    return this.sortDir === 'desc' ? '▼' : '▲';\n  }\n\n  get sortedPlayers() {\n    return [...(this.args.players ?? [])].sort((a, b) =>\n      this.sortDir === 'desc' ? b.runs - a.runs : a.runs - b.runs\n    );\n  }\n\n  @action\n  toggleSortDir() {\n    this.sortDir = this.sortDir === 'desc' ? 'asc' : 'desc';\n  }\n\n  <template>\n    <table class=\"w-full\">\n      <thead>\n        <tr>\n          <th>Player</th>\n          <th>\n            <button {{on \"click\" this.toggleSortDir}} class=\"flex items-center gap-1\">\n              Runs {{this.sortIcon}}\n            </button>\n          </th>\n        </tr>\n      </thead>\n      <tbody>\n        {{#each this.sortedPlayers as |player|}}\n          <tr><td>{{player.name}}</td><td>{{player.runs}}</td></tr>\n        {{/each}}\n      </tbody>\n    </table>\n  </template>\n}\n```\nA string union type `'asc' | 'desc'` is more expressive than a boolean `isAscending`. It self-documents and naturally extends if you need more sort directions later. Toggle with a ternary in the action."
+  },
+  {
+    "id": 73,
+    "layer": "syntax",
+    "topic": "@tracked storing active sort column name",
+    "instruction": "How do I track which column is being sorted with @tracked in a GJS table component?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class PlayerStatsTableComponent extends Component {\n  @tracked sortColumn = 'runs';\n  @tracked sortDir = 'desc';\n\n  @action\n  sortBy(column) {\n    if (this.sortColumn === column) {\n      this.sortDir = this.sortDir === 'desc' ? 'asc' : 'desc';\n    } else {\n      this.sortColumn = column;\n      this.sortDir = 'desc';\n    }\n  }\n\n  columnIcon(col) {\n    if (this.sortColumn !== col) return '↕';\n    return this.sortDir === 'desc' ? '▼' : '▲';\n  }\n\n  get sortedPlayers() {\n    return [...(this.args.players ?? [])].sort((a, b) => {\n      const mul = this.sortDir === 'desc' ? -1 : 1;\n      return mul * (a[this.sortColumn] - b[this.sortColumn]);\n    });\n  }\n\n  <template>\n    <table>\n      <thead><tr>\n        <th><button {{on \"click\" (fn this.sortBy 'runs')}}>Runs {{this.columnIcon 'runs'}}</button></th>\n        <th><button {{on \"click\" (fn this.sortBy 'average')}}>Avg {{this.columnIcon 'average'}}</button></th>\n        <th><button {{on \"click\" (fn this.sortBy 'strikeRate')}}>SR {{this.columnIcon 'strikeRate'}}</button></th>\n      </tr></thead>\n      <tbody>{{#each this.sortedPlayers as |p|}}<tr><td>{{p.runs}}</td><td>{{p.average}}</td><td>{{p.strikeRate}}</td></tr>{{/each}}</tbody>\n    </table>\n  </template>\n}\n```\nCombine `sortColumn` and `sortDir` as two separate `@tracked` properties. When clicking the same column, toggle direction; when clicking a new column, reset direction to `'desc'`. `columnIcon` is a method (not getter) because it takes an argument."
+  },
+  {
+    "id": 74,
+    "layer": "syntax",
+    "topic": "getter that returns a sorted player list based on @tracked sort state",
+    "instruction": "How do I return a sorted player list from a getter using @tracked sort column and direction?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class LeaderboardComponent extends Component {\n  @tracked sortField = 'runs';\n  @tracked sortAscending = false;\n\n  get sortedBatsmen() {\n    const list = [...(this.args.batsmen ?? [])];\n    return list.sort((a, b) => {\n      const aVal = a[this.sortField] ?? 0;\n      const bVal = b[this.sortField] ?? 0;\n      if (typeof aVal === 'string') {\n        return this.sortAscending ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);\n      }\n      return this.sortAscending ? aVal - bVal : bVal - aVal;\n    });\n  }\n\n  <template>\n    {{#each this.sortedBatsmen as |batsman index|}}\n      <tr>\n        <td>{{index}}</td>\n        <td>{{batsman.name}}</td>\n        <td>{{batsman.runs}}</td>\n      </tr>\n    {{/each}}\n  </template>\n}\n```\nHandle both numeric and string field sorting by checking `typeof` inside the sort comparator. Spread the array before sorting to avoid mutating the original. The getter re-runs whenever `sortField`, `sortAscending`, or `this.args.batsmen` changes."
+  },
+  {
+    "id": 75,
+    "layer": "syntax",
+    "topic": "@tracked boolean for showing/hiding a password field",
+    "instruction": "How do I implement show/hide password toggle using @tracked boolean?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class PasswordInputComponent extends Component {\n  @tracked showPassword = false;\n  @tracked password = '';\n\n  get inputType() {\n    return this.showPassword ? 'text' : 'password';\n  }\n\n  get toggleLabel() {\n    return this.showPassword ? 'Hide' : 'Show';\n  }\n\n  @action\n  toggleVisibility() {\n    this.showPassword = !this.showPassword;\n  }\n\n  @action\n  onInput(event) {\n    this.password = event.target.value;\n  }\n\n  <template>\n    <div class=\"relative\">\n      <input\n        type={{this.inputType}}\n        value={{this.password}}\n        {{on \"input\" this.onInput}}\n        class=\"border rounded px-3 py-2 pr-16 w-full\"\n        placeholder=\"Password\"\n      />\n      <button\n        {{on \"click\" this.toggleVisibility}}\n        type=\"button\"\n        class=\"absolute right-3 top-2 text-sm text-blue-600\"\n      >\n        {{this.toggleLabel}}\n      </button>\n    </div>\n  </template>\n}\n```\nControl the input `type` attribute via a getter that reads the `@tracked` boolean. Switching between `'text'` and `'password'` type is all that's needed to show/hide the content. Use `type=\"button\"` on the toggle to prevent accidental form submission."
+  },
+  {
+    "id": 76,
+    "layer": "syntax",
+    "topic": "@tracked storing search query string",
+    "instruction": "How do I store and update a search query string using @tracked in Glimmer?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class TeamSearchComponent extends Component {\n  @tracked searchQuery = '';\n\n  @action\n  onSearchInput(event) {\n    this.searchQuery = event.target.value;\n  }\n\n  @action\n  clearSearch() {\n    this.searchQuery = '';\n  }\n\n  get hasQuery() {\n    return this.searchQuery.trim().length > 0;\n  }\n\n  <template>\n    <div class=\"flex gap-2\">\n      <input\n        type=\"search\"\n        value={{this.searchQuery}}\n        {{on \"input\" this.onSearchInput}}\n        class=\"border rounded px-3 py-2 flex-1\"\n        placeholder=\"Search teams...\"\n      />\n      {{#if this.hasQuery}}\n        <button {{on \"click\" this.clearSearch}} class=\"text-gray-500\">✕ Clear</button>\n      {{/if}}\n    </div>\n  </template>\n}\n```\nA `@tracked` string for search query is the simplest reactive search pattern. Show a clear button only when there is a query using a `hasQuery` getter. The `type=\"search\"` input also shows a native clear button in some browsers as a bonus."
+  },
+  {
+    "id": 77,
+    "layer": "syntax",
+    "topic": "getter that filters a player list by @tracked search query",
+    "instruction": "How do I filter a player list reactively based on a @tracked search query using a getter?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class PlayerDirectoryComponent extends Component {\n  @tracked query = '';\n\n  get filteredPlayers() {\n    const q = this.query.toLowerCase().trim();\n    if (!q) return this.args.players ?? [];\n    return (this.args.players ?? []).filter(player =>\n      player.name.toLowerCase().includes(q) ||\n      player.role.toLowerCase().includes(q) ||\n      player.team.toLowerCase().includes(q)\n    );\n  }\n\n  get resultCount() {\n    return this.filteredPlayers.length;\n  }\n\n  @action\n  onQueryChange(event) {\n    this.query = event.target.value;\n  }\n\n  <template>\n    <input {{on \"input\" this.onQueryChange}} placeholder=\"Search by name, role, or team\" class=\"border rounded px-3 py-2 w-full\" />\n    <p class=\"text-sm text-gray-500\">{{this.resultCount}} player(s) found</p>\n    {{#each this.filteredPlayers as |player|}}\n      <div class=\"py-2\">\n        <span class=\"font-medium\">{{player.name}}</span>\n        <span class=\"text-sm text-gray-500\"> — {{player.role}}, {{player.team}}</span>\n      </div>\n    {{/each}}\n  </template>\n}\n```\nFilter across multiple fields (name, role, team) with a single query. Normalize both sides to lowercase for case-insensitive matching. Return the full list when the query is empty rather than returning nothing — this avoids a \"no results\" flash on initial load."
+  },
+  {
+    "id": 78,
+    "layer": "syntax",
+    "topic": "@action that clears search and resets results",
+    "instruction": "How do I write a clear @action that resets both the search query and results?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class MatchSearchComponent extends Component {\n  @tracked query = '';\n  @tracked manualResults = null;\n  @tracked isSearching = false;\n\n  get displayResults() {\n    return this.manualResults ?? this.args.defaultMatches ?? [];\n  }\n\n  @action\n  async search() {\n    if (!this.query.trim()) return;\n    this.isSearching = true;\n    const response = await fetch(`/api/matches?q=${encodeURIComponent(this.query)}`);\n    this.manualResults = await response.json();\n    this.isSearching = false;\n  }\n\n  @action\n  clearSearch() {\n    this.query = '';\n    this.manualResults = null;\n    this.isSearching = false;\n  }\n\n  <template>\n    <div class=\"flex gap-2\">\n      <input value={{this.query}} {{on \"input\" (fn (mut this.query) (get-value))}} class=\"border rounded px-3 py-2 flex-1\" />\n      <button {{on \"click\" this.search}}>Search</button>\n      <button {{on \"click\" this.clearSearch}}>Clear</button>\n    </div>\n    {{#each this.displayResults as |match|}}\n      <p>{{match.name}}</p>\n    {{/each}}\n  </template>\n}\n```\nThe clear action resets all related state at once: the query string, the results, and the loading flag. Because Glimmer batches updates within an action, the component re-renders only once after all three assignments."
+  },
+  {
+    "id": 79,
+    "layer": "syntax",
+    "topic": "@tracked count with max limit enforced in @action",
+    "instruction": "How do I enforce a maximum limit on a @tracked count property inside an @action?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class TicketCounterComponent extends Component {\n  @tracked quantity = 1;\n  minQuantity = 1;\n  maxQuantity = 6;\n\n  get isAtMin() { return this.quantity <= this.minQuantity; }\n  get isAtMax() { return this.quantity >= this.maxQuantity; }\n\n  @action\n  increment() {\n    if (!this.isAtMax) {\n      this.quantity = this.quantity + 1;\n    }\n  }\n\n  @action\n  decrement() {\n    if (!this.isAtMin) {\n      this.quantity = this.quantity - 1;\n    }\n  }\n\n  get totalPrice() {\n    return (this.quantity * (this.args.pricePerTicket ?? 0)).toFixed(2);\n  }\n\n  <template>\n    <div class=\"flex items-center gap-3\">\n      <button {{on \"click\" this.decrement}} disabled={{this.isAtMin}} class=\"w-8 h-8 rounded-full border\">-</button>\n      <span class=\"text-xl font-bold\">{{this.quantity}}</span>\n      <button {{on \"click\" this.increment}} disabled={{this.isAtMax}} class=\"w-8 h-8 rounded-full border\">+</button>\n    </div>\n    <p>Total: ${{this.totalPrice}}</p>\n  </template>\n}\n```\nEnforce limits in both the action logic and the `disabled` attribute. The `disabled` attribute prevents the click event from firing in the browser, while the action guard is a defense-in-depth check. Use getter-derived booleans for both to keep the template clean."
+  },
+  {
+    "id": 80,
+    "layer": "syntax",
+    "topic": "@tracked for storing selected player id",
+    "instruction": "How do I store a selected player's ID using @tracked in a GJS component?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class PlayerPickerComponent extends Component {\n  @tracked selectedPlayerId = null;\n\n  get selectedPlayer() {\n    if (!this.selectedPlayerId) return null;\n    return (this.args.players ?? []).find(p => p.id === this.selectedPlayerId) ?? null;\n  }\n\n  get hasSelection() {\n    return this.selectedPlayerId !== null;\n  }\n\n  @action\n  selectPlayer(id) {\n    this.selectedPlayerId = id;\n    this.args.onPlayerSelected?.(id);\n  }\n\n  @action\n  clearSelection() {\n    this.selectedPlayerId = null;\n  }\n\n  <template>\n    <div class=\"flex flex-col gap-2\">\n      {{#each @players as |player|}}\n        <button\n          {{on \"click\" (fn this.selectPlayer player.id)}}\n          class=\"text-left px-3 py-2 rounded border {{if (eq player.id this.selectedPlayerId) 'bg-blue-50 border-blue-500' 'border-gray-200'}}\"\n        >\n          {{player.name}}\n        </button>\n      {{/each}}\n    </div>\n    {{#if this.selectedPlayer}}\n      <p class=\"mt-3 font-bold\">Selected: {{this.selectedPlayer.name}}</p>\n      <button {{on \"click\" this.clearSelection}}>Clear</button>\n    {{/if}}\n  </template>\n}\n```\nStore the ID (primitive) rather than the full object. Derive the selected object via a getter from `@args.players`. This means the getter always returns the latest version of the object even if `@args.players` is refreshed, and avoids storing stale object references."
+  },
+  {
+    "id": 81,
+    "layer": "syntax",
+    "topic": "getter returning the selected player object from @args list",
+    "instruction": "How do I derive the selected player object from a @tracked ID and an @args list using a getter?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class PlayerDetailPanelComponent extends Component {\n  // @args: { players: Array<{id, name, runs, role}>, defaultId?: string }\n  @tracked activePlayerId = this.args.defaultId ?? null;\n\n  get activePlayer() {\n    if (!this.activePlayerId) return null;\n    return (this.args.players ?? []).find(p => p.id === this.activePlayerId) ?? null;\n  }\n\n  get activePlayerRuns() {\n    return this.activePlayer?.runs ?? 0;\n  }\n\n  @action\n  setActive(id) {\n    this.activePlayerId = id;\n  }\n\n  <template>\n    <div class=\"flex gap-6\">\n      <ul class=\"w-1/3\">\n        {{#each @players as |player|}}\n          <li>\n            <button {{on \"click\" (fn this.setActive player.id)}}\n              class=\"w-full text-left py-1 {{if (eq player.id this.activePlayerId) 'font-bold text-blue-600'}}\">\n              {{player.name}}\n            </button>\n          </li>\n        {{/each}}\n      </ul>\n      {{#if this.activePlayer}}\n        <div class=\"flex-1\">\n          <h2 class=\"text-xl font-bold\">{{this.activePlayer.name}}</h2>\n          <p>{{this.activePlayer.role}} — {{this.activePlayerRuns}} runs</p>\n        </div>\n      {{/if}}\n    </div>\n  </template>\n}\n```\nThe `activePlayer` getter combines local `@tracked` state with `@args` data. Using optional chaining (`?.`) and nullish coalescing (`??`) on the derived values keeps child getters safe even when `activePlayer` is null."
+  },
+  {
+    "id": 82,
+    "layer": "syntax",
+    "topic": "@action that selects/deselects a player (toggle)",
+    "instruction": "How do I write an @action that toggles a player selection using @tracked?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class PlayerToggleSelectComponent extends Component {\n  @tracked selectedId = null;\n\n  @action\n  toggleSelect(playerId) {\n    this.selectedId = this.selectedId === playerId ? null : playerId;\n  }\n\n  isSelected(id) {\n    return this.selectedId === id;\n  }\n\n  <template>\n    {{#each @players as |player|}}\n      <button\n        {{on \"click\" (fn this.toggleSelect player.id)}}\n        class=\"flex items-center gap-2 px-4 py-2 rounded border mb-2 w-full text-left\n          {{if (this.isSelected player.id) 'bg-blue-600 text-white border-blue-600' 'bg-white text-gray-800 border-gray-200'}}\"\n      >\n        {{#if (this.isSelected player.id)}}\n          <span>✓</span>\n        {{/if}}\n        {{player.name}}\n      </button>\n    {{/each}}\n  </template>\n}\n```\nToggle by comparing the current `selectedId` with the clicked ID: if they match, deselect (set to `null`); otherwise select. This produces a single-select toggle. The `isSelected` method is used in the template via `(this.isSelected player.id)` syntax."
+  },
+  {
+    "id": 83,
+    "layer": "syntax",
+    "topic": "@tracked Set for multi-selection (workaround pattern)",
+    "instruction": "How do I implement multi-selection with a workaround for @tracked Set in Glimmer?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class MultiPlayerSelectComponent extends Component {\n  @tracked _selectedIds = new Set();\n\n  get selectedIds() {\n    return this._selectedIds;\n  }\n\n  isSelected(id) {\n    return this._selectedIds.has(id);\n  }\n\n  get selectedCount() {\n    return this._selectedIds.size;\n  }\n\n  @action\n  togglePlayer(id) {\n    const next = new Set(this._selectedIds);\n    if (next.has(id)) {\n      next.delete(id);\n    } else {\n      next.add(id);\n    }\n    this._selectedIds = next; // replace reference to trigger reactivity\n  }\n\n  @action\n  clearAll() {\n    this._selectedIds = new Set();\n  }\n\n  <template>\n    <p>{{this.selectedCount}} selected</p>\n    {{#each @players as |player|}}\n      <label class=\"flex gap-2\">\n        <input\n          type=\"checkbox\"\n          checked={{this.isSelected player.id}}\n          {{on \"change\" (fn this.togglePlayer player.id)}}\n        />\n        {{player.name}}\n      </label>\n    {{/each}}\n    <button {{on \"click\" this.clearAll}}>Clear All</button>\n  </template>\n}\n```\nGlimmer doesn't track Set mutations natively. The workaround: create a new `Set` from the old one, mutate the copy, then assign it back to the `@tracked` property to trigger reactivity. This ensures Glimmer detects the reference change."
+  },
+  {
+    "id": 84,
+    "layer": "syntax",
+    "topic": "@tracked for storing file input value (filename display)",
+    "instruction": "How do I display a selected filename using @tracked when a file is chosen in an input?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class SquadPhotoUploadComponent extends Component {\n  @tracked fileName = '';\n  @tracked fileSize = 0;\n  @tracked previewUrl = null;\n\n  @action\n  onFileChange(event) {\n    const file = event.target.files[0];\n    if (!file) {\n      this.fileName = '';\n      this.fileSize = 0;\n      this.previewUrl = null;\n      return;\n    }\n    this.fileName = file.name;\n    this.fileSize = file.size;\n    this.previewUrl = URL.createObjectURL(file);\n  }\n\n  get fileSizeKB() {\n    return (this.fileSize / 1024).toFixed(1);\n  }\n\n  get hasFile() {\n    return this.fileName !== '';\n  }\n\n  <template>\n    <input type=\"file\" accept=\"image/*\" {{on \"change\" this.onFileChange}} class=\"hidden\" id=\"photo-upload\" />\n    <label for=\"photo-upload\" class=\"btn cursor-pointer\">Choose Photo</label>\n    {{#if this.hasFile}}\n      <p class=\"text-sm mt-2\">{{this.fileName}} ({{this.fileSizeKB}} KB)</p>\n      {{#if this.previewUrl}}\n        <img src={{this.previewUrl}} alt=\"Preview\" class=\"mt-2 w-32 h-32 object-cover rounded\" />\n      {{/if}}\n    {{/if}}\n  </template>\n}\n```\nExtract `file.name` and `file.size` from the event and store in `@tracked` properties. Create an object URL for the preview. Note: revoke the URL in `willDestroy` (`URL.revokeObjectURL(this.previewUrl)`) to free memory in production."
+  },
+  {
+    "id": 85,
+    "layer": "syntax",
+    "topic": "@action handling file input change event",
+    "instruction": "How do I write an @action to handle a file input change and update @tracked state?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class CsvImportComponent extends Component {\n  @tracked selectedFile = null;\n  @tracked importError = '';\n\n  get isFileSelected() {\n    return this.selectedFile !== null;\n  }\n\n  get fileLabel() {\n    return this.selectedFile ? this.selectedFile.name : 'No file selected';\n  }\n\n  @action\n  onFileSelected(event) {\n    const file = event.target.files[0];\n    if (!file) return;\n    if (!file.name.endsWith('.csv')) {\n      this.importError = 'Only CSV files are supported';\n      this.selectedFile = null;\n      return;\n    }\n    this.importError = '';\n    this.selectedFile = file;\n  }\n\n  @action\n  async processImport() {\n    if (!this.selectedFile) return;\n    const text = await this.selectedFile.text();\n    this.args.onImport?.(text);\n  }\n\n  <template>\n    <input type=\"file\" accept=\".csv\" {{on \"change\" this.onFileSelected}} />\n    <p class=\"text-sm\">{{this.fileLabel}}</p>\n    {{#if this.importError}}\n      <p class=\"text-red-600 text-sm\">{{this.importError}}</p>\n    {{/if}}\n    <button {{on \"click\" this.processImport}} disabled={{not this.isFileSelected}}>Import</button>\n  </template>\n}\n```\nValidate the file type before storing it in `@tracked`. Store the `File` object itself — not just the name — so you can read its content later with `file.text()`. Separate selection and processing into two distinct actions for cleaner logic."
+  },
+  {
+    "id": 86,
+    "layer": "syntax",
+    "topic": "@tracked error message string (empty string = no error)",
+    "instruction": "How do I use a @tracked string to represent an error message where empty means no error?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class RunEntryValidationComponent extends Component {\n  @tracked runs = '';\n  @tracked errorMessage = '';\n\n  get hasError() {\n    return this.errorMessage !== '';\n  }\n\n  get isValid() {\n    return !this.hasError && this.runs !== '';\n  }\n\n  @action\n  onRunsChange(event) {\n    const value = event.target.value;\n    this.runs = value;\n    const num = Number(value);\n    if (value === '') {\n      this.errorMessage = 'Runs cannot be empty';\n    } else if (!Number.isInteger(num) || num < 0) {\n      this.errorMessage = 'Runs must be a non-negative integer';\n    } else if (num > 36) {\n      this.errorMessage = 'Runs per delivery cannot exceed 36';\n    } else {\n      this.errorMessage = '';\n    }\n  }\n\n  <template>\n    <input\n      type=\"number\"\n      value={{this.runs}}\n      {{on \"input\" this.onRunsChange}}\n      class=\"border rounded px-3 py-2 {{if this.hasError 'border-red-500' 'border-gray-300'}}\"\n    />\n    {{#if this.hasError}}\n      <p class=\"text-red-600 text-sm mt-1\">{{this.errorMessage}}</p>\n    {{/if}}\n  </template>\n}\n```\nUsing an empty string as the \"no error\" sentinel is simpler than a nullable string for inline validation because you can use the falsy check directly in `{{#if}}`. Reset to `''` to clear the error. This is appropriate for single field validation; for form-wide errors, use a structured object."
+  },
+  {
+    "id": 87,
+    "layer": "syntax",
+    "topic": "getter isError returning boolean from @tracked error string",
+    "instruction": "How do I derive an isError boolean getter from a @tracked error string?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class TeamFormComponent extends Component {\n  @tracked teamName = '';\n  @tracked teamCode = '';\n  @tracked nameError = '';\n  @tracked codeError = '';\n\n  get isNameError() { return this.nameError.length > 0; }\n  get isCodeError() { return this.codeError.length > 0; }\n  get hasAnyError() { return this.isNameError || this.isCodeError; }\n\n  get canSubmit() {\n    return this.teamName.trim().length > 0 &&\n           this.teamCode.trim().length === 3 &&\n           !this.hasAnyError;\n  }\n\n  @action\n  validateName(event) {\n    this.teamName = event.target.value;\n    this.nameError = this.teamName.trim().length === 0 ? 'Team name is required' : '';\n  }\n\n  @action\n  validateCode(event) {\n    this.teamCode = event.target.value;\n    this.codeError = this.teamCode.trim().length !== 3 ? 'Code must be exactly 3 characters' : '';\n  }\n\n  <template>\n    <input {{on \"input\" this.validateName}} placeholder=\"Team name\" class=\"border {{if this.isNameError 'border-red-500' 'border-gray-300'}}\" />\n    {{#if this.isNameError}}<p class=\"text-red-500 text-xs\">{{this.nameError}}</p>{{/if}}\n    <input {{on \"input\" this.validateCode}} placeholder=\"Code (e.g. BAN)\" class=\"border {{if this.isCodeError 'border-red-500' 'border-gray-300'}}\" />\n    {{#if this.isCodeError}}<p class=\"text-red-500 text-xs\">{{this.codeError}}</p>{{/if}}\n    <button {{on \"click\" this.handleSubmit}} disabled={{not this.canSubmit}}>Save Team</button>\n  </template>\n}\n```\nBoolean getters derived from error strings keep the template clean — `isNameError` is more readable in `{{if}}` than `errorMessage.length > 0`. Chain them with `hasAnyError` and `canSubmit` to build compound form validity logic."
+  },
+  {
+    "id": 88,
+    "layer": "syntax",
+    "topic": "@action that validates and sets @tracked error",
+    "instruction": "How do I write an @action that validates input and sets a @tracked error message?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class OverLimitFormComponent extends Component {\n  @tracked overs = '';\n  @tracked oversError = '';\n  @tracked submitted = false;\n\n  @action\n  validateAndSubmit(event) {\n    event.preventDefault();\n    this.oversError = '';\n    const num = Number(this.overs);\n    if (this.overs.trim() === '') {\n      this.oversError = 'Overs field is required';\n      return;\n    }\n    if (!Number.isInteger(num) || num < 1 || num > 50) {\n      this.oversError = 'Overs must be an integer between 1 and 50';\n      return;\n    }\n    this.submitted = true;\n    this.args.onSubmit?.(num);\n  }\n\n  @action\n  onOversInput(event) {\n    this.overs = event.target.value;\n    if (this.oversError) this.oversError = '';\n  }\n\n  <template>\n    <form {{on \"submit\" this.validateAndSubmit}}>\n      <input\n        type=\"number\"\n        value={{this.overs}}\n        {{on \"input\" this.onOversInput}}\n        class=\"border rounded px-3 py-2 {{if this.oversError 'border-red-500'}}\"\n      />\n      {{#if this.oversError}}\n        <p class=\"text-red-600 text-sm\">{{this.oversError}}</p>\n      {{/if}}\n      <button type=\"submit\">Set Overs</button>\n    </form>\n  </template>\n}\n```\nClear the error at the start of validation, then set it if any check fails with `return` to stop further processing. Clear the error on input change so users get immediate feedback that their correction is noticed. Only call the parent callback after all validations pass."
+  },
+  {
+    "id": 89,
+    "layer": "syntax",
+    "topic": "@tracked for storing a Date object (match start time)",
+    "instruction": "How do I store a Date object in a @tracked property for match scheduling?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class MatchSchedulerComponent extends Component {\n  @tracked matchStartTime = new Date();\n\n  get formattedDate() {\n    return this.matchStartTime.toLocaleDateString('en-BD', {\n      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',\n    });\n  }\n\n  get formattedTime() {\n    return this.matchStartTime.toLocaleTimeString('en-BD', {\n      hour: '2-digit', minute: '2-digit',\n    });\n  }\n\n  get isUpcoming() {\n    return this.matchStartTime > new Date();\n  }\n\n  @action\n  onDateChange(event) {\n    const [year, month, day] = event.target.value.split('-').map(Number);\n    const updated = new Date(this.matchStartTime);\n    updated.setFullYear(year, month - 1, day);\n    this.matchStartTime = updated;\n  }\n\n  <template>\n    <input type=\"date\" {{on \"change\" this.onDateChange}} class=\"border rounded px-2 py-1\" />\n    <p>{{this.formattedDate}} at {{this.formattedTime}}</p>\n    {{#if this.isUpcoming}}\n      <span class=\"text-green-600\">Upcoming</span>\n    {{else}}\n      <span class=\"text-gray-500\">Past</span>\n    {{/if}}\n  </template>\n}\n```\nStore a `Date` object in `@tracked` and compute formatted strings in getters. When updating, create a new `Date` instance to ensure reference change triggers reactivity. Never mutate a stored Date with `.setFullYear()` directly — copy first, then mutate the copy."
+  },
+  {
+    "id": 90,
+    "layer": "syntax",
+    "topic": "getter formatting @tracked Date to readable string",
+    "instruction": "How do I format a @tracked Date object into a readable string using a getter?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class MatchCountdownComponent extends Component {\n  @tracked matchDate = new Date('2025-10-15T14:00:00+06:00');\n\n  get longDateString() {\n    return this.matchDate.toLocaleDateString('en-US', {\n      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',\n    });\n  }\n\n  get timeString() {\n    return this.matchDate.toLocaleTimeString('en-US', {\n      hour: '2-digit', minute: '2-digit', timeZoneName: 'short',\n    });\n  }\n\n  get isoString() {\n    return this.matchDate.toISOString().split('T')[0];\n  }\n\n  get daysUntilMatch() {\n    const diff = this.matchDate.getTime() - Date.now();\n    return Math.ceil(diff / (1000 * 60 * 60 * 24));\n  }\n\n  <template>\n    <h3>{{this.longDateString}}</h3>\n    <p>Start time: {{this.timeString}}</p>\n    <p>{{this.daysUntilMatch}} days to go</p>\n  </template>\n}\n```\nUse `toLocaleDateString` and `toLocaleTimeString` with locale and options for human-readable output. Define multiple formatting getters for different use cases (display vs. API). `daysUntilMatch` reads `Date.now()` which is NOT tracked — this getter won't automatically update unless `matchDate` changes."
+  },
+  {
+    "id": 91,
+    "layer": "syntax",
+    "topic": "@tracked boolean isDirty — track if form has unsaved changes",
+    "instruction": "How do I track whether a form has unsaved changes using a @tracked isDirty boolean?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class PlayerProfileFormComponent extends Component {\n  @tracked name = this.args.player?.name ?? '';\n  @tracked position = this.args.player?.position ?? '';\n  @tracked isDirty = false;\n\n  @action\n  updateName(event) {\n    this.name = event.target.value;\n    this.isDirty = true;\n  }\n\n  @action\n  updatePosition(event) {\n    this.position = event.target.value;\n    this.isDirty = true;\n  }\n\n  @action\n  async save() {\n    await this.args.onSave?.({ name: this.name, position: this.position });\n    this.isDirty = false;\n  }\n\n  @action\n  discard() {\n    this.name = this.args.player?.name ?? '';\n    this.position = this.args.player?.position ?? '';\n    this.isDirty = false;\n  }\n\n  <template>\n    <input value={{this.name}} {{on \"input\" this.updateName}} class=\"border rounded px-3 py-2\" />\n    <input value={{this.position}} {{on \"input\" this.updatePosition}} class=\"border rounded px-3 py-2\" />\n    {{#if this.isDirty}}\n      <div class=\"flex gap-2 mt-2\">\n        <button {{on \"click\" this.save}} class=\"btn-primary\">Save</button>\n        <button {{on \"click\" this.discard}}>Discard</button>\n      </div>\n    {{/if}}\n  </template>\n}\n```\nSet `isDirty = true` in any change handler and reset it to `false` after a successful save or discard. Show save/discard buttons only when `isDirty` is true, preventing accidental no-op saves and providing a clear UX signal."
+  },
+  {
+    "id": 92,
+    "layer": "syntax",
+    "topic": "@action markDirty — set isDirty to true on any change",
+    "instruction": "How do I write a generic markDirty @action and reuse it across multiple inputs?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class MatchEditFormComponent extends Component {\n  @tracked isDirty = false;\n  @tracked formData = {\n    homeTeam: this.args.match?.homeTeam ?? '',\n    awayTeam: this.args.match?.awayTeam ?? '',\n    venue: this.args.match?.venue ?? '',\n    format: this.args.match?.format ?? 'T20',\n  };\n\n  @action\n  updateField(field, event) {\n    this.formData = { ...this.formData, [field]: event.target.value };\n    this.isDirty = true;\n  }\n\n  @action\n  async saveMatch() {\n    await this.args.onSave?.(this.formData);\n    this.isDirty = false;\n  }\n\n  <template>\n    <fieldset class=\"flex flex-col gap-3\">\n      <input value={{this.formData.homeTeam}} {{on \"input\" (fn this.updateField 'homeTeam')}} placeholder=\"Home Team\" />\n      <input value={{this.formData.awayTeam}} {{on \"input\" (fn this.updateField 'awayTeam')}} placeholder=\"Away Team\" />\n      <input value={{this.formData.venue}} {{on \"input\" (fn this.updateField 'venue')}} placeholder=\"Venue\" />\n    </fieldset>\n    <button {{on \"click\" this.saveMatch}} disabled={{not this.isDirty}} class=\"mt-3 btn-primary\">\n      {{if this.isDirty 'Save Changes' 'No Changes'}}\n    </button>\n  </template>\n}\n```\nA combined `updateField` action handles both the data update and dirty marking in one call. Using `{{fn this.updateField 'fieldName'}}` from the template avoids writing separate actions per field. The save button's label and disabled state both respond to `isDirty`."
+  },
+  {
+    "id": 93,
+    "layer": "syntax",
+    "topic": "@action save — reset isDirty after save",
+    "instruction": "How do I reset the isDirty flag after a successful async save @action?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class TournamentEditorComponent extends Component {\n  @tracked tournamentName = this.args.tournament?.name ?? '';\n  @tracked isDirty = false;\n  @tracked isSaving = false;\n  @tracked saveError = '';\n\n  @action\n  onNameChange(event) {\n    this.tournamentName = event.target.value;\n    this.isDirty = true;\n  }\n\n  @action\n  async save() {\n    if (!this.isDirty) return;\n    this.isSaving = true;\n    this.saveError = '';\n    try {\n      await this.args.onSave?.({ name: this.tournamentName });\n      this.isDirty = false; // reset only on success\n    } catch (err) {\n      this.saveError = err.message ?? 'Save failed';\n    } finally {\n      this.isSaving = false;\n    }\n  }\n\n  <template>\n    <input value={{this.tournamentName}} {{on \"input\" this.onNameChange}} class=\"border rounded px-3 py-2\" />\n    {{#if this.saveError}}\n      <p class=\"text-red-600 text-sm\">{{this.saveError}}</p>\n    {{/if}}\n    <button\n      {{on \"click\" this.save}}\n      disabled={{or this.isSaving (not this.isDirty)}}\n      class=\"btn-primary\"\n    >\n      {{if this.isSaving 'Saving...' 'Save'}}\n    </button>\n  </template>\n}\n```\nReset `isDirty` inside the `try` block (after a successful save) — not in `finally`. If the save fails, `isDirty` should remain `true` so the user knows their changes weren't persisted. The `isSaving` flag prevents double-submits during the async operation."
+  },
+  {
+    "id": 94,
+    "layer": "syntax",
+    "topic": "@tracked for storing undo history (array of snapshots)",
+    "instruction": "How do I implement an undo system using a @tracked array of score snapshots?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class UndoScoreComponent extends Component {\n  @tracked runs = 0;\n  @tracked wickets = 0;\n  @tracked history = [];\n\n  get canUndo() {\n    return this.history.length > 0;\n  }\n\n  #saveSnapshot() {\n    this.history = [...this.history, { runs: this.runs, wickets: this.wickets }];\n  }\n\n  @action\n  addRun() {\n    this.#saveSnapshot();\n    this.runs = this.runs + 1;\n  }\n\n  @action\n  addWicket() {\n    this.#saveSnapshot();\n    this.wickets = this.wickets + 1;\n  }\n\n  @action\n  undo() {\n    if (!this.canUndo) return;\n    const previous = this.history[this.history.length - 1];\n    this.history = this.history.slice(0, -1);\n    this.runs = previous.runs;\n    this.wickets = previous.wickets;\n  }\n\n  <template>\n    <p class=\"text-2xl\">{{this.runs}}/{{this.wickets}}</p>\n    <button {{on \"click\" this.addRun}}>+Run</button>\n    <button {{on \"click\" this.addWicket}}>+Wicket</button>\n    <button {{on \"click\" this.undo}} disabled={{not this.canUndo}}>Undo</button>\n    <p class=\"text-sm text-gray-400\">History: {{this.history.length}} steps</p>\n  </template>\n}\n```\nSave a snapshot (plain object) to the `@tracked` history array before each change. Undo by popping the last snapshot and restoring state from it. Use a private method `#saveSnapshot()` to avoid duplicating the snapshot logic. Spread the array when adding to maintain immutability."
+  },
+  {
+    "id": 95,
+    "layer": "syntax",
+    "topic": "@action undo — pop last snapshot from @tracked history",
+    "instruction": "How do I implement the undo action that pops the last state from a @tracked history array?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class InningsEditorWithUndoComponent extends Component {\n  @tracked score = { runs: 0, wickets: 0, overs: 0 };\n  @tracked history = [];\n\n  get canUndo() { return this.history.length > 0; }\n  get undoStepsLabel() { return `${this.history.length} undo step(s) available`; }\n\n  #push() {\n    this.history = [...this.history, { ...this.score }];\n  }\n\n  @action\n  addRuns(amount) {\n    this.#push();\n    this.score = { ...this.score, runs: this.score.runs + amount };\n  }\n\n  @action\n  undo() {\n    if (!this.canUndo) return;\n    const prev = this.history.at(-1);\n    this.history = this.history.slice(0, -1);\n    this.score = { ...prev };\n  }\n\n  @action\n  resetAll() {\n    this.score = { runs: 0, wickets: 0, overs: 0 };\n    this.history = [];\n  }\n\n  <template>\n    <p class=\"text-2xl font-bold\">{{this.score.runs}}/{{this.score.wickets}}</p>\n    <button {{on \"click\" (fn this.addRuns 1)}}>+1</button>\n    <button {{on \"click\" (fn this.addRuns 4)}}>+4</button>\n    <button {{on \"click\" (fn this.addRuns 6)}}>+6</button>\n    <button {{on \"click\" this.undo}} disabled={{not this.canUndo}}>↩ Undo</button>\n    <button {{on \"click\" this.resetAll}}>Reset</button>\n    <p class=\"text-xs text-gray-400\">{{this.undoStepsLabel}}</p>\n  </template>\n}\n```\nUse `Array.prototype.at(-1)` (ES2022) to access the last element. Use `.slice(0, -1)` to create a new array without the last item. Always spread the snapshot when restoring: `this.score = { ...prev }` ensures a new object reference triggers reactivity."
+  },
+  {
+    "id": 96,
+    "layer": "syntax",
+    "topic": "@tracked for controlling stepper/wizard current step",
+    "instruction": "How do I control a multi-step wizard using a @tracked currentStep number?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class MatchRegistrationWizardComponent extends Component {\n  steps = ['Team Info', 'Match Details', 'Venue & Date', 'Confirm'];\n  @tracked currentStep = 0;\n\n  get isFirstStep() { return this.currentStep === 0; }\n  get isLastStep() { return this.currentStep === this.steps.length - 1; }\n  get currentStepName() { return this.steps[this.currentStep]; }\n  get progressPercent() { return ((this.currentStep / (this.steps.length - 1)) * 100).toFixed(0); }\n\n  @action\n  nextStep() {\n    if (!this.isLastStep) this.currentStep = this.currentStep + 1;\n  }\n\n  @action\n  prevStep() {\n    if (!this.isFirstStep) this.currentStep = this.currentStep - 1;\n  }\n\n  @action\n  goToStep(index) {\n    if (index >= 0 && index < this.steps.length) {\n      this.currentStep = index;\n    }\n  }\n\n  <template>\n    <div class=\"mb-4\">\n      <div class=\"flex gap-2\">\n        {{#each this.steps as |step index|}}\n          <button\n            {{on \"click\" (fn this.goToStep index)}}\n            class=\"px-2 py-1 text-sm rounded {{if (eq index this.currentStep) 'bg-blue-600 text-white' 'bg-gray-100'}}\"\n          >{{step}}</button>\n        {{/each}}\n      </div>\n      <div class=\"w-full bg-gray-200 h-1 mt-2\"><div class=\"bg-blue-600 h-1\" style=\"width: {{this.progressPercent}}%\"></div></div>\n    </div>\n    <p class=\"font-bold\">Step {{this.currentStep}}: {{this.currentStepName}}</p>\n    <div class=\"flex gap-2 mt-4\">\n      <button {{on \"click\" this.prevStep}} disabled={{this.isFirstStep}}>Back</button>\n      <button {{on \"click\" this.nextStep}} disabled={{this.isLastStep}}>Next</button>\n    </div>\n  </template>\n}\n```\nA zero-based step index provides clean array access. Boundary getters (`isFirstStep`, `isLastStep`) keep actions and template logic simple. A progress bar width derived from step index gives visual feedback without extra state."
+  },
+  {
+    "id": 97,
+    "layer": "syntax",
+    "topic": "@action nextStep / prevStep for stepper navigation",
+    "instruction": "How do I write nextStep and prevStep @actions with validation gating in a wizard?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class ValidatedWizardComponent extends Component {\n  @tracked currentStep = 0;\n  @tracked teamName = '';\n  @tracked playerCount = '';\n  @tracked venue = '';\n\n  get stepIsValid() {\n    switch (this.currentStep) {\n      case 0: return this.teamName.trim().length > 0;\n      case 1: return Number(this.playerCount) >= 11;\n      case 2: return this.venue.trim().length > 0;\n      default: return true;\n    }\n  }\n\n  @action\n  nextStep() {\n    if (this.stepIsValid && this.currentStep < 2) {\n      this.currentStep = this.currentStep + 1;\n    }\n  }\n\n  @action\n  prevStep() {\n    if (this.currentStep > 0) {\n      this.currentStep = this.currentStep - 1;\n    }\n  }\n\n  <template>\n    <p>Step {{this.currentStep}}</p>\n    {{#if (eq this.currentStep 0)}}<input value={{this.teamName}} {{on \"input\" (fn (mut this.teamName) (get-value))}} placeholder=\"Team name\" />{{/if}}\n    {{#if (eq this.currentStep 1)}}<input type=\"number\" value={{this.playerCount}} {{on \"input\" (fn (mut this.playerCount) (get-value))}} placeholder=\"Player count\" />{{/if}}\n    {{#if (eq this.currentStep 2)}}<input value={{this.venue}} {{on \"input\" (fn (mut this.venue) (get-value))}} placeholder=\"Venue\" />{{/if}}\n    <div class=\"flex gap-2 mt-3\">\n      <button {{on \"click\" this.prevStep}} disabled={{eq this.currentStep 0}}>Back</button>\n      <button {{on \"click\" this.nextStep}} disabled={{not this.stepIsValid}}>Next</button>\n    </div>\n  </template>\n}\n```\nGate `nextStep` with a `stepIsValid` getter that uses a `switch` to check the relevant field for each step. This keeps navigation actions clean and validation logic centralized. The Next button is `disabled` when the current step is not valid."
+  },
+  {
+    "id": 98,
+    "layer": "syntax",
+    "topic": "@tracked for storing checkbox group selections (array)",
+    "instruction": "How do I store multiple checkbox selections in a @tracked array?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class FieldingPositionSelectorComponent extends Component {\n  positions = ['Slip', 'Gully', 'Point', 'Cover', 'Mid-off', 'Mid-on', 'Square leg', 'Fine leg'];\n  @tracked selected = [];\n\n  isChecked(position) {\n    return this.selected.includes(position);\n  }\n\n  get selectedCount() {\n    return this.selected.length;\n  }\n\n  @action\n  onCheckboxChange(position, event) {\n    if (event.target.checked) {\n      this.selected = [...this.selected, position];\n    } else {\n      this.selected = this.selected.filter(p => p !== position);\n    }\n  }\n\n  <template>\n    <p>Selected: {{this.selectedCount}} positions</p>\n    <div class=\"grid grid-cols-2 gap-2\">\n      {{#each this.positions as |position|}}\n        <label class=\"flex gap-2 items-center\">\n          <input\n            type=\"checkbox\"\n            checked={{this.isChecked position}}\n            {{on \"change\" (fn this.onCheckboxChange position)}}\n          />\n          {{position}}\n        </label>\n      {{/each}}\n    </div>\n    <p class=\"text-sm mt-2\">{{this.selected.join ', '}}</p>\n  </template>\n}\n```\nStore selections as a `@tracked` string array. On check, spread-add; on uncheck, filter-remove. The `checked` attribute is controlled by the `isChecked` method so the UI stays in sync. `this.selected.join ', '` displays the selection summary."
+  },
+  {
+    "id": 99,
+    "layer": "syntax",
+    "topic": "@action toggleCheckbox — add/remove from @tracked array",
+    "instruction": "How do I write a single @action that handles add/remove for a @tracked checkbox array?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class TournamentFormatSelectorComponent extends Component {\n  formats = [\n    { id: 't20', label: 'T20' },\n    { id: 'odi', label: 'ODI' },\n    { id: 'test', label: 'Test' },\n    { id: 't10', label: 'T10' },\n    { id: 'hundred', label: 'The Hundred' },\n  ];\n  @tracked enabledFormats = ['t20', 'odi'];\n\n  isEnabled(id) {\n    return this.enabledFormats.includes(id);\n  }\n\n  get enabledCount() {\n    return this.enabledFormats.length;\n  }\n\n  @action\n  toggleFormat(id) {\n    if (this.isEnabled(id)) {\n      this.enabledFormats = this.enabledFormats.filter(f => f !== id);\n    } else {\n      this.enabledFormats = [...this.enabledFormats, id];\n    }\n  }\n\n  <template>\n    <p>{{this.enabledCount}} format(s) enabled</p>\n    {{#each this.formats as |format|}}\n      <label class=\"flex gap-2\">\n        <input\n          type=\"checkbox\"\n          checked={{this.isEnabled format.id}}\n          {{on \"change\" (fn this.toggleFormat format.id)}}\n        />\n        {{format.label}}\n      </label>\n    {{/each}}\n  </template>\n}\n```\nA single `toggleFormat` action handles both add and remove by checking `includes`. Pass the ID (not the event) via `{{fn}}` — the action doesn't need the event object since it performs a toggle, not reading `event.target.checked`."
+  },
+  {
+    "id": 100,
+    "layer": "syntax",
+    "topic": "@tracked for storing radio button selection",
+    "instruction": "How do I manage radio button selection using @tracked in a GJS component?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class TossDecisionComponent extends Component {\n  @tracked tossDecision = 'bat';\n  decisions = [\n    { value: 'bat', label: 'Elected to Bat' },\n    { value: 'bowl', label: 'Elected to Bowl' },\n    { value: 'field', label: 'Elected to Field' },\n  ];\n\n  get decisionLabel() {\n    return this.decisions.find(d => d.value === this.tossDecision)?.label ?? 'Unknown';\n  }\n\n  @action\n  onDecisionChange(event) {\n    this.tossDecision = event.target.value;\n  }\n\n  <template>\n    <fieldset class=\"flex flex-col gap-2\">\n      <legend class=\"font-semibold mb-2\">Toss Decision</legend>\n      {{#each this.decisions as |decision|}}\n        <label class=\"flex gap-2 items-center\">\n          <input\n            type=\"radio\"\n            name=\"toss-decision\"\n            value={{decision.value}}\n            checked={{eq decision.value this.tossDecision}}\n            {{on \"change\" this.onDecisionChange}}\n          />\n          {{decision.label}}\n        </label>\n      {{/each}}\n    </fieldset>\n    <p class=\"mt-3\">Captain chose: <strong>{{this.decisionLabel}}</strong></p>\n  </template>\n}\n```\nControl radio groups by storing the selected value in `@tracked` and binding `checked={{eq decision.value this.tossDecision}}`. A single `change` handler updates the selected value. All radio inputs in the group share the same `name` attribute for proper browser behavior."
+  } 
+]
