@@ -1,0 +1,433 @@
+[
+  {
+    id: 1,
+    layer: "syntax",
+    topic: "Basic Service class definition",
+    instruction: "How do I define a basic Ember Service class?",
+    response:
+      "```js\nimport Service from '@ember/service';\n\nexport default class ScoreService extends Service {\n  fetchLiveScore() {\n    return fetch('/api/score');\n  }\n}\n```\nA service extends `Service` from `@ember/service` and is exported as the default export. The class name becomes the service's registered name in the container (e.g., `ScoreService` → `score`). Services are singletons — one instance per application lifecycle.",
+  },
+  {
+    id: 2,
+    layer: "syntax",
+    topic: "Service with a @tracked property",
+    instruction: "How do I add a @tracked property to an Ember Service?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class MatchService extends Service {\n  @tracked currentMatch = null;\n}\n```\nImport `tracked` from `@glimmer/tracking` and decorate any property that should trigger reactivity when changed. All consuming components and templates that read `this.currentMatch` will automatically re-render when the property is updated.",
+  },
+  {
+    id: 3,
+    layer: "syntax",
+    topic: "Service with multiple @tracked properties",
+    instruction:
+      "Show me a service with multiple @tracked properties for cricket match state.",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class LiveScoreService extends Service {\n  @tracked runs = 0;\n  @tracked wickets = 0;\n  @tracked over = '0.0';\n  @tracked battingTeam = null;\n  @tracked bowlingTeam = null;\n  @tracked isLive = false;\n}\n```\nEach `@tracked` property is tracked independently. Changing `this.runs` does not cause templates reading only `this.wickets` to re-render — Glimmer's tracking is property-level granular.",
+  },
+  {
+    id: 4,
+    layer: "syntax",
+    topic: "Service with a plain (non-tracked) property",
+    instruction: "How do I add a plain, non-reactive property to a service?",
+    response:
+      "```js\nimport Service from '@ember/service';\n\nexport default class ApiService extends Service {\n  baseUrl = 'https://api.spordium.com/v2';\n  timeout = 5000;\n\n  buildUrl(path) {\n    return `${this.baseUrl}${path}`;\n  }\n}\n```\nProperties without `@tracked` are plain JavaScript class fields. They work fine for configuration values and constants that never need to trigger re-renders. Only add `@tracked` when you need the UI to react to changes.",
+  },
+  {
+    id: 5,
+    layer: "syntax",
+    topic: "Service with a regular method",
+    instruction: "How do I add a regular method to a service?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class PlayerService extends Service {\n  @tracked selectedPlayer = null;\n\n  selectPlayer(player) {\n    this.selectedPlayer = player;\n  }\n\n  clearSelection() {\n    this.selectedPlayer = null;\n  }\n}\n```\nRegular methods on a service are plain ES2024 class methods. They can read and write `@tracked` properties freely. Unlike component actions, service methods do not need the `@action` decorator — there is no this-binding issue when they are called from other service methods.",
+  },
+  {
+    id: 6,
+    layer: "syntax",
+    topic: "Service with an async method using async/await",
+    instruction:
+      "How do I write an async method in a service using async/await?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class MatchService extends Service {\n  @tracked currentMatch = null;\n  @tracked isLoading = false;\n  @tracked error = null;\n\n  async loadMatch(matchId) {\n    this.isLoading = true;\n    this.error = null;\n    try {\n      const response = await fetch(`/api/matches/${matchId}`);\n      if (!response.ok) throw new Error(`HTTP ${response.status}`);\n      this.currentMatch = await response.json();\n    } catch (err) {\n      this.error = err.message;\n    } finally {\n      this.isLoading = false;\n    }\n  }\n}\n```\nAsync methods work normally in services. Always wrap in try/catch and reset loading state in `finally`. Note that plain async methods are not cancellable — prefer ember-concurrency tasks when cancellation is needed.",
+  },
+  {
+    id: 7,
+    layer: "syntax",
+    topic: "Service with a task() from ember-concurrency",
+    instruction: "How do I add an ember-concurrency task to a service?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class ScoreService extends Service {\n  @tracked score = null;\n\n  fetchScore = task(async (matchId) => {\n    const response = await fetch(`/api/matches/${matchId}/score`);\n    if (!response.ok) throw new Error('Failed to fetch score');\n    this.score = await response.json();\n  });\n}\n```\nDefine tasks as class field assignments using the `task()` helper. Tasks are automatically cancellable, expose `.isRunning`, `.last`, and `.perform()`. They integrate cleanly with Glimmer reactivity without extra boilerplate.",
+  },
+  {
+    id: 8,
+    layer: "syntax",
+    topic: "Service with a drop task",
+    instruction:
+      "How do I create a drop task in a service to prevent duplicate API calls?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class FixtureService extends Service {\n  @tracked fixtures = [];\n\n  loadFixtures = task({ drop: true }, async (tournamentId) => {\n    const response = await fetch(`/api/tournaments/${tournamentId}/fixtures`);\n    if (!response.ok) throw new Error('Failed');\n    this.fixtures = await response.json();\n  });\n}\n```\nPassing `{ drop: true }` as the first argument makes the task drop any new `.perform()` calls while an instance is already running. This prevents duplicate network requests when a component mounts multiple times or a button is clicked rapidly.",
+  },
+  {
+    id: 9,
+    layer: "syntax",
+    topic: "Service with a restartable task",
+    instruction:
+      "How do I create a restartable task in a service for live search?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task, timeout } from 'ember-concurrency';\n\nexport default class SearchService extends Service {\n  @tracked results = [];\n\n  search = task({ restartable: true }, async (query) => {\n    await timeout(300);\n    const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);\n    if (!response.ok) throw new Error('Search failed');\n    this.results = await response.json();\n  });\n}\n```\nThe `{ restartable: true }` modifier cancels any running instance when `.perform()` is called again. Combined with `timeout(300)` for debouncing, this is the standard pattern for search-as-you-type functionality in a service.",
+  },
+  {
+    id: 10,
+    layer: "syntax",
+    topic: "Service with a getter computed from @tracked",
+    instruction:
+      "How do I add a getter to a service that computes from @tracked state?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ScoreService extends Service {\n  @tracked runs = 0;\n  @tracked wickets = 0;\n  @tracked totalOvers = 20;\n  @tracked currentOver = 0;\n\n  get runRate() {\n    if (this.currentOver === 0) return 0;\n    return (this.runs / this.currentOver).toFixed(2);\n  }\n\n  get isAllOut() {\n    return this.wickets >= 10;\n  }\n\n  get oversRemaining() {\n    return this.totalOvers - this.currentOver;\n  }\n}\n```\nGetters in services are automatically tracked — they re-evaluate whenever any `@tracked` property they read changes. All consuming components will receive the updated value reactively without any manual notification.",
+  },
+  {
+    id: 11,
+    layer: "syntax",
+    topic: "Service with setter",
+    instruction:
+      "How do I write a setter on a service to validate before updating @tracked state?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ScoreService extends Service {\n  @tracked _runs = 0;\n\n  get runs() {\n    return this._runs;\n  }\n\n  set runs(value) {\n    if (typeof value !== 'number' || value < 0) {\n      console.warn('Invalid runs value:', value);\n      return;\n    }\n    this._runs = value;\n  }\n}\n```\nUse a private `@tracked _runs` backing field and expose `get`/`set` accessors for validation. The setter guards against invalid values while the getter returns the tracked field. Consumers read and write `service.runs` naturally.",
+  },
+  {
+    id: 12,
+    layer: "syntax",
+    topic: "Injecting a service into a component with @service decorator",
+    instruction: "How do I inject a service into a GJS component?",
+    response:
+      "```gjs\nimport Component from '@glimmer/component';\nimport { service } from '@ember/service';\n\nexport default class ScoreBoardComponent extends Component {\n  @service score;\n\n  <template>\n    <div class=\"scoreboard\">\n      <p>Runs: {{this.score.runs}}</p>\n      <p>Wickets: {{this.score.wickets}}</p>\n    </div>\n  </template>\n}\n```\nImport `service` from `@ember/service` and use it as a decorator on a class field. The field name (`score`) must match the service's registered name. Ember resolves the service from the application container and injects the singleton instance.",
+  },
+  {
+    id: 13,
+    layer: "syntax",
+    topic: "Injecting multiple services into one component",
+    instruction:
+      "Show me how to inject multiple services into a single GJS component.",
+    response:
+      "```gjs\nimport Component from '@glimmer/component';\nimport { service } from '@ember/service';\nimport { action } from '@ember/object';\n\nexport default class MatchPageComponent extends Component {\n  @service auth;\n  @service match;\n  @service notification;\n  @service router;\n\n  @action\n  async loadAndNavigate(matchId) {\n    if (!this.auth.isAuthenticated) {\n      this.notification.error('Please log in first');\n      this.router.transitionTo('login');\n      return;\n    }\n    await this.match.loadMatch.perform(matchId);\n  }\n\n  <template>\n    <div>{{this.match.currentMatch.title}}</div>\n  </template>\n}\n```\nEach `@service` decorated field receives its own singleton reference. All services are injected lazily at first access. Multiple services can collaborate inside a single action method.",
+  },
+  {
+    id: 14,
+    layer: "syntax",
+    topic: "Injecting a service into another service",
+    instruction: "How do I inject one service into another service?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { service } from '@ember/service';\nimport { task } from 'ember-concurrency';\n\nexport default class MatchService extends Service {\n  @service notification;\n  @service router;\n\n  loadMatch = task({ drop: true }, async (matchId) => {\n    try {\n      const response = await fetch(`/api/matches/${matchId}`);\n      if (!response.ok) throw new Error('Match not found');\n      return response.json();\n    } catch (err) {\n      this.notification.error(err.message);\n      this.router.transitionTo('matches');\n    }\n  });\n}\n```\nThe `@service` decorator works identically inside services and components. Services are singletons, so injecting `notification` into `match` gives access to the same notification service instance used by the entire app.",
+  },
+  {
+    id: 15,
+    layer: "syntax",
+    topic: "Injecting the router service",
+    instruction:
+      "How do I use the router service in a component for programmatic navigation?",
+    response:
+      "```gjs\nimport Component from '@glimmer/component';\nimport { service } from '@ember/service';\nimport { action } from '@ember/object';\n\nexport default class MatchCardComponent extends Component {\n  @service router;\n\n  @action\n  goToMatch() {\n    this.router.transitionTo('match.detail', this.args.match.id);\n  }\n\n  @action\n  goToPlayer(playerId) {\n    this.router.transitionTo('player.profile', playerId);\n  }\n\n  <template>\n    <div class=\"match-card\">\n      <h2>{{@match.title}}</h2>\n      <button type=\"button\" {{on \"click\" this.goToMatch}}>View Match</button>\n    </div>\n  </template>\n}\n```\nThe built-in `router` service provides `transitionTo`, `replaceWith`, `currentRouteName`, and `urlFor`. It is the preferred way to navigate programmatically in Ember — never manipulate `window.location` directly.",
+  },
+  {
+    id: 16,
+    layer: "syntax",
+    topic: "Injecting the store service (Ember Data)",
+    instruction: "How do I inject the Ember Data store into a component?",
+    response:
+      "```gjs\nimport Component from '@glimmer/component';\nimport { service } from '@ember/service';\nimport { action } from '@ember/object';\n\nexport default class PlayerListComponent extends Component {\n  @service store;\n\n  get players() {\n    return this.store.peekAll('player');\n  }\n\n  @action\n  async loadPlayers() {\n    await this.store.findAll('player');\n  }\n\n  <template>\n    <ul>\n      {{#each this.players as |player|}}\n        <li>{{player.name}}</li>\n      {{/each}}\n    </ul>\n  </template>\n}\n```\nThe `store` service is Ember Data's identity map. `peekAll` returns cached records synchronously. `findAll` and `findRecord` fetch from the server asynchronously. Always use `await` or tasks for async store operations.",
+  },
+  {
+    id: 17,
+    layer: "syntax",
+    topic: "Injecting a custom service into a route",
+    instruction: "How do I inject a custom service into an Ember route?",
+    response:
+      "```js\nimport Route from '@ember/routing/route';\nimport { service } from '@ember/service';\n\nexport default class MatchRoute extends Route {\n  @service matchService;\n  @service auth;\n\n  async beforeModel() {\n    if (!this.auth.isAuthenticated) {\n      this.transitionTo('login');\n    }\n  }\n\n  async model(params) {\n    await this.matchService.loadMatch.perform(params.match_id);\n    return this.matchService.currentMatch;\n  }\n}\n```\nThe `@service` decorator works in routes exactly as in components. Routes are a natural place to load data and guard access before the component tree renders.",
+  },
+  {
+    id: 18,
+    layer: "syntax",
+    topic: "Accessing service @tracked value in component template",
+    instruction:
+      "How do I access a service's @tracked property in a GJS template?",
+    response:
+      '```gjs\nimport Component from \'@glimmer/component\';\nimport { service } from \'@ember/service\';\n\nexport default class LiveScoreComponent extends Component {\n  @service liveScore;\n\n  <template>\n    <div class="live-score p-4 bg-white rounded-xl">\n      <p class="text-3xl font-bold">\n        {{this.liveScore.runs}}/{{this.liveScore.wickets}}\n      </p>\n      <p class="text-gray-500">Over: {{this.liveScore.over}}</p>\n      {{#if this.liveScore.isLive}}\n        <span class="text-green-500">● LIVE</span>\n      {{/if}}\n    </div>\n  </template>\n}\n```\nAccess injected service properties with `this.serviceName.propertyName` in templates. Because `@tracked` properties on services use Glimmer\'s reactivity system, the template automatically re-renders whenever the service\'s tracked state changes.',
+  },
+  {
+    id: 19,
+    layer: "syntax",
+    topic: "Calling a service method from component @action",
+    instruction: "How do I call a service method from a component @action?",
+    response:
+      "```gjs\nimport Component from '@glimmer/component';\nimport { service } from '@ember/service';\nimport { action } from '@ember/object';\n\nexport default class PlayerCardComponent extends Component {\n  @service playerService;\n  @service notification;\n\n  @action\n  selectThisPlayer() {\n    this.playerService.selectPlayer(this.args.player);\n    this.notification.success(`${this.args.player.name} selected`);\n  }\n\n  @action\n  clearSelection() {\n    this.playerService.clearSelection();\n  }\n\n  <template>\n    <div class=\"player-card\">\n      <h3>{{@player.name}}</h3>\n      <button type=\"button\" {{on \"click\" this.selectThisPlayer}}>Select</button>\n    </div>\n  </template>\n}\n```\nService methods are plain methods — call them with `this.serviceName.methodName(args)`. The `@action` decorator on the component method ensures correct `this` binding when used as an event handler.",
+  },
+  {
+    id: 20,
+    layer: "syntax",
+    topic: "Calling a service task.perform() from component @action",
+    instruction: "How do I call a service task from a component action?",
+    response:
+      "```gjs\nimport Component from '@glimmer/component';\nimport { service } from '@ember/service';\nimport { action } from '@ember/object';\n\nexport default class SearchBarComponent extends Component {\n  @service searchService;\n\n  @action\n  handleInput(event) {\n    this.searchService.search.perform(event.target.value);\n  }\n\n  <template>\n    <input\n      type=\"search\"\n      placeholder=\"Search players, teams...\"\n      {{on \"input\" this.handleInput}}\n    />\n    {{#if this.searchService.search.isRunning}}\n      <span>Searching...</span>\n    {{/if}}\n  </template>\n}\n```\nCall tasks with `.perform()`. The task's `.isRunning` state is reactive — the template automatically shows/hides the loading indicator. The task instance lives on the service, so any component can check `.isRunning`.",
+  },
+  {
+    id: 21,
+    layer: "syntax",
+    topic: "Service willDestroy() — cleanup lifecycle hook",
+    instruction: "How do I use willDestroy() in a service for cleanup?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ScrollService extends Service {\n  @tracked scrollTop = 0;\n\n  #handleScroll = () => {\n    this.scrollTop = window.scrollY;\n  };\n\n  constructor(owner, args) {\n    super(owner, args);\n    window.addEventListener('scroll', this.#handleScroll);\n  }\n\n  willDestroy() {\n    super.willDestroy();\n    window.removeEventListener('scroll', this.#handleScroll);\n  }\n}\n```\n`willDestroy` is called when the service is torn down (typically on app destroy). Always call `super.willDestroy()` first. Use it to remove event listeners, close connections, or cancel timers to prevent memory leaks.",
+  },
+  {
+    id: 22,
+    layer: "syntax",
+    topic: "Service with willDestroy cancelling a task",
+    instruction: "How do I cancel a running task when a service is destroyed?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { task, timeout } from 'ember-concurrency';\n\nexport default class PollingService extends Service {\n  pollScore = task({ restartable: true }, async (matchId) => {\n    while (true) {\n      const response = await fetch(`/api/matches/${matchId}/score`);\n      this.score = await response.json();\n      await timeout(5000);\n    }\n  });\n\n  willDestroy() {\n    super.willDestroy();\n    this.pollScore.cancelAll();\n  }\n}\n```\nCall `taskInstance.cancelAll()` in `willDestroy` to cancel any running task instances. Without this, an infinite polling loop would continue even after the service is no longer active, causing memory and network leaks.",
+  },
+  {
+    id: 23,
+    layer: "syntax",
+    topic: "Service with willDestroy removing event listeners",
+    instruction:
+      "Show me a service that removes multiple event listeners in willDestroy.",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class NetworkService extends Service {\n  @tracked isOnline = navigator.onLine;\n\n  #onOnline  = () => { this.isOnline = true; };\n  #onOffline = () => { this.isOnline = false; };\n\n  constructor(owner, args) {\n    super(owner, args);\n    window.addEventListener('online',  this.#onOnline);\n    window.addEventListener('offline', this.#onOffline);\n  }\n\n  willDestroy() {\n    super.willDestroy();\n    window.removeEventListener('online',  this.#onOnline);\n    window.removeEventListener('offline', this.#onOffline);\n  }\n}\n```\nStore handler references as private class fields (`#onOnline`) so the same function reference can be passed to both `addEventListener` and `removeEventListener`. Anonymous arrow functions cannot be removed — always store references.",
+  },
+  {
+    id: 24,
+    layer: "syntax",
+    topic: "Service initializing state in constructor",
+    instruction: "How do I initialize service state in the constructor?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class SessionService extends Service {\n  @tracked currentUser = null;\n  @tracked token = null;\n\n  constructor(owner, args) {\n    super(owner, args);\n    const storedToken = localStorage.getItem('auth_token');\n    const storedUser  = localStorage.getItem('current_user');\n    if (storedToken) {\n      this.token = storedToken;\n      this.currentUser = storedUser ? JSON.parse(storedUser) : null;\n    }\n  }\n}\n```\nThe service constructor receives `owner` and `args` and must call `super(owner, args)`. The constructor runs once when the service is first accessed. It is the right place to restore persisted state from localStorage.",
+  },
+  {
+    id: 25,
+    layer: "syntax",
+    topic: "Service constructor calling super()",
+    instruction:
+      "Why must I call super() in an Ember Service constructor and what parameters does it take?",
+    response:
+      "```js\nimport Service from '@ember/service';\n\nexport default class MyService extends Service {\n  // ✅ CORRECT — always call super with owner and args\n  constructor(owner, args) {\n    super(owner, args);\n    // Your initialization here\n    this.initializeData();\n  }\n\n  initializeData() {\n    // setup logic\n  }\n}\n```\nCalling `super(owner, args)` registers the service with Ember's owner (the application container), which enables service injection, routing, and other framework features. Omitting `super` or calling it without arguments will cause the service to malfunction or throw errors.",
+  },
+  {
+    id: 26,
+    layer: "syntax",
+    topic: "Service with a private helper method",
+    instruction: "How do I add a private helper method to a service?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ApiService extends Service {\n  @tracked data = null;\n\n  async fetchData(endpoint) {\n    const response = await fetch(this.#buildUrl(endpoint), {\n      headers: this.#buildHeaders(),\n    });\n    this.data = await response.json();\n  }\n\n  #buildUrl(path) {\n    return `https://api.spordium.com/v2${path}`;\n  }\n\n  #buildHeaders() {\n    return {\n      'Content-Type': 'application/json',\n      'Accept': 'application/json',\n    };\n  }\n}\n```\nUse the native ES2024 private field syntax (`#methodName`) for helper methods that are implementation details. Private methods cannot be called from outside the class, which enforces a clean public API and prevents accidental misuse.",
+  },
+  {
+    id: 27,
+    layer: "syntax",
+    topic: "Service exposing a read-only getter",
+    instruction:
+      "How do I expose a read-only getter on a service that hides an internal @tracked field?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class AuthService extends Service {\n  @tracked #currentUser = null;\n\n  get currentUser() {\n    return this.#currentUser;\n  }\n\n  get isAuthenticated() {\n    return this.#currentUser !== null;\n  }\n\n  login(user) {\n    this.#currentUser = user;\n  }\n\n  logout() {\n    this.#currentUser = null;\n  }\n}\n```\nMake the `@tracked` field private (`#currentUser`) and expose it only through a getter. This prevents external code from directly setting the field — all mutations go through `login()` and `logout()` methods, keeping the service in a consistent state.",
+  },
+  {
+    id: 28,
+    layer: "syntax",
+    topic: "Service with an array @tracked property",
+    instruction:
+      "Show me a service with a @tracked array for storing match results.",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ResultsService extends Service {\n  @tracked recentResults = [];\n\n  addResult(result) {\n    this.recentResults = [result, ...this.recentResults];\n  }\n\n  removeResult(id) {\n    this.recentResults = this.recentResults.filter(r => r.id !== id);\n  }\n\n  clearResults() {\n    this.recentResults = [];\n  }\n}\n```\nA `@tracked` array must be replaced (not mutated) to trigger reactivity. Always use spread (`[...arr]`), `filter`, `map`, or `slice` to create a new array, then assign it back to the tracked field. Calling `.push()` directly on the array will not trigger re-renders.",
+  },
+  {
+    id: 29,
+    layer: "syntax",
+    topic: "Service @action method",
+    instruction:
+      "Can I use @action on a service method, and when would I do that?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class PlayerService extends Service {\n  @tracked selectedPlayer = null;\n\n  // @action ensures correct `this` binding if passed as callback\n  @action\n  selectPlayer(player) {\n    this.selectedPlayer = player;\n  }\n\n  // Regular method — fine when called directly as this.service.method()\n  clearSelection() {\n    this.selectedPlayer = null;\n  }\n}\n```\nService methods generally do not need `@action` because `this` is correctly bound when called as `this.service.method()`. Use `@action` only when you plan to pass the method as a callback reference (e.g., `const handler = this.service.selectPlayer`) without immediately invoking it.",
+  },
+  {
+    id: 30,
+    layer: "syntax",
+    topic: "Service method returning a value",
+    instruction:
+      "How do I write a service method that computes and returns a value?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class StatsService extends Service {\n  @tracked matches = [];\n\n  getPlayerStats(playerId) {\n    const playerMatches = this.matches.filter(m =>\n      m.batsmen.some(b => b.id === playerId)\n    );\n    const totalRuns = playerMatches.reduce((sum, m) => {\n      const batsman = m.batsmen.find(b => b.id === playerId);\n      return sum + (batsman?.runs ?? 0);\n    }, 0);\n    return { matches: playerMatches.length, totalRuns };\n  }\n}\n```\nService methods can return any value. Callers receive the return value synchronously. For async computations, use a task or async method instead and store the result in a `@tracked` property for template consumption.",
+  },
+  {
+    id: 31,
+    layer: "syntax",
+    topic: "Service method that updates its own @tracked state",
+    instruction:
+      "Show me a service method that updates its own tracked state after computing a value.",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ScoreService extends Service {\n  @tracked runs = 0;\n  @tracked wickets = 0;\n  @tracked ballsPlayed = 0;\n  @tracked runRate = 0;\n\n  recordBall(runsScored, isWicket = false) {\n    this.runs += runsScored;\n    this.ballsPlayed += 1;\n    if (isWicket) this.wickets += 1;\n    const overs = this.ballsPlayed / 6;\n    this.runRate = overs > 0 ? Number((this.runs / overs).toFixed(2)) : 0;\n  }\n}\n```\nA service method can update multiple `@tracked` properties in sequence. Glimmer batches these updates and triggers a single re-render cycle, preventing excessive re-renders when several properties change together.",
+  },
+  {
+    id: 32,
+    layer: "syntax",
+    topic: "Service method that calls another service method",
+    instruction:
+      "How do I call a method from another injected service inside a service method?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { service } from '@ember/service';\nimport { task } from 'ember-concurrency';\n\nexport default class MatchService extends Service {\n  @service notification;\n  @service analyticsService;\n\n  submitResult = task({ drop: true }, async (matchId, result) => {\n    const response = await fetch(`/api/matches/${matchId}/result`, {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json' },\n      body: JSON.stringify(result),\n    });\n    if (!response.ok) {\n      this.notification.error('Failed to submit result');\n      return;\n    }\n    this.notification.success('Result submitted!');\n    this.analyticsService.trackEvent('result_submitted', { matchId });\n  });\n}\n```\nService methods freely call methods on other injected services. This enables rich service collaboration without coupling components to the logic.",
+  },
+  {
+    id: 33,
+    layer: "syntax",
+    topic: "Service task that reads its own @tracked state",
+    instruction:
+      "Show me a service task that reads the service's own @tracked properties.",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class CommentaryService extends Service {\n  @tracked matchId = null;\n  @tracked comments = [];\n\n  fetchLatestComments = task({ drop: true }, async () => {\n    if (!this.matchId) return;\n    const response = await fetch(`/api/matches/${this.matchId}/commentary`);\n    if (!response.ok) throw new Error('Failed to load commentary');\n    const data = await response.json();\n    this.comments = data.entries;\n  });\n}\n```\nTasks access `this` normally — `this.matchId` reads the current tracked value at the time the task runs. This allows the task to be called without arguments when the required state is already stored on the service.",
+  },
+  {
+    id: 34,
+    layer: "syntax",
+    topic: "Service task that updates its own @tracked state after fetch",
+    instruction:
+      "Show me a service task that fetches data and updates multiple @tracked properties.",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class PlayerService extends Service {\n  @tracked player = null;\n  @tracked isLoading = false;\n  @tracked error = null;\n\n  fetchPlayer = task({ drop: true }, async (playerId) => {\n    this.isLoading = true;\n    this.error = null;\n    try {\n      const response = await fetch(`/api/players/${playerId}`);\n      if (!response.ok) throw new Error('Player not found');\n      this.player = await response.json();\n    } catch (err) {\n      this.error = err.message;\n    } finally {\n      this.isLoading = false;\n    }\n  });\n}\n```\nTasks update `@tracked` properties naturally using `this.property = value`. The `finally` block ensures `isLoading` resets even on cancellation (though on cancel the catch block handles `TaskCancelation`).",
+  },
+  {
+    id: 35,
+    layer: "syntax",
+    topic: "Service task that calls store.findAll()",
+    instruction: "How do I call store.findAll() inside a service task?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { service } from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class TournamentService extends Service {\n  @service store;\n  @tracked tournaments = [];\n\n  loadTournaments = task({ drop: true }, async () => {\n    const results = await this.store.findAll('tournament');\n    this.tournaments = results.slice();\n  });\n}\n```\nUse `this.store` (injected via `@service store`) inside tasks. `store.findAll` returns an Ember Data LiveArray. Calling `.slice()` converts it to a plain array to avoid proxy-related reactivity issues when storing in `@tracked`.",
+  },
+  {
+    id: 36,
+    layer: "syntax",
+    topic: "Service task that calls store.query() with params",
+    instruction:
+      "How do I use store.query() with parameters in a service task?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { service } from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class FixtureService extends Service {\n  @service store;\n  @tracked fixtures = [];\n\n  fetchFixtures = task({ restartable: true }, async ({ tournamentId, format, page = 1 }) => {\n    const results = await this.store.query('fixture', {\n      filter: { tournament: tournamentId, format },\n      page: { number: page, size: 20 },\n    });\n    this.fixtures = results.slice();\n  });\n}\n```\n`store.query` sends a GET request with the provided params as query string. It always hits the server (unlike `peekAll`). The task is `restartable` so rapid filter changes cancel previous in-flight requests.",
+  },
+  {
+    id: 37,
+    layer: "syntax",
+    topic: "Service task that performs a raw fetch() API call",
+    instruction:
+      "Show me a service task using raw fetch() instead of the Ember Data store.",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class LiveScoreService extends Service {\n  @tracked score = null;\n  @tracked error = null;\n\n  fetchLiveScore = task({ drop: true }, async (matchId) => {\n    this.error = null;\n    try {\n      const response = await fetch(`/api/live/${matchId}/score`, {\n        headers: { 'Accept': 'application/json' },\n      });\n      if (!response.ok) throw new Error(`HTTP ${response.status}`);\n      this.score = await response.json();\n    } catch (err) {\n      this.error = err.message;\n    }\n  });\n}\n```\nRaw `fetch()` is ideal for endpoints not modeled in Ember Data (live scores, analytics, third-party APIs). Always check `response.ok` and handle errors explicitly since `fetch` only rejects on network failure, not HTTP error status codes.",
+  },
+  {
+    id: 38,
+    layer: "syntax",
+    topic: "Service task that handles errors and sets @tracked error",
+    instruction:
+      "How do I handle errors in a service task and expose them reactively?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class VenueService extends Service {\n  @tracked venues = [];\n  @tracked error = null;\n\n  loadVenues = task({ drop: true }, async () => {\n    this.error = null;\n    try {\n      const response = await fetch('/api/venues');\n      if (!response.ok) throw new Error(`Failed to load venues: ${response.status}`);\n      const data = await response.json();\n      this.venues = data.venues;\n    } catch (err) {\n      if (err.name !== 'TaskCancelation') {\n        this.error = err.message;\n      }\n    }\n  });\n}\n```\nCheck `err.name !== 'TaskCancelation'` before setting `this.error` — cancellation is intentional and should not show an error message to the user. Always clear `this.error = null` before each attempt so stale errors don't persist.",
+  },
+  {
+    id: 39,
+    layer: "syntax",
+    topic: "Service @tracked array — adding item with spread pattern",
+    instruction:
+      "How do I add an item to a @tracked array in a service reactively?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class NotificationService extends Service {\n  @tracked notifications = [];\n\n  addNotification(notification) {\n    const id = Date.now();\n    this.notifications = [\n      ...this.notifications,\n      { ...notification, id },\n    ];\n    return id;\n  }\n}\n```\nUse spread (`[...existing, newItem]`) to create a new array reference, which triggers Glimmer's reactivity. Never call `.push()` directly on a `@tracked` array — mutation without reassignment does not trigger re-renders.",
+  },
+  {
+    id: 40,
+    layer: "syntax",
+    topic: "Service @tracked array — removing item with filter pattern",
+    instruction: "How do I remove an item from a @tracked array in a service?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class NotificationService extends Service {\n  @tracked notifications = [];\n\n  removeNotification(id) {\n    this.notifications = this.notifications.filter(n => n.id !== id);\n  }\n\n  clearAll() {\n    this.notifications = [];\n  }\n}\n```\n`Array.filter()` returns a new array, satisfying Glimmer's requirement for a new reference. The original array is not mutated. Assign the filtered result back to the `@tracked` property to trigger re-renders in all consuming templates.",
+  },
+  {
+    id: 41,
+    layer: "syntax",
+    topic: "Service @tracked array — replacing item with map pattern",
+    instruction:
+      "How do I update a specific item in a @tracked array in a service?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class LineupService extends Service {\n  @tracked players = [];\n\n  updatePlayerRuns(playerId, newRuns) {\n    this.players = this.players.map(player =>\n      player.id === playerId\n        ? { ...player, runs: newRuns }\n        : player\n    );\n  }\n}\n```\n`Array.map()` returns a new array where the matching item is replaced with a new spread object. This is the correct pattern for immutable-style updates in Glimmer-tracked arrays. Both the array reference and the object reference are new, ensuring reactivity.",
+  },
+  {
+    id: 42,
+    layer: "syntax",
+    topic: "Service @tracked object — updating a property with spread",
+    instruction:
+      "How do I update a property on a @tracked object in a service?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class MatchService extends Service {\n  @tracked match = null;\n\n  updateScore(runs, wickets, over) {\n    if (!this.match) return;\n    this.match = {\n      ...this.match,\n      score: { runs, wickets, over },\n      updatedAt: new Date().toISOString(),\n    };\n  }\n}\n```\nSpread the existing object and override the changed properties: `{ ...existing, changedKey: newValue }`. This creates a new object reference, which triggers Glimmer reactivity. Mutating `this.match.score.runs = value` directly does not trigger re-renders.",
+  },
+  {
+    id: 43,
+    layer: "syntax",
+    topic: "Service with multiple tasks with different concurrency modifiers",
+    instruction:
+      "Show me a service with three tasks each using a different concurrency modifier.",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class ScoreService extends Service {\n  @tracked score = null;\n  @tracked history = [];\n  @tracked searchResults = [];\n\n  // drop: only one load at a time, extras ignored\n  loadScore = task({ drop: true }, async (matchId) => {\n    const res = await fetch(`/api/matches/${matchId}/score`);\n    this.score = await res.json();\n  });\n\n  // enqueue: queues concurrent performs sequentially\n  recordBall = task({ enqueue: true }, async (ballData) => {\n    const res = await fetch('/api/balls', { method: 'POST', body: JSON.stringify(ballData) });\n    this.history = [...this.history, await res.json()];\n  });\n\n  // restartable: latest perform cancels previous\n  searchPlayers = task({ restartable: true }, async (query) => {\n    const res = await fetch(`/api/players?q=${query}`);\n    this.searchResults = await res.json();\n  });\n}\n```\nChoose the concurrency modifier based on intent: `drop` for idempotent loads, `enqueue` for ordered writes, `restartable` for latest-wins queries.",
+  },
+  {
+    id: 44,
+    layer: "syntax",
+    topic: "Service method that performs a task and returns the task instance",
+    instruction:
+      "How do I call a task from a service method and return the task instance?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { task } from 'ember-concurrency';\n\nexport default class MatchService extends Service {\n  loadMatch = task({ drop: true }, async (matchId) => {\n    const response = await fetch(`/api/matches/${matchId}`);\n    return response.json();\n  });\n\n  startLoadingMatch(matchId) {\n    // Returns the TaskInstance — callers can await it or check .isRunning\n    return this.loadMatch.perform(matchId);\n  }\n}\n```\n`task.perform()` returns a `TaskInstance` which is a Promise-like object. Returning it from a method lets callers `await` the result directly or chain `.then()`. This pattern bridges tasks with non-task async code.",
+  },
+  {
+    id: 45,
+    layer: "syntax",
+    topic: "Service with a looping polling task",
+    instruction: "How do I write a looping polling task in a service?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task, timeout } from 'ember-concurrency';\n\nexport default class LiveScoreService extends Service {\n  @tracked score = null;\n\n  pollScore = task({ restartable: true }, async (matchId) => {\n    while (true) {\n      try {\n        const response = await fetch(`/api/matches/${matchId}/score`);\n        if (response.ok) {\n          this.score = await response.json();\n        }\n      } catch { /* network error — continue */ }\n      await timeout(5000);\n    }\n  });\n\n  willDestroy() {\n    super.willDestroy();\n    this.pollScore.cancelAll();\n  }\n}\n```\nAn infinite `while(true)` loop with `await timeout(N)` is the ember-concurrency polling pattern. The `restartable` modifier lets you restart with a new `matchId` cleanly. Always cancel in `willDestroy` to stop the loop on service teardown.",
+  },
+  {
+    id: 46,
+    layer: "syntax",
+    topic: "Service exposing task.isRunning as a getter",
+    instruction:
+      "How do I expose a task's isRunning state as a named getter on the service?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { task } from 'ember-concurrency';\n\nexport default class MatchService extends Service {\n  loadMatch = task({ drop: true }, async (matchId) => {\n    const response = await fetch(`/api/matches/${matchId}`);\n    return response.json();\n  });\n\n  get isLoading() {\n    return this.loadMatch.isRunning;\n  }\n\n  get lastError() {\n    return this.loadMatch.last?.error ?? null;\n  }\n}\n```\nWrapping `task.isRunning` in a named getter creates a semantic, readable API for consumers. `this.matchService.isLoading` reads better than `this.matchService.loadMatch.isRunning` in templates and other services.",
+  },
+  {
+    id: 47,
+    layer: "syntax",
+    topic: "Service with @tracked loading state managed by task",
+    instruction:
+      "Show me a service where a task manages the loading state via isRunning.",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class StandingsService extends Service {\n  @tracked standings = [];\n\n  fetchStandings = task({ drop: true }, async (tournamentId) => {\n    const response = await fetch(`/api/tournaments/${tournamentId}/standings`);\n    if (!response.ok) throw new Error('Failed to load standings');\n    const data = await response.json();\n    this.standings = data.teams;\n  });\n\n  get isLoading() {\n    return this.fetchStandings.isRunning;\n  }\n}\n```\nUsing `task.isRunning` instead of a manual `@tracked isLoading` is cleaner — the task automatically tracks its own running state. You never risk forgetting to set `isLoading = false` in an error path.",
+  },
+  {
+    id: 48,
+    layer: "syntax",
+    topic: "Service with @tracked error state managed by task",
+    instruction: "How do I expose task error state reactively from a service?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class PlayerService extends Service {\n  @tracked players = [];\n\n  loadPlayers = task({ drop: true }, async (teamId) => {\n    const response = await fetch(`/api/teams/${teamId}/players`);\n    if (!response.ok) throw new Error('Could not load players');\n    this.players = await response.json();\n  });\n\n  get loadError() {\n    return this.loadPlayers.last?.error?.message ?? null;\n  }\n\n  get isError() {\n    return !!this.loadPlayers.last?.error;\n  }\n}\n```\n`task.last?.error` holds the error from the most recent task run. Using optional chaining guards against the case where no run has occurred yet (`task.last` is null initially). This gives consumers reactive error access without a separate `@tracked error` field.",
+  },
+  {
+    id: 49,
+    layer: "syntax",
+    topic: "Service with @tracked data state populated by task",
+    instruction:
+      "Show me the full pattern of a service with data, loading, and error state all driven by a task.",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class MatchResultsService extends Service {\n  @tracked results = [];\n\n  loadResults = task({ drop: true }, async (tournamentId) => {\n    const response = await fetch(`/api/tournaments/${tournamentId}/results`);\n    if (!response.ok) throw new Error(`HTTP ${response.status}`);\n    const data = await response.json();\n    this.results = data.results ?? [];\n  });\n\n  get isLoading() { return this.loadResults.isRunning; }\n  get error()     { return this.loadResults.last?.error?.message ?? null; }\n  get hasData()   { return this.results.length > 0; }\n}\n```\nThis is the recommended full pattern: one `@tracked` field for data, and getters for `isLoading` and `error` derived from the task. Components consume `service.results`, `service.isLoading`, and `service.error` — all reactive without any manual state management.",
+  },
+  {
+    id: 50,
+    layer: "syntax",
+    topic: "Service that registers itself as a global event listener",
+    instruction:
+      "How do I write a service that sets up and tears down a global event listener?",
+    response:
+      "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class KeyboardService extends Service {\n  @tracked lastKey = null;\n\n  #handlers = new Map();\n\n  constructor(owner, args) {\n    super(owner, args);\n    this.#setupListeners();\n  }\n\n  #setupListeners() {\n    const onKeyDown = (event) => {\n      this.lastKey = event.key;\n      this.#handlers.get(event.key)?.();\n    };\n    this.#onKeyDown = onKeyDown;\n    window.addEventListener('keydown', onKeyDown);\n  }\n\n  registerShortcut(key, handler) {\n    this.#handlers.set(key, handler);\n  }\n\n  willDestroy() {\n    super.willDestroy();\n    window.removeEventListener('keydown', this.#onKeyDown);\n    this.#handlers.clear();\n  }\n}\n```\nStoring the bound handler reference and the handlers map as private fields allows clean teardown in `willDestroy`. The service acts as a central keyboard shortcut registry for the entire application.",
+  },
+];
