@@ -430,4 +430,705 @@
     response:
       "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class KeyboardService extends Service {\n  @tracked lastKey = null;\n\n  #handlers = new Map();\n\n  constructor(owner, args) {\n    super(owner, args);\n    this.#setupListeners();\n  }\n\n  #setupListeners() {\n    const onKeyDown = (event) => {\n      this.lastKey = event.key;\n      this.#handlers.get(event.key)?.();\n    };\n    this.#onKeyDown = onKeyDown;\n    window.addEventListener('keydown', onKeyDown);\n  }\n\n  registerShortcut(key, handler) {\n    this.#handlers.set(key, handler);\n  }\n\n  willDestroy() {\n    super.willDestroy();\n    window.removeEventListener('keydown', this.#onKeyDown);\n    this.#handlers.clear();\n  }\n}\n```\nStoring the bound handler reference and the handlers map as private fields allows clean teardown in `willDestroy`. The service acts as a central keyboard shortcut registry for the entire application.",
   },
+
+  {
+    "id": 51,
+    "layer": "syntax",
+    "topic": "Auth service — @tracked currentUser, isAuthenticated getter",
+    "instruction": "How do I define an auth service with @tracked currentUser and an isAuthenticated getter?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class AuthService extends Service {\n  @tracked currentUser = null;\n\n  get isAuthenticated() {\n    return this.currentUser !== null;\n  }\n}\n```\nThe `@tracked` decorator on `currentUser` means any template or getter that reads it will automatically re-render when it changes. The `isAuthenticated` getter derives its value reactively — no `@tracked` is needed on the getter itself since it reads a tracked property."
+  },
+  {
+    "id": 52,
+    "layer": "syntax",
+    "topic": "Auth service — login task (POST credentials, set currentUser)",
+    "instruction": "Show me a login task in an auth service that POSTs credentials and sets currentUser.",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class AuthService extends Service {\n  @tracked currentUser = null;\n\n  login = task(async (credentials) => {\n    const response = await fetch('/api/login', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json' },\n      body: JSON.stringify(credentials),\n    });\n    const data = await response.json();\n    this.currentUser = data.user;\n    return data.user;\n  });\n}\n```\nUsing `task` from ember-concurrency gives `.isRunning`, `.isError`, and cancellation for free. Pass credentials as `this.auth.login.perform({ email, password })`. Setting `this.currentUser` reactively updates all consuming components."
+  },
+  {
+    "id": 53,
+    "layer": "syntax",
+    "topic": "Auth service — logout method (clear currentUser, redirect)",
+    "instruction": "How do I write a logout method in an auth service that clears currentUser and redirects?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { service } from '@ember/service';\n\nexport default class AuthService extends Service {\n  @service router;\n  @tracked currentUser = null;\n\n  logout() {\n    this.currentUser = null;\n    localStorage.removeItem('authToken');\n    this.router.transitionTo('login');\n  }\n}\n```\nThe `logout` method is synchronous — it clears `currentUser`, removes the persisted token from localStorage, and navigates away using the injected router service. Because `currentUser` is `@tracked`, all components checking `isAuthenticated` immediately re-render."
+  },
+  {
+    "id": 54,
+    "layer": "syntax",
+    "topic": "Auth service — token storage in plain property (not @tracked)",
+    "instruction": "How do I store an auth token in a service property that is NOT reactive?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class AuthService extends Service {\n  @tracked currentUser = null;\n  token = null; // plain property — not reactive\n\n  setToken(token) {\n    this.token = token;\n    localStorage.setItem('authToken', token);\n  }\n\n  getToken() {\n    return this.token ?? localStorage.getItem('authToken');\n  }\n}\n```\nThe `token` property is intentionally NOT `@tracked` because no template ever needs to react to the raw token — it is used only in API headers. Only `currentUser` drives UI reactivity. Plain properties for non-UI state avoid unnecessary re-renders."
+  },
+  {
+    "id": 55,
+    "layer": "syntax",
+    "topic": "Auth service — refreshToken task",
+    "instruction": "Show me a refreshToken task in an auth service.",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class AuthService extends Service {\n  @tracked currentUser = null;\n  token = null;\n\n  refreshToken = task(async () => {\n    const currentToken = localStorage.getItem('authToken');\n    const response = await fetch('/api/auth/refresh', {\n      method: 'POST',\n      headers: { Authorization: `Bearer ${currentToken}` },\n    });\n    const { token, user } = await response.json();\n    this.token = token;\n    localStorage.setItem('authToken', token);\n    this.currentUser = user;\n    return token;\n  });\n}\n```\nThe `refreshToken` task sends the current token and replaces it with the new one. Add a `.drop()` modifier to prevent concurrent calls. Invoke with `this.auth.refreshToken.perform()`."
+  },
+  {
+    "id": 56,
+    "layer": "syntax",
+    "topic": "Auth service — isAdmin getter from currentUser role",
+    "instruction": "How do I write an isAdmin getter on an auth service derived from currentUser.role?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class AuthService extends Service {\n  @tracked currentUser = null;\n\n  get isAdmin() {\n    return this.currentUser?.role === 'admin';\n  }\n\n  get isAuthenticated() {\n    return this.currentUser !== null;\n  }\n}\n```\nOptional chaining `?.` safely handles `null` currentUser. Because `isAdmin` reads the `@tracked` property `currentUser`, it recomputes whenever `currentUser` changes. No extra `@tracked` annotation is needed on the getter."
+  },
+  {
+    "id": 57,
+    "layer": "syntax",
+    "topic": "Notification service — @tracked notifications array",
+    "instruction": "How do I set up a notification service with a @tracked notifications array?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class NotificationService extends Service {\n  @tracked notifications = [];\n}\n```\nThe `@tracked` on the array means Glimmer re-renders any template consuming `notifications` when the array reference changes. You must replace the array (not mutate in place) to trigger reactivity: use `this.notifications = [...this.notifications, newItem]` instead of `this.notifications.push(newItem)`."
+  },
+  {
+    "id": 58,
+    "layer": "syntax",
+    "topic": "Notification service — addNotification() method",
+    "instruction": "How do I write an addNotification method in a notification service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class NotificationService extends Service {\n  @tracked notifications = [];\n\n  addNotification(message, type = 'info') {\n    const notification = {\n      id: crypto.randomUUID(),\n      message,\n      type,\n      createdAt: Date.now(),\n    };\n    this.notifications = [...this.notifications, notification];\n    return notification.id;\n  }\n}\n```\n`crypto.randomUUID()` generates a collision-free ID without dependencies. Spreading into a new array replaces the reference, triggering Glimmer reactivity. The method returns the `id` so callers can later dismiss the specific notification."
+  },
+  {
+    "id": 59,
+    "layer": "syntax",
+    "topic": "Notification service — removeNotification() method",
+    "instruction": "How do I write a removeNotification method that dismisses by ID?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class NotificationService extends Service {\n  @tracked notifications = [];\n\n  removeNotification(id) {\n    this.notifications = this.notifications.filter((n) => n.id !== id);\n  }\n}\n```\n`Array.filter` always returns a new array, replacing `this.notifications` and triggering Glimmer reactivity. Safe to call even if the ID no longer exists — filter returns the array unchanged."
+  },
+  {
+    "id": 60,
+    "layer": "syntax",
+    "topic": "Notification service — clearAll() method",
+    "instruction": "How do I add a clearAll method to a notification service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class NotificationService extends Service {\n  @tracked notifications = [];\n\n  clearAll() {\n    this.notifications = [];\n  }\n}\n```\nAssigning a fresh empty array replaces the reference, triggering reactivity — all consuming components re-render to show nothing. Simpler than filtering since no iteration is needed. Use on navigation or logout to reset notification state."
+  },
+  {
+    "id": 61,
+    "layer": "syntax",
+    "topic": "Notification service — auto-dismiss with task + timeout()",
+    "instruction": "How do I auto-dismiss notifications after 5 seconds using an ember-concurrency task?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task, timeout } from 'ember-concurrency';\n\nexport default class NotificationService extends Service {\n  @tracked notifications = [];\n\n  addNotification(message, type = 'info', autoDismiss = true) {\n    const id = crypto.randomUUID();\n    this.notifications = [...this.notifications, { id, message, type }];\n    if (autoDismiss) this.autoDismiss.perform(id);\n    return id;\n  }\n\n  removeNotification(id) {\n    this.notifications = this.notifications.filter((n) => n.id !== id);\n  }\n\n  autoDismiss = task(async (id) => {\n    await timeout(5000);\n    this.removeNotification(id);\n  });\n}\n```\nUsing `timeout()` from ember-concurrency instead of `setTimeout` makes the delay cancellable. If the service is destroyed before 5 seconds, the running task is automatically cancelled — preventing calls on a destroyed service."
+  },
+  {
+    "id": 62,
+    "layer": "syntax",
+    "topic": "Router service — this.router.transitionTo() usage",
+    "instruction": "How do I use the router service to navigate programmatically from another service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { service } from '@ember/service';\n\nexport default class AuthService extends Service {\n  @service router;\n\n  redirectToHome() {\n    this.router.transitionTo('home');\n  }\n\n  redirectToMatch(matchId) {\n    this.router.transitionTo('match', matchId);\n  }\n\n  redirectWithQuery() {\n    this.router.transitionTo('fixtures', { queryParams: { season: '2025' } });\n  }\n}\n```\nInject `router` using `@service` and call `transitionTo(routeName, ...models, options)`. The first argument is the route name, followed by optional dynamic segment values, and an options object for query params. Never use `window.location.href` in Ember."
+  },
+  {
+    "id": 63,
+    "layer": "syntax",
+    "topic": "Router service — this.router.currentRouteName getter",
+    "instruction": "How do I read the current route name from the router service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { service } from '@ember/service';\n\nexport default class NavigationService extends Service {\n  @service router;\n\n  get currentRoute() {\n    return this.router.currentRouteName;\n  }\n\n  isOnRoute(routeName) {\n    return this.router.currentRouteName === routeName;\n  }\n\n  isOnMatchPage() {\n    return this.router.currentRouteName?.startsWith('match');\n  }\n}\n```\n`router.currentRouteName` returns a string like `'match.index'`. It is reactive — template reads update on navigation. The `startsWith` check handles nested routes. Use for active nav highlighting or conditional logic."
+  },
+  {
+    "id": 64,
+    "layer": "syntax",
+    "topic": "Router service — this.router.urlFor() to build URLs",
+    "instruction": "How do I build a URL string without navigating, using the router service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { service } from '@ember/service';\n\nexport default class ShareService extends Service {\n  @service router;\n\n  getMatchUrl(matchId) {\n    return this.router.urlFor('match', matchId);\n  }\n\n  getShareLink(matchId) {\n    const path = this.router.urlFor('match', matchId);\n    return `${window.location.origin}${path}`;\n  }\n}\n```\n`urlFor` generates the URL string without triggering navigation — useful for share links and analytics. It takes the same arguments as `transitionTo`. Combine with `window.location.origin` to build absolute URLs."
+  },
+  {
+    "id": 65,
+    "layer": "syntax",
+    "topic": "Store service — store.findRecord() in component via injected store",
+    "instruction": "How do I call store.findRecord() in a component using the injected store service?",
+    "response": "```gjs\nimport Component from '@glimmer/component';\nimport { service } from '@ember/service';\nimport { task } from 'ember-concurrency';\n\nexport default class PlayerProfileComponent extends Component {\n  @service store;\n\n  loadPlayer = task(async (playerId) => {\n    return await this.store.findRecord('player', playerId);\n  });\n\n  <template>\n    {{#if (this.loadPlayer.isRunning)}}\n      <p>Loading player...</p>\n    {{else if this.loadPlayer.value}}\n      <p>{{this.loadPlayer.value.name}}</p>\n    {{/if}}\n  </template>\n}\n```\n`store.findRecord('modelName', id)` fetches a single record by ID, returning a promise. Wrapping in a task gives you loading state. If the record is already cached in Ember Data, `findRecord` returns it immediately without a network request."
+  },
+  {
+    "id": 66,
+    "layer": "syntax",
+    "topic": "Store service — store.createRecord() + save() in service task",
+    "instruction": "Show me how to create and save a new record using store.createRecord() inside a service task.",
+    "response": "```js\nimport Service from '@ember/service';\nimport { service } from '@ember/service';\nimport { task } from 'ember-concurrency';\n\nexport default class MatchService extends Service {\n  @service store;\n\n  createMatch = task(async (matchData) => {\n    const match = this.store.createRecord('match', {\n      venue: matchData.venue,\n      team1: matchData.team1,\n      team2: matchData.team2,\n      scheduledAt: matchData.scheduledAt,\n    });\n    await match.save();\n    return match;\n  });\n}\n```\n`store.createRecord` instantiates a new model in memory without persisting it. Calling `.save()` sends a POST request via the backend adapter. Wrapping in a task gives you `isRunning` and error state. The saved record is returned for further use."
+  },
+  {
+    "id": 67,
+    "layer": "syntax",
+    "topic": "Store service — store.peekAll() for cached data",
+    "instruction": "How do I use store.peekAll() to get cached records without making a network request?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { service } from '@ember/service';\n\nexport default class PlayerService extends Service {\n  @service store;\n\n  getCachedPlayers() {\n    return this.store.peekAll('player');\n  }\n\n  getCachedPlayerById(id) {\n    return this.store.peekRecord('player', id);\n  }\n\n  get cachedPlayerCount() {\n    return this.store.peekAll('player').length;\n  }\n}\n```\n`peekAll` returns all records of a type currently in the identity map — no network request. `peekRecord` retrieves a single cached record by ID, returning `null` if not loaded. Use these after an initial `findAll` to read data synchronously."
+  },
+  {
+    "id": 68,
+    "layer": "syntax",
+    "topic": "Store service — store.unloadAll() in service cleanup",
+    "instruction": "How do I unload all Ember Data records of a type in a service cleanup method?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { service } from '@ember/service';\n\nexport default class MatchService extends Service {\n  @service store;\n\n  clearMatchCache() {\n    this.store.unloadAll('match');\n  }\n\n  willDestroy() {\n    super.willDestroy();\n    this.store.unloadAll('match');\n    this.store.unloadAll('player');\n  }\n}\n```\n`store.unloadAll(modelName)` removes all records of that type from the identity map without network requests. Useful in `willDestroy` to prevent stale data in tests. In production, call when switching tournaments to force fresh data on next load."
+  },
+  {
+    "id": 69,
+    "layer": "syntax",
+    "topic": "Session service — @tracked isLoggedIn, persist to localStorage",
+    "instruction": "How do I create a session service with @tracked isLoggedIn that persists to localStorage?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class SessionService extends Service {\n  @tracked isLoggedIn = false;\n  @tracked userId = null;\n\n  establish(userId) {\n    this.isLoggedIn = true;\n    this.userId = userId;\n    localStorage.setItem('session', JSON.stringify({ isLoggedIn: true, userId }));\n  }\n\n  invalidate() {\n    this.isLoggedIn = false;\n    this.userId = null;\n    localStorage.removeItem('session');\n  }\n}\n```\nThe session service separates persistence (localStorage) from reactive state (`@tracked`). `establish` and `invalidate` keep both in sync. `@tracked isLoggedIn` drives template reactivity while localStorage survives page refreshes."
+  },
+  {
+    "id": 70,
+    "layer": "syntax",
+    "topic": "Session service — restore session from localStorage on init",
+    "instruction": "How do I restore a session from localStorage when the session service initializes?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class SessionService extends Service {\n  @tracked isLoggedIn = false;\n  @tracked userId = null;\n\n  constructor(owner, args) {\n    super(owner, args);\n    this.restoreSession();\n  }\n\n  restoreSession() {\n    try {\n      const raw = localStorage.getItem('session');\n      if (!raw) return;\n      const { isLoggedIn, userId } = JSON.parse(raw);\n      this.isLoggedIn = isLoggedIn ?? false;\n      this.userId = userId ?? null;\n    } catch {\n      localStorage.removeItem('session');\n    }\n  }\n}\n```\nThe `constructor` receives `owner` and `args` — always pass them to `super`. Wrap `JSON.parse` in try-catch to handle corrupted localStorage data gracefully. Nullish coalescing `??` provides safe defaults."
+  },
+  {
+    "id": 71,
+    "layer": "syntax",
+    "topic": "Session service — invalidate session (clear storage + @tracked)",
+    "instruction": "How do I write a complete session invalidation method that clears both storage and tracked state?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { service } from '@ember/service';\n\nexport default class SessionService extends Service {\n  @service router;\n  @tracked isLoggedIn = false;\n  @tracked userId = null;\n  @tracked userRole = null;\n\n  invalidate() {\n    this.isLoggedIn = false;\n    this.userId = null;\n    this.userRole = null;\n    localStorage.removeItem('session');\n    sessionStorage.clear();\n    this.router.transitionTo('login');\n  }\n}\n```\nClear all `@tracked` fields first before calling `transitionTo` — any guards triggered by navigation will see the logged-out state immediately. Clear both localStorage and sessionStorage for full cleanup."
+  },
+  {
+    "id": 72,
+    "layer": "syntax",
+    "topic": "Feature flag service — @tracked flags object, isEnabled() method",
+    "instruction": "How do I build a feature flag service with an isEnabled() method?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class FeatureFlagService extends Service {\n  @tracked flags = {\n    liveScore: true,\n    fantasyLeague: false,\n    videoHighlights: false,\n    darkMode: true,\n  };\n\n  isEnabled(flagName) {\n    return this.flags[flagName] ?? false;\n  }\n\n  enable(flagName) {\n    this.flags = { ...this.flags, [flagName]: true };\n  }\n\n  disable(flagName) {\n    this.flags = { ...this.flags, [flagName]: false };\n  }\n}\n```\nThe flags object must be replaced (not mutated) to trigger reactivity — spread `{ ...this.flags, [key]: value }` creates a new object. `isEnabled` returns `false` for unknown flags via `?? false` instead of `undefined`."
+  },
+  {
+    "id": 73,
+    "layer": "syntax",
+    "topic": "Analytics service — trackEvent() method (fire-and-forget task)",
+    "instruction": "How do I write a trackEvent method in an analytics service that doesn't block the UI?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { task } from 'ember-concurrency';\n\nexport default class AnalyticsService extends Service {\n  trackEvent(eventName, properties = {}) {\n    this._sendEvent.perform(eventName, properties);\n    // fire-and-forget: do not await\n  }\n\n  _sendEvent = task(async (eventName, properties) => {\n    await fetch('/api/analytics/events', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json' },\n      body: JSON.stringify({ event: eventName, properties, timestamp: Date.now() }),\n    });\n  });\n}\n```\n`trackEvent` is synchronous from the caller's perspective — it fires and forgets. Failures are silently ignored since analytics should never crash the app. Using a task over raw fetch ensures cleanup if the service is destroyed mid-request."
+  },
+  {
+    "id": 74,
+    "layer": "syntax",
+    "topic": "Analytics service — trackPageView() on router event",
+    "instruction": "How do I track page views automatically by listening to router events in an analytics service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { service } from '@ember/service';\n\nexport default class AnalyticsService extends Service {\n  @service router;\n\n  constructor(owner, args) {\n    super(owner, args);\n    this.router.on('routeDidChange', this, this._onRouteChange);\n  }\n\n  _onRouteChange(transition) {\n    if (transition.to?.name) {\n      fetch('/api/analytics/pageview', {\n        method: 'POST',\n        body: JSON.stringify({ route: transition.to.name, timestamp: Date.now() }),\n        headers: { 'Content-Type': 'application/json' },\n      });\n    }\n  }\n\n  willDestroy() {\n    super.willDestroy();\n    this.router.off('routeDidChange', this, this._onRouteChange);\n  }\n}\n```\nThe router emits `routeDidChange` after each successful navigation. Always deregister in `willDestroy` to prevent memory leaks. Pass `this` as context so `off()` can match the exact listener."
+  },
+  {
+    "id": 75,
+    "layer": "syntax",
+    "topic": "WebSocket service — connection setup task, @tracked isConnected",
+    "instruction": "How do I set up a WebSocket connection in a service with a @tracked isConnected property?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class WebSocketService extends Service {\n  @tracked isConnected = false;\n  _socket = null;\n\n  connect = task(async (url) => {\n    this._socket = new WebSocket(url);\n    await new Promise((resolve, reject) => {\n      this._socket.onopen = () => { this.isConnected = true; resolve(); };\n      this._socket.onerror = reject;\n    });\n  });\n\n  willDestroy() {\n    super.willDestroy();\n    this._socket?.close();\n    this.isConnected = false;\n  }\n}\n```\nThe `connect` task wraps `onopen` in a Promise so it can be awaited. `_socket` is a plain property (not `@tracked`) because the socket object itself doesn't drive templates. `isConnected` is tracked for reactive connection status display."
+  },
+  {
+    "id": 76,
+    "layer": "syntax",
+    "topic": "WebSocket service — send() method",
+    "instruction": "How do I write a send() method on a WebSocket service that safely checks connection state?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class WebSocketService extends Service {\n  @tracked isConnected = false;\n  _socket = null;\n\n  send(data) {\n    if (!this.isConnected || !this._socket) {\n      console.warn('WebSocket: attempted to send while disconnected');\n      return false;\n    }\n    const payload = typeof data === 'string' ? data : JSON.stringify(data);\n    this._socket.send(payload);\n    return true;\n  }\n}\n```\nAlways guard `send()` with a connection check — calling `socket.send()` on a closed socket throws. Auto-serialize objects to JSON. Returning a boolean lets callers detect if the message was actually sent."
+  },
+  {
+    "id": 77,
+    "layer": "syntax",
+    "topic": "WebSocket service — @tracked messages array, onMessage handler",
+    "instruction": "How do I store incoming WebSocket messages in a @tracked array?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class WebSocketService extends Service {\n  @tracked isConnected = false;\n  @tracked messages = [];\n  _socket = null;\n\n  _setupMessageHandler() {\n    this._socket.onmessage = (event) => {\n      const data = JSON.parse(event.data);\n      this.messages = [...this.messages, data];\n    };\n  }\n\n  get latestMessage() {\n    return this.messages.at(-1) ?? null;\n  }\n\n  clearMessages() {\n    this.messages = [];\n  }\n}\n```\nEach incoming message is spread into a new array — required for Glimmer reactivity. `Array.at(-1)` retrieves the last element cleanly. In a live cricket app each message might be a ball-by-ball update."
+  },
+  {
+    "id": 78,
+    "layer": "syntax",
+    "topic": "WebSocket service — reconnect logic (looping task)",
+    "instruction": "How do I implement automatic WebSocket reconnection using a looping ember-concurrency task?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task, timeout } from 'ember-concurrency';\n\nexport default class WebSocketService extends Service {\n  @tracked isConnected = false;\n  @tracked reconnectAttempts = 0;\n  _wsUrl = null;\n\n  reconnect = task(async () => {\n    while (true) {\n      await timeout(3000 * (this.reconnectAttempts + 1));\n      try {\n        await this.connect.perform(this._wsUrl);\n        this.reconnectAttempts = 0;\n        break;\n      } catch {\n        this.reconnectAttempts += 1;\n        if (this.reconnectAttempts >= 5) break;\n      }\n    }\n  });\n}\n```\nThe looping task retries with increasing delays (exponential back-off) up to 5 attempts. `timeout()` is cancellable — destroying the service during a wait stops the task cleanly. Reset `reconnectAttempts` on success."
+  },
+  {
+    "id": 79,
+    "layer": "syntax",
+    "topic": "WebSocket service — willDestroy closes connection",
+    "instruction": "How do I properly close a WebSocket connection when the service is destroyed?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class WebSocketService extends Service {\n  @tracked isConnected = false;\n  _socket = null;\n\n  willDestroy() {\n    super.willDestroy();\n    if (this._socket) {\n      this._socket.onmessage = null;\n      this._socket.onerror = null;\n      this._socket.onclose = null;\n      this._socket.close(1000, 'Service destroyed');\n      this._socket = null;\n    }\n    this.isConnected = false;\n  }\n}\n```\nAlways call `super.willDestroy()` first. Null out handlers before closing to prevent final events calling back into the destroyed service. Close code `1000` signals normal closure. Setting `_socket = null` allows garbage collection."
+  },
+  {
+    "id": 80,
+    "layer": "syntax",
+    "topic": "Locale/i18n service — @tracked currentLocale, t() method stub",
+    "instruction": "How do I create a basic locale service with @tracked currentLocale and a t() translation method?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nconst translations = {\n  en: { 'match.live': 'Live Match', 'player.runs': 'Runs' },\n  bn: { 'match.live': 'লাইভ ম্যাচ', 'player.runs': 'রান' },\n};\n\nexport default class LocaleService extends Service {\n  @tracked currentLocale = 'en';\n\n  t(key) {\n    return translations[this.currentLocale]?.[key] ?? key;\n  }\n\n  setLocale(locale) {\n    if (translations[locale]) this.currentLocale = locale;\n  }\n}\n```\nThe `t()` method falls back to the key itself if not found — safer than returning `undefined`. `setLocale` validates before switching. In production use `ember-intl` instead of this stub."
+  },
+  {
+    "id": 81,
+    "layer": "syntax",
+    "topic": "Theme service — @tracked currentTheme, toggle() method",
+    "instruction": "How do I build a theme service with @tracked currentTheme and a toggle() method?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ThemeService extends Service {\n  @tracked currentTheme = 'light';\n\n  get isDark() {\n    return this.currentTheme === 'dark';\n  }\n\n  toggle() {\n    this.currentTheme = this.isDark ? 'light' : 'dark';\n  }\n\n  setTheme(theme) {\n    if (['light', 'dark'].includes(theme)) {\n      this.currentTheme = theme;\n    }\n  }\n}\n```\n`toggle()` uses the `isDark` getter for clarity. `setTheme` validates input against allowed values. `currentTheme` being `@tracked` means any consuming component re-renders on change."
+  },
+  {
+    "id": 82,
+    "layer": "syntax",
+    "topic": "Theme service — persist theme to localStorage",
+    "instruction": "How do I persist and restore the theme using localStorage in a theme service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ThemeService extends Service {\n  @tracked currentTheme = 'light';\n\n  constructor(owner, args) {\n    super(owner, args);\n    const saved = localStorage.getItem('theme');\n    if (saved === 'light' || saved === 'dark') this.currentTheme = saved;\n  }\n\n  setTheme(theme) {\n    this.currentTheme = theme;\n    localStorage.setItem('theme', theme);\n  }\n\n  toggle() {\n    this.setTheme(this.currentTheme === 'dark' ? 'light' : 'dark');\n  }\n}\n```\nRestoring in the constructor ensures the correct theme loads before the first render. `setTheme` updates both `@tracked` state and localStorage — `toggle()` delegates to avoid duplicating persistence logic."
+  },
+  {
+    "id": 83,
+    "layer": "syntax",
+    "topic": "Theme service — apply theme class to document.body",
+    "instruction": "How do I apply a theme class to document.body from a theme service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ThemeService extends Service {\n  @tracked currentTheme = 'light';\n\n  constructor(owner, args) {\n    super(owner, args);\n    const saved = localStorage.getItem('theme') ?? 'light';\n    this.applyTheme(saved);\n  }\n\n  applyTheme(theme) {\n    this.currentTheme = theme;\n    document.body.classList.remove('theme-light', 'theme-dark');\n    document.body.classList.add(`theme-${theme}`);\n    localStorage.setItem('theme', theme);\n  }\n\n  toggle() {\n    this.applyTheme(this.currentTheme === 'dark' ? 'light' : 'dark');\n  }\n}\n```\n`classList.remove` both classes before adding prevents having both simultaneously. `applyTheme` co-locates all side effects. Works well with Tailwind's `dark:` variants when combined with a `dark` class on `body`."
+  },
+  {
+    "id": 84,
+    "layer": "syntax",
+    "topic": "Cart service — @tracked items array, addItem(), removeItem()",
+    "instruction": "How do I build a cart service with addItem and removeItem methods?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class CartService extends Service {\n  @tracked items = [];\n\n  addItem(product) {\n    const existing = this.items.find((item) => item.id === product.id);\n    if (existing) {\n      this.items = this.items.map((item) =>\n        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item\n      );\n    } else {\n      this.items = [...this.items, { ...product, quantity: 1 }];\n    }\n  }\n\n  removeItem(productId) {\n    this.items = this.items.filter((item) => item.id !== productId);\n  }\n}\n```\n`addItem` checks for an existing item to increment quantity rather than add a duplicate. `map` returns a new array for reactivity. `removeItem` uses `filter`. Both always replace `this.items` for Glimmer change detection."
+  },
+  {
+    "id": 85,
+    "layer": "syntax",
+    "topic": "Cart service — getter totalPrice computed from items",
+    "instruction": "How do I write a totalPrice getter in a cart service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class CartService extends Service {\n  @tracked items = [];\n\n  get totalPrice() {\n    return this.items.reduce((sum, item) => sum + item.price * item.quantity, 0);\n  }\n\n  get formattedTotalPrice() {\n    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(this.totalPrice);\n  }\n}\n```\nBecause `totalPrice` reads `@tracked items`, it recomputes automatically when items change. `Intl.NumberFormat` formats currency natively without any library. Both getters are usable directly in GJS templates."
+  },
+  {
+    "id": 86,
+    "layer": "syntax",
+    "topic": "Cart service — getter itemCount",
+    "instruction": "How do I write an itemCount getter that returns the total number of items in a cart service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class CartService extends Service {\n  @tracked items = [];\n\n  get itemCount() {\n    return this.items.reduce((total, item) => total + item.quantity, 0);\n  }\n\n  get isEmpty() {\n    return this.itemCount === 0;\n  }\n\n  get uniqueItemCount() {\n    return this.items.length;\n  }\n}\n```\n`itemCount` sums all quantities while `uniqueItemCount` returns distinct products. Both read `@tracked items` so they re-evaluate reactively. `isEmpty` drives the empty cart UI state."
+  },
+  {
+    "id": 87,
+    "layer": "syntax",
+    "topic": "Cart service — clear() method",
+    "instruction": "How do I add a clear() method to a cart service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class CartService extends Service {\n  @tracked items = [];\n  @tracked couponCode = null;\n\n  clear() {\n    this.items = [];\n    this.couponCode = null;\n  }\n\n  clearAfterCheckout() {\n    this.clear();\n    localStorage.removeItem('cart');\n  }\n}\n```\nAssigning `[]` replaces the array reference triggering reactivity. `clear()` resets all cart state including coupon codes. `clearAfterCheckout` adds cleanup of any persisted cart state."
+  },
+  {
+    "id": 88,
+    "layer": "syntax",
+    "topic": "Modal service — @tracked isOpen, @tracked modalComponent",
+    "instruction": "How do I set up a modal service with @tracked isOpen and @tracked modalComponent?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ModalService extends Service {\n  @tracked isOpen = false;\n  @tracked modalComponent = null;\n  @tracked modalOptions = {};\n\n  get hasModal() {\n    return this.isOpen && this.modalComponent !== null;\n  }\n}\n```\n`modalComponent` stores the name or class of the component to render inside the modal host. `modalOptions` passes configuration to the modal. `hasModal` is a safety getter to avoid rendering when nothing is set."
+  },
+  {
+    "id": 89,
+    "layer": "syntax",
+    "topic": "Modal service — open(componentName, options) method",
+    "instruction": "How do I write an open() method on a modal service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ModalService extends Service {\n  @tracked isOpen = false;\n  @tracked modalComponent = null;\n  @tracked modalOptions = {};\n\n  open(componentName, options = {}) {\n    this.modalComponent = componentName;\n    this.modalOptions = options;\n    this.isOpen = true;\n  }\n}\n```\nSet `modalComponent` and `modalOptions` before `isOpen = true` to avoid a render cycle where the modal host tries to render without knowing which component to show. The `options` object can include any props like `{ matchId: '123', title: 'Match Details' }`."
+  },
+  {
+    "id": 90,
+    "layer": "syntax",
+    "topic": "Modal service — close() method",
+    "instruction": "How do I write a close() method on a modal service that also runs a callback?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ModalService extends Service {\n  @tracked isOpen = false;\n  @tracked modalComponent = null;\n  @tracked modalOptions = {};\n  _onClose = null;\n\n  open(componentName, options = {}, onClose = null) {\n    this.modalComponent = componentName;\n    this.modalOptions = options;\n    this._onClose = onClose;\n    this.isOpen = true;\n  }\n\n  close(result = null) {\n    this.isOpen = false;\n    const callback = this._onClose;\n    this._onClose = null;\n    this.modalComponent = null;\n    this.modalOptions = {};\n    callback?.(result);\n  }\n}\n```\nThe optional `onClose` callback lets callers react to modal results. Clearing `_onClose` before calling it prevents double-invocation. Setting `isOpen = false` before clearing `modalComponent` gives close animations time to complete."
+  },
+  {
+    "id": 91,
+    "layer": "syntax",
+    "topic": "Toast service — @tracked toasts array, show(message, type)",
+    "instruction": "How do I build a toast service with a show() method?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ToastService extends Service {\n  @tracked toasts = [];\n\n  show(message, type = 'info', duration = 4000) {\n    const toast = { id: crypto.randomUUID(), message, type, duration };\n    this.toasts = [...this.toasts, toast];\n    if (duration > 0) setTimeout(() => this.dismiss(toast.id), duration);\n    return toast.id;\n  }\n\n  dismiss(id) {\n    this.toasts = this.toasts.filter((t) => t.id !== id);\n  }\n}\n```\n`duration = 0` disables auto-dismiss for persistent toasts. `crypto.randomUUID()` gives collision-free IDs. The `type` field maps to Tailwind classes for color coding (green=success, red=error)."
+  },
+  {
+    "id": 92,
+    "layer": "syntax",
+    "topic": "Toast service — dismiss(id) method",
+    "instruction": "How do I write a dismiss method for a toast service that removes by ID?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ToastService extends Service {\n  @tracked toasts = [];\n\n  dismiss(id) {\n    this.toasts = this.toasts.filter((toast) => toast.id !== id);\n  }\n\n  dismissAll() {\n    this.toasts = [];\n  }\n}\n```\n`filter` returns a new array excluding the dismissed toast, replacing `this.toasts` and triggering reactivity. `dismissAll` is a one-liner that resets to empty. Both are safe to call with non-existent IDs."
+  },
+  {
+    "id": 93,
+    "layer": "syntax",
+    "topic": "Toast service — success(), error(), warning() convenience methods",
+    "instruction": "How do I add convenience methods like success(), error(), and warning() to a toast service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ToastService extends Service {\n  @tracked toasts = [];\n\n  show(message, type = 'info', duration = 4000) {\n    const id = crypto.randomUUID();\n    this.toasts = [...this.toasts, { id, message, type }];\n    if (duration > 0) setTimeout(() => this.dismiss(id), duration);\n    return id;\n  }\n\n  dismiss(id) { this.toasts = this.toasts.filter((t) => t.id !== id); }\n  success(msg, duration = 4000) { return this.show(msg, 'success', duration); }\n  error(msg, duration = 0) { return this.show(msg, 'error', duration); }\n  warning(msg, duration = 6000) { return this.show(msg, 'warning', duration); }\n  info(msg, duration = 4000) { return this.show(msg, 'info', duration); }\n}\n```\nConvenience methods delegate to `show()` with type-specific defaults — errors persist (`duration = 0`) while info toasts auto-dismiss. Each returns the toast ID for programmatic dismissal."
+  },
+  {
+    "id": 94,
+    "layer": "syntax",
+    "topic": "Clipboard service — copy(text) task using navigator.clipboard",
+    "instruction": "How do I write a clipboard service with a copy task using the native Clipboard API?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task, timeout } from 'ember-concurrency';\n\nexport default class ClipboardService extends Service {\n  @tracked isCopied = false;\n\n  copy = task(async (text) => {\n    await navigator.clipboard.writeText(text);\n    this.isCopied = true;\n    await timeout(2000);\n    this.isCopied = false;\n  });\n}\n```\n`navigator.clipboard.writeText()` is Promise-based and requires a secure context (HTTPS or localhost). `isCopied` flips to `true` for 2 seconds to drive 'Copied!' UI feedback, then resets. Using `timeout()` makes the reset cancellable."
+  },
+  {
+    "id": 95,
+    "layer": "syntax",
+    "topic": "Scroll service — @tracked scrollTop, setup scroll listener in constructor",
+    "instruction": "How do I create a scroll service that tracks scrollTop using a window event listener?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ScrollService extends Service {\n  @tracked scrollTop = 0;\n\n  constructor(owner, args) {\n    super(owner, args);\n    this._onScroll = () => { this.scrollTop = window.scrollY; };\n    window.addEventListener('scroll', this._onScroll, { passive: true });\n  }\n\n  willDestroy() {\n    super.willDestroy();\n    window.removeEventListener('scroll', this._onScroll);\n  }\n}\n```\n`{ passive: true }` tells the browser the listener won't call `preventDefault()`, enabling scroll optimizations. Store the handler on `this._onScroll` so `removeEventListener` can identify the exact function to remove."
+  },
+  {
+    "id": 96,
+    "layer": "syntax",
+    "topic": "Scroll service — scrollTo(element) method",
+    "instruction": "How do I add a scrollTo() method to a scroll service?",
+    "response": "```js\nimport Service from '@ember/service';\n\nexport default class ScrollService extends Service {\n  scrollTo(element, options = {}) {\n    if (!element) return;\n    element.scrollIntoView({ behavior: options.behavior ?? 'smooth', block: options.block ?? 'start' });\n  }\n\n  scrollToTop(behavior = 'smooth') {\n    window.scrollTo({ top: 0, behavior });\n  }\n\n  scrollToId(elementId, options = {}) {\n    const el = document.getElementById(elementId);\n    this.scrollTo(el, options);\n  }\n}\n```\n`scrollIntoView` is native and handles cross-browser concerns. `scrollToId` is a convenience wrapper for common use cases. Guard against null `element` to prevent errors when the element hasn't rendered yet."
+  },
+  {
+    "id": 97,
+    "layer": "syntax",
+    "topic": "Breakpoint service — @tracked isMobile based on window.innerWidth",
+    "instruction": "How do I build a breakpoint service that tracks isMobile based on screen width?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class BreakpointService extends Service {\n  @tracked isMobile = window.innerWidth < 768;\n  @tracked isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;\n  @tracked isDesktop = window.innerWidth >= 1024;\n\n  constructor(owner, args) {\n    super(owner, args);\n    this._onResize = () => this._update();\n    window.addEventListener('resize', this._onResize, { passive: true });\n  }\n\n  _update() {\n    const w = window.innerWidth;\n    this.isMobile = w < 768;\n    this.isTablet = w >= 768 && w < 1024;\n    this.isDesktop = w >= 1024;\n  }\n\n  willDestroy() {\n    super.willDestroy();\n    window.removeEventListener('resize', this._onResize);\n  }\n}\n```\nBreakpoint values match Tailwind's default breakpoints (md: 768px, lg: 1024px). All three are `@tracked` so components re-render on resize. Initialization captures the correct initial value before any resize events."
+  },
+  {
+    "id": 98,
+    "layer": "syntax",
+    "topic": "Breakpoint service — resize listener setup and teardown",
+    "instruction": "How do I use ResizeObserver in a breakpoint service for better performance?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class BreakpointService extends Service {\n  @tracked width = window.innerWidth;\n  _resizeObserver = null;\n\n  constructor(owner, args) {\n    super(owner, args);\n    this._resizeObserver = new ResizeObserver(() => {\n      this.width = window.innerWidth;\n    });\n    this._resizeObserver.observe(document.documentElement);\n  }\n\n  get isMobile() { return this.width < 768; }\n  get isDesktop() { return this.width >= 1024; }\n\n  willDestroy() {\n    super.willDestroy();\n    this._resizeObserver?.disconnect();\n    this._resizeObserver = null;\n  }\n}\n```\n`ResizeObserver` on `document.documentElement` is more performant than `window.resize`. `.disconnect()` in `willDestroy` removes all observed targets. `_resizeObserver` is nulled after disconnecting for garbage collection."
+  },
+  {
+    "id": 99,
+    "layer": "syntax",
+    "topic": "Permission service — @tracked permissions array, can(action) method",
+    "instruction": "How do I build a permission service with a can() method that checks an array of permissions?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class PermissionService extends Service {\n  @tracked permissions = [];\n\n  can(action) {\n    return this.permissions.includes(action);\n  }\n\n  canAny(actions) {\n    return actions.some((action) => this.can(action));\n  }\n\n  canAll(actions) {\n    return actions.every((action) => this.can(action));\n  }\n\n  setPermissions(permissions) {\n    this.permissions = [...permissions];\n  }\n}\n```\n`can('edit:match')` checks if the string is in the permissions array. `canAny` returns true if at least one permission matches (OR logic). `canAll` requires all (AND logic). Permission strings follow `action:resource` convention."
+  },
+  {
+    "id": 100,
+    "layer": "syntax",
+    "topic": "Permission service — fetch permissions task on init",
+    "instruction": "How do I fetch user permissions from an API when the permission service initializes?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class PermissionService extends Service {\n  @tracked permissions = [];\n  @tracked isLoading = true;\n  @tracked error = null;\n\n  constructor(owner, args) {\n    super(owner, args);\n    this.fetchPermissions.perform();\n  }\n\n  fetchPermissions = task(async () => {\n    try {\n      this.isLoading = true;\n      this.error = null;\n      const response = await fetch('/api/user/permissions');\n      const { permissions } = await response.json();\n      this.permissions = permissions;\n    } catch (err) {\n      this.error = err.message;\n    } finally {\n      this.isLoading = false;\n    }\n  });\n\n  can(action) {\n    return this.permissions.includes(action);\n  }\n}\n```\nTriggering `fetchPermissions.perform()` in the constructor means permissions load as soon as the service is first injected. `isLoading` lets components show a skeleton state. `finally` ensures `isLoading` resets even on error."
+  },
+  {
+    "id": 101,
+    "layer": "syntax",
+    "topic": "Cricket score service — @tracked liveScore object, fetch task",
+    "instruction": "How do I create a cricket score service with a @tracked liveScore object and a fetch task?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class ScoreService extends Service {\n  @tracked liveScore = null;\n  @tracked isLoading = false;\n\n  fetchScore = task(async (matchId) => {\n    this.isLoading = true;\n    try {\n      const response = await fetch(`/api/matches/${matchId}/score`);\n      this.liveScore = await response.json();\n    } finally {\n      this.isLoading = false;\n    }\n  });\n}\n```\n`liveScore` starts as `null` so components can show an empty state. The `finally` block guarantees `isLoading` resets even if the fetch throws. Using a task instead of plain async gives `.isRunning`, `.lastError`, and cancellation."
+  },
+  {
+    "id": 102,
+    "layer": "syntax",
+    "topic": "Cricket score service — updateScore() method",
+    "instruction": "How do I write an updateScore method in a cricket score service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ScoreService extends Service {\n  @tracked liveScore = null;\n\n  updateScore(scoreData) {\n    this.liveScore = { ...this.liveScore, ...scoreData, updatedAt: Date.now() };\n  }\n\n  addRuns(runs) {\n    if (!this.liveScore) return;\n    this.liveScore = { ...this.liveScore, totalRuns: (this.liveScore.totalRuns ?? 0) + runs };\n  }\n\n  incrementWickets() {\n    if (!this.liveScore) return;\n    this.liveScore = { ...this.liveScore, wickets: (this.liveScore.wickets ?? 0) + 1 };\n  }\n}\n```\nSpread syntax merges incoming data and creates a new reference — required for reactivity. Guard each method with null check to prevent errors when called before data loads."
+  },
+  {
+    "id": 103,
+    "layer": "syntax",
+    "topic": "Cricket score service — startPolling() / stopPolling() task control",
+    "instruction": "How do I implement startPolling and stopPolling in a cricket score service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task, timeout } from 'ember-concurrency';\n\nexport default class ScoreService extends Service {\n  @tracked liveScore = null;\n  @tracked isPolling = false;\n\n  pollScore = task(async (matchId) => {\n    this.isPolling = true;\n    try {\n      while (true) {\n        const response = await fetch(`/api/matches/${matchId}/score`);\n        this.liveScore = await response.json();\n        await timeout(10000);\n      }\n    } finally {\n      this.isPolling = false;\n    }\n  });\n\n  startPolling(matchId) { this.pollScore.perform(matchId); }\n  stopPolling() { this.pollScore.cancelAll(); }\n}\n```\nThe infinite `while (true)` loop combined with `cancelAll()` is the idiomatic ember-concurrency polling pattern. `timeout()` is cancellable — stopping during the wait cleans up immediately. `isPolling` in `finally` resets on both stop and error."
+  },
+  {
+    "id": 104,
+    "layer": "syntax",
+    "topic": "Cricket score service — getter currentInnings from liveScore",
+    "instruction": "How do I write a currentInnings getter on a score service derived from liveScore?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ScoreService extends Service {\n  @tracked liveScore = null;\n\n  get currentInnings() { return this.liveScore?.currentInnings ?? 1; }\n  get battingTeam() { return this.liveScore?.battingTeam ?? null; }\n  get bowlingTeam() { return this.liveScore?.bowlingTeam ?? null; }\n  get currentOver() { return this.liveScore?.over ?? '0.0'; }\n}\n```\nOptional chaining `?.` safely navigates null `liveScore` before data loads. `?? 1` defaults to the first innings. These getters are reactive because they read `@tracked liveScore` — when score updates, all derived getters recompute."
+  },
+  {
+    "id": 105,
+    "layer": "syntax",
+    "topic": "Cricket score service — getter isMatchLive boolean",
+    "instruction": "How do I add an isMatchLive getter to a cricket score service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ScoreService extends Service {\n  @tracked liveScore = null;\n\n  get isMatchLive() { return this.liveScore?.status === 'live'; }\n  get isMatchComplete() { return this.liveScore?.status === 'completed'; }\n  get isMatchUpcoming() { return this.liveScore?.status === 'upcoming'; }\n\n  get matchStatusLabel() {\n    if (this.isMatchLive) return '🔴 Live';\n    if (this.isMatchComplete) return '✅ Completed';\n    if (this.isMatchUpcoming) return '🕐 Upcoming';\n    return 'Unknown';\n  }\n}\n```\nEach status getter reads `@tracked liveScore` so they all recompute reactively. `matchStatusLabel` composes the boolean getters for display, keeping template logic minimal."
+  },
+  {
+    "id": 106,
+    "layer": "syntax",
+    "topic": "Player service — @tracked selectedPlayer, selectPlayer() method",
+    "instruction": "How do I build a player service with @tracked selectedPlayer and a selectPlayer method?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class PlayerService extends Service {\n  @tracked selectedPlayer = null;\n\n  selectPlayer(player) { this.selectedPlayer = player; }\n  deselectPlayer() { this.selectedPlayer = null; }\n\n  get hasSelectedPlayer() { return this.selectedPlayer !== null; }\n\n  isSelected(playerId) {\n    return this.selectedPlayer?.id === playerId;\n  }\n}\n```\n`selectPlayer` takes a player object — not just an ID — so components can immediately render name, stats etc without a separate lookup. `isSelected(id)` lets each player card know if it should show highlight state."
+  },
+  {
+    "id": 107,
+    "layer": "syntax",
+    "topic": "Player service — fetchPlayer(id) task, caches result in @tracked map",
+    "instruction": "How do I write a fetchPlayer task that caches results in a @tracked object map?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class PlayerService extends Service {\n  @tracked playerCache = {};\n\n  fetchPlayer = task(async (playerId) => {\n    if (this.playerCache[playerId]) return this.playerCache[playerId];\n    const response = await fetch(`/api/players/${playerId}`);\n    const player = await response.json();\n    this.playerCache = { ...this.playerCache, [playerId]: player };\n    return player;\n  });\n\n  getPlayer(playerId) { return this.playerCache[playerId] ?? null; }\n}\n```\nReturn early from cache to avoid redundant API calls. Update `playerCache` using spread to create a new object reference — plain mutation won't trigger reactivity. `getPlayer` is a synchronous accessor for already-loaded data."
+  },
+  {
+    "id": 108,
+    "layer": "syntax",
+    "topic": "Player service — clearSelection() method",
+    "instruction": "How do I add a clearSelection method to a player service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class PlayerService extends Service {\n  @tracked selectedPlayer = null;\n  @tracked playerCache = {};\n\n  clearSelection() {\n    this.selectedPlayer = null;\n  }\n\n  clearCache() {\n    this.playerCache = {};\n  }\n\n  resetAll() {\n    this.clearSelection();\n    this.clearCache();\n  }\n}\n```\nSeparating `clearCache` allows a cache flush without losing the current selection. `resetAll` is for full state teardown — useful when navigating away from a team selection screen."
+  },
+  {
+    "id": 109,
+    "layer": "syntax",
+    "topic": "Match service — @tracked currentMatch, loadMatch(id) task",
+    "instruction": "How do I create a match service with @tracked currentMatch and a loadMatch task?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class MatchService extends Service {\n  @tracked currentMatch = null;\n  @tracked isLoading = false;\n  @tracked error = null;\n\n  loadMatch = task(async (matchId) => {\n    this.isLoading = true;\n    this.error = null;\n    this.currentMatch = null;\n    try {\n      const response = await fetch(`/api/matches/${matchId}`);\n      if (!response.ok) throw new Error(`HTTP ${response.status}`);\n      this.currentMatch = await response.json();\n    } catch (err) {\n      this.error = err.message;\n    } finally {\n      this.isLoading = false;\n    }\n  });\n}\n```\nClear `currentMatch` at the start to avoid showing stale data while the new one loads. The `if (!response.ok)` check converts HTTP errors into thrown errors. `finally` guarantees `isLoading` resets."
+  },
+  {
+    "id": 110,
+    "layer": "syntax",
+    "topic": "Match service — @tracked recentMatches array",
+    "instruction": "How do I add @tracked recentMatches to a match service with a fetch task?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class MatchService extends Service {\n  @tracked recentMatches = [];\n\n  fetchRecentMatches = task(async (teamId, limit = 5) => {\n    const response = await fetch(`/api/teams/${teamId}/matches?limit=${limit}&sort=desc`);\n    const { matches } = await response.json();\n    this.recentMatches = matches;\n  });\n\n  get lastMatch() { return this.recentMatches.at(0) ?? null; }\n  get winCount() { return this.recentMatches.filter((m) => m.result === 'win').length; }\n}\n```\n`recentMatches` defaults to `[]` so template `#each` loops don't crash before data loads. `.at(0)` retrieves the most recent match. `winCount` derives reactively from the tracked array."
+  },
+  {
+    "id": 111,
+    "layer": "syntax",
+    "topic": "Match service — getter hasActiveMatch boolean",
+    "instruction": "How do I write a hasActiveMatch getter on a match service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class MatchService extends Service {\n  @tracked currentMatch = null;\n\n  get hasActiveMatch() {\n    return this.currentMatch !== null && this.currentMatch.status === 'live';\n  }\n\n  get matchTitle() {\n    if (!this.currentMatch) return 'No Match';\n    const { team1, team2, venue } = this.currentMatch;\n    return `${team1} vs ${team2} at ${venue}`;\n  }\n\n  get isMatchLoaded() { return this.currentMatch !== null; }\n}\n```\n`hasActiveMatch` combines null check with status check — a match must both exist and be live. `matchTitle` uses destructuring and a template literal. All getters are reactive via `@tracked currentMatch`."
+  },
+  {
+    "id": 112,
+    "layer": "syntax",
+    "topic": "Tournament service — @tracked activeTournament, @tracked standings",
+    "instruction": "How do I create a tournament service with @tracked activeTournament and standings?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class TournamentService extends Service {\n  @tracked activeTournament = null;\n  @tracked standings = [];\n  @tracked isLoadingStandings = false;\n\n  get tournamentName() { return this.activeTournament?.name ?? 'Select Tournament'; }\n  get totalTeams() { return this.standings.length; }\n\n  setActiveTournament(tournament) {\n    this.activeTournament = tournament;\n    this.standings = [];\n  }\n}\n```\nClearing `standings` when a new tournament is selected prevents stale data. `tournamentName` uses optional chaining with a readable fallback. `totalTeams` derives reactively from standings length."
+  },
+  {
+    "id": 113,
+    "layer": "syntax",
+    "topic": "Tournament service — fetchStandings() task",
+    "instruction": "How do I write a fetchStandings task in a tournament service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class TournamentService extends Service {\n  @tracked standings = [];\n  @tracked activeTournament = null;\n\n  fetchStandings = task(async () => {\n    if (!this.activeTournament) return;\n    const response = await fetch(`/api/tournaments/${this.activeTournament.id}/standings`);\n    const { standings } = await response.json();\n    this.standings = standings.sort((a, b) => b.points - a.points);\n  });\n}\n```\nGuard with `if (!this.activeTournament) return` to avoid fetching without an ID. Sort descending by points immediately so consuming components always get sorted data."
+  },
+  {
+    "id": 114,
+    "layer": "syntax",
+    "topic": "Tournament service — getter topTeams (first 4 from standings)",
+    "instruction": "How do I add a topTeams getter to a tournament service that returns the top 4 teams?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class TournamentService extends Service {\n  @tracked standings = [];\n\n  get topTeams() { return this.standings.slice(0, 4); }\n  get bottomTeams() { return this.standings.slice(-2); }\n  get leaderTeam() { return this.standings.at(0) ?? null; }\n\n  isQualified(teamId) {\n    return this.topTeams.some((team) => team.id === teamId);\n  }\n}\n```\n`slice(0, 4)` returns the first 4 without mutating. `slice(-2)` returns the last 2 (relegation zone). `isQualified` checks if a specific team is in the top 4 — useful for highlighting qualified teams."
+  },
+  {
+    "id": 115,
+    "layer": "syntax",
+    "topic": "Favourites service — @tracked favouriteIds Set-workaround array",
+    "instruction": "How do I store favourite IDs in a service using an array as a Set workaround for reactivity?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class FavouritesService extends Service {\n  @tracked favouriteIds = [];\n\n  addFavourite(id) {\n    if (!this.favouriteIds.includes(id)) {\n      this.favouriteIds = [...this.favouriteIds, id];\n    }\n  }\n\n  removeFavourite(id) {\n    this.favouriteIds = this.favouriteIds.filter((fid) => fid !== id);\n  }\n\n  isFavourite(id) { return this.favouriteIds.includes(id); }\n  get count() { return this.favouriteIds.length; }\n}\n```\nGlimmer's `@tracked` does not track `Set` mutations — use an array instead. The `includes` check prevents duplicate IDs. Every write returns a new array reference maintaining reactivity."
+  },
+  {
+    "id": 116,
+    "layer": "syntax",
+    "topic": "Favourites service — toggleFavourite(id) method",
+    "instruction": "How do I write a toggleFavourite method in a favourites service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class FavouritesService extends Service {\n  @tracked favouriteIds = [];\n\n  toggleFavourite(id) {\n    if (this.isFavourite(id)) {\n      this.favouriteIds = this.favouriteIds.filter((fid) => fid !== id);\n    } else {\n      this.favouriteIds = [...this.favouriteIds, id];\n    }\n  }\n\n  isFavourite(id) { return this.favouriteIds.includes(id); }\n}\n```\n`toggleFavourite` delegates to `isFavourite` for the check — no duplicate logic. Both branches create new array references. The calling component only needs one `@action` and one service method."
+  },
+  {
+    "id": 117,
+    "layer": "syntax",
+    "topic": "Favourites service — isFavourite(id) method returns boolean",
+    "instruction": "How do I write an isFavourite method with namespaced IDs to support multiple entity types?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class FavouritesService extends Service {\n  @tracked favouriteIds = [];\n\n  isFavourite(id) { return this.favouriteIds.includes(String(id)); }\n  isFavouritePlayer(playerId) { return this.isFavourite(`player:${playerId}`); }\n  isFavouriteMatch(matchId) { return this.isFavourite(`match:${matchId}`); }\n}\n```\nConvert `id` to `String` to avoid type mismatches between numeric and string IDs. Namespacing with `player:` or `match:` prefixes allows storing favourites of different types in the same array without ID collisions."
+  },
+  {
+    "id": 118,
+    "layer": "syntax",
+    "topic": "Favourites service — persist to localStorage, restore on init",
+    "instruction": "How do I persist favourite IDs to localStorage and restore them when the service initializes?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nconst STORAGE_KEY = 'spordium:favourites';\n\nexport default class FavouritesService extends Service {\n  @tracked favouriteIds = [];\n\n  constructor(owner, args) {\n    super(owner, args);\n    try {\n      const stored = localStorage.getItem(STORAGE_KEY);\n      this.favouriteIds = stored ? JSON.parse(stored) : [];\n    } catch {\n      this.favouriteIds = [];\n    }\n  }\n\n  toggleFavourite(id) {\n    if (this.favouriteIds.includes(id)) {\n      this.favouriteIds = this.favouriteIds.filter((f) => f !== id);\n    } else {\n      this.favouriteIds = [...this.favouriteIds, id];\n    }\n    localStorage.setItem(STORAGE_KEY, JSON.stringify(this.favouriteIds));\n  }\n}\n```\n`constructor` restores favourites before first render. The `try-catch` handles corrupted JSON gracefully. Persist after every write to keep localStorage in sync. The constant `STORAGE_KEY` avoids magic strings."
+  },
+  {
+    "id": 119,
+    "layer": "syntax",
+    "topic": "Search service — @tracked query, @tracked results, @tracked isSearching",
+    "instruction": "How do I set up a search service with tracked query, results, and isSearching state?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class SearchService extends Service {\n  @tracked query = '';\n  @tracked results = [];\n  @tracked isSearching = false;\n  @tracked error = null;\n\n  get hasResults() { return this.results.length > 0; }\n  get isEmpty() {\n    return !this.isSearching && this.query.length > 0 && this.results.length === 0;\n  }\n\n  clearSearch() {\n    this.query = '';\n    this.results = [];\n    this.error = null;\n  }\n}\n```\nFour tracked properties cover all UI states: loading, empty query, results present, and error. `isEmpty` is true only when a search was performed but returned nothing — useful for 'No results found'. `clearSearch` resets all state atomically."
+  },
+  {
+    "id": 120,
+    "layer": "syntax",
+    "topic": "Search service — search(query) restartable task",
+    "instruction": "How do I write a restartable search task in a search service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task, timeout } from 'ember-concurrency';\n\nexport default class SearchService extends Service {\n  @tracked query = '';\n  @tracked results = [];\n\n  search = task({ restartable: true }, async (query) => {\n    this.query = query;\n    if (query.trim().length < 2) { this.results = []; return; }\n    await timeout(300);\n    const response = await fetch(`/api/search?q=${encodeURIComponent(query.trim())}`);\n    const { results } = await response.json();\n    this.results = results;\n  });\n}\n```\n`{ restartable: true }` cancels the previous search when a new one starts — ideal for search-as-you-type. The 300ms `timeout` acts as a debounce. Minimum 2 character guard prevents noisy searches."
+  },
+  {
+    "id": 121,
+    "layer": "syntax",
+    "topic": "Search service — clearSearch() method",
+    "instruction": "How do I write a clearSearch method that resets all search state?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class SearchService extends Service {\n  @tracked query = '';\n  @tracked results = [];\n  @tracked isSearching = false;\n\n  clearSearch() {\n    this.query = '';\n    this.results = [];\n    this.isSearching = false;\n    this.search?.cancelAll?.();\n  }\n\n  get hasQuery() { return this.query.trim().length > 0; }\n}\n```\n`cancelAll()` stops any in-flight search request, preventing stale results from appearing after clear. Optional chaining `?.` makes this safe even before the task is defined. Clearing `isSearching` prevents a stuck loading state."
+  },
+  {
+    "id": 122,
+    "layer": "syntax",
+    "topic": "Filter service — @tracked activeFilters object",
+    "instruction": "How do I create a filter service with a @tracked activeFilters object?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class FilterService extends Service {\n  @tracked activeFilters = {\n    team: null,\n    venue: null,\n    season: null,\n    matchType: null,\n  };\n\n  get hasActiveFilters() {\n    return Object.values(this.activeFilters).some((v) => v !== null);\n  }\n\n  get activeFilterCount() {\n    return Object.values(this.activeFilters).filter((v) => v !== null).length;\n  }\n}\n```\nInitializing with null values for all known filter keys makes the shape explicit. `Object.values` plus `some` efficiently checks if any filter is active. `activeFilterCount` drives a badge showing '3 filters applied'."
+  },
+  {
+    "id": 123,
+    "layer": "syntax",
+    "topic": "Filter service — setFilter(key, value) method",
+    "instruction": "How do I write a setFilter method in a filter service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class FilterService extends Service {\n  @tracked activeFilters = {};\n\n  setFilter(key, value) {\n    this.activeFilters = { ...this.activeFilters, [key]: value ?? null };\n  }\n\n  removeFilter(key) { this.setFilter(key, null); }\n  getFilter(key) { return this.activeFilters[key] ?? null; }\n}\n```\nSpread syntax creates a new object reference — required for Glimmer reactivity. Setting a filter to `null` effectively removes it so `removeFilter` delegates to `setFilter(key, null)`. `getFilter` provides safe read access."
+  },
+  {
+    "id": 124,
+    "layer": "syntax",
+    "topic": "Filter service — clearFilters() method",
+    "instruction": "How do I write a clearFilters method on a filter service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class FilterService extends Service {\n  @tracked activeFilters = {};\n\n  clearFilters() { this.activeFilters = {}; }\n\n  clearFilter(key) {\n    const { [key]: _removed, ...rest } = this.activeFilters;\n    this.activeFilters = rest;\n  }\n\n  resetToDefaults() {\n    this.activeFilters = { matchType: 'T20', season: '2025' };\n  }\n}\n```\nAssigning `{}` replaces the entire filters object in one operation. `clearFilter(key)` uses destructuring with rest to remove a single key immutably — no `delete` which mutates. `resetToDefaults` sets sensible starting filters."
+  },
+  {
+    "id": 125,
+    "layer": "syntax",
+    "topic": "Filter service — getter hasActiveFilters boolean",
+    "instruction": "How do I write a hasActiveFilters getter in a filter service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class FilterService extends Service {\n  @tracked activeFilters = {};\n\n  get hasActiveFilters() {\n    return Object.keys(this.activeFilters).length > 0;\n  }\n\n  get filterSummary() {\n    const entries = Object.entries(this.activeFilters);\n    if (entries.length === 0) return 'No filters';\n    return entries.map(([key, value]) => `${key}: ${value}`).join(', ');\n  }\n\n  get filterCount() { return Object.keys(this.activeFilters).length; }\n}\n```\n`Object.keys` checks how many filter keys exist. `filterSummary` builds a human-readable string like `'team: India, season: 2025'` for display in a chips/tags UI. All getters read `@tracked activeFilters` and recompute when filters change."
+  },
+  {
+    "id": 126,
+    "layer": "syntax",
+    "topic": "Pagination service — @tracked currentPage, @tracked totalPages",
+    "instruction": "How do I create a pagination service with @tracked currentPage and totalPages?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class PaginationService extends Service {\n  @tracked currentPage = 1;\n  @tracked totalPages = 1;\n  @tracked pageSize = 20;\n  @tracked totalItems = 0;\n\n  get isFirstPage() { return this.currentPage === 1; }\n  get isLastPage() { return this.currentPage >= this.totalPages; }\n\n  setMeta({ totalItems, pageSize }) {\n    this.totalItems = totalItems;\n    this.pageSize = pageSize;\n    this.totalPages = Math.ceil(totalItems / pageSize);\n  }\n}\n```\n`setMeta` computes `totalPages` from API response metadata. `isFirstPage` and `isLastPage` drive disabled state of prev/next buttons. `totalItems` allows showing 'Showing 20 of 500 matches' in the UI."
+  },
+  {
+    "id": 127,
+    "layer": "syntax",
+    "topic": "Pagination service — nextPage() / prevPage() methods",
+    "instruction": "How do I write nextPage and prevPage methods in a pagination service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class PaginationService extends Service {\n  @tracked currentPage = 1;\n  @tracked totalPages = 1;\n\n  nextPage() { if (this.currentPage < this.totalPages) this.currentPage += 1; }\n  prevPage() { if (this.currentPage > 1) this.currentPage -= 1; }\n\n  get canGoNext() { return this.currentPage < this.totalPages; }\n  get canGoPrev() { return this.currentPage > 1; }\n}\n```\nBoth methods guard against going out of bounds. `canGoNext` and `canGoPrev` drive the `disabled` attribute of navigation buttons, keeping the template declarative."
+  },
+  {
+    "id": 128,
+    "layer": "syntax",
+    "topic": "Pagination service — goToPage(n) method with bounds check",
+    "instruction": "How do I write a goToPage method with bounds checking in a pagination service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class PaginationService extends Service {\n  @tracked currentPage = 1;\n  @tracked totalPages = 1;\n\n  goToPage(page) {\n    this.currentPage = Math.max(1, Math.min(page, this.totalPages));\n  }\n\n  goToFirst() { this.currentPage = 1; }\n  goToLast() { this.currentPage = this.totalPages; }\n}\n```\n`Math.max(1, Math.min(page, totalPages))` clamps the value in one expression. Safer than throwing since page numbers often come from URL params or user input that may be out of range."
+  },
+  {
+    "id": 129,
+    "layer": "syntax",
+    "topic": "Pagination service — getter pageRange array for display",
+    "instruction": "How do I add a pageRange getter to a pagination service for rendering page number buttons?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class PaginationService extends Service {\n  @tracked currentPage = 1;\n  @tracked totalPages = 1;\n\n  get pageRange() {\n    const delta = 2;\n    const left = Math.max(1, this.currentPage - delta);\n    const right = Math.min(this.totalPages, this.currentPage + delta);\n    const range = [];\n    for (let i = left; i <= right; i++) range.push(i);\n    return range;\n  }\n\n  get showLeftEllipsis() { return this.currentPage > 3; }\n  get showRightEllipsis() { return this.currentPage < this.totalPages - 2; }\n}\n```\n`pageRange` returns page numbers within 2 of the current page — e.g., on page 5 of 10: `[3, 4, 5, 6, 7]`. `showLeftEllipsis` and `showRightEllipsis` tell the template when to render `...`."
+  },
+  {
+    "id": 130,
+    "layer": "syntax",
+    "topic": "Commentary service — @tracked comments array, addComment() method",
+    "instruction": "How do I build a commentary service with a @tracked comments array and addComment method?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class CommentaryService extends Service {\n  @tracked comments = [];\n\n  addComment(comment) {\n    const exists = this.comments.some((c) => c.id === comment.id);\n    if (!exists) this.comments = [comment, ...this.comments];\n  }\n\n  get latestComment() { return this.comments.at(0) ?? null; }\n  get commentCount() { return this.comments.length; }\n}\n```\nPrepending new comments (newest first) matches live commentary feed conventions. The duplicate check by `id` prevents the same ball appearing twice when polling. `latestComment` is used by ticker components."
+  },
+  {
+    "id": 131,
+    "layer": "syntax",
+    "topic": "Commentary service — fetch comments task, polling with restartable",
+    "instruction": "How do I write a polling task in a commentary service that fetches new comments regularly?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task, timeout } from 'ember-concurrency';\n\nexport default class CommentaryService extends Service {\n  @tracked comments = [];\n\n  pollComments = task({ restartable: true }, async (matchId) => {\n    while (true) {\n      const response = await fetch(`/api/matches/${matchId}/commentary`);\n      const { comments } = await response.json();\n      const existingIds = new Set(this.comments.map((c) => c.id));\n      const newComments = comments.filter((c) => !existingIds.has(c.id));\n      if (newComments.length > 0) this.comments = [...newComments, ...this.comments];\n      await timeout(8000);\n    }\n  });\n\n  stopPolling() { this.pollComments.cancelAll(); }\n}\n```\nUsing a `Set` for existing IDs makes the duplicate check O(1). Only prepend new comments. `restartable` means re-calling `perform(matchId)` cancels the old loop and starts fresh."
+  },
+  {
+    "id": 132,
+    "layer": "syntax",
+    "topic": "Commentary service — getter latestComment",
+    "instruction": "How do I write a latestComment getter in a commentary service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class CommentaryService extends Service {\n  @tracked comments = [];\n\n  get latestComment() { return this.comments.at(0) ?? null; }\n  get latestBallDescription() { return this.latestComment?.description ?? 'Waiting for commentary...'; }\n  get latestOver() { return this.latestComment?.over ?? null; }\n  get isLastBallWicket() { return this.latestComment?.isWicket === true; }\n}\n```\n`Array.at(0)` is the modern way to get the first element. All getters use optional chaining for safe access when `latestComment` is null. `isLastBallWicket` drives wicket animations in cricket apps."
+  },
+  {
+    "id": 133,
+    "layer": "syntax",
+    "topic": "Lineup service — @tracked lineup array",
+    "instruction": "How do I set up a lineup service with a @tracked lineup array?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class LineupService extends Service {\n  @tracked lineup = [];\n\n  get playerCount() { return this.lineup.length; }\n  get isValid() { return this.lineup.length === 11; }\n  get batsmen() { return this.lineup.filter((p) => p.role === 'batsman'); }\n  get bowlers() { return this.lineup.filter((p) => p.role === 'bowler'); }\n}\n```\nAn empty array default allows safe `#each` in templates. `isValid` enforces the 11-player cricket rule. `batsmen` and `bowlers` filter reactively — no need for separate tracked arrays for each role."
+  },
+  {
+    "id": 134,
+    "layer": "syntax",
+    "topic": "Lineup service — addPlayer() / removePlayer() methods",
+    "instruction": "How do I write addPlayer and removePlayer methods on a lineup service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class LineupService extends Service {\n  @tracked lineup = [];\n\n  addPlayer(player) {\n    if (this.lineup.length >= 11) return false;\n    if (this.lineup.some((p) => p.id === player.id)) return false;\n    this.lineup = [...this.lineup, player];\n    return true;\n  }\n\n  removePlayer(playerId) {\n    this.lineup = this.lineup.filter((p) => p.id !== playerId);\n  }\n}\n```\n`addPlayer` returns `false` for both failure cases (full or duplicate) so calling components can show feedback. The 11-player cap enforces cricket rules. `removePlayer` uses `filter` for an immutable new array."
+  },
+  {
+    "id": 135,
+    "layer": "syntax",
+    "topic": "Lineup service — reorderPlayer(from, to) method",
+    "instruction": "How do I write a reorderPlayer method in a lineup service for drag-and-drop reordering?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class LineupService extends Service {\n  @tracked lineup = [];\n\n  reorderPlayer(fromIndex, toIndex) {\n    const len = this.lineup.length;\n    if (fromIndex < 0 || toIndex < 0 || fromIndex >= len || toIndex >= len) return;\n    const newLineup = [...this.lineup];\n    const [moved] = newLineup.splice(fromIndex, 1);\n    newLineup.splice(toIndex, 0, moved);\n    this.lineup = newLineup;\n  }\n}\n```\nBounds-check both indices first. Copy with spread to avoid mutating the original. `splice` removes from `fromIndex` and inserts at `toIndex`. Assign back to `this.lineup` to trigger reactivity."
+  },
+  {
+    "id": 136,
+    "layer": "syntax",
+    "topic": "Lineup service — submit lineup task (drop)",
+    "instruction": "How do I write a drop task in a lineup service to submit the lineup to the API?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class LineupService extends Service {\n  @tracked lineup = [];\n  @tracked submitError = null;\n\n  submitLineup = task({ drop: true }, async (matchId) => {\n    if (this.lineup.length !== 11) throw new Error('Lineup must have exactly 11 players');\n    this.submitError = null;\n    try {\n      const response = await fetch(`/api/matches/${matchId}/lineup`, {\n        method: 'POST',\n        headers: { 'Content-Type': 'application/json' },\n        body: JSON.stringify({ players: this.lineup.map((p) => p.id) }),\n      });\n      if (!response.ok) throw new Error('Submission failed');\n    } catch (err) {\n      this.submitError = err.message;\n      throw err;\n    }\n  });\n}\n```\n`{ drop: true }` prevents double-submission — clicking submit while a submission is in progress is a no-op. Only player IDs are sent. `submitError` is set for UI display while also re-throwing so the component can catch it."
+  },
+  {
+    "id": 137,
+    "layer": "syntax",
+    "topic": "Stats service — fetchPlayerStats(playerId) task, memoize results",
+    "instruction": "How do I write a fetchPlayerStats task that memoizes results by player ID?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class StatsService extends Service {\n  @tracked statsCache = {};\n\n  fetchPlayerStats = task(async (playerId) => {\n    if (this.statsCache[playerId]) return this.statsCache[playerId];\n    const response = await fetch(`/api/players/${playerId}/stats`);\n    const stats = await response.json();\n    this.statsCache = { ...this.statsCache, [playerId]: stats };\n    return stats;\n  });\n}\n```\nReturn early from cache to avoid redundant calls. Spread to update `@tracked` object immutably. Since the service is a singleton, multiple components requesting the same player's stats share the cached result."
+  },
+  {
+    "id": 138,
+    "layer": "syntax",
+    "topic": "Stats service — @tracked statsCache object (id → stats map)",
+    "instruction": "How do I manage a @tracked statsCache object in a stats service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class StatsService extends Service {\n  @tracked statsCache = {};\n\n  setStats(playerId, stats) {\n    this.statsCache = { ...this.statsCache, [playerId]: stats };\n  }\n\n  getStats(playerId) { return this.statsCache[playerId] ?? null; }\n\n  hasStats(playerId) {\n    return Object.prototype.hasOwnProperty.call(this.statsCache, playerId);\n  }\n\n  invalidateStats(playerId) {\n    const { [playerId]: _removed, ...rest } = this.statsCache;\n    this.statsCache = rest;\n  }\n\n  clearCache() { this.statsCache = {}; }\n}\n```\n`Object.prototype.hasOwnProperty.call` is safer than `in` which checks the prototype chain. `invalidateStats` uses destructuring rest to remove a key immutably — critical after a stats update to force fresh data on next fetch."
+  },
+  {
+    "id": 139,
+    "layer": "syntax",
+    "topic": "Stats service — getter for a specific player's stats",
+    "instruction": "How do I write a getter in a stats service to access a specific player's cached stats?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class StatsService extends Service {\n  @tracked statsCache = {};\n  @tracked focusedPlayerId = null;\n\n  setFocusedPlayer(playerId) { this.focusedPlayerId = playerId; }\n\n  get focusedPlayerStats() {\n    if (!this.focusedPlayerId) return null;\n    return this.statsCache[this.focusedPlayerId] ?? null;\n  }\n\n  get focusedPlayerAverage() { return this.focusedPlayerStats?.batting?.average ?? 0; }\n  get focusedPlayerStrikeRate() { return this.focusedPlayerStats?.batting?.strikeRate ?? 0; }\n}\n```\n`focusedPlayerId` is tracked so changing the focused player triggers reactive updates to `focusedPlayerStats` and derived getters. Optional chaining handles missing nested stats gracefully."
+  },
+  {
+    "id": 140,
+    "layer": "syntax",
+    "topic": "Venue service — @tracked venues array, fetchVenues() task",
+    "instruction": "How do I create a venue service with a @tracked venues array and fetchVenues task?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class VenueService extends Service {\n  @tracked venues = [];\n  @tracked isLoaded = false;\n\n  fetchVenues = task(async () => {\n    if (this.isLoaded) return;\n    const response = await fetch('/api/venues');\n    const { venues } = await response.json();\n    this.venues = venues;\n    this.isLoaded = true;\n  });\n\n  get venueCount() { return this.venues.length; }\n}\n```\n`isLoaded` flag prevents duplicate fetches — venue data rarely changes so fetching once per session is sufficient. The guard returns early if data is already available."
+  },
+  {
+    "id": 141,
+    "layer": "syntax",
+    "topic": "Venue service — getVenueById(id) method (from cache)",
+    "instruction": "How do I write a getVenueById method that looks up venues from the cached array?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class VenueService extends Service {\n  @tracked venues = [];\n\n  getVenueById(id) {\n    return this.venues.find((v) => String(v.id) === String(id)) ?? null;\n  }\n\n  getVenuesByCity(city) {\n    return this.venues.filter((v) => v.city?.toLowerCase() === city.toLowerCase());\n  }\n\n  get venueNames() { return this.venues.map((v) => v.name); }\n}\n```\n`String(v.id) === String(id)` coerces both sides to avoid numeric vs string ID mismatches. `getVenuesByCity` is case-insensitive. `venueNames` is useful for populating a dropdown select."
+  },
+  {
+    "id": 142,
+    "layer": "syntax",
+    "topic": "Countdown service — @tracked secondsLeft, start(targetDate) task",
+    "instruction": "How do I build a countdown service that counts down to a target date?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task, timeout } from 'ember-concurrency';\n\nexport default class CountdownService extends Service {\n  @tracked secondsLeft = 0;\n\n  start = task(async (targetDate) => {\n    while (true) {\n      const now = Date.now();\n      const end = new Date(targetDate).getTime();\n      this.secondsLeft = Math.max(0, Math.floor((end - now) / 1000));\n      if (this.secondsLeft === 0) break;\n      await timeout(1000);\n    }\n  });\n\n  stop() {\n    this.start.cancelAll();\n    this.secondsLeft = 0;\n  }\n}\n```\nRe-calculate from `Date.now()` on each tick to self-correct for timer drift. `Math.max(0, ...)` clamps to 0. Breaking out of the loop when seconds hit 0 stops the task automatically."
+  },
+  {
+    "id": 143,
+    "layer": "syntax",
+    "topic": "Countdown service — stop() method (cancelAll)",
+    "instruction": "How do I write a stop method on a countdown service that cancels the task and resets?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\nimport { task } from 'ember-concurrency';\n\nexport default class CountdownService extends Service {\n  @tracked secondsLeft = 0;\n  @tracked isRunning = false;\n\n  start = task(async (targetDate) => {\n    this.isRunning = true;\n    try {\n      while (true) {\n        this.secondsLeft = Math.max(0, Math.floor((new Date(targetDate) - Date.now()) / 1000));\n        if (this.secondsLeft === 0) break;\n        const { timeout } = await import('ember-concurrency');\n        await timeout(1000);\n      }\n    } finally {\n      this.isRunning = false;\n    }\n  });\n\n  stop() { this.start.cancelAll(); this.secondsLeft = 0; }\n\n  willDestroy() { super.willDestroy(); this.stop(); }\n}\n```\n`cancelAll()` cancels all running instances. `isRunning` uses `finally` to reset cleanly on both finish and cancellation. `willDestroy` stops the countdown when the service tears down."
+  },
+  {
+    "id": 144,
+    "layer": "syntax",
+    "topic": "Countdown service — getter formattedTime (mm:ss)",
+    "instruction": "How do I add a formattedTime getter to a countdown service that returns mm:ss format?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class CountdownService extends Service {\n  @tracked secondsLeft = 0;\n\n  get formattedTime() {\n    const hours = Math.floor(this.secondsLeft / 3600);\n    const minutes = Math.floor((this.secondsLeft % 3600) / 60);\n    const seconds = this.secondsLeft % 60;\n    const mm = String(minutes).padStart(2, '0');\n    const ss = String(seconds).padStart(2, '0');\n    return hours > 0 ? `${hours}:${mm}:${ss}` : `${mm}:${ss}`;\n  }\n\n  get isUrgent() { return this.secondsLeft > 0 && this.secondsLeft <= 60; }\n}\n```\n`padStart(2, '0')` zero-pads single digits. Conditionally showing hours avoids `00:05:30` for short countdowns. `isUrgent` is true in the final 60 seconds — use it to switch text color to red in cricket pre-match timers."
+  },
+  {
+    "id": 145,
+    "layer": "syntax",
+    "topic": "Undo service — @tracked history array, push(snapshot) method",
+    "instruction": "How do I create an undo service with a @tracked history array and push method?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nconst MAX_HISTORY = 50;\n\nexport default class UndoService extends Service {\n  @tracked history = [];\n\n  push(snapshot) {\n    const next = [...this.history, snapshot];\n    this.history = next.length > MAX_HISTORY ? next.slice(-MAX_HISTORY) : next;\n  }\n\n  get canUndo() { return this.history.length > 0; }\n  get historySize() { return this.history.length; }\n}\n```\nCap history at 50 entries to prevent unbounded memory growth. `snapshot` should be a plain serializable object (e.g., a copy of lineup state). `canUndo` drives the disabled state of the undo button."
+  },
+  {
+    "id": 146,
+    "layer": "syntax",
+    "topic": "Undo service — undo() method, pop and return snapshot",
+    "instruction": "How do I write an undo method that removes and returns the latest snapshot?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class UndoService extends Service {\n  @tracked history = [];\n\n  push(snapshot) { this.history = [...this.history, snapshot]; }\n\n  undo() {\n    if (!this.canUndo) return null;\n    const snapshot = this.history.at(-1);\n    this.history = this.history.slice(0, -1);\n    return snapshot;\n  }\n\n  get canUndo() { return this.history.length > 0; }\n}\n```\nRead the last item with `.at(-1)` then create a new array excluding it with `.slice(0, -1)`. Fully immutable — no `pop()` mutation. The caller receives the snapshot and restores state from it. Returns `null` when history is empty."
+  },
+  {
+    "id": 147,
+    "layer": "syntax",
+    "topic": "Undo service — getter canUndo boolean",
+    "instruction": "How do I write canUndo and canRedo getters in an undo service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class UndoService extends Service {\n  @tracked history = [];\n  @tracked future = [];\n\n  get canUndo() { return this.history.length > 0; }\n  get canRedo() { return this.future.length > 0; }\n  get undoCount() { return this.history.length; }\n\n  get undoTooltip() {\n    return this.canUndo\n      ? `Undo (${this.undoCount} steps available)`\n      : 'Nothing to undo';\n  }\n}\n```\n`canUndo` and `canRedo` are simple boolean getters that read tracked arrays. `undoTooltip` composes a user-facing string for `title` attributes on undo buttons in a cricket score editor."
+  },
+  {
+    "id": 148,
+    "layer": "syntax",
+    "topic": "Error tracking service — logError(error, context) method",
+    "instruction": "How do I write a logError method in an error tracking service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ErrorTrackingService extends Service {\n  @tracked lastError = null;\n  @tracked errorCount = 0;\n\n  logError(error, context = {}) {\n    this.lastError = { error, context, timestamp: Date.now() };\n    this.errorCount += 1;\n    console.error('[ErrorTracking]', error, context);\n    this._sendToServer(error, context);\n  }\n\n  _sendToServer(error, context) {\n    fetch('/api/errors', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json' },\n      body: JSON.stringify({ message: error.message, stack: error.stack, context }),\n    }).catch(() => {}); // swallow errors to avoid infinite loops\n  }\n}\n```\n`_sendToServer` swallows its own fetch errors — an error reporter must never throw. `lastError` and `errorCount` are `@tracked` for a global error banner. `context` accepts arbitrary data like `{ matchId, action: 'submitLineup' }`."
+  },
+  {
+    "id": 149,
+    "layer": "syntax",
+    "topic": "Error tracking service — @tracked lastError, clearError() method",
+    "instruction": "How do I add a clearError method and lastError property to an error tracking service?",
+    "response": "```js\nimport Service from '@ember/service';\nimport { tracked } from '@glimmer/tracking';\n\nexport default class ErrorTrackingService extends Service {\n  @tracked lastError = null;\n  @tracked errors = [];\n\n  get hasError() { return this.lastError !== null; }\n  get errorMessage() { return this.lastError?.error?.message ?? null; }\n\n  clearError() { this.lastError = null; }\n  clearAllErrors() { this.lastError = null; this.errors = []; }\n}\n```\n`clearError` is called by the dismiss button on a global error banner. `hasError` drives conditional rendering. `errorMessage` safely extracts the message string. Keeping `errors` as an array allows an error history panel for debugging."
+  },
+  {
+    "id": 150,
+    "layer": "syntax",
+    "topic": "Config service — read-only getters for environment config values",
+    "instruction": "How do I create a config service with read-only getters for environment configuration?",
+    "response": "```js\nimport Service from '@ember/service';\nimport config from 'spordium-web/config/environment';\n\nexport default class ConfigService extends Service {\n  get apiBaseUrl() { return config.APP.apiBaseUrl; }\n  get wsUrl() { return config.APP.websocketUrl; }\n  get isProduction() { return config.environment === 'production'; }\n  get isDevelopment() { return config.environment === 'development'; }\n\n  get featureFlags() {\n    return Object.freeze({ ...config.APP.featureFlags });\n  }\n}\n```\nRead-only getters prevent accidental mutation of config values. `Object.freeze` on `featureFlags` makes the returned object immutable. Wrapping ENV imports in a service makes config mockable in tests via `this.owner.register('service:config', MockConfigService)`."
+  }
 ];
