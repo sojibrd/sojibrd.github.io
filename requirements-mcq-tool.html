@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System Design Requirements Analyzer</title>
+<style>
+  :root {
+    --bg: #0f0f13;
+    --bg2: #16161e;
+    --bg3: #1e1e2a;
+    --surface: #1e1e2a;
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.18);
+    --text: #e8e8f0;
+    --text2: #9090a8;
+    --text3: #5a5a72;
+    --accent: #7c6af7;
+    --accent2: #5e4fd4;
+    --accent-glow: rgba(124,106,247,0.15);
+    --green: #3ecf8e;
+    --green-bg: rgba(62,207,142,0.1);
+    --yellow: #f4c542;
+    --yellow-bg: rgba(244,197,66,0.1);
+    --red: #f06565;
+    --red-bg: rgba(240,101,101,0.12);
+    --selected-bg: rgba(124,106,247,0.18);
+    --selected-border: rgba(124,106,247,0.7);
+    --radius: 10px;
+    --radius-sm: 6px;
+    --transition: 0.18s ease;
+  }
+  .light {
+    --bg: #f5f5f8;
+    --bg2: #ffffff;
+    --bg3: #eeeef4;
+    --surface: #ffffff;
+    --border: rgba(0,0,0,0.08);
+    --border-hover: rgba(0,0,0,0.18);
+    --text: #1a1a2e;
+    --text2: #5a5a7a;
+    --text3: #9090aa;
+    --accent: #6254e0;
+    --accent2: #4d3ec7;
+    --accent-glow: rgba(98,84,224,0.12);
+    --green: #1a9e64;
+    --green-bg: rgba(26,158,100,0.08);
+    --yellow: #c49012;
+    --yellow-bg: rgba(196,144,18,0.08);
+    --red: #d44040;
+    --red-bg: rgba(212,64,64,0.08);
+    --selected-bg: rgba(98,84,224,0.1);
+    --selected-border: rgba(98,84,224,0.55);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 15px; }
+  body {
+    font-family: 'SF Pro Display', -apple-system, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+    transition: background var(--transition), color var(--transition);
+  }
+
+  /* LAYOUT */
+  #app { max-width: 720px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+
+  /* TOPBAR */
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 2.5rem;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 1rem; font-weight: 600; letter-spacing: -0.02em; color: var(--text);
+  }
+  .logo-icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--accent); display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .theme-btn {
+    width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border);
+    background: var(--surface); cursor: pointer; display: flex; align-items: center;
+    justify-content: center; font-size: 16px; color: var(--text2);
+    transition: all var(--transition); flex-shrink: 0;
+  }
+  .theme-btn:hover { border-color: var(--border-hover); color: var(--text); }
+  .reset-btn {
+    padding: 6px 14px; border-radius: var(--radius-sm);
+    border: 1px solid var(--border); background: transparent;
+    color: var(--text2); cursor: pointer; font-size: 0.8rem;
+    transition: all var(--transition);
+  }
+  .reset-btn:hover { border-color: var(--border-hover); color: var(--text); }
+
+  /* PROGRESS BAR */
+  .progress-wrap { margin-bottom: 2rem; }
+  .progress-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.78rem; color: var(--text2); margin-bottom: 8px;
+  }
+  .progress-bar-bg {
+    height: 3px; background: var(--border); border-radius: 99px; overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%; background: var(--accent); border-radius: 99px;
+    transition: width 0.4s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  /* STEP HEADER */
+  .step-header { margin-bottom: 1.8rem; }
+  .step-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--accent-glow); color: var(--accent);
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 99px; border: 1px solid var(--selected-border);
+    margin-bottom: 12px;
+  }
+  .step-title {
+    font-size: 1.4rem; font-weight: 700; letter-spacing: -0.03em;
+    color: var(--text); line-height: 1.3;
+  }
+  .step-subtitle { font-size: 0.85rem; color: var(--text2); margin-top: 6px; }
+
+  /* QUESTION CARD */
+  .q-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.4rem;
+    margin-bottom: 1.2rem; animation: fadein 0.22s ease;
+  }
+  @keyframes fadein { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+  .q-label {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--text3); margin-bottom: 8px;
+  }
+  .q-text { font-size: 0.98rem; font-weight: 500; color: var(--text); margin-bottom: 14px; }
+
+  /* OPTIONS GRID */
+  .options-grid { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 12px; }
+  .opt-chip {
+    padding: 6px 12px; border-radius: var(--radius-sm);
+    border: 1px solid var(--border); background: var(--bg3);
+    color: var(--text2); font-size: 0.82rem; cursor: pointer;
+    transition: all var(--transition); user-select: none;
+  }
+  .opt-chip:hover { border-color: var(--border-hover); color: var(--text); }
+  .opt-chip.selected {
+    background: var(--selected-bg); border-color: var(--selected-border);
+    color: var(--accent); font-weight: 500;
+  }
+
+  /* CUSTOM INPUT */
+  .custom-input-wrap { display: flex; gap: 7px; margin-top: 6px; }
+  .custom-input {
+    flex: 1; padding: 7px 12px; border-radius: var(--radius-sm);
+    border: 1px solid var(--border); background: var(--bg3);
+    color: var(--text); font-size: 0.82rem; outline: none;
+    transition: border-color var(--transition);
+  }
+  .custom-input:focus { border-color: var(--accent); }
+  .custom-input::placeholder { color: var(--text3); }
+  .add-btn {
+    padding: 7px 14px; border-radius: var(--radius-sm);
+    border: 1px solid var(--border); background: var(--bg3);
+    color: var(--text2); font-size: 0.82rem; cursor: pointer;
+    transition: all var(--transition); white-space: nowrap;
+  }
+  .add-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* CONFLICT WARNING */
+  .conflict-warn {
+    margin-top: 10px; padding: 10px 14px; border-radius: var(--radius-sm);
+    background: var(--yellow-bg); border: 1px solid rgba(244,197,66,0.25);
+    color: var(--yellow); font-size: 0.8rem; display: flex; gap: 8px; align-items: flex-start;
+  }
+  .conflict-warn .warn-icon { flex-shrink: 0; font-size: 14px; margin-top: 1px; }
+
+  /* NAVIGATION */
+  .nav-row {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 1.8rem; gap: 10px;
+  }
+  .nav-btn {
+    padding: 10px 22px; border-radius: var(--radius);
+    font-size: 0.88rem; font-weight: 500; cursor: pointer;
+    transition: all var(--transition); border: 1px solid;
+  }
+  .nav-btn.primary {
+    background: var(--accent); border-color: var(--accent);
+    color: #fff;
+  }
+  .nav-btn.primary:hover { background: var(--accent2); border-color: var(--accent2); }
+  .nav-btn.secondary {
+    background: transparent; border-color: var(--border);
+    color: var(--text2);
+  }
+  .nav-btn.secondary:hover { border-color: var(--border-hover); color: var(--text); }
+  .nav-btn.skip-btn {
+    background: transparent; border-color: transparent;
+    color: var(--text3); font-size: 0.8rem; padding: 10px 8px;
+  }
+  .nav-btn.skip-btn:hover { color: var(--text2); }
+  .nav-left { display: flex; gap: 8px; }
+
+  /* OUTPUT */
+  .output-wrap { animation: fadein 0.3s ease; }
+  .output-title {
+    font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em;
+    margin-bottom: 4px;
+  }
+  .output-sub { font-size: 0.85rem; color: var(--text2); margin-bottom: 1.5rem; }
+  .output-box {
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.4rem;
+    font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace;
+    font-size: 0.8rem; line-height: 1.7; color: var(--text);
+    white-space: pre-wrap; word-break: break-word;
+    max-height: 520px; overflow-y: auto; margin-bottom: 1rem;
+  }
+  .copy-btn {
+    display: flex; align-items: center; gap: 7px;
+    padding: 10px 20px; border-radius: var(--radius);
+    border: 1px solid var(--border); background: var(--surface);
+    color: var(--text); font-size: 0.86rem; font-weight: 500;
+    cursor: pointer; transition: all var(--transition);
+  }
+  .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .copy-btn.copied { background: var(--green-bg); border-color: var(--green); color: var(--green); }
+
+  /* START SCREEN */
+  .start-screen { animation: fadein 0.3s ease; }
+  .hero {
+    text-align: center; padding: 2rem 0 2.5rem;
+  }
+  .hero-icon {
+    width: 64px; height: 64px; border-radius: 18px;
+    background: var(--accent-glow); border: 1px solid var(--selected-border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px; margin: 0 auto 1.2rem;
+  }
+  .hero-title {
+    font-size: 1.8rem; font-weight: 800; letter-spacing: -0.04em;
+    margin-bottom: 0.5rem; line-height: 1.2;
+  }
+  .hero-sub { font-size: 0.9rem; color: var(--text2); max-width: 420px; margin: 0 auto; }
+  .project-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 8px; margin: 1.5rem 0;
+  }
+  .project-chip {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 14px; border-radius: var(--radius);
+    border: 1px solid var(--border); background: var(--surface);
+    cursor: pointer; transition: all var(--transition);
+    font-size: 0.84rem; color: var(--text2);
+  }
+  .project-chip:hover { border-color: var(--border-hover); color: var(--text); }
+  .project-chip.selected {
+    background: var(--selected-bg); border-color: var(--selected-border);
+    color: var(--accent); font-weight: 500;
+  }
+  .project-chip-icon { font-size: 17px; flex-shrink: 0; }
+  .start-err {
+    color: var(--red); font-size: 0.8rem; margin-top: 6px;
+    padding: 8px 12px; background: var(--red-bg);
+    border-radius: var(--radius-sm); border: 1px solid rgba(240,101,101,0.2);
+  }
+  .resume-banner {
+    background: var(--green-bg); border: 1px solid rgba(62,207,142,0.25);
+    border-radius: var(--radius); padding: 12px 16px; margin-bottom: 1.5rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    font-size: 0.84rem; color: var(--green);
+  }
+  .resume-btn {
+    padding: 6px 14px; border-radius: var(--radius-sm);
+    background: var(--green); color: #fff; font-size: 0.8rem;
+    font-weight: 600; cursor: pointer; border: none; flex-shrink: 0;
+    transition: opacity var(--transition);
+  }
+  .resume-btn:hover { opacity: 0.85; }
+
+  @media (max-width: 520px) {
+    .project-grid { grid-template-columns: 1fr 1fr; }
+    .step-title { font-size: 1.2rem; }
+    .nav-row { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="topbar">
+    <div class="logo">
+      <div class="logo-icon">🧩</div>
+      Requirements Analyzer
+    </div>
+    <div class="topbar-right">
+      <button class="reset-btn" onclick="resetAll()">↺ Reset</button>
+      <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
+    </div>
+  </div>
+  <div id="root"></div>
+</div>
+
+<script>
+const PROJECT_TYPES = [
+  { id:'ecommerce', label:'E-commerce', icon:'🛒' },
+  { id:'food', label:'Food Delivery', icon:'🍔' },
+  { id:'social', label:'Social Feed', icon:'📱' },
+  { id:'messaging', label:'Messaging / Chat', icon:'💬' },
+  { id:'booking', label:'Booking System', icon:'📅' },
+  { id:'ride', label:'Ride Sharing', icon:'🚗' },
+  { id:'healthcare', label:'Healthcare', icon:'🏥' },
+  { id:'education', label:'Education / LMS', icon:'📚' },
+  { id:'banking', label:'Banking / Fintech', icon:'🏦' },
+  { id:'analytics', label:'Analytics / Observability', icon:'📊' },
+];
+
+const QUESTIONS = [
+  // Step 2 — Scale & Traffic
+  { id:'dau', step:2, stepLabel:'Scale & Traffic', q:'Expected DAU (Daily Active Users)?', types:'all',
+    opts:['Less than 1K','1K – 10K','10K – 100K','100K – 500K','500K – 1M','1M – 5M','5M – 10M','10M – 50M','50M – 100M','100M+'] },
+  { id:'rw', step:2, stepLabel:'Scale & Traffic', q:'Read / Write Ratio?', types:'all',
+    opts:['Mostly Read (100:1)','Read Heavy (10:1)','Balanced (1:1)','Write Heavy (1:10)','Mostly Write (1:100)','Burst Write','Burst Read','Real-time bidirectional','Append-only (logs)','Time-series (metrics)'] },
+  { id:'peak', step:2, stepLabel:'Scale & Traffic', q:'Peak Traffic কখন হয়?', types:'all',
+    opts:['Business hours (9am–6pm)','Evening (6pm–12am)','Midnight (12am–6am)','Weekend heavy','Weekday heavy','Event-based spike','Seasonal (holiday, exam)','Unpredictable','Uniform 24/7','Geographic timezone based'] },
+  { id:'geo', step:2, stepLabel:'Scale & Traffic', q:'Geographic Scope?', types:'all',
+    opts:['Single city','Single country','South Asia region','Asia Pacific','Europe','North America','Global (all regions)','Multi-region active-active','Primary + DR region','Edge locations needed'] },
+  { id:'growth', step:2, stepLabel:'Scale & Traffic', q:'Data Growth Rate?', types:'all',
+    opts:['Slow (<10%/yr)','Moderate (10–50%/yr)','Fast (50–100%/yr)','Hypergrowth (100%+/yr)','Unpredictable','Seasonal','Plateau (stable)','Declining','Burst then stable','Event-driven'] },
+
+  // Step 3 — Functional (common)
+  { id:'auth', step:3, stepLabel:'Functional Requirements', q:'Authentication কেমন হবে?', types:'all',
+    opts:['Email & Password','Social Login (Google/Facebook)','Phone OTP','Magic Link (email)','SSO','Biometric','Guest access','MFA','OAuth2','API Key based'] },
+  { id:'notif', step:3, stepLabel:'Functional Requirements', q:'Notification কী কী লাগবে?', types:'all',
+    opts:['In-app notification','Email notification','SMS notification','Push notification (FCM)','WhatsApp notification','Webhook','Slack / Teams integration','Browser notification','Digest summary','No notification'] },
+  { id:'upload', step:3, stepLabel:'Functional Requirements', q:'File / Media upload দরকার?', types:'all',
+    opts:['Profile image','Product images','Video upload','Document (PDF/DOC)','Audio file','Bulk import (CSV/Excel)','No upload needed','Image compression','CDN delivery','File size limit enforce'] },
+
+  // E-commerce specific
+  { id:'product', step:3, stepLabel:'Functional Requirements', q:'Product management কেমন হবে?', types:['ecommerce'],
+    opts:['Single product listing','Product variants (size/color)','Digital products','Subscription products','Bundle products','Flash sale / Limited stock','Product comparison','Wishlist','Recently viewed','Product recommendation'] },
+  { id:'cart', step:3, stepLabel:'Functional Requirements', q:'Cart & Checkout?', types:['ecommerce'],
+    opts:['Simple cart','Save cart (persistent)','Guest checkout','Multiple addresses','Coupon / Discount','Gift card','Buy now (skip cart)','Bulk order','Scheduled delivery','Split payment'] },
+  { id:'payment', step:3, stepLabel:'Functional Requirements', q:'Payment কেমন হবে?', types:['ecommerce','banking'],
+    opts:['Credit/Debit card','Mobile banking (bKash/Nagad)','SSLCommerz','Stripe','PayPal','Cash on delivery','Bank transfer','Installment / EMI','Refund system','Invoice generation'] },
+
+  // Food Delivery
+  { id:'restaurant', step:3, stepLabel:'Functional Requirements', q:'Restaurant management?', types:['food'],
+    opts:['Menu management','Real-time availability toggle','Operating hours','Multiple branches','Rating & reviews','Featured listing','Category browsing','Cuisine filter','Minimum order','Preparation time estimate'] },
+  { id:'delivery', step:3, stepLabel:'Functional Requirements', q:'Delivery management?', types:['food','ride'],
+    opts:['Real-time GPS tracking','Auto-assign delivery person','Manual assign','Delivery zone management','Estimated delivery time','Route optimization','Multiple stops','Contactless delivery','Proof of delivery (photo)','Delivery rating'] },
+
+  // Social Feed
+  { id:'post', step:3, stepLabel:'Functional Requirements', q:'Post & Content?', types:['social'],
+    opts:['Text post','Image post','Video post','Story (24hr expiry)','Poll','Live streaming','Repost / Share','Quote post','Thread / Series','Scheduled post'] },
+  { id:'social_interact', step:3, stepLabel:'Functional Requirements', q:'Social interactions?', types:['social','messaging'],
+    opts:['Like / React','Comment','Reply to comment','Follow / Unfollow','Block / Mute','Tag / Mention','Hashtag','Share to external','Save / Bookmark','Report content'] },
+
+  // Messaging
+  { id:'chat', step:3, stepLabel:'Functional Requirements', q:'Chat features?', types:['messaging'],
+    opts:['One-to-one chat','Group chat','Broadcast message','File sharing in chat','Voice message','Read receipt','Typing indicator','Message reaction','Reply to message','Delete / Edit message'] },
+
+  // Booking
+  { id:'booking_mgmt', step:3, stepLabel:'Functional Requirements', q:'Booking management?', types:['booking'],
+    opts:['Time slot based booking','Resource based booking','Recurring booking','Group booking','Waitlist','Auto-confirm','Manual confirm','Cancellation policy','Reschedule','Reminder notification'] },
+
+  // Ride
+  { id:'ride_mgmt', step:3, stepLabel:'Functional Requirements', q:'Ride management?', types:['ride'],
+    opts:['Real-time driver matching','Fare estimate','Multiple ride types','Schedule ride','Share ride (pool)','Driver rating','Route tracking','SOS / Emergency button','Promo code','Corporate account'] },
+
+  // Healthcare
+  { id:'medical', step:3, stepLabel:'Functional Requirements', q:'Medical features?', types:['healthcare'],
+    opts:['Doctor listing & search','Appointment booking','Video consultation','Prescription management','Medical history','Lab report upload','Medicine reminder','Insurance integration','Emergency contact','Multi-specialty support'] },
+
+  // Education
+  { id:'learning', step:3, stepLabel:'Functional Requirements', q:'Learning features?', types:['education'],
+    opts:['Course creation','Video lectures','Quiz / Assessment','Progress tracking','Certificate generation','Live class','Discussion forum','Assignment submission','Peer review','Gamification (points/badges)'] },
+
+  // Banking
+  { id:'finance', step:3, stepLabel:'Functional Requirements', q:'Financial features?', types:['banking'],
+    opts:['Account management','Fund transfer','Bill payment','Transaction history','Spending analytics','Budget planning','Investment tracking','Loan management','KYC verification','Fraud detection'] },
+
+  // Analytics
+  { id:'monitoring', step:3, stepLabel:'Functional Requirements', q:'Monitoring features?', types:['analytics'],
+    opts:['Metrics collection','Log aggregation','Distributed tracing','Alert management','Dashboard creation','Anomaly detection','SLA monitoring','Incident management','Root cause analysis','Capacity planning'] },
+
+  // Step 4 — NFR
+  { id:'availability', step:4, stepLabel:'Non-Functional Requirements', q:'Availability কত % দরকার?', types:'all',
+    opts:['90% (36 days downtime/yr)','95% (18 days/yr)','99% (3.65 days/yr)','99.9% (8.7 hrs/yr)','99.95% (4.4 hrs/yr)','99.99% (52 min/yr)','99.999% (5 min/yr)','Best effort (no SLA)','Business hours only','Maintenance window ok'] },
+  { id:'latency', step:4, stepLabel:'Non-Functional Requirements', q:'API Latency target?', types:'all',
+    opts:['<50ms (ultra fast)','<100ms (very fast)','<200ms (fast)','<500ms (acceptable)','<1s (tolerable)','<3s (slow but ok)','Real-time (<10ms)','Batch processing ok','Async ok (minutes)','No strict requirement'] },
+  { id:'consistency', step:4, stepLabel:'Non-Functional Requirements', q:'Consistency model?', types:'all',
+    opts:['Strong consistency','Eventual consistency','Strong for payments only','Strong for inventory only','Eventual for feed/timeline','Read-your-writes','Monotonic reads','Causal consistency','Session consistency','No strict requirement'] },
+  { id:'durability', step:4, stepLabel:'Non-Functional Requirements', q:'Data Durability?', types:'all',
+    opts:['Zero data loss (payments)','At-most-once delivery','At-least-once delivery','Exactly-once delivery','Best effort','99.9% durability','99.99% durability','99.999% durability','Backup sufficient','Replication needed'] },
+  { id:'security', step:4, stepLabel:'Non-Functional Requirements', q:'Security requirements?', types:'all',
+    opts:['HTTPS / TLS required','Data encryption at rest','PCI DSS compliance','HIPAA compliance','GDPR compliance','Rate limiting','DDoS protection','SQL injection prevention','XSS prevention','Audit logging'] },
+
+  // Step 5 — Users & Roles
+  { id:'roles', step:5, stepLabel:'Users & Roles', q:'কোন কোন user roles থাকবে?', types:'all',
+    opts:['Guest (unauthenticated)','Regular User / Customer','Premium User','Seller / Vendor','Service Provider','Admin','Super Admin','Moderator','Support Agent','System / Bot'] },
+  { id:'admin_perms', step:5, stepLabel:'Users & Roles', q:'Admin permissions?', types:'all',
+    opts:['User management (ban/delete)','Content moderation','Analytics & reports','System configuration','Financial reports','Role management','Audit log access','Notification broadcast','Feature flag control','Database access'] },
+  { id:'user_limits', step:5, stepLabel:'Users & Roles', q:'Regular User limitations?', types:'all',
+    opts:['Own data only','No hard delete (soft delete)','Daily action limit','Upload size limit','API rate limit','Premium features blocked','No data export','No admin panel','Cannot view others data','No limitation'] },
+
+  // Step 6 — Out of Scope
+  { id:'oos_features', step:6, stepLabel:'Out of Scope', q:'কোনগুলো Out of Scope?', types:'all',
+    opts:['Recommendation engine (ML)','Advanced analytics / BI','Multi-language / i18n','Mobile app specific design','Third-party SMS/Email','Admin super-features','Video streaming','Monetization / Ads','ML features','Blockchain / Web3'] },
+  { id:'oos_integrations', step:6, stepLabel:'Out of Scope', q:'কোন integrations এখন দরকার নেই?', types:'all',
+    opts:['Social media login','Payment gateway','SMS gateway','Email service (SendGrid)','Maps / Location service','Google Analytics','CRM integration','ERP integration','Cloud storage (S3)','CDN'] },
+];
+
+const CONFLICTS = [
+  {
+    check: (ans) => (ans.availability||[]).some(a=>a.includes('99.999')) && (ans.consistency||[]).includes('Strong consistency'),
+    msg: '⚠️ CAP Theorem conflict: Strong consistency + 99.999% availability এক সাথে achieve করা খুব কঠিন। Trade-off বিবেচনা করো।'
+  },
+  {
+    check: (ans) => (ans.rw||[]).some(a=>a.includes('Mostly Write')) && (ans.rw||[]).some(a=>a.includes('Mostly Read')),
+    msg: '⚠️ Read/Write Ratio: "Mostly Write" এবং "Mostly Read" একসাথে select করা conflicting।'
+  },
+  {
+    check: (ans) => (ans.dau||[]).includes('Less than 1K') && (ans.monitoring||[]).includes('Distributed tracing'),
+    msg: '⚠️ Scale mismatch: Less than 1K DAU তে Distributed tracing overkill হতে পারে।'
+  },
+];
+
+// STATE
+let state = {
+  screen: 'start', // start | quiz | output
+  selectedTypes: [],
+  currentQIdx: 0,
+  answers: {},
+  customInputs: {}, // temp custom input values per question id
+  isDark: true,
+};
+
+function saveState() {
+  try { localStorage.setItem('reqanalyzer_state', JSON.stringify(state)); } catch(e){}
+}
+function loadState() {
+  try {
+    const s = localStorage.getItem('reqanalyzer_state');
+    if (s) return JSON.parse(s);
+  } catch(e){}
+  return null;
+}
+function resetAll() {
+  localStorage.removeItem('reqanalyzer_state');
+  state = { screen:'start', selectedTypes:[], currentQIdx:0, answers:{}, customInputs:{}, isDark: state.isDark };
+  render();
+}
+
+// Get questions filtered by selected types
+function getActiveQuestions() {
+  return QUESTIONS.filter(q => {
+    if (q.types === 'all') return true;
+    return q.types.some(t => state.selectedTypes.includes(t));
+  });
+}
+
+function toggleTheme() {
+  state.isDark = !state.isDark;
+  document.body.classList.toggle('light', !state.isDark);
+  document.getElementById('themeBtn').textContent = state.isDark ? '🌙' : '☀️';
+  saveState();
+}
+
+function toggleProjectType(id) {
+  const idx = state.selectedTypes.indexOf(id);
+  if (idx >= 0) state.selectedTypes.splice(idx, 1);
+  else state.selectedTypes.push(id);
+  render();
+}
+
+function toggleOption(qid, val) {
+  if (!state.answers[qid]) state.answers[qid] = [];
+  const idx = state.answers[qid].indexOf(val);
+  if (idx >= 0) state.answers[qid].splice(idx, 1);
+  else state.answers[qid].push(val);
+  saveState();
+  render();
+}
+
+function addCustomOption(qid) {
+  const val = (state.customInputs[qid] || '').trim();
+  if (!val) return;
+  if (!state.answers[qid]) state.answers[qid] = [];
+  if (!state.answers[qid].includes(val)) state.answers[qid].push(val);
+  state.customInputs[qid] = '';
+  saveState();
+  render();
+}
+
+function getConflicts() {
+  const conflicts = [];
+  CONFLICTS.forEach(c => { if (c.check(state.answers)) conflicts.push(c.msg); });
+  return conflicts;
+}
+
+function buildOutput() {
+  const qs = getActiveQuestions();
+  const lines = [];
+  const byType = state.selectedTypes.map(t => PROJECT_TYPES.find(p=>p.id===t)?.label).filter(Boolean);
+  lines.push('PROJECT TYPES: ' + byType.join(', '));
+  lines.push('');
+
+  const steps = [2,3,4,5,6];
+  const stepLabels = { 2:'SCALE & TRAFFIC', 3:'FUNCTIONAL REQUIREMENTS', 4:'NON-FUNCTIONAL REQUIREMENTS', 5:'USERS & ROLES', 6:'OUT OF SCOPE' };
+
+  steps.forEach(step => {
+    const stepQs = qs.filter(q=>q.step===step);
+    if (!stepQs.length) return;
+    lines.push('━━━ ' + stepLabels[step] + ' ━━━');
+    stepQs.forEach(q => {
+      const ans = state.answers[q.id];
+      const val = (ans && ans.length) ? ans.join(', ') : '(skipped)';
+      lines.push('• ' + q.q);
+      lines.push('  → ' + val);
+    });
+    lines.push('');
+  });
+
+  return lines.join('\n');
+}
+
+// RENDER
+function render() {
+  const root = document.getElementById('root');
+  if (state.screen === 'start') root.innerHTML = renderStart();
+  else if (state.screen === 'quiz') root.innerHTML = renderQuiz();
+  else root.innerHTML = renderOutput();
+}
+
+function renderStart() {
+  const saved = loadState();
+  const hasResume = saved && saved.screen === 'quiz' && saved.selectedTypes.length > 0;
+  const err = state.startErr ? `<div class="start-err">${state.startErr}</div>` : '';
+  const resumeBanner = hasResume ? `
+    <div class="resume-banner">
+      <span>📌 Previous session found — Q${saved.currentQIdx+1} থেকে resume করবে?</span>
+      <button class="resume-btn" onclick="resumeSession()">Resume করো</button>
+    </div>` : '';
+
+  return `
+<div class="start-screen">
+  <div class="hero">
+    <div class="hero-icon">🧩</div>
+    <h1 class="hero-title">Requirements Analyzer</h1>
+    <p class="hero-sub">System design interview এর জন্য requirements clearly define করো — step by step।</p>
+  </div>
+  ${resumeBanner}
+  <div style="font-size:0.82rem;color:var(--text2);margin-bottom:10px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;">Step 1 — Project type select করো (multiple ok)</div>
+  <div class="project-grid">
+    ${PROJECT_TYPES.map(p => `
+      <div class="project-chip ${state.selectedTypes.includes(p.id)?'selected':''}" onclick="toggleProjectType('${p.id}')">
+        <span class="project-chip-icon">${p.icon}</span>
+        ${p.label}
+      </div>`).join('')}
+  </div>
+  ${err}
+  <button class="nav-btn primary" style="margin-top:1rem;width:100%" onclick="startQuiz()">
+    শুরু করো →
+  </button>
+</div>`;
+}
+
+function resumeSession() {
+  const saved = loadState();
+  if (!saved) return;
+  state = { ...saved, isDark: state.isDark };
+  document.body.classList.toggle('light', !state.isDark);
+  render();
+}
+
+function startQuiz() {
+  if (state.selectedTypes.length === 0) {
+    state.startErr = 'কমপক্ষে একটি project type select করো।';
+    render(); return;
+  }
+  state.startErr = '';
+  state.screen = 'quiz';
+  state.currentQIdx = 0;
+  saveState();
+  render();
+}
+
+function renderQuiz() {
+  const qs = getActiveQuestions();
+  const total = qs.length;
+  const idx = state.currentQIdx;
+  const q = qs[idx];
+  if (!q) { state.screen='output'; render(); return ''; }
+
+  const pct = Math.round(((idx) / total) * 100);
+  const ans = state.answers[q.id] || [];
+  const conflicts = getConflicts();
+
+  // Group step sections
+  const prevQ = idx > 0 ? qs[idx-1] : null;
+  const newStep = !prevQ || prevQ.step !== q.step;
+
+  return `
+<div>
+  <div class="progress-wrap">
+    <div class="progress-meta">
+      <span>Question ${idx+1} of ${total}</span>
+      <span>${pct}% complete</span>
+    </div>
+    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
+  </div>
+
+  <div class="step-header">
+    <div class="step-badge">Step ${q.step} — ${q.stepLabel}</div>
+    <div class="step-title">${q.q}</div>
+    <div class="step-subtitle">একাধিক option select করতে পারো। নিচে custom option ও add করা যাবে।</div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">Options — click করে select করো</div>
+    <div class="options-grid">
+      ${q.opts.map(opt => `
+        <div class="opt-chip ${ans.includes(opt)?'selected':''}" onclick="toggleOption('${q.id}','${opt.replace(/'/g,"\\'")}')">
+          ${ans.includes(opt)?'✓ ':''}${opt}
+        </div>`).join('')}
+      ${ans.filter(a=>!q.opts.includes(a)).map(a => `
+        <div class="opt-chip selected" onclick="toggleOption('${q.id}','${a.replace(/'/g,"\\'")}')">
+          ✓ ${a} ✕
+        </div>`).join('')}
+    </div>
+    <div class="custom-input-wrap">
+      <input class="custom-input" type="text" placeholder="Custom option লিখো..."
+        id="ci_${q.id}" value="${(state.customInputs[q.id]||'').replace(/"/g,'&quot;')}"
+        oninput="state.customInputs['${q.id}']=this.value"
+        onkeydown="if(event.key==='Enter')addCustomOption('${q.id}')">
+      <button class="add-btn" onclick="addCustomOption('${q.id}')">+ Add</button>
+    </div>
+    ${conflicts.length ? conflicts.map(c=>`
+      <div class="conflict-warn"><span class="warn-icon">⚠</span><span>${c}</span></div>`).join('') : ''}
+  </div>
+
+  <div class="nav-row">
+    <div class="nav-left">
+      ${idx > 0 ? `<button class="nav-btn secondary" onclick="navBack()">← Back</button>` : ''}
+      <button class="nav-btn skip-btn" onclick="navNext()">Skip →</button>
+    </div>
+    <button class="nav-btn primary" onclick="navNext()">
+      ${idx < total-1 ? 'Next →' : 'Finish ✓'}
+    </button>
+  </div>
+</div>`;
+}
+
+function navNext() {
+  const qs = getActiveQuestions();
+  if (state.currentQIdx < qs.length - 1) {
+    state.currentQIdx++;
+    saveState();
+    render();
+    window.scrollTo(0,0);
+  } else {
+    state.screen = 'output';
+    saveState();
+    render();
+    window.scrollTo(0,0);
+  }
+}
+
+function navBack() {
+  if (state.currentQIdx > 0) {
+    state.currentQIdx--;
+    saveState();
+    render();
+    window.scrollTo(0,0);
+  }
+}
+
+function renderOutput() {
+  const output = buildOutput();
+  return `
+<div class="output-wrap">
+  <div class="step-badge" style="margin-bottom:12px">✅ Analysis Complete</div>
+  <div class="output-title">Requirements Summary</div>
+  <div class="output-sub">এই output টি copy করে অন্য AI বা document এ paste করো।</div>
+  <div class="output-box" id="outputBox">${escapeHtml(output)}</div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap">
+    <button class="copy-btn" id="copyBtn" onclick="copyOutput()">
+      📋 Copy to Clipboard
+    </button>
+    <button class="nav-btn secondary" onclick="state.screen='quiz';state.currentQIdx=getActiveQuestions().length-1;render()">
+      ← Edit Answers
+    </button>
+    <button class="nav-btn secondary" onclick="state.screen='start';render()">
+      🔄 Start Over
+    </button>
+  </div>
+</div>`;
+}
+
+function copyOutput() {
+  const text = buildOutput();
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copyBtn');
+    if (btn) { btn.classList.add('copied'); btn.textContent = '✓ Copied!'; setTimeout(()=>{ btn.classList.remove('copied'); btn.textContent = '📋 Copy to Clipboard'; }, 2000); }
+  });
+}
+
+function escapeHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// INIT
+(function init() {
+  const saved = loadState();
+  if (saved) state.isDark = saved.isDark !== undefined ? saved.isDark : true;
+  document.body.classList.toggle('light', !state.isDark);
+  document.getElementById('themeBtn').textContent = state.isDark ? '🌙' : '☀️';
+  render();
+})();
+</script>
+</body>
+</html>
