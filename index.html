@@ -1,40 +1,764 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Portfolio 2026</title>
-    <style>
-        /* Basic 2026 styling: clean and dark-mode friendly */
-        body { font-family: 'Segoe UI', sans-serif; background: #121212; color: #fff; margin: 0; line-height: 1.6; }
-        header { text-align: center; padding: 100px 20px; background: linear-gradient(135deg, #1e1e1e, #333); }
-        .container { max-width: 900px; margin: auto; padding: 20px; }
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .project-card { background: #1e1e1e; padding: 15px; border: 1px solid #333; border-radius: 8px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sojib Das | Frontend Engineer</title>
+  <meta name="description" content="Portfolio of Sojib Das — Frontend Engineer with nearly 4 years of experience specializing in TypeScript, React, Next.js, and Ember.js." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-main: #0a0d14;
+      --bg-card: rgba(17, 24, 39, 0.7);
+      --bg-card-hover: rgba(26, 36, 56, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(56, 189, 248, 0.35);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --primary: #38bdf8;
+      --primary-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      --accent-green: #34d399;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 65%, rgba(129, 140, 248, 0.07) 0%, transparent 45%);
+      background-attachment: fixed;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(10, 13, 20, 0.75);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-badge {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--primary);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 2px 8px;
+      border-radius: 9999px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 84px 0 60px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(52, 211, 153, 0.1);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      color: var(--accent-green);
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent-green);
+      box-shadow: 0 0 10px var(--accent-green);
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 5vw, 3.75rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .gradient-text {
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 1.18rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary-gradient);
+      color: #040812;
+      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
+    }
+
+    .btn-primary:hover {
+      opacity: 0.92;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(56, 189, 248, 0.4);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* Section Styles */
+    section {
+      padding: 60px 0;
+    }
+
+    .section-header {
+      margin-bottom: 36px;
+    }
+
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--primary-gradient);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    .project-meta {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .project-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 3px 9px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #cbd5e1;
+    }
+
+    .project-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .project-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s;
+    }
+
+    .project-link:hover {
+      color: #7dd3fc;
+      text-decoration: underline;
+    }
+
+    .project-link.secondary {
+      color: var(--text-dim);
+    }
+
+    .project-link.secondary:hover {
+      color: var(--text-muted);
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 22px;
+    }
+
+    .skill-category {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .skill-item {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-bullet {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: var(--primary);
+    }
+
+    /* Experience Card */
+    .exp-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 32px;
+      position: relative;
+    }
+
+    .exp-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .exp-role {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .exp-period {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--primary);
+    }
+
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      color: var(--text-muted);
+      font-size: 0.96rem;
+    }
+
+    .exp-bullet {
+      position: relative;
+      padding-left: 22px;
+      line-height: 1.6;
+    }
+
+    .exp-bullet::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-size: 1.1rem;
+      top: -2px;
+    }
+
+    /* Contact Section */
+    .contact-card {
+      background: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(30, 41, 59, 0.4));
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 44px;
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .contact-title {
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .contact-subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 540px;
+      margin: 0 auto 32px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.88rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .hero { padding: 48px 0 40px; }
+      .contact-card { padding: 28px 20px; }
+      .nav-links { gap: 12px; }
+      .btn { width: 100%; justify-content: center; }
+      .hero-actions { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Hi, I'm [Your Name]</h1>
-        <p>Web Developer | 2026 Graduate</p>
-    </header>
 
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <span>Sojib Das</span>
+        <span class="brand-badge">Frontend</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
     <div class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <p>I build modern web experiences focused on performance and accessibility.</p>
-        </section>
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        <span>Open to Frontend & Fullstack Roles · Dhaka / Remote</span>
+      </div>
+      <h1 class="hero-title">
+        Crafting high-impact web apps with <span class="gradient-text">speed, scale, & precision</span>.
+      </h1>
+      <p class="hero-desc">
+        I am <strong>Sojib Das</strong>, a Frontend Engineer with nearly 4 years of experience building reliable web systems with <strong>TypeScript</strong>, <strong>React</strong>, <strong>Next.js</strong>, and <strong>Ember.js</strong>. Focused on clean architecture, design systems, and seamless user experiences.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">
+          <span>View Featured Projects</span>
+          <span>↓</span>
+        </a>
+        <a href="https://www.linkedin.com/in/sojibrd/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/sojibrd" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
 
-        <section id="projects">
-            <h2>Featured Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Project One</h3>
-                    <p>Brief description of a high-impact project.</p>
-                </div>
+  <!-- Featured Projects -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Proof & Engineering</span>
+        <h2 class="section-title">Featured Production & Core Projects</h2>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <article class="project-card">
+          <div>
+            <div class="project-meta">Interactive Learning & Spaced Repetition</div>
+            <h3 class="project-name">DSA Preparation Platform</h3>
+            <p class="project-desc">
+              Multi-path algorithmic study platform with automated Markdown workbook parsing, strict hydration mismatch handling, spaced repetition review queues, and real-time cross-device Supabase synchronization.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">TypeScript</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">Supabase</span>
+              <span class="tag">Local-First</span>
             </div>
-        </section>
+          </div>
+          <div class="project-links">
+            <a href="https://sojibrd.github.io/dsa_prep_local_company/" target="_blank" rel="noopener noreferrer" class="project-link">
+              <span>Live Application</span>
+              <span>↗</span>
+            </a>
+            <a href="https://github.com/sojibrd/dsa_prep_local_company" target="_blank" rel="noopener noreferrer" class="project-link secondary">
+              <span>Repository</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </article>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Find me on <a href="
+        <!-- Project 2 -->
+        <article class="project-card">
+          <div>
+            <div class="project-meta">System Design Simulator & Architecture</div>
+            <h3 class="project-name">System Design Canvas & Guide</h3>
+            <p class="project-desc">
+              Comprehensive 25-topic system design architecture guide featuring an interactive canvas simulator built with React Flow, zero-dependency tokenized theme contract, and visual architecture workflows.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">React Flow</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">Design Tokens</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://sojibrd.github.io/system_design_local_company/" target="_blank" rel="noopener noreferrer" class="project-link">
+              <span>Live Application</span>
+              <span>↗</span>
+            </a>
+            <a href="https://github.com/sojibrd/system_design_local_company" target="_blank" rel="noopener noreferrer" class="project-link secondary">
+              <span>Repository</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card">
+          <div>
+            <div class="project-meta">Offline-First Enterprise Tool</div>
+            <h3 class="project-name">Leave Management System</h3>
+            <p class="project-desc">
+              Client-side offline-first leave tracking application built on IndexedDB (Dexie.js), featuring custom cloud sync, full data backup/restore, calendar views, and dark-only control-room design.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">IndexedDB (Dexie)</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">React</span>
+              <span class="tag">Cloud Sync</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="https://sojibrd.github.io/leave_management/" target="_blank" rel="noopener noreferrer" class="project-link">
+              <span>Live Application</span>
+              <span>↗</span>
+            </a>
+            <a href="https://github.com/sojibrd/leave_management" target="_blank" rel="noopener noreferrer" class="project-link secondary">
+              <span>Repository</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Career Journey</span>
+        <h2 class="section-title">Professional Experience</h2>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-role">Frontend Engineer</div>
+          <div class="exp-period">Nov 2022 — Present · (~4 Years)</div>
+        </div>
+        <ul class="exp-bullets">
+          <li class="exp-bullet">
+            Engineered real-time data-intensive frontend applications using Ember.js (v6 Octane/GJS) and TypeScript, ensuring responsive sub-second updates for live sports scoring platforms.
+          </li>
+          <li class="exp-bullet">
+            Eliminated redundant network API calls and race conditions across high-frequency components utilizing <code>ember-concurrency</code> restartable tasks and custom reactive services.
+          </li>
+          <li class="exp-bullet">
+            Spearheaded design system modernization, ensuring strict accessibility compliance, component reuse, and optimized rendering pipelines.
+          </li>
+          <li class="exp-bullet">
+            Architected and shipped production Next.js tools and internal workflow applications with local-first offline storage and Supabase sync engines.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Toolkit</span>
+        <h2 class="section-title">Skills & Technologies</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3 class="skill-category">Core Languages</h3>
+          <ul class="skill-list">
+            <li class="skill-item"><span class="skill-bullet"></span>TypeScript</li>
+            <li class="skill-item"><span class="skill-bullet"></span>JavaScript (ES6+)</li>
+            <li class="skill-item"><span class="skill-bullet"></span>HTML5 & Semantic Web</li>
+            <li class="skill-item"><span class="skill-bullet"></span>CSS3 & Design Tokens</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3 class="skill-category">Frameworks</h3>
+          <ul class="skill-list">
+            <li class="skill-item"><span class="skill-bullet"></span>React & Next.js (App Router)</li>
+            <li class="skill-item"><span class="skill-bullet"></span>Ember.js 6 (Octane / GJS)</li>
+            <li class="skill-item"><span class="skill-bullet"></span>Embroider Modern Build</li>
+            <li class="skill-item"><span class="skill-bullet"></span>ember-concurrency</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3 class="skill-category">Architecture</h3>
+          <ul class="skill-list">
+            <li class="skill-item"><span class="skill-bullet"></span>Local-First & Offline Storage</li>
+            <li class="skill-item"><span class="skill-bullet"></span>State Management Systems</li>
+            <li class="skill-item"><span class="skill-bullet"></span>REST API Integration & Caching</li>
+            <li class="skill-item"><span class="skill-bullet"></span>Core Web Vitals & Performance</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3 class="skill-category">Tools & Sync</h3>
+          <ul class="skill-list">
+            <li class="skill-item"><span class="skill-bullet"></span>Git & GitHub Actions CI/CD</li>
+            <li class="skill-item"><span class="skill-bullet"></span>Supabase RLS & Database</li>
+            <li class="skill-item"><span class="skill-bullet"></span>Dexie.js (IndexedDB)</li>
+            <li class="skill-item"><span class="skill-bullet"></span>React Flow Diagrams</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-card">
+        <h2 class="contact-title">Let's Build Something Exceptional</h2>
+        <p class="contact-subtitle">
+          Whether you're hiring for a Frontend Engineer role, discussing distributed systems, or exploring engineering collaboration — my inbox is always open.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:sojibdas400@gmail.com" class="btn btn-primary">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <span>sojibdas400@gmail.com</span>
+          </a>
+          <a href="https://www.linkedin.com/in/sojibrd/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <span>Connect on LinkedIn</span>
+          </a>
+          <a href="https://github.com/sojibrd" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            <span>GitHub Profile</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2026 Sojib Das. Built with semantic HTML & CSS. Hosted on GitHub Pages.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
