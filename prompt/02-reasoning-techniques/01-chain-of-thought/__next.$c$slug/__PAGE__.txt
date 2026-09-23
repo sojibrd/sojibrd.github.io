@@ -1,0 +1,145 @@
+1:"$Sreact.fragment"
+2:I[82484,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+4:I[12703,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+5:I[48929,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+c:I[21210,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+d:I[97367,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+3:Tc07,## সংজ্ঞা
+মডেলকে উত্তর দেওয়ার আগে ধাপে ধাপে যুক্তি লিখতে বলা। মাঝের ধাপগুলো লিখলে ভুল কমে, কারণ প্রতিটা ধাপ পরেরটার ভিত্তি হিসেবে কাজ করে।
+
+## কখন ব্যবহার করবেন
+- হিসাব, তুলনা বা বহুধাপ যুক্তি জড়িত
+- একাধিক শর্ত একসাথে মেলাতে হবে
+- ভুল হলে কোথায় হলো সেটা দেখা দরকার
+
+কখন **নয়**: সহজ শ্রেণিবিন্যাস বা তথ্য বের করার কাজে — শুধু খরচ আর লেটেন্সি বাড়ে।
+
+## খারাপ উদাহরণ
+```
+এই ৩টা প্যাকেজের মধ্যে ১২ জন ইউজারের টিমের জন্য কোনটা সস্তা?
+[প্যাকেজের বিবরণ]
+```
+মডেল সরাসরি একটা নাম বলে দেবে — হিসাব ভুল হলেও ধরা পড়বে না।
+
+## ভালো উদাহরণ
+```
+<প্যাকেজ>
+Basic: ৳৫০০/মাস, ৫ ইউজার পর্যন্ত, অতিরিক্ত ইউজার ৳১২০
+Pro: ৳১৫০০/মাস, ১০ ইউজার পর্যন্ত, অতিরিক্ত ইউজার ৳৮০
+Business: ৳৩০০০/মাস, আনলিমিটেড ইউজার
+</প্যাকেজ>
+
+১২ জন ইউজারের টিমের জন্য কোনটা সস্তা?
+
+<হিসাব> ট্যাগের ভেতরে প্রতিটা প্যাকেজের মোট মাসিক খরচ আলাদা করে বের করো।
+তারপর <উত্তর> ট্যাগের ভেতরে শুধু প্যাকেজের নাম লেখো।
+```
+
+আউটপুট:
+```
+<হিসাব>
+Basic: ৫০০ + (৭ × ১২০) = ৫০০ + ৮৪০ = ৳১৩৪০
+Pro: ১৫০০ + (২ × ৮০) = ১৫০০ + ১৬০ = ৳১৬৬০
+Business: ৳৩০০০
+</হিসাব>
+<উত্তর>Basic</উত্তর>
+```
+
+## মূল নিয়ম
+- **যুক্তি আগে, উত্তর পরে** — উল্টো হলে মডেল আগে আন্দাজ করে, পরে সেটার পক্ষে যুক্তি বানায়
+- যুক্তির অংশ আলাদা ট্যাগে রাখুন, যাতে প্রোগ্রাম দিয়ে বাদ দেওয়া যায়
+- আধুনিক রিজনিং মডেলে এটা অনেকটাই বিল্ট-ইন — দেখুন [Extended Thinking](../02-extended-thinking/)6:Te00,# ০২ — রিজনিং টেকনিক
+
+যেসব কাজে মডেলকে উত্তর দেওয়ার আগে ভাবতে হয়। মূল ধারণা এক জায়গায়: **উত্তরের আগে যুক্তি**।
+
+## এই ক্যাটাগরিতে
+
+| # | টেকনিক | এক লাইনে |
+|---|---|---|
+| ০১ | [Chain-of-Thought](01-chain-of-thought/) | ধাপে ধাপে চিন্তা করিয়ে তারপর উত্তর |
+| ০২ | [Extended Thinking](02-extended-thinking/) | মডেলের বিল্ট-ইন চিন্তার বাজেট |
+| ০৩ | [Self-consistency](03-self-consistency/) | একাধিক উত্তর নিয়ে সবচেয়ে বেশিবার আসাটা বাছা |
+| ০৪ | [ReAct](04-react/) | চিন্তা ও টুল-কলের লুপ |
+| ০৫ | [Tree of Thoughts](05-tree-of-thoughts/) | একাধিক শাখায় ভেবে সেরাটা বাছা |
+| ০৬ | [Self-critique / Reflection](06-self-critique-reflection/) | নিজের আউটপুট নিজে রিভিউ করা |
+
+## কোনটা কখন
+
+| পরিস্থিতি | ব্যবহার করুন |
+|---|---|
+| হিসাব বা বহুধাপ যুক্তি | [Chain-of-Thought](01-chain-of-thought/) |
+| জটিল ডিবাগিং, বড় পরিকল্পনা | [Extended Thinking](02-extended-thinking/) |
+| উত্তর একটা নির্দিষ্ট মান, নির্ভুলতা জরুরি | [Self-consistency](03-self-consistency/) |
+| বাইরের তথ্য লাগবে, কোনটা লাগবে জানা নেই | [ReAct](04-react/) |
+| একাধিক বৈধ সমাধান আছে | [Tree of Thoughts](05-tree-of-thoughts/) |
+| নির্দিষ্ট চেকলিস্ট মানতে হবে | [Self-critique](06-self-critique-reflection/) |
+
+## খরচের হিসাব
+
+এই টেকনিকগুলো সবই বাড়তি টোকেন খরচ করে, কিছু ক্ষেত্রে কয়েক গুণ:
+
+```
+Chain-of-Thought    → ~১.৫–২× আউটপুট টোকেন
+Extended Thinking   → চিন্তার বাজেট অনুযায়ী
+Self-consistency    → রান সংখ্যার সমান গুণ (৫ রান = ৫×)
+Tree of Thoughts    → সবচেয়ে ব্যয়বহুল
+Self-critique       → ~২× (দুই রাউন্ড)
+```
+
+তাই সহজ কাজে (শ্রেণিবিন্যাস, তথ্য নিষ্কাশন, সামারি) এগুলো ব্যবহার করবেন না — শুধু খরচ আর লেটেন্সি বাড়ে, মান বাড়ে না।
+
+## এই স্তরের সাধারণ ভুল
+
+- **উত্তর আগে, যুক্তি পরে** — মডেল তখন আন্দাজ করে, তারপর সেটার পক্ষে যুক্তি বানায়
+- সব কাজে reasoning চালু রাখা
+- যুক্তির অংশ আলাদা ট্যাগে না রাখা, ফলে ইউজারকে কাঁচা চিন্তা দেখানো
+7:Ta23,# Extended Thinking / Reasoning Tokens
+
+## সংজ্ঞা
+মডেলের নিজস্ব চিন্তার বাজেট, যা API প্যারামিটার দিয়ে চালু করা হয়। হাতে লেখা Chain-of-Thought-এর বিল্ট-ইন ও প্রশিক্ষিত সংস্করণ।
+
+## কখন ব্যবহার করবেন
+- জটিল কোড ডিবাগিং, গণিত, বহুধাপ পরিকল্পনা
+- যেখানে ভুলের খরচ বেশি, আর কয়েক সেকেন্ড বেশি লাগলে সমস্যা নেই
+
+কখন **নয়**: শ্রেণিবিন্যাস, তথ্য নিষ্কাশন, সামারি — এসবে চিন্তার বাজেট শুধু টাকা পোড়ায়।
+
+## উদাহরণ
+```python
+import anthropic
+
+client = anthropic.Anthropic()
+
+response = client.messages.create(
+    model="claude-sonnet-5",
+    max_tokens=8000,
+    thinking={
+        "type": "enabled",
+        "budget_tokens": 4000,     # max_tokens-এর চেয়ে কম হতে হবে
+    },
+    messages=[{
+        "role": "user",
+        "content": "এই SQL কোয়েরিটা প্রোডাকশনে ২০ সেকেন্ড নিচ্ছে। কারণ কী হতে পারে?\n\n" + query,
+    }],
+)
+
+# response.content-এ দুই ধরনের ব্লক আসে
+for block in response.content:
+    if block.type == "thinking":
+        log.debug(block.thinking)   # ডিবাগিং লগে রাখুন, ইউজারকে দেখানোর দরকার নেই
+    elif block.type == "text":
+        print(block.text)           # আসল উত্তর
+```
+
+## মূল নিয়ম
+- `budget_tokens` সবসময় `max_tokens`-এর চেয়ে **কম** রাখতে হবে
+- thinking চালু থাকলে [Response Prefilling](../../01-basic-techniques/07-response-prefilling/) কাজ করবে না
+- বাজেট বাড়ালেই মান বাড়ে না — কাজটা সত্যিই জটিল না হলে ৩০০০-এর বেশি দিয়ে লাভ নেই
+- thinking ব্লক নিজে থেকে ইউজারকে দেখাবেন না, তবে ডিবাগিং লগে রাখা কাজের
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto w-full max-w-7xl px-4 py-8 sm:px-8 sm:py-12 flex justify-center gap-8 xl:gap-12","children":[["$","article",null,{"className":"w-full max-w-3xl min-w-0","children":[["$","header",null,{"className":"seam-b mb-8 pb-6","children":[["$","div",null,{"className":"mb-3 flex flex-wrap items-center gap-2","children":["$","span",null,{"className":"chip","children":"০২ — রিজনিং টেকনিক"}]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Chain-of-Thought (CoT)"}]]}],["$","$L2",null,{"content":"$3","base":["02-reasoning-techniques","01-chain-of-thought"]}],["$","$L4",null,{"route":"/02-reasoning-techniques/01-chain-of-thought/"}],["$","$L5",null,{"prev":{"slug":["02-reasoning-techniques"],"title":"০২ — রিজনিং টেকনিক","content":"$6"},"next":{"slug":["02-reasoning-techniques","02-extended-thinking"],"title":"Extended Thinking / Reasoning Tokens","content":"$7","category":"০২ — রিজনিং টেকনিক"}}]]}],"$L8"]}],["$L9","$La"],"$Lb"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"O7OaPqTehBM0Kh17vaRZA"}
+8:["$","$Lc",null,{"headings":[{"id":"সংজ্ঞা","text":"সংজ্ঞা","level":2},{"id":"কখন-ব্যবহার-করবেন","text":"কখন ব্যবহার করবেন","level":2},{"id":"খারাপ-উদাহরণ","text":"খারাপ উদাহরণ","level":2},{"id":"ভালো-উদাহরণ","text":"ভালো উদাহরণ","level":2},{"id":"মূল-নিয়ম","text":"মূল নিয়ম","level":2}]}]
+9:["$","script","script-0",{"src":"/prompt/_next/static/chunks/2v_1wsbo41_2k.js","async":true}]
+a:["$","script","script-1",{"src":"/prompt/_next/static/chunks/05kse55hqjn09.js","async":true}]
+b:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
+f:null

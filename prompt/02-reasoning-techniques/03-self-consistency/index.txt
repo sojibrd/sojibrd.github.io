@@ -1,0 +1,156 @@
+1:"$Sreact.fragment"
+2:I[41681,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"default"]
+3:I[39756,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"default"]
+4:I[37457,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"default"]
+a:I[68027,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"default",1]
+:HL["/prompt/_next/static/chunks/0nl2u66vmq4f8.css","style"]
+:HL["/prompt/_next/static/media/490cbca7f386131e-s.p.1zrwl0c4yv3pr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/prompt/_next/static/media/4b23c5ee480ee380-s.p.0qqufx6vw52v_.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/prompt/_next/static/media/520c929efec0b33f-s.p.3arxh35s5-kc0.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/prompt/_next/static/media/6a1d08cf467f0848-s.p.240fzfer9e_rh.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/prompt/_next/static/media/6ea8d1bb8ea4af7a-s.p.1kk_wfe381bov.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/prompt/_next/static/media/70bc3e132a0a741e-s.p.3t6q91iet4nsy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/prompt/_next/static/media/70c15719a04fff13-s.p.376yc-xi7tht7.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"P":null,"c":["","02-reasoning-techniques","03-self-consistency",""],"q":"","i":false,"f":[[["",{"children":[["slug","02-reasoning-techniques/03-self-consistency","c",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/prompt/_next/static/chunks/0nl2u66vmq4f8.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/prompt/_next/static/chunks/2dm-8erdits2m.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/prompt/_next/static/chunks/2im7c515bo69p.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"bn","className":"barlow_semi_condensed_66b51823-module__HKMkGa__variable jetbrains_mono_ce945e87-module__HTLkQq__variable noto_sans_bengali_ae4f5577-module__v5t5fW__variable h-full antialiased","children":["$","body",null,{"className":"min-h-full","children":["$","$L2",null,{"nav":[{"slug":["01-basic-techniques"],"title":"০১ — বেসিক টেকনিক","topics":[{"slug":["01-basic-techniques","01-zero-shot-prompting"],"title":"Zero-shot Prompting"},{"slug":["01-basic-techniques","02-few-shot-prompting"],"title":"Few-shot Prompting"},{"slug":["01-basic-techniques","03-role-prompting"],"title":"Role Prompting / Persona"},{"slug":["01-basic-techniques","04-system-prompt"],"title":"System Prompt"},{"slug":["01-basic-techniques","05-delimiters-xml-tagging"],"title":"Delimiters / XML Tagging"},{"slug":["01-basic-techniques","06-output-formatting"],"title":"Output Formatting"},{"slug":["01-basic-techniques","07-response-prefilling"],"title":"Response Prefilling"}]},{"slug":["02-reasoning-techniques"],"title":"০২ — রিজনিং টেকনিক","topics":[{"slug":["02-reasoning-techniques","01-chain-of-thought"],"title":"Chain-of-Thought (CoT)"},{"slug":["02-reasoning-techniques","02-extended-thinking"],"title":"Extended Thinking / Reasoning Tokens"},{"slug":["02-reasoning-techniques","03-self-consistency"],"title":"Self-consistency"},{"slug":["02-reasoning-techniques","04-react"],"title":"ReAct (Reason + Act)"},{"slug":["02-reasoning-techniques","05-tree-of-thoughts"],"title":"Tree of Thoughts (ToT)"},{"slug":["02-reasoning-techniques","06-self-critique-reflection"],"title":"Self-critique / Reflection"}]},{"slug":["03-system-patterns"],"title":"০৩ — সিস্টেম প্যাটার্ন","topics":[{"slug":["03-system-patterns","01-prompt-chaining"],"title":"Prompt Chaining / Decomposition"},{"slug":["03-system-patterns","02-rag"],"title":"RAG (Retrieval-Augmented Generation)"},{"slug":["03-system-patterns","03-tool-use"],"title":"Tool Use / Function Calling"},{"slug":["03-system-patterns","04-context-engineering"],"title":"Context Engineering"},{"slug":["03-system-patterns","05-prompt-caching"],"title":"Prompt Caching"},{"slug":["03-system-patterns","06-llm-as-a-judge"],"title":"LLM-as-a-Judge"},{"slug":["03-system-patterns","07-guardrails"],"title":"Guardrails"}]},{"slug":["04-evaluation"],"title":"০৪ — পরিমাপ ও মান নিয়ন্ত্রণ","topics":[{"slug":["04-evaluation","01-evals"],"title":"Evals"},{"slug":["04-evaluation","02-golden-dataset"],"title":"Golden Dataset"},{"slug":["04-evaluation","03-regression-testing"],"title":"Regression Testing"},{"slug":["04-evaluation","04-prompt-versioning"],"title":"Prompt Versioning"},{"slug":["04-evaluation","05-sampling-parameters"],"title":"Sampling Parameters"}]},{"slug":["05-failure-modes"],"title":"০৫ — ফেইলিউর মোড","topics":[{"slug":["05-failure-modes","01-hallucination"],"title":"Hallucination"},{"slug":["05-failure-modes","02-prompt-injection"],"title":"Prompt Injection"},{"slug":["05-failure-modes","03-jailbreaking"],"title":"Jailbreaking"},{"slug":["05-failure-modes","04-overfitting-to-examples"],"title":"Overfitting to Examples"},{"slug":["05-failure-modes","05-lost-in-the-middle"],"title":"Lost in the Middle"},{"slug":["05-failure-modes","06-context-rot"],"title":"Context Rot"}]}],"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":"$L5"}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":["$L6",{"children":["$L7",{},null,false,null]},null,false,"$@8"]},null,false,null],"$L9",false]],"m":"$undefined","G":["$a",["$Lb"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"O7OaPqTehBM0Kh17vaRZA"}
+d:I[97367,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:I[97367,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"ViewportBoundary"]
+13:I[97367,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"MetadataBoundary"]
+5:["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]
+6:["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+7:["$","$1","c",{"children":["$Lc",[["$","script","script-0",{"src":"/prompt/_next/static/chunks/2v_1wsbo41_2k.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/prompt/_next/static/chunks/05kse55hqjn09.js","async":true,"nonce":"$undefined"}]],["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}]
+10:[]
+8:"$W10"
+9:["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L14"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+b:["$","link","0",{"rel":"stylesheet","href":"/prompt/_next/static/chunks/0nl2u66vmq4f8.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+15:I[82484,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+17:I[12703,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+18:I[48929,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+16:T964,## সংজ্ঞা
+একই প্রম্পট কয়েকবার চালিয়ে (temperature > 0) একাধিক উত্তর নেওয়া, তারপর সবচেয়ে বেশিবার আসা উত্তরটা বেছে নেওয়া। সহজ কথায় — মেজরিটি ভোট।
+
+## কখন ব্যবহার করবেন
+- উত্তরটা একটা নির্দিষ্ট মান (ক্যাটাগরি, সংখ্যা, হ্যাঁ/না)
+- নির্ভুলতা খরচের চেয়ে বেশি গুরুত্বপূর্ণ
+- মডেল মাঝে মাঝে ভুল করে, কিন্তু বেশিরভাগ সময় ঠিক করে
+
+কখন **নয়**: লম্বা লেখা তৈরিতে — সেখানে "মেজরিটি" বলে কিছু নেই।
+
+## উদাহরণ
+```python
+from collections import Counter
+
+def classify_with_vote(ticket, runs=5):
+    votes = []
+    for _ in range(runs):
+        r = client.messages.create(
+            model="claude-sonnet-5",
+            max_tokens=100,
+            temperature=1.0,          # ভিন্নতা দরকার, তাই ০ নয়
+            messages=[{"role": "user", "content": PROMPT.format(ticket=ticket)}],
+        )
+        votes.append(r.content[0].text.strip())
+
+    counts = Counter(votes)
+    winner, count = counts.most_common(1)[0]
+
+    return {
+        "ক্যাটাগরি": winner,
+        "আস্থা": count / runs,        # ৩/৫ = ০.৬ → মানুষের রিভিউ দরকার
+        "সব_ভোট": dict(counts),
+    }
+```
+
+## মূল নিয়ম
+- খরচ সরাসরি গুণ হয় — ৫ বার চালানো মানে ৫ গুণ বিল
+- **আস্থার স্কোরটাই আসল লাভ** — ভোট ভাগ হয়ে গেলে বুঝবেন কেসটা কঠিন, সেটা মানুষের কাছে পাঠান
+- `temperature=0` রাখলে সব উত্তর একই আসবে, কৌশলটাই অর্থহীন হয়ে যাবে — দেখুন [Sampling Parameters](../../04-evaluation/05-sampling-parameters/)19:Ta23,# Extended Thinking / Reasoning Tokens
+
+## সংজ্ঞা
+মডেলের নিজস্ব চিন্তার বাজেট, যা API প্যারামিটার দিয়ে চালু করা হয়। হাতে লেখা Chain-of-Thought-এর বিল্ট-ইন ও প্রশিক্ষিত সংস্করণ।
+
+## কখন ব্যবহার করবেন
+- জটিল কোড ডিবাগিং, গণিত, বহুধাপ পরিকল্পনা
+- যেখানে ভুলের খরচ বেশি, আর কয়েক সেকেন্ড বেশি লাগলে সমস্যা নেই
+
+কখন **নয়**: শ্রেণিবিন্যাস, তথ্য নিষ্কাশন, সামারি — এসবে চিন্তার বাজেট শুধু টাকা পোড়ায়।
+
+## উদাহরণ
+```python
+import anthropic
+
+client = anthropic.Anthropic()
+
+response = client.messages.create(
+    model="claude-sonnet-5",
+    max_tokens=8000,
+    thinking={
+        "type": "enabled",
+        "budget_tokens": 4000,     # max_tokens-এর চেয়ে কম হতে হবে
+    },
+    messages=[{
+        "role": "user",
+        "content": "এই SQL কোয়েরিটা প্রোডাকশনে ২০ সেকেন্ড নিচ্ছে। কারণ কী হতে পারে?\n\n" + query,
+    }],
+)
+
+# response.content-এ দুই ধরনের ব্লক আসে
+for block in response.content:
+    if block.type == "thinking":
+        log.debug(block.thinking)   # ডিবাগিং লগে রাখুন, ইউজারকে দেখানোর দরকার নেই
+    elif block.type == "text":
+        print(block.text)           # আসল উত্তর
+```
+
+## মূল নিয়ম
+- `budget_tokens` সবসময় `max_tokens`-এর চেয়ে **কম** রাখতে হবে
+- thinking চালু থাকলে [Response Prefilling](../../01-basic-techniques/07-response-prefilling/) কাজ করবে না
+- বাজেট বাড়ালেই মান বাড়ে না — কাজটা সত্যিই জটিল না হলে ৩০০০-এর বেশি দিয়ে লাভ নেই
+- thinking ব্লক নিজে থেকে ইউজারকে দেখাবেন না, তবে ডিবাগিং লগে রাখা কাজের
+1a:Tc96,# ReAct (Reason + Act)
+
+## সংজ্ঞা
+চিন্তা → কাজ (টুল কল) → পর্যবেক্ষণ → আবার চিন্তা — এই লুপে মডেল ধাপে ধাপে এগোয়। আধুনিক এজেন্টের মূল কাঠামো।
+
+## কখন ব্যবহার করবেন
+- উত্তর দিতে বাইরের তথ্য লাগবে, আর কোন তথ্য লাগবে তা আগে থেকে জানা নেই
+- একাধিক ধাপের কাজ, যেখানে পরের ধাপ আগের ফলাফলের উপর নির্ভরশীল
+
+## লুপের চেহারা
+```
+ইউজার: "গত মাসে সবচেয়ে বেশি রিফান্ড হওয়া প্রোডাক্টটার স্টক কত?"
+
+চিন্তা:      আগে গত মাসের রিফান্ড ডেটা লাগবে।
+কাজ:         query_refunds(month="2026-07")
+পর্যবেক্ষণ:  [{"product_id": "P-882", "count": 47}, ...]
+
+চিন্তা:      P-882 সবার উপরে। এখন এর স্টক দেখতে হবে।
+কাজ:         get_inventory(product_id="P-882")
+পর্যবেক্ষণ:  {"stock": 12, "নাম": "ওয়্যারলেস ইয়ারবাড X2"}
+
+চিন্তা:      দুটো তথ্যই পেয়েছি, এখন উত্তর দিতে পারি।
+উত্তর:       গত মাসে সবচেয়ে বেশি রিফান্ড হয়েছে "ওয়্যারলেস ইয়ারবাড X2"
+             (৪৭টি)। বর্তমানে স্টকে আছে ১২টি।
+```
+
+## উদাহরণ — সিস্টেম প্রম্পট
+```
+তোমার কাছে এই টুলগুলো আছে: query_refunds, get_inventory, create_ticket
+
+প্রতিটা ধাপে:
+- টুল কল করার আগে এক বাক্যে বলো কেন এই টুলটা দরকার
+- একবারে একটা টুল কল করবে, ফলাফল দেখে পরেরটা ঠিক করবে
+- তথ্য না পেলে অনুমান করবে না — বলবে কোন তথ্যটা পাওয়া যায়নি
+- সর্বোচ্চ ৫টা টুল কলের মধ্যে শেষ করার চেষ্টা করবে
+```
+
+## মূল নিয়ম
+- **লুপের সীমা বেঁধে দিন** — নাহলে মডেল একই টুল বারবার কল করতে থাকতে পারে
+- টুলের error মেসেজ মডেলকে ফেরত দিন, সেটা থেকেই সে নিজেকে শোধরায়
+- বিস্তারিত টুল ডিজাইনের জন্য দেখুন [Tool Use](../../03-system-patterns/03-tool-use/)
+c:["$","div",null,{"className":"mx-auto w-full max-w-7xl px-4 py-8 sm:px-8 sm:py-12 flex justify-center gap-8 xl:gap-12","children":[["$","article",null,{"className":"w-full max-w-3xl min-w-0","children":[["$","header",null,{"className":"seam-b mb-8 pb-6","children":[["$","div",null,{"className":"mb-3 flex flex-wrap items-center gap-2","children":["$","span",null,{"className":"chip","children":"০২ — রিজনিং টেকনিক"}]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Self-consistency"}]]}],["$","$L15",null,{"content":"$16","base":["02-reasoning-techniques","03-self-consistency"]}],["$","$L17",null,{"route":"/02-reasoning-techniques/03-self-consistency/"}],["$","$L18",null,{"prev":{"slug":["02-reasoning-techniques","02-extended-thinking"],"title":"Extended Thinking / Reasoning Tokens","content":"$19","category":"০২ — রিজনিং টেকনিক"},"next":{"slug":["02-reasoning-techniques","04-react"],"title":"ReAct (Reason + Act)","content":"$1a","category":"০২ — রিজনিং টেকনিক"}}]]}],"$L1b"]}]
+1c:I[21210,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+1b:["$","$L1c",null,{"headings":[{"id":"সংজ্ঞা","text":"সংজ্ঞা","level":2},{"id":"কখন-ব্যবহার-করবেন","text":"কখন ব্যবহার করবেন","level":2},{"id":"উদাহরণ","text":"উদাহরণ","level":2},{"id":"মূল-নিয়ম","text":"মূল নিয়ম","level":2}]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+f:null
+14:[["$","title","0",{"children":"Self-consistency"}],["$","meta","1",{"name":"description","content":"A reference for the techniques, patterns, and common pitfalls of prompt engineering."}],["$","meta","2",{"name":"theme-color","content":"#17140f"}]]

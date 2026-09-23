@@ -1,0 +1,134 @@
+1:"$Sreact.fragment"
+2:I[82484,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+4:I[48929,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+b:I[21210,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+c:I[97367,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"OutletBoundary"]
+d:"$Sreact.suspense"
+3:Td9e,যেসব কাজে মডেলকে উত্তর দেওয়ার আগে ভাবতে হয়। মূল ধারণা এক জায়গায়: **উত্তরের আগে যুক্তি**।
+
+## এই ক্যাটাগরিতে
+
+| # | টেকনিক | এক লাইনে |
+|---|---|---|
+| ০১ | [Chain-of-Thought](01-chain-of-thought/) | ধাপে ধাপে চিন্তা করিয়ে তারপর উত্তর |
+| ০২ | [Extended Thinking](02-extended-thinking/) | মডেলের বিল্ট-ইন চিন্তার বাজেট |
+| ০৩ | [Self-consistency](03-self-consistency/) | একাধিক উত্তর নিয়ে সবচেয়ে বেশিবার আসাটা বাছা |
+| ০৪ | [ReAct](04-react/) | চিন্তা ও টুল-কলের লুপ |
+| ০৫ | [Tree of Thoughts](05-tree-of-thoughts/) | একাধিক শাখায় ভেবে সেরাটা বাছা |
+| ০৬ | [Self-critique / Reflection](06-self-critique-reflection/) | নিজের আউটপুট নিজে রিভিউ করা |
+
+## কোনটা কখন
+
+| পরিস্থিতি | ব্যবহার করুন |
+|---|---|
+| হিসাব বা বহুধাপ যুক্তি | [Chain-of-Thought](01-chain-of-thought/) |
+| জটিল ডিবাগিং, বড় পরিকল্পনা | [Extended Thinking](02-extended-thinking/) |
+| উত্তর একটা নির্দিষ্ট মান, নির্ভুলতা জরুরি | [Self-consistency](03-self-consistency/) |
+| বাইরের তথ্য লাগবে, কোনটা লাগবে জানা নেই | [ReAct](04-react/) |
+| একাধিক বৈধ সমাধান আছে | [Tree of Thoughts](05-tree-of-thoughts/) |
+| নির্দিষ্ট চেকলিস্ট মানতে হবে | [Self-critique](06-self-critique-reflection/) |
+
+## খরচের হিসাব
+
+এই টেকনিকগুলো সবই বাড়তি টোকেন খরচ করে, কিছু ক্ষেত্রে কয়েক গুণ:
+
+```
+Chain-of-Thought    → ~১.৫–২× আউটপুট টোকেন
+Extended Thinking   → চিন্তার বাজেট অনুযায়ী
+Self-consistency    → রান সংখ্যার সমান গুণ (৫ রান = ৫×)
+Tree of Thoughts    → সবচেয়ে ব্যয়বহুল
+Self-critique       → ~২× (দুই রাউন্ড)
+```
+
+তাই সহজ কাজে (শ্রেণিবিন্যাস, তথ্য নিষ্কাশন, সামারি) এগুলো ব্যবহার করবেন না — শুধু খরচ আর লেটেন্সি বাড়ে, মান বাড়ে না।
+
+## এই স্তরের সাধারণ ভুল
+
+- **উত্তর আগে, যুক্তি পরে** — মডেল তখন আন্দাজ করে, তারপর সেটার পক্ষে যুক্তি বানায়
+- সব কাজে reasoning চালু রাখা
+- যুক্তির অংশ আলাদা ট্যাগে না রাখা, ফলে ইউজারকে কাঁচা চিন্তা দেখানো5:T9da,# Response Prefilling
+
+## সংজ্ঞা
+অ্যাসিস্ট্যান্ট টার্নের শুরুটা আপনি নিজে লিখে দেন — মডেল সেখান থেকে বাকিটা লেখে। শুধু API-তে সম্ভব।
+
+## কখন ব্যবহার করবেন
+- আউটপুট JSON বা নির্দিষ্ট কাঠামোয় লাগবে, আর পার্সিং ভাঙা চলবে না
+- মডেল বারবার ভূমিকা লিখে দিচ্ছে ("এই যে আপনার JSON:")
+- উত্তর একটা নির্দিষ্ট ট্যাগ বা শব্দ দিয়ে শুরু হওয়া দরকার
+
+কখন **নয়**: [Extended Thinking](../../02-reasoning-techniques/02-extended-thinking/) চালু থাকলে — তখন prefill সমর্থিত নয়।
+
+## কেন কাজ করে
+মডেলকে ফরম্যাট মানতে *অনুরোধ* করার চেয়ে ফরম্যাটের ভেতরে *ঢুকিয়ে দেওয়া* অনেক নির্ভরযোগ্য। ভূমিকা লেখার সুযোগই থাকে না।
+
+## উদাহরণ — JSON বাধ্যতামূলক করা
+```python
+messages = [
+    {"role": "user", "content": "এই রিভিউটার সেন্টিমেন্ট JSON-এ দাও: 'ডেলিভারি দেরি, প্রোডাক্ট ভালো'"},
+    {"role": "assistant", "content": "{"}   # ← prefill
+]
+```
+মডেল সরাসরি `"সেন্টিমেন্ট": "মিশ্র", ...}` দিয়ে শুরু করবে।
+> মনে রাখবেন: শুরুর `{` আউটপুটে থাকবে না, তাই পার্স করার আগে সেটা জোড়া লাগাতে হবে।
+
+## উদাহরণ — চিন্তার কাঠামো বেঁধে দেওয়া
+```python
+{"role": "assistant", "content": "<বিশ্লেষণ>\n১."}
+```
+
+## মূল নিয়ম
+- prefill-এর শেষে অতিরিক্ত স্পেস বা নিউলাইন রাখবেন না
+- extended thinking চালু থাকলে prefill সমর্থিত নয়
+6:Tc51,# Chain-of-Thought (CoT)
+
+## সংজ্ঞা
+মডেলকে উত্তর দেওয়ার আগে ধাপে ধাপে যুক্তি লিখতে বলা। মাঝের ধাপগুলো লিখলে ভুল কমে, কারণ প্রতিটা ধাপ পরেরটার ভিত্তি হিসেবে কাজ করে।
+
+## কখন ব্যবহার করবেন
+- হিসাব, তুলনা বা বহুধাপ যুক্তি জড়িত
+- একাধিক শর্ত একসাথে মেলাতে হবে
+- ভুল হলে কোথায় হলো সেটা দেখা দরকার
+
+কখন **নয়**: সহজ শ্রেণিবিন্যাস বা তথ্য বের করার কাজে — শুধু খরচ আর লেটেন্সি বাড়ে।
+
+## খারাপ উদাহরণ
+```
+এই ৩টা প্যাকেজের মধ্যে ১২ জন ইউজারের টিমের জন্য কোনটা সস্তা?
+[প্যাকেজের বিবরণ]
+```
+মডেল সরাসরি একটা নাম বলে দেবে — হিসাব ভুল হলেও ধরা পড়বে না।
+
+## ভালো উদাহরণ
+```
+<প্যাকেজ>
+Basic: ৳৫০০/মাস, ৫ ইউজার পর্যন্ত, অতিরিক্ত ইউজার ৳১২০
+Pro: ৳১৫০০/মাস, ১০ ইউজার পর্যন্ত, অতিরিক্ত ইউজার ৳৮০
+Business: ৳৩০০০/মাস, আনলিমিটেড ইউজার
+</প্যাকেজ>
+
+১২ জন ইউজারের টিমের জন্য কোনটা সস্তা?
+
+<হিসাব> ট্যাগের ভেতরে প্রতিটা প্যাকেজের মোট মাসিক খরচ আলাদা করে বের করো।
+তারপর <উত্তর> ট্যাগের ভেতরে শুধু প্যাকেজের নাম লেখো।
+```
+
+আউটপুট:
+```
+<হিসাব>
+Basic: ৫০০ + (৭ × ১২০) = ৫০০ + ৮৪০ = ৳১৩৪০
+Pro: ১৫০০ + (২ × ৮০) = ১৫০০ + ১৬০ = ৳১৬৬০
+Business: ৳৩০০০
+</হিসাব>
+<উত্তর>Basic</উত্তর>
+```
+
+## মূল নিয়ম
+- **যুক্তি আগে, উত্তর পরে** — উল্টো হলে মডেল আগে আন্দাজ করে, পরে সেটার পক্ষে যুক্তি বানায়
+- যুক্তির অংশ আলাদা ট্যাগে রাখুন, যাতে প্রোগ্রাম দিয়ে বাদ দেওয়া যায়
+- আধুনিক রিজনিং মডেলে এটা অনেকটাই বিল্ট-ইন — দেখুন [Extended Thinking](../02-extended-thinking/)
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto w-full max-w-7xl px-4 py-8 sm:px-8 sm:py-12 flex justify-center gap-8 xl:gap-12","children":[["$","article",null,{"className":"w-full max-w-3xl min-w-0","children":[["$","header",null,{"className":"seam-b mb-8 pb-6","children":["$undefined",["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"০২ — রিজনিং টেকনিক"}]]}],["$","$L2",null,{"content":"$3","base":["02-reasoning-techniques"]}],false,["$","$L4",null,{"prev":{"slug":["01-basic-techniques","07-response-prefilling"],"title":"Response Prefilling","content":"$5","category":"০১ — বেসিক টেকনিক"},"next":{"slug":["02-reasoning-techniques","01-chain-of-thought"],"title":"Chain-of-Thought (CoT)","content":"$6","category":"০২ — রিজনিং টেকনিক"}}]]}],"$L7"]}],["$L8","$L9"],"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"O7OaPqTehBM0Kh17vaRZA"}
+7:["$","$Lb",null,{"headings":[{"id":"এই-ক্যাটাগরিতে","text":"এই ক্যাটাগরিতে","level":2},{"id":"কোনটা-কখন","text":"কোনটা কখন","level":2},{"id":"খরচের-হিসাব","text":"খরচের হিসাব","level":2},{"id":"এই-স্তরের-সাধারণ-ভুল","text":"এই স্তরের সাধারণ ভুল","level":2}]}]
+8:["$","script","script-0",{"src":"/prompt/_next/static/chunks/2v_1wsbo41_2k.js","async":true}]
+9:["$","script","script-1",{"src":"/prompt/_next/static/chunks/05kse55hqjn09.js","async":true}]
+a:["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]
+e:null

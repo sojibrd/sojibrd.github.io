@@ -1,0 +1,153 @@
+1:"$Sreact.fragment"
+2:I[41681,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"default"]
+3:I[39756,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"default"]
+4:I[37457,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"default"]
+a:I[68027,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"default",1]
+:HL["/prompt/_next/static/chunks/0nl2u66vmq4f8.css","style"]
+:HL["/prompt/_next/static/media/490cbca7f386131e-s.p.1zrwl0c4yv3pr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/prompt/_next/static/media/4b23c5ee480ee380-s.p.0qqufx6vw52v_.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/prompt/_next/static/media/520c929efec0b33f-s.p.3arxh35s5-kc0.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/prompt/_next/static/media/6a1d08cf467f0848-s.p.240fzfer9e_rh.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/prompt/_next/static/media/6ea8d1bb8ea4af7a-s.p.1kk_wfe381bov.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/prompt/_next/static/media/70bc3e132a0a741e-s.p.3t6q91iet4nsy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/prompt/_next/static/media/70c15719a04fff13-s.p.376yc-xi7tht7.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"P":null,"c":["","03-system-patterns","03-tool-use",""],"q":"","i":false,"f":[[["",{"children":[["slug","03-system-patterns/03-tool-use","c",null],{"children":["__PAGE__",{}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/prompt/_next/static/chunks/0nl2u66vmq4f8.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/prompt/_next/static/chunks/2dm-8erdits2m.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/prompt/_next/static/chunks/2im7c515bo69p.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"bn","className":"barlow_semi_condensed_66b51823-module__HKMkGa__variable jetbrains_mono_ce945e87-module__HTLkQq__variable noto_sans_bengali_ae4f5577-module__v5t5fW__variable h-full antialiased","children":["$","body",null,{"className":"min-h-full","children":["$","$L2",null,{"nav":[{"slug":["01-basic-techniques"],"title":"০১ — বেসিক টেকনিক","topics":[{"slug":["01-basic-techniques","01-zero-shot-prompting"],"title":"Zero-shot Prompting"},{"slug":["01-basic-techniques","02-few-shot-prompting"],"title":"Few-shot Prompting"},{"slug":["01-basic-techniques","03-role-prompting"],"title":"Role Prompting / Persona"},{"slug":["01-basic-techniques","04-system-prompt"],"title":"System Prompt"},{"slug":["01-basic-techniques","05-delimiters-xml-tagging"],"title":"Delimiters / XML Tagging"},{"slug":["01-basic-techniques","06-output-formatting"],"title":"Output Formatting"},{"slug":["01-basic-techniques","07-response-prefilling"],"title":"Response Prefilling"}]},{"slug":["02-reasoning-techniques"],"title":"০২ — রিজনিং টেকনিক","topics":[{"slug":["02-reasoning-techniques","01-chain-of-thought"],"title":"Chain-of-Thought (CoT)"},{"slug":["02-reasoning-techniques","02-extended-thinking"],"title":"Extended Thinking / Reasoning Tokens"},{"slug":["02-reasoning-techniques","03-self-consistency"],"title":"Self-consistency"},{"slug":["02-reasoning-techniques","04-react"],"title":"ReAct (Reason + Act)"},{"slug":["02-reasoning-techniques","05-tree-of-thoughts"],"title":"Tree of Thoughts (ToT)"},{"slug":["02-reasoning-techniques","06-self-critique-reflection"],"title":"Self-critique / Reflection"}]},{"slug":["03-system-patterns"],"title":"০৩ — সিস্টেম প্যাটার্ন","topics":[{"slug":["03-system-patterns","01-prompt-chaining"],"title":"Prompt Chaining / Decomposition"},{"slug":["03-system-patterns","02-rag"],"title":"RAG (Retrieval-Augmented Generation)"},{"slug":["03-system-patterns","03-tool-use"],"title":"Tool Use / Function Calling"},{"slug":["03-system-patterns","04-context-engineering"],"title":"Context Engineering"},{"slug":["03-system-patterns","05-prompt-caching"],"title":"Prompt Caching"},{"slug":["03-system-patterns","06-llm-as-a-judge"],"title":"LLM-as-a-Judge"},{"slug":["03-system-patterns","07-guardrails"],"title":"Guardrails"}]},{"slug":["04-evaluation"],"title":"০৪ — পরিমাপ ও মান নিয়ন্ত্রণ","topics":[{"slug":["04-evaluation","01-evals"],"title":"Evals"},{"slug":["04-evaluation","02-golden-dataset"],"title":"Golden Dataset"},{"slug":["04-evaluation","03-regression-testing"],"title":"Regression Testing"},{"slug":["04-evaluation","04-prompt-versioning"],"title":"Prompt Versioning"},{"slug":["04-evaluation","05-sampling-parameters"],"title":"Sampling Parameters"}]},{"slug":["05-failure-modes"],"title":"০৫ — ফেইলিউর মোড","topics":[{"slug":["05-failure-modes","01-hallucination"],"title":"Hallucination"},{"slug":["05-failure-modes","02-prompt-injection"],"title":"Prompt Injection"},{"slug":["05-failure-modes","03-jailbreaking"],"title":"Jailbreaking"},{"slug":["05-failure-modes","04-overfitting-to-examples"],"title":"Overfitting to Examples"},{"slug":["05-failure-modes","05-lost-in-the-middle"],"title":"Lost in the Middle"},{"slug":["05-failure-modes","06-context-rot"],"title":"Context Rot"}]}],"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":"$L5"}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":["$L6",{"children":["$L7",{},null,false,null]},null,false,"$@8"]},null,false,null],"$L9",false]],"m":"$undefined","G":["$a",["$Lb"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"O7OaPqTehBM0Kh17vaRZA"}
+d:I[97367,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:I[97367,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"ViewportBoundary"]
+13:I[97367,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"MetadataBoundary"]
+5:["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]
+6:["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+7:["$","$1","c",{"children":["$Lc",[["$","script","script-0",{"src":"/prompt/_next/static/chunks/2v_1wsbo41_2k.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/prompt/_next/static/chunks/05kse55hqjn09.js","async":true,"nonce":"$undefined"}]],["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}]
+10:[]
+8:"$W10"
+9:["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L14"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+b:["$","link","0",{"rel":"stylesheet","href":"/prompt/_next/static/chunks/0nl2u66vmq4f8.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+15:I[82484,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+17:I[12703,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+18:I[48929,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+16:Tbac,## সংজ্ঞা
+মডেলকে কিছু ফাংশনের বিবরণ দেওয়া হয়; সে ঠিক করে কখন কোনটা কল করতে হবে এবং কী আর্গুমেন্ট দিতে হবে। ফাংশনটা চালায় আপনার কোড, মডেল নয়।
+
+## কখন ব্যবহার করবেন
+- লাইভ ডেটা লাগবে (স্টক, অর্ডার স্ট্যাটাস, আবহাওয়া)
+- বাস্তব কাজ করাতে হবে (টিকিট তৈরি, ইমেইল পাঠানো)
+- নির্ভুল হিসাব দরকার — মডেলকে দিয়ে না করিয়ে ক্যালকুলেটর দিয়ে করান
+
+## উদাহরণ
+```python
+tools = [{
+    "name": "get_order_status",
+    "description": (
+        "অর্ডার আইডি দিয়ে অর্ডারের বর্তমান অবস্থা ও ডেলিভারির আনুমানিক তারিখ আনে। "
+        "শুধু তখনই ব্যবহার করবে যখন ইউজার নির্দিষ্ট অর্ডার আইডি দিয়েছে। "
+        "আইডি না থাকলে আগে ইউজারের কাছে চাইবে।"
+    ),
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "order_id": {
+                "type": "string",
+                "description": "অর্ডার আইডি, ফরম্যাট: ORD-XXXXXX",
+            }
+        },
+        "required": ["order_id"],
+    },
+}]
+
+response = client.messages.create(
+    model="claude-sonnet-5",
+    max_tokens=1024,
+    tools=tools,
+    messages=messages,
+)
+```
+
+## মূল নিয়ম
+- **`description`-ই আসল প্রম্পট** — টুলের নাম নয়, বিবরণ দেখেই মডেল সিদ্ধান্ত নেয়। কখন ব্যবহার করবে *এবং কখন করবে না*, দুটোই লিখুন
+- টুলের সংখ্যা কম রাখুন; কাছাকাছি কাজের দুটো টুল থাকলে মডেল গুলিয়ে ফেলে
+- error মেসেজ মডেলকে ফেরত দিন, লুকাবেন না — সে নিজেই শুধরে নেয়
+- ধ্বংসাত্মক কাজে (ডিলিট, পেমেন্ট) মডেলের সিদ্ধান্তের উপর ভরসা না করে মানুষের অনুমোদন বসান, দেখুন [Guardrails](../07-guardrails/)
+- লুপের কাঠামোর জন্য দেখুন [ReAct](../../02-reasoning-techniques/04-react/)19:Tb47,# RAG (Retrieval-Augmented Generation)
+
+## সংজ্ঞা
+প্রশ্নের সাথে প্রাসঙ্গিক ডকুমেন্ট খুঁজে বের করে সেটা প্রম্পটে যোগ করা, তারপর মডেলকে শুধু সেই তথ্যের ভিত্তিতে উত্তর দিতে বলা।
+
+## কখন ব্যবহার করবেন
+- উত্তর এমন তথ্যে নির্ভরশীল যা মডেলের ট্রেনিংয়ে ছিল না (আপনার কোম্পানির ডকুমেন্ট, সাম্প্রতিক ডেটা)
+- তথ্য প্রায়ই বদলায়, তাই মডেলে ঢুকিয়ে রাখা যায় না
+- উত্তরের সূত্র দেখাতে হবে
+
+## উদাহরণ
+```python
+chunks = vector_search(user_question, top_k=5)
+
+context = "\n\n".join(
+    f'<নথি id="{c.id}" শিরোনাম="{c.title}">\n{c.text}\n</নথি>'
+    for c in chunks
+)
+
+prompt = f"""<নথিসমূহ>
+{context}
+</নথিসমূহ>
+
+<নির্দেশনা>
+উপরের নথিগুলোর ভিত্তিতে প্রশ্নের উত্তর দাও।
+
+- প্রতিটা দাবির শেষে সূত্র হিসেবে নথির id লিখবে, যেমন [doc-14]
+- নথিতে উত্তর না থাকলে লিখবে: "প্রদত্ত নথিতে এই তথ্য নেই"
+- নিজের সাধারণ জ্ঞান থেকে কিছু যোগ করবে না
+</নির্দেশনা>
+
+প্রশ্ন: {user_question}"""
+```
+
+## মূল নিয়ম
+- **নথি আগে, প্রশ্ন পরে** — লং-কনটেক্সটে এই ক্রম মাপার মতো উন্নতি দেয়
+- "উত্তর না জানলে বলবে জানি না" — এটা স্পষ্ট করে না বললে মডেল ফাঁক পূরণ করে দেয়, দেখুন [Hallucination](../../05-failure-modes/01-hallucination/)
+- **সূত্র বাধ্যতামূলক করুন** — এতে যাচাই করা যায় এবং মডেলও নথিতে আটকে থাকে
+- খারাপ retrieval-এর সমাধান প্রম্পটে নেই — ভুল নথি এলে সুন্দর প্রম্পটেও ভুল উত্তরই আসবে
+- নথি স্থিতিশীল হলে [Prompt Caching](../05-prompt-caching/) দিয়ে খরচ অনেক কমে
+1a:Tbe4,# Context Engineering
+
+## সংজ্ঞা
+কনটেক্সট উইন্ডোতে কী ঢুকবে, কী ঢুকবে না, আর কোন ক্রমে ঢুকবে — তার পুরো ব্যবস্থাপনা। প্রম্পট ইঞ্জিনিয়ারিং একটা প্রম্পট নিয়ে ভাবে; কনটেক্সট ইঞ্জিনিয়ারিং পুরো উইন্ডোটা নিয়ে ভাবে।
+
+## কখন ভাবতে হবে
+- দীর্ঘ কথোপকথন বা এজেন্ট লুপ, যেখানে হিস্টরি বাড়তেই থাকে
+- অনেক ডকুমেন্ট বা টুল-আউটপুট জমা হচ্ছে
+- খরচ বা লেটেন্সি বাড়ছে, আর মান পড়ছে
+
+## কনটেক্সটের ক্রম
+```
+১. System prompt          → স্থিতিশীল, ক্যাশযোগ্য
+২. টুলের সংজ্ঞা            → স্থিতিশীল, ক্যাশযোগ্য
+৩. রেফারেন্স ডকুমেন্ট      → আধা-স্থিতিশীল, ক্যাশযোগ্য
+৪. কথোপকথনের হিস্টরি      → বাড়তে থাকে
+৫. এই মুহূর্তের প্রশ্ন      → সবার শেষে
+```
+স্থিতিশীল জিনিস উপরে রাখলে [Prompt Caching](../05-prompt-caching/) কাজ করে।
+
+## উদাহরণ — হিস্টরি ছাঁটাই
+```python
+def build_context(history, max_turns=10):
+    if len(history) <= max_turns:
+        return history
+
+    # পুরনো অংশ সামারি করে একটা মেসেজে নামিয়ে আনুন
+    old, recent = history[:-max_turns], history[-max_turns:]
+    summary = ask("এই কথোপকথনের সিদ্ধান্ত ও তথ্যগুলো ৫টা বুলেটে লেখো:\n" + fmt(old))
+
+    return [{"role": "user", "content": f"<আগের আলোচনার সারসংক্ষেপ>\n{summary}\n</আগের আলোচনার সারসংক্ষেপ>"}] + recent
+```
+
+## মূল নিয়ম
+- **বেশি কনটেক্সট = ভালো ফলাফল, এটা ভুল ধারণা** — অপ্রাসঙ্গিক তথ্য মডেলকে বিভ্রান্ত করে
+- টুল-আউটপুট কাঁচা অবস্থায় কনটেক্সটে ফেলবেন না; দরকারি অংশটুকু ছেঁকে নিন
+- সম্পর্কিত সমস্যা: [Lost in the Middle](../../05-failure-modes/05-lost-in-the-middle/) ও [Context Rot](../../05-failure-modes/06-context-rot/)
+c:["$","div",null,{"className":"mx-auto w-full max-w-7xl px-4 py-8 sm:px-8 sm:py-12 flex justify-center gap-8 xl:gap-12","children":[["$","article",null,{"className":"w-full max-w-3xl min-w-0","children":[["$","header",null,{"className":"seam-b mb-8 pb-6","children":[["$","div",null,{"className":"mb-3 flex flex-wrap items-center gap-2","children":["$","span",null,{"className":"chip","children":"০৩ — সিস্টেম প্যাটার্ন"}]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Tool Use / Function Calling"}]]}],["$","$L15",null,{"content":"$16","base":["03-system-patterns","03-tool-use"]}],["$","$L17",null,{"route":"/03-system-patterns/03-tool-use/"}],["$","$L18",null,{"prev":{"slug":["03-system-patterns","02-rag"],"title":"RAG (Retrieval-Augmented Generation)","content":"$19","category":"০৩ — সিস্টেম প্যাটার্ন"},"next":{"slug":["03-system-patterns","04-context-engineering"],"title":"Context Engineering","content":"$1a","category":"০৩ — সিস্টেম প্যাটার্ন"}}]]}],"$L1b"]}]
+1c:I[21210,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+1b:["$","$L1c",null,{"headings":[{"id":"সংজ্ঞা","text":"সংজ্ঞা","level":2},{"id":"কখন-ব্যবহার-করবেন","text":"কখন ব্যবহার করবেন","level":2},{"id":"উদাহরণ","text":"উদাহরণ","level":2},{"id":"মূল-নিয়ম","text":"মূল নিয়ম","level":2}]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+f:null
+14:[["$","title","0",{"children":"Tool Use / Function Calling"}],["$","meta","1",{"name":"description","content":"A reference for the techniques, patterns, and common pitfalls of prompt engineering."}],["$","meta","2",{"name":"theme-color","content":"#17140f"}]]
