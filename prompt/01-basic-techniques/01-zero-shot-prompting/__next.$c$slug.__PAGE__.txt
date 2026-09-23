@@ -1,0 +1,52 @@
+1:"$Sreact.fragment"
+2:I[82484,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+3:I[12703,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+4:I[48929,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+a:I[21210,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+b:I[97367,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"OutletBoundary"]
+c:"$Sreact.suspense"
+5:Td90,# ০১ — বেসিক টেকনিক
+
+প্রতিটা প্রম্পটের ভিত্তি। এই সাতটা ঠিকমতো না করে জটিল কিছুতে যাওয়ার মানে নেই — বেশিরভাগ "মডেল কাজ করছে না" আসলে এই স্তরের সমস্যা।
+
+## এই ক্যাটাগরিতে
+
+| # | টেকনিক | এক লাইনে |
+|---|---|---|
+| ০১ | [Zero-shot Prompting](01-zero-shot-prompting/) | উদাহরণ ছাড়া শুধু স্পষ্ট নির্দেশনা |
+| ০২ | [Few-shot Prompting](02-few-shot-prompting/) | ২–৫টা উদাহরণ দিয়ে প্যাটার্ন শেখানো |
+| ০৩ | [Role Prompting](03-role-prompting/) | ভূমিকা, দর্শক ও উদ্দেশ্য ঠিক করে দেওয়া |
+| ০৪ | [System Prompt](04-system-prompt/) | পুরো কথোপকথনজুড়ে স্থায়ী নির্দেশনা |
+| ০৫ | [Delimiters / XML Tagging](05-delimiters-xml-tagging/) | নির্দেশনা আর ডেটা আলাদা রাখা |
+| ০৬ | [Output Formatting](06-output-formatting/) | পার্স করা যায় এমন আউটপুট বেঁধে দেওয়া |
+| ০৭ | [Response Prefilling](07-response-prefilling/) | উত্তরের শুরুটা লিখে দিয়ে ফরম্যাট বাধ্য করা |
+
+## যে ক্রমে প্রয়োগ করবেন
+
+```
+১. আগে zero-shot দিয়ে চেষ্টা করুন, নির্দেশনা যতটা সম্ভব স্পষ্ট করে
+   ↓ কাজ না করলে
+২. few-shot উদাহরণ যোগ করুন — বিশেষত এজ কেসের উদাহরণ
+   ↓ ফরম্যাট এলোমেলো হলে
+৩. output formatting বেঁধে দিন
+   ↓ তবু না মানলে
+৪. response prefilling দিয়ে বাধ্য করুন
+```
+
+## এই স্তরের সাধারণ ভুল
+
+- **অস্পষ্ট নির্দেশনা** — খারাপ আউটপুটের এক নম্বর কারণ। few-shot যোগ করার আগে নির্দেশনাটা আরেকবার পড়ুন
+- **নির্দেশনা আর ডেটা মিশিয়ে ফেলা** — এটাই [Prompt Injection](../05-failure-modes/02-prompt-injection/)-এর দরজা
+- **জোর দেওয়ার শব্দ স্তূপ করা** — "you MUST", "খুব জরুরি" — দ্রুত কাজ করা বন্ধ করে দেয়
+- **নেতিবাচক নির্দেশনা** — "বেশি লিখো না" নয়, "সর্বোচ্চ ৩ বাক্যে লেখো"
+
+## এরপর কোথায়
+
+- মডেলকে ভাবাতে হলে → [০২ — রিজনিং টেকনিক](../02-reasoning-techniques/)
+- একাধিক প্রম্পট বা টুল লাগলে → [০৩ — সিস্টেম প্যাটার্ন](../03-system-patterns/)
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto w-full max-w-7xl px-4 py-8 sm:px-8 sm:py-12 flex justify-center gap-8 xl:gap-12","children":[["$","article",null,{"className":"w-full max-w-3xl min-w-0","children":[["$","header",null,{"className":"seam-b mb-8 pb-6","children":[["$","div",null,{"className":"mb-3 flex flex-wrap items-center gap-2","children":["$","span",null,{"className":"chip","children":"০১ — বেসিক টেকনিক"}]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Zero-shot Prompting"}]]}],["$","$L2",null,{"content":"## সংজ্ঞা\nকোনো উদাহরণ না দিয়ে শুধু নির্দেশনা দিয়ে মডেলকে কাজ করানো। মডেল তার প্রি-ট্রেনিং জ্ঞান থেকেই কাজটা বুঝে নেয়।\n\n## কখন ব্যবহার করবেন\n- কাজটা সাধারণ ও সুপরিচিত (সামারি, অনুবাদ, প্রশ্নের উত্তর)\n- আউটপুটের ফরম্যাট খুব কড়া নয়\n- দ্রুত প্রোটোটাইপ বানাচ্ছেন\n\n## খারাপ উদাহরণ\n```\nএই রিভিউটা অ্যানালাইজ করো।\n\n\"ডেলিভারি দেরি হয়েছে কিন্তু প্রোডাক্টের মান ভালো।\"\n```\nসমস্যা: \"অ্যানালাইজ\" মানে কী? আউটপুট কেমন হবে? মডেল আন্দাজ করবে।\n\n## ভালো উদাহরণ\n```\nনিচের কাস্টমার রিভিউটার সেন্টিমেন্ট নির্ণয় করো।\nউত্তর দাও শুধু একটি শব্দে: ইতিবাচক, নেতিবাচক, অথবা মিশ্র।\n\nরিভিউ: \"ডেলিভারি দেরি হয়েছে কিন্তু প্রোডাক্টের মান ভালো।\"\n```\nআউটপুট: `মিশ্র`\n\n## মূল নিয়ম\nZero-shot ফেল করলে প্রথমেই few-shot-এ যাবেন না — আগে নির্দেশনাটা আরও স্পষ্ট করুন। বেশিরভাগ zero-shot ব্যর্থতা আসলে অস্পষ্ট নির্দেশনার ব্যর্থতা।","base":["01-basic-techniques","01-zero-shot-prompting"]}],["$","$L3",null,{"route":"/01-basic-techniques/01-zero-shot-prompting/"}],["$","$L4",null,{"prev":{"slug":["01-basic-techniques"],"title":"০১ — বেসিক টেকনিক","content":"$5"},"next":{"slug":["01-basic-techniques","02-few-shot-prompting"],"title":"Few-shot Prompting","content":"# Few-shot Prompting\r\n\r\n## সংজ্ঞা\r\nপ্রম্পটের ভেতরে ২–৫টা ইনপুট/আউটপুট উদাহরণ দিয়ে মডেলকে প্যাটার্ন শেখানো।\r\n\r\n## কখন ব্যবহার করবেন\r\n- আউটপুটের ফরম্যাট নির্দিষ্ট রাখতে হবে\r\n- কাজটার সীমারেখা ভাষায় বোঝানো কঠিন (কোনটা \"জরুরি\" আর কোনটা না)\r\n- ডোমেইন-নির্দিষ্ট পরিভাষা আছে\r\n\r\n## উদাহরণ\r\n```\r\nকাস্টমার সাপোর্ট টিকিটকে ক্যাটাগরিতে ভাগ করো।\r\n\r\nটিকিট: \"পেমেন্ট কেটে নিয়েছে কিন্তু অর্ডার দেখাচ্ছে না\"\r\nক্যাটাগরি: বিলিং | অগ্রাধিকার: উচ্চ\r\n\r\nটিকিট: \"অ্যাপের ডার্ক মোড অপশন কোথায়?\"\r\nক্যাটাগরি: সাধারণ জিজ্ঞাসা | অগ্রাধিকার: নিম্ন\r\n\r\nটিকিট: \"লগইন করতে পারছি না, পাসওয়ার্ড রিসেট মেইল আসছে না\"\r\nক্যাটাগরি: অ্যাকাউন্ট | অগ্রাধিকার: উচ্চ\r\n\r\nটিকিট: \"ইনভয়েসে আমার কোম্পানির নাম ভুল ছাপা হয়েছে\"\r\nক্যাটাগরি:\r\n```\r\nআউটপুট: `বিলিং | অগ্রাধিকার: মধ্যম`\r\n\r\n## মূল নিয়ম\r\n- উদাহরণে **এজ কেস** রাখুন, শুধু সহজ কেস নয়\r\n- সব উদাহরণে **হুবহু একই ফরম্যাট** রাখুন — অসামঞ্জস্য মডেলকে বিভ্রান্ত করে\r\n- ক্লাস ব্যালান্স রাখুন — ৫টা উদাহরণের ৪টাই \"উচ্চ\" হলে মডেল সবকিছুকে \"উচ্চ\" বলবে\r\n","category":"০১ — বেসিক টেকনিক"}}]]}],"$L6"]}],["$L7","$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"O7OaPqTehBM0Kh17vaRZA"}
+6:["$","$La",null,{"headings":[{"id":"সংজ্ঞা","text":"সংজ্ঞা","level":2},{"id":"কখন-ব্যবহার-করবেন","text":"কখন ব্যবহার করবেন","level":2},{"id":"খারাপ-উদাহরণ","text":"খারাপ উদাহরণ","level":2},{"id":"ভালো-উদাহরণ","text":"ভালো উদাহরণ","level":2},{"id":"মূল-নিয়ম","text":"মূল নিয়ম","level":2}]}]
+7:["$","script","script-0",{"src":"/prompt/_next/static/chunks/2v_1wsbo41_2k.js","async":true}]
+8:["$","script","script-1",{"src":"/prompt/_next/static/chunks/05kse55hqjn09.js","async":true}]
+9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
+d:null

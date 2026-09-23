@@ -1,0 +1,118 @@
+1:"$Sreact.fragment"
+2:I[82484,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+4:I[12703,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+5:I[48929,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+c:I[21210,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+d:I[97367,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+3:T94c,## সংজ্ঞা
+প্রম্পটের যে অংশ বারবার একই থাকে, সেটা সার্ভারে ক্যাশ করে রাখা। পরের কলে ওই অংশ আবার প্রসেস করতে হয় না — খরচ ও লেটেন্সি দুটোই কমে।
+
+## কখন ব্যবহার করবেন
+- বড় system prompt বা টুল সংজ্ঞা, যা প্রতি কলে একই
+- একই ডকুমেন্ট নিয়ে একাধিক প্রশ্ন
+- মাল্টি-টার্ন কথোপকথন
+
+## উদাহরণ
+```python
+response = client.messages.create(
+    model="claude-sonnet-5",
+    max_tokens=1024,
+    system=[
+        {
+            "type": "text",
+            "text": LONG_SYSTEM_PROMPT + COMPANY_POLICY_DOC,
+            "cache_control": {"type": "ephemeral"},   # ← এই বিন্দু পর্যন্ত ক্যাশ
+        }
+    ],
+    messages=[{"role": "user", "content": user_question}],
+)
+
+usage = response.usage
+print(usage.cache_creation_input_tokens)   # প্রথম কলে ভরে
+print(usage.cache_read_input_tokens)       # পরের কলে এখান থেকে পড়ে
+```
+
+## মূল নিয়ম
+- ক্যাশ **প্রিফিক্স-ভিত্তিক** — শুরুর দিকে একটা অক্ষর বদলালেও পুরো ক্যাশ ভেঙে যায়
+- তাই বদলানো জিনিস (তারিখ, ইউজারের নাম, র‍্যান্ডম আইডি) কখনো ক্যাশ ব্লকের ভেতরে রাখবেন না
+- ক্যাশ লেখার খরচ সাধারণ ইনপুটের চেয়ে বেশি — একবারই ব্যবহার হবে এমন প্রম্পট ক্যাশ করে লাভ নেই
+- ক্যাশের একটা TTL থাকে; সেটা পেরোলে আবার নতুন করে তৈরি হয়
+- কনটেক্সটের ক্রম ঠিক রাখলে ক্যাশ এমনিতেই কাজ করে, দেখুন [Context Engineering](../04-context-engineering/)6:Tbe4,# Context Engineering
+
+## সংজ্ঞা
+কনটেক্সট উইন্ডোতে কী ঢুকবে, কী ঢুকবে না, আর কোন ক্রমে ঢুকবে — তার পুরো ব্যবস্থাপনা। প্রম্পট ইঞ্জিনিয়ারিং একটা প্রম্পট নিয়ে ভাবে; কনটেক্সট ইঞ্জিনিয়ারিং পুরো উইন্ডোটা নিয়ে ভাবে।
+
+## কখন ভাবতে হবে
+- দীর্ঘ কথোপকথন বা এজেন্ট লুপ, যেখানে হিস্টরি বাড়তেই থাকে
+- অনেক ডকুমেন্ট বা টুল-আউটপুট জমা হচ্ছে
+- খরচ বা লেটেন্সি বাড়ছে, আর মান পড়ছে
+
+## কনটেক্সটের ক্রম
+```
+১. System prompt          → স্থিতিশীল, ক্যাশযোগ্য
+২. টুলের সংজ্ঞা            → স্থিতিশীল, ক্যাশযোগ্য
+৩. রেফারেন্স ডকুমেন্ট      → আধা-স্থিতিশীল, ক্যাশযোগ্য
+৪. কথোপকথনের হিস্টরি      → বাড়তে থাকে
+৫. এই মুহূর্তের প্রশ্ন      → সবার শেষে
+```
+স্থিতিশীল জিনিস উপরে রাখলে [Prompt Caching](../05-prompt-caching/) কাজ করে।
+
+## উদাহরণ — হিস্টরি ছাঁটাই
+```python
+def build_context(history, max_turns=10):
+    if len(history) <= max_turns:
+        return history
+
+    # পুরনো অংশ সামারি করে একটা মেসেজে নামিয়ে আনুন
+    old, recent = history[:-max_turns], history[-max_turns:]
+    summary = ask("এই কথোপকথনের সিদ্ধান্ত ও তথ্যগুলো ৫টা বুলেটে লেখো:\n" + fmt(old))
+
+    return [{"role": "user", "content": f"<আগের আলোচনার সারসংক্ষেপ>\n{summary}\n</আগের আলোচনার সারসংক্ষেপ>"}] + recent
+```
+
+## মূল নিয়ম
+- **বেশি কনটেক্সট = ভালো ফলাফল, এটা ভুল ধারণা** — অপ্রাসঙ্গিক তথ্য মডেলকে বিভ্রান্ত করে
+- টুল-আউটপুট কাঁচা অবস্থায় কনটেক্সটে ফেলবেন না; দরকারি অংশটুকু ছেঁকে নিন
+- সম্পর্কিত সমস্যা: [Lost in the Middle](../../05-failure-modes/05-lost-in-the-middle/) ও [Context Rot](../../05-failure-modes/06-context-rot/)
+7:Tcc1,# LLM-as-a-Judge
+
+## সংজ্ঞা
+একটা মডেলের আউটপুট আরেকটা মডেল দিয়ে মূল্যায়ন করানো। যেখানে সঠিক উত্তর একটা নয়, সেখানে স্বয়ংক্রিয়ভাবে মান মাপার উপায়।
+
+## কখন ব্যবহার করবেন
+- আউটপুট লম্বা লেখা (সামারি, ইমেইল, ব্যাখ্যা) — স্ট্রিং মিলিয়ে যাচাই করা যায় না
+- হাজারটা কেস মানুষ দিয়ে রিভিউ করা সম্ভব নয়
+
+কখন **নয়**: আউটপুট যদি নির্দিষ্ট মান হয় (ক্যাটাগরি, সংখ্যা) — তখন সরাসরি মিলিয়ে দেখাই সঠিক ও সস্তা।
+
+## উদাহরণ
+```
+তুমি একজন কড়া মূল্যায়নকারী। নিচের কাস্টমার সাপোর্ট উত্তরটা মূল্যায়ন করো।
+
+<প্রশ্ন>{question}</প্রশ্ন>
+<নথি>{source_docs}</নথি>
+<উত্তর>{answer}</উত্তর>
+
+প্রতিটা মানদণ্ডে ১–৫ স্কোর দাও:
+
+১. তথ্যগত নির্ভুলতা — উত্তরের প্রতিটা দাবি কি নথিতে আছে?
+   ৫ = সব দাবি নথিভিত্তিক | ৩ = একটা দাবি নথির বাইরে | ১ = বানানো তথ্য আছে
+২. সম্পূর্ণতা — প্রশ্নের সব অংশের উত্তর আছে কি?
+৩. টোন — ভদ্র কিন্তু অতিরিক্ত ক্ষমাপ্রার্থী নয়?
+
+<মূল্যায়ন> ট্যাগে প্রতিটার স্কোর ও এক বাক্যে কারণ লেখো।
+তারপর <রায়> ট্যাগে শুধু PASS বা FAIL — কোনো স্কোর ৩-এর নিচে হলে FAIL।
+```
+
+## মূল নিয়ম
+- **স্কেলের প্রতিটা ধাপ সংজ্ঞায়িত করুন** — "১ থেকে ৫ দাও" বললে জাজ প্রায় সবসময় ৪ দেয়
+- জাজকে **মূল নথি দিন**, নাহলে সে নির্ভুলতা যাচাই করতে পারবে না
+- জাজকেও যাচাই করতে হয় — ২০টা কেসে মানুষের রায়ের সাথে মিলিয়ে দেখুন, দেখুন [Golden Dataset](../../04-evaluation/02-golden-dataset/)
+- একই মডেল নিজের আউটপুট মূল্যায়ন করলে পক্ষপাত থাকে; সম্ভব হলে ভিন্ন মডেল ব্যবহার করুন
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto w-full max-w-7xl px-4 py-8 sm:px-8 sm:py-12 flex justify-center gap-8 xl:gap-12","children":[["$","article",null,{"className":"w-full max-w-3xl min-w-0","children":[["$","header",null,{"className":"seam-b mb-8 pb-6","children":[["$","div",null,{"className":"mb-3 flex flex-wrap items-center gap-2","children":["$","span",null,{"className":"chip","children":"০৩ — সিস্টেম প্যাটার্ন"}]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Prompt Caching"}]]}],["$","$L2",null,{"content":"$3","base":["03-system-patterns","05-prompt-caching"]}],["$","$L4",null,{"route":"/03-system-patterns/05-prompt-caching/"}],["$","$L5",null,{"prev":{"slug":["03-system-patterns","04-context-engineering"],"title":"Context Engineering","content":"$6","category":"০৩ — সিস্টেম প্যাটার্ন"},"next":{"slug":["03-system-patterns","06-llm-as-a-judge"],"title":"LLM-as-a-Judge","content":"$7","category":"০৩ — সিস্টেম প্যাটার্ন"}}]]}],"$L8"]}],["$L9","$La"],"$Lb"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"O7OaPqTehBM0Kh17vaRZA"}
+8:["$","$Lc",null,{"headings":[{"id":"সংজ্ঞা","text":"সংজ্ঞা","level":2},{"id":"কখন-ব্যবহার-করবেন","text":"কখন ব্যবহার করবেন","level":2},{"id":"উদাহরণ","text":"উদাহরণ","level":2},{"id":"মূল-নিয়ম","text":"মূল নিয়ম","level":2}]}]
+9:["$","script","script-0",{"src":"/prompt/_next/static/chunks/2v_1wsbo41_2k.js","async":true}]
+a:["$","script","script-1",{"src":"/prompt/_next/static/chunks/05kse55hqjn09.js","async":true}]
+b:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
+f:null

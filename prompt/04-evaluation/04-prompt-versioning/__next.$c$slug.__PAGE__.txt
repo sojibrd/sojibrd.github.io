@@ -1,0 +1,143 @@
+1:"$Sreact.fragment"
+2:I[82484,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+4:I[12703,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+5:I[48929,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+c:I[21210,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+d:I[97367,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+3:Taba,## সংজ্ঞা
+প্রম্পটকে কোডের মতো ট্রিট করা — ফাইলে রাখা, ভার্সন কন্ট্রোলে রাখা, প্রতিটা পরিবর্তনের সাথে কারণ ও eval ফলাফল রেকর্ড করা।
+
+## কখন দরকার
+প্রম্পট প্রোডাকশনে গেলেই। কোডের ভেতরে স্ট্রিং হিসেবে ছড়িয়ে থাকা প্রম্পট কয়েক সপ্তাহেই অব্যবস্থাপনায় পরিণত হয়।
+
+## উদাহরণ — ফাইল কাঠামো
+```
+prompts/
+├── ticket_classifier/
+│   ├── v1.txt
+│   ├── v2.txt          ← বর্তমানে প্রোডাকশনে
+│   ├── v3.txt          ← পরীক্ষাধীন
+│   └── CHANGELOG.md
+└── refund_email/
+    └── v1.txt
+```
+
+## উদাহরণ — CHANGELOG
+```markdown
+**v3 — 2026-08-10 (পরীক্ষাধীন)**
+পরিবর্তন: "অর্ডার বাতিল + টাকা ফেরত" কেসের জন্য একটা few-shot উদাহরণ যোগ
+কারণ:     t-014 ধরনের কেস ভুল ক্যাটাগরিতে যাচ্ছিল
+ফলাফল:    সঠিকতা ৮৬% → ৯১%, ভেঙেছে: কিছু না
+
+**v2 — 2026-07-22 (প্রোডাকশন)**
+পরিবর্তন: আউটপুট JSON-এ বাঁধা হলো, prefill যোগ
+কারণ:     ~৪% ক্ষেত্রে মডেল ভূমিকা লিখে দিচ্ছিল, পার্সিং ভাঙছিল
+ফলাফল:    সঠিকতা ৮৪% → ৮৬%, পার্স-ব্যর্থতা ৪% → ০%
+```
+
+## মূল নিয়ম
+- প্রম্পট **কোড থেকে আলাদা ফাইলে** রাখুন — তাহলে diff পড়া যায়
+- প্রতিটা ভার্সনের সাথে **কারণ ও eval ফলাফল** লিখুন, শুধু "উন্নত করা হলো" নয়
+- মডেল ভার্সনও রেকর্ড করুন — একই প্রম্পট ভিন্ন মডেলে ভিন্ন আচরণ করে
+- একবারে একটা জিনিস বদলান, নাহলে কোন পরিবর্তনে কী হলো বোঝা যাবে না
+- সাথে দেখুন [Regression Testing](../03-regression-testing/)6:Ta42,# Regression Testing
+
+## সংজ্ঞা
+প্রম্পট বা মডেল বদলানোর পর আগের যেসব কেস ঠিক ছিল, সেগুলো এখনো ঠিক আছে কিনা যাচাই করা।
+
+## কখন চালাবেন
+- প্রম্পটে যেকোনো পরিবর্তনের পর
+- মডেল ভার্সন আপগ্রেড করলে
+- টুল বা RAG-এর নথি বদলালে
+
+## কেন দরকার
+প্রম্পট ইঞ্জিনিয়ারিংয়ের সবচেয়ে সাধারণ ফাঁদ: একটা কেস ঠিক করতে গিয়ে তিনটা ভেঙে ফেলা। মডেল ডিটারমিনিস্টিক নয়, তাই "ছোট পরিবর্তন" বলে কিছু নেই।
+
+## উদাহরণ
+```python
+def compare(old_prompt, new_prompt, cases):
+    fixed, broken, unchanged = [], [], 0
+
+    for c in cases:
+        old_ok = classify(c["input"], old_prompt) == c["expected"]
+        new_ok = classify(c["input"], new_prompt) == c["expected"]
+
+        if not old_ok and new_ok:
+            fixed.append(c["id"])
+        elif old_ok and not new_ok:
+            broken.append(c["id"])       # ← এটাই regression
+        else:
+            unchanged += 1
+
+    return {"ঠিক_হয়েছে": fixed, "ভেঙেছে": broken, "অপরিবর্তিত": unchanged}
+```
+
+আউটপুট দেখতে হবে এভাবে:
+```
+ঠিক_হয়েছে: ['t-014', 't-031']
+ভেঙেছে:    ['t-007']          ← মোট স্কোর বাড়লেও এটা আগে দেখুন
+```
+
+## মূল নিয়ম
+- **মোট স্কোরের দিকে তাকিয়ে থাকবেন না** — ৮২% থেকে ৮৫% হওয়ার মানে হতে পারে ৫টা ঠিক হয়েছে আর ২টা ভেঙেছে
+- ভাঙা কেসগুলো আলাদা করে দেখুন; কোনটা গ্রহণযোগ্য আর কোনটা নয়, সেটা মানুষের সিদ্ধান্ত
+- `temperature=0` রাখুন, নাহলে র‍্যান্ডমনেসকে regression ভেবে ভুল করবেন
+- CI-তে বসিয়ে দিন — প্রম্পট ফাইল বদলালেই যেন চলে
+7:Td77,# Sampling Parameters
+
+## সংজ্ঞা
+মডেল পরের টোকেন কীভাবে বাছবে তা নিয়ন্ত্রণকারী প্যারামিটার — মূলত `temperature`, `top_p`, `max_tokens`, `stop_sequences`।
+
+## কখন ব্যবহার করবেন
+- আউটপুট প্রতিবার একই লাগবে (eval, শ্রেণিবিন্যাস, তথ্য নিষ্কাশন) → `temperature=0`
+- আউটপুটে ভিন্নতা লাগবে (আইডিয়া, কপি, [Self-consistency](../../02-reasoning-techniques/03-self-consistency/)) → বেশি temperature
+- আউটপুট নির্দিষ্ট জায়গায় থামাতে হবে → `stop_sequences`
+
+ডিফল্ট নিয়ম: সন্দেহ হলে `temperature=0` রাখুন, `top_p`-তে হাত দেবেন না।
+
+## কোনটা কখন
+| প্যারামিটার | কাজ | কখন বদলাবেন |
+|---|---|---|
+| `temperature` | এলোমেলো ভাব (০–১) | নির্ভুলতা চাইলে ০, সৃজনশীলতা চাইলে ০.৭–১ |
+| `top_p` | সম্ভাব্য টোকেনের পুল ছাঁটাই | সাধারণত হাত দেবেন না |
+| `max_tokens` | আউটপুটের সর্বোচ্চ দৈর্ঘ্য | খরচ ও কাটা-পড়া নিয়ন্ত্রণে |
+| `stop_sequences` | নির্দিষ্ট টেক্সট এলে থেমে যাওয়া | কাঠামোবদ্ধ আউটপুট কাটতে |
+
+## কাজভিত্তিক সেটিং
+```python
+# শ্রেণিবিন্যাস, তথ্য নিষ্কাশন, eval — একই ইনপুটে একই আউটপুট চাই
+temperature=0
+
+# সাপোর্ট উত্তর, সামারি — সামান্য স্বাভাবিকতা
+temperature=0.3
+
+# মার্কেটিং কপি, আইডিয়া জেনারেশন
+temperature=0.8
+
+# Self-consistency — ভিন্নতা না থাকলে কৌশলটাই অর্থহীন
+temperature=1.0
+```
+
+## উদাহরণ — stop sequence
+```python
+response = client.messages.create(
+    model="claude-sonnet-5",
+    max_tokens=500,
+    temperature=0,
+    stop_sequences=["</উত্তর>"],     # উত্তর ট্যাগ শেষ হলেই থেমে যাবে
+    messages=messages,
+)
+```
+
+## মূল নিয়ম
+- `temperature` আর `top_p` একসাথে বদলাবেন না — একটা বেছে নিন
+- **eval সবসময় `temperature=0`-তে চালান**, নাহলে র‍্যান্ডমনেসকে উন্নতি বা [regression](../03-regression-testing/) ভেবে ভুল করবেন
+- `temperature=0` মানে শতভাগ নিশ্চিত পুনরাবৃত্তি নয়, তবে খুব কাছাকাছি
+- `max_tokens` কম রাখলে উত্তর মাঝপথে কাটা পড়ে — JSON হলে পার্সিং ভাঙে
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto w-full max-w-7xl px-4 py-8 sm:px-8 sm:py-12 flex justify-center gap-8 xl:gap-12","children":[["$","article",null,{"className":"w-full max-w-3xl min-w-0","children":[["$","header",null,{"className":"seam-b mb-8 pb-6","children":[["$","div",null,{"className":"mb-3 flex flex-wrap items-center gap-2","children":["$","span",null,{"className":"chip","children":"০৪ — পরিমাপ ও মান নিয়ন্ত্রণ"}]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Prompt Versioning"}]]}],["$","$L2",null,{"content":"$3","base":["04-evaluation","04-prompt-versioning"]}],["$","$L4",null,{"route":"/04-evaluation/04-prompt-versioning/"}],["$","$L5",null,{"prev":{"slug":["04-evaluation","03-regression-testing"],"title":"Regression Testing","content":"$6","category":"০৪ — পরিমাপ ও মান নিয়ন্ত্রণ"},"next":{"slug":["04-evaluation","05-sampling-parameters"],"title":"Sampling Parameters","content":"$7","category":"০৪ — পরিমাপ ও মান নিয়ন্ত্রণ"}}]]}],"$L8"]}],["$L9","$La"],"$Lb"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"O7OaPqTehBM0Kh17vaRZA"}
+8:["$","$Lc",null,{"headings":[{"id":"সংজ্ঞা","text":"সংজ্ঞা","level":2},{"id":"কখন-দরকার","text":"কখন দরকার","level":2},{"id":"উদাহরণ-ফাইল-কাঠামো","text":"উদাহরণ — ফাইল কাঠামো","level":2},{"id":"উদাহরণ-changelog","text":"উদাহরণ — CHANGELOG","level":2},{"id":"মূল-নিয়ম","text":"মূল নিয়ম","level":2}]}]
+9:["$","script","script-0",{"src":"/prompt/_next/static/chunks/2v_1wsbo41_2k.js","async":true}]
+a:["$","script","script-1",{"src":"/prompt/_next/static/chunks/05kse55hqjn09.js","async":true}]
+b:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
+f:null

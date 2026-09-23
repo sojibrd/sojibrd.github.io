@@ -1,0 +1,146 @@
+1:"$Sreact.fragment"
+2:I[82484,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+4:I[48929,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+b:I[21210,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+c:I[97367,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"OutletBoundary"]
+d:"$Sreact.suspense"
+3:Te70,মাপতে না পারলে প্রম্পট বদলানোটা ইঞ্জিনিয়ারিং নয়, অনুমান। এই ক্যাটাগরিটাই প্রম্পট নিয়ে খেলা আর প্রম্পট ইঞ্জিনিয়ারিংয়ের মধ্যে পার্থক্য।
+
+## এই ক্যাটাগরিতে
+
+| # | বিষয় | এক লাইনে |
+|---|---|---|
+| ০১ | [Evals](01-evals/) | টেস্ট সেট দিয়ে পারফরম্যান্স মাপা |
+| ০২ | [Golden Dataset](02-golden-dataset/) | হাতে লেবেল করা রেফারেন্স কেস |
+| ০৩ | [Regression Testing](03-regression-testing/) | প্রম্পট বদলালে আগের কেস ভাঙছে কিনা |
+| ০৪ | [Prompt Versioning](04-prompt-versioning/) | প্রম্পটের ভার্সন ট্র্যাক করা |
+| ০৫ | [Sampling Parameters](05-sampling-parameters/) | temperature, top-p ইত্যাদি |
+
+## কাজের চক্র
+
+```
+[Golden Dataset তৈরি]  ← প্রম্পট লেখার আগেই, ৩০–১০০টা কেস
+        ↓
+[প্রম্পট লেখা]
+        ↓
+[Eval চালানো, temperature=0]
+        ↓
+[ব্যর্থ কেস দেখা]  ← স্কোরের চেয়ে এটাই বেশি দামি
+        ↓
+[প্রম্পট সংশোধন → নতুন ভার্সন + CHANGELOG]
+        ↓
+[Regression check: কী ঠিক হলো, কী ভাঙল]
+        ↓
+[প্রোডাকশন] → আসল ব্যর্থতা ধরে ডেটাসেটে ফেরত যোগ করুন
+```
+
+শেষ তীরটাই সবচেয়ে গুরুত্বপূর্ণ — প্রোডাকশনের ব্যর্থতা ডেটাসেটে ফিরিয়ে না আনলে eval সেট বাস্তবতা থেকে সরে যেতে থাকে।
+
+## শুরু করার সবচেয়ে ছোট সংস্করণ
+
+পুরো ব্যবস্থা একবারে দাঁড় করানোর দরকার নেই:
+
+1. ২০টা কেস একটা `.jsonl` ফাইলে লিখুন
+2. একটা লুপ যা সব কেস চালিয়ে সঠিকতা আর ব্যর্থ কেসের তালিকা দেয়
+3. প্রম্পট আলাদা ফাইলে সরান, git-এ রাখুন
+
+এইটুকুই ৮০% লাভ দেয়।
+
+## এই স্তরের সাধারণ ভুল
+
+- **মোট স্কোরের দিকে তাকিয়ে থাকা** — ৮২% → ৮৫% মানে হতে পারে ৫টা ঠিক হয়েছে, ২টা ভেঙেছে
+- **eval `temperature=0`-তে না চালানো** — র‍্যান্ডমনেসকে উন্নতি ভেবে ভুল করবেন
+- **যে কেস দেখে প্রম্পট বদলেছেন সেটা দিয়েই সাফল্য মাপা** — দেখুন [Overfitting](../05-failure-modes/04-overfitting-to-examples/)
+- **সহজ কেস দিয়ে ডেটাসেট ভরে ফেলা** — যেসব কেসে আপনি নিজেই দ্বিধায় পড়েন, সেগুলোই আসল পরীক্ষা5:Te72,# Guardrails
+
+## সংজ্ঞা
+মডেলের ইনপুট ও আউটপুটের চারপাশে বসানো যাচাইয়ের স্তর, যা অনাকাঙ্ক্ষিত জিনিস আটকায়। প্রম্পটে লেখা নিয়ম অনুরোধ; guardrail বাধ্যবাধকতা।
+
+## কখন ব্যবহার করবেন
+- সিস্টেমটা সাধারণ ব্যবহারকারীর হাতে খোলা
+- এমন নিয়ম আছে যা ভাঙলে আইনি বা আর্থিক দায় আসে (রিফান্ড, চিকিৎসা, আইনি পরামর্শ)
+- মডেলের হাতে টুল আছে, বিশেষত ধ্বংসাত্মক টুল
+
+কার্যত: প্রোডাকশনে যাওয়া যেকোনো সিস্টেমে।
+
+## কেন প্রম্পটই যথেষ্ট নয়
+প্রম্পটে "কখনো রিফান্ডের নিশ্চয়তা দেবে না" লেখা থাকলেও যথেষ্ট চাপে মডেল সেটা ভাঙতে পারে। কোডে বসানো চেক ভাঙে না।
+
+## তিনটা স্তর
+```
+১. ইনপুট guardrail   → মডেলে পাঠানোর আগে
+২. প্রম্পট নির্দেশনা  → মডেলের ভেতরে (সবচেয়ে দুর্বল স্তর)
+৩. আউটপুট guardrail  → ইউজারকে দেখানোর আগে
+```
+
+## উদাহরণ
+
+> `contains_pii`, `cites_source`, `model_reply` — এগুলো আপনার নিজের লেখা ফাংশন, কোনো লাইব্রেরির নয়।
+
+```python
+def safe_reply(user_msg):
+    # ১ — ইনপুট চেক
+    if contains_pii(user_msg):
+        return "নিরাপত্তার কারণে চ্যাটে কার্ড বা এনআইডি নম্বর দেবেন না।"
+
+    raw = model_reply(user_msg)
+
+    # ৩ — আউটপুট চেক
+    if re.search(r"(রিফান্ড পাবেন|ফেরত নিশ্চিত)", raw):
+        log.warning("policy_violation", extra={"reply": raw})
+        return FALLBACK_REFUND_TEXT          # নিরাপদ, আগে থেকে লেখা উত্তর
+
+    if not cites_source(raw) and mode == "rag":
+        return "এই বিষয়ে নিশ্চিত তথ্য পাচ্ছি না, একজন এজেন্টের সাথে সংযোগ করিয়ে দিচ্ছি।"
+
+    return raw
+```
+
+## মূল নিয়ম
+- **ব্যর্থ হলে নিরাপদ দিকে ব্যর্থ হোক** — সন্দেহ হলে ফলব্যাক উত্তর দিন, মডেলের উত্তর নয়
+- প্রতিটা লঙ্ঘন লগ করুন; ওই লগই পরের প্রম্পট উন্নতির সবচেয়ে ভালো ডেটা
+- ধ্বংসাত্মক টুলে (ডিলিট, পেমেন্ট) মানুষের অনুমোদন বসান, দেখুন [Tool Use](../03-tool-use/)
+- সম্পর্কিত ঝুঁকি: [Prompt Injection](../../05-failure-modes/02-prompt-injection/) ও [Jailbreaking](../../05-failure-modes/03-jailbreaking/)
+6:T98d,# Evals
+
+## সংজ্ঞা
+একগুচ্ছ টেস্ট কেসের উপর প্রম্পট চালিয়ে ফলাফল মাপা। মাপতে না পারলে প্রম্পট বদলানোটা ইঞ্জিনিয়ারিং নয়, অনুমান।
+
+## কখন ব্যবহার করবেন
+সবসময় — প্রম্পট যদি প্রোডাকশনে যায়। ২০টা হাতে-লেখা কেসও শূন্যের চেয়ে অনেক ভালো।
+
+## উদাহরণ
+```python
+CASES = [
+    {"input": "পেমেন্ট কেটেছে কিন্তু অর্ডার নেই", "expected": "বিলিং"},
+    {"input": "ডার্ক মোড কোথায়?",                "expected": "সাধারণ জিজ্ঞাসা"},
+    {"input": "পাসওয়ার্ড রিসেট মেইল আসছে না",   "expected": "অ্যাকাউন্ট"},
+    # ... এজ কেস, দ্ব্যর্থ কেস, খালি ইনপুট
+]
+
+def run_eval(prompt_version):
+    results, failures = [], []
+    for case in CASES:
+        got = classify(case["input"], prompt=prompt_version)
+        ok = got == case["expected"]
+        results.append(ok)
+        if not ok:
+            failures.append({**case, "got": got})
+
+    return {
+        "সঠিকতা": sum(results) / len(results),
+        "ব্যর্থ_কেস": failures,      # এটাই সবচেয়ে দামি অংশ
+    }
+```
+
+## মূল নিয়ম
+- **স্কোরের চেয়ে ব্যর্থ কেসের তালিকা বেশি দামি** — পরের প্রম্পট সংশোধন ওখান থেকেই আসে
+- সহজ কেস দিয়ে ভরে ফেলবেন না; যেসব কেসে আপনি নিজেই দ্বিধায় পড়েন, সেগুলোই রাখুন
+- প্রোডাকশনের আসল ব্যর্থতাগুলো ধরে ধরে eval সেটে যোগ করতে থাকুন
+- লম্বা লেখার আউটপুট মাপতে দেখুন [LLM-as-a-Judge](../../03-system-patterns/06-llm-as-a-judge/)
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto w-full max-w-7xl px-4 py-8 sm:px-8 sm:py-12 flex justify-center gap-8 xl:gap-12","children":[["$","article",null,{"className":"w-full max-w-3xl min-w-0","children":[["$","header",null,{"className":"seam-b mb-8 pb-6","children":["$undefined",["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"০৪ — পরিমাপ ও মান নিয়ন্ত্রণ"}]]}],["$","$L2",null,{"content":"$3","base":["04-evaluation"]}],false,["$","$L4",null,{"prev":{"slug":["03-system-patterns","07-guardrails"],"title":"Guardrails","content":"$5","category":"০৩ — সিস্টেম প্যাটার্ন"},"next":{"slug":["04-evaluation","01-evals"],"title":"Evals","content":"$6","category":"০৪ — পরিমাপ ও মান নিয়ন্ত্রণ"}}]]}],"$L7"]}],["$L8","$L9"],"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"O7OaPqTehBM0Kh17vaRZA"}
+7:["$","$Lb",null,{"headings":[{"id":"এই-ক্যাটাগরিতে","text":"এই ক্যাটাগরিতে","level":2},{"id":"কাজের-চক্র","text":"কাজের চক্র","level":2},{"id":"শুরু-করার-সবচেয়ে-ছোট-সংস্করণ","text":"শুরু করার সবচেয়ে ছোট সংস্করণ","level":2},{"id":"এই-স্তরের-সাধারণ-ভুল","text":"এই স্তরের সাধারণ ভুল","level":2}]}]
+8:["$","script","script-0",{"src":"/prompt/_next/static/chunks/2v_1wsbo41_2k.js","async":true}]
+9:["$","script","script-1",{"src":"/prompt/_next/static/chunks/05kse55hqjn09.js","async":true}]
+a:["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]
+e:null
