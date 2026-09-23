@@ -1,0 +1,3 @@
+# prompt/ is a Next.js static export. Its RSC payloads (.txt) carry byte
+# lengths, so line-ending conversion corrupts them — store every byte as-is.
+prompt/** -text
