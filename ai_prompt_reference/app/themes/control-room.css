@@ -1,0 +1,243 @@
+/* ============================================================================
+   THEME — Control Room
+
+   The reference reads as an instrument panel in a rack: warm charcoal chassis,
+   moulded panels behind machined bezels, engraved labels, amber signal ink.
+
+   Character rules this theme commits to:
+   - Surfaces are WARM charcoal (brown-black), never blue-grey slate.
+   - Depth is a physical bezel: an inset top highlight over a bottom shadow.
+   - Nothing glows. Panels, buttons, borders and text stay matte.
+
+   Shares its palette and token names with the `system_design` site so the two
+   read as one instrument. Tokens for parts this site does not have (canvas,
+   lamps, wires, gauges, diagrams) are deliberately absent — add a token here
+   first if a new visual is ever needed.
+   ========================================================================= */
+
+:root {
+  /* --- Palette (private to this theme) -------------------------------- */
+  --chassis: #17140f;
+  --panel: #211d18;
+  --raised: #2b251f;
+  --panel-hi: #363029;
+  --well: #100e0b;
+
+  --bezel: #3a322a;
+  --bezel-strong: #4d4238;
+  --bezel-hi: #5f5245;
+
+  --readout: #f3ece0;
+  --readout-soft: #c9bda9;
+  --readout-muted: #8f8272;
+  --readout-faint: #625849;
+
+  --amber: #ffb020;
+  --amber-dim: #7d5a17;
+  --amber-soft: #2e2311;
+  --green: #52c07a;
+  --green-soft: #14261a;
+  --red: #e05646;
+  --red-soft: #2c1613;
+
+  /* --- Type ------------------------------------------------------------ */
+  --t-font-sans: var(--font-condensed), var(--font-bengali), ui-sans-serif, system-ui, sans-serif;
+  --t-font-mono: var(--font-mono-family), ui-monospace, monospace;
+
+  --t-title-family: var(--t-font-sans);
+  --t-title-weight: 700;
+  --t-title-tracking: -0.01em;
+  --t-title-transform: uppercase;
+
+  --t-label-family: var(--t-font-mono);
+  --t-label-size: 0.625rem;
+  --t-label-weight: 400;
+  --t-label-tracking: 0.16em;
+  --t-label-transform: uppercase;
+
+  /* --- Motion ---------------------------------------------------------- */
+  --t-ease: cubic-bezier(0.3, 0.7, 0.2, 1);
+
+  /* --- App ------------------------------------------------------------- */
+  --t-app-bg: var(--chassis);
+  --t-app-bg-image: none;
+  --t-app-bg-size: auto;
+  --t-select-bg: var(--amber);
+  --t-select-fg: var(--chassis);
+  --t-overlay-bg: rgb(23 20 15 / 0.8);
+  --t-overlay-filter: none;
+  --t-disabled-opacity: 0.35;
+  --t-hover-fill: var(--panel-hi);
+  --t-selected-bg: var(--amber);
+  --t-selected-fg: var(--chassis);
+  --t-accent: var(--amber);
+  --t-ok: var(--green);
+  --t-ok-soft: var(--green-soft);
+
+  /* --- Text ------------------------------------------------------------ */
+  --t-text-title: var(--readout);
+  --t-text-body: var(--readout-soft);
+  --t-text-label: var(--readout-muted);
+  --t-text-muted: var(--readout-muted);
+  --t-text-faint: var(--readout-faint);
+
+  /* A set-apart voice — an analogy, an aside. */
+  --t-quote-style: italic;
+
+  /* --- Depth ----------------------------------------------------------- */
+  --bezel-shadow:
+    inset 0 1px 0 0 rgb(255 236 205 / 0.07),
+    inset 0 -1px 0 0 rgb(0 0 0 / 0.55),
+    0 1px 2px 0 rgb(0 0 0 / 0.5);
+  --raised-shadow:
+    inset 0 1px 0 0 rgb(255 236 205 / 0.1),
+    0 6px 18px -8px rgb(0 0 0 / 0.85);
+  --well-shadow: inset 0 2px 7px 0 rgb(0 0 0 / 0.75);
+  --key-shadow:
+    inset 0 1px 0 0 rgb(255 236 205 / 0.18),
+    0 2px 0 0 rgb(0 0 0 / 0.7);
+
+  /* --- Surfaces -------------------------------------------------------- */
+  --t-panel-bg: var(--panel);
+  --t-panel-border: var(--bezel);
+  --t-panel-border-width: 1px;
+  --t-panel-radius: 6px;
+  --t-panel-shadow: var(--bezel-shadow);
+
+  --t-raised-bg: var(--raised);
+  --t-raised-border: var(--bezel-strong);
+  --t-raised-border-width: 1px;
+  --t-raised-radius: 4px;
+  --t-raised-shadow: var(--raised-shadow);
+
+  --t-well-bg: var(--well);
+  --t-well-border: var(--bezel);
+  --t-well-border-width: 1px;
+  --t-well-radius: 4px;
+  --t-well-shadow: var(--well-shadow);
+
+  /* --- Seams ----------------------------------------------------------- */
+  --t-seam: var(--bezel);
+  --t-seam-width: 1px;
+
+  /* --- Gauge ----------------------------------------------------------- */
+  --t-gauge-track: var(--well);
+  --t-gauge-border: var(--bezel);
+  --t-gauge-border-width: 1px;
+  --t-gauge-radius: 2px;
+  --t-gauge-fill: var(--amber);
+  --t-gauge-fill-glow: 0 0 10px -2px rgb(255 176 32 / 0.8);
+  --t-seam-heavy: var(--bezel-strong);
+  --t-seam-heavy-width: 1px;
+
+  /* --- Controls: physical keys that travel when pressed ---------------- */
+  --t-control-family: var(--t-font-sans);
+  --t-control-weight: 600;
+  --t-control-tracking: 0.04em;
+  --t-control-transform: uppercase;
+  --t-control-border-width: 1px;
+  --t-control-radius: 4px;
+  --t-control-bg: var(--raised);
+  --t-control-border: var(--bezel-strong);
+  --t-control-fg: var(--readout);
+  --t-control-shadow: var(--key-shadow);
+  --t-control-bg-hover: var(--panel-hi);
+  --t-control-border-hover: var(--bezel-hi);
+  --t-control-fg-hover: var(--readout);
+  --t-control-press-transform: translateY(2px);
+  --t-control-press-shadow: none;
+
+  --t-primary-bg: var(--amber);
+  --t-primary-bg-hover: #ffc248;
+  --t-primary-border: var(--amber-dim);
+  --t-primary-fg: var(--chassis);
+  --t-primary-shadow: var(--key-shadow);
+
+  --t-alert-bg: var(--red);
+  --t-alert-bg-hover: #ec6a5a;
+  --t-alert-border: rgb(224 86 70 / 0.7);
+  --t-alert-fg: var(--chassis);
+  --t-alert-soft: var(--red-soft);
+
+  /* --- Chips ----------------------------------------------------------- */
+  --t-chip-border-width: 1px;
+  --t-chip-radius: 2px;
+  --t-chip-bg: var(--chassis);
+  --t-chip-border: var(--bezel-strong);
+  --t-chip-fg: var(--readout-muted);
+  --t-chip-accent-bg: var(--amber-soft);
+  --t-chip-accent-border: var(--amber-dim);
+  --t-chip-accent-fg: var(--amber);
+
+  /* --- Callouts -------------------------------------------------------- */
+  --t-callout-bg: var(--raised);
+  --t-callout-border: var(--bezel);
+  --t-callout-border-width: 1px;
+  --t-callout-edge: var(--bezel-strong);
+  --t-callout-edge-width: 3px;
+  --t-callout-radius: 4px;
+  --t-callout-shadow: var(--bezel-shadow);
+
+  /* --- Tabs ------------------------------------------------------------ */
+  --t-tab-bg: var(--panel);
+  --t-tab-border: var(--bezel);
+  --t-tab-border-hover: var(--bezel-strong);
+  --t-tab-shadow: var(--bezel-shadow);
+  --t-tab-selected-bg: var(--raised);
+  --t-tab-selected-border: var(--bezel-hi);
+  --t-tab-selected-shadow: var(--key-shadow), 0 0 0 1px rgb(255 176 32 / 0.4);
+
+  /* --- Scrollbars ------------------------------------------------------ */
+  --t-scrollbar-size: 8px;
+  --t-scrollbar-track: var(--well);
+  --t-scrollbar-thumb: var(--bezel-strong);
+  --t-scrollbar-thumb-hover: var(--bezel-hi);
+
+  /* --- Doc prose: the long-form reading column ------------------------- */
+  /* This site is almost entirely long-form Bengali, so the reading column is
+     the one place the theme stops shouting: engraved uppercase headings in the
+     condensed face still frame the page, but the body is set in the Bengali
+     face at normal case and a generous leading. */
+  --t-doc-family: var(--font-bengali), var(--t-font-sans);
+  --t-doc-size: 0.9375rem;
+  --t-doc-leading: 1.85;
+  --t-doc-flow: 1.1rem;
+  --t-doc-flow-tight: 0.65rem;
+  --t-doc-heading-lead: 2rem;
+
+  --t-doc-body: var(--readout-soft);
+  --t-doc-heading: var(--readout);
+  --t-doc-strong: var(--readout);
+  --t-doc-link: var(--amber);
+  --t-doc-link-hover: #ffc248;
+  --t-doc-marker: var(--readout-faint);
+  --t-doc-bullet: square;
+
+  --t-doc-heading-family: var(--t-font-sans);
+  --t-doc-heading-weight: 700;
+  --t-doc-heading-tracking: 0.02em;
+  --t-doc-heading-transform: uppercase;
+  --t-doc-h1-size: 1.75rem;
+  --t-doc-h2-size: 1.3rem;
+  --t-doc-h3-size: 1.0625rem;
+  --t-doc-h4-size: 0.9375rem;
+
+  --t-doc-code-fg: var(--amber);
+  --t-doc-code-bg: var(--amber-soft);
+  --t-doc-code-border: var(--amber-dim);
+  --t-doc-pre-fg: var(--readout-soft);
+
+  /* --- Drawer ---------------------------------------------------------- */
+  /* The mobile nav slides in from the left; how it arrives is a theme call. */
+  --t-drawer-animation: slideInLeft 0.25s var(--t-ease) forwards;
+}
+
+/* Keyframes belong to the theme that references them. */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
