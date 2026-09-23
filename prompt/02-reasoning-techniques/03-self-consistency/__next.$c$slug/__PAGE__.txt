@@ -1,0 +1,135 @@
+1:"$Sreact.fragment"
+2:I[82484,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+4:I[12703,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+5:I[48929,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+c:I[21210,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+d:I[97367,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+3:T964,## সংজ্ঞা
+একই প্রম্পট কয়েকবার চালিয়ে (temperature > 0) একাধিক উত্তর নেওয়া, তারপর সবচেয়ে বেশিবার আসা উত্তরটা বেছে নেওয়া। সহজ কথায় — মেজরিটি ভোট।
+
+## কখন ব্যবহার করবেন
+- উত্তরটা একটা নির্দিষ্ট মান (ক্যাটাগরি, সংখ্যা, হ্যাঁ/না)
+- নির্ভুলতা খরচের চেয়ে বেশি গুরুত্বপূর্ণ
+- মডেল মাঝে মাঝে ভুল করে, কিন্তু বেশিরভাগ সময় ঠিক করে
+
+কখন **নয়**: লম্বা লেখা তৈরিতে — সেখানে "মেজরিটি" বলে কিছু নেই।
+
+## উদাহরণ
+```python
+from collections import Counter
+
+def classify_with_vote(ticket, runs=5):
+    votes = []
+    for _ in range(runs):
+        r = client.messages.create(
+            model="claude-sonnet-5",
+            max_tokens=100,
+            temperature=1.0,          # ভিন্নতা দরকার, তাই ০ নয়
+            messages=[{"role": "user", "content": PROMPT.format(ticket=ticket)}],
+        )
+        votes.append(r.content[0].text.strip())
+
+    counts = Counter(votes)
+    winner, count = counts.most_common(1)[0]
+
+    return {
+        "ক্যাটাগরি": winner,
+        "আস্থা": count / runs,        # ৩/৫ = ০.৬ → মানুষের রিভিউ দরকার
+        "সব_ভোট": dict(counts),
+    }
+```
+
+## মূল নিয়ম
+- খরচ সরাসরি গুণ হয় — ৫ বার চালানো মানে ৫ গুণ বিল
+- **আস্থার স্কোরটাই আসল লাভ** — ভোট ভাগ হয়ে গেলে বুঝবেন কেসটা কঠিন, সেটা মানুষের কাছে পাঠান
+- `temperature=0` রাখলে সব উত্তর একই আসবে, কৌশলটাই অর্থহীন হয়ে যাবে — দেখুন [Sampling Parameters](../../04-evaluation/05-sampling-parameters/)6:Ta23,# Extended Thinking / Reasoning Tokens
+
+## সংজ্ঞা
+মডেলের নিজস্ব চিন্তার বাজেট, যা API প্যারামিটার দিয়ে চালু করা হয়। হাতে লেখা Chain-of-Thought-এর বিল্ট-ইন ও প্রশিক্ষিত সংস্করণ।
+
+## কখন ব্যবহার করবেন
+- জটিল কোড ডিবাগিং, গণিত, বহুধাপ পরিকল্পনা
+- যেখানে ভুলের খরচ বেশি, আর কয়েক সেকেন্ড বেশি লাগলে সমস্যা নেই
+
+কখন **নয়**: শ্রেণিবিন্যাস, তথ্য নিষ্কাশন, সামারি — এসবে চিন্তার বাজেট শুধু টাকা পোড়ায়।
+
+## উদাহরণ
+```python
+import anthropic
+
+client = anthropic.Anthropic()
+
+response = client.messages.create(
+    model="claude-sonnet-5",
+    max_tokens=8000,
+    thinking={
+        "type": "enabled",
+        "budget_tokens": 4000,     # max_tokens-এর চেয়ে কম হতে হবে
+    },
+    messages=[{
+        "role": "user",
+        "content": "এই SQL কোয়েরিটা প্রোডাকশনে ২০ সেকেন্ড নিচ্ছে। কারণ কী হতে পারে?\n\n" + query,
+    }],
+)
+
+# response.content-এ দুই ধরনের ব্লক আসে
+for block in response.content:
+    if block.type == "thinking":
+        log.debug(block.thinking)   # ডিবাগিং লগে রাখুন, ইউজারকে দেখানোর দরকার নেই
+    elif block.type == "text":
+        print(block.text)           # আসল উত্তর
+```
+
+## মূল নিয়ম
+- `budget_tokens` সবসময় `max_tokens`-এর চেয়ে **কম** রাখতে হবে
+- thinking চালু থাকলে [Response Prefilling](../../01-basic-techniques/07-response-prefilling/) কাজ করবে না
+- বাজেট বাড়ালেই মান বাড়ে না — কাজটা সত্যিই জটিল না হলে ৩০০০-এর বেশি দিয়ে লাভ নেই
+- thinking ব্লক নিজে থেকে ইউজারকে দেখাবেন না, তবে ডিবাগিং লগে রাখা কাজের
+7:Tc96,# ReAct (Reason + Act)
+
+## সংজ্ঞা
+চিন্তা → কাজ (টুল কল) → পর্যবেক্ষণ → আবার চিন্তা — এই লুপে মডেল ধাপে ধাপে এগোয়। আধুনিক এজেন্টের মূল কাঠামো।
+
+## কখন ব্যবহার করবেন
+- উত্তর দিতে বাইরের তথ্য লাগবে, আর কোন তথ্য লাগবে তা আগে থেকে জানা নেই
+- একাধিক ধাপের কাজ, যেখানে পরের ধাপ আগের ফলাফলের উপর নির্ভরশীল
+
+## লুপের চেহারা
+```
+ইউজার: "গত মাসে সবচেয়ে বেশি রিফান্ড হওয়া প্রোডাক্টটার স্টক কত?"
+
+চিন্তা:      আগে গত মাসের রিফান্ড ডেটা লাগবে।
+কাজ:         query_refunds(month="2026-07")
+পর্যবেক্ষণ:  [{"product_id": "P-882", "count": 47}, ...]
+
+চিন্তা:      P-882 সবার উপরে। এখন এর স্টক দেখতে হবে।
+কাজ:         get_inventory(product_id="P-882")
+পর্যবেক্ষণ:  {"stock": 12, "নাম": "ওয়্যারলেস ইয়ারবাড X2"}
+
+চিন্তা:      দুটো তথ্যই পেয়েছি, এখন উত্তর দিতে পারি।
+উত্তর:       গত মাসে সবচেয়ে বেশি রিফান্ড হয়েছে "ওয়্যারলেস ইয়ারবাড X2"
+             (৪৭টি)। বর্তমানে স্টকে আছে ১২টি।
+```
+
+## উদাহরণ — সিস্টেম প্রম্পট
+```
+তোমার কাছে এই টুলগুলো আছে: query_refunds, get_inventory, create_ticket
+
+প্রতিটা ধাপে:
+- টুল কল করার আগে এক বাক্যে বলো কেন এই টুলটা দরকার
+- একবারে একটা টুল কল করবে, ফলাফল দেখে পরেরটা ঠিক করবে
+- তথ্য না পেলে অনুমান করবে না — বলবে কোন তথ্যটা পাওয়া যায়নি
+- সর্বোচ্চ ৫টা টুল কলের মধ্যে শেষ করার চেষ্টা করবে
+```
+
+## মূল নিয়ম
+- **লুপের সীমা বেঁধে দিন** — নাহলে মডেল একই টুল বারবার কল করতে থাকতে পারে
+- টুলের error মেসেজ মডেলকে ফেরত দিন, সেটা থেকেই সে নিজেকে শোধরায়
+- বিস্তারিত টুল ডিজাইনের জন্য দেখুন [Tool Use](../../03-system-patterns/03-tool-use/)
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto w-full max-w-7xl px-4 py-8 sm:px-8 sm:py-12 flex justify-center gap-8 xl:gap-12","children":[["$","article",null,{"className":"w-full max-w-3xl min-w-0","children":[["$","header",null,{"className":"seam-b mb-8 pb-6","children":[["$","div",null,{"className":"mb-3 flex flex-wrap items-center gap-2","children":["$","span",null,{"className":"chip","children":"০২ — রিজনিং টেকনিক"}]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Self-consistency"}]]}],["$","$L2",null,{"content":"$3","base":["02-reasoning-techniques","03-self-consistency"]}],["$","$L4",null,{"route":"/02-reasoning-techniques/03-self-consistency/"}],["$","$L5",null,{"prev":{"slug":["02-reasoning-techniques","02-extended-thinking"],"title":"Extended Thinking / Reasoning Tokens","content":"$6","category":"০২ — রিজনিং টেকনিক"},"next":{"slug":["02-reasoning-techniques","04-react"],"title":"ReAct (Reason + Act)","content":"$7","category":"০২ — রিজনিং টেকনিক"}}]]}],"$L8"]}],["$L9","$La"],"$Lb"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"269ul7QTvpisCLSdl7yXZ"}
+8:["$","$Lc",null,{"headings":[{"id":"সংজ্ঞা","text":"সংজ্ঞা","level":2},{"id":"কখন-ব্যবহার-করবেন","text":"কখন ব্যবহার করবেন","level":2},{"id":"উদাহরণ","text":"উদাহরণ","level":2},{"id":"মূল-নিয়ম","text":"মূল নিয়ম","level":2}]}]
+9:["$","script","script-0",{"src":"/prompt/_next/static/chunks/2v_1wsbo41_2k.js","async":true}]
+a:["$","script","script-1",{"src":"/prompt/_next/static/chunks/05kse55hqjn09.js","async":true}]
+b:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
+f:null

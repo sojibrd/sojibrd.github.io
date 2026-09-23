@@ -1,0 +1,118 @@
+1:"$Sreact.fragment"
+2:I[82484,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+4:I[12703,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+5:I[48929,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+c:I[21210,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+d:I[97367,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+3:Taf5,## সংজ্ঞা
+একটামাত্র সমাধানের পথে না গিয়ে একাধিক বিকল্প পথ তৈরি করা, প্রতিটা মূল্যায়ন করা, তারপর সেরাটা বেছে নেওয়া বা এগিয়ে নেওয়া।
+
+## কখন ব্যবহার করবেন
+- সৃজনশীল বা ডিজাইন-ধর্মী কাজ, যেখানে একাধিক বৈধ উত্তর আছে
+- প্রথম আইডিয়াটা সাধারণত সবচেয়ে সহজ আইডিয়া, সেরা নয়
+
+কখন **নয়**: যেখানে একটাই সঠিক উত্তর আছে — সেখানে [Self-consistency](../03-self-consistency/) সস্তা ও কার্যকর।
+
+## উদাহরণ
+```
+সমস্যা: আমাদের চেকআউট পেজে ৬৮% ইউজার কার্ট ছেড়ে চলে যায়।
+
+ধাপ ১ — <বিকল্প> ট্যাগের ভেতরে ৩টা ভিন্ন ধরনের সমাধান দাও।
+        তিনটা যেন ভিন্ন দিক থেকে সমস্যাটা দেখে (UX / ট্রাস্ট / টেকনিক্যাল)।
+
+ধাপ ২ — <মূল্যায়ন> ট্যাগে প্রতিটার জন্য লেখো:
+        - বাস্তবায়নের খরচ (কম/মাঝারি/বেশি)
+        - সম্ভাব্য প্রভাব (কম/মাঝারি/বেশি)
+        - সবচেয়ে বড় ঝুঁকি
+
+ধাপ ৩ — <সিদ্ধান্ত> ট্যাগে একটা বেছে নাও এবং কেন বাকি দুটো বাদ দিলে তা বলো।
+```
+
+## মূল নিয়ম
+- বিকল্পগুলো যেন **সত্যিই ভিন্ন** হয় — "একই আইডিয়ার ৩টা রূপ" পেলে প্রম্পটে ভিন্ন দৃষ্টিকোণ বেঁধে দিন
+- মূল্যায়নের মানদণ্ড আপনি ঠিক করে দিন, মডেলকে বাছতে দেবেন না
+- খরচ বেশি — প্রতিদিনের কাজে নয়, বড় সিদ্ধান্তে ব্যবহার করুন
+- ধাপগুলো আলাদা API কলে ভাগ করলে নিয়ন্ত্রণ বাড়ে, দেখুন [Prompt Chaining](../../03-system-patterns/01-prompt-chaining/)6:Tc96,# ReAct (Reason + Act)
+
+## সংজ্ঞা
+চিন্তা → কাজ (টুল কল) → পর্যবেক্ষণ → আবার চিন্তা — এই লুপে মডেল ধাপে ধাপে এগোয়। আধুনিক এজেন্টের মূল কাঠামো।
+
+## কখন ব্যবহার করবেন
+- উত্তর দিতে বাইরের তথ্য লাগবে, আর কোন তথ্য লাগবে তা আগে থেকে জানা নেই
+- একাধিক ধাপের কাজ, যেখানে পরের ধাপ আগের ফলাফলের উপর নির্ভরশীল
+
+## লুপের চেহারা
+```
+ইউজার: "গত মাসে সবচেয়ে বেশি রিফান্ড হওয়া প্রোডাক্টটার স্টক কত?"
+
+চিন্তা:      আগে গত মাসের রিফান্ড ডেটা লাগবে।
+কাজ:         query_refunds(month="2026-07")
+পর্যবেক্ষণ:  [{"product_id": "P-882", "count": 47}, ...]
+
+চিন্তা:      P-882 সবার উপরে। এখন এর স্টক দেখতে হবে।
+কাজ:         get_inventory(product_id="P-882")
+পর্যবেক্ষণ:  {"stock": 12, "নাম": "ওয়্যারলেস ইয়ারবাড X2"}
+
+চিন্তা:      দুটো তথ্যই পেয়েছি, এখন উত্তর দিতে পারি।
+উত্তর:       গত মাসে সবচেয়ে বেশি রিফান্ড হয়েছে "ওয়্যারলেস ইয়ারবাড X2"
+             (৪৭টি)। বর্তমানে স্টকে আছে ১২টি।
+```
+
+## উদাহরণ — সিস্টেম প্রম্পট
+```
+তোমার কাছে এই টুলগুলো আছে: query_refunds, get_inventory, create_ticket
+
+প্রতিটা ধাপে:
+- টুল কল করার আগে এক বাক্যে বলো কেন এই টুলটা দরকার
+- একবারে একটা টুল কল করবে, ফলাফল দেখে পরেরটা ঠিক করবে
+- তথ্য না পেলে অনুমান করবে না — বলবে কোন তথ্যটা পাওয়া যায়নি
+- সর্বোচ্চ ৫টা টুল কলের মধ্যে শেষ করার চেষ্টা করবে
+```
+
+## মূল নিয়ম
+- **লুপের সীমা বেঁধে দিন** — নাহলে মডেল একই টুল বারবার কল করতে থাকতে পারে
+- টুলের error মেসেজ মডেলকে ফেরত দিন, সেটা থেকেই সে নিজেকে শোধরায়
+- বিস্তারিত টুল ডিজাইনের জন্য দেখুন [Tool Use](../../03-system-patterns/03-tool-use/)
+7:T9ff,# Self-critique / Reflection
+
+## সংজ্ঞা
+মডেল প্রথমে একটা আউটপুট দেয়, তারপর নির্দিষ্ট মানদণ্ড ধরে নিজের আউটপুট রিভিউ করে এবং সংশোধন করে।
+
+## কখন ব্যবহার করবেন
+- আউটপুটে নির্দিষ্ট নিয়ম মানতে হবে (স্টাইল গাইড, চেকলিস্ট)
+- প্রথম খসড়ায় সাধারণত দু-একটা জিনিস বাদ পড়ে
+
+## উদাহরণ — দুই ধাপে
+```python
+# ধাপ ১ — খসড়া
+draft = ask("এই ফিচারের জন্য একটা রিলিজ নোট লেখো:\n" + feature_desc)
+
+# ধাপ ২ — নিজের সমালোচনা ও সংশোধন
+final = ask(f"""
+নিচের রিলিজ নোটটা এই চেকলিস্ট ধরে যাচাই করো:
+
+১. ইউজারের কী লাভ হলো, সেটা প্রথম বাক্যেই আছে কি?
+২. কোনো ইন্টারনাল কোডনেম বা টিকিট নম্বর ঢুকে গেছে কি?
+৩. ব্রেকিং চেঞ্জ থাকলে তা আলাদাভাবে চিহ্নিত আছে কি?
+৪. ১৫০ শব্দের কম কি?
+
+<সমালোচনা> ট্যাগে প্রতিটা পয়েন্টে পাস/ফেল লেখো।
+তারপর <চূড়ান্ত> ট্যাগে সংশোধিত রিলিজ নোটটা দাও।
+
+<খসড়া>
+{draft}
+</খসড়া>
+""")
+```
+
+## মূল নিয়ম
+- **সুনির্দিষ্ট চেকলিস্ট দিন** — "এটা ভালো করে দাও" বললে মডেল শুধু শব্দ বদলায়, ভুল ধরে না
+- এক রাউন্ড রিফ্লেকশনেই বেশিরভাগ লাভ আসে; দ্বিতীয় রাউন্ডে খুব কম
+- মডেল নিজের **তথ্যগত ভুল** নিজে ধরতে পারে না — সেজন্য বাইরের যাচাই লাগে, দেখুন [LLM-as-a-Judge](../../03-system-patterns/06-llm-as-a-judge/)
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto w-full max-w-7xl px-4 py-8 sm:px-8 sm:py-12 flex justify-center gap-8 xl:gap-12","children":[["$","article",null,{"className":"w-full max-w-3xl min-w-0","children":[["$","header",null,{"className":"seam-b mb-8 pb-6","children":[["$","div",null,{"className":"mb-3 flex flex-wrap items-center gap-2","children":["$","span",null,{"className":"chip","children":"০২ — রিজনিং টেকনিক"}]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Tree of Thoughts (ToT)"}]]}],["$","$L2",null,{"content":"$3","base":["02-reasoning-techniques","05-tree-of-thoughts"]}],["$","$L4",null,{"route":"/02-reasoning-techniques/05-tree-of-thoughts/"}],["$","$L5",null,{"prev":{"slug":["02-reasoning-techniques","04-react"],"title":"ReAct (Reason + Act)","content":"$6","category":"০২ — রিজনিং টেকনিক"},"next":{"slug":["02-reasoning-techniques","06-self-critique-reflection"],"title":"Self-critique / Reflection","content":"$7","category":"০২ — রিজনিং টেকনিক"}}]]}],"$L8"]}],["$L9","$La"],"$Lb"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"269ul7QTvpisCLSdl7yXZ"}
+8:["$","$Lc",null,{"headings":[{"id":"সংজ্ঞা","text":"সংজ্ঞা","level":2},{"id":"কখন-ব্যবহার-করবেন","text":"কখন ব্যবহার করবেন","level":2},{"id":"উদাহরণ","text":"উদাহরণ","level":2},{"id":"মূল-নিয়ম","text":"মূল নিয়ম","level":2}]}]
+9:["$","script","script-0",{"src":"/prompt/_next/static/chunks/2v_1wsbo41_2k.js","async":true}]
+a:["$","script","script-1",{"src":"/prompt/_next/static/chunks/05kse55hqjn09.js","async":true}]
+b:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
+f:null

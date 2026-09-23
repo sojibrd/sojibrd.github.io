@@ -1,0 +1,131 @@
+1:"$Sreact.fragment"
+2:I[82484,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+4:I[12703,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+5:I[48929,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+c:I[21210,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+d:I[97367,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+3:Taf6,## সংজ্ঞা
+প্রশ্নের সাথে প্রাসঙ্গিক ডকুমেন্ট খুঁজে বের করে সেটা প্রম্পটে যোগ করা, তারপর মডেলকে শুধু সেই তথ্যের ভিত্তিতে উত্তর দিতে বলা।
+
+## কখন ব্যবহার করবেন
+- উত্তর এমন তথ্যে নির্ভরশীল যা মডেলের ট্রেনিংয়ে ছিল না (আপনার কোম্পানির ডকুমেন্ট, সাম্প্রতিক ডেটা)
+- তথ্য প্রায়ই বদলায়, তাই মডেলে ঢুকিয়ে রাখা যায় না
+- উত্তরের সূত্র দেখাতে হবে
+
+## উদাহরণ
+```python
+chunks = vector_search(user_question, top_k=5)
+
+context = "\n\n".join(
+    f'<নথি id="{c.id}" শিরোনাম="{c.title}">\n{c.text}\n</নথি>'
+    for c in chunks
+)
+
+prompt = f"""<নথিসমূহ>
+{context}
+</নথিসমূহ>
+
+<নির্দেশনা>
+উপরের নথিগুলোর ভিত্তিতে প্রশ্নের উত্তর দাও।
+
+- প্রতিটা দাবির শেষে সূত্র হিসেবে নথির id লিখবে, যেমন [doc-14]
+- নথিতে উত্তর না থাকলে লিখবে: "প্রদত্ত নথিতে এই তথ্য নেই"
+- নিজের সাধারণ জ্ঞান থেকে কিছু যোগ করবে না
+</নির্দেশনা>
+
+প্রশ্ন: {user_question}"""
+```
+
+## মূল নিয়ম
+- **নথি আগে, প্রশ্ন পরে** — লং-কনটেক্সটে এই ক্রম মাপার মতো উন্নতি দেয়
+- "উত্তর না জানলে বলবে জানি না" — এটা স্পষ্ট করে না বললে মডেল ফাঁক পূরণ করে দেয়, দেখুন [Hallucination](../../05-failure-modes/01-hallucination/)
+- **সূত্র বাধ্যতামূলক করুন** — এতে যাচাই করা যায় এবং মডেলও নথিতে আটকে থাকে
+- খারাপ retrieval-এর সমাধান প্রম্পটে নেই — ভুল নথি এলে সুন্দর প্রম্পটেও ভুল উত্তরই আসবে
+- নথি স্থিতিশীল হলে [Prompt Caching](../05-prompt-caching/) দিয়ে খরচ অনেক কমে6:Tbb6,# Prompt Chaining / Decomposition
+
+## সংজ্ঞা
+একটা বড় কাজ একটা প্রম্পটে না করে কয়েকটা ছোট প্রম্পটে ভাগ করা, যেখানে একটার আউটপুট পরেরটার ইনপুট।
+
+## কখন ব্যবহার করবেন
+- একটা প্রম্পট ৩-৪টা আলাদা কাজ করছে (পড়া + বিশ্লেষণ + লেখা + ফরম্যাট)
+- মাঝপথে যাচাই বা মানুষের অনুমোদন দরকার
+- আলাদা ধাপে আলাদা মডেল বা আলাদা তাপমাত্রা লাগবে
+
+## খারাপ উদাহরণ — একটা প্রম্পটে সব
+```
+এই ৫০ পাতার চুক্তিটা পড়ো, ঝুঁকিগুলো বের করো, প্রতিটার সমাধান লেখো,
+তারপর ক্লায়েন্টের জন্য একটা ইমেইল খসড়া করো, আর একটা সামারি টেবিলও দাও।
+```
+সমস্যা: কোন ধাপে ভুল হলো বোঝা যায় না, কোনো একটা ধাপ ভালো না হলে পুরোটা আবার চালাতে হয়।
+
+## ভালো উদাহরণ — চেইন
+```python
+# ধাপ ১ — নিষ্কাশন (temperature=0, নির্ভুলতা দরকার)
+clauses = ask(EXTRACT_PROMPT, contract, temperature=0)
+
+# ধাপ ২ — ঝুঁকি বিশ্লেষণ (শুধু বের করা ধারাগুলো নিয়ে, পুরো চুক্তি নয়)
+risks = ask(ANALYZE_PROMPT, clauses, temperature=0)
+
+# ধাপ ৩ — এখানে মানুষের রিভিউ বসানো যায়
+risks = human_review(risks)
+
+# ধাপ ৪ — ক্লায়েন্ট ইমেইল (temperature বেশি, লেখা স্বাভাবিক হোক)
+email = ask(EMAIL_PROMPT, risks, temperature=0.7)
+```
+
+## মূল নিয়ম
+- প্রতিটা ধাপের আউটপুট **কাঠামোবদ্ধ** রাখুন (JSON), যাতে পরের ধাপে নির্ভরযোগ্যভাবে ঢোকানো যায়
+- ধাপ ২-এ পুরো মূল ডকুমেন্ট আবার পাঠাবেন না — ধাপ ১-এর ফলাফলই যথেষ্ট, এতে খরচ ও [Context Rot](../../05-failure-modes/06-context-rot/) দুটোই কমে
+- প্রতিটা ধাপের আলাদা [Eval](../../04-evaluation/01-evals/) লিখুন — চেইনের সুবিধাই এটা
+7:Tbf9,# Tool Use / Function Calling
+
+## সংজ্ঞা
+মডেলকে কিছু ফাংশনের বিবরণ দেওয়া হয়; সে ঠিক করে কখন কোনটা কল করতে হবে এবং কী আর্গুমেন্ট দিতে হবে। ফাংশনটা চালায় আপনার কোড, মডেল নয়।
+
+## কখন ব্যবহার করবেন
+- লাইভ ডেটা লাগবে (স্টক, অর্ডার স্ট্যাটাস, আবহাওয়া)
+- বাস্তব কাজ করাতে হবে (টিকিট তৈরি, ইমেইল পাঠানো)
+- নির্ভুল হিসাব দরকার — মডেলকে দিয়ে না করিয়ে ক্যালকুলেটর দিয়ে করান
+
+## উদাহরণ
+```python
+tools = [{
+    "name": "get_order_status",
+    "description": (
+        "অর্ডার আইডি দিয়ে অর্ডারের বর্তমান অবস্থা ও ডেলিভারির আনুমানিক তারিখ আনে। "
+        "শুধু তখনই ব্যবহার করবে যখন ইউজার নির্দিষ্ট অর্ডার আইডি দিয়েছে। "
+        "আইডি না থাকলে আগে ইউজারের কাছে চাইবে।"
+    ),
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "order_id": {
+                "type": "string",
+                "description": "অর্ডার আইডি, ফরম্যাট: ORD-XXXXXX",
+            }
+        },
+        "required": ["order_id"],
+    },
+}]
+
+response = client.messages.create(
+    model="claude-sonnet-5",
+    max_tokens=1024,
+    tools=tools,
+    messages=messages,
+)
+```
+
+## মূল নিয়ম
+- **`description`-ই আসল প্রম্পট** — টুলের নাম নয়, বিবরণ দেখেই মডেল সিদ্ধান্ত নেয়। কখন ব্যবহার করবে *এবং কখন করবে না*, দুটোই লিখুন
+- টুলের সংখ্যা কম রাখুন; কাছাকাছি কাজের দুটো টুল থাকলে মডেল গুলিয়ে ফেলে
+- error মেসেজ মডেলকে ফেরত দিন, লুকাবেন না — সে নিজেই শুধরে নেয়
+- ধ্বংসাত্মক কাজে (ডিলিট, পেমেন্ট) মডেলের সিদ্ধান্তের উপর ভরসা না করে মানুষের অনুমোদন বসান, দেখুন [Guardrails](../07-guardrails/)
+- লুপের কাঠামোর জন্য দেখুন [ReAct](../../02-reasoning-techniques/04-react/)
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto w-full max-w-7xl px-4 py-8 sm:px-8 sm:py-12 flex justify-center gap-8 xl:gap-12","children":[["$","article",null,{"className":"w-full max-w-3xl min-w-0","children":[["$","header",null,{"className":"seam-b mb-8 pb-6","children":[["$","div",null,{"className":"mb-3 flex flex-wrap items-center gap-2","children":["$","span",null,{"className":"chip","children":"০৩ — সিস্টেম প্যাটার্ন"}]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"RAG (Retrieval-Augmented Generation)"}]]}],["$","$L2",null,{"content":"$3","base":["03-system-patterns","02-rag"]}],["$","$L4",null,{"route":"/03-system-patterns/02-rag/"}],["$","$L5",null,{"prev":{"slug":["03-system-patterns","01-prompt-chaining"],"title":"Prompt Chaining / Decomposition","content":"$6","category":"০৩ — সিস্টেম প্যাটার্ন"},"next":{"slug":["03-system-patterns","03-tool-use"],"title":"Tool Use / Function Calling","content":"$7","category":"০৩ — সিস্টেম প্যাটার্ন"}}]]}],"$L8"]}],["$L9","$La"],"$Lb"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"269ul7QTvpisCLSdl7yXZ"}
+8:["$","$Lc",null,{"headings":[{"id":"সংজ্ঞা","text":"সংজ্ঞা","level":2},{"id":"কখন-ব্যবহার-করবেন","text":"কখন ব্যবহার করবেন","level":2},{"id":"উদাহরণ","text":"উদাহরণ","level":2},{"id":"মূল-নিয়ম","text":"মূল নিয়ম","level":2}]}]
+9:["$","script","script-0",{"src":"/prompt/_next/static/chunks/2v_1wsbo41_2k.js","async":true}]
+a:["$","script","script-1",{"src":"/prompt/_next/static/chunks/05kse55hqjn09.js","async":true}]
+b:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
+f:null

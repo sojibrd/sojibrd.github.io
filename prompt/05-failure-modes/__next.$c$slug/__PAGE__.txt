@@ -1,0 +1,143 @@
+1:"$Sreact.fragment"
+2:I[82484,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+4:I[48929,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+b:I[21210,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+c:I[97367,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"OutletBoundary"]
+d:"$Sreact.suspense"
+3:Tfa2,যা ভাঙে, কেন ভাঙে, আর কী করলে ঠেকানো যায়। প্রোডাকশনে যাওয়ার আগে এই ক্যাটাগরিটা পড়ে নেওয়া সবচেয়ে বেশি সময় বাঁচায়।
+
+## এই ক্যাটাগরিতে
+
+| # | সমস্যা | এক লাইনে |
+|---|---|---|
+| ০১ | [Hallucination](01-hallucination/) | বানিয়ে বলা |
+| ০২ | [Prompt Injection](02-prompt-injection/) | ইনপুটের ভেতর লুকানো নির্দেশনা দিয়ে হাইজ্যাক |
+| ০৩ | [Jailbreaking](03-jailbreaking/) | নিরাপত্তা সীমা ভাঙার চেষ্টা |
+| ০৪ | [Overfitting to Examples](04-overfitting-to-examples/) | কয়েকটা কেসের জন্য প্রম্পট অতি-নির্দিষ্ট হওয়া |
+| ০৫ | [Lost in the Middle](05-lost-in-the-middle/) | লম্বা কনটেক্সটের মাঝের অংশ উপেক্ষিত হওয়া |
+| ০৬ | [Context Rot](06-context-rot/) | কনটেক্সট বড় হতে হতে মান পড়ে যাওয়া |
+
+## লক্ষণ দেখে সমস্যা খোঁজা
+
+| যা দেখছেন | সম্ভাব্য কারণ |
+|---|---|
+| আত্মবিশ্বাসের সাথে ভুল তথ্য, বানানো রেফারেন্স | [Hallucination](01-hallucination/) |
+| মডেল হঠাৎ অন্য কাজ করছে, ইউজারের ফাইল প্রসেস করার পর | [Prompt Injection](02-prompt-injection/) |
+| নীতির সীমা ভেঙেছে, ইউজার রোলপ্লে/চাপ দেওয়ার পর | [Jailbreaking](03-jailbreaking/) |
+| eval-এ ৯৬%, প্রোডাকশনে প্রতিদিন অভিযোগ | [Overfitting](04-overfitting-to-examples/) |
+| নথিতে তথ্য আছে, মডেল বলছে পায়নি | [Lost in the Middle](05-lost-in-the-middle/) |
+| শুরুতে ভালো, ৩০ মিনিট পর এলোমেলো | [Context Rot](06-context-rot/) |
+
+## দুই ভাগে ভাগ
+
+**নিরাপত্তা ঝুঁকি** (০২, ০৩) — কেউ ইচ্ছাকৃতভাবে ভাঙছে। প্রম্পট প্রথম প্রতিরক্ষা, শেষ নয়; আসল প্রতিরক্ষা কোডে বসানো [Guardrails](../03-system-patterns/07-guardrails/)।
+
+**মানের ক্ষয়** (০১, ০৪, ০৫, ০৬) — কেউ আক্রমণ করছে না, সিস্টেমই ধীরে ধীরে খারাপ হচ্ছে। এগুলো ধরা পড়ে [Eval](../04-evaluation/01-evals/) আর প্রোডাকশন লগে।
+
+## সবখানে প্রযোজ্য নিয়ম
+
+- **প্রম্পটের নিয়ম অনুরোধ, কোডের চেক বাধ্যবাধকতা** — গুরুত্বপূর্ণ কিছু শুধু প্রম্পটে লিখে ছেড়ে দেবেন না
+- **ব্যর্থ হলে নিরাপদ দিকে ব্যর্থ হোক** — সন্দেহ হলে ফলব্যাক উত্তর দিন
+- **সব লঙ্ঘন ও ব্যর্থতা লগ করুন** — ওই লগই পরের সংশোধনের সবচেয়ে ভালো ডেটা
+- **বেশি কনটেক্সট = ভালো ফলাফল, এটা ভুল ধারণা** — ০৫ আর ০৬ দুটোরই মূলে এই ভুলটা5:Td77,# Sampling Parameters
+
+## সংজ্ঞা
+মডেল পরের টোকেন কীভাবে বাছবে তা নিয়ন্ত্রণকারী প্যারামিটার — মূলত `temperature`, `top_p`, `max_tokens`, `stop_sequences`।
+
+## কখন ব্যবহার করবেন
+- আউটপুট প্রতিবার একই লাগবে (eval, শ্রেণিবিন্যাস, তথ্য নিষ্কাশন) → `temperature=0`
+- আউটপুটে ভিন্নতা লাগবে (আইডিয়া, কপি, [Self-consistency](../../02-reasoning-techniques/03-self-consistency/)) → বেশি temperature
+- আউটপুট নির্দিষ্ট জায়গায় থামাতে হবে → `stop_sequences`
+
+ডিফল্ট নিয়ম: সন্দেহ হলে `temperature=0` রাখুন, `top_p`-তে হাত দেবেন না।
+
+## কোনটা কখন
+| প্যারামিটার | কাজ | কখন বদলাবেন |
+|---|---|---|
+| `temperature` | এলোমেলো ভাব (০–১) | নির্ভুলতা চাইলে ০, সৃজনশীলতা চাইলে ০.৭–১ |
+| `top_p` | সম্ভাব্য টোকেনের পুল ছাঁটাই | সাধারণত হাত দেবেন না |
+| `max_tokens` | আউটপুটের সর্বোচ্চ দৈর্ঘ্য | খরচ ও কাটা-পড়া নিয়ন্ত্রণে |
+| `stop_sequences` | নির্দিষ্ট টেক্সট এলে থেমে যাওয়া | কাঠামোবদ্ধ আউটপুট কাটতে |
+
+## কাজভিত্তিক সেটিং
+```python
+# শ্রেণিবিন্যাস, তথ্য নিষ্কাশন, eval — একই ইনপুটে একই আউটপুট চাই
+temperature=0
+
+# সাপোর্ট উত্তর, সামারি — সামান্য স্বাভাবিকতা
+temperature=0.3
+
+# মার্কেটিং কপি, আইডিয়া জেনারেশন
+temperature=0.8
+
+# Self-consistency — ভিন্নতা না থাকলে কৌশলটাই অর্থহীন
+temperature=1.0
+```
+
+## উদাহরণ — stop sequence
+```python
+response = client.messages.create(
+    model="claude-sonnet-5",
+    max_tokens=500,
+    temperature=0,
+    stop_sequences=["</উত্তর>"],     # উত্তর ট্যাগ শেষ হলেই থেমে যাবে
+    messages=messages,
+)
+```
+
+## মূল নিয়ম
+- `temperature` আর `top_p` একসাথে বদলাবেন না — একটা বেছে নিন
+- **eval সবসময় `temperature=0`-তে চালান**, নাহলে র‍্যান্ডমনেসকে উন্নতি বা [regression](../03-regression-testing/) ভেবে ভুল করবেন
+- `temperature=0` মানে শতভাগ নিশ্চিত পুনরাবৃত্তি নয়, তবে খুব কাছাকাছি
+- `max_tokens` কম রাখলে উত্তর মাঝপথে কাটা পড়ে — JSON হলে পার্সিং ভাঙে
+6:Tdb6,# Hallucination
+
+## সংজ্ঞা
+মডেল আত্মবিশ্বাসের সাথে ভুল বা বানানো তথ্য দেয় — অস্তিত্বহীন API, ভুল সংখ্যা, কাল্পনিক উদ্ধৃতি।
+
+## কখন দেখা যায়
+- প্রশ্নটা এমন তথ্য চায় যা মডেল জানে না (নতুন লাইব্রেরি, আপনার ইন্টারনাল সিস্টেম)
+- প্রম্পটে "জানি না" বলার অনুমতি নেই
+- নির্দিষ্ট সংখ্যা, তারিখ, নাম বা রেফারেন্স চাওয়া হয়েছে
+
+## লক্ষণ
+```
+উত্তরটা সাবলীল, আত্মবিশ্বাসী, কিন্তু যাচাই করতে গেলে সূত্র মেলে না
+```
+সবচেয়ে বিপজ্জনক দিক: ভুল উত্তর আর সঠিক উত্তর দেখতে একদম একরকম।
+
+দুর্বল প্রম্পটের উদাহরণ:
+```
+আমাদের রিফান্ড নীতি কী?
+```
+মডেল আপনার কোম্পানির নীতি জানে না, কিন্তু সাধারণ ই-কমার্স নীতি বানিয়ে দেবে — শুনতে একদম বিশ্বাসযোগ্য।
+
+## প্রতিরোধ
+```
+<নীতি_নথি>
+{{ আসল নীতির টেক্সট }}
+</নীতি_নথি>
+
+উপরের নথির ভিত্তিতে প্রশ্নের উত্তর দাও।
+
+নিয়ম:
+- প্রতিটা দাবির শেষে নথির সেকশন নম্বর দেবে, যেমন [ধারা ৪.২]
+- নথিতে উত্তর না থাকলে ঠিক এই বাক্যটা লিখবে:
+  "এই তথ্য আমাদের নীতিমালায় নেই, একজন এজেন্ট আপনাকে সাহায্য করবেন।"
+- নথির বাইরে থেকে কোনো তথ্য যোগ করবে না, অনুমানও করবে না
+
+প্রশ্ন: আমাদের রিফান্ড নীতি কী?
+```
+
+## মূল নিয়ম
+- **"জানি না" বলার একটা নির্দিষ্ট বাক্য দিয়ে দিন** — শুধু "না জানলে বলো না" যথেষ্ট নয়
+- সূত্র বাধ্যতামূলক করলে বানানো তথ্য অনেক কমে, দেখুন [RAG](../../03-system-patterns/02-rag/)
+- তথ্য মডেলের স্মৃতি থেকে না এনে কনটেক্সটে দিন
+- সংখ্যা বা হিসাব মডেলকে দিয়ে না করিয়ে [Tool Use](../../03-system-patterns/03-tool-use/) দিয়ে করান
+- প্রম্পট দিয়ে পুরোপুরি বন্ধ হয় না — আউটপুট যাচাইয়ের স্তর লাগে, দেখুন [Guardrails](../../03-system-patterns/07-guardrails/)
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto w-full max-w-7xl px-4 py-8 sm:px-8 sm:py-12 flex justify-center gap-8 xl:gap-12","children":[["$","article",null,{"className":"w-full max-w-3xl min-w-0","children":[["$","header",null,{"className":"seam-b mb-8 pb-6","children":["$undefined",["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"০৫ — ফেইলিউর মোড"}]]}],["$","$L2",null,{"content":"$3","base":["05-failure-modes"]}],false,["$","$L4",null,{"prev":{"slug":["04-evaluation","05-sampling-parameters"],"title":"Sampling Parameters","content":"$5","category":"০৪ — পরিমাপ ও মান নিয়ন্ত্রণ"},"next":{"slug":["05-failure-modes","01-hallucination"],"title":"Hallucination","content":"$6","category":"০৫ — ফেইলিউর মোড"}}]]}],"$L7"]}],["$L8","$L9"],"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"269ul7QTvpisCLSdl7yXZ"}
+7:["$","$Lb",null,{"headings":[{"id":"এই-ক্যাটাগরিতে","text":"এই ক্যাটাগরিতে","level":2},{"id":"লক্ষণ-দেখে-সমস্যা-খোঁজা","text":"লক্ষণ দেখে সমস্যা খোঁজা","level":2},{"id":"দুই-ভাগে-ভাগ","text":"দুই ভাগে ভাগ","level":2},{"id":"সবখানে-প্রযোজ্য-নিয়ম","text":"সবখানে প্রযোজ্য নিয়ম","level":2}]}]
+8:["$","script","script-0",{"src":"/prompt/_next/static/chunks/2v_1wsbo41_2k.js","async":true}]
+9:["$","script","script-1",{"src":"/prompt/_next/static/chunks/05kse55hqjn09.js","async":true}]
+a:["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]
+e:null

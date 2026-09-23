@@ -1,0 +1,145 @@
+1:"$Sreact.fragment"
+2:I[82484,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+4:I[12703,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+5:I[48929,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+c:I[21210,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+d:I[97367,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+3:Te31,## সংজ্ঞা
+মডেলের ইনপুট ও আউটপুটের চারপাশে বসানো যাচাইয়ের স্তর, যা অনাকাঙ্ক্ষিত জিনিস আটকায়। প্রম্পটে লেখা নিয়ম অনুরোধ; guardrail বাধ্যবাধকতা।
+
+## কখন ব্যবহার করবেন
+- সিস্টেমটা সাধারণ ব্যবহারকারীর হাতে খোলা
+- এমন নিয়ম আছে যা ভাঙলে আইনি বা আর্থিক দায় আসে (রিফান্ড, চিকিৎসা, আইনি পরামর্শ)
+- মডেলের হাতে টুল আছে, বিশেষত ধ্বংসাত্মক টুল
+
+কার্যত: প্রোডাকশনে যাওয়া যেকোনো সিস্টেমে।
+
+## কেন প্রম্পটই যথেষ্ট নয়
+প্রম্পটে "কখনো রিফান্ডের নিশ্চয়তা দেবে না" লেখা থাকলেও যথেষ্ট চাপে মডেল সেটা ভাঙতে পারে। কোডে বসানো চেক ভাঙে না।
+
+## তিনটা স্তর
+```
+১. ইনপুট guardrail   → মডেলে পাঠানোর আগে
+২. প্রম্পট নির্দেশনা  → মডেলের ভেতরে (সবচেয়ে দুর্বল স্তর)
+৩. আউটপুট guardrail  → ইউজারকে দেখানোর আগে
+```
+
+## উদাহরণ
+
+> `contains_pii`, `cites_source`, `model_reply` — এগুলো আপনার নিজের লেখা ফাংশন, কোনো লাইব্রেরির নয়।
+
+```python
+def safe_reply(user_msg):
+    # ১ — ইনপুট চেক
+    if contains_pii(user_msg):
+        return "নিরাপত্তার কারণে চ্যাটে কার্ড বা এনআইডি নম্বর দেবেন না।"
+
+    raw = model_reply(user_msg)
+
+    # ৩ — আউটপুট চেক
+    if re.search(r"(রিফান্ড পাবেন|ফেরত নিশ্চিত)", raw):
+        log.warning("policy_violation", extra={"reply": raw})
+        return FALLBACK_REFUND_TEXT          # নিরাপদ, আগে থেকে লেখা উত্তর
+
+    if not cites_source(raw) and mode == "rag":
+        return "এই বিষয়ে নিশ্চিত তথ্য পাচ্ছি না, একজন এজেন্টের সাথে সংযোগ করিয়ে দিচ্ছি।"
+
+    return raw
+```
+
+## মূল নিয়ম
+- **ব্যর্থ হলে নিরাপদ দিকে ব্যর্থ হোক** — সন্দেহ হলে ফলব্যাক উত্তর দিন, মডেলের উত্তর নয়
+- প্রতিটা লঙ্ঘন লগ করুন; ওই লগই পরের প্রম্পট উন্নতির সবচেয়ে ভালো ডেটা
+- ধ্বংসাত্মক টুলে (ডিলিট, পেমেন্ট) মানুষের অনুমোদন বসান, দেখুন [Tool Use](../03-tool-use/)
+- সম্পর্কিত ঝুঁকি: [Prompt Injection](../../05-failure-modes/02-prompt-injection/) ও [Jailbreaking](../../05-failure-modes/03-jailbreaking/)6:Tcc1,# LLM-as-a-Judge
+
+## সংজ্ঞা
+একটা মডেলের আউটপুট আরেকটা মডেল দিয়ে মূল্যায়ন করানো। যেখানে সঠিক উত্তর একটা নয়, সেখানে স্বয়ংক্রিয়ভাবে মান মাপার উপায়।
+
+## কখন ব্যবহার করবেন
+- আউটপুট লম্বা লেখা (সামারি, ইমেইল, ব্যাখ্যা) — স্ট্রিং মিলিয়ে যাচাই করা যায় না
+- হাজারটা কেস মানুষ দিয়ে রিভিউ করা সম্ভব নয়
+
+কখন **নয়**: আউটপুট যদি নির্দিষ্ট মান হয় (ক্যাটাগরি, সংখ্যা) — তখন সরাসরি মিলিয়ে দেখাই সঠিক ও সস্তা।
+
+## উদাহরণ
+```
+তুমি একজন কড়া মূল্যায়নকারী। নিচের কাস্টমার সাপোর্ট উত্তরটা মূল্যায়ন করো।
+
+<প্রশ্ন>{question}</প্রশ্ন>
+<নথি>{source_docs}</নথি>
+<উত্তর>{answer}</উত্তর>
+
+প্রতিটা মানদণ্ডে ১–৫ স্কোর দাও:
+
+১. তথ্যগত নির্ভুলতা — উত্তরের প্রতিটা দাবি কি নথিতে আছে?
+   ৫ = সব দাবি নথিভিত্তিক | ৩ = একটা দাবি নথির বাইরে | ১ = বানানো তথ্য আছে
+২. সম্পূর্ণতা — প্রশ্নের সব অংশের উত্তর আছে কি?
+৩. টোন — ভদ্র কিন্তু অতিরিক্ত ক্ষমাপ্রার্থী নয়?
+
+<মূল্যায়ন> ট্যাগে প্রতিটার স্কোর ও এক বাক্যে কারণ লেখো।
+তারপর <রায়> ট্যাগে শুধু PASS বা FAIL — কোনো স্কোর ৩-এর নিচে হলে FAIL।
+```
+
+## মূল নিয়ম
+- **স্কেলের প্রতিটা ধাপ সংজ্ঞায়িত করুন** — "১ থেকে ৫ দাও" বললে জাজ প্রায় সবসময় ৪ দেয়
+- জাজকে **মূল নথি দিন**, নাহলে সে নির্ভুলতা যাচাই করতে পারবে না
+- জাজকেও যাচাই করতে হয় — ২০টা কেসে মানুষের রায়ের সাথে মিলিয়ে দেখুন, দেখুন [Golden Dataset](../../04-evaluation/02-golden-dataset/)
+- একই মডেল নিজের আউটপুট মূল্যায়ন করলে পক্ষপাত থাকে; সম্ভব হলে ভিন্ন মডেল ব্যবহার করুন
+7:Tef1,# ০৪ — পরিমাপ ও মান নিয়ন্ত্রণ
+
+মাপতে না পারলে প্রম্পট বদলানোটা ইঞ্জিনিয়ারিং নয়, অনুমান। এই ক্যাটাগরিটাই প্রম্পট নিয়ে খেলা আর প্রম্পট ইঞ্জিনিয়ারিংয়ের মধ্যে পার্থক্য।
+
+## এই ক্যাটাগরিতে
+
+| # | বিষয় | এক লাইনে |
+|---|---|---|
+| ০১ | [Evals](01-evals/) | টেস্ট সেট দিয়ে পারফরম্যান্স মাপা |
+| ০২ | [Golden Dataset](02-golden-dataset/) | হাতে লেবেল করা রেফারেন্স কেস |
+| ০৩ | [Regression Testing](03-regression-testing/) | প্রম্পট বদলালে আগের কেস ভাঙছে কিনা |
+| ০৪ | [Prompt Versioning](04-prompt-versioning/) | প্রম্পটের ভার্সন ট্র্যাক করা |
+| ০৫ | [Sampling Parameters](05-sampling-parameters/) | temperature, top-p ইত্যাদি |
+
+## কাজের চক্র
+
+```
+[Golden Dataset তৈরি]  ← প্রম্পট লেখার আগেই, ৩০–১০০টা কেস
+        ↓
+[প্রম্পট লেখা]
+        ↓
+[Eval চালানো, temperature=0]
+        ↓
+[ব্যর্থ কেস দেখা]  ← স্কোরের চেয়ে এটাই বেশি দামি
+        ↓
+[প্রম্পট সংশোধন → নতুন ভার্সন + CHANGELOG]
+        ↓
+[Regression check: কী ঠিক হলো, কী ভাঙল]
+        ↓
+[প্রোডাকশন] → আসল ব্যর্থতা ধরে ডেটাসেটে ফেরত যোগ করুন
+```
+
+শেষ তীরটাই সবচেয়ে গুরুত্বপূর্ণ — প্রোডাকশনের ব্যর্থতা ডেটাসেটে ফিরিয়ে না আনলে eval সেট বাস্তবতা থেকে সরে যেতে থাকে।
+
+## শুরু করার সবচেয়ে ছোট সংস্করণ
+
+পুরো ব্যবস্থা একবারে দাঁড় করানোর দরকার নেই:
+
+1. ২০টা কেস একটা `.jsonl` ফাইলে লিখুন
+2. একটা লুপ যা সব কেস চালিয়ে সঠিকতা আর ব্যর্থ কেসের তালিকা দেয়
+3. প্রম্পট আলাদা ফাইলে সরান, git-এ রাখুন
+
+এইটুকুই ৮০% লাভ দেয়।
+
+## এই স্তরের সাধারণ ভুল
+
+- **মোট স্কোরের দিকে তাকিয়ে থাকা** — ৮২% → ৮৫% মানে হতে পারে ৫টা ঠিক হয়েছে, ২টা ভেঙেছে
+- **eval `temperature=0`-তে না চালানো** — র‍্যান্ডমনেসকে উন্নতি ভেবে ভুল করবেন
+- **যে কেস দেখে প্রম্পট বদলেছেন সেটা দিয়েই সাফল্য মাপা** — দেখুন [Overfitting](../05-failure-modes/04-overfitting-to-examples/)
+- **সহজ কেস দিয়ে ডেটাসেট ভরে ফেলা** — যেসব কেসে আপনি নিজেই দ্বিধায় পড়েন, সেগুলোই আসল পরীক্ষা
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto w-full max-w-7xl px-4 py-8 sm:px-8 sm:py-12 flex justify-center gap-8 xl:gap-12","children":[["$","article",null,{"className":"w-full max-w-3xl min-w-0","children":[["$","header",null,{"className":"seam-b mb-8 pb-6","children":[["$","div",null,{"className":"mb-3 flex flex-wrap items-center gap-2","children":["$","span",null,{"className":"chip","children":"০৩ — সিস্টেম প্যাটার্ন"}]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Guardrails"}]]}],["$","$L2",null,{"content":"$3","base":["03-system-patterns","07-guardrails"]}],["$","$L4",null,{"route":"/03-system-patterns/07-guardrails/"}],["$","$L5",null,{"prev":{"slug":["03-system-patterns","06-llm-as-a-judge"],"title":"LLM-as-a-Judge","content":"$6","category":"০৩ — সিস্টেম প্যাটার্ন"},"next":{"slug":["04-evaluation"],"title":"০৪ — পরিমাপ ও মান নিয়ন্ত্রণ","content":"$7"}}]]}],"$L8"]}],["$L9","$La"],"$Lb"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"269ul7QTvpisCLSdl7yXZ"}
+8:["$","$Lc",null,{"headings":[{"id":"সংজ্ঞা","text":"সংজ্ঞা","level":2},{"id":"কখন-ব্যবহার-করবেন","text":"কখন ব্যবহার করবেন","level":2},{"id":"কেন-প্রম্পটই-যথেষ্ট-নয়","text":"কেন প্রম্পটই যথেষ্ট নয়","level":2},{"id":"তিনটা-স্তর","text":"তিনটা স্তর","level":2},{"id":"উদাহরণ","text":"উদাহরণ","level":2},{"id":"মূল-নিয়ম","text":"মূল নিয়ম","level":2}]}]
+9:["$","script","script-0",{"src":"/prompt/_next/static/chunks/2v_1wsbo41_2k.js","async":true}]
+a:["$","script","script-1",{"src":"/prompt/_next/static/chunks/05kse55hqjn09.js","async":true}]
+b:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
+f:null

@@ -1,0 +1,93 @@
+1:"$Sreact.fragment"
+2:I[82484,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+4:I[12703,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+5:I[48929,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+b:I[21210,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+c:I[97367,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"OutletBoundary"]
+d:"$Sreact.suspense"
+3:Tc8c,## সংজ্ঞা
+কনটেক্সট যত বড় হতে থাকে, আউটপুটের মান তত পড়তে থাকে — এমনকি উইন্ডোর সীমা পেরোনোর অনেক আগেই। জমা হওয়া অপ্রাসঙ্গিক তথ্য, পুরনো সিদ্ধান্ত আর ব্যর্থ চেষ্টা মডেলকে বিভ্রান্ত করে।
+
+## কখন দেখা যায়
+- দীর্ঘ এজেন্ট লুপ, যেখানে প্রতিটা টুল-আউটপুট কনটেক্সটে জমছে
+- ঘণ্টাব্যাপী চ্যাট সেশন
+- একই সমস্যার একাধিক ব্যর্থ চেষ্টা কনটেক্সটে রয়ে গেছে
+
+## লক্ষণ
+```
+- শুরুতে ভালো উত্তর দিচ্ছিল, ৩০ মিনিট পর এলোমেলো
+- আগে বাতিল করা সমাধান আবার প্রস্তাব করছে
+- আগে দেওয়া নির্দেশনা ভুলে যাচ্ছে
+- একই ভুল বারবার করছে
+```
+
+## প্রতিকার
+
+> নিচের `summarize_tool_output`, `token_count`, `compact`, `run_subtask` — এগুলো কোনো লাইব্রেরি ফাংশন নয়, আপনার নিজের লিখতে হবে। কাঠামোটা দেখানোই উদ্দেশ্য।
+
+```python
+# ১ — টুল-আউটপুট ছেঁকে নিন, কাঁচা ফেলবেন না
+observation = summarize_tool_output(raw_result, max_chars=500)
+
+# ২ — নির্দিষ্ট সীমার পর হিস্টরি সংকুচিত করুন
+if token_count(history) > 40_000:
+    history = compact(history)      # সিদ্ধান্ত ও তথ্য রাখুন, ব্যর্থ চেষ্টা ফেলে দিন
+
+# ৩ — নতুন সাব-টাস্ক আলাদা পরিষ্কার কনটেক্সটে চালান
+result = run_subtask(task, context=[SYSTEM, relevant_facts_only])
+```
+
+## মূল নিয়ম
+- **নতুন সেশন শুরু করাই প্রায়ই সবচেয়ে ভালো সমাধান** — দরকারি সিদ্ধান্তগুলো সামারি করে নতুন কনটেক্সটে নিয়ে যান
+- ব্যর্থ চেষ্টা কনটেক্সটে রাখবেন না, শুধু "এই পথটা কাজ করেনি, কারণ X" — এইটুকু রাখুন
+- বড় কাজ ভাগ করে আলাদা কনটেক্সটে চালান, দেখুন [Prompt Chaining](../../03-system-patterns/01-prompt-chaining/)
+- সম্পর্কিত: [Lost in the Middle](../05-lost-in-the-middle/) ও [Context Engineering](../../03-system-patterns/04-context-engineering/)6:Tc65,# Lost in the Middle
+
+## সংজ্ঞা
+লম্বা কনটেক্সটে মডেল শুরুর আর শেষের তথ্য ভালোভাবে ব্যবহার করে, কিন্তু মাঝখানের তথ্য তুলনামূলকভাবে উপেক্ষা করে।
+
+## কখন দেখা যায়
+- ২০+ নথি একসাথে RAG-এ দেওয়া হয়েছে
+- খুব লম্বা system prompt, যার মাঝখানে গুরুত্বপূর্ণ নিয়ম
+- লম্বা কথোপকথনের মাঝামাঝি বলা কোনো সিদ্ধান্ত মডেল ভুলে গেছে
+
+## লক্ষণ
+```
+"নথিতে তথ্যটা স্পষ্ট আছে, কিন্তু মডেল বলছে পায়নি"
+```
+নথিটা কনটেক্সটের কোথায় ছিল দেখুন — মাঝখানে হলে সম্ভবত এটাই কারণ।
+
+## প্রতিরোধ
+```python
+# ১ — কম নথি দিন, কিন্তু প্রাসঙ্গিকতর
+chunks = vector_search(q, top_k=5)          # ২০ নয়
+
+# ২ — সবচেয়ে প্রাসঙ্গিক নথি শুরুতে ও শেষে রাখুন
+# (নিজের হেল্পার — স্কোর অনুযায়ী সাজিয়ে প্রান্তে বসায়: [১ম, ৩য়, ৫ম, ৪র্থ, ২য়])
+ordered = reorder_edges(chunks)
+
+# ৩ — প্রতিটা নথিতে স্পষ্ট লেবেল দিন
+context = "\n\n".join(f'<নথি id="{c.id}">\n{c.text}\n</নথি>' for c in ordered)
+```
+
+আর গুরুত্বপূর্ণ নির্দেশনা শেষে আবার মনে করিয়ে দিন:
+```
+<নথিসমূহ>...</নথিসমূহ>
+
+মনে রাখো: উপরের প্রতিটা নথি পড়ে তবেই উত্তর দেবে,
+এবং প্রতিটা দাবির সাথে নথির id দেবে।
+
+প্রশ্ন: {question}
+```
+
+## মূল নিয়ম
+- **সবচেয়ে গুরুত্বপূর্ণ জিনিস শুরুতে বা শেষে** রাখুন, মাঝে নয়
+- গুরুত্বপূর্ণ নির্দেশনা শেষে একবার পুনরাবৃত্তি করা সস্তা ও কার্যকর
+- বেশি নথি মানে ভালো উত্তর নয় — কম কিন্তু প্রাসঙ্গিক ভালো, দেখুন [Context Engineering](../../03-system-patterns/04-context-engineering/)
+- সন্দেহ হলে পরীক্ষা করুন: একই নথি কনটেক্সটের ভিন্ন জায়গায় রেখে ফলাফল মিলিয়ে দেখুন
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto w-full max-w-7xl px-4 py-8 sm:px-8 sm:py-12 flex justify-center gap-8 xl:gap-12","children":[["$","article",null,{"className":"w-full max-w-3xl min-w-0","children":[["$","header",null,{"className":"seam-b mb-8 pb-6","children":[["$","div",null,{"className":"mb-3 flex flex-wrap items-center gap-2","children":["$","span",null,{"className":"chip","children":"০৫ — ফেইলিউর মোড"}]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Context Rot"}]]}],["$","$L2",null,{"content":"$3","base":["05-failure-modes","06-context-rot"]}],["$","$L4",null,{"route":"/05-failure-modes/06-context-rot/"}],["$","$L5",null,{"prev":{"slug":["05-failure-modes","05-lost-in-the-middle"],"title":"Lost in the Middle","content":"$6","category":"০৫ — ফেইলিউর মোড"}}]]}],"$L7"]}],["$L8","$L9"],"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"269ul7QTvpisCLSdl7yXZ"}
+7:["$","$Lb",null,{"headings":[{"id":"সংজ্ঞা","text":"সংজ্ঞা","level":2},{"id":"কখন-দেখা-যায়","text":"কখন দেখা যায়","level":2},{"id":"লক্ষণ","text":"লক্ষণ","level":2},{"id":"প্রতিকার","text":"প্রতিকার","level":2},{"id":"মূল-নিয়ম","text":"মূল নিয়ম","level":2}]}]
+8:["$","script","script-0",{"src":"/prompt/_next/static/chunks/2v_1wsbo41_2k.js","async":true}]
+9:["$","script","script-1",{"src":"/prompt/_next/static/chunks/05kse55hqjn09.js","async":true}]
+a:["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]
+e:null

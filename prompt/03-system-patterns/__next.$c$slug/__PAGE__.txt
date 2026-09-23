@@ -1,0 +1,131 @@
+1:"$Sreact.fragment"
+2:I[82484,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+4:I[48929,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+b:I[21210,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js","/prompt/_next/static/chunks/2v_1wsbo41_2k.js","/prompt/_next/static/chunks/05kse55hqjn09.js"],"default"]
+c:I[97367,["/prompt/_next/static/chunks/2dm-8erdits2m.js","/prompt/_next/static/chunks/2im7c515bo69p.js"],"OutletBoundary"]
+d:"$Sreact.suspense"
+3:Tefa,একটা প্রম্পটের বাইরের কাঠামো। প্রোডাকশনে প্রম্পটের শব্দচয়নের চেয়ে এই প্যাটার্নগুলোই বেশি নির্ধারণ করে সিস্টেম কতটা ভালো কাজ করবে।
+
+## এই ক্যাটাগরিতে
+
+| # | প্যাটার্ন | এক লাইনে |
+|---|---|---|
+| ০১ | [Prompt Chaining](01-prompt-chaining/) | বড় কাজ ভেঙে একাধিক প্রম্পটে ভাগ |
+| ০২ | [RAG](02-rag/) | বাইরের ডেটা এনে কনটেক্সটে দেওয়া |
+| ০৩ | [Tool Use](03-tool-use/) | মডেলকে টুল চালাতে দেওয়া |
+| ০৪ | [Context Engineering](04-context-engineering/) | কনটেক্সট উইন্ডোতে কী ঢুকবে তার ব্যবস্থাপনা |
+| ০৫ | [Prompt Caching](05-prompt-caching/) | একই কনটেক্সট বারবার পাঠানোর খরচ কমানো |
+| ০৬ | [LLM-as-a-Judge](06-llm-as-a-judge/) | আউটপুট মূল্যায়নে আরেকটা মডেল |
+| ০৭ | [Guardrails](07-guardrails/) | অনাকাঙ্ক্ষিত আউটপুট আটকানোর স্তর |
+
+## একটা প্রোডাকশন সিস্টেমে এগুলো কীভাবে বসে
+
+```
+ইউজারের প্রশ্ন
+      ↓
+[Guardrail: ইনপুট চেক]                    ← ০৭
+      ↓
+[Retrieval: প্রাসঙ্গিক নথি আনা]            ← ০২
+      ↓
+[Context: কী ঢুকবে, কোন ক্রমে]             ← ০৪ + ০৫
+      ↓
+[মডেল কল — দরকারে টুল লুপে]                ← ০৩
+      ↓
+[Guardrail: আউটপুট চেক]                   ← ০৭
+      ↓
+ইউজারকে উত্তর
+      ↓
+[অফলাইনে: Judge দিয়ে মান মাপা]             ← ০৬
+```
+
+বড় কাজ হলে পুরো এই পাইপলাইনটাই কয়েক ধাপে ভাগ হয় — সেটাই [Prompt Chaining](01-prompt-chaining/) (০১)।
+
+## এই স্তরের সাধারণ ভুল
+
+- **খারাপ retrieval প্রম্পট দিয়ে ঠিক করার চেষ্টা** — ভুল নথি এলে কোনো প্রম্পটেই সঠিক উত্তর আসবে না
+- **সব কিছু এক প্রম্পটে করা** — কোন ধাপে ভুল হলো বোঝা যায় না
+- **guardrail শুধু প্রম্পটে লেখা** — প্রম্পটের নিয়ম অনুরোধ, কোডের চেক বাধ্যবাধকতা
+- **কনটেক্সট বাড়তেই দেওয়া** — বেশি কনটেক্সট মানে ভালো উত্তর নয়, দেখুন [Context Rot](../05-failure-modes/06-context-rot/)
+- **ক্যাশ ব্লকের ভেতরে বদলানো জিনিস রাখা** — পুরো ক্যাশ ভেঙে যায়
+
+## এরপর কোথায়
+
+- সিস্টেমটা আসলে কাজ করছে কিনা মাপতে → [০৪ — পরিমাপ ও মান নিয়ন্ত্রণ](../04-evaluation/)
+- কী কী ভাঙতে পারে জানতে → [০৫ — ফেইলিউর মোড](../05-failure-modes/)5:T9ff,# Self-critique / Reflection
+
+## সংজ্ঞা
+মডেল প্রথমে একটা আউটপুট দেয়, তারপর নির্দিষ্ট মানদণ্ড ধরে নিজের আউটপুট রিভিউ করে এবং সংশোধন করে।
+
+## কখন ব্যবহার করবেন
+- আউটপুটে নির্দিষ্ট নিয়ম মানতে হবে (স্টাইল গাইড, চেকলিস্ট)
+- প্রথম খসড়ায় সাধারণত দু-একটা জিনিস বাদ পড়ে
+
+## উদাহরণ — দুই ধাপে
+```python
+# ধাপ ১ — খসড়া
+draft = ask("এই ফিচারের জন্য একটা রিলিজ নোট লেখো:\n" + feature_desc)
+
+# ধাপ ২ — নিজের সমালোচনা ও সংশোধন
+final = ask(f"""
+নিচের রিলিজ নোটটা এই চেকলিস্ট ধরে যাচাই করো:
+
+১. ইউজারের কী লাভ হলো, সেটা প্রথম বাক্যেই আছে কি?
+২. কোনো ইন্টারনাল কোডনেম বা টিকিট নম্বর ঢুকে গেছে কি?
+৩. ব্রেকিং চেঞ্জ থাকলে তা আলাদাভাবে চিহ্নিত আছে কি?
+৪. ১৫০ শব্দের কম কি?
+
+<সমালোচনা> ট্যাগে প্রতিটা পয়েন্টে পাস/ফেল লেখো।
+তারপর <চূড়ান্ত> ট্যাগে সংশোধিত রিলিজ নোটটা দাও।
+
+<খসড়া>
+{draft}
+</খসড়া>
+""")
+```
+
+## মূল নিয়ম
+- **সুনির্দিষ্ট চেকলিস্ট দিন** — "এটা ভালো করে দাও" বললে মডেল শুধু শব্দ বদলায়, ভুল ধরে না
+- এক রাউন্ড রিফ্লেকশনেই বেশিরভাগ লাভ আসে; দ্বিতীয় রাউন্ডে খুব কম
+- মডেল নিজের **তথ্যগত ভুল** নিজে ধরতে পারে না — সেজন্য বাইরের যাচাই লাগে, দেখুন [LLM-as-a-Judge](../../03-system-patterns/06-llm-as-a-judge/)
+6:Tbb6,# Prompt Chaining / Decomposition
+
+## সংজ্ঞা
+একটা বড় কাজ একটা প্রম্পটে না করে কয়েকটা ছোট প্রম্পটে ভাগ করা, যেখানে একটার আউটপুট পরেরটার ইনপুট।
+
+## কখন ব্যবহার করবেন
+- একটা প্রম্পট ৩-৪টা আলাদা কাজ করছে (পড়া + বিশ্লেষণ + লেখা + ফরম্যাট)
+- মাঝপথে যাচাই বা মানুষের অনুমোদন দরকার
+- আলাদা ধাপে আলাদা মডেল বা আলাদা তাপমাত্রা লাগবে
+
+## খারাপ উদাহরণ — একটা প্রম্পটে সব
+```
+এই ৫০ পাতার চুক্তিটা পড়ো, ঝুঁকিগুলো বের করো, প্রতিটার সমাধান লেখো,
+তারপর ক্লায়েন্টের জন্য একটা ইমেইল খসড়া করো, আর একটা সামারি টেবিলও দাও।
+```
+সমস্যা: কোন ধাপে ভুল হলো বোঝা যায় না, কোনো একটা ধাপ ভালো না হলে পুরোটা আবার চালাতে হয়।
+
+## ভালো উদাহরণ — চেইন
+```python
+# ধাপ ১ — নিষ্কাশন (temperature=0, নির্ভুলতা দরকার)
+clauses = ask(EXTRACT_PROMPT, contract, temperature=0)
+
+# ধাপ ২ — ঝুঁকি বিশ্লেষণ (শুধু বের করা ধারাগুলো নিয়ে, পুরো চুক্তি নয়)
+risks = ask(ANALYZE_PROMPT, clauses, temperature=0)
+
+# ধাপ ৩ — এখানে মানুষের রিভিউ বসানো যায়
+risks = human_review(risks)
+
+# ধাপ ৪ — ক্লায়েন্ট ইমেইল (temperature বেশি, লেখা স্বাভাবিক হোক)
+email = ask(EMAIL_PROMPT, risks, temperature=0.7)
+```
+
+## মূল নিয়ম
+- প্রতিটা ধাপের আউটপুট **কাঠামোবদ্ধ** রাখুন (JSON), যাতে পরের ধাপে নির্ভরযোগ্যভাবে ঢোকানো যায়
+- ধাপ ২-এ পুরো মূল ডকুমেন্ট আবার পাঠাবেন না — ধাপ ১-এর ফলাফলই যথেষ্ট, এতে খরচ ও [Context Rot](../../05-failure-modes/06-context-rot/) দুটোই কমে
+- প্রতিটা ধাপের আলাদা [Eval](../../04-evaluation/01-evals/) লিখুন — চেইনের সুবিধাই এটা
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"mx-auto w-full max-w-7xl px-4 py-8 sm:px-8 sm:py-12 flex justify-center gap-8 xl:gap-12","children":[["$","article",null,{"className":"w-full max-w-3xl min-w-0","children":[["$","header",null,{"className":"seam-b mb-8 pb-6","children":["$undefined",["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"০৩ — সিস্টেম প্যাটার্ন"}]]}],["$","$L2",null,{"content":"$3","base":["03-system-patterns"]}],false,["$","$L4",null,{"prev":{"slug":["02-reasoning-techniques","06-self-critique-reflection"],"title":"Self-critique / Reflection","content":"$5","category":"০২ — রিজনিং টেকনিক"},"next":{"slug":["03-system-patterns","01-prompt-chaining"],"title":"Prompt Chaining / Decomposition","content":"$6","category":"০৩ — সিস্টেম প্যাটার্ন"}}]]}],"$L7"]}],["$L8","$L9"],"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"269ul7QTvpisCLSdl7yXZ"}
+7:["$","$Lb",null,{"headings":[{"id":"এই-ক্যাটাগরিতে","text":"এই ক্যাটাগরিতে","level":2},{"id":"একটা-প্রোডাকশন-সিস্টেমে-এগুলো-কীভাবে-বসে","text":"একটা প্রোডাকশন সিস্টেমে এগুলো কীভাবে বসে","level":2},{"id":"এই-স্তরের-সাধারণ-ভুল","text":"এই স্তরের সাধারণ ভুল","level":2},{"id":"এরপর-কোথায়","text":"এরপর কোথায়","level":2}]}]
+8:["$","script","script-0",{"src":"/prompt/_next/static/chunks/2v_1wsbo41_2k.js","async":true}]
+9:["$","script","script-1",{"src":"/prompt/_next/static/chunks/05kse55hqjn09.js","async":true}]
+a:["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]
+e:null
