@@ -1,9 +1,0 @@
-:HL["/prompt/_next/static/chunks/0nl2u66vmq4f8.css","style"]
-:HL["/prompt/_next/static/media/490cbca7f386131e-s.p.1zrwl0c4yv3pr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/prompt/_next/static/media/4b23c5ee480ee380-s.p.0qqufx6vw52v_.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/prompt/_next/static/media/520c929efec0b33f-s.p.3arxh35s5-kc0.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/prompt/_next/static/media/6a1d08cf467f0848-s.p.240fzfer9e_rh.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/prompt/_next/static/media/6ea8d1bb8ea4af7a-s.p.1kk_wfe381bov.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/prompt/_next/static/media/70bc3e132a0a741e-s.p.3t6q91iet4nsy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/prompt/_next/static/media/70c15719a04fff13-s.p.376yc-xi7tht7.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"slug","param":{"type":"c","key":"04-evaluation/02-golden-dataset","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"O7OaPqTehBM0Kh17vaRZA"}
