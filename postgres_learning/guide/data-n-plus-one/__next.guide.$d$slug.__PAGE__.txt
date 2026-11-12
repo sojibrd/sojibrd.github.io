@@ -1,0 +1,71 @@
+1:"$Sreact.fragment"
+2:I[22016,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js","/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","/postgres_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js","/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","/postgres_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js","/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","/postgres_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T472,N+1 queries execute one query per item in a loop. Batch them into a single query using arrays or JOINs.
+
+**Incorrect (N+1 queries):**
+
+```sql
+-- First query: get all users
+select id from users where active = true;  -- Returns 100 IDs
+
+-- Then N queries, one per user
+select * from orders where user_id = 1;
+select * from orders where user_id = 2;
+select * from orders where user_id = 3;
+-- ... 97 more queries!
+
+-- Total: 101 round trips to database
+```
+
+**Correct (single batch query):**
+
+```sql
+-- Collect IDs and query once with ANY
+select * from orders where user_id = any(array[1, 2, 3, ...]);
+
+-- Or use JOIN instead of loop
+select u.id, u.name, o.*
+from users u
+left join orders o on o.user_id = u.id
+where u.active = true;
+
+-- Total: 1 round trip
+```
+
+Application pattern:
+
+```sql
+-- Instead of looping in application code:
+-- for user in users: db.query("SELECT * FROM orders WHERE user_id = $1", user.id)
+
+-- Pass array parameter:
+select * from orders where user_id = any($1::bigint[]);
+-- Application passes: [1, 2, 3, 4, 5, ...]
+```
+
+Reference: [N+1 Query Problem](https://supabase.com/docs/guides/database/query-optimization)8:X
+d:X
+d:C
+0:{"buildId":"NCEllzsJpDV09diQr7zlZ","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[6," · ","Data Access Patterns"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Eliminate N+1 Queries with Batch Loading"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","MEDIUM-HIGH"]}],["$","span",null,{"className":"chip","children":"10-100x fewer database round trips"}],[["$","$L2","029",{"href":"/day/029/","className":"chip chip--accent","children":["plan · দিন ","০২৯"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে আন্দাজ — এই কোডে কী ভুল? এক লাইনে লিখে তারপর নিচেরটা খুলুন"}],["$","$L3",null,{"children":"**Incorrect (N+1 queries):**\n\n```sql\n-- First query: get all users\nselect id from users where active = true;  -- Returns 100 IDs\n\n-- Then N queries, one per user\nselect * from orders where user_id = 1;\nselect * from orders where user_id = 2;\nselect * from orders where user_id = 3;\n-- ... 97 more queries!\n\n-- Total: 101 round trips to database\n```"}]]}],["$","$L4",null,{"taskIds":["d029-fwl090"],"kind":"fix","children":["$","$L3",null,{"children":"$5"}]}],["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/data-batch-inserts/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Batch INSERT Statements for Bulk Data"}]]}],["$","$L2",null,{"href":"/guide/data-pagination/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Use Cursor-Based Pagination Instead of OFFSET"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]],[["$","script","script-0",{"src":"/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","async":true}],["$","script","script-1",{"src":"/postgres_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]],"$L6"]}],"isPartial":"$@7","staleTime":"$8","varyParams":null},{"rsc":"$L9","isPartial":"$@a","staleTime":"$8","varyParams":null},{"rsc":"$Lb","isPartial":"$@c","staleTime":"$8","varyParams":"$d"},{"rsc":"$Le","isPartial":"$@f","staleTime":"$8","varyParams":"$d"}],"isUpgradeableISRFallback":false,"a":"$@10","rootVaryParams":null,"needsRuntimeRequest":"$@11"}
+12:I[97367,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"OutletBoundary"]
+13:"$Sreact.suspense"
+15:I[97367,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"ViewportBoundary"]
+16:I[97367,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"MetadataBoundary"]
+17:I[27201,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"IconMark"]
+18:I[39756,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"default"]
+19:I[37457,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"default"]
+6:["$","$L12",null,{"children":["$","$13",null,{"name":"Next.MetadataOutlet","children":"$@14"}]}]
+9:["$","$1","h",{"children":[null,["$","$L15",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L16",null,{"children":["$","$13",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Eliminate N+1 Queries with Batch Loading — postgres learning"}],["$","meta","1",{"name":"description","content":"Postgres-এর ৩১টা best practice — দিনে একটা, ১০′: Incorrect SQL দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/postgres_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L17","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+b:["$","$1","c",{"children":[null,["$","$L18",null,{"parallelRouterKey":"children","template":["$","$L19",null,{}]}]]}]
+e:["$","$1","c",{"children":[null,["$","$L18",null,{"parallelRouterKey":"children","template":["$","$L19",null,{}]}]]}]
+11:true
+14:null
+8:300
+8:C
+10:0
+a:"$undefined"
+c:"$undefined"
+f:"$undefined"
+7:"$undefined"

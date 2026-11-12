@@ -1,0 +1,76 @@
+1:"$Sreact.fragment"
+2:I[22016,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js","/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","/postgres_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js","/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","/postgres_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js","/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","/postgres_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T547,Grant only the minimum permissions required. Never use superuser for application queries.
+
+**Incorrect (overly broad permissions):**
+
+```sql
+-- Application uses superuser connection
+-- Or grants ALL to application role
+grant all privileges on all tables in schema public to app_user;
+grant all privileges on all sequences in schema public to app_user;
+
+-- Any SQL injection becomes catastrophic
+-- drop table users; cascades to everything
+```
+
+**Correct (minimal, specific grants):**
+
+```sql
+-- Create role with no default privileges
+create role app_readonly nologin;
+
+-- Grant only SELECT on specific tables
+grant usage on schema public to app_readonly;
+grant select on public.products, public.categories to app_readonly;
+
+-- Create role for writes with limited scope
+create role app_writer nologin;
+grant usage on schema public to app_writer;
+grant select, insert, update on public.orders to app_writer;
+grant usage on sequence orders_id_seq to app_writer;
+-- No DELETE permission
+
+-- Login role inherits from these
+create role app_user login password 'xxx';
+grant app_writer to app_user;
+```
+
+Revoke public defaults:
+
+```sql
+-- Revoke default public access
+revoke all on schema public from public;
+revoke all on all tables in schema public from public;
+```
+
+Reference: [Roles and Privileges](https://supabase.com/blog/postgres-roles-and-privileges)c:X
+11:X
+11:C
+0:{"buildId":"NCEllzsJpDV09diQr7zlZ","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[3," · ","Security & RLS"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Apply Principle of Least Privilege"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","MEDIUM"]}],["$","span",null,{"className":"chip","children":"Reduced attack surface, better audit trail"}],[["$","$L2","019",{"href":"/day/019/","className":"chip chip--accent","children":["plan · দিন ","০১৯"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে আন্দাজ — এই কোডে কী ভুল? এক লাইনে লিখে তারপর নিচেরটা খুলুন"}],["$","$L3",null,{"children":"**Incorrect (overly broad permissions):**\n\n```sql\n-- Application uses superuser connection\n-- Or grants ALL to application role\ngrant all privileges on all tables in schema public to app_user;\ngrant all privileges on all sequences in schema public to app_user;\n\n-- Any SQL injection becomes catastrophic\n-- drop table users; cascades to everything\n```"}]]}],["$","$L4",null,{"taskIds":["d019-1tj0dwz"],"kind":"fix","children":["$","$L3",null,{"children":"$5"}]}],["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/conn-prepared-statements/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Use Prepared Statements Correctly with Pooling"}]]}],["$","$L2",null,{"href":"/guide/security-rls-basics/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Enable Row Level Security for Multi-Tenant Data"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":["$L6","$L7"]}]]}]]}]],["$L8","$L9"],"$La"]}],"isPartial":"$@b","staleTime":"$c","varyParams":null},{"rsc":"$Ld","isPartial":"$@e","staleTime":"$c","varyParams":null},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$c","varyParams":"$11"},{"rsc":"$L12","isPartial":"$@13","staleTime":"$c","varyParams":"$11"}],"isUpgradeableISRFallback":false,"a":"$@14","rootVaryParams":null,"needsRuntimeRequest":"$@15"}
+16:I[97367,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"OutletBoundary"]
+17:"$Sreact.suspense"
+19:I[97367,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"ViewportBoundary"]
+1a:I[97367,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"MetadataBoundary"]
+1b:I[27201,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"IconMark"]
+1c:I[39756,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"default"]
+1d:I[37457,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"default"]
+6:["$","path",null,{"d":"M5 12h14"}]
+7:["$","path",null,{"d":"m12 5 7 7-7 7"}]
+8:["$","script","script-0",{"src":"/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","async":true}]
+9:["$","script","script-1",{"src":"/postgres_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+a:["$","$L16",null,{"children":["$","$17",null,{"name":"Next.MetadataOutlet","children":"$@18"}]}]
+d:["$","$1","h",{"children":[null,["$","$L19",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1a",null,{"children":["$","$17",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Apply Principle of Least Privilege — postgres learning"}],["$","meta","1",{"name":"description","content":"Postgres-এর ৩১টা best practice — দিনে একটা, ১০′: Incorrect SQL দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/postgres_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1b","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","template":["$","$L1d",null,{}]}]]}]
+12:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","template":["$","$L1d",null,{}]}]]}]
+15:true
+18:null
+c:300
+c:C
+14:0
+e:"$undefined"
+10:"$undefined"
+13:"$undefined"
+b:"$undefined"

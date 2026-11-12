@@ -1,0 +1,67 @@
+1:"$Sreact.fragment"
+2:I[22016,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js","/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","/postgres_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js","/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","/postgres_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js","/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","/postgres_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T503,Different index types excel at different query patterns. The default B-tree isn't always optimal.
+
+**Incorrect (B-tree for JSONB containment):**
+
+```sql
+-- B-tree cannot optimize containment operators
+create index products_attrs_idx on products (attributes);
+select * from products where attributes @> '{"color": "red"}';
+-- Full table scan - B-tree doesn't support @> operator
+```
+
+**Correct (GIN for JSONB):**
+
+```sql
+-- GIN supports @>, ?, ?&, ?| operators
+create index products_attrs_idx on products using gin (attributes);
+select * from products where attributes @> '{"color": "red"}';
+```
+
+Index type guide:
+
+```sql
+-- B-tree (default): =, <, >, BETWEEN, IN, IS NULL
+create index users_created_idx on users (created_at);
+
+-- GIN: arrays, JSONB, full-text search
+create index posts_tags_idx on posts using gin (tags);
+
+-- GiST: geometric data, range types, nearest-neighbor (KNN) queries
+create index locations_idx on places using gist (location);
+
+-- BRIN: large time-series tables (10-100x smaller)
+create index events_time_idx on events using brin (created_at);
+
+-- Hash: equality-only (slightly faster than B-tree for =)
+create index sessions_token_idx on sessions using hash (token);
+```
+
+Reference: [Index Types](https://www.postgresql.org/docs/current/indexes-types.html)9:X
+e:X
+e:C
+0:{"buildId":"NCEllzsJpDV09diQr7zlZ","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[1," · ","Query Performance"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Choose the Right Index Type for Your Data"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"10-100x improvement with correct index type"}],[["$","$L2","011",{"href":"/day/011/","className":"chip chip--accent","children":["plan · দিন ","০১১"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে আন্দাজ — এই কোডে কী ভুল? এক লাইনে লিখে তারপর নিচেরটা খুলুন"}],["$","$L3",null,{"children":"**Incorrect (B-tree for JSONB containment):**\n\n```sql\n-- B-tree cannot optimize containment operators\ncreate index products_attrs_idx on products (attributes);\nselect * from products where attributes @> '{\"color\": \"red\"}';\n-- Full table scan - B-tree doesn't support @> operator\n```"}]]}],["$","$L4",null,{"taskIds":["d011-tqw38a"],"kind":"fix","children":["$","$L3",null,{"children":"$5"}]}],["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/query-covering-indexes/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Use Covering Indexes to Avoid Table Lookups"}]]}],["$","$L2",null,{"href":"/guide/query-missing-indexes/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Add Indexes on WHERE and JOIN Columns"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]],[["$","script","script-0",{"src":"/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","async":true}],"$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"ViewportBoundary"]
+17:I[97367,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"MetadataBoundary"]
+18:I[27201,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"IconMark"]
+19:I[39756,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"default"]
+1a:I[37457,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"default"]
+6:["$","script","script-1",{"src":"/postgres_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Choose the Right Index Type for Your Data — postgres learning"}],["$","meta","1",{"name":"description","content":"Postgres-এর ৩১টা best practice — দিনে একটা, ১০′: Incorrect SQL দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/postgres_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

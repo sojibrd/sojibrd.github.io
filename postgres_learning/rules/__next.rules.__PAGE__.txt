@@ -1,0 +1,154 @@
+1:"$Sreact.fragment"
+2:I[82484,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js","/postgres_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+3:T429f,## লক্ষ্য
+
+> **৩৯ দিনে Postgres-এর ৩১টা best practice-এর প্রতিটায় Correct SQL-টা পড়ার পরে বন্ধ করে নিজে লিখতে পারা, "কেন" ইংরেজিতে নিজের কথায় বলতে পারা, আর একটা schema-র ER diagram কাগজে আঁকতে পারা — ঝালাইসহ।**
+
+এটা SQL গোড়া থেকে শেখানোর সাইট নয়, আবার জানা জিনিসের "কেন" ঝালানোরও নয়: এখানে প্রতিটা rule প্রথম পরিচয়। তাই না দেখে ঠিকটা লেখা নয় — ক্রমটা আন্দাজ → পড়া → বন্ধ করে লেখা। 🧠 (Test yourself · Active vs Passive learning)
+
+এটা "শুধু পরিচয়" — ১৮০ দিনের plan-এর backend পথ বদলায় না। হাতে-কলমের database কাজ (আসল data, আসল migration) এখনো ২০২৮-এর শেষে, `leave_management`-এ (`brainstorming/fullstack.md`)।
+
+## সত্যের উৎস
+
+এই সাইট Postgres নিয়ে নিজের কোনো rule বা ব্যাখ্যা যোগ করে না — প্রতিটা দিনের SQL আর ব্যাখ্যা rule-এর ফাইল থেকেই।
+
+1. `guide/` — `supabase-postgres-best-practices` skill-এর ৩১টা rule ফাইল, হুবহু ইংরেজিতে। লেখক, সংস্করণ আর লাইসেন্স `guide/README.md`-এ; সেকশনের নাম আর ক্রম `guide/_sections.md`-এ।
+2. `docs/` — এই plan: নিয়ম আর ৪টা ব্লক।
+3. `design/` — design দিনের উৎস: Pagila-র `pagila-schema.sql` আর `LICENSE.txt` হুবহু, আর `parts.md`-এ এই সাইটের নিজের ভাগ — কোন অংশে কোন table। উৎস, commit আর licence `design/README.md`-এ।
+4. ⚑ দিনের প্রশ্ন — ব্লক ২-এরটা `brainstorming/system-design.md` থেকে ("SQL না NoSQL, index কেন লাগে"); বাকি তিনটায় ব্লকের rule-ই প্রশ্ন।
+
+## উৎসটা কী, কী নয়
+
+- **Supabase-এর লেখা, শুধু Postgres।** ৩১টা rule-এর সবগুলোই PostgreSQL-এর; NoSQL নেই। rule-এর মূল লেখায় Supabase-এর নাম নেই — আছে শুধু ১৩টা Reference লিংকে।
+- **SQL-এর গোড়া ধরে নেওয়া।** rule-গুলো ধরে নেয় `SELECT`, `JOIN`, `CREATE TABLE`, `CREATE INDEX` চেনা। এই সাইট ওগুলো শেখায় না; আটকালে যাওয়ার জায়গা প্রতিটা rule-এর শেষের Reference লিংক।
+- **migration আলাদা সেকশন নয়।** শুধু দুটো rule-এ আসে — "Add Constraints Safely in Migrations" (দিন ০০১) আর "Use Lowercase Identifiers for Compatibility"।
+- **কোনো Postgres version-এর সাথে মেলানো হয়নি।**
+
+### Reference লিংক — ২০২৬-১০-১২-এর পরীক্ষা
+
+৩১টা rule-এর প্রতিটায় একটা Reference লিংক: ১৮টা `postgresql.org`-এ, ১৩টা `supabase.com`-এ। দুই সাইটই না-থাকা ঠিকানায় 404 দেয়, তাই HTTP status দিয়েই মেলানো হয়েছে। **২৯টা খোলে, ২টা খোলে না।** rule ফাইল বদলানো হয়নি।
+
+| দিন | rule | rule-এ লেখা ঠিকানা | ফল |
+|---|---|---|---|
+| ০১৪ | `monitor-explain-analyze` | `supabase.com/docs/guides/database/inspect` | খোলে — সাইট নিজে নিয়ে যায় `/docs/guides/observability/inspect`-এ |
+| ০১৬ | `monitor-vacuum-analyze` | `supabase.com/docs/guides/database/database-size#vacuum-operations` | **404** — পাতাটা নেই |
+| ০৩০ | `data-pagination` | `supabase.com/docs/guides/database/pagination` | **404** — পাতাটা নেই |
+
+## কীভাবে পড়বেন
+
+- ৩৯ দিন, ৪টা ব্লক — শেখার ক্রমে: Schema → Query আর index → Security আর locking → Data আর connection। উৎসের সেকশন ভাঙা হয়নি, শুধু ক্রম বদলেছে; সেকশনের ভেতরে rule ফাইলনামের ক্রমে, কারণ উৎস নিজে কোনো ক্রম লেখেনি।
+- প্রতিটা দিনে একটা rule, একটা `- [ ]` কাজ, আর শেষে **দিন শেষে** প্রশ্ন — হ্যাঁ/না। ব্লকের শেষ দিনটা ⚑, তার আগের দিনটা design দিন।
+- `১০′` = মিনিট।
+- কাজের নিচে rule-এর **Incorrect SQL**, আর "আগে আন্দাজ → Correct আর ব্যাখ্যা" লিংক। লিংকটা টিকের আগেই থাকে, কারণ পড়াটা কাজেরই অংশ — কিন্তু আন্দাজের পরে। 🧠 (Test yourself)
+- `impact` chip = উৎসে rule-টার গুরুত্ব, CRITICAL থেকে LOW।
+- 🧠 (নাম) = কাজটা `learning_to_learn`-এর কোন নীতি থেকে; chip চাপলে এক লাইনে কেন।
+- 🔁 = এই কাজ শেষ করার দিন থেকে **১, ৩, ৭, ২১ দিন পরে** না দেখে আবার। তারিখ সাইট নিজে হিসাব করে।
+- ⚑ = মাইলফলক। নির্ধারিত দিনে না হলে শেষ না হওয়া পর্যন্ত হোমে থাকে।
+
+## "আজ" মানে ক্যালেন্ডারের আজ
+
+ফাইলে তারিখ নেই, শুধু দিনের নম্বর। প্রথমবার সাইট খুললে শুরুর তারিখ জিজ্ঞেস করে। তারপর থেকে দিন = শুরু থেকে কত দিন।
+
+- **plan পেছায় না।** কাল বাদ পড়লে আজ আজকের rule, দুটো নয়।
+- **বাদ পড়া rule ফেরে না** — গাইডে থাকে, দিন ০৩৯-এর পরে ধরতে পারেন।
+- **ঘুম কেটে পূরণ নয়।** 🧠 (The science of sleep)
+
+## কখন বসবেন ⏳
+
+এই সাইটের দিনের ১০′ ১৮০ দিনের plan-এর সপ্তাহে ৭ ঘণ্টার **ভেতরে, নাকি বাইরে** — ⏳ আপনার উত্তর বাকি। `emberjs_learning`, `nextjs_learning` আর `nestjs_learning`-এর সাথে একসাথে চলবে, নাকি পরপর — সেটাও ⏳। উত্তর না আসা পর্যন্ত plan-এর কোনো ঘর থেকে সময় কাটা হয়নি, আর শুরুর তারিখের কোনো প্রস্তাব নেই।
+
+---
+
+## বসা — ১০′
+
+১০′ একটা আন্দাজ, মাপা নয় — rule-গুলো ছোট (৪০ থেকে ৮০ লাইন)। সময়ে না ধরলে প্রথম Incorrect–Correct জোড়াটুকুই আজকের কাজ।
+
+1. **টাইমার ১০′।** 🧠 (Have an endpoint)
+2. **Incorrect SQL-টা পড়ুন, আর খাতায় এক লাইনে আন্দাজ লিখুন** — কী ভুল। না চিনলেও একটা আন্দাজ; ফাঁকা নয়। 🧠 (Test yourself)
+3. **গাইড খুলে Correct আর ব্যাখ্যা পড়ুন।** কোনো শব্দ না চিনলে rule-এর শেষের Reference লিংক — শুধু ঐ একটা পাতা।
+4. **গাইড বন্ধ করে Correct SQL-টা নিজে লিখুন** — editor-এ বা কাগজে; চালাতে হবে না। 🧠 (Active vs Passive learning)
+5. **"কেন" ইংরেজিতে, ২–৩ বাক্যে, জোরে।** 🧠 (Feynman technique)
+6. **টিক দিন**, তারপর নিজের লেখা গাইডের সাথে মেলান। যেটুকু মেলেনি, সেটাই কালকের ঝালাইয়ের জায়গা। 🧠 (The science of feedback)
+
+সাইটে নোটের ঘর নেই, ইচ্ছা করেই; আন্দাজটা খাতায়।
+
+## Design দিন — ER diagram, কাগজে
+
+প্রতিটা ব্লকে ⚑-এর আগের দিন। rule নয়, একটা schema-র ER diagram আঁকা: প্রতিটা table একটা বাক্স, ভেতরে column; primary key আর foreign key চিহ্নিত; সম্পর্কের রেখা। কোনো tool নয় — কাগজ আর কলম। 🧠 (The power of senses)
+
+| দিন | ব্লক | কী আঁকবেন | মেলাবেন কীসের সাথে |
+|---|---|---|---|
+| ০০৭ | Schema | Pagila-র Catalog — `film`, `language`, `category`, `actor`, `film_actor`, `film_category` | design পাতার উত্তর |
+| ০১৭ | Query আর index | Pagila-র মানুষ আর ঠিকানা — `country`, `city`, `address`, `store`, `staff`, `customer` | design পাতার উত্তর |
+| ০২৬ | Security আর locking | Pagila-র লেনদেন — `inventory`, `rental`, `payment` | design পাতার উত্তর, তারপর Pagila-র অফিসিয়াল পুরো ছবি |
+| ০৩৮ | Data আর connection | `leave_management`-এর নিজের relational schema | কিছুর সাথে নয় — উত্তর কোথাও নেই |
+
+**Pagila-র দিনে (১৫′):**
+
+1. কার্ডে অংশের `CREATE TABLE`-গুলো। foreign key ওখানে নেই — Pagila সেগুলো আলাদা `ALTER TABLE`-এ লেখে। কোন table কাকে ধরে, `_id` column দেখে আন্দাজ করে রেখা টানাটাই অনুশীলন।
+2. পুরো diagram কাগজে, design পাতা না খুলে।
+3. design পাতায় "মেলানোর উত্তর" খুলুন — ঐ অংশের primary key, foreign key, কোন foreign key খালি থাকতে পারে, সংযোগ-table, আর `_id`-এ শেষ কিন্তু foreign key নয় এমন column। উত্তর শুধু ঐ অংশের, যাতে পরের অংশ আগে চোখে না পড়ে। পুরোটা Pagila-র SQL থেকে build-এর সময় বানানো।
+4. যেটা মেলেনি, কাগজেই ঠিক করুন; টিক দিন। 🔁 ঝালাইয়ে না দেখে আবার আঁকা।
+
+**`leave_management`-এর দিনে (২০′):** অ্যাপের data — ছুটির আবেদন, ছুটির ধরন, আর একটা settings-এর ভেতরে একসাথে রাখা কর্মীর তথ্য, সাপ্তাহিক ছুটি আর ছুটির দিনের তালিকা — Postgres-এ রাখলে table কী কী হবে, নিজে design করুন। settings-এর কোন অংশ আলাদা table হওয়া উচিত, এক লাইনে কেন। এর উত্তর নেই, ঝালাইও নেই। অ্যাপের কোডে এখন হাত নয় — সেটা ২০২৮-এর শেষে।
+
+Pagila-র লেনদেন অংশে আগের দুটো rule আবার আসে: `payment` `payment_date` ধরে partition করা (দিন ০০৫), আর তার `uuid` column-এ `uuidv7()` (দিন ০০৬)।
+
+## ঝালাই
+
+- 🔁 কাজে টিক দিলে ঐ **আসল তারিখ** থেকে ১ → ৩ → ৭ → ২১ দিন। 🧠 (Spaced repetition revisited)
+- **ঝালাইয়ের বসা:** rule-এর নাম দেখে, গাইড না খুলে — "কেন" এক লাইনে, ইংরেজিতে, জোরে। প্রথম পরিচয়ের rule-এ আসল অনুশীলন এখানেই।
+- দুটো উত্তর: **মনে ছিল** (পরের ধাপে) বা **আটকে গেছি** (আবার ১ দিনে)। আটকে যাওয়া শাস্তি নয়, তথ্য।
+- ২১ দিনের ধাপ পার হলে ঝালাই শেষ — ওটা এখন স্থির।
+
+## ⚑ দিন — মুখে ২ মিনিট
+
+প্রতিটা ব্লকের শেষ দিনে একটা প্রশ্ন: গাইড না খুলে, ইংরেজিতে, জোরে, ২ মিনিটে।
+
+| দিন | ব্লক | প্রশ্ন |
+|---|---|---|
+| ০০৮ | Schema | ব্লকের তিনটা rule-এর "কেন" |
+| ০১৮ | Query আর index | SQL না NoSQL, আর index কেন লাগে — দ্বিতীয় অংশে ব্লকের rule থেকে অন্তত দুটো উদাহরণ; প্রথম অংশ আপনার নিজের উত্তর |
+| ০২৭ | Security আর locking | ব্লকের তিনটা rule — দুই সেকশনের প্রতিটা থেকে অন্তত একটা |
+| ০৩৯ | Data আর connection | ব্লকের তিনটা rule — Data access আর Connection থেকে অন্তত একটা করে |
+
+## গাইডের পাতা
+
+"গাইড" পাতায় ৩১টা rule, উৎসের ৮টা সেকশন ধরে; প্রতিটার পাশে কোন দিনে আসে। rule-এর পাতায় Incorrect SQL খোলা আর পুরো rule ভাঁজ করা — আন্দাজের পরে নিজে খুলবেন; plan-এ ঐ কাজে টিক থাকলে ভাঁজ নিজে খোলে। পাতাগুলো রেফারেন্স; রোজ শুরু "আজ" থেকে। 🧠 (Create a roadmap)
+
+---
+
+## যা করবেন না
+
+- **এক দিনে একাধিক rule নয়।** working memory-তে একসাথে চারটার বেশি ধরে না। 🧠 (Long and short memory)
+- **আন্দাজের আগে Correct নয়।** আগে এক লাইনের আন্দাজ, তারপর পড়া — কাজের ক্রমটা এটাই।
+- **SQL চালিয়ে দেখতে, বা diagram আঁকতে, database, sandbox বা diagram-এর tool বানানো নয়।** এই plan-এ নেই, ইচ্ছা করেই; হাতে-কলমের কাজ `leave_management`-এ, ২০২৮-এর শেষে।
+- **নতুন rule, নতুন দাবি বা নতুন ফিচার নয়।** ইচ্ছে হলে এক লাইনে লিখে রাখুন, বানাবেন না।
+
+## দিন ০৩৯-এর পরে
+
+- 🔁 ঝালাই হোমে আসতেই থাকবে, যতদিন বাকি।
+- বাদ পড়া rule গাইড থেকে একটা একটা করে — একই বসা, একই ১০′।
+- এরপর না দেখে লেখা: যে rule-এর ঝালাই স্থির হয়েছে, তার Incorrect SQL দেখে Correct-টা সরাসরি লিখে দেখুন।7:X
+c:X
+c:C
+0:{"buildId":"NCEllzsJpDV09diQr7zlZ","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — Postgres, rule ধরে প্রথম পরিচয়"}],["$","p",null,{"className":"t-body measure text-sm","children":"৩৯ দিন · ৩১টা rule, ৪টা design দিন আর ৪টা ⚑ · দিনে একটা, ১০′"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L2",null,{"className":"measure","children":"$3"}]}]],["$L4"],"$L5"]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":"$L8","isPartial":"$@9","staleTime":"$7","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$7","varyParams":"$c"}],"isUpgradeableISRFallback":false,"a":"$@d","rootVaryParams":null,"needsRuntimeRequest":"$@e"}
+f:I[97367,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"OutletBoundary"]
+10:"$Sreact.suspense"
+12:I[97367,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"ViewportBoundary"]
+13:I[97367,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"MetadataBoundary"]
+14:I[27201,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"IconMark"]
+15:I[39756,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"default"]
+16:I[37457,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"default"]
+4:["$","script","script-0",{"src":"/postgres_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+5:["$","$Lf",null,{"children":["$","$10",null,{"name":"Next.MetadataOutlet","children":"$@11"}]}]
+8:["$","$1","h",{"children":[null,["$","$L12",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$10",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"নিয়ম — postgres learning"}],["$","meta","1",{"name":"description","content":"Postgres-এর ৩১টা best practice — দিনে একটা, ১০′: Incorrect SQL দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/postgres_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L14","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+a:["$","$1","c",{"children":[null,["$","$L15",null,{"parallelRouterKey":"children","template":["$","$L16",null,{}]}]]}]
+e:true
+11:null
+7:300
+7:C
+d:0
+9:"$undefined"
+b:"$undefined"
+6:"$undefined"

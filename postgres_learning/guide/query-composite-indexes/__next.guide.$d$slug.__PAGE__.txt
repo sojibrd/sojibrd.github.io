@@ -1,0 +1,64 @@
+1:"$Sreact.fragment"
+2:I[22016,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js","/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","/postgres_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js","/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","/postgres_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js","/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","/postgres_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+6:I[97367,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+b:I[97367,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"ViewportBoundary"]
+c:I[97367,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"MetadataBoundary"]
+5:T4b2,When queries filter on multiple columns, a composite index is more efficient than separate single-column indexes.
+
+**Incorrect (separate indexes require bitmap scan):**
+
+```sql
+-- Two separate indexes
+create index orders_status_idx on orders (status);
+create index orders_created_idx on orders (created_at);
+
+-- Query must combine both indexes (slower)
+select * from orders where status = 'pending' and created_at > '2024-01-01';
+```
+
+**Correct (composite index):**
+
+```sql
+-- Single composite index (leftmost column first for equality checks)
+create index orders_status_created_idx on orders (status, created_at);
+
+-- Query uses one efficient index scan
+select * from orders where status = 'pending' and created_at > '2024-01-01';
+```
+
+**Column order matters** - place equality columns first, range columns last:
+
+```sql
+-- Good: status (=) before created_at (>)
+create index idx on orders (status, created_at);
+
+-- Works for: WHERE status = 'pending'
+-- Works for: WHERE status = 'pending' AND created_at > '2024-01-01'
+-- Does NOT work for: WHERE created_at > '2024-01-01' (leftmost prefix rule)
+```
+
+Reference: [Multicolumn Indexes](https://www.postgresql.org/docs/current/indexes-multicolumn.html)a:X
+14:X
+14:C
+0:{"buildId":"NCEllzsJpDV09diQr7zlZ","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[1," · ","Query Performance"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Create Composite Indexes for Multi-Column Queries"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"5-10x faster multi-column queries"}],[["$","$L2","009",{"href":"/day/009/","className":"chip chip--accent","children":["plan · দিন ","০০৯"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে আন্দাজ — এই কোডে কী ভুল? এক লাইনে লিখে তারপর নিচেরটা খুলুন"}],["$","$L3",null,{"children":"**Incorrect (separate indexes require bitmap scan):**\n\n```sql\n-- Two separate indexes\ncreate index orders_status_idx on orders (status);\ncreate index orders_created_idx on orders (created_at);\n\n-- Query must combine both indexes (slower)\nselect * from orders where status = 'pending' and created_at > '2024-01-01';\n```"}]]}],["$","$L4",null,{"taskIds":["d009-fa0jc8"],"kind":"fix","children":["$","$L3",null,{"children":"$5"}]}],["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","span",null,{}],["$","$L2",null,{"href":"/guide/query-covering-indexes/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Use Covering Indexes to Avoid Table Lookups"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]],[["$","script","script-0",{"src":"/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","async":true}],["$","script","script-1",{"src":"/postgres_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":"$@9","staleTime":"$a","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$Lb",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$Lc",null,{"children":["$","$7",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Create Composite Indexes for Multi-Column Queries — postgres learning"}],"$Ld","$Le","$Lf"]}]}]}],"$L10"]}],"isPartial":"$@11","staleTime":"$a","varyParams":null},{"rsc":"$L12","isPartial":"$@13","staleTime":"$a","varyParams":"$14"},{"rsc":"$L15","isPartial":"$@16","staleTime":"$a","varyParams":"$14"}],"isUpgradeableISRFallback":false,"a":"$@17","rootVaryParams":null,"needsRuntimeRequest":"$@18"}
+19:I[27201,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"IconMark"]
+1a:I[39756,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"default"]
+1b:I[37457,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"default"]
+8:null
+d:["$","meta","1",{"name":"description","content":"Postgres-এর ৩১টা best practice — দিনে একটা, ১০′: Incorrect SQL দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}]
+e:["$","link","2",{"rel":"icon","href":"/postgres_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}]
+f:["$","$L19","3",{}]
+10:["$","meta",null,{"name":"next-size-adjust","content":""}]
+12:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+15:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+18:true
+a:300
+a:C
+17:0
+11:"$undefined"
+13:"$undefined"
+16:"$undefined"
+9:"$undefined"

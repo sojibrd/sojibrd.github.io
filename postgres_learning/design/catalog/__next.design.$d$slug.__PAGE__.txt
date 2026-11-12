@@ -1,0 +1,81 @@
+1:"$Sreact.fragment"
+2:I[22016,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js","/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","/postgres_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js","/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","/postgres_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:I[78818,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js","/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","/postgres_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T6c0,```sql
+CREATE TABLE public.film (
+    film_id integer DEFAULT nextval('public.film_film_id_seq'::regclass) NOT NULL,
+    title text NOT NULL,
+    description text,
+    release_year public.year,
+    language_id integer NOT NULL,
+    original_language_id integer,
+    rental_duration smallint DEFAULT 3 NOT NULL,
+    rental_rate numeric(4,2) DEFAULT 4.99 NOT NULL,
+    length smallint,
+    replacement_cost numeric(5,2) DEFAULT 19.99 NOT NULL,
+    rating public.mpaa_rating DEFAULT 'G'::public.mpaa_rating,
+    last_update timestamp with time zone DEFAULT now() NOT NULL,
+    special_features text[],
+    fulltext tsvector NOT NULL,
+    length_hours numeric(4,2) GENERATED ALWAYS AS (round(length / 60.0, 2)) VIRTUAL
+);
+
+CREATE TABLE public.language (
+    language_id integer DEFAULT nextval('public.language_language_id_seq'::regclass) NOT NULL,
+    name text NOT NULL,
+    last_update timestamp with time zone DEFAULT now() NOT NULL
+);
+
+CREATE TABLE public.category (
+    category_id integer DEFAULT nextval('public.category_category_id_seq'::regclass) NOT NULL,
+    name text NOT NULL,
+    last_update timestamp with time zone DEFAULT now() NOT NULL
+);
+
+CREATE TABLE public.actor (
+    actor_id integer DEFAULT nextval('public.actor_actor_id_seq'::regclass) NOT NULL,
+    first_name text NOT NULL,
+    last_name text NOT NULL,
+    last_update timestamp with time zone DEFAULT now() NOT NULL
+);
+
+CREATE TABLE public.film_actor (
+    actor_id integer NOT NULL,
+    film_id integer NOT NULL,
+    last_update timestamp with time zone DEFAULT now() NOT NULL
+);
+
+CREATE TABLE public.film_category (
+    film_id integer NOT NULL,
+    category_id integer NOT NULL,
+    last_update timestamp with time zone DEFAULT now() NOT NULL
+);
+```c:X
+11:X
+11:C
+0:{"buildId":"NCEllzsJpDV09diQr7zlZ","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","span",null,{"children":"Design"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":["Pagila · অংশ ","১","/","৩"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Catalog"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["৬","টা table"]}],[["$","$L2","007",{"href":"/day/007/","className":"chip chip--accent","children":["plan · দিন ","০০৭"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":["আগে আঁকুন — প্রতিটা table একটা বাক্স, ভেতরে column; primary key আর foreign key চিহ্নিত; কোন table কাকে ধরে,",["$","code",null,{"children":"_id"}]," দেখে আন্দাজ করে রেখা"]}],["$","$L3",null,{"children":"$4"}]]}],["$","$L5",null,{"taskIds":["d007-12swbtu"],"kind":"fix","label":"মেলানোর উত্তর · primary key আর foreign key","hint":"আগে কাগজে আঁকুন, তারপর খুলুন","children":["$","$L3",null,{"children":"| table | primary key | foreign key → |\n|---|---|---|\n| `film` | `film_id` | `language_id` → `language` · `original_language_id` → `language` — খালি থাকতে পারে |\n| `language` | `language_id` | — |\n| `category` | `category_id` | — |\n| `actor` | `actor_id` | — |\n| `film_actor` | `actor_id` + `film_id` | `actor_id` → `actor` · `film_id` → `film` |\n| `film_category` | `film_id` + `category_id` | `category_id` → `category` · `film_id` → `film` |\n\n- প্রতিটা foreign key অনেক-থেকে-এক: এই table-এর অনেক row ঐ table-এর একটা row-কে ধরে। এই অংশের কোনো foreign key column-এ unique নেই, তাই এক-থেকে-এক নেই।\n- সংযোগ-table (many-to-many) — primary key-টা দুটো foreign key দিয়েই গড়া: `film_actor` — `actor` ↔ `film` · `film_category` — `film` ↔ `category`।\n\n`film_embedding` এই অংশে নেই — ওটা pgvector-এর `vector` column-এর table, `film`-এর সাথে এক-এক; ER diagram-এর অনুশীলনে কিছু যোগ করে না।"}]}],"$L6","$L7"],["$L8","$L9"],"$La"]}],"isPartial":"$@b","staleTime":"$c","varyParams":null},{"rsc":"$Ld","isPartial":"$@e","staleTime":"$c","varyParams":null},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$c","varyParams":"$11"},{"rsc":"$L12","isPartial":"$@13","staleTime":"$c","varyParams":"$11"}],"isUpgradeableISRFallback":false,"a":"$@14","rootVaryParams":null,"needsRuntimeRequest":"$@15"}
+16:I[97367,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"OutletBoundary"]
+17:"$Sreact.suspense"
+19:I[97367,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"ViewportBoundary"]
+1a:I[97367,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"MetadataBoundary"]
+1b:I[27201,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"IconMark"]
+1c:I[39756,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"default"]
+1d:I[37457,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"default"]
+6:["$","$L3",null,{"className":"t-caption","children":"Pagila — PostgreSQL License, copyright © 2015-2026 Devrim Gündüz। SQL হুবহু [devrimgunduz/pagila](https://github.com/devrimgunduz/pagila)-র commit `ce6e114` থেকে; licence-এর পুরো লেখা [LICENSE.txt](https://github.com/sojibrd/postgres_learning/blob/master/design/LICENSE.txt)-এ।"}]
+7:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"অংশ","children":[["$","span",null,{}],["$","$L2",null,{"href":"/design/people/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"মানুষ আর ঠিকানা"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+8:["$","script","script-0",{"src":"/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","async":true}]
+9:["$","script","script-1",{"src":"/postgres_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+a:["$","$L16",null,{"children":["$","$17",null,{"name":"Next.MetadataOutlet","children":"$@18"}]}]
+d:["$","$1","h",{"children":[null,["$","$L19",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1a",null,{"children":["$","$17",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Design — Catalog — postgres learning"}],["$","meta","1",{"name":"description","content":"Postgres-এর ৩১টা best practice — দিনে একটা, ১০′: Incorrect SQL দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/postgres_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1b","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","template":["$","$L1d",null,{}]}]]}]
+12:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","template":["$","$L1d",null,{}]}]]}]
+15:true
+18:null
+c:300
+c:C
+14:0
+e:"$undefined"
+10:"$undefined"
+13:"$undefined"
+b:"$undefined"

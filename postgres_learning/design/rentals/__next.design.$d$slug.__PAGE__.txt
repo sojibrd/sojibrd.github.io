@@ -1,0 +1,61 @@
+1:"$Sreact.fragment"
+2:I[22016,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js","/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","/postgres_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js","/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","/postgres_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:I[78818,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js","/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","/postgres_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T45b,```sql
+CREATE TABLE public.inventory (
+    inventory_id integer DEFAULT nextval('public.inventory_inventory_id_seq'::regclass) NOT NULL,
+    film_id integer NOT NULL,
+    store_id integer NOT NULL,
+    last_update timestamp with time zone DEFAULT now() NOT NULL
+);
+
+CREATE TABLE public.rental (
+    rental_id integer DEFAULT nextval('public.rental_rental_id_seq'::regclass) NOT NULL,
+    rental_date timestamp with time zone NOT NULL,
+    inventory_id integer NOT NULL,
+    customer_id integer NOT NULL,
+    return_date timestamp with time zone,
+    staff_id integer NOT NULL,
+    last_update timestamp with time zone DEFAULT now() NOT NULL,
+    uuid uuid DEFAULT uuidv7() NOT NULL
+);
+
+CREATE TABLE public.payment (
+    payment_id integer DEFAULT nextval('public.payment_payment_id_seq'::regclass) NOT NULL,
+    customer_id integer NOT NULL,
+    staff_id integer NOT NULL,
+    rental_id integer NOT NULL,
+    amount numeric(5,2) NOT NULL,
+    payment_date timestamp with time zone NOT NULL,
+    uuid uuid DEFAULT uuidv7() NOT NULL,
+    PRIMARY KEY (payment_date, payment_id)
+)
+PARTITION BY RANGE (payment_date);
+```b:X
+10:X
+10:C
+0:{"buildId":"NCEllzsJpDV09diQr7zlZ","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","span",null,{"children":"Design"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":["Pagila · অংশ ","৩","/","৩"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"লেনদেন"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["৩","টা table"]}],[["$","$L2","026",{"href":"/day/026/","className":"chip chip--accent","children":["plan · দিন ","০২৬"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":["আগে আঁকুন — প্রতিটা table একটা বাক্স, ভেতরে column; primary key আর foreign key চিহ্নিত; কোন table কাকে ধরে,",["$","code",null,{"children":"_id"}]," দেখে আন্দাজ করে রেখা"]}],["$","$L3",null,{"children":"$4"}]]}],["$","$L5",null,{"taskIds":["d026-zy0syj"],"kind":"fix","label":"মেলানোর উত্তর · primary key আর foreign key","hint":"আগে কাগজে আঁকুন, তারপর খুলুন","children":["$","$L3",null,{"children":"| table | primary key | foreign key → |\n|---|---|---|\n| `inventory` | `inventory_id` | `film_id` → `film` (Catalog) · `store_id` → `store` (মানুষ আর ঠিকানা) |\n| `rental` | `rental_id` | `customer_id` → `customer` (মানুষ আর ঠিকানা) · `inventory_id` → `inventory` · `staff_id` → `staff` (মানুষ আর ঠিকানা) |\n| `payment` | `payment_date` + `payment_id` | `customer_id` → `customer` (মানুষ আর ঠিকানা) · `rental_id` → `rental` · `staff_id` → `staff` (মানুষ আর ঠিকানা) |\n\n- প্রতিটা foreign key অনেক-থেকে-এক: এই table-এর অনেক row ঐ table-এর একটা row-কে ধরে। এই অংশের কোনো foreign key column-এ unique নেই, তাই এক-থেকে-এক নেই।\n- `payment` — `payment_date` ধরে partition করা, ৫৫টা partition। foreign key parent-এ নেই, ৫৫টার ৬টা partition-এ বসানো; উপরে এক `payment`-এ গুটিয়ে দেখানো।\n\nতিনটা অংশ আঁকা শেষ — এবার পুরো Pagila-র অফিসিয়াল ছবিটা নিজের তিনটা কাগজের পাশে রাখুন: [pagila-schema-diagram.png](https://github.com/devrimgunduz/pagila/blob/ce6e114236bb828e5ec0dc835f65f1bf1b9179f5/pagila-schema-diagram.png)।"}]}],["$","$L3",null,{"className":"t-caption","children":"Pagila — PostgreSQL License, copyright © 2015-2026 Devrim Gündüz। SQL হুবহু [devrimgunduz/pagila](https://github.com/devrimgunduz/pagila)-র commit `ce6e114` থেকে; licence-এর পুরো লেখা [LICENSE.txt](https://github.com/sojibrd/postgres_learning/blob/master/design/LICENSE.txt)-এ।"}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"ViewportBoundary"]
+19:I[97367,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"MetadataBoundary"]
+1a:I[27201,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"IconMark"]
+1b:I[39756,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"default"]
+1c:I[37457,["/postgres_learning/_next/static/chunks/2whgslu1r3fnj.js","/postgres_learning/_next/static/chunks/1hxpx7i82vfnz.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"অংশ","children":[["$","$L2",null,{"href":"/design/people/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"মানুষ আর ঠিকানা"}]]}],["$","span",null,{}]]}]
+7:["$","script","script-0",{"src":"/postgres_learning/_next/static/chunks/0oa_2ah2ggvj3.js","async":true}]
+8:["$","script","script-1",{"src":"/postgres_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Design — লেনদেন — postgres learning"}],["$","meta","1",{"name":"description","content":"Postgres-এর ৩১টা best practice — দিনে একটা, ১০′: Incorrect SQL দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/postgres_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"
