@@ -1,0 +1,199 @@
+1:"$Sreact.fragment"
+2:I[22016,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T11fa,End-to-end tests use Supertest to make real HTTP requests against your NestJS application. They test the full stack including middleware, guards, pipes, and interceptors. E2E tests catch integration issues that unit tests miss.
+
+**Incorrect (no proper E2E setup or teardown):**
+
+```typescript
+// Only unit test controllers
+describe('UsersController', () => {
+  it('should return users', async () => {
+    const service = { findAll: jest.fn().mockResolvedValue([]) };
+    const controller = new UsersController(service as any);
+
+    const result = await controller.findAll();
+
+    expect(result).toEqual([]);
+    // Doesn't test: routes, guards, pipes, serialization
+  });
+});
+
+// E2E tests without proper setup/teardown
+describe('Users API', () => {
+  it('should create user', async () => {
+    const app = await NestFactory.create(AppModule);
+    // No proper initialization
+    // No cleanup after test
+    // Hits real database
+  });
+});
+```
+
+**Correct (proper E2E setup with Supertest):**
+
+```typescript
+// Proper E2E test setup
+import { Test, TestingModule } from '@nestjs/testing';
+import { INestApplication, ValidationPipe } from '@nestjs/common';
+import * as request from 'supertest';
+import { AppModule } from '../src/app.module';
+
+describe('UsersController (e2e)', () => {
+  let app: INestApplication;
+
+  beforeAll(async () => {
+    const moduleFixture: TestingModule = await Test.createTestingModule({
+      imports: [AppModule],
+    }).compile();
+
+    app = moduleFixture.createNestApplication();
+
+    // Apply same config as production
+    app.useGlobalPipes(
+      new ValidationPipe({
+        whitelist: true,
+        transform: true,
+        forbidNonWhitelisted: true,
+      }),
+    );
+
+    await app.init();
+  });
+
+  afterAll(async () => {
+    await app.close();
+  });
+
+  describe('/users (POST)', () => {
+    it('should create a user', () => {
+      return request(app.getHttpServer())
+        .post('/users')
+        .send({ name: 'John', email: 'john@test.com' })
+        .expect(201)
+        .expect((res) => {
+          expect(res.body).toHaveProperty('id');
+          expect(res.body.name).toBe('John');
+          expect(res.body.email).toBe('john@test.com');
+        });
+    });
+
+    it('should return 400 for invalid email', () => {
+      return request(app.getHttpServer())
+        .post('/users')
+        .send({ name: 'John', email: 'invalid-email' })
+        .expect(400)
+        .expect((res) => {
+          expect(res.body.message).toContain('email');
+        });
+    });
+  });
+
+  describe('/users/:id (GET)', () => {
+    it('should return 404 for non-existent user', () => {
+      return request(app.getHttpServer())
+        .get('/users/non-existent-id')
+        .expect(404);
+    });
+  });
+});
+
+// Testing with authentication
+describe('Protected Routes (e2e)', () => {
+  let app: INestApplication;
+  let authToken: string;
+
+  beforeAll(async () => {
+    const moduleFixture = await Test.createTestingModule({
+      imports: [AppModule],
+    }).compile();
+
+    app = moduleFixture.createNestApplication();
+    app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
+    await app.init();
+
+    // Get auth token
+    const loginResponse = await request(app.getHttpServer())
+      .post('/auth/login')
+      .send({ email: 'test@test.com', password: 'password' });
+
+    authToken = loginResponse.body.accessToken;
+  });
+
+  it('should return 401 without token', () => {
+    return request(app.getHttpServer())
+      .get('/users/me')
+      .expect(401);
+  });
+
+  it('should return user profile with valid token', () => {
+    return request(app.getHttpServer())
+      .get('/users/me')
+      .set('Authorization', `Bearer ${authToken}`)
+      .expect(200)
+      .expect((res) => {
+        expect(res.body.email).toBe('test@test.com');
+      });
+  });
+});
+
+// Database isolation for E2E tests
+describe('Orders API (e2e)', () => {
+  let app: INestApplication;
+  let dataSource: DataSource;
+
+  beforeAll(async () => {
+    const moduleFixture = await Test.createTestingModule({
+      imports: [
+        ConfigModule.forRoot({
+          envFilePath: '.env.test', // Test database config
+        }),
+        AppModule,
+      ],
+    }).compile();
+
+    app = moduleFixture.createNestApplication();
+    dataSource = moduleFixture.get(DataSource);
+    await app.init();
+  });
+
+  beforeEach(async () => {
+    // Clean database between tests
+    await dataSource.synchronize(true);
+  });
+
+  afterAll(async () => {
+    await dataSource.destroy();
+    await app.close();
+  });
+});
+```
+
+Reference: [NestJS E2E Testing](https://docs.nestjs.com/fundamentals/testing#end-to-end-testing)b:X
+10:X
+10:C
+0:{"buildId":"RU_rpcycWuJIXScklLQYs","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[6," · ","Testing"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Use Supertest for E2E Testing"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"Validates the full request/response cycle"}],[["$","$L2","027",{"href":"/day/027/","className":"chip chip--accent","children":["plan · দিন ","০২৭"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে আন্দাজ — এই কোডে কী ভুল? এক লাইনে লিখে তারপর নিচেরটা খুলুন"}],["$","$L3",null,{"children":"**Incorrect (no proper E2E setup or teardown):**\n\n```typescript\n// Only unit test controllers\ndescribe('UsersController', () => {\n  it('should return users', async () => {\n    const service = { findAll: jest.fn().mockResolvedValue([]) };\n    const controller = new UsersController(service as any);\n\n    const result = await controller.findAll();\n\n    expect(result).toEqual([]);\n    // Doesn't test: routes, guards, pipes, serialization\n  });\n});\n\n// E2E tests without proper setup/teardown\ndescribe('Users API', () => {\n  it('should create user', async () => {\n    const app = await NestFactory.create(AppModule);\n    // No proper initialization\n    // No cleanup after test\n    // Hits real database\n  });\n});\n```"}]]}],["$","$L4",null,{"taskIds":["d027-rulk8b"],"kind":"fix","children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"ViewportBoundary"]
+19:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"MetadataBoundary"]
+1a:I[27201,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"IconMark"]
+1b:I[39756,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+1c:I[37457,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/perf-use-caching/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Use Caching Strategically"}]]}],["$","$L2",null,{"href":"/guide/test-mock-external-services/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Mock External Services in Tests"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","async":true}]
+8:["$","script","script-1",{"src":"/nestjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Use Supertest for E2E Testing — nestjs learning"}],["$","meta","1",{"name":"description","content":"NestJS-এর ৪০টা best practice — দিনে একটা, ১৫′: Incorrect কোড দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nestjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

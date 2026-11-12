@@ -1,0 +1,174 @@
+1:"$Sreact.fragment"
+2:I[22016,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T104d,Use `@nestjs/testing` module to create isolated test environments with mocked dependencies. This ensures your tests run fast, don't depend on external services, and properly test your business logic in isolation.
+
+**Incorrect (manual instantiation bypassing DI):**
+
+```typescript
+// Instantiate services manually without DI
+describe('UsersService', () => {
+  it('should create user', async () => {
+    // Manual instantiation bypasses DI
+    const repo = new UserRepository(); // Real repo!
+    const service = new UsersService(repo);
+
+    const user = await service.create({ name: 'Test' });
+    // This hits the real database!
+  });
+});
+
+// Test implementation details
+describe('UsersController', () => {
+  it('should call service', async () => {
+    const service = { create: jest.fn() };
+    const controller = new UsersController(service as any);
+
+    await controller.create({ name: 'Test' });
+
+    expect(service.create).toHaveBeenCalled(); // Tests implementation, not behavior
+  });
+});
+```
+
+**Correct (use Test.createTestingModule with mocked dependencies):**
+
+```typescript
+// Use Test.createTestingModule for proper DI
+import { Test, TestingModule } from '@nestjs/testing';
+
+describe('UsersService', () => {
+  let service: UsersService;
+  let repo: jest.Mocked<UserRepository>;
+
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      providers: [
+        UsersService,
+        {
+          provide: UserRepository,
+          useValue: {
+            save: jest.fn(),
+            findOne: jest.fn(),
+            find: jest.fn(),
+          },
+        },
+      ],
+    }).compile();
+
+    service = module.get<UsersService>(UsersService);
+    repo = module.get(UserRepository);
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  describe('create', () => {
+    it('should save and return user', async () => {
+      const dto = { name: 'John', email: 'john@test.com' };
+      const expectedUser = { id: '1', ...dto };
+
+      repo.save.mockResolvedValue(expectedUser);
+
+      const result = await service.create(dto);
+
+      expect(result).toEqual(expectedUser);
+      expect(repo.save).toHaveBeenCalledWith(dto);
+    });
+
+    it('should throw on duplicate email', async () => {
+      repo.findOne.mockResolvedValue({ id: '1', email: 'test@test.com' });
+
+      await expect(
+        service.create({ name: 'Test', email: 'test@test.com' }),
+      ).rejects.toThrow(ConflictException);
+    });
+  });
+
+  describe('findById', () => {
+    it('should return user when found', async () => {
+      const user = { id: '1', name: 'John' };
+      repo.findOne.mockResolvedValue(user);
+
+      const result = await service.findById('1');
+
+      expect(result).toEqual(user);
+    });
+
+    it('should throw NotFoundException when not found', async () => {
+      repo.findOne.mockResolvedValue(null);
+
+      await expect(service.findById('999')).rejects.toThrow(NotFoundException);
+    });
+  });
+});
+
+// Testing guards and interceptors
+describe('RolesGuard', () => {
+  let guard: RolesGuard;
+  let reflector: Reflector;
+
+  beforeEach(async () => {
+    const module = await Test.createTestingModule({
+      providers: [RolesGuard, Reflector],
+    }).compile();
+
+    guard = module.get<RolesGuard>(RolesGuard);
+    reflector = module.get<Reflector>(Reflector);
+  });
+
+  it('should allow when no roles required', () => {
+    const context = createMockExecutionContext({ user: { roles: [] } });
+    jest.spyOn(reflector, 'getAllAndOverride').mockReturnValue(undefined);
+
+    expect(guard.canActivate(context)).toBe(true);
+  });
+
+  it('should allow admin for admin-only route', () => {
+    const context = createMockExecutionContext({ user: { roles: ['admin'] } });
+    jest.spyOn(reflector, 'getAllAndOverride').mockReturnValue(['admin']);
+
+    expect(guard.canActivate(context)).toBe(true);
+  });
+});
+
+function createMockExecutionContext(request: Partial<Request>): ExecutionContext {
+  return {
+    switchToHttp: () => ({
+      getRequest: () => request,
+    }),
+    getHandler: () => jest.fn(),
+    getClass: () => jest.fn(),
+  } as ExecutionContext;
+}
+```
+
+Reference: [NestJS Testing](https://docs.nestjs.com/fundamentals/testing)b:X
+10:X
+10:C
+0:{"buildId":"RU_rpcycWuJIXScklLQYs","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[6," · ","Testing"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Use Testing Module for Unit Tests"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"Enables proper isolated testing with mocked dependencies"}],[["$","$L2","029",{"href":"/day/029/","className":"chip chip--accent","children":["plan · দিন ","০২৯"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে আন্দাজ — এই কোডে কী ভুল? এক লাইনে লিখে তারপর নিচেরটা খুলুন"}],["$","$L3",null,{"children":"**Incorrect (manual instantiation bypassing DI):**\n\n```typescript\n// Instantiate services manually without DI\ndescribe('UsersService', () => {\n  it('should create user', async () => {\n    // Manual instantiation bypasses DI\n    const repo = new UserRepository(); // Real repo!\n    const service = new UsersService(repo);\n\n    const user = await service.create({ name: 'Test' });\n    // This hits the real database!\n  });\n});\n\n// Test implementation details\ndescribe('UsersController', () => {\n  it('should call service', async () => {\n    const service = { create: jest.fn() };\n    const controller = new UsersController(service as any);\n\n    await controller.create({ name: 'Test' });\n\n    expect(service.create).toHaveBeenCalled(); // Tests implementation, not behavior\n  });\n});\n```"}]]}],["$","$L4",null,{"taskIds":["d029-1sds6p8"],"kind":"fix","children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"ViewportBoundary"]
+19:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"MetadataBoundary"]
+1a:I[27201,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"IconMark"]
+1b:I[39756,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+1c:I[37457,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/test-mock-external-services/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Mock External Services in Tests"}]]}],["$","$L2",null,{"href":"/guide/db-avoid-n-plus-one/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Avoid N+1 Query Problems"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","async":true}]
+8:["$","script","script-1",{"src":"/nestjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Use Testing Module for Unit Tests — nestjs learning"}],["$","meta","1",{"name":"description","content":"NestJS-এর ৪০টা best practice — দিনে একটা, ১৫′: Incorrect কোড দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nestjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

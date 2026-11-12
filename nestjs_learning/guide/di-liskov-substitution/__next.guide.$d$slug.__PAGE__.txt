@@ -1,0 +1,295 @@
+1:"$Sreact.fragment"
+2:I[22016,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:I[78818,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T70c,**Incorrect (implementation violates the contract):**
+
+```typescript
+// Base interface with clear contract
+interface PaymentGateway {
+  /**
+   * Charges the specified amount.
+   * @returns PaymentResult on success
+   * @throws PaymentFailedException on payment failure
+   */
+  charge(amount: number, currency: string): Promise<PaymentResult>;
+}
+
+// Production implementation - follows the contract
+@Injectable()
+export class StripeService implements PaymentGateway {
+  async charge(amount: number, currency: string): Promise<PaymentResult> {
+    const response = await this.stripe.charges.create({ amount, currency });
+    return { success: true, transactionId: response.id, amount };
+  }
+}
+
+// Mock that violates LSP - different behavior!
+@Injectable()
+export class MockPaymentService implements PaymentGateway {
+  async charge(amount: number, currency: string): Promise<PaymentResult> {
+    // VIOLATION 1: Throws for valid input (contract says return PaymentResult)
+    if (amount > 1000) {
+      throw new Error('Mock does not support large amounts');
+    }
+
+    // VIOLATION 2: Returns null instead of PaymentResult
+    if (currency !== 'USD') {
+      return null as any; // Real service would convert or reject properly
+    }
+
+    // VIOLATION 3: Missing required field
+    return { success: true } as PaymentResult; // Missing transactionId!
+  }
+}
+
+// Consumer trusts the contract
+@Injectable()
+export class OrdersService {
+  constructor(@Inject(PAYMENT_GATEWAY) private payment: PaymentGateway) {}
+
+  async checkout(order: Order): Promise<void> {
+    const result = await this.payment.charge(order.total, order.currency);
+    // These fail with MockPaymentService:
+    await this.saveTransaction(result.transactionId); // undefined!
+    await this.sendReceipt(result); // might be null!
+  }
+}
+```6:T1b6f,Subtypes must be substitutable for their base types without altering program correctness. In NestJS with dependency injection, this means any implementation of an interface or abstract class must honor the contract completely. A mock payment service used in tests must behave like a real payment service (return similar shapes, handle errors the same way). Violating LSP causes subtle bugs when swapping implementations.
+
+**Incorrect (implementation violates the contract):**
+
+```typescript
+// Base interface with clear contract
+interface PaymentGateway {
+  /**
+   * Charges the specified amount.
+   * @returns PaymentResult on success
+   * @throws PaymentFailedException on payment failure
+   */
+  charge(amount: number, currency: string): Promise<PaymentResult>;
+}
+
+// Production implementation - follows the contract
+@Injectable()
+export class StripeService implements PaymentGateway {
+  async charge(amount: number, currency: string): Promise<PaymentResult> {
+    const response = await this.stripe.charges.create({ amount, currency });
+    return { success: true, transactionId: response.id, amount };
+  }
+}
+
+// Mock that violates LSP - different behavior!
+@Injectable()
+export class MockPaymentService implements PaymentGateway {
+  async charge(amount: number, currency: string): Promise<PaymentResult> {
+    // VIOLATION 1: Throws for valid input (contract says return PaymentResult)
+    if (amount > 1000) {
+      throw new Error('Mock does not support large amounts');
+    }
+
+    // VIOLATION 2: Returns null instead of PaymentResult
+    if (currency !== 'USD') {
+      return null as any; // Real service would convert or reject properly
+    }
+
+    // VIOLATION 3: Missing required field
+    return { success: true } as PaymentResult; // Missing transactionId!
+  }
+}
+
+// Consumer trusts the contract
+@Injectable()
+export class OrdersService {
+  constructor(@Inject(PAYMENT_GATEWAY) private payment: PaymentGateway) {}
+
+  async checkout(order: Order): Promise<void> {
+    const result = await this.payment.charge(order.total, order.currency);
+    // These fail with MockPaymentService:
+    await this.saveTransaction(result.transactionId); // undefined!
+    await this.sendReceipt(result); // might be null!
+  }
+}
+```
+
+**Correct (implementations honor the contract):**
+
+```typescript
+// Well-defined interface with documented behavior
+interface PaymentGateway {
+  /**
+   * Charges the specified amount.
+   * @param amount - Amount in smallest currency unit (cents)
+   * @param currency - ISO 4217 currency code
+   * @returns PaymentResult with transactionId, success status, and amount
+   * @throws PaymentFailedException if charge is declined
+   * @throws InvalidCurrencyException if currency is not supported
+   */
+  charge(amount: number, currency: string): Promise<PaymentResult>;
+
+  /**
+   * Refunds a previous charge.
+   * @throws TransactionNotFoundException if transactionId is invalid
+   */
+  refund(transactionId: string, amount?: number): Promise<RefundResult>;
+}
+
+// Production implementation
+@Injectable()
+export class StripeService implements PaymentGateway {
+  async charge(amount: number, currency: string): Promise<PaymentResult> {
+    try {
+      const response = await this.stripe.charges.create({ amount, currency });
+      return {
+        success: true,
+        transactionId: response.id,
+        amount: response.amount,
+      };
+    } catch (error) {
+      if (error.type === 'card_error') {
+        throw new PaymentFailedException(error.message);
+      }
+      throw error;
+    }
+  }
+
+  async refund(transactionId: string, amount?: number): Promise<RefundResult> {
+    // Implementation...
+  }
+}
+
+// Mock that honors LSP - same contract, same behavior shape
+@Injectable()
+export class MockPaymentService implements PaymentGateway {
+  private transactions = new Map<string, PaymentResult>();
+
+  async charge(amount: number, currency: string): Promise<PaymentResult> {
+    // Honor the contract: validate currency like real service would
+    if (!['USD', 'EUR', 'GBP'].includes(currency)) {
+      throw new InvalidCurrencyException(`Unsupported currency: ${currency}`);
+    }
+
+    // Simulate decline for specific test scenarios
+    if (amount === 99999) {
+      throw new PaymentFailedException('Card declined (test scenario)');
+    }
+
+    // Return same shape as production
+    const result: PaymentResult = {
+      success: true,
+      transactionId: `mock_${Date.now()}_${Math.random().toString(36)}`,
+      amount,
+    };
+
+    this.transactions.set(result.transactionId, result);
+    return result;
+  }
+
+  async refund(transactionId: string, amount?: number): Promise<RefundResult> {
+    // Honor the contract: throw if transaction not found
+    if (!this.transactions.has(transactionId)) {
+      throw new TransactionNotFoundException(transactionId);
+    }
+
+    return {
+      success: true,
+      refundId: `refund_${transactionId}`,
+      amount: amount ?? this.transactions.get(transactionId)!.amount,
+    };
+  }
+}
+
+// Consumer can swap implementations safely
+@Injectable()
+export class OrdersService {
+  constructor(@Inject(PAYMENT_GATEWAY) private payment: PaymentGateway) {}
+
+  async checkout(order: Order): Promise<Order> {
+    try {
+      const result = await this.payment.charge(order.total, order.currency);
+      // Works with both StripeService and MockPaymentService
+      order.transactionId = result.transactionId;
+      order.status = 'paid';
+      return order;
+    } catch (error) {
+      if (error instanceof PaymentFailedException) {
+        order.status = 'payment_failed';
+        return order;
+      }
+      throw error;
+    }
+  }
+}
+```
+
+**Testing LSP compliance:**
+
+```typescript
+// Shared test suite that any implementation must pass
+function testPaymentGatewayContract(
+  createGateway: () => PaymentGateway,
+) {
+  describe('PaymentGateway contract', () => {
+    let gateway: PaymentGateway;
+
+    beforeEach(() => {
+      gateway = createGateway();
+    });
+
+    it('returns PaymentResult with all required fields', async () => {
+      const result = await gateway.charge(1000, 'USD');
+      expect(result).toHaveProperty('success');
+      expect(result).toHaveProperty('transactionId');
+      expect(result).toHaveProperty('amount');
+      expect(typeof result.transactionId).toBe('string');
+    });
+
+    it('throws InvalidCurrencyException for unsupported currency', async () => {
+      await expect(gateway.charge(1000, 'INVALID'))
+        .rejects.toThrow(InvalidCurrencyException);
+    });
+
+    it('throws TransactionNotFoundException for invalid refund', async () => {
+      await expect(gateway.refund('nonexistent'))
+        .rejects.toThrow(TransactionNotFoundException);
+    });
+  });
+}
+
+// Run against all implementations
+describe('StripeService', () => {
+  testPaymentGatewayContract(() => new StripeService(mockStripeClient));
+});
+
+describe('MockPaymentService', () => {
+  testPaymentGatewayContract(() => new MockPaymentService());
+});
+```
+
+Reference: [Liskov Substitution Principle](https://en.wikipedia.org/wiki/Liskov_substitution_principle)c:X
+11:X
+11:C
+0:{"buildId":"RU_rpcycWuJIXScklLQYs","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[2," · ","Dependency Injection"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Honor Liskov Substitution Principle"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"Ensures implementations are truly interchangeable without breaking callers"}],[["$","$L2","009",{"href":"/day/009/","className":"chip chip--accent","children":["plan · দিন ","০০৯"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে আন্দাজ — এই কোডে কী ভুল? এক লাইনে লিখে তারপর নিচেরটা খুলুন"}],["$","$L3",null,{"children":"$4"}]]}],["$","$L5",null,{"taskIds":["d009-fjnnd2"],"kind":"fix","children":["$","$L3",null,{"children":"$6"}]}],"$L7"],["$L8","$L9"],"$La"]}],"isPartial":"$@b","staleTime":"$c","varyParams":null},{"rsc":"$Ld","isPartial":"$@e","staleTime":"$c","varyParams":null},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$c","varyParams":"$11"},{"rsc":"$L12","isPartial":"$@13","staleTime":"$c","varyParams":"$11"}],"isUpgradeableISRFallback":false,"a":"$@14","rootVaryParams":null,"needsRuntimeRequest":"$@15"}
+16:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"OutletBoundary"]
+17:"$Sreact.suspense"
+19:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"ViewportBoundary"]
+1a:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"MetadataBoundary"]
+1b:I[27201,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"IconMark"]
+1c:I[39756,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+1d:I[37457,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+7:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/di-interface-segregation/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Apply Interface Segregation Principle"}]]}],["$","$L2",null,{"href":"/guide/di-prefer-constructor-injection/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Prefer Constructor Injection"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+8:["$","script","script-0",{"src":"/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","async":true}]
+9:["$","script","script-1",{"src":"/nestjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+a:["$","$L16",null,{"children":["$","$17",null,{"name":"Next.MetadataOutlet","children":"$@18"}]}]
+d:["$","$1","h",{"children":[null,["$","$L19",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1a",null,{"children":["$","$17",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Honor Liskov Substitution Principle — nestjs learning"}],["$","meta","1",{"name":"description","content":"NestJS-এর ৪০টা best practice — দিনে একটা, ১৫′: Incorrect কোড দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nestjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1b","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","template":["$","$L1d",null,{}]}]]}]
+12:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","template":["$","$L1d",null,{}]}]]}]
+15:true
+18:null
+c:300
+c:C
+14:0
+e:"$undefined"
+10:"$undefined"
+13:"$undefined"
+b:"$undefined"

@@ -1,0 +1,125 @@
+1:"$Sreact.fragment"
+2:I[22016,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:Tacd,Avoid using `ModuleRef.get()` or global containers to resolve dependencies at runtime. This hides dependencies, makes code harder to test, and breaks the benefits of dependency injection. Use constructor injection instead.
+
+**Incorrect (service locator anti-pattern):**
+
+```typescript
+// Use ModuleRef to get dependencies dynamically
+@Injectable()
+export class OrdersService {
+  constructor(private moduleRef: ModuleRef) {}
+
+  async createOrder(dto: CreateOrderDto): Promise<Order> {
+    // Dependencies are hidden - not visible in constructor
+    const usersService = this.moduleRef.get(UsersService);
+    const inventoryService = this.moduleRef.get(InventoryService);
+    const paymentService = this.moduleRef.get(PaymentService);
+
+    const user = await usersService.findOne(dto.userId);
+    // ... rest of logic
+  }
+}
+
+// Global singleton container
+class ServiceContainer {
+  private static instance: ServiceContainer;
+  private services = new Map<string, any>();
+
+  static getInstance(): ServiceContainer {
+    if (!this.instance) {
+      this.instance = new ServiceContainer();
+    }
+    return this.instance;
+  }
+
+  get<T>(key: string): T {
+    return this.services.get(key);
+  }
+}
+```
+
+**Correct (constructor injection with explicit dependencies):**
+
+```typescript
+// Use constructor injection - dependencies are explicit
+@Injectable()
+export class OrdersService {
+  constructor(
+    private usersService: UsersService,
+    private inventoryService: InventoryService,
+    private paymentService: PaymentService,
+  ) {}
+
+  async createOrder(dto: CreateOrderDto): Promise<Order> {
+    const user = await this.usersService.findOne(dto.userId);
+    const inventory = await this.inventoryService.check(dto.items);
+    // Dependencies are clear and testable
+  }
+}
+
+// Easy to test with mocks
+describe('OrdersService', () => {
+  let service: OrdersService;
+
+  beforeEach(async () => {
+    const module = await Test.createTestingModule({
+      providers: [
+        OrdersService,
+        { provide: UsersService, useValue: mockUsersService },
+        { provide: InventoryService, useValue: mockInventoryService },
+        { provide: PaymentService, useValue: mockPaymentService },
+      ],
+    }).compile();
+
+    service = module.get(OrdersService);
+  });
+});
+
+// VALID: Factory pattern for dynamic instantiation
+@Injectable()
+export class HandlerFactory {
+  constructor(private moduleRef: ModuleRef) {}
+
+  getHandler(type: string): Handler {
+    switch (type) {
+      case 'email':
+        return this.moduleRef.get(EmailHandler);
+      case 'sms':
+        return this.moduleRef.get(SmsHandler);
+      default:
+        return this.moduleRef.get(DefaultHandler);
+    }
+  }
+}
+```
+
+Reference: [NestJS Module Reference](https://docs.nestjs.com/fundamentals/module-ref)b:X
+10:X
+10:C
+0:{"buildId":"RU_rpcycWuJIXScklLQYs","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[2," · ","Dependency Injection"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Avoid Service Locator Anti-Pattern"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"Hides dependencies and breaks testability"}],[["$","$L2","007",{"href":"/day/007/","className":"chip chip--accent","children":["plan · দিন ","০০৭"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে আন্দাজ — এই কোডে কী ভুল? এক লাইনে লিখে তারপর নিচেরটা খুলুন"}],["$","$L3",null,{"children":"**Incorrect (service locator anti-pattern):**\n\n```typescript\n// Use ModuleRef to get dependencies dynamically\n@Injectable()\nexport class OrdersService {\n  constructor(private moduleRef: ModuleRef) {}\n\n  async createOrder(dto: CreateOrderDto): Promise<Order> {\n    // Dependencies are hidden - not visible in constructor\n    const usersService = this.moduleRef.get(UsersService);\n    const inventoryService = this.moduleRef.get(InventoryService);\n    const paymentService = this.moduleRef.get(PaymentService);\n\n    const user = await usersService.findOne(dto.userId);\n    // ... rest of logic\n  }\n}\n\n// Global singleton container\nclass ServiceContainer {\n  private static instance: ServiceContainer;\n  private services = new Map<string, any>();\n\n  static getInstance(): ServiceContainer {\n    if (!this.instance) {\n      this.instance = new ServiceContainer();\n    }\n    return this.instance;\n  }\n\n  get<T>(key: string): T {\n    return this.services.get(key);\n  }\n}\n```"}]]}],["$","$L4",null,{"taskIds":["d007-5ghh5w"],"kind":"fix","children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"ViewportBoundary"]
+19:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"MetadataBoundary"]
+1a:I[27201,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"IconMark"]
+1b:I[39756,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+1c:I[37457,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/arch-use-repository-pattern/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Use Repository Pattern for Data Access"}]]}],["$","$L2",null,{"href":"/guide/di-interface-segregation/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Apply Interface Segregation Principle"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","async":true}]
+8:["$","script","script-1",{"src":"/nestjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Avoid Service Locator Anti-Pattern — nestjs learning"}],["$","meta","1",{"name":"description","content":"NestJS-এর ৪০টা best practice — দিনে একটা, ১৫′: Incorrect কোড দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nestjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

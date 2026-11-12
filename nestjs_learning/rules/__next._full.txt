@@ -1,0 +1,148 @@
+1:"$Sreact.fragment"
+2:I[41681,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+8:I[68027,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default",1]
+:HL["/nestjs_learning/_next/static/chunks/0hle6fij5z3bk.css","style"]
+:HL["/nestjs_learning/_next/static/media/490cbca7f386131e-s.p.1zrwl0c4yv3pr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/nestjs_learning/_next/static/media/4b23c5ee480ee380-s.p.0qqufx6vw52v_.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/nestjs_learning/_next/static/media/520c929efec0b33f-s.p.3arxh35s5-kc0.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/nestjs_learning/_next/static/media/5e4d537aaa9e154b-s.p.1ewykk74tw0il.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/nestjs_learning/_next/static/media/6a1d08cf467f0848-s.p.240fzfer9e_rh.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/nestjs_learning/_next/static/media/6ea8d1bb8ea4af7a-s.p.1kk_wfe381bov.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/nestjs_learning/_next/static/media/70bc3e132a0a741e-s.p.3t6q91iet4nsy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/nestjs_learning/_next/static/media/70c15719a04fff13-s.p.376yc-xi7tht7.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/nestjs_learning/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+6:X
+0:{"P":null,"c":["","rules",""],"q":"","i":false,"f":[[["",{"children":["rules",{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/nestjs_learning/_next/static/chunks/0hle6fij5z3bk.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"bn","className":"archivo_aabc0850-module__cplg6G__variable archivo_black_cc57a6c8-module__12WbNa__variable barlow_semi_condensed_66b51823-module__HKMkGa__variable jetbrains_mono_ce945e87-module__HTLkQq__variable noto_sans_bengali_ae4f5577-module__v5t5fW__variable h-full antialiased","children":["$","body",null,{"className":"surface-app flex min-h-full flex-col","children":[["$","a",null,{"href":"#main-content","className":"control control--primary sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 px-3 py-1.5 text-xs","children":"মূল কনটেন্টে যান"}],["$","$L2",null,{"blocks":[{"num":1,"slug":"architecture-and-di","name":"Architecture আর DI","range":"দিন ০০১–০১৩ · arch · di","dip":false,"check":"১২টা rule-এর প্রতিটায় Correct বন্ধ করে নিজে লেখা আর \"কেন\" ইংরেজিতে বলা হয়েছে, আর ⚑-এর উত্তর ২ মিনিটে মুখে এসেছে?","days":[{"num":1,"code":"001","label":"০০১","title":"Avoid Circular Dependencies","taskIds":["d001-v1hqq9"]},{"num":2,"code":"002","label":"০০২","title":"Organize by Feature Modules","taskIds":["d002-1hmcllx"]},{"num":3,"code":"003","label":"০০৩","title":"Use Proper Module Sharing Patterns","taskIds":["d003-1ahly6z"]},{"num":4,"code":"004","label":"০০৪","title":"Single Responsibility for Services","taskIds":["d004-1n653ow"]},{"num":5,"code":"005","label":"০০৫","title":"Use Event-Driven Architecture for Decoupling","taskIds":["d005-g3qp6j"]},{"num":6,"code":"006","label":"০০৬","title":"Use Repository Pattern for Data Access","taskIds":["d006-riqh87"]},{"num":7,"code":"007","label":"০০৭","title":"Avoid Service Locator Anti-Pattern","taskIds":["d007-5ghh5w"]},{"num":8,"code":"008","label":"০০৮","title":"Apply Interface Segregation Principle","taskIds":["d008-1x8jz2m"]},{"num":9,"code":"009","label":"০০৯","title":"Honor Liskov Substitution Principle","taskIds":["d009-fjnnd2"]},{"num":10,"code":"010","label":"০১০","title":"Prefer Constructor Injection","taskIds":["d010-vnsk47"]},{"num":11,"code":"011","label":"০১১","title":"Understand Provider Scopes","taskIds":["d011-15blpb7"]},{"num":12,"code":"012","label":"০১২","title":"Use Injection Tokens for Interfaces","taskIds":["d012-1g10t9t"]},{"num":13,"code":"013","label":"০১৩","title":"মুখে — Architecture আর DI-এর তিনটা rule","taskIds":["d013-8upvr5"]}]},{"num":2,"slug":"error-and-security","name":"Error আর Security","range":"দিন ০১৪–০২২ · error · security","dip":false,"check":"৮টা rule-এর প্রতিটায় Correct বন্ধ করে নিজে লেখা আর \"কেন\" ইংরেজিতে বলা হয়েছে, আর ⚑-এর উত্তর ২ মিনিটে মুখে এসেছে?","days":[{"num":14,"code":"014","label":"০১৪","title":"Handle Async Errors Properly","taskIds":["d014-t2745"]},{"num":15,"code":"015","label":"০১৫","title":"Throw HTTP Exceptions from Services","taskIds":["d015-1eveuke"]},{"num":16,"code":"016","label":"০১৬","title":"Use Exception Filters for Error Handling","taskIds":["d016-68744a"]},{"num":17,"code":"017","label":"০১৭","title":"Implement Secure JWT Authentication","taskIds":["d017-buv7nt"]},{"num":18,"code":"018","label":"০১৮","title":"Implement Rate Limiting","taskIds":["d018-rngiqg"]},{"num":19,"code":"019","label":"০১৯","title":"Sanitize Output to Prevent XSS","taskIds":["d019-1jzakgg"]},{"num":20,"code":"020","label":"০২০","title":"Use Guards for Authentication and Authorization","taskIds":["d020-lb2bl8"]},{"num":21,"code":"021","label":"০২১","title":"Validate All Input with DTOs and Pipes","taskIds":["d021-9rk0go"]},{"num":22,"code":"022","label":"০২২","title":"মুখে — Error আর Security-এর তিনটা rule","taskIds":["d022-1x1oobm"]}]},{"num":3,"slug":"performance-and-testing","name":"Performance আর Testing","range":"দিন ০২৩–০৩০ · perf · test","dip":false,"check":"৭টা rule-এর প্রতিটায় Correct বন্ধ করে নিজে লেখা আর \"কেন\" ইংরেজিতে বলা হয়েছে, আর ⚑-এর উত্তর ২ মিনিটে মুখে এসেছে?","days":[{"num":23,"code":"023","label":"০২৩","title":"Use Async Lifecycle Hooks Correctly","taskIds":["d023-y0ir6w"]},{"num":24,"code":"024","label":"০২৪","title":"Use Lazy Loading for Large Modules","taskIds":["d024-ycxg5g"]},{"num":25,"code":"025","label":"০২৫","title":"Optimize Database Queries","taskIds":["d025-p0yxfe"]},{"num":26,"code":"026","label":"০২৬","title":"Use Caching Strategically","taskIds":["d026-o2ahto"]},{"num":27,"code":"027","label":"০২৭","title":"Use Supertest for E2E Testing","taskIds":["d027-rulk8b"]},{"num":28,"code":"028","label":"০২৮","title":"Mock External Services in Tests","taskIds":["d028-szizuk"]},{"num":29,"code":"029","label":"০২৯","title":"Use Testing Module for Unit Tests","taskIds":["d029-1sds6p8"]},{"num":30,"code":"030","label":"০৩০","title":"মুখে — Performance আর Testing-এর তিনটা rule","taskIds":["d030-iwb1uy"]}]},{"num":4,"slug":"database-and-api","name":"Database আর API","range":"দিন ০৩১–০৩৮ · db · api","dip":false,"check":"৭টা rule-এর প্রতিটায় Correct বন্ধ করে নিজে লেখা আর \"কেন\" ইংরেজিতে বলা হয়েছে, আর ⚑-এর উত্তর ২ মিনিটে মুখে এসেছে?","days":[{"num":31,"code":"031","label":"০৩১","title":"Avoid N+1 Query Problems","taskIds":["d031-1r56ssh"]},{"num":32,"code":"032","label":"০৩২","title":"Use Database Migrations","taskIds":["d032-47qv0y"]},{"num":33,"code":"033","label":"০৩৩","title":"Use Transactions for Multi-Step Operations","taskIds":["d033-sgnfpw"]},{"num":34,"code":"034","label":"০৩৪","title":"Use DTOs and Serialization for API Responses","taskIds":["d034-vk82wn"]},{"num":35,"code":"035","label":"০৩৫","title":"Use Interceptors for Cross-Cutting Concerns","taskIds":["d035-wl176a"]},{"num":36,"code":"036","label":"০৩৬","title":"Use Pipes for Input Transformation","taskIds":["d036-odqcfb"]},{"num":37,"code":"037","label":"০৩৭","title":"Use API Versioning for Breaking Changes","taskIds":["d037-162lk02"]},{"num":38,"code":"038","label":"০৩৮","title":"মুখে — Database আর API-এর তিনটা rule","taskIds":["d038-mqy8on"]}]},{"num":5,"slug":"microservices-and-devops","name":"Microservices আর DevOps","range":"দিন ০৩৯–০৪৫ · micro · devops","dip":false,"check":"৬টা rule-এর প্রতিটায় Correct বন্ধ করে নিজে লেখা আর \"কেন\" ইংরেজিতে বলা হয়েছে, আর ⚑-এর উত্তর ২ মিনিটে মুখে এসেছে?","days":[{"num":39,"code":"039","label":"০৩৯","title":"Implement Health Checks for Microservices","taskIds":["d039-1b1jeph"]},{"num":40,"code":"040","label":"০৪০","title":"Use Message and Event Patterns Correctly","taskIds":["d040-1jjduoa"]},{"num":41,"code":"041","label":"০৪১","title":"Use Message Queues for Background Jobs","taskIds":["d041-1ilz20x"]},{"num":42,"code":"042","label":"০৪২","title":"Implement Graceful Shutdown","taskIds":["d042-4sqjex"]},{"num":43,"code":"043","label":"০৪৩","title":"Use ConfigModule for Environment Configuration","taskIds":["d043-tg3ew7"]},{"num":44,"code":"044","label":"০৪৪","title":"Use Structured Logging","taskIds":["d044-1rofzgx"]},{"num":45,"code":"045","label":"০৪৫","title":"মুখে — Microservices আর DevOps-এর তিনটা rule","taskIds":["d045-1x7290v"]}]}],"children":"$L3"}]]}]}]]}],{"children":["$L4",{"children":["$L5",{},null,false,null]},null,false,"$6"]},null,false,null],"$L7",false]],"m":"$undefined","G":["$8",["$L9"]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"RU_rpcycWuJIXScklLQYs"}
+a:I[39756,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+b:I[37457,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+c:I[82484,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+10:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"ViewportBoundary"]
+12:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"MetadataBoundary"]
+13:"$Sreact.suspense"
+3:["$","$La",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Lb",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]
+4:["$","$1","c",{"children":[null,["$","$La",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Lb",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+d:T3371,## লক্ষ্য
+
+> **৪৫ দিনে NestJS-এর ৪০টা best practice-এর প্রতিটায় Correct কোডটা পড়ার পরে বন্ধ করে নিজে লিখতে পারা, আর "কেন" ইংরেজিতে নিজের কথায় বলতে পারা — ঝালাইসহ।**
+
+এটা NestJS গোড়া থেকে শেখানোর সাইট নয়, আবার জানা জিনিসের "কেন" ঝালানোরও নয়: এখানে প্রতিটা rule প্রথম পরিচয়। তাই না দেখে ঠিকটা লেখা নয় — ক্রমটা আন্দাজ → পড়া → বন্ধ করে লেখা। 🧠 (Test yourself · Active vs Passive learning)
+
+## সত্যের উৎস
+
+এই সাইট NestJS নিয়ে নিজের কোনো rule বা ব্যাখ্যা যোগ করে না — প্রতিটা দিনের কোড আর ব্যাখ্যা rule-এর ফাইল থেকেই।
+
+1. `guide/` — `nestjs-best-practices` skill-এর ৪০টা rule ফাইল, হুবহু ইংরেজিতে। লেখক, সংস্করণ আর লাইসেন্স `guide/README.md`-এ; সেকশনের নাম আর ক্রম `guide/_sections.md`-এ।
+2. `docs/` — এই plan: নিয়ম আর ৫টা ব্লক।
+3. ⚑ দিনের প্রশ্ন — ব্লকের rule-ই। backend-এর জন্য কোথাও আলাদা ইন্টারভিউ-প্রশ্ন লেখা নেই।
+
+## উৎসটা কী, কী নয়
+
+- **একজন লেখকের rule-set, অফিসিয়াল ডক নয়।** NestJS-এর দলের লেখা নয়; rule-গুলো লেখকের বিচার।
+- **গোড়া ধরে নেওয়া।** rule-গুলো ধরে নেয় module, provider, controller আর decorator চেনা। এই সাইট ওগুলো শেখায় না; আটকালে যাওয়ার জায়গা প্রতিটা rule-এর শেষের Reference লিংক।
+- **কোনো version-এর সাথে বাঁধা নয়।** rule-এ NestJS-এর কোনো version-এর নাম নেই, আর কোনো version-এর সাথে মেলানোও হয়নি।
+
+### Reference লিংক — ২০২৬-১০-১১-এর পরীক্ষা
+
+৪০টা rule-এর প্রতিটায় একটা Reference লিংক: ৩০টা `docs.nestjs.com`-এ, ১০টা অন্য সাইটে।
+
+- `docs.nestjs.com` যেকোনো ঠিকানায় HTTP 200 দেয়, তাই ঐ ৩০টা আসল browser-এ খুলে পাতার শিরোনাম দেখা হয়েছে: **সবগুলোই ঠিক বিষয়ের পাতায় পৌঁছায়।**
+- তার ৯টার ঠিকানা বদলেছে — rule-এ লেখা পুরনো ঠিকানায় গেলে সাইট নিজে নতুনটায় নিয়ে যায়। rule ফাইল বদলানো হয়নি।
+- বাকি ১০টা (`typeorm.io` ৪, `en.wikipedia.org` ২, `nodejs.org`, `martinfowler.com`, `jestjs.io`, `cheatsheetseries.owasp.org`) HTTP 200 দিয়েছে।
+
+| দিন | rule | rule-এ লেখা ঠিকানা | এখন যেখানে পৌঁছায় |
+|---|---|---|---|
+| ০০৫ | `arch-use-events` | `/techniques/events` | `/application/events` |
+| ০২১ | `security-validate-all-input` | `/techniques/validation` | `/application/validation` |
+| ০২৬ | `perf-use-caching` | `/techniques/caching` | `/data/caching` |
+| ০৩৪ | `api-use-dto-serialization` | `/techniques/serialization` | `/application/serialization` |
+| ০৩৭ | `api-versioning` | `/techniques/versioning` | `/http/versioning` |
+| ০৩৯ | `micro-use-health-checks` | `/recipes/terminus` | `/reliability/terminus` |
+| ০৪১ | `micro-use-queues` | `/techniques/queues` | `/application/queues` |
+| ০৪৩ | `devops-use-config-module` | `/techniques/configuration` | `/application/configuration` |
+| ০৪৪ | `devops-use-logging` | `/techniques/logger` | `/application/logger` |
+
+## কীভাবে পড়বেন
+
+- ৪৫ দিন, ৫টা ব্লক — উৎসের নিজের ক্রমে, পাশাপাশি দুই সেকশন জোড়া দিয়ে: Architecture আর DI → Error আর Security → Performance আর Testing → Database আর API → Microservices আর DevOps। সেকশনের ভেতরে rule উৎসের মতোই ফাইলনামের বর্ণানুক্রমে।
+- প্রতিটা দিনে একটা rule, একটা `- [ ]` কাজ, আর শেষে **দিন শেষে** প্রশ্ন — হ্যাঁ/না। ব্লকের শেষ দিনটা ⚑।
+- `১৫′` = মিনিট।
+- কাজের নিচে rule-এর **Incorrect কোড**, আর "আগে আন্দাজ → Correct আর ব্যাখ্যা" লিংক। লিংকটা টিকের আগেই থাকে, কারণ পড়াটা কাজেরই অংশ — কিন্তু আন্দাজের পরে। 🧠 (Test yourself)
+- `impact` chip = উৎসে rule-টার গুরুত্ব, CRITICAL থেকে LOW।
+- 🧠 (নাম) = কাজটা `learning_to_learn`-এর কোন নীতি থেকে; chip চাপলে এক লাইনে কেন।
+- 🔁 = এই কাজ শেষ করার দিন থেকে **১, ৩, ৭, ২১ দিন পরে** না দেখে আবার। তারিখ সাইট নিজে হিসাব করে।
+- ⚑ = মাইলফলক। নির্ধারিত দিনে না হলে শেষ না হওয়া পর্যন্ত হোমে থাকে।
+
+## "আজ" মানে ক্যালেন্ডারের আজ
+
+ফাইলে তারিখ নেই, শুধু দিনের নম্বর। প্রথমবার সাইট খুললে শুরুর তারিখ জিজ্ঞেস করে। তারপর থেকে দিন = শুরু থেকে কত দিন।
+
+- **plan পেছায় না।** কাল বাদ পড়লে আজ আজকের rule, দুটো নয়।
+- **বাদ পড়া rule ফেরে না** — গাইডে থাকে, দিন ০৪৫-এর পরে ধরতে পারেন।
+- **ঘুম কেটে পূরণ নয়।** 🧠 (The science of sleep)
+
+## কখন বসবেন ⏳
+
+এই সাইটের দিনের ১৫′ ১৮০ দিনের plan-এর সপ্তাহে ৭ ঘণ্টার **ভেতরে, নাকি বাইরে** — ⏳ আপনার উত্তর বাকি। `emberjs_learning` আর `nextjs_learning`-এর সাথে একসাথে চলবে, নাকি পরপর — সেটাও ⏳। উত্তর না আসা পর্যন্ত plan-এর কোনো ঘর থেকে সময় কাটা হয়নি, আর শুরুর তারিখের কোনো প্রস্তাব নেই।
+
+---
+
+## বসা — ১৫′
+
+১৫′ একটা আন্দাজ, মাপা নয়। rule-গুলো লম্বা (৮০ থেকে ২৫২ লাইন); সময়ে না ধরলে প্রথম Incorrect–Correct জোড়াটুকুই আজকের কাজ।
+
+1. **টাইমার ১৫′।** 🧠 (Have an endpoint)
+2. **Incorrect কোডটা পড়ুন, আর খাতায় এক লাইনে আন্দাজ লিখুন** — কী ভুল। না চিনলেও একটা আন্দাজ; ফাঁকা নয়। 🧠 (Test yourself)
+3. **গাইড খুলে Correct আর ব্যাখ্যা পড়ুন।** কোনো শব্দ না চিনলে rule-এর শেষের Reference লিংক — শুধু ঐ একটা পাতা।
+4. **গাইড বন্ধ করে Correct-টা নিজে লিখুন** — editor-এ বা কাগজে; চালাতে হবে না। 🧠 (Active vs Passive learning)
+5. **"কেন" ইংরেজিতে, ২–৩ বাক্যে, জোরে।** 🧠 (Feynman technique)
+6. **টিক দিন**, তারপর নিজের লেখা গাইডের সাথে মেলান। যেটুকু মেলেনি, সেটাই কালকের ঝালাইয়ের জায়গা। 🧠 (The science of feedback)
+
+সাইটে নোটের ঘর নেই, ইচ্ছা করেই; আন্দাজটা খাতায়।
+
+## ঝালাই
+
+- 🔁 কাজে টিক দিলে ঐ **আসল তারিখ** থেকে ১ → ৩ → ৭ → ২১ দিন। 🧠 (Spaced repetition revisited)
+- **ঝালাইয়ের বসা:** rule-এর নাম দেখে, গাইড না খুলে — "কেন" এক লাইনে, ইংরেজিতে, জোরে। প্রথম পরিচয়ের rule-এ আসল অনুশীলন এখানেই।
+- দুটো উত্তর: **মনে ছিল** (পরের ধাপে) বা **আটকে গেছি** (আবার ১ দিনে)। আটকে যাওয়া শাস্তি নয়, তথ্য।
+- ২১ দিনের ধাপ পার হলে ঝালাই শেষ — ওটা এখন স্থির।
+
+## ⚑ দিন — মুখে ২ মিনিট
+
+প্রতিটা ব্লকের শেষ দিনে ব্লকের rule থেকে তিনটা বাছা — দুই সেকশনের প্রতিটা থেকে অন্তত একটা — আর শুধু নাম দেখে, গাইড না খুলে, প্রতিটার "কেন" ইংরেজিতে জোরে, মোট ২ মিনিটে।
+
+| দিন | ব্লক | যেখান থেকে তিনটা |
+|---|---|---|
+| ০১৩ | Architecture আর DI | ১২টা rule |
+| ০২২ | Error আর Security | ৮টা rule |
+| ০৩০ | Performance আর Testing | ৭টা rule |
+| ০৩৮ | Database আর API | ৭টা rule |
+| ০৪৫ | Microservices আর DevOps | ৬টা rule |
+
+## গাইডের পাতা
+
+"গাইড" পাতায় ৪০টা rule, উৎসের ১০টা সেকশন ধরে; প্রতিটার পাশে কোন দিনে আসে। rule-এর পাতায় Incorrect কোড খোলা আর পুরো rule ভাঁজ করা — আন্দাজের পরে নিজে খুলবেন; plan-এ ঐ কাজে টিক থাকলে ভাঁজ নিজে খোলে। পাতাগুলো রেফারেন্স; রোজ শুরু "আজ" থেকে। 🧠 (Create a roadmap)
+
+---
+
+## যা করবেন না
+
+- **এক দিনে একাধিক rule নয়।** working memory-তে একসাথে চারটার বেশি ধরে না। 🧠 (Long and short memory)
+- **আন্দাজের আগে Correct নয়।** আগে এক লাইনের আন্দাজ, তারপর পড়া — কাজের ক্রমটা এটাই।
+- **rule চালিয়ে দেখতে নতুন NestJS প্রজেক্ট বা sandbox বানানো নয়।** এই plan-এ নেই, ইচ্ছা করেই; দরকার মনে হলে এক লাইনে লিখে রাখুন।
+- **নতুন rule, নতুন দাবি বা নতুন ফিচার নয়।** ইচ্ছে হলে এক লাইনে লিখে রাখুন, বানাবেন না।
+
+## দিন ০৪৫-এর পরে
+
+- 🔁 ঝালাই হোমে আসতেই থাকবে, যতদিন বাকি।
+- বাদ পড়া rule গাইড থেকে একটা একটা করে — একই বসা, একই ১৫′।
+- এরপর না দেখে লেখা: যে rule-এর ঝালাই স্থির হয়েছে, তার Incorrect কোড দেখে Correct-টা সরাসরি লিখে দেখুন।5:["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — NestJS, rule ধরে প্রথম পরিচয়"}],["$","p",null,{"className":"t-body measure text-sm","children":"৪৫ দিন · ৪০টা rule আর ৫টা ⚑ · দিনে একটা, ১৫′"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$Lc",null,{"className":"measure","children":"$d"}]}]],["$Le"],"$Lf"]}]
+7:["$","$1","h",{"children":[null,["$","$L10",null,{"children":"$L11"}],["$","div",null,{"hidden":true,"children":["$","$L12",null,{"children":["$","$13",null,{"name":"Next.Metadata","children":"$L14"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+9:["$","link","0",{"rel":"stylesheet","href":"/nestjs_learning/_next/static/chunks/0hle6fij5z3bk.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+15:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"OutletBoundary"]
+6:C
+e:["$","script","script-0",{"src":"/nestjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true,"nonce":"$undefined"}]
+f:["$","$L15",null,{"children":["$","$13",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]
+11:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+17:I[27201,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"IconMark"]
+14:[["$","title","0",{"children":"নিয়ম — nestjs learning"}],["$","meta","1",{"name":"description","content":"NestJS-এর ৪০টা best practice — দিনে একটা, ১৫′: Incorrect কোড দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nestjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L17","3",{}]]
+16:null

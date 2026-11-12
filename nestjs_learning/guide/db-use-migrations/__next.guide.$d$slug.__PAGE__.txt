@@ -1,0 +1,150 @@
+1:"$Sreact.fragment"
+2:I[22016,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:Te3b,Never use `synchronize: true` in production. Use migrations for all schema changes. Migrations provide version control for your database, enable safe rollbacks, and ensure consistency across all environments.
+
+**Incorrect (using synchronize or manual SQL):**
+
+```typescript
+// Use synchronize in production
+TypeOrmModule.forRoot({
+  type: 'postgres',
+  synchronize: true, // DANGEROUS in production!
+  // Can drop columns, tables, or data
+});
+
+// Manual SQL in production
+@Injectable()
+export class DatabaseService {
+  async addColumn(): Promise<void> {
+    await this.dataSource.query('ALTER TABLE users ADD COLUMN age INT');
+    // No version control, no rollback, inconsistent across envs
+  }
+}
+
+// Modify entities without migration
+@Entity()
+export class User {
+  @Column()
+  email: string;
+
+  @Column() // Added without migration
+  newField: string; // Will crash in production if synchronize is false
+}
+```
+
+**Correct (use migrations for all schema changes):**
+
+```typescript
+// Configure TypeORM for migrations
+// data-source.ts
+export const dataSource = new DataSource({
+  type: 'postgres',
+  host: process.env.DB_HOST,
+  port: parseInt(process.env.DB_PORT),
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  entities: ['dist/**/*.entity.js'],
+  migrations: ['dist/migrations/*.js'],
+  synchronize: false, // Always false in production
+  migrationsRun: true, // Run migrations on startup
+});
+
+// app.module.ts
+TypeOrmModule.forRootAsync({
+  inject: [ConfigService],
+  useFactory: (config: ConfigService) => ({
+    type: 'postgres',
+    host: config.get('DB_HOST'),
+    synchronize: config.get('NODE_ENV') === 'development', // Only in dev
+    migrations: ['dist/migrations/*.js'],
+    migrationsRun: true,
+  }),
+});
+
+// migrations/1705312800000-AddUserAge.ts
+import { MigrationInterface, QueryRunner } from 'typeorm';
+
+export class AddUserAge1705312800000 implements MigrationInterface {
+  name = 'AddUserAge1705312800000';
+
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    // Add column with default to handle existing rows
+    await queryRunner.query(`
+      ALTER TABLE "users" ADD "age" integer DEFAULT 0
+    `);
+
+    // Add index for frequently queried columns
+    await queryRunner.query(`
+      CREATE INDEX "IDX_users_age" ON "users" ("age")
+    `);
+  }
+
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    // Always implement down for rollback
+    await queryRunner.query(`DROP INDEX "IDX_users_age"`);
+    await queryRunner.query(`ALTER TABLE "users" DROP COLUMN "age"`);
+  }
+}
+
+// Safe column rename (two-step)
+export class RenameNameToFullName1705312900000 implements MigrationInterface {
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    // Step 1: Add new column
+    await queryRunner.query(`
+      ALTER TABLE "users" ADD "full_name" varchar(255)
+    `);
+
+    // Step 2: Copy data
+    await queryRunner.query(`
+      UPDATE "users" SET "full_name" = "name"
+    `);
+
+    // Step 3: Add NOT NULL constraint
+    await queryRunner.query(`
+      ALTER TABLE "users" ALTER COLUMN "full_name" SET NOT NULL
+    `);
+
+    // Step 4: Drop old column (after verifying app works)
+    await queryRunner.query(`
+      ALTER TABLE "users" DROP COLUMN "name"
+    `);
+  }
+
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(`ALTER TABLE "users" ADD "name" varchar(255)`);
+    await queryRunner.query(`UPDATE "users" SET "name" = "full_name"`);
+    await queryRunner.query(`ALTER TABLE "users" DROP COLUMN "full_name"`);
+  }
+}
+```
+
+Reference: [TypeORM Migrations](https://typeorm.io/migrations)b:X
+10:X
+10:C
+0:{"buildId":"RU_rpcycWuJIXScklLQYs","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[7," · ","Database & ORM"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Use Database Migrations"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"Enables safe, repeatable database schema changes"}],[["$","$L2","032",{"href":"/day/032/","className":"chip chip--accent","children":["plan · দিন ","০৩২"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে আন্দাজ — এই কোডে কী ভুল? এক লাইনে লিখে তারপর নিচেরটা খুলুন"}],["$","$L3",null,{"children":"**Incorrect (using synchronize or manual SQL):**\n\n```typescript\n// Use synchronize in production\nTypeOrmModule.forRoot({\n  type: 'postgres',\n  synchronize: true, // DANGEROUS in production!\n  // Can drop columns, tables, or data\n});\n\n// Manual SQL in production\n@Injectable()\nexport class DatabaseService {\n  async addColumn(): Promise<void> {\n    await this.dataSource.query('ALTER TABLE users ADD COLUMN age INT');\n    // No version control, no rollback, inconsistent across envs\n  }\n}\n\n// Modify entities without migration\n@Entity()\nexport class User {\n  @Column()\n  email: string;\n\n  @Column() // Added without migration\n  newField: string; // Will crash in production if synchronize is false\n}\n```"}]]}],["$","$L4",null,{"taskIds":["d032-47qv0y"],"kind":"fix","children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"ViewportBoundary"]
+19:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"MetadataBoundary"]
+1a:I[27201,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"IconMark"]
+1b:I[39756,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+1c:I[37457,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/db-avoid-n-plus-one/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Avoid N+1 Query Problems"}]]}],["$","$L2",null,{"href":"/guide/db-use-transactions/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Use Transactions for Multi-Step Operations"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","async":true}]
+8:["$","script","script-1",{"src":"/nestjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Use Database Migrations — nestjs learning"}],["$","meta","1",{"name":"description","content":"NestJS-এর ৪০টা best practice — দিনে একটা, ১৫′: Incorrect কোড দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nestjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

@@ -1,0 +1,225 @@
+1:"$Sreact.fragment"
+2:I[22016,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:I[78818,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T448,**Incorrect (using wrong pattern for use case):**
+
+```typescript
+// Use @MessagePattern for fire-and-forget
+@Controller()
+export class NotificationsController {
+  @MessagePattern('user.created')
+  async handleUserCreated(data: UserCreatedEvent) {
+    // This WAITS for response, blocking the sender
+    await this.emailService.sendWelcome(data.email);
+    // If email fails, sender gets an error (coupling!)
+  }
+}
+
+// Use @EventPattern expecting a response
+@Controller()
+export class OrdersController {
+  @EventPattern('inventory.check')
+  async checkInventory(data: CheckInventoryDto) {
+    const available = await this.inventory.check(data);
+    return available; // This return value is IGNORED with @EventPattern!
+  }
+}
+
+// Tight coupling in client
+@Injectable()
+export class UsersService {
+  async createUser(dto: CreateUserDto): Promise<User> {
+    const user = await this.repo.save(dto);
+
+    // Blocks until notification service responds
+    await this.client.send('user.created', user).toPromise();
+    // If notification service is down, user creation fails!
+
+    return user;
+  }
+}
+```6:T12e7,NestJS microservices support two communication patterns: request-response (MessagePattern) and event-based (EventPattern). Use MessagePattern when you need a response, and EventPattern for fire-and-forget notifications. Understanding the difference prevents communication bugs.
+
+**Incorrect (using wrong pattern for use case):**
+
+```typescript
+// Use @MessagePattern for fire-and-forget
+@Controller()
+export class NotificationsController {
+  @MessagePattern('user.created')
+  async handleUserCreated(data: UserCreatedEvent) {
+    // This WAITS for response, blocking the sender
+    await this.emailService.sendWelcome(data.email);
+    // If email fails, sender gets an error (coupling!)
+  }
+}
+
+// Use @EventPattern expecting a response
+@Controller()
+export class OrdersController {
+  @EventPattern('inventory.check')
+  async checkInventory(data: CheckInventoryDto) {
+    const available = await this.inventory.check(data);
+    return available; // This return value is IGNORED with @EventPattern!
+  }
+}
+
+// Tight coupling in client
+@Injectable()
+export class UsersService {
+  async createUser(dto: CreateUserDto): Promise<User> {
+    const user = await this.repo.save(dto);
+
+    // Blocks until notification service responds
+    await this.client.send('user.created', user).toPromise();
+    // If notification service is down, user creation fails!
+
+    return user;
+  }
+}
+```
+
+**Correct (use MessagePattern for request-response, EventPattern for fire-and-forget):**
+
+```typescript
+// MessagePattern: Request-Response (when you NEED a response)
+@Controller()
+export class InventoryController {
+  @MessagePattern({ cmd: 'check_inventory' })
+  async checkInventory(data: CheckInventoryDto): Promise<InventoryResult> {
+    const result = await this.inventoryService.check(data.productId, data.quantity);
+    return result; // Response sent back to caller
+  }
+}
+
+// Client expects response
+@Injectable()
+export class OrdersService {
+  async createOrder(dto: CreateOrderDto): Promise<Order> {
+    // Check inventory - we NEED this response to proceed
+    const inventory = await firstValueFrom(
+      this.inventoryClient.send<InventoryResult>(
+        { cmd: 'check_inventory' },
+        { productId: dto.productId, quantity: dto.quantity },
+      ),
+    );
+
+    if (!inventory.available) {
+      throw new BadRequestException('Insufficient inventory');
+    }
+
+    return this.repo.save(dto);
+  }
+}
+
+// EventPattern: Fire-and-Forget (for notifications, side effects)
+@Controller()
+export class NotificationsController {
+  @EventPattern('user.created')
+  async handleUserCreated(data: UserCreatedEvent): Promise<void> {
+    // No return value needed - just process the event
+    await this.emailService.sendWelcome(data.email);
+    await this.analyticsService.track('user_signup', data);
+    // If this fails, it doesn't affect the sender
+  }
+}
+
+// Client emits event without waiting
+@Injectable()
+export class UsersService {
+  async createUser(dto: CreateUserDto): Promise<User> {
+    const user = await this.repo.save(dto);
+
+    // Fire and forget - doesn't block, doesn't wait
+    this.eventClient.emit('user.created', {
+      userId: user.id,
+      email: user.email,
+      timestamp: new Date(),
+    });
+
+    return user; // User creation succeeds regardless of event handling
+  }
+}
+
+// Hybrid pattern for critical events
+@Injectable()
+export class OrdersService {
+  async createOrder(dto: CreateOrderDto): Promise<Order> {
+    const order = await this.repo.save(dto);
+
+    // Critical: inventory reservation (use MessagePattern)
+    const reserved = await firstValueFrom(
+      this.inventoryClient.send({ cmd: 'reserve_inventory' }, {
+        orderId: order.id,
+        items: dto.items,
+      }),
+    );
+
+    if (!reserved.success) {
+      await this.repo.delete(order.id);
+      throw new BadRequestException('Could not reserve inventory');
+    }
+
+    // Non-critical: notifications (use EventPattern)
+    this.eventClient.emit('order.created', {
+      orderId: order.id,
+      userId: dto.userId,
+      total: dto.total,
+    });
+
+    return order;
+  }
+}
+
+// Error handling patterns
+// MessagePattern errors propagate to caller
+@MessagePattern({ cmd: 'get_user' })
+async getUser(userId: string): Promise<User> {
+  const user = await this.repo.findOne({ where: { id: userId } });
+  if (!user) {
+    throw new RpcException('User not found'); // Received by caller
+  }
+  return user;
+}
+
+// EventPattern errors should be handled locally
+@EventPattern('order.created')
+async handleOrderCreated(data: OrderCreatedEvent): Promise<void> {
+  try {
+    await this.processOrder(data);
+  } catch (error) {
+    // Log and potentially retry - don't throw
+    this.logger.error('Failed to process order event', error);
+    await this.deadLetterQueue.add(data);
+  }
+}
+```
+
+Reference: [NestJS Microservices](https://docs.nestjs.com/microservices/basics)c:X
+11:X
+11:C
+0:{"buildId":"RU_rpcycWuJIXScklLQYs","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[9," · ","Microservices"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Use Message and Event Patterns Correctly"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","MEDIUM"]}],["$","span",null,{"className":"chip","children":"Proper patterns ensure reliable microservice communication"}],[["$","$L2","040",{"href":"/day/040/","className":"chip chip--accent","children":["plan · দিন ","০৪০"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে আন্দাজ — এই কোডে কী ভুল? এক লাইনে লিখে তারপর নিচেরটা খুলুন"}],["$","$L3",null,{"children":"$4"}]]}],["$","$L5",null,{"taskIds":["d040-1jjduoa"],"kind":"fix","children":["$","$L3",null,{"children":"$6"}]}],"$L7"],["$L8","$L9"],"$La"]}],"isPartial":"$@b","staleTime":"$c","varyParams":null},{"rsc":"$Ld","isPartial":"$@e","staleTime":"$c","varyParams":null},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$c","varyParams":"$11"},{"rsc":"$L12","isPartial":"$@13","staleTime":"$c","varyParams":"$11"}],"isUpgradeableISRFallback":false,"a":"$@14","rootVaryParams":null,"needsRuntimeRequest":"$@15"}
+16:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"OutletBoundary"]
+17:"$Sreact.suspense"
+19:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"ViewportBoundary"]
+1a:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"MetadataBoundary"]
+1b:I[27201,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"IconMark"]
+1c:I[39756,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+1d:I[37457,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+7:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/micro-use-health-checks/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Implement Health Checks for Microservices"}]]}],["$","$L2",null,{"href":"/guide/micro-use-queues/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Use Message Queues for Background Jobs"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+8:["$","script","script-0",{"src":"/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","async":true}]
+9:["$","script","script-1",{"src":"/nestjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+a:["$","$L16",null,{"children":["$","$17",null,{"name":"Next.MetadataOutlet","children":"$@18"}]}]
+d:["$","$1","h",{"children":[null,["$","$L19",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1a",null,{"children":["$","$17",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Use Message and Event Patterns Correctly — nestjs learning"}],["$","meta","1",{"name":"description","content":"NestJS-এর ৪০টা best practice — দিনে একটা, ১৫′: Incorrect কোড দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nestjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1b","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","template":["$","$L1d",null,{}]}]]}]
+12:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","template":["$","$L1d",null,{}]}]]}]
+15:true
+18:null
+c:300
+c:C
+14:0
+e:"$undefined"
+10:"$undefined"
+13:"$undefined"
+b:"$undefined"

@@ -1,0 +1,247 @@
+1:"$Sreact.fragment"
+2:I[22016,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T1659,Implement liveness and readiness probes using `@nestjs/terminus`. Liveness checks determine if the service should be restarted. Readiness checks determine if the service can accept traffic. Proper health checks enable Kubernetes and load balancers to route traffic correctly.
+
+**Incorrect (simple ping that doesn't check dependencies):**
+
+```typescript
+// Simple ping that doesn't check dependencies
+@Controller('health')
+export class HealthController {
+  @Get()
+  check(): string {
+    return 'OK'; // Service might be unhealthy but returns OK
+  }
+}
+
+// Health check that blocks on slow dependencies
+@Controller('health')
+export class HealthController {
+  @Get()
+  async check(): Promise<string> {
+    // If database is slow, health check times out
+    await this.userRepo.findOne({ where: { id: '1' } });
+    await this.redis.ping();
+    await this.externalApi.healthCheck();
+    return 'OK';
+  }
+}
+```
+
+**Correct (use @nestjs/terminus for comprehensive health checks):**
+
+```typescript
+// Use @nestjs/terminus for comprehensive health checks
+import {
+  HealthCheckService,
+  HttpHealthIndicator,
+  TypeOrmHealthIndicator,
+  HealthCheck,
+  DiskHealthIndicator,
+  MemoryHealthIndicator,
+} from '@nestjs/terminus';
+
+@Controller('health')
+export class HealthController {
+  constructor(
+    private health: HealthCheckService,
+    private http: HttpHealthIndicator,
+    private db: TypeOrmHealthIndicator,
+    private disk: DiskHealthIndicator,
+    private memory: MemoryHealthIndicator,
+  ) {}
+
+  // Liveness probe - is the service alive?
+  @Get('live')
+  @HealthCheck()
+  liveness() {
+    return this.health.check([
+      // Basic checks only
+      () => this.memory.checkHeap('memory_heap', 200 * 1024 * 1024), // 200MB
+    ]);
+  }
+
+  // Readiness probe - can the service handle traffic?
+  @Get('ready')
+  @HealthCheck()
+  readiness() {
+    return this.health.check([
+      () => this.db.pingCheck('database'),
+      () =>
+        this.http.pingCheck('redis', 'http://redis:6379', { timeout: 1000 }),
+      () =>
+        this.disk.checkStorage('disk', { path: '/', thresholdPercent: 0.9 }),
+    ]);
+  }
+
+  // Deep health check for debugging
+  @Get('deep')
+  @HealthCheck()
+  deepCheck() {
+    return this.health.check([
+      () => this.db.pingCheck('database'),
+      () => this.memory.checkHeap('memory_heap', 200 * 1024 * 1024),
+      () => this.memory.checkRSS('memory_rss', 300 * 1024 * 1024),
+      () =>
+        this.disk.checkStorage('disk', { path: '/', thresholdPercent: 0.9 }),
+      () =>
+        this.http.pingCheck('external-api', 'https://api.example.com/health'),
+    ]);
+  }
+}
+
+// Custom indicator for business-specific health
+@Injectable()
+export class QueueHealthIndicator extends HealthIndicator {
+  constructor(private queueService: QueueService) {
+    super();
+  }
+
+  async isHealthy(key: string): Promise<HealthIndicatorResult> {
+    const queueStats = await this.queueService.getStats();
+
+    const isHealthy = queueStats.failedCount < 100;
+    const result = this.getStatus(key, isHealthy, {
+      waiting: queueStats.waitingCount,
+      active: queueStats.activeCount,
+      failed: queueStats.failedCount,
+    });
+
+    if (!isHealthy) {
+      throw new HealthCheckError('Queue unhealthy', result);
+    }
+
+    return result;
+  }
+}
+
+// Redis health indicator
+@Injectable()
+export class RedisHealthIndicator extends HealthIndicator {
+  constructor(@InjectRedis() private redis: Redis) {
+    super();
+  }
+
+  async isHealthy(key: string): Promise<HealthIndicatorResult> {
+    try {
+      const pong = await this.redis.ping();
+      return this.getStatus(key, pong === 'PONG');
+    } catch (error) {
+      throw new HealthCheckError('Redis check failed', this.getStatus(key, false));
+    }
+  }
+}
+
+// Use custom indicators
+@Get('ready')
+@HealthCheck()
+readiness() {
+  return this.health.check([
+    () => this.db.pingCheck('database'),
+    () => this.redis.isHealthy('redis'),
+    () => this.queue.isHealthy('job-queue'),
+  ]);
+}
+
+// Graceful shutdown handling
+@Injectable()
+export class GracefulShutdownService implements OnApplicationShutdown {
+  private isShuttingDown = false;
+
+  isShutdown(): boolean {
+    return this.isShuttingDown;
+  }
+
+  async onApplicationShutdown(signal: string): Promise<void> {
+    this.isShuttingDown = true;
+    console.log(`Shutting down on ${signal}`);
+
+    // Wait for in-flight requests
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+  }
+}
+
+// Health check respects shutdown state
+@Get('ready')
+@HealthCheck()
+readiness() {
+  if (this.shutdownService.isShutdown()) {
+    throw new ServiceUnavailableException('Shutting down');
+  }
+
+  return this.health.check([
+    () => this.db.pingCheck('database'),
+  ]);
+}
+```
+
+### Kubernetes Configuration
+
+```yaml
+# Kubernetes deployment with probes
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-service
+spec:
+  template:
+    spec:
+      containers:
+        - name: api
+          image: api-service:latest
+          ports:
+            - containerPort: 3000
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: 3000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 3
+          startupProbe:
+            httpGet:
+              path: /health/live
+              port: 3000
+            initialDelaySeconds: 0
+            periodSeconds: 5
+            failureThreshold: 30
+```
+
+Reference: [NestJS Terminus](https://docs.nestjs.com/recipes/terminus)b:X
+10:X
+10:C
+0:{"buildId":"RU_rpcycWuJIXScklLQYs","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[9," · ","Microservices"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Implement Health Checks for Microservices"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","MEDIUM-HIGH"]}],["$","span",null,{"className":"chip","children":"Health checks enable orchestrators to manage service lifecycle"}],[["$","$L2","039",{"href":"/day/039/","className":"chip chip--accent","children":["plan · দিন ","০৩৯"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে আন্দাজ — এই কোডে কী ভুল? এক লাইনে লিখে তারপর নিচেরটা খুলুন"}],["$","$L3",null,{"children":"**Incorrect (simple ping that doesn't check dependencies):**\n\n```typescript\n// Simple ping that doesn't check dependencies\n@Controller('health')\nexport class HealthController {\n  @Get()\n  check(): string {\n    return 'OK'; // Service might be unhealthy but returns OK\n  }\n}\n\n// Health check that blocks on slow dependencies\n@Controller('health')\nexport class HealthController {\n  @Get()\n  async check(): Promise<string> {\n    // If database is slow, health check times out\n    await this.userRepo.findOne({ where: { id: '1' } });\n    await this.redis.ping();\n    await this.externalApi.healthCheck();\n    return 'OK';\n  }\n}\n```"}]]}],["$","$L4",null,{"taskIds":["d039-1b1jeph"],"kind":"fix","children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"ViewportBoundary"]
+19:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"MetadataBoundary"]
+1a:I[27201,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"IconMark"]
+1b:I[39756,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+1c:I[37457,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/api-versioning/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Use API Versioning for Breaking Changes"}]]}],["$","$L2",null,{"href":"/guide/micro-use-patterns/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Use Message and Event Patterns Correctly"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","async":true}]
+8:["$","script","script-1",{"src":"/nestjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Implement Health Checks for Microservices — nestjs learning"}],["$","meta","1",{"name":"description","content":"NestJS-এর ৪০টা best practice — দিনে একটা, ১৫′: Incorrect কোড দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nestjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

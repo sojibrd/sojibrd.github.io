@@ -1,0 +1,253 @@
+1:"$Sreact.fragment"
+2:I[22016,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T1568,Use NestJS Logger with structured JSON output in production. Include contextual information (request ID, user ID, operation) to trace requests across services. Avoid console.log and implement proper log levels.
+
+**Incorrect (using console.log in production):**
+
+```typescript
+// Use console.log in production
+@Injectable()
+export class UsersService {
+  async createUser(dto: CreateUserDto): Promise<User> {
+    console.log('Creating user:', dto);
+    // Not structured, no levels, lost in production logs
+
+    try {
+      const user = await this.repo.save(dto);
+      console.log('User created:', user.id);
+      return user;
+    } catch (error) {
+      console.log('Error:', error); // Using log for errors
+      throw error;
+    }
+  }
+}
+
+// Log sensitive data
+console.log('Login attempt:', { email, password }); // SECURITY RISK!
+
+// Inconsistent log format
+logger.log('User ' + userId + ' created at ' + new Date());
+// Hard to parse, no structure
+```
+
+**Correct (use structured logging with context):**
+
+```typescript
+// Configure logger in main.ts
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule, {
+    logger:
+      process.env.NODE_ENV === 'production'
+        ? ['error', 'warn', 'log']
+        : ['error', 'warn', 'log', 'debug', 'verbose'],
+  });
+}
+
+// Use NestJS Logger with context
+@Injectable()
+export class UsersService {
+  private readonly logger = new Logger(UsersService.name);
+
+  async createUser(dto: CreateUserDto): Promise<User> {
+    this.logger.log('Creating user', { email: dto.email });
+
+    try {
+      const user = await this.repo.save(dto);
+      this.logger.log('User created', { userId: user.id });
+      return user;
+    } catch (error) {
+      this.logger.error('Failed to create user', error.stack, {
+        email: dto.email,
+      });
+      throw error;
+    }
+  }
+}
+
+// Custom logger for JSON output
+@Injectable()
+export class JsonLogger implements LoggerService {
+  log(message: string, context?: object): void {
+    console.log(
+      JSON.stringify({
+        level: 'info',
+        timestamp: new Date().toISOString(),
+        message,
+        ...context,
+      }),
+    );
+  }
+
+  error(message: string, trace?: string, context?: object): void {
+    console.error(
+      JSON.stringify({
+        level: 'error',
+        timestamp: new Date().toISOString(),
+        message,
+        trace,
+        ...context,
+      }),
+    );
+  }
+
+  warn(message: string, context?: object): void {
+    console.warn(
+      JSON.stringify({
+        level: 'warn',
+        timestamp: new Date().toISOString(),
+        message,
+        ...context,
+      }),
+    );
+  }
+
+  debug(message: string, context?: object): void {
+    console.debug(
+      JSON.stringify({
+        level: 'debug',
+        timestamp: new Date().toISOString(),
+        message,
+        ...context,
+      }),
+    );
+  }
+}
+
+// Request context logging with ClsModule
+import { ClsModule, ClsService } from 'nestjs-cls';
+
+@Module({
+  imports: [
+    ClsModule.forRoot({
+      global: true,
+      middleware: {
+        mount: true,
+        generateId: true,
+      },
+    }),
+  ],
+})
+export class AppModule {}
+
+// Middleware to set request context
+@Injectable()
+export class RequestContextMiddleware implements NestMiddleware {
+  constructor(private cls: ClsService) {}
+
+  use(req: Request, res: Response, next: NextFunction): void {
+    const requestId = req.headers['x-request-id'] || randomUUID();
+    this.cls.set('requestId', requestId);
+    this.cls.set('userId', req.user?.id);
+
+    res.setHeader('x-request-id', requestId);
+    next();
+  }
+}
+
+// Logger that includes request context
+@Injectable()
+export class ContextLogger {
+  constructor(private cls: ClsService) {}
+
+  log(message: string, data?: object): void {
+    console.log(
+      JSON.stringify({
+        level: 'info',
+        timestamp: new Date().toISOString(),
+        requestId: this.cls.get('requestId'),
+        userId: this.cls.get('userId'),
+        message,
+        ...data,
+      }),
+    );
+  }
+
+  error(message: string, error: Error, data?: object): void {
+    console.error(
+      JSON.stringify({
+        level: 'error',
+        timestamp: new Date().toISOString(),
+        requestId: this.cls.get('requestId'),
+        userId: this.cls.get('userId'),
+        message,
+        error: error.message,
+        stack: error.stack,
+        ...data,
+      }),
+    );
+  }
+}
+
+// Pino integration for high-performance logging
+import { LoggerModule } from 'nestjs-pino';
+
+@Module({
+  imports: [
+    LoggerModule.forRoot({
+      pinoHttp: {
+        level: process.env.NODE_ENV === 'production' ? 'info' : 'debug',
+        transport:
+          process.env.NODE_ENV !== 'production'
+            ? { target: 'pino-pretty' }
+            : undefined,
+        redact: ['req.headers.authorization', 'req.body.password'],
+        serializers: {
+          req: (req) => ({
+            method: req.method,
+            url: req.url,
+            query: req.query,
+          }),
+          res: (res) => ({
+            statusCode: res.statusCode,
+          }),
+        },
+      },
+    }),
+  ],
+})
+export class AppModule {}
+
+// Usage with Pino
+@Injectable()
+export class UsersService {
+  constructor(private logger: PinoLogger) {
+    this.logger.setContext(UsersService.name);
+  }
+
+  async findOne(id: string): Promise<User> {
+    this.logger.info({ userId: id }, 'Finding user');
+    // Pino uses first arg for data, second for message
+  }
+}
+```
+
+Reference: [NestJS Logger](https://docs.nestjs.com/techniques/logger)b:X
+10:X
+10:C
+0:{"buildId":"RU_rpcycWuJIXScklLQYs","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[10," · ","DevOps & Deployment"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Use Structured Logging"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","MEDIUM-HIGH"]}],["$","span",null,{"className":"chip","children":"Structured logging enables effective debugging and monitoring"}],[["$","$L2","044",{"href":"/day/044/","className":"chip chip--accent","children":["plan · দিন ","০৪৪"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে আন্দাজ — এই কোডে কী ভুল? এক লাইনে লিখে তারপর নিচেরটা খুলুন"}],["$","$L3",null,{"children":"**Incorrect (using console.log in production):**\n\n```typescript\n// Use console.log in production\n@Injectable()\nexport class UsersService {\n  async createUser(dto: CreateUserDto): Promise<User> {\n    console.log('Creating user:', dto);\n    // Not structured, no levels, lost in production logs\n\n    try {\n      const user = await this.repo.save(dto);\n      console.log('User created:', user.id);\n      return user;\n    } catch (error) {\n      console.log('Error:', error); // Using log for errors\n      throw error;\n    }\n  }\n}\n\n// Log sensitive data\nconsole.log('Login attempt:', { email, password }); // SECURITY RISK!\n\n// Inconsistent log format\nlogger.log('User ' + userId + ' created at ' + new Date());\n// Hard to parse, no structure\n```"}]]}],["$","$L4",null,{"taskIds":["d044-1rofzgx"],"kind":"fix","children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"ViewportBoundary"]
+19:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"MetadataBoundary"]
+1a:I[27201,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"IconMark"]
+1b:I[39756,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+1c:I[37457,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/devops-use-config-module/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Use ConfigModule for Environment Configuration"}]]}],["$","span",null,{}]]}]
+7:["$","script","script-0",{"src":"/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","async":true}]
+8:["$","script","script-1",{"src":"/nestjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Use Structured Logging — nestjs learning"}],["$","meta","1",{"name":"description","content":"NestJS-এর ৪০টা best practice — দিনে একটা, ১৫′: Incorrect কোড দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nestjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

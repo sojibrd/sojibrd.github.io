@@ -1,0 +1,161 @@
+1:"$Sreact.fragment"
+2:I[22016,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:Tec7,When multiple database operations must succeed or fail together, wrap them in a transaction. This prevents partial updates that leave your data in an inconsistent state. Use TypeORM's transaction APIs or the DataSource query runner for complex scenarios.
+
+**Incorrect (multiple saves without transaction):**
+
+```typescript
+// Multiple saves without transaction
+@Injectable()
+export class OrdersService {
+  async createOrder(userId: string, items: OrderItem[]): Promise<Order> {
+    // If any step fails, data is inconsistent
+    const order = await this.orderRepo.save({ userId, status: 'pending' });
+
+    for (const item of items) {
+      await this.orderItemRepo.save({ orderId: order.id, ...item });
+      await this.inventoryRepo.decrement({ productId: item.productId }, 'stock', item.quantity);
+    }
+
+    await this.paymentService.charge(order.id);
+    // If payment fails, order and inventory are already modified!
+
+    return order;
+  }
+}
+```
+
+**Correct (use DataSource.transaction for automatic rollback):**
+
+```typescript
+// Use DataSource.transaction() for automatic rollback
+@Injectable()
+export class OrdersService {
+  constructor(private dataSource: DataSource) {}
+
+  async createOrder(userId: string, items: OrderItem[]): Promise<Order> {
+    return this.dataSource.transaction(async (manager) => {
+      // All operations use the same transactional manager
+      const order = await manager.save(Order, { userId, status: 'pending' });
+
+      for (const item of items) {
+        await manager.save(OrderItem, { orderId: order.id, ...item });
+        await manager.decrement(
+          Inventory,
+          { productId: item.productId },
+          'stock',
+          item.quantity,
+        );
+      }
+
+      // If this throws, everything rolls back
+      await this.paymentService.chargeWithManager(manager, order.id);
+
+      return order;
+    });
+  }
+}
+
+// QueryRunner for manual transaction control
+@Injectable()
+export class TransferService {
+  constructor(private dataSource: DataSource) {}
+
+  async transfer(fromId: string, toId: string, amount: number): Promise<void> {
+    const queryRunner = this.dataSource.createQueryRunner();
+    await queryRunner.connect();
+    await queryRunner.startTransaction();
+
+    try {
+      // Debit source account
+      await queryRunner.manager.decrement(
+        Account,
+        { id: fromId },
+        'balance',
+        amount,
+      );
+
+      // Verify sufficient funds
+      const source = await queryRunner.manager.findOne(Account, {
+        where: { id: fromId },
+      });
+      if (source.balance < 0) {
+        throw new BadRequestException('Insufficient funds');
+      }
+
+      // Credit destination account
+      await queryRunner.manager.increment(
+        Account,
+        { id: toId },
+        'balance',
+        amount,
+      );
+
+      // Log the transaction
+      await queryRunner.manager.save(TransactionLog, {
+        fromId,
+        toId,
+        amount,
+        timestamp: new Date(),
+      });
+
+      await queryRunner.commitTransaction();
+    } catch (error) {
+      await queryRunner.rollbackTransaction();
+      throw error;
+    } finally {
+      await queryRunner.release();
+    }
+  }
+}
+
+// Repository method with transaction support
+@Injectable()
+export class UsersRepository {
+  constructor(
+    @InjectRepository(User) private repo: Repository<User>,
+    private dataSource: DataSource,
+  ) {}
+
+  async createWithProfile(
+    userData: CreateUserDto,
+    profileData: CreateProfileDto,
+  ): Promise<User> {
+    return this.dataSource.transaction(async (manager) => {
+      const user = await manager.save(User, userData);
+      await manager.save(Profile, { ...profileData, userId: user.id });
+      return user;
+    });
+  }
+}
+```
+
+Reference: [TypeORM Transactions](https://typeorm.io/transactions)b:X
+10:X
+10:C
+0:{"buildId":"RU_rpcycWuJIXScklLQYs","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[7," · ","Database & ORM"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Use Transactions for Multi-Step Operations"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"Ensures data consistency in multi-step operations"}],[["$","$L2","033",{"href":"/day/033/","className":"chip chip--accent","children":["plan · দিন ","০৩৩"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে আন্দাজ — এই কোডে কী ভুল? এক লাইনে লিখে তারপর নিচেরটা খুলুন"}],["$","$L3",null,{"children":"**Incorrect (multiple saves without transaction):**\n\n```typescript\n// Multiple saves without transaction\n@Injectable()\nexport class OrdersService {\n  async createOrder(userId: string, items: OrderItem[]): Promise<Order> {\n    // If any step fails, data is inconsistent\n    const order = await this.orderRepo.save({ userId, status: 'pending' });\n\n    for (const item of items) {\n      await this.orderItemRepo.save({ orderId: order.id, ...item });\n      await this.inventoryRepo.decrement({ productId: item.productId }, 'stock', item.quantity);\n    }\n\n    await this.paymentService.charge(order.id);\n    // If payment fails, order and inventory are already modified!\n\n    return order;\n  }\n}\n```"}]]}],["$","$L4",null,{"taskIds":["d033-sgnfpw"],"kind":"fix","children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"ViewportBoundary"]
+19:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"MetadataBoundary"]
+1a:I[27201,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"IconMark"]
+1b:I[39756,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+1c:I[37457,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/db-use-migrations/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Use Database Migrations"}]]}],["$","$L2",null,{"href":"/guide/api-use-dto-serialization/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Use DTOs and Serialization for API Responses"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","async":true}]
+8:["$","script","script-1",{"src":"/nestjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Use Transactions for Multi-Step Operations — nestjs learning"}],["$","meta","1",{"name":"description","content":"NestJS-এর ৪০টা best practice — দিনে একটা, ১৫′: Incorrect কোড দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nestjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

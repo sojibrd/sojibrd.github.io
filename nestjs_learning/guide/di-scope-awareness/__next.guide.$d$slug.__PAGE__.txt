@@ -1,0 +1,115 @@
+1:"$Sreact.fragment"
+2:I[22016,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T96c,NestJS has three provider scopes: DEFAULT (singleton), REQUEST (per-request instance), and TRANSIENT (new instance for each injection). Most providers should be singletons. Request-scoped providers have performance implications as they bubble up through the dependency tree. Understanding scopes prevents memory leaks and incorrect data sharing.
+
+**Incorrect (wrong scope usage):**
+
+```typescript
+// Request-scoped when not needed (performance hit)
+@Injectable({ scope: Scope.REQUEST })
+export class UsersService {
+  // This creates a new instance for EVERY request
+  // All dependencies also become request-scoped
+  async findAll() {
+    return this.userRepo.find();
+  }
+}
+
+// Singleton with mutable request state
+@Injectable() // Default: singleton
+export class RequestContextService {
+  private userId: string; // DANGER: Shared across all requests!
+
+  setUser(userId: string) {
+    this.userId = userId; // Overwrites for all concurrent requests
+  }
+
+  getUser() {
+    return this.userId; // Returns wrong user!
+  }
+}
+```
+
+**Correct (appropriate scope for each use case):**
+
+```typescript
+// Singleton for stateless services (default, most common)
+@Injectable()
+export class UsersService {
+  constructor(private readonly userRepo: UserRepository) {}
+
+  async findById(id: string): Promise<User> {
+    return this.userRepo.findOne({ where: { id } });
+  }
+}
+
+// Request-scoped ONLY when you need request context
+@Injectable({ scope: Scope.REQUEST })
+export class RequestContextService {
+  private userId: string;
+
+  setUser(userId: string) {
+    this.userId = userId;
+  }
+
+  getUser(): string {
+    return this.userId;
+  }
+}
+
+// Better: Use NestJS built-in request context
+import { REQUEST } from '@nestjs/core';
+import { Request } from 'express';
+
+@Injectable({ scope: Scope.REQUEST })
+export class AuditService {
+  constructor(@Inject(REQUEST) private request: Request) {}
+
+  log(action: string) {
+    console.log(`User ${this.request.user?.id} performed ${action}`);
+  }
+}
+
+// Best: Use ClsModule for async context (no scope bubble-up)
+import { ClsService } from 'nestjs-cls';
+
+@Injectable() // Stays singleton!
+export class AuditService {
+  constructor(private cls: ClsService) {}
+
+  log(action: string) {
+    const userId = this.cls.get('userId');
+    console.log(`User ${userId} performed ${action}`);
+  }
+}
+```
+
+Reference: [NestJS Injection Scopes](https://docs.nestjs.com/fundamentals/injection-scopes)b:X
+10:X
+10:C
+0:{"buildId":"RU_rpcycWuJIXScklLQYs","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[2," · ","Dependency Injection"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Understand Provider Scopes"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","CRITICAL"]}],["$","span",null,{"className":"chip","children":"Prevents data leaks and performance issues"}],[["$","$L2","011",{"href":"/day/011/","className":"chip chip--accent","children":["plan · দিন ","০১১"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে আন্দাজ — এই কোডে কী ভুল? এক লাইনে লিখে তারপর নিচেরটা খুলুন"}],["$","$L3",null,{"children":"**Incorrect (wrong scope usage):**\n\n```typescript\n// Request-scoped when not needed (performance hit)\n@Injectable({ scope: Scope.REQUEST })\nexport class UsersService {\n  // This creates a new instance for EVERY request\n  // All dependencies also become request-scoped\n  async findAll() {\n    return this.userRepo.find();\n  }\n}\n\n// Singleton with mutable request state\n@Injectable() // Default: singleton\nexport class RequestContextService {\n  private userId: string; // DANGER: Shared across all requests!\n\n  setUser(userId: string) {\n    this.userId = userId; // Overwrites for all concurrent requests\n  }\n\n  getUser() {\n    return this.userId; // Returns wrong user!\n  }\n}\n```"}]]}],["$","$L4",null,{"taskIds":["d011-15blpb7"],"kind":"fix","children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"ViewportBoundary"]
+19:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"MetadataBoundary"]
+1a:I[27201,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"IconMark"]
+1b:I[39756,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+1c:I[37457,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/di-prefer-constructor-injection/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Prefer Constructor Injection"}]]}],["$","$L2",null,{"href":"/guide/di-use-interfaces-tokens/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Use Injection Tokens for Interfaces"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","async":true}]
+8:["$","script","script-1",{"src":"/nestjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Understand Provider Scopes — nestjs learning"}],["$","meta","1",{"name":"description","content":"NestJS-এর ৪০টা best practice — দিনে একটা, ১৫′: Incorrect কোড দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nestjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

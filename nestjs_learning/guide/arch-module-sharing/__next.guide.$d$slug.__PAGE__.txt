@@ -1,0 +1,162 @@
+1:"$Sreact.fragment"
+2:I[22016,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:Te33,NestJS modules are singletons by default. When a service is properly exported from a module and that module is imported elsewhere, the same instance is shared. However, providing a service in multiple modules creates separate instances, leading to memory waste, state inconsistency, and confusing behavior. Always encapsulate services in dedicated modules, export them explicitly, and import the module where needed.
+
+**Incorrect (service provided in multiple modules):**
+
+```typescript
+// StorageService provided directly in multiple modules - WRONG
+// storage.service.ts
+@Injectable()
+export class StorageService {
+  private cache = new Map(); // Each instance has separate state!
+
+  store(key: string, value: any) {
+    this.cache.set(key, value);
+  }
+}
+
+// app.module.ts
+@Module({
+  providers: [StorageService], // Instance #1
+  controllers: [AppController],
+})
+export class AppModule {}
+
+// videos.module.ts
+@Module({
+  providers: [StorageService], // Instance #2 - different from AppModule!
+  controllers: [VideosController],
+})
+export class VideosModule {}
+
+// Problems:
+// 1. Two separate StorageService instances exist
+// 2. cache.set() in VideosModule doesn't affect AppModule's cache
+// 3. Memory wasted on duplicate instances
+// 4. Debugging nightmares when state doesn't sync
+```
+
+**Correct (dedicated module with exports):**
+
+```typescript
+// storage/storage.module.ts
+@Module({
+  providers: [StorageService],
+  exports: [StorageService], // Make available to importers
+})
+export class StorageModule {}
+
+// videos/videos.module.ts
+@Module({
+  imports: [StorageModule], // Import the module, not the service
+  controllers: [VideosController],
+  providers: [VideosService],
+})
+export class VideosModule {}
+
+// channels/channels.module.ts
+@Module({
+  imports: [StorageModule], // Same instance shared
+  controllers: [ChannelsController],
+  providers: [ChannelsService],
+})
+export class ChannelsModule {}
+
+// app.module.ts
+@Module({
+  imports: [
+    StorageModule, // Only if AppModule itself needs StorageService
+    VideosModule,
+    ChannelsModule,
+  ],
+})
+export class AppModule {}
+
+// Now all modules share the SAME StorageService instance
+```
+
+**When to use @Global() (sparingly):**
+
+```typescript
+// ONLY for truly cross-cutting concerns
+@Global()
+@Module({
+  providers: [ConfigService, LoggerService],
+  exports: [ConfigService, LoggerService],
+})
+export class CoreModule {}
+
+// Import once in AppModule
+@Module({
+  imports: [CoreModule], // Registered globally, available everywhere
+})
+export class AppModule {}
+
+// Other modules don't need to import CoreModule
+@Module({
+  controllers: [UsersController],
+  providers: [UsersService], // Can inject ConfigService without importing
+})
+export class UsersModule {}
+
+// WARNING: Don't make everything global!
+// - Hides dependencies (can't see what a module needs from imports)
+// - Makes testing harder
+// - Reserve for: config, logging, database connections
+```
+
+**Module re-exporting pattern:**
+
+```typescript
+// common.module.ts - shared utilities
+@Module({
+  providers: [DateService, ValidationService],
+  exports: [DateService, ValidationService],
+})
+export class CommonModule {}
+
+// core.module.ts - re-exports common for convenience
+@Module({
+  imports: [CommonModule, DatabaseModule],
+  exports: [CommonModule, DatabaseModule], // Re-export for consumers
+})
+export class CoreModule {}
+
+// feature.module.ts - imports CoreModule, gets both
+@Module({
+  imports: [CoreModule], // Gets CommonModule + DatabaseModule
+  controllers: [FeatureController],
+})
+export class FeatureModule {}
+```
+
+Reference: [NestJS Modules](https://docs.nestjs.com/modules#shared-modules)b:X
+10:X
+10:C
+0:{"buildId":"RU_rpcycWuJIXScklLQYs","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[1," · ","Architecture"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Use Proper Module Sharing Patterns"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","CRITICAL"]}],["$","span",null,{"className":"chip","children":"Prevents duplicate instances, memory leaks, and state inconsistency"}],[["$","$L2","003",{"href":"/day/003/","className":"chip chip--accent","children":["plan · দিন ","০০৩"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে আন্দাজ — এই কোডে কী ভুল? এক লাইনে লিখে তারপর নিচেরটা খুলুন"}],["$","$L3",null,{"children":"**Incorrect (service provided in multiple modules):**\n\n```typescript\n// StorageService provided directly in multiple modules - WRONG\n// storage.service.ts\n@Injectable()\nexport class StorageService {\n  private cache = new Map(); // Each instance has separate state!\n\n  store(key: string, value: any) {\n    this.cache.set(key, value);\n  }\n}\n\n// app.module.ts\n@Module({\n  providers: [StorageService], // Instance #1\n  controllers: [AppController],\n})\nexport class AppModule {}\n\n// videos.module.ts\n@Module({\n  providers: [StorageService], // Instance #2 - different from AppModule!\n  controllers: [VideosController],\n})\nexport class VideosModule {}\n\n// Problems:\n// 1. Two separate StorageService instances exist\n// 2. cache.set() in VideosModule doesn't affect AppModule's cache\n// 3. Memory wasted on duplicate instances\n// 4. Debugging nightmares when state doesn't sync\n```"}]]}],["$","$L4",null,{"taskIds":["d003-1ahly6z"],"kind":"fix","children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"ViewportBoundary"]
+19:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"MetadataBoundary"]
+1a:I[27201,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"IconMark"]
+1b:I[39756,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+1c:I[37457,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/arch-feature-modules/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Organize by Feature Modules"}]]}],["$","$L2",null,{"href":"/guide/arch-single-responsibility/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Single Responsibility for Services"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","async":true}]
+8:["$","script","script-1",{"src":"/nestjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Use Proper Module Sharing Patterns — nestjs learning"}],["$","meta","1",{"name":"description","content":"NestJS-এর ৪০টা best practice — দিনে একটা, ১৫′: Incorrect কোড দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nestjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

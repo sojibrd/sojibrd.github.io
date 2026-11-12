@@ -1,0 +1,129 @@
+1:"$Sreact.fragment"
+2:I[22016,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:Tb06,Use `@nestjs/event-emitter` for intra-service events and message brokers for inter-service communication. Events allow modules to react to changes without direct dependencies, improving modularity and enabling async processing.
+
+**Incorrect (direct service coupling):**
+
+```typescript
+// Direct service coupling
+@Injectable()
+export class OrdersService {
+  constructor(
+    private inventoryService: InventoryService,
+    private emailService: EmailService,
+    private analyticsService: AnalyticsService,
+    private notificationService: NotificationService,
+    private loyaltyService: LoyaltyService,
+  ) {}
+
+  async createOrder(dto: CreateOrderDto): Promise<Order> {
+    const order = await this.repo.save(dto);
+
+    // Tight coupling - OrdersService knows about all consumers
+    await this.inventoryService.reserve(order.items);
+    await this.emailService.sendConfirmation(order);
+    await this.analyticsService.track('order_created', order);
+    await this.notificationService.push(order.userId, 'Order placed');
+    await this.loyaltyService.addPoints(order.userId, order.total);
+
+    // Adding new behavior requires modifying this service
+    return order;
+  }
+}
+```
+
+**Correct (event-driven decoupling):**
+
+```typescript
+// Use EventEmitter for decoupling
+import { EventEmitter2 } from '@nestjs/event-emitter';
+
+// Define event
+export class OrderCreatedEvent {
+  constructor(
+    public readonly orderId: string,
+    public readonly userId: string,
+    public readonly items: OrderItem[],
+    public readonly total: number,
+  ) {}
+}
+
+// Service emits events
+@Injectable()
+export class OrdersService {
+  constructor(
+    private eventEmitter: EventEmitter2,
+    private repo: Repository<Order>,
+  ) {}
+
+  async createOrder(dto: CreateOrderDto): Promise<Order> {
+    const order = await this.repo.save(dto);
+
+    // Emit event - no knowledge of consumers
+    this.eventEmitter.emit(
+      'order.created',
+      new OrderCreatedEvent(order.id, order.userId, order.items, order.total),
+    );
+
+    return order;
+  }
+}
+
+// Listeners in separate modules
+@Injectable()
+export class InventoryListener {
+  @OnEvent('order.created')
+  async handleOrderCreated(event: OrderCreatedEvent): Promise<void> {
+    await this.inventoryService.reserve(event.items);
+  }
+}
+
+@Injectable()
+export class EmailListener {
+  @OnEvent('order.created')
+  async handleOrderCreated(event: OrderCreatedEvent): Promise<void> {
+    await this.emailService.sendConfirmation(event.orderId);
+  }
+}
+
+@Injectable()
+export class AnalyticsListener {
+  @OnEvent('order.created')
+  async handleOrderCreated(event: OrderCreatedEvent): Promise<void> {
+    await this.analyticsService.track('order_created', {
+      orderId: event.orderId,
+      total: event.total,
+    });
+  }
+}
+```
+
+Reference: [NestJS Events](https://docs.nestjs.com/techniques/events)b:X
+10:X
+10:C
+0:{"buildId":"RU_rpcycWuJIXScklLQYs","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[1," · ","Architecture"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Use Event-Driven Architecture for Decoupling"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","MEDIUM-HIGH"]}],["$","span",null,{"className":"chip","children":"Enables async processing and modularity"}],[["$","$L2","005",{"href":"/day/005/","className":"chip chip--accent","children":["plan · দিন ","০০৫"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে আন্দাজ — এই কোডে কী ভুল? এক লাইনে লিখে তারপর নিচেরটা খুলুন"}],["$","$L3",null,{"children":"**Incorrect (direct service coupling):**\n\n```typescript\n// Direct service coupling\n@Injectable()\nexport class OrdersService {\n  constructor(\n    private inventoryService: InventoryService,\n    private emailService: EmailService,\n    private analyticsService: AnalyticsService,\n    private notificationService: NotificationService,\n    private loyaltyService: LoyaltyService,\n  ) {}\n\n  async createOrder(dto: CreateOrderDto): Promise<Order> {\n    const order = await this.repo.save(dto);\n\n    // Tight coupling - OrdersService knows about all consumers\n    await this.inventoryService.reserve(order.items);\n    await this.emailService.sendConfirmation(order);\n    await this.analyticsService.track('order_created', order);\n    await this.notificationService.push(order.userId, 'Order placed');\n    await this.loyaltyService.addPoints(order.userId, order.total);\n\n    // Adding new behavior requires modifying this service\n    return order;\n  }\n}\n```"}]]}],["$","$L4",null,{"taskIds":["d005-g3qp6j"],"kind":"fix","children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"ViewportBoundary"]
+19:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"MetadataBoundary"]
+1a:I[27201,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"IconMark"]
+1b:I[39756,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+1c:I[37457,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/arch-single-responsibility/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Single Responsibility for Services"}]]}],["$","$L2",null,{"href":"/guide/arch-use-repository-pattern/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Use Repository Pattern for Data Access"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","async":true}]
+8:["$","script","script-1",{"src":"/nestjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Use Event-Driven Architecture for Decoupling — nestjs learning"}],["$","meta","1",{"name":"description","content":"NestJS-এর ৪০টা best practice — দিনে একটা, ১৫′: Incorrect কোড দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nestjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

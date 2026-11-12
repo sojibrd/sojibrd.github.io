@@ -1,0 +1,184 @@
+1:"$Sreact.fragment"
+2:I[22016,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:I[78818,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T40a,**Incorrect (fire-and-forget without error handling):**
+
+```typescript
+// Fire-and-forget without error handling
+@Injectable()
+export class UsersService {
+  async createUser(dto: CreateUserDto): Promise<User> {
+    const user = await this.repo.save(dto);
+
+    // Fire and forget - if this fails, error is unhandled!
+    this.emailService.sendWelcome(user.email);
+
+    return user;
+  }
+}
+
+// Unhandled promise in event handler
+@Injectable()
+export class OrdersService {
+  @OnEvent('order.created')
+  handleOrderCreated(event: OrderCreatedEvent) {
+    // This returns a promise but it's not awaited!
+    this.processOrder(event);
+    // Errors will crash the process
+  }
+
+  private async processOrder(event: OrderCreatedEvent): Promise<void> {
+    await this.inventoryService.reserve(event.items);
+    await this.notificationService.send(event.userId);
+  }
+}
+
+// Missing try-catch in scheduled tasks
+@Cron('0 0 * * *')
+async dailyCleanup(): Promise<void> {
+  await this.cleanupService.run();
+  // If this throws, no error handling
+}
+```6:Td03,NestJS automatically catches errors from async route handlers, but errors from background tasks, event handlers, and manually created promises can crash your application. Always handle async errors explicitly and use global handlers as a safety net.
+
+**Incorrect (fire-and-forget without error handling):**
+
+```typescript
+// Fire-and-forget without error handling
+@Injectable()
+export class UsersService {
+  async createUser(dto: CreateUserDto): Promise<User> {
+    const user = await this.repo.save(dto);
+
+    // Fire and forget - if this fails, error is unhandled!
+    this.emailService.sendWelcome(user.email);
+
+    return user;
+  }
+}
+
+// Unhandled promise in event handler
+@Injectable()
+export class OrdersService {
+  @OnEvent('order.created')
+  handleOrderCreated(event: OrderCreatedEvent) {
+    // This returns a promise but it's not awaited!
+    this.processOrder(event);
+    // Errors will crash the process
+  }
+
+  private async processOrder(event: OrderCreatedEvent): Promise<void> {
+    await this.inventoryService.reserve(event.items);
+    await this.notificationService.send(event.userId);
+  }
+}
+
+// Missing try-catch in scheduled tasks
+@Cron('0 0 * * *')
+async dailyCleanup(): Promise<void> {
+  await this.cleanupService.run();
+  // If this throws, no error handling
+}
+```
+
+**Correct (explicit async error handling):**
+
+```typescript
+// Handle fire-and-forget with explicit catch
+@Injectable()
+export class UsersService {
+  private readonly logger = new Logger(UsersService.name);
+
+  async createUser(dto: CreateUserDto): Promise<User> {
+    const user = await this.repo.save(dto);
+
+    // Explicitly catch and log errors
+    this.emailService.sendWelcome(user.email).catch((error) => {
+      this.logger.error('Failed to send welcome email', error.stack);
+      // Optionally queue for retry
+    });
+
+    return user;
+  }
+}
+
+// Properly handle async event handlers
+@Injectable()
+export class OrdersService {
+  private readonly logger = new Logger(OrdersService.name);
+
+  @OnEvent('order.created')
+  async handleOrderCreated(event: OrderCreatedEvent): Promise<void> {
+    try {
+      await this.processOrder(event);
+    } catch (error) {
+      this.logger.error('Failed to process order', { event, error });
+      // Don't rethrow - would crash the process
+      await this.deadLetterQueue.add('order.created', event);
+    }
+  }
+}
+
+// Safe scheduled tasks
+@Injectable()
+export class CleanupService {
+  private readonly logger = new Logger(CleanupService.name);
+
+  @Cron('0 0 * * *')
+  async dailyCleanup(): Promise<void> {
+    try {
+      await this.cleanupService.run();
+      this.logger.log('Daily cleanup completed');
+    } catch (error) {
+      this.logger.error('Daily cleanup failed', error.stack);
+      // Alert or retry logic
+    }
+  }
+}
+
+// Global unhandled rejection handler in main.ts
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  const logger = new Logger('Bootstrap');
+
+  process.on('unhandledRejection', (reason, promise) => {
+    logger.error('Unhandled Rejection at:', promise, 'reason:', reason);
+  });
+
+  process.on('uncaughtException', (error) => {
+    logger.error('Uncaught Exception:', error);
+    process.exit(1);
+  });
+
+  await app.listen(3000);
+}
+```
+
+Reference: [Node.js Unhandled Rejections](https://nodejs.org/api/process.html#event-unhandledrejection)c:X
+11:X
+11:C
+0:{"buildId":"RU_rpcycWuJIXScklLQYs","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[3," · ","Error Handling"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Handle Async Errors Properly"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"Prevents process crashes from unhandled rejections"}],[["$","$L2","014",{"href":"/day/014/","className":"chip chip--accent","children":["plan · দিন ","০১৪"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে আন্দাজ — এই কোডে কী ভুল? এক লাইনে লিখে তারপর নিচেরটা খুলুন"}],["$","$L3",null,{"children":"$4"}]]}],["$","$L5",null,{"taskIds":["d014-t2745"],"kind":"fix","children":["$","$L3",null,{"children":"$6"}]}],"$L7"],["$L8","$L9"],"$La"]}],"isPartial":"$@b","staleTime":"$c","varyParams":null},{"rsc":"$Ld","isPartial":"$@e","staleTime":"$c","varyParams":null},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$c","varyParams":"$11"},{"rsc":"$L12","isPartial":"$@13","staleTime":"$c","varyParams":"$11"}],"isUpgradeableISRFallback":false,"a":"$@14","rootVaryParams":null,"needsRuntimeRequest":"$@15"}
+16:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"OutletBoundary"]
+17:"$Sreact.suspense"
+19:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"ViewportBoundary"]
+1a:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"MetadataBoundary"]
+1b:I[27201,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"IconMark"]
+1c:I[39756,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+1d:I[37457,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+7:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/di-use-interfaces-tokens/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Use Injection Tokens for Interfaces"}]]}],["$","$L2",null,{"href":"/guide/error-throw-http-exceptions/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Throw HTTP Exceptions from Services"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+8:["$","script","script-0",{"src":"/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","async":true}]
+9:["$","script","script-1",{"src":"/nestjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+a:["$","$L16",null,{"children":["$","$17",null,{"name":"Next.MetadataOutlet","children":"$@18"}]}]
+d:["$","$1","h",{"children":[null,["$","$L19",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1a",null,{"children":["$","$17",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Handle Async Errors Properly — nestjs learning"}],["$","meta","1",{"name":"description","content":"NestJS-এর ৪০টা best practice — দিনে একটা, ১৫′: Incorrect কোড দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nestjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1b","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","template":["$","$L1d",null,{}]}]]}]
+12:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","template":["$","$L1d",null,{}]}]]}]
+15:true
+18:null
+c:300
+c:C
+14:0
+e:"$undefined"
+10:"$undefined"
+13:"$undefined"
+b:"$undefined"

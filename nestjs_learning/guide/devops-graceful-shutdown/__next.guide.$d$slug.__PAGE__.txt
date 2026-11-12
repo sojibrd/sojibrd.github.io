@@ -1,0 +1,243 @@
+1:"$Sreact.fragment"
+2:I[22016,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T1636,Handle SIGTERM and SIGINT signals to gracefully shutdown your NestJS application. Stop accepting new requests, wait for in-flight requests to complete, close database connections, and clean up resources. This prevents data loss and connection errors during deployments.
+
+**Incorrect (ignoring shutdown signals):**
+
+```typescript
+// Ignore shutdown signals
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  await app.listen(3000);
+  // App crashes immediately on SIGTERM
+  // In-flight requests fail
+  // Database connections are abruptly closed
+}
+
+// Long-running tasks without cancellation
+@Injectable()
+export class ProcessingService {
+  async processLargeFile(file: File): Promise<void> {
+    // No way to interrupt this during shutdown
+    for (let i = 0; i < file.chunks.length; i++) {
+      await this.processChunk(file.chunks[i]);
+      // May run for minutes, blocking shutdown
+    }
+  }
+}
+```
+
+**Correct (enable shutdown hooks and handle cleanup):**
+
+```typescript
+// Enable shutdown hooks in main.ts
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+
+  // Enable shutdown hooks
+  app.enableShutdownHooks();
+
+  // Optional: Add timeout for forced shutdown
+  const server = await app.listen(3000);
+  server.setTimeout(30000); // 30 second timeout
+
+  // Handle graceful shutdown
+  const signals = ['SIGTERM', 'SIGINT'];
+  signals.forEach((signal) => {
+    process.on(signal, async () => {
+      console.log(`Received ${signal}, starting graceful shutdown...`);
+
+      // Stop accepting new connections
+      server.close(async () => {
+        console.log('HTTP server closed');
+        await app.close();
+        process.exit(0);
+      });
+
+      // Force exit after timeout
+      setTimeout(() => {
+        console.error('Forced shutdown after timeout');
+        process.exit(1);
+      }, 30000);
+    });
+  });
+}
+
+// Lifecycle hooks for cleanup
+@Injectable()
+export class DatabaseService implements OnApplicationShutdown {
+  private readonly connections: Connection[] = [];
+
+  async onApplicationShutdown(signal?: string): Promise<void> {
+    console.log(`Database service shutting down on ${signal}`);
+
+    // Close all connections gracefully
+    await Promise.all(
+      this.connections.map((conn) => conn.close()),
+    );
+
+    console.log('All database connections closed');
+  }
+}
+
+// Queue processor with graceful shutdown
+@Injectable()
+export class QueueService implements OnApplicationShutdown, OnModuleDestroy {
+  private isShuttingDown = false;
+
+  onModuleDestroy(): void {
+    this.isShuttingDown = true;
+  }
+
+  async onApplicationShutdown(): Promise<void> {
+    // Wait for current jobs to complete
+    await this.queue.close();
+  }
+
+  async processJob(job: Job): Promise<void> {
+    if (this.isShuttingDown) {
+      throw new Error('Service is shutting down');
+    }
+    await this.doWork(job);
+  }
+}
+
+// WebSocket gateway cleanup
+@WebSocketGateway()
+export class EventsGateway implements OnApplicationShutdown {
+  @WebSocketServer()
+  server: Server;
+
+  async onApplicationShutdown(): Promise<void> {
+    // Notify all connected clients
+    this.server.emit('shutdown', { message: 'Server is shutting down' });
+
+    // Close all connections
+    this.server.disconnectSockets();
+  }
+}
+
+// Health check integration
+@Injectable()
+export class ShutdownService {
+  private isShuttingDown = false;
+
+  startShutdown(): void {
+    this.isShuttingDown = true;
+  }
+
+  isShutdown(): boolean {
+    return this.isShuttingDown;
+  }
+}
+
+@Controller('health')
+export class HealthController {
+  constructor(private shutdownService: ShutdownService) {}
+
+  @Get('ready')
+  @HealthCheck()
+  readiness(): Promise<HealthCheckResult> {
+    // Return 503 during shutdown - k8s stops sending traffic
+    if (this.shutdownService.isShutdown()) {
+      throw new ServiceUnavailableException('Shutting down');
+    }
+
+    return this.health.check([
+      () => this.db.pingCheck('database'),
+    ]);
+  }
+}
+
+// Integrate with shutdown
+@Injectable()
+export class AppShutdownService implements OnApplicationShutdown {
+  constructor(private shutdownService: ShutdownService) {}
+
+  async onApplicationShutdown(): Promise<void> {
+    // Mark as unhealthy first
+    this.shutdownService.startShutdown();
+
+    // Wait for k8s to update endpoints
+    await this.sleep(5000);
+
+    // Then proceed with cleanup
+  }
+}
+
+// Request tracking for in-flight requests
+@Injectable()
+export class RequestTracker implements NestMiddleware, OnApplicationShutdown {
+  private activeRequests = 0;
+  private isShuttingDown = false;
+  private shutdownPromise: Promise<void> | null = null;
+  private resolveShutdown: (() => void) | null = null;
+
+  use(req: Request, res: Response, next: NextFunction): void {
+    if (this.isShuttingDown) {
+      res.status(503).send('Service Unavailable');
+      return;
+    }
+
+    this.activeRequests++;
+
+    res.on('finish', () => {
+      this.activeRequests--;
+      if (this.isShuttingDown && this.activeRequests === 0 && this.resolveShutdown) {
+        this.resolveShutdown();
+      }
+    });
+
+    next();
+  }
+
+  async onApplicationShutdown(): Promise<void> {
+    this.isShuttingDown = true;
+
+    if (this.activeRequests > 0) {
+      console.log(`Waiting for ${this.activeRequests} requests to complete`);
+      this.shutdownPromise = new Promise((resolve) => {
+        this.resolveShutdown = resolve;
+      });
+
+      // Wait with timeout
+      await Promise.race([
+        this.shutdownPromise,
+        new Promise((resolve) => setTimeout(resolve, 30000)),
+      ]);
+    }
+
+    console.log('All requests completed');
+  }
+}
+```
+
+Reference: [NestJS Lifecycle Events](https://docs.nestjs.com/fundamentals/lifecycle-events)b:X
+10:X
+10:C
+0:{"buildId":"RU_rpcycWuJIXScklLQYs","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[10," · ","DevOps & Deployment"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Implement Graceful Shutdown"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","MEDIUM-HIGH"]}],["$","span",null,{"className":"chip","children":"Proper shutdown handling ensures zero-downtime deployments"}],[["$","$L2","042",{"href":"/day/042/","className":"chip chip--accent","children":["plan · দিন ","০৪২"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে আন্দাজ — এই কোডে কী ভুল? এক লাইনে লিখে তারপর নিচেরটা খুলুন"}],["$","$L3",null,{"children":"**Incorrect (ignoring shutdown signals):**\n\n```typescript\n// Ignore shutdown signals\nasync function bootstrap() {\n  const app = await NestFactory.create(AppModule);\n  await app.listen(3000);\n  // App crashes immediately on SIGTERM\n  // In-flight requests fail\n  // Database connections are abruptly closed\n}\n\n// Long-running tasks without cancellation\n@Injectable()\nexport class ProcessingService {\n  async processLargeFile(file: File): Promise<void> {\n    // No way to interrupt this during shutdown\n    for (let i = 0; i < file.chunks.length; i++) {\n      await this.processChunk(file.chunks[i]);\n      // May run for minutes, blocking shutdown\n    }\n  }\n}\n```"}]]}],["$","$L4",null,{"taskIds":["d042-4sqjex"],"kind":"fix","children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"ViewportBoundary"]
+19:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"MetadataBoundary"]
+1a:I[27201,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"IconMark"]
+1b:I[39756,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+1c:I[37457,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/micro-use-queues/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Use Message Queues for Background Jobs"}]]}],["$","$L2",null,{"href":"/guide/devops-use-config-module/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Use ConfigModule for Environment Configuration"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","async":true}]
+8:["$","script","script-1",{"src":"/nestjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Implement Graceful Shutdown — nestjs learning"}],["$","meta","1",{"name":"description","content":"NestJS-এর ৪০টা best practice — দিনে একটা, ১৫′: Incorrect কোড দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nestjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

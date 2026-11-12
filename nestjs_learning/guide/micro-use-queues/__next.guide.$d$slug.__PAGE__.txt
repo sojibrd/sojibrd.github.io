@@ -1,0 +1,273 @@
+1:"$Sreact.fragment"
+2:I[22016,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js","/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","/nestjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T175a,Use `@nestjs/bullmq` for background job processing. Queues decouple long-running tasks from HTTP requests, enable retry logic, and distribute workload across workers. Use them for emails, file processing, notifications, and any task that shouldn't block user requests.
+
+**Incorrect (long-running tasks in HTTP handlers):**
+
+```typescript
+// Long-running tasks in HTTP handlers
+@Controller('reports')
+export class ReportsController {
+  @Post()
+  async generate(@Body() dto: GenerateReportDto): Promise<Report> {
+    // This blocks the request for potentially minutes
+    const data = await this.fetchLargeDataset(dto);
+    const report = await this.processData(data); // Slow!
+    await this.sendEmail(dto.email, report); // Can fail!
+    return report; // Client times out
+  }
+}
+
+// Fire-and-forget without retry
+@Injectable()
+export class EmailService {
+  async sendWelcome(email: string): Promise<void> {
+    // If this fails, email is never sent
+    await this.mailer.send({ to: email, template: 'welcome' });
+    // No retry, no tracking, no visibility
+  }
+}
+
+// Use setInterval for scheduled tasks
+setInterval(async () => {
+  await cleanupOldRecords();
+}, 60000); // No error handling, memory leaks
+```
+
+**Correct (use BullMQ for background processing):**
+
+```typescript
+// Configure BullMQ
+import { BullModule } from '@nestjs/bullmq';
+
+@Module({
+  imports: [
+    BullModule.forRoot({
+      connection: {
+        host: 'localhost',
+        port: 6379,
+      },
+      defaultJobOptions: {
+        removeOnComplete: 1000,
+        removeOnFail: 5000,
+        attempts: 3,
+        backoff: {
+          type: 'exponential',
+          delay: 1000,
+        },
+      },
+    }),
+    BullModule.registerQueue(
+      { name: 'email' },
+      { name: 'reports' },
+      { name: 'notifications' },
+    ),
+  ],
+})
+export class QueueModule {}
+
+// Producer: Add jobs to queue
+@Injectable()
+export class ReportsService {
+  constructor(
+    @InjectQueue('reports') private reportsQueue: Queue,
+  ) {}
+
+  async requestReport(dto: GenerateReportDto): Promise<{ jobId: string }> {
+    // Return immediately, process in background
+    const job = await this.reportsQueue.add('generate', dto, {
+      priority: dto.urgent ? 1 : 10,
+      delay: dto.scheduledFor ? Date.parse(dto.scheduledFor) - Date.now() : 0,
+    });
+
+    return { jobId: job.id };
+  }
+
+  async getJobStatus(jobId: string): Promise<JobStatus> {
+    const job = await this.reportsQueue.getJob(jobId);
+    return {
+      status: await job.getState(),
+      progress: job.progress,
+      result: job.returnvalue,
+    };
+  }
+}
+
+// Consumer: Process jobs
+@Processor('reports')
+export class ReportsProcessor {
+  private readonly logger = new Logger(ReportsProcessor.name);
+
+  @Process('generate')
+  async generateReport(job: Job<GenerateReportDto>): Promise<Report> {
+    this.logger.log(`Processing report job ${job.id}`);
+
+    // Update progress
+    await job.updateProgress(10);
+
+    const data = await this.fetchData(job.data);
+    await job.updateProgress(50);
+
+    const report = await this.processData(data);
+    await job.updateProgress(90);
+
+    await this.saveReport(report);
+    await job.updateProgress(100);
+
+    return report;
+  }
+
+  @OnQueueActive()
+  onActive(job: Job) {
+    this.logger.log(`Processing job ${job.id}`);
+  }
+
+  @OnQueueCompleted()
+  onCompleted(job: Job, result: any) {
+    this.logger.log(`Job ${job.id} completed`);
+  }
+
+  @OnQueueFailed()
+  onFailed(job: Job, error: Error) {
+    this.logger.error(`Job ${job.id} failed: ${error.message}`);
+  }
+}
+
+// Email queue with retry
+@Processor('email')
+export class EmailProcessor {
+  @Process('send')
+  async sendEmail(job: Job<SendEmailDto>): Promise<void> {
+    const { to, template, data } = job.data;
+
+    try {
+      await this.mailer.send({
+        to,
+        template,
+        context: data,
+      });
+    } catch (error) {
+      // BullMQ will retry based on job options
+      throw error;
+    }
+  }
+}
+
+// Usage
+@Injectable()
+export class NotificationService {
+  constructor(@InjectQueue('email') private emailQueue: Queue) {}
+
+  async sendWelcome(user: User): Promise<void> {
+    await this.emailQueue.add(
+      'send',
+      {
+        to: user.email,
+        template: 'welcome',
+        data: { name: user.name },
+      },
+      {
+        attempts: 5,
+        backoff: { type: 'exponential', delay: 5000 },
+      },
+    );
+  }
+}
+
+// Scheduled jobs
+@Injectable()
+export class ScheduledJobsService implements OnModuleInit {
+  constructor(@InjectQueue('maintenance') private queue: Queue) {}
+
+  async onModuleInit(): Promise<void> {
+    // Clean up old reports daily at midnight
+    await this.queue.add(
+      'cleanup',
+      {},
+      {
+        repeat: { cron: '0 0 * * *' },
+        jobId: 'daily-cleanup', // Prevent duplicates
+      },
+    );
+
+    // Send digest every hour
+    await this.queue.add(
+      'digest',
+      {},
+      {
+        repeat: { every: 60 * 60 * 1000 },
+        jobId: 'hourly-digest',
+      },
+    );
+  }
+}
+
+@Processor('maintenance')
+export class MaintenanceProcessor {
+  @Process('cleanup')
+  async cleanup(): Promise<void> {
+    await this.cleanupOldReports();
+    await this.cleanupExpiredSessions();
+  }
+
+  @Process('digest')
+  async sendDigest(): Promise<void> {
+    const users = await this.getUsersForDigest();
+    for (const user of users) {
+      await this.emailQueue.add('send', { to: user.email, template: 'digest' });
+    }
+  }
+}
+
+// Queue monitoring with Bull Board
+import { BullBoardModule } from '@bull-board/nestjs';
+import { BullMQAdapter } from '@bull-board/api/bullMQAdapter';
+
+@Module({
+  imports: [
+    BullBoardModule.forRoot({
+      route: '/admin/queues',
+      adapter: ExpressAdapter,
+    }),
+    BullBoardModule.forFeature({
+      name: 'email',
+      adapter: BullMQAdapter,
+    }),
+    BullBoardModule.forFeature({
+      name: 'reports',
+      adapter: BullMQAdapter,
+    }),
+  ],
+})
+export class AdminModule {}
+```
+
+Reference: [NestJS Queues](https://docs.nestjs.com/techniques/queues)b:X
+10:X
+10:C
+0:{"buildId":"RU_rpcycWuJIXScklLQYs","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[9," · ","Microservices"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Use Message Queues for Background Jobs"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","MEDIUM-HIGH"]}],["$","span",null,{"className":"chip","children":"Queues enable reliable background processing"}],[["$","$L2","041",{"href":"/day/041/","className":"chip chip--accent","children":["plan · দিন ","০৪১"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে আন্দাজ — এই কোডে কী ভুল? এক লাইনে লিখে তারপর নিচেরটা খুলুন"}],["$","$L3",null,{"children":"**Incorrect (long-running tasks in HTTP handlers):**\n\n```typescript\n// Long-running tasks in HTTP handlers\n@Controller('reports')\nexport class ReportsController {\n  @Post()\n  async generate(@Body() dto: GenerateReportDto): Promise<Report> {\n    // This blocks the request for potentially minutes\n    const data = await this.fetchLargeDataset(dto);\n    const report = await this.processData(data); // Slow!\n    await this.sendEmail(dto.email, report); // Can fail!\n    return report; // Client times out\n  }\n}\n\n// Fire-and-forget without retry\n@Injectable()\nexport class EmailService {\n  async sendWelcome(email: string): Promise<void> {\n    // If this fails, email is never sent\n    await this.mailer.send({ to: email, template: 'welcome' });\n    // No retry, no tracking, no visibility\n  }\n}\n\n// Use setInterval for scheduled tasks\nsetInterval(async () => {\n  await cleanupOldRecords();\n}, 60000); // No error handling, memory leaks\n```"}]]}],["$","$L4",null,{"taskIds":["d041-1ilz20x"],"kind":"fix","children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"ViewportBoundary"]
+19:I[97367,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"MetadataBoundary"]
+1a:I[27201,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"IconMark"]
+1b:I[39756,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+1c:I[37457,["/nestjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nestjs_learning/_next/static/chunks/2y-mw92ijt3yy.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/micro-use-patterns/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Use Message and Event Patterns Correctly"}]]}],["$","$L2",null,{"href":"/guide/devops-graceful-shutdown/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Implement Graceful Shutdown"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/nestjs_learning/_next/static/chunks/07yet3ed6m704.js","async":true}]
+8:["$","script","script-1",{"src":"/nestjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Use Message Queues for Background Jobs — nestjs learning"}],["$","meta","1",{"name":"description","content":"NestJS-এর ৪০টা best practice — দিনে একটা, ১৫′: Incorrect কোড দেখে আন্দাজ, Correct পড়া, বন্ধ করে নিজে লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nestjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"
