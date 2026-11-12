@@ -1,0 +1,95 @@
+1:"$Sreact.fragment"
+2:I[82484,["/learning_to_learn/_next/static/chunks/13g-ihezj7pyj.js","/learning_to_learn/_next/static/chunks/3q2x31ab8m3ey.js","/learning_to_learn/_next/static/chunks/11ivih73p9oq1.js"],"default"]
+3:T1c57,## লক্ষ্য
+
+> **৬৯ দিনে `learning_to_learn`-এর প্রতিটা বিষয় একবার নিজের কাজে খাটানো — পড়ে নয়, করে — আর নীতিগুলো ঝালাইয়ে মনে রাখা।**
+
+বাকি সাইটগুলোর প্রতিটা কাজের শেষে 🧠 (নাম) থাকে — কাজটা কোন নীতি থেকে এসেছে। এই সাইট উল্টো দিক থেকে ধরে: একটা নীতি, আর সেটা আপনার চলমান plan-এ একবার খাটানোর একটা ছোট কাজ। ৬৯ দিন পরে chip-এর নামগুলো আর অচেনা থাকে না। 🧠 (Active vs Passive learning · Spaced repetition)
+
+## সত্যের উৎস
+
+এই সাইট নীতির নতুন ব্যাখ্যা যোগ করে না — প্রতিটা দিনের কাজ ঐ বিষয়ের ব্যাখ্যা থেকেই।
+
+1. `topics/` — ৭টা ডক, বুকমার্ক থেকে রূপান্তরিত। সাইটে আগের route-এই (`/principle/`, `/techniques/` …), বিষয়ের anchor-সহ — বাকি সাইটগুলোর 🧠 chip এখানেই নামে।
+2. `docs/` — এই plan: নিয়ম আর ৬টা ব্লক, ডকের ক্রমে।
+3. `notes/` আর `review-queue.md` — `/learning-to-learn` skill-এর জায়গা; সাইট ছোঁয় না।
+
+## কীভাবে পড়বেন
+
+- ৬৯ দিন, ৬টা ব্লক = ৬টা ডক, ডকের ক্রমে: Principle → Lies → Pillars → Science → Techniques → Creativity।
+- প্রতিটা দিনে একটা বিষয়, একটা `- [ ]` কাজ, আর শেষে **দিন শেষে** প্রশ্ন — হ্যাঁ/না। ব্লকের শেষ দিনে Examples-এর একটা দৃশ্য।
+- `১০′` = মিনিট।
+- 🧠 (নাম) = এই দিনের নীতি; chip চাপলে এক লাইনে, আর বিষয়ের পাতায় পুরোটা।
+- 🔁 = এই কাজ শেষ করার দিন থেকে **১, ৩, ৭, ২১ দিন পরে** না দেখে নীতিটা এক লাইনে বলা। তারিখ সাইট নিজে হিসাব করে।
+
+## "আজ" মানে ক্যালেন্ডারের আজ
+
+ফাইলে তারিখ নেই, শুধু দিনের নম্বর। প্রথমবার সাইট খুললে শুরুর তারিখ জিজ্ঞেস করে। তারপর থেকে দিন = শুরু থেকে কত দিন।
+
+- **plan পেছায় না।** কাল বাদ পড়লে আজ আজকের কাজ, দুটো নয়।
+- **বাদ পড়া কাজ ফেরে না।** নীতিটা বাকি সাইটের কোনো chip-এ আবার আসবে।
+- **ঘুম কেটে পূরণ নয়।** 🧠 (The science of sleep)
+
+## কখন বসবেন ⏳
+
+এই সাইটের দিনের ১০′ ১৮০ দিনের plan-এর সপ্তাহে ৭ ঘণ্টার **ভেতরে, নাকি বাইরে** — ⏳ আপনার উত্তর বাকি। উত্তর না আসা পর্যন্ত plan-এর কোনো ঘর থেকে সময় কাটা হয়নি।
+
+বেশিরভাগ কাজ নতুন কাজ বানায় না — plan-এর আজকের কাজটাই একটা নীতি ধরে করায়, তারপর দুই-তিন লাইন লেখা।
+
+---
+
+## বসা — ১০′
+
+1. **বিষয়ের পাতায় শুধু ঐ বুলেটটা** পড়ুন, এক মিনিট। 🧠 (Pareto principle)
+2. **কাজটা করুন** — লেখা, বলা, বা plan-এর কাজে খাটানো। পড়া গোনা হবে না। 🧠 (Active vs Passive learning)
+3. **এক লাইনে** নিজের ভাষায় নীতিটা, না দেখে। 🧠 (Feynman technique)
+4. **টিক দিন** — ঝালাই নিজে থেকে আসবে।
+
+## ঝালাই
+
+- 🔁 কাজে টিক দিলে ঐ **আসল তারিখ** থেকে ১ → ৩ → ৭ → ২১ দিন। 🧠 (Spaced repetition revisited)
+- **ঝালাইয়ের বসা:** নীতির নাম দেখে, ব্যাখ্যা না দেখে — এক লাইন জোরে, আর সেদিনের কাজে কোথায় খাটল।
+- দুটো উত্তর: **মনে ছিল** (পরের ধাপে) বা **আটকে গেছি** (আবার ১ দিনে)। আটকে যাওয়া শাস্তি নয়, তথ্য।
+
+## বিষয়ের পাতা
+
+"বিষয়" পাতায় ৭টা ডক; প্রতিটা বিষয়ের পাশে কোন দিনে ওটা আসে। Examples-এর নিজের দিন নেই — ওর দৃশ্যগুলো ব্লকের শেষ দিনে। পাতাগুলো রেফারেন্স; রোজ শুরু "আজ" থেকে।
+
+## `/learning-to-learn` skill-এর সাথে
+
+skill নতুন কোনো বিষয় শেখায় (একটা framework, একটা ধারণা) — নোট রাখে `notes/`-এ, ঝালাই `review-queue.md`-এ। এই সাইট শেখায় **শেখার নীতিগুলো নিজেই**। দুটো আলাদা; এক জিনিস দুই জায়গায় নয়।
+
+---
+
+## যা করবেন না
+
+- **এক দিনে একাধিক বিষয় নয়।** working memory-তে একসাথে চারটার বেশি ধরে না। 🧠 (Long and short memory)
+- **কাজ বাদ দিয়ে শুধু বুলেট পড়া নয়।** পড়া চেনা লাগায়, শেখায় না।
+- **নতুন নীতি, নতুন কাজ বা নতুন ফিচার নয়।** ইচ্ছে হলে এক লাইনে লিখে রাখুন, বানাবেন না।
+
+## দিন ০৬৯-এর পরে
+
+- 🔁 ঝালাই হোমে আসতেই থাকবে, যতদিন বাকি।
+- বাকি সাইটের 🧠 chip চাপলে এই সাইটের বিষয়ের পাতায় নামে — নীতিটা ওখানে আবার দেখা।7:X
+c:X
+c:C
+0:{"buildId":"Z99E_-304t11zVuTusNCA","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — শেখা কীভাবে শিখতে হয়"}],["$","p",null,{"className":"t-body measure text-sm","children":"৬৯ দিন · ৫৭টা নীতি আর ১২টা লিংক · দিনে একটা"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L2",null,{"className":"measure","children":"$3"}]}]],["$L4"],"$L5"]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":"$L8","isPartial":"$@9","staleTime":"$7","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$7","varyParams":"$c"}],"isUpgradeableISRFallback":false,"a":"$@d","rootVaryParams":null,"needsRuntimeRequest":"$@e"}
+f:I[97367,["/learning_to_learn/_next/static/chunks/13g-ihezj7pyj.js","/learning_to_learn/_next/static/chunks/3q2x31ab8m3ey.js"],"OutletBoundary"]
+10:"$Sreact.suspense"
+12:I[97367,["/learning_to_learn/_next/static/chunks/13g-ihezj7pyj.js","/learning_to_learn/_next/static/chunks/3q2x31ab8m3ey.js"],"ViewportBoundary"]
+13:I[97367,["/learning_to_learn/_next/static/chunks/13g-ihezj7pyj.js","/learning_to_learn/_next/static/chunks/3q2x31ab8m3ey.js"],"MetadataBoundary"]
+14:I[27201,["/learning_to_learn/_next/static/chunks/13g-ihezj7pyj.js","/learning_to_learn/_next/static/chunks/3q2x31ab8m3ey.js"],"IconMark"]
+15:I[39756,["/learning_to_learn/_next/static/chunks/13g-ihezj7pyj.js","/learning_to_learn/_next/static/chunks/3q2x31ab8m3ey.js"],"default"]
+16:I[37457,["/learning_to_learn/_next/static/chunks/13g-ihezj7pyj.js","/learning_to_learn/_next/static/chunks/3q2x31ab8m3ey.js"],"default"]
+4:["$","script","script-0",{"src":"/learning_to_learn/_next/static/chunks/11ivih73p9oq1.js","async":true}]
+5:["$","$Lf",null,{"children":["$","$10",null,{"name":"Next.MetadataOutlet","children":"$@11"}]}]
+8:["$","$1","h",{"children":[null,["$","$L12",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$10",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"নিয়ম — learning to learn"}],["$","meta","1",{"name":"description","content":"শেখার নীতি, বিজ্ঞান ও কৌশল — ৬৯ দিনে প্রতিটা বিষয় একবার নিজের কাজে খাটানো, দিনে ১০′, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/learning_to_learn/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L14","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+a:["$","$1","c",{"children":[null,["$","$L15",null,{"parallelRouterKey":"children","template":["$","$L16",null,{}]}]]}]
+e:true
+11:null
+7:300
+7:C
+d:0
+9:"$undefined"
+b:"$undefined"
+6:"$undefined"
