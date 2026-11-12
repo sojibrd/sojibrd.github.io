@@ -1,0 +1,99 @@
+1:"$Sreact.fragment"
+2:I[22016,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js","/behavioural_interview_local_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js","/behavioural_interview_local_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T29ed,## সংজ্ঞা
+
+**Conflict** signal মাপে: **যখন আপনি আর অন্য কেউ একমত নন, তখন আপনি কী করেন?**
+
+লক্ষ্য করুন প্রশ্নটা "আপনি ঝগড়া এড়ান কি না" নয়। মতভেদ কাজের স্বাভাবিক অংশ — যে কখনো কারো সাথে দ্বিমত করেনি, সে হয় কিছু বলেনি, নয় কিছু ভাবেনি। দুটোই সমস্যা।
+
+মাপা হচ্ছে চারটে জিনিস:
+
+- মতভেদটা **সমস্যায়** থাকল, নাকি **মানুষে** সরে গেল।
+- আপনি অন্য পক্ষের যুক্তিটা আদৌ বুঝেছিলেন কি না।
+- সিদ্ধান্তটা কীভাবে হলো — কে জিতল, নাকি কীসের ভিত্তিতে ঠিক হলো।
+- মিটে যাওয়ার পর সম্পর্কটা কোথায় দাঁড়াল।
+
+## কেন এটা কঠিন
+
+**গল্প বলতে গিয়ে অন্য পক্ষের নিন্দা শুরু হয়ে যায়।** স্বাভাবিক — আপনার মনে ঘটনাটা এভাবেই গাঁথা। কিন্তু ইন্টারভিউয়ার শুধু একটা পক্ষ শুনছেন, আর তিনি জানেন প্রতিটি গল্পের আরেকটা দিক আছে। অন্য লোকের দোষে যত বেশি সময় যাবে, তত বেশি তিনি ভাববেন — *এই লোক ছ-মাস পরে আমার টিমের কাউকে নিয়ে এভাবেই বলবে।*
+
+**উল্টো ফাঁদ — সব মতভেদ মিটে গেছে বলা।** "শেষে আমরা বুঝতে পারলাম দুজনেই ঠিক ছিলাম" ধরনের উত্তর মসৃণ, কিন্তু ফাঁপা। বাস্তবে অনেক মতভেদ মেটে না — একটা সিদ্ধান্ত হয়, আর বাকিরা সেটা নিয়ে এগোয়। ওই বাস্তবতাটা বলতে পারা পরিপক্বতার লক্ষণ।
+
+**"আমি আমার মত ছেড়ে দিয়েছিলাম" — এটাও উত্তর নয়।** সহযোগিতা আর আত্মসমর্পণ এক জিনিস নয়। প্রতিবার আপনি সরে গেলে ইন্টারভিউয়ার পড়েন — এই লোক কঠিন কথা বলতে পারে না, তাই খারাপ সিদ্ধান্ত এর টেবিলে এসে থামবে না।
+
+**সবচেয়ে সূক্ষ্ম সমস্যা — ফলাফল দিয়ে নিজেকে ন্যায্য প্রমাণ করা।** "শেষে দেখা গেল আমিই ঠিক ছিলাম" বলে গল্প শেষ করলে signal তৈরি হয় না, কারণ মাপা হচ্ছে আপনার **প্রক্রিয়া**, আপনার অনুমান কতটা নির্ভুল ছিল তা নয়। সবচেয়ে শক্তিশালী conflict-এর গল্পগুলোর একটা হলো — যেখানে আপনি ভুল ছিলেন, আর ভালোভাবে ভুল প্রমাণিত হয়েছিলেন।
+
+## কীভাবে কাজ করে
+
+**প্রশ্ন যেভাবে আসে:**
+
+- *"Tell me about a time you disagreed with your manager."*
+- *"Describe a conflict with a coworker and how you handled it."*
+- *"Tell me about a time you had to give someone difficult feedback."*
+- *"Tell me about a time you were overruled. What did you do?"*
+
+**যা বললে পাস, যা বললে ফেল:**
+
+| ✅ যা খুঁজছেন | ❌ যা উল্টো পড়ে |
+|---|---|
+| অন্য পক্ষের যুক্তিটা সৎভাবে বলা | তার অবস্থানকে বোকার মতো দেখানো |
+| মতভেদটা সমস্যায় রাখা | ব্যক্তিগত বৈশিষ্ট্যে চলে যাওয়া |
+| তথ্য বা মানদণ্ড টেবিলে আনা | কে বেশি সিনিয়র, কে বেশি জোরে বলল |
+| সিদ্ধান্ত হওয়ার পর পুরো সমর্থন দেওয়া | চুপচাপ নিজের মতো চালিয়ে যাওয়া |
+| সম্পর্ক টিকে থাকা | "এরপর আর কথা বলিনি" |
+
+**কাঠামোটা যেভাবে দাঁড়ায়:**
+
+1. **মতভেদটা কী নিয়ে ছিল** — এক বাক্যে, নিরপেক্ষ ভাষায়। এমনভাবে যেন অন্য পক্ষও শুনলে বলত "হ্যাঁ, এটাই ছিল"।
+2. **তার যুক্তিটা কী ছিল** — এবং সেটা কেন অযৌক্তিক ছিল না। এই অংশটাই সবচেয়ে বেশি নম্বর আনে, আর সবচেয়ে বেশি বাদ পড়ে।
+3. **আপনি কী করলেন** — কথা বলার জায়গা বদলালেন? তথ্য আনলেন? আগে মানদণ্ড ঠিক করে নিলেন?
+4. **কীভাবে মিটল** — কার সিদ্ধান্ত, কীসের ভিত্তিতে।
+5. **তারপর আপনি কী করলেন** — বিশেষত সিদ্ধান্ত আপনার বিপক্ষে গেলে।
+
+**"Disagree and commit" — কথাটা মুখে না বলেও দেখানো যায়।** সিদ্ধান্ত বিপক্ষে গেলে আপনি কি সেটা বাস্তবায়নে পুরোপুরি নেমেছিলেন? এটা বলতে পারা বেশিরভাগ ক্যান্ডিডেটের চেয়ে আপনাকে এগিয়ে দেবে। আর যদি পরে আপনার আশঙ্কাই সত্যি হয়ে থাকে, সেটাও শান্তভাবে বলুন — "সমস্যাটা হয়েছিল, আমরা তখন X করেছিলাম" — বিজয়ীর ভঙ্গি ছাড়া।
+
+**Follow-up সাধারণত যেদিকে যায়:** *"সে এখন আপনার সম্পর্কে কী বলত?"* বা *"একই পরিস্থিতি আবার হলে কী অন্যভাবে করতেন?"* — দুটোই আত্ম-সচেতনতার পরীক্ষা। "কিছুই বদলাতাম না" প্রায় সবসময় দুর্বল উত্তর।
+
+## অনুশীলন
+
+- একটা conflict-এর ঘটনা নিন, **অন্য পক্ষের যুক্তিটা** এক অনুচ্ছেদে লিখুন — তার দৃষ্টিকোণ থেকে, যতটা সম্ভব শক্তিশালী করে। এটা লিখতে না পারলে আপনি এখনো ঘটনাটা বোঝেননি।
+- আপনার লেখা গল্পে অন্য পক্ষের বর্ণনায় কত শব্দ গেল আর নিজের কাজে কত — গুনুন। অনুপাত উল্টো হলে কাটুন।
+- সিদ্ধান্ত আপনার বিপক্ষে গেছে এমন একটা ঘটনা খুঁজুন, আর তারপর আপনি কী করেছিলেন তা এক বাক্যে লিখুন। এমন ঘটনা তালিকায় না থাকলে খুঁজতে বসুন — এটা সবচেয়ে বেশি চাওয়া গল্পগুলোর একটা।
+- ঘটনাটা জোরে বলুন, রেকর্ড করে শুনুন — কোথাও কি অন্য লোকটাকে ছোট করে বলা হয়েছে? ওই বাক্যগুলো বাদ দিয়ে আবার বলুন।
+- নিজেকে জোরে জিজ্ঞেস করুন: *"সে এখন আপনার সম্পর্কে কী বলত?"* — উত্তর দিতে আটকালে গল্পটা এখনো তৈরি নয়।
+
+## মূল নিয়ম
+
+- অন্য পক্ষের যুক্তি সৎভাবে বলুন — যেন সে শুনলেও মেনে নিত।
+- মতভেদ সমস্যায় রাখুন, মানুষে নিয়ে যাবেন না।
+- "শেষে আমিই ঠিক ছিলাম" দিয়ে গল্প শেষ করবেন না। প্রক্রিয়া মাপা হচ্ছে, ভবিষ্যদ্বাণী নয়।
+- সিদ্ধান্ত বিপক্ষে গেলে তারপর আপনি কী করেছিলেন — এটাই গল্পের সবচেয়ে দামি অংশ।
+- প্রতিবার সরে আসা সহযোগিতা নয়। একবার অন্তত দাঁড়ানোর গল্প রাখুন।
+- আপনি ভুল ছিলেন এমন একটা conflict-এর গল্প হাতে রাখুন — ওটা প্রায়ই সবচেয়ে শক্তিশালী।
+- সম্পর্ক কোথায় দাঁড়াল, সেটা বলুন। মিটমাট ছাড়া গল্প অসম্পূর্ণ।9:X
+e:X
+e:C
+0:{"buildId":"sU_0meduNPdkEcfcLArZN","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"১. সিগন্যাল"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০১.০৩"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Conflict ও Disagreement"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","012-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/012/","className":"chip chip--accent self-start","children":["দিন ","০১২"," · ","STAR #৪"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"STAR #৪ — **মতবিরোধ:** code review-তে দ্বিমত, বা deadline নিয়ে PM-এর সাথে টানাপোড়েন — ঝগড়া নয়, দ্বিমত সত্ত্বেও কাজ কীভাবে এগোল (ডক ০২.০২ · ডক ০১.০৩)"}]]}]]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"ViewportBoundary"]
+17:I[97367,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"MetadataBoundary"]
+18:I[27201,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"IconMark"]
+19:I[39756,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"default"]
+1a:I[37457,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/01-02/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০১.০২ Ownership"}]]}],["$","$L2",null,{"href":"/doc/01-04/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০১.০৪ Failure ও Mistake"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/behavioural_interview_local_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০১.০৩ · Conflict ও Disagreement — লোকাল behavioural"}],["$","meta","1",{"name":"description","content":"বাংলাদেশি কোম্পানির behavioural প্রশ্নের জন্য — ছয়টা STAR story লেখা, জোরে বলা আর যেকোনো প্রশ্নে খাটানো, ১৮০ দিনের plan-এর story-র ঘরে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/behavioural_interview_local_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

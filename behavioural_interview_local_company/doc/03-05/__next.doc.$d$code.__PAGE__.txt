@@ -1,0 +1,92 @@
+1:"$Sreact.fragment"
+2:I[22016,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js","/behavioural_interview_local_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js","/behavioural_interview_local_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T2dbe,## সংজ্ঞা
+
+লেখা story আর বলা story **আলাদা জিনিস**। এই অধ্যায়ের কাজ হলো লেখাটাকে বলায় রূপান্তর করা — জোরে বলে, রেকর্ড করে শুনে, তারপর ছেঁটে।
+
+পদ্ধতিটা তিন ধাপের একটা চক্র, প্রতি story-তে:
+
+1. **বলুন** — নোট না দেখে, টাইমার চালিয়ে, জোরে।
+2. **শুনুন** — রেকর্ডিংটা, একটা নির্দিষ্ট জিনিস খুঁজতে খুঁজতে।
+3. **ছাঁটুন** — লেখাটা নয়, **পরের বার কী বাদ দেবেন** সেটা ঠিক করুন।
+
+মুখস্থ করা এর উদ্দেশ্য নয়। উদ্দেশ্য হলো ঘটনাটা বলার পথটা এতবার হাঁটা, যাতে ইন্টারভিউয়ের চাপে পথটা হারিয়ে না যায়।
+
+## কেন এটা কঠিন
+
+**লিখলে সব সুবিধা আপনার, বললে একটাও নয়।** লেখার সময় থামা যায়, ফিরে গিয়ে বাক্য বদলানো যায়, অগোছালো অংশ পরে গোছানো যায়। বলার সময় এর কোনোটাই নেই — একটাই চেষ্টা, আর শ্রোতা সামনে বসে। তাই কাগজে নিখুঁত story মুখে এসে ভেঙে পড়া স্বাভাবিক ঘটনা, ব্যতিক্রম নয়।
+
+**মাথার ভেতরে বলা গোনায় ধরে না।** মনে মনে চালালে মস্তিষ্ক ফাঁকগুলো নিঃশব্দে ভরে দেয় — যে জায়গাটা আসলে অস্পষ্ট, সেখানে আপনি "বুঝেছি" বলে পেরিয়ে যান। জোরে বলার সময় ওই জায়গায় এসে আপনি থেমে যাবেন, "উম" বলবেন, বা ঘুরিয়ে বলবেন। **ঐ থামাগুলোই তথ্য** — ওখানেই story-টা দুর্বল।
+
+**নিজের উত্তর নিজে শোনা অস্বস্তিকর।** নিজের রেকর্ড করা গলা শুনতে প্রায় সবার খারাপ লাগে, তাই বেশিরভাগ মানুষ এই ধাপটা এড়িয়ে যান — আর ঠিক এই কারণেই এটা কাজ করে। যে ত্রুটিগুলো শুনতে অস্বস্তি লাগছে, ইন্টারভিউয়ার সেগুলোই শুনছিলেন।
+
+**মুখস্থ করার ফাঁদ।** কয়েকবার বলার পর একটা নির্দিষ্ট শব্দগুচ্ছ তৈরি হয়ে যায়, আর তখন উত্তরটা আবৃত্তি শোনায়। আরও খারাপ — follow-up প্রশ্ন এসে ক্রম ভেঙে দিলে পুরোটা এলোমেলো হয়ে যায়, কারণ আপনি ঘটনা মনে রাখেননি, বাক্য মনে রেখেছিলেন।
+
+## কীভাবে কাজ করে
+
+**একবারে একটা জিনিস শুনুন।** পুরো রেকর্ডিং একসাথে বিচার করতে গেলে শুধু "খারাপ লাগল" ছাড়া কিছু পাওয়া যায় না। তাই প্রতিবার শোনার আগে ঠিক করুন **আজ কোনটা খুঁজছেন**:
+
+| পাস | যা খুঁজবেন | ঠিক থাকলে |
+|---|---|---|
+| ১ | সময়ের ভাগ | Situation ≤ ২৫ সেকেন্ড, Action ~৬০% |
+| ২ | "আমরা" বনাম "আমি" | নিজের কাজে "আমি" |
+| ৩ | দ্বিধার শব্দ | "মনে হয়", "একটু", "অনেকটা" — কমে আসছে |
+| ৪ | শেষটা | শেষ বাক্যে ফল বা শিক্ষা, ঝুলে যাওয়া নয় |
+
+চারটে একসাথে নয় — একটা পাস, একটা সংশোধন, আবার বলুন।
+
+**"ঠান্ডা শুরু" পরীক্ষা।** নোট পড়ার ঠিক পরে বলবেন না। অন্তত এক ঘণ্টা পরে, বা পরদিন — কিছু না দেখে সরাসরি টাইমার চালু করে বলুন। ইন্টারভিউতে আপনি ঠান্ডা অবস্থাতেই শুরু করবেন; অনুশীলনও সেভাবেই হওয়া দরকার। নোট দেখে বলা অনুশীলন নয়, পড়া।
+
+**যে পরীক্ষাটা সবচেয়ে বেশি ধরে: কাউকে শোনান যে প্রেক্ষাপট জানে না।** পরিবারের কেউ, বন্ধু, অন্য পেশার কেউ। তাঁকে শুধু জিজ্ঞেস করুন — *সমস্যাটা কী ছিল, আর আমি কী করেছিলাম?* উত্তর দিতে না পারলে story দুর্বল। মনে রাখবেন, আপনার নিজের স্মৃতি ফাঁকগুলো নিঃশব্দে ভরে দিচ্ছে; ইন্টারভিউয়ারের সেটা করার উপায় নেই। কাউকে না পেলে রেকর্ডিংটাই কয়েক দিন পরে শুনুন — ততদিনে আপনিও কিছুটা বাইরের শ্রোতা।
+
+**শব্দ নয়, ল্যান্ডমার্ক মনে রাখুন।** প্রতিটি story-র জন্য চার-পাঁচটা বিন্দু ঠিক করুন — *কাঁটাটা কী ছিল → কোন দুটো পথ ছিল → কেন এটা বাছলাম → কী দাঁড়াল → কী শিখলাম*। প্রতিবার শব্দ আলাদা হবে, বিন্দুগুলো এক থাকবে। এটাই আবৃত্তি আর সাবলীলতার পার্থক্য, আর follow-up-এ ক্রম ভাঙলেও এটা টিকে যায়।
+
+**ছাঁটাই মানে কম বলা, দ্রুত বলা নয়।** দুই মিনিটে না ধরলে তাড়াতাড়ি বলার চেষ্টা করবেন না — একটা অংশ **বাদ** দিন। প্রায় সবসময় বাদ যাওয়ার জিনিসটা Situation-এ থাকে।
+
+**কতবার?** নতুন story-তে তিন-চারবার বললে আড়ষ্টতা কাটে। এর বেশি একটানা বললে মুখস্থ হতে শুরু করে — তখন থামুন, আর কয়েক দিন পরে আবার ধরুন। ব্যবধান রাখাই এখানে আসল কাজ; সূচিটা `04-rehearsal-schedule.md`-এ।
+
+## অনুশীলন
+
+- একটা story নিন, নোট **বন্ধ করে**, টাইমার ২ মিনিট দিয়ে ফোনে রেকর্ড করুন। এক টেক — থামবেন না, আবার শুরু করবেন না।
+- রেকর্ডিংটা শুনুন শুধু **সময়ের ভাগ** খুঁজতে। Situation কত সেকেন্ড নিল লিখে রাখুন, তারপর একটা বাক্য বাদ দিয়ে আবার বলুন।
+- দ্বিতীয় পাসে শুধু "আমরা" গুনুন। যেগুলো আসলে আপনার কাজ, সেগুলো "আমি"-তে বদলে আবার বলুন।
+- প্রেক্ষাপট জানে না এমন একজনকে story-টা শোনান, তারপর তাঁকে জিজ্ঞেস করুন সমস্যাটা কী ছিল আর আপনি কী করেছিলেন। তাঁর উত্তরে যা বাদ পড়ল, সেটাই আপনার story-র ফাঁক — লিখে রাখুন।
+- story-টার চার-পাঁচটা ল্যান্ডমার্ক কাগজে লিখুন, তারপর কাগজ সরিয়ে শুধু ওগুলো ধরে আবার বলুন — শব্দ আলাদা হোক, বিন্দুগুলো ঠিক থাক।
+- পরদিন, কিছু না দেখে ঠান্ডা অবস্থায় আবার বলুন ও রেকর্ড করুন। আগের দিনের সাথে মিলিয়ে দেখুন কোন ত্রুটিটা টিকে আছে — ওটাই পরের ঝালাইয়ের লক্ষ্য।
+
+## মূল নিয়ম
+
+- মনে মনে বলা গোনায় ধরবেন না। জোরে বলুন, রেকর্ড করুন।
+- প্রতিবার শোনার আগে **একটা** জিনিস ঠিক করুন যেটা খুঁজবেন। সব একসাথে বিচার করলে কিছুই পাওয়া যায় না।
+- যেখানে থেমে যান বা "উম" বলেন — সেখানেই story দুর্বল। ওটা ভাষার সমস্যা নয়, ভাবনার ফাঁক।
+- নোট দেখে বলা অনুশীলন নয়। ঠান্ডা অবস্থায় শুরু করুন, ইন্টারভিউতে যেমন হবে।
+- শব্দ নয়, চার-পাঁচটা ল্যান্ডমার্ক মনে রাখুন। মুখস্থ উত্তর follow-up-এ ভেঙে পড়ে।
+- দুই মিনিট ছাড়িয়ে গেলে দ্রুত বলবেন না — **বাদ দিন**। প্রায় সবসময় Situation থেকে।
+- প্রেক্ষাপট জানে না এমন কাউকে শোনান। সে বুঝতে না পারলে story দুর্বল, সে অমনোযোগী নয়।
+- একটানা তিন-চারবারের বেশি নয়। তারপর ব্যবধান — ওটাই ঝালাই।9:X
+e:X
+e:C
+0:{"buildId":"sU_0meduNPdkEcfcLArZN","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"৩. ডেলিভারি"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০৩.০৫"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"জোরে বলুন, রেকর্ড করুন, ছাঁটুন"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","div",null,{"className":"surface-well t-caption p-4 text-center","children":"এই পথের কোনো দিনে এই ডক নেই — জেনেশুনে বাদ, দরকার হলে পরে। 🧠 Pareto principle"}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"ViewportBoundary"]
+17:I[97367,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"MetadataBoundary"]
+18:I[27201,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"IconMark"]
+19:I[39756,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"default"]
+1a:I[37457,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/03-04/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০৩.০৪ ঝালাইয়ের সূচি — ১/৩/৭/২১ দিন"}]]}],["$","$L2",null,{"href":"/doc/04-01/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০৪.০১ ঘন-ঘন আসা প্রশ্ন"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/behavioural_interview_local_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০৩.০৫ · জোরে বলুন, রেকর্ড করুন, ছাঁটুন — লোকাল behavioural"}],["$","meta","1",{"name":"description","content":"বাংলাদেশি কোম্পানির behavioural প্রশ্নের জন্য — ছয়টা STAR story লেখা, জোরে বলা আর যেকোনো প্রশ্নে খাটানো, ১৮০ দিনের plan-এর story-র ঘরে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/behavioural_interview_local_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

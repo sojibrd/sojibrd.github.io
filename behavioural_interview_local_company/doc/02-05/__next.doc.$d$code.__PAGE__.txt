@@ -1,0 +1,118 @@
+1:"$Sreact.fragment"
+2:I[22016,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js","/behavioural_interview_local_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js","/behavioural_interview_local_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T2c9c,## সংজ্ঞা
+
+**Quality checklist** হলো একগুচ্ছ পরীক্ষা, যেগুলো একটা story-র উপর চালিয়ে ঠিক করবেন ওটা তৈরি, নাকি আরও কাজ বাকি।
+
+দরকার কেন — কারণ **নিজের story নিজে বিচার করা যায় না**। আপনি ঘটনাটার ভেতরে ছিলেন, তাই আপনার মাথায় ফাঁকগুলো নিজে থেকেই ভরাট। বলার সময় আপনি যা শুনছেন সেটা আপনার স্মৃতি; ইন্টারভিউয়ার শুনছেন শুধু আপনার বলা শব্দগুলো। এই দুটোর পার্থক্য মাপতেই এই অধ্যায়।
+
+তিন ধরনের পরীক্ষা — **বাইরের** (অন্য মানুষ), **কাঠামোর** (ছক মিলিয়ে), **চাপের** (follow-up)। তিনটেই আলাদা জিনিস ধরে।
+
+## কেন এটা কঠিন
+
+**"ভালো লাগছে" আর "ভালো হয়েছে" এক নয়।** কয়েকবার বলার পর story-টা সাবলীল শোনায়, আর সাবলীলতাকে মান ভেবে ভুল হয়। কিন্তু সাবলীলতা শুধু বলে আপনি পথটা চেনেন — পথটা ঠিক জায়গায় যাচ্ছে কি না, সেটা বলে না।
+
+**নিজের ফাঁক নিজে দেখা যায় না, সংজ্ঞা অনুযায়ীই।** যে তথ্যটা আপনার মাথায় আছে বলে আপনি বলেননি, সেটা আপনার কাছে অনুপস্থিত মনে হবে না। তাই যাচাইয়ের কাজটা বাইরে থেকে করাতে হয় — নিজে আরেকবার পড়ে নয়।
+
+**চেকলিস্ট ভরার ফাঁদ।** ঘর টিক দিতে দিতে মনে হয় কাজ হচ্ছে, অথচ আসল পরীক্ষাটা — কাউকে শোনানো — সবচেয়ে অস্বস্তিকর বলে সেটাই বাদ পড়ে। যে পরীক্ষা এড়াতে ইচ্ছে করছে, সেটাই সাধারণত সবচেয়ে বেশি তথ্য দেয়।
+
+## কীভাবে কাজ করে
+
+### পরীক্ষা ১ — বাইরের মানুষ (সবচেয়ে গুরুত্বপূর্ণ)
+
+এটা **Feynman পরীক্ষার** রূপ — কোনো কিছু সত্যিই বুঝেছেন কি না যাচাইয়ের সবচেয়ে নির্ভরযোগ্য উপায় হলো এমন কাউকে বোঝানো যিনি বিষয়টা জানেন না। যেখানে আপনি আটকে যাবেন বা তিনি বুঝবেন না, সেখানেই ফাঁক।
+
+প্রেক্ষাপট জানে না এমন একজনকে story-টা শোনান — পরিবারের কেউ, বন্ধু, অন্য পেশার কেউ। শোনানোর পর **তাঁকে বলুন আপনাকে ফিরিয়ে বলতে**:
+
+1. সমস্যাটা কী ছিল?
+2. আপনি কী করেছিলেন?
+3. শেষে কী হয়েছিল?
+
+তিনটের কোনোটার উত্তর তিনি দিতে না পারলে **story দুর্বল, শ্রোতা অমনোযোগী নন।** যে অংশটা তিনি ফিরিয়ে বলতে পারলেন না, সেটাই আপনার ফাঁক — ওখানে আপনার স্মৃতি কাজটা করে দিচ্ছিল, শব্দগুলো নয়।
+
+এটাই পুরো অধ্যায়ের একক গুরুত্বপূর্ণ পরীক্ষা। বাকিগুলো সহায়ক।
+
+কাউকে না পেলে বিকল্প: রেকর্ড করে **কয়েক দিন পরে** শুনুন। ততদিনে আপনি নিজেও কিছুটা বাইরের শ্রোতা — নিখুঁত নয়, কিন্তু কিছু না করার চেয়ে ভালো।
+
+### পরীক্ষা ২ — কাঠামো
+
+ছক মিলিয়ে দেখুন, প্রতিটা প্রশ্নের উত্তর হ্যাঁ হওয়া দরকার:
+
+| # | প্রশ্ন | না হলে |
+|---|---|---|
+| ১ | একটা **কাঁটা** আছে — যেখানে অন্যরকমও করা যেত? | ঘটনাটা বদলান |
+| ২ | দুটো বিকল্প আর বাছাইয়ের **ভিত্তি** বলা আছে? | ধাপ ২-তে ফিরুন |
+| ৩ | Situation ২৫ সেকেন্ডের মধ্যে শেষ? | কাটুন |
+| ৪ | সময়ের ~৬০% Action-এ? | বিন্দু কমান |
+| ৫ | নিজের কাজে "আমি", টিমের কাজে "আমরা"? | শব্দ বদলান |
+| ৬ | ফল আছে — সংখ্যা বা অন্তত দিক? | `07-result-and-metrics.md` |
+| ৭ | শেষ বাক্যে শিক্ষা বা ফল, ঝুলে যাওয়া নয়? | শেষটা লিখুন |
+| ৮ | পুরোটা ২ মিনিটের মধ্যে? | একটা অংশ **বাদ** দিন |
+
+### পরীক্ষা ৩ — চাপ
+
+নিজেকে (বা কাউকে দিয়ে) তিনটে follow-up করান, প্রতিটার উত্তর জোরে দিন:
+
+- *"তখন যদি অন্য পথটা নিতেন, কী হতো?"*
+- *"অন্য পক্ষ এখন এই ঘটনাটা কীভাবে বলত?"*
+- *"একই পরিস্থিতি আবার হলে কী বদলাতেন?"*
+
+কোনোটায় আটকে গেলে সেটা মুখস্থের লক্ষণ — আপনি বাক্য মনে রেখেছেন, ঘটনা নয়। আর তৃতীয়টার উত্তর "কিছুই বদলাতাম না" হলে গল্পটা এখনো তৈরি নয়।
+
+### যে লক্ষণগুলো দেখলে থামবেন
+
+- **অন্য লোকের বর্ণনা নিজের কাজের চেয়ে বড়** — conflict-এর গল্পে সবচেয়ে সাধারণ।
+- **"আমরা" দিয়ে সব কাজ** — নিজের অবদান অদৃশ্য।
+- **ফল নেই, শুধু কাজ আছে** — অর্ধেক গল্প।
+- **কোনো অস্বস্তি নেই** — সব মসৃণ গল্প সন্দেহজনক শোনায়; কোথাও তো কিছু কঠিন ছিল।
+- **সংখ্যা আছে কিন্তু সেগুলো আপনার নয়** — "টিমটা ৪০% দ্রুত হলো" বললে follow-up-এ ঠিক ওখানেই আঘাত আসবে।
+
+### কখন "যথেষ্ট ভালো"
+
+পরীক্ষা ১ পাস, কাঠামোর আটটার অন্তত সাতটা হ্যাঁ, আর তিনটে follow-up-এ আটকাননি — তখন থামুন। **নিখুঁত করার চেষ্টা করবেন না**, কারণ এরপর আরও পালিশ করলে গল্পটা আবৃত্তির দিকে যেতে থাকে। বরং পরের story-তে যান; ৬টা "যথেষ্ট ভালো" story ২টা নিখুঁত story-র চেয়ে অনেক বেশি কাজে দেয়।
+
+## অনুশীলন
+
+- একটা তৈরি story নিন, প্রেক্ষাপট জানে না এমন একজনকে শোনান, তারপর তাঁকে তিনটে প্রশ্ন ফিরিয়ে জিজ্ঞেস করুন। তাঁর উত্তরে যা বাদ পড়ল, লিখে রাখুন।
+- ওই ফাঁকগুলো ভরে আবার বলুন — **একই ব্যক্তিকে নয়**, অন্য কাউকে, বা কয়েক দিন পরে।
+- কাঠামোর আটটা প্রশ্ন কাগজে লিখে টিক দিন, সৎভাবে। যেগুলো "না", সেগুলোর পাশে কী করবেন লিখুন।
+- তিনটে চাপের প্রশ্ন নিজেকে করুন, জোরে উত্তর দিন, রেকর্ড করুন। শুনে দেখুন কোথায় থেমেছেন।
+- আপনার সব story-র জন্য এই চেকলিস্ট চালান, আর যেগুলো পাস করেনি সেগুলোর তালিকা করুন। পরের কাজ ওই তালিকা ধরে, নতুন story নয়।
+- যেটা পাস করেছে, সেটায় আর হাত দেবেন না। পালিশ বন্ধ করে পরেরটায় যান।
+
+## মূল নিয়ম
+
+- বাইরের একজনকে শোনানোই আসল পরীক্ষা — বাকিগুলো সহায়ক।
+- সে ফিরিয়ে বলতে না পারলে story দুর্বল, শ্রোতা নয়।
+- সাবলীলতা মান নয়। সাবলীল ভুল গল্পও সাবলীল শোনায়।
+- আটকে যাওয়া মানে মুখস্থ — বাক্য মনে আছে, ঘটনা নয়।
+- "কিছুই বদলাতাম না" — এই উত্তর মানে গল্পটা এখনো তৈরি নয়।
+- সব মসৃণ গল্প সন্দেহজনক। কোথাও কিছু কঠিন ছিল, সেটা বলুন।
+- সংখ্যা দিলে সেটা আপনার অংশের হোক, টিমের পুরোটার নয়।
+- ৬টা যথেষ্ট ভালো story ২টা নিখুঁত story-র চেয়ে ভালো। পাস করলে থামুন।9:X
+e:X
+e:C
+0:{"buildId":"sU_0meduNPdkEcfcLArZN","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"২. স্টোরি"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০২.০৫"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Story কখন যথেষ্ট ভালো"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","div",null,{"className":"surface-well t-caption p-4 text-center","children":"এই পথের কোনো দিনে এই ডক নেই — জেনেশুনে বাদ, দরকার হলে পরে। 🧠 Pareto principle"}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"ViewportBoundary"]
+17:I[97367,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"MetadataBoundary"]
+18:I[27201,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"IconMark"]
+19:I[39756,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"default"]
+1a:I[37457,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/02-04/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০২.০৪ একটা story শুরু থেকে শেষ পর্যন্ত"}]]}],["$","$L2",null,{"href":"/doc/02-06/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০২.০৬ Story → Signal ম্যাপিং"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/behavioural_interview_local_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০২.০৫ · Story কখন যথেষ্ট ভালো — লোকাল behavioural"}],["$","meta","1",{"name":"description","content":"বাংলাদেশি কোম্পানির behavioural প্রশ্নের জন্য — ছয়টা STAR story লেখা, জোরে বলা আর যেকোনো প্রশ্নে খাটানো, ১৮০ দিনের plan-এর story-র ঘরে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/behavioural_interview_local_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

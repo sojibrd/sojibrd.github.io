@@ -1,0 +1,99 @@
+1:"$Sreact.fragment"
+2:I[22016,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js","/behavioural_interview_local_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js","/behavioural_interview_local_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T3018,## সংজ্ঞা
+
+**STAR** হলো একটা উত্তরের ছাঁচ — **S**ituation → **T**ask → **A**ction → **R**esult।
+
+- **Situation** — কোথায়, কখন, কী অবস্থায়। শ্রোতাকে বোঝার মতো ন্যূনতম প্রেক্ষাপট।
+- **Task** — ওই অবস্থায় **আপনার** দায়িত্ব বা সিদ্ধান্তটা কী ছিল।
+- **Action** — আপনি কী করলেন, আর **কেন ওটাই করলেন**।
+- **Result** — কী দাঁড়াল, আর আপনি কী শিখলেন।
+
+ছাঁচটার কাজ গল্প সাজানো নয় — **ইন্টারভিউয়ারের নোট নেওয়া সহজ করা।** তিনি শোনার সাথে সাথে খাতায় লিখছেন, আর পরে সেই নোট ধরে অন্যদের কাছে আপনার হয়ে যুক্তি দেবেন। আপনার উত্তর যদি এলোমেলো হয়, তাঁর নোটও এলোমেলো হবে, আর ঘরে আপনার পক্ষে বলার মতো কিছু থাকবে না।
+
+সময়ের ভাগ — **২ মিনিটের উত্তরে**:
+
+| অংশ | সময় | কেন |
+|---|---|---|
+| Situation + Task | ~২৫ সেকেন্ড | শুধু বোঝার জন্য যতটুকু দরকার |
+| **Action** | **~৭০ সেকেন্ড** | এখানেই আপনাকে মাপা হচ্ছে |
+| Result | ~২৫ সেকেন্ড | প্রমাণ + শিক্ষা |
+
+## কেন এটা কঠিন
+
+**Situation-এ সময় ফুরিয়ে যায়।** বেশিরভাগ মানুষ প্রেক্ষাপটে দুই মিনিট খরচ করেন — কোম্পানিটা কী করত, টিমে কজন ছিল, আগের সিস্টেমটা কেন খারাপ ছিল। আপনার কাছে এগুলো দরকারি মনে হয়, কারণ আপনি ভেতরে ছিলেন। ইন্টারভিউয়ারের কাছে এগুলো শব্দ। যখন Action-এ পৌঁছান, তাঁর মনোযোগ শেষ।
+
+**"আমি" হারিয়ে যায়, "আমরা" এসে পড়ে।** অফিসে "we shipped it" বলাটা ভদ্রতা, ইন্টারভিউতে ওটা আত্মহত্যা। ইন্টারভিউয়ার টিমকে নিয়োগ দিচ্ছেন না, আপনাকে দিচ্ছেন। "আমরা ঠিক করলাম" শুনলে তিনি লেখেন — *এই লোকের নিজের অবদান বোঝা গেল না।*
+
+**Action হয়ে যায় ধাপের তালিকা।** "প্রথমে ডেটা দেখলাম, তারপর মিটিং করলাম, তারপর কোড লিখলাম" — এটা প্রক্রিয়ার বিবরণ, signal নয়। যেটা মাপা হচ্ছে সেটা হলো **আপনি কোন দুটো বিকল্পের মধ্যে বাছলেন আর কেন**। বিকল্প না থাকলে সিদ্ধান্ত নেই; সিদ্ধান্ত না থাকলে মাপার কিছু নেই।
+
+**Result থাকে না, বা থাকলেও অস্পষ্ট।** "সবাই খুশি হয়েছিল", "প্রজেক্টটা সফল হয়েছিল" — এগুলো দাবি, প্রমাণ নয়। আর ব্যর্থতার গল্পে অনেকে Result বাদই দেন, অথচ ওখানেই শিক্ষার অংশটা বসার কথা।
+
+**সবচেয়ে সূক্ষ্ম ফাঁদ — ছাঁচটা শোনা যাওয়া।** "So the situation was… my task was…" বলে বলে এগোলে উত্তরটা মুখস্থ শোনায়, আর মুখস্থ শোনালে বিশ্বাসযোগ্যতা পড়ে যায়। STAR **আপনার মাথায়** থাকবে, ইন্টারভিউয়ারের কানে নয়।
+
+## কীভাবে কাজ করে
+
+**শুরুতে এক লাইনের শিরোনাম দিন।** পুরো উত্তরটা কোথায় যাচ্ছে, সেটা আগে বলে দিন — তারপর বিস্তারিত। "একটা release-এ আমি নিজের লেখা ফিচার নিজেই আটকে দিয়েছিলাম, সেটা বলি।" এতে ইন্টারভিউয়ার জানেন কী শুনতে চলেছেন, আর বিস্তারিতগুলো জায়গামতো বসাতে পারেন। শিরোনাম ছাড়া উত্তর শেষ বাক্য পর্যন্ত রহস্য — আর রহস্য শোনা ক্লান্তিকর।
+
+**Situation: তিন বাক্যের বেশি নয়।** কে, কী, কখন — এবং শুধু সেটুকু যা ছাড়া Action বোঝা যাবে না। প্রশ্ন করুন: *এই তথ্যটা বাদ দিলে কি আমার সিদ্ধান্তটা অবোধ্য হয়ে যায়?* না হলে বাদ।
+
+**Task: "আমার দায়িত্ব ছিল" নয়, "আমাকে ঠিক করতে হয়েছিল"।** Task মানে চাকরির বিবরণ নয়, ওই মুহূর্তের **কাঁটাটা** — যে জায়গায় দুটো পথ ছিল আর একটা বাছতে হয়েছিল। এই এক বাক্যেই উত্তরের মান অর্ধেক ঠিক হয়ে যায়।
+
+**Action: সিদ্ধান্ত দেখান, ধাপ নয়।** প্রতিটা বড় কাজের সাথে **কেন** জুড়ুন:
+
+> ❌ "আমি stakeholder-দের সাথে কথা বললাম, তারপর scope কমালাম।"
+> ✅ "দুটো পথ ছিল — deadline পেছানো, নাকি scope কমানো। deadline অন্য টিমের লঞ্চের সাথে বাঁধা ছিল বলে scope কমানোটা বাছলাম, আর কোন দুটো ফিচার বাদ যাবে সেটা ব্যবহারের সংখ্যা দেখে ঠিক করলাম।"
+
+দ্বিতীয়টায় একই ঘটনা, কিন্তু এখন বিকল্প আছে, বাছাইয়ের যুক্তি আছে, আর বাছাইয়ের ভিত্তি আছে। মাপার মতো জিনিস এখানেই।
+
+**"আমি" বলুন। অস্বস্তি লাগলেও।** টিমের কাজ অস্বীকার করতে হবে না — "টিম তিনটে বিকল্প বের করেছিল; আমি দ্বিতীয়টার পক্ষে যুক্তি দিয়েছিলাম, কারণ…"। কৃতিত্ব ভাগ করেও নিজের অংশটা স্পষ্ট রাখা যায়।
+
+**Result: সংখ্যা, তারপর শিক্ষা।** সংখ্যা না থাকলে অন্তত **দিক** দিন — "দুই সপ্তাহের কাজ তিন দিনে নামল", "পরের কোয়ার্টারে ওই bug আর ফেরেনি"। আর শেষ বাক্যে এক লাইনের শিক্ষা, কারণ follow-up প্রায়ই ওখান থেকেই আসে। (বিস্তারিত `07-result-and-metrics.md`-এ।)
+
+**ব্যর্থতার গল্পে ছাঁচটা একটু বদলায়** — Result-এর জায়গা নেয় *যা শিখলাম ও পরেরবার কী বদলেছিলাম*। শুধু "শিক্ষা পেয়েছি" বললে অর্ধেক উত্তর; পরে কোথায় সেটা প্রয়োগ করেছেন তা বললে পুরো।
+
+## অনুশীলন
+
+- `01-story-inventory.md`-এর তালিকা থেকে একটা ঘটনা নিন, চার ভাগে লিখুন — কিন্তু Situation **তিন বাক্যের বেশি নয়**। বেশি হলে কাটুন, যতক্ষণ না তিনে নামে।
+- ওই লেখাটায় প্রতিটা "আমরা" দাগিয়ে ফেলুন, আর প্রতিটার জায়গায় ঠিক করুন — এটা কি সত্যিই টিমের, নাকি আমার? টিমেরগুলো রাখুন, বাকিগুলো "আমি"-তে বদলান।
+- Action অংশে অন্তত একটা জায়গা খুঁজুন যেখানে **দুটো বিকল্প** ছিল, আর কেন একটা বাছলেন সেটা এক বাক্যে লিখুন। খুঁজে না পেলে ঘটনাটা দুর্বল — তালিকা থেকে অন্যটা নিন।
+- এক লাইনের শিরোনাম লিখুন যেটা দিয়ে উত্তরটা শুরু হবে। ১৫ শব্দের বেশি হলে ছাঁটুন।
+- টাইমার ২ মিনিট দিয়ে পুরোটা জোরে বলুন, রেকর্ড করুন। শুনে গুনুন Situation-এ কত সেকেন্ড গেল — ২৫-এর বেশি হলে আবার বলুন।
+
+## মূল নিয়ম
+
+- এক লাইনের শিরোনাম দিয়ে শুরু করুন, তারপর বিস্তারিত।
+- Situation তিন বাক্য। যে তথ্য ছাড়া সিদ্ধান্তটা বোঝা যায়, সেটা বাদ।
+- Task মানে দায়িত্ব নয় — ওই মুহূর্তে আপনাকে যা **ঠিক করতে হয়েছিল**।
+- Action-এ ধাপ নয়, **বিকল্প ও বাছাইয়ের যুক্তি** বলুন।
+- "আমরা" নয়, "আমি"। কৃতিত্ব ভাগ করুন, কিন্তু নিজের অংশ স্পষ্ট রাখুন।
+- সময়ের ৬০% Action-এ। এটাই ছাঁচের একমাত্র অলঙ্ঘনীয় অনুপাত।
+- Result-এ সংখ্যা দিন; না থাকলে অন্তত দিক দিন। "সবাই খুশি হয়েছিল" কোনো Result নয়।
+- ছাঁচের নামগুলো মুখে আনবেন না। STAR শ্রোতার কানে নয়, আপনার মাথায়।
+- ব্যর্থতার গল্পে Result-এর জায়গায় বসবে — কী শিখলেন, আর **পরেরবার কী বদলেছিলেন**।9:X
+e:X
+e:C
+0:{"buildId":"sU_0meduNPdkEcfcLArZN","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"২. স্টোরি"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০২.০২"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"STAR কাঠামো"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","001-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/001/","className":"chip chip--accent self-start","children":["দিন ","০০১"," · ","প্রথম STAR story"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"STAR #১ — **দায়িত্ব নেওয়া:** কেউ বলেনি, তবু নিজে থেকে কিছু ঠিক করেছেন; ইংরেজিতে বুলেট, Action ৬০%, \"I\" (ডক ০২.০২ · ডক ০১.০২)"}]]}],["$","li","005-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/005/","className":"chip chip--accent self-start","children":["দিন ","০০৫"," · ","STAR #২"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"STAR #২ — **কঠিন কারিগরি সিদ্ধান্ত:** অফিসের কোনো architecture বা library বাছাই; কী কী বিকল্প ছিল, কেন এটা (ডক ০২.০২)"}]]}],["$","li","008-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/008/","className":"chip chip--accent self-start","children":["দিন ","০০৮"," · ","STAR #৩"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"STAR #৩ — **অস্পষ্ট পরিস্থিতি:** অসম্পূর্ণ requirement নিয়ে কাজ শুরু করতে হয়েছিল এমন কোনো ফিচার (ডক ০২.০২ · ডক ০১.০৫)"}]]}],["$","li","012-3",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/012/","className":"chip chip--accent self-start","children":["দিন ","০১২"," · ","STAR #৪"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"STAR #৪ — **মতবিরোধ:** code review-তে দ্বিমত, বা deadline নিয়ে PM-এর সাথে টানাপোড়েন — ঝগড়া নয়, দ্বিমত সত্ত্বেও কাজ কীভাবে এগোল (ডক ০২.০২ · ডক ০১.০৩)"}]]}],["$","li","015-4",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/015/","className":"chip chip--accent self-start","children":["দিন ","০১৫"," · ","STAR #৫"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"STAR #৫ — **অন্যকে সাহায্য:** কোনো junior বা নতুন সহকর্মীকে কিছু শিখিয়েছেন (ডক ০২.০২)"}]]}],["$","li","019-5",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/019/","className":"chip chip--accent self-start","children":["দিন ","০১৯"," · ","STAR #৬ — ব্যর্থতা"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"STAR #৬ — **ব্যর্থতা:** সত্যিকারের একটা ভুল — কী ভুল, দোষ কোথায় আপনার, **তারপর থেকে কী আলাদা করেন** (ডক ০২.০২ · ডক ০১.০৪)"}]]}]]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"ViewportBoundary"]
+17:I[97367,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"MetadataBoundary"]
+18:I[27201,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"IconMark"]
+19:I[39756,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"default"]
+1a:I[37457,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/02-01/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০২.০১ Story inventory — নিজের ঘটনা বের করা"}]]}],["$","$L2",null,{"href":"/doc/02-03/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০২.০৩ Story টেমপ্লেট"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/behavioural_interview_local_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০২.০২ · STAR কাঠামো — লোকাল behavioural"}],["$","meta","1",{"name":"description","content":"বাংলাদেশি কোম্পানির behavioural প্রশ্নের জন্য — ছয়টা STAR story লেখা, জোরে বলা আর যেকোনো প্রশ্নে খাটানো, ১৮০ দিনের plan-এর story-র ঘরে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/behavioural_interview_local_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

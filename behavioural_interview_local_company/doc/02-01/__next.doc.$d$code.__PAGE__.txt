@@ -1,0 +1,110 @@
+1:"$Sreact.fragment"
+2:I[22016,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js","/behavioural_interview_local_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js","/behavioural_interview_local_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T2f33,## সংজ্ঞা
+
+**Story inventory** হলো আপনার ক্যারিয়ার থেকে তুলে আনা ঘটনাগুলোর একটা তালিকা — যেগুলো থেকে পরে STAR উত্তর তৈরি হবে।
+
+লক্ষ্য **৮–১২টা কাঁচা ঘটনা**, যেখান থেকে ছেঁটে ৬–৮টা তৈরি story দাঁড়াবে। এর কম হলে প্রতিটি প্রশ্নে একই দুটো ঘটনা ঘুরেফিরে আসবে, আর ইন্টারভিউয়ার ধরে ফেলবেন যে আপনার ভাণ্ডার ফুরিয়েছে। এর বেশি হলে কোনোটাই যথেষ্ট ধারালো হবে না।
+
+এই ধাপে **উত্তর লিখছেন না, ঘটনা জড়ো করছেন।** কাঁচামাল আগে, রান্না পরে। দুটো একসাথে করতে গেলে যে ঘটনাগুলো সাজাতে সহজ সেগুলোই টিকে যায় — যেগুলো আসলে শক্তিশালী, সেগুলো নয়।
+
+## কেন এটা কঠিন
+
+**মাথায় প্রথম যে ঘটনাগুলো আসে, সেগুলোই সবচেয়ে খারাপ নমুনা।** মনে পড়ার কারণ ওগুলো সাম্প্রতিক বা আবেগপ্রবণ — গুরুত্বপূর্ণ বলে নয়। আর একবার দু-তিনটে ঘটনা মাথায় বসে গেলে বাকি সব প্রশ্নে ওগুলোই ঠেলে ঢোকানোর চেষ্টা চলে। পুরনো চেনা সমাধানটাই নতুন সমস্যার ভালো সমাধান খুঁজতে বাধা দেয়। এই ফাঁদটার নাম আছে — **Einstellung** — আর এটা এড়ানোর একটাই উপায়: প্রথম ঝাঁকের ঘটনাগুলো লিখে **সরিয়ে রাখা**, তারপর জোর করে আরও খোঁজা।
+
+**দ্বিতীয় সমস্যা — স্মৃতি প্রশ্ন ধরে সাজানো থাকে না।** "আমার কোন conflict-এর ঘটনা আছে?" জিজ্ঞেস করলে মাথা প্রায় খালি উত্তর দেয়। কিন্তু "গত বছরের মার্চে কী নিয়ে কাজ করছিলাম?" জিজ্ঞেস করলে ঘটনা বেরিয়ে আসে। স্মৃতি **সময় আর জায়গা ধরে** সাজানো, বিভাগ ধরে নয়। তাই signal দিয়ে খুঁজলে পাবেন না; সময় দিয়ে খুঁজতে হবে।
+
+**তৃতীয়ত, নিজের ভালো কাজগুলো নিজের কাছে সাধারণ মনে হয়।** যেটা আপনি রুটিন ভেবে করেছিলেন — একটা নীরব সমস্যা আগে ধরে ফেলা, একটা বিরক্তিকর জিনিস গুছিয়ে ফেলা — সেটাই প্রায়ই সবচেয়ে শক্ত signal বহন করে। "এটা তো এমনিই করেছিলাম" বলে যা বাদ দিচ্ছেন, ওটাই ownership-এর সেরা প্রমাণ হতে পারত।
+
+**আর ব্যর্থতার ঘটনাগুলো মাথা নিজেই মুছে দেয়।** অথচ behavioural round-এ ওগুলোই সবচেয়ে বেশি জিজ্ঞেস করা হয়।
+
+## কীভাবে কাজ করে
+
+তিনটে ধাপ, এই ক্রমে। ক্রম ওলটালে Einstellung-এর ফাঁদ ফেরত আসে।
+
+**ধাপ ১ — প্রথম ঝাঁক লিখে সরিয়ে রাখুন (৫ মিনিট)**
+
+যা যা মনে পড়ে লিখে ফেলুন, সাধারণত ২–৪টা। তারপর **কাগজটা উল্টে রাখুন।** এগুলো আপনার তালিকায় থাকবে, কিন্তু পরের ধাপে এগুলোর কথা ভাববেন না। উদ্দেশ্য — মাথা থেকে জায়গা খালি করা, যাতে বাকিগুলো আসার সুযোগ পায়।
+
+**ধাপ ২ — সময় ধরে ঝাঁট দিন (৩০–৪০ মিনিট)**
+
+স্মৃতির উপর ভরসা করবেন না, **প্রমাণ খুলুন**:
+
+| উৎস | যা খুঁজবেন |
+|---|---|
+| ক্যালেন্ডার, গত ২–৩ বছর | কোন মিটিং বারবার হয়েছিল, কোনটা হঠাৎ ডাকা হয়েছিল |
+| Git history / PR / ticket | কোন কাজটা অস্বাভাবিক দীর্ঘ ছিল, কোনটা rollback হয়েছিল |
+| চ্যাট বা ইমেল | কোথায় তর্ক হয়েছিল, কোথায় খারাপ খবর দিতে হয়েছিল |
+| Performance review | অন্যরা কোন কাজটার কথা তুলেছিল |
+
+কোয়ার্টার ধরে এগোন — "২০২৪-এর প্রথম তিন মাস, কী চলছিল?" প্রতিটা কোয়ার্টারে অন্তত **একটা** ঘটনা তোলার চেষ্টা করুন। কোটা রাখলে মাথা খুঁজতে বাধ্য হয়।
+
+**ধাপ ৩ — ফাঁক ধরে খুঁজুন (২০ মিনিট)**
+
+এবার তালিকাটা `01-signals/`-এর ছয়টা signal-এর বিপরীতে মেলান — Ownership, Conflict, Failure, Ambiguity, Influence, Growth। যে ঘরটা খালি, সেটার জন্য আলাদা করে খুঁজুন।
+
+খালি ঘর ভরানোর প্রশ্ন, স্মৃতি খোঁচানোর জন্য:
+
+- কোন কাজটা আপনার দায়িত্ব ছিল না, তবু করেছিলেন?
+- শেষ কবে আপনার মত পাল্টেছিল কারো যুক্তিতে?
+- কোন সিদ্ধান্তটা এখন নিলে অন্যরকম নিতেন?
+- কোন কাজটা শুরু করার সময় জানতেন না কীভাবে করবেন?
+- শেষ কবে খারাপ খবরটা আপনাকে দিতে হয়েছিল?
+- কোন জিনিসটা আপনি চলে গেলে ভেঙে পড়ত?
+
+**প্রতিটি কাঁচা ঘটনার জন্য এখন শুধু চারটে লাইন** — বিস্তারিত পরের অধ্যায়ে:
+
+```
+কী ঘটেছিল       — এক বাক্য
+আপনি কী করেছিলেন — এক বাক্য
+ফল কী হলো        — এক বাক্য
+কোন signal        — এক বা একাধিক
+```
+
+**ঘটনা ভালো কি না বোঝার দ্রুত পরীক্ষা:** ওতে কি আপনার নেওয়া একটা **সিদ্ধান্ত** আছে — যেখানে অন্যরকম করাও সম্ভব ছিল? না থাকলে ওটা ঘটনা, story নয়। "প্রজেক্টটা সময়মতো শেষ করেছিলাম" ঘটনা। "কোন দুটো ফিচার বাদ দিলে সময়মতো শেষ হবে সেটা ঠিক করে stakeholder-কে রাজি করিয়েছিলাম" — story।
+
+## অনুশীলন
+
+- টাইমার ৫ মিনিট দিন, যা মনে আসে সব ঘটনা লিখুন, তারপর কাগজটা উল্টে রাখুন। এই তালিকায় আর হাত দেবেন না আজ।
+- ক্যালেন্ডার বা git history খুলে গত ৮টা কোয়ার্টার ধরে এগোন, প্রতিটা থেকে অন্তত একটা ঘটনা তুলুন — প্রথম ঝাঁকে যেগুলো এসেছিল সেগুলো বাদ দিয়ে।
+- ছয়টা signal-এর একটা টেবিল আঁকুন, প্রতিটি ঘটনা তার ঘরে বসান। খালি ঘর কটা গুনুন — ওগুলোর জন্য আলাদা করে খুঁজতে বসুন।
+- তালিকার প্রতিটি ঘটনায় এক লাইনে লিখুন আপনি কী **সিদ্ধান্ত** নিয়েছিলেন। যেগুলোয় লেখার মতো সিদ্ধান্ত নেই, সেগুলোয় দাগ দিন — ওগুলো এখনো story নয়।
+- তালিকাটা গুনুন। ৮টার কম হলে ধাপ ৩-এর প্রশ্নগুলো নিয়ে আবার বসুন; কাজটা এখানে থামাবেন না।
+
+## মূল নিয়ম
+
+- প্রথমে মনে আসা ঘটনাগুলো লিখে **সরিয়ে রাখুন** — ওগুলো দিয়ে তালিকা শুরু করবেন না, শেষ করবেন।
+- Signal ধরে খুঁজবেন না, **সময় ধরে** খুঁজুন। স্মৃতি তারিখে সাজানো, বিভাগে নয়।
+- স্মৃতির বদলে প্রমাণ খুলুন — ক্যালেন্ডার, PR, টিকিট, পুরনো চ্যাট।
+- প্রতি কোয়ার্টারে অন্তত একটা — কোটা না থাকলে মাথা খোঁজা বন্ধ করে দেয়।
+- "এটা তো এমনিই করেছিলাম" — এই বাক্যটা এলে ঘটনাটা **রাখুন**, বাদ দেবেন না।
+- ব্যর্থতার ঘটনা আলাদা করে খুঁজুন। ওগুলো নিজে থেকে মনে পড়বে না, অথচ সবচেয়ে বেশি জিজ্ঞেস করা হবে।
+- সিদ্ধান্ত নেই যেখানে, story নেই সেখানে।
+- এই ধাপে উত্তর লিখবেন না। কাঁচামাল জড়ো করা আর রান্না — দুটো আলাদা বসা।
+- গোপন তথ্য তালিকায় তুলবেন না — ক্লায়েন্টের নাম, ভেতরের সংখ্যা, NDA-তে পড়ে এমন কিছু। ঘটনাটা বলার উপায় সবসময় আছে, নাম না নিয়েও।9:X
+e:X
+e:C
+0:{"buildId":"sU_0meduNPdkEcfcLArZN","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"২. স্টোরি"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০২.০১"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Story inventory — নিজের ঘটনা বের করা"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","div",null,{"className":"surface-well t-caption p-4 text-center","children":"এই পথের কোনো দিনে এই ডক নেই — জেনেশুনে বাদ, দরকার হলে পরে। 🧠 Pareto principle"}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"ViewportBoundary"]
+17:I[97367,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"MetadataBoundary"]
+18:I[27201,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"IconMark"]
+19:I[39756,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"default"]
+1a:I[37457,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/01-07/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০১.০৭ Growth ও Feedback গ্রহণ"}]]}],["$","$L2",null,{"href":"/doc/02-02/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০২.০২ STAR কাঠামো"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/behavioural_interview_local_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০২.০১ · Story inventory — নিজের ঘটনা বের করা — লোকাল behavioural"}],["$","meta","1",{"name":"description","content":"বাংলাদেশি কোম্পানির behavioural প্রশ্নের জন্য — ছয়টা STAR story লেখা, জোরে বলা আর যেকোনো প্রশ্নে খাটানো, ১৮০ দিনের plan-এর story-র ঘরে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/behavioural_interview_local_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

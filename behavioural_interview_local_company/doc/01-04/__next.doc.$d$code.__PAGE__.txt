@@ -1,0 +1,101 @@
+1:"$Sreact.fragment"
+2:I[22016,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js","/behavioural_interview_local_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js","/behavioural_interview_local_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T2983,## সংজ্ঞা
+
+**Failure** signal মাপে: **যখন আপনার কারণে কিছু ভুল হয়, তখন আপনি কী করেন — এবং কী শেখেন?**
+
+তিনটে স্তরে মাপা হয়, আর তিনটেই আলাদা:
+
+- **স্বীকার** — ভুলটা আপনার ছিল, এটা আপনি বলতে পারেন কি না।
+- **সামাল** — ভুলটা ধরা পড়ার পর আপনি কী করেছিলেন, কত দ্রুত, কাকে জানিয়ে।
+- **শিক্ষা** — কী বদলেছিলেন, আর সেই বদল পরে কোথায় কাজে লেগেছিল।
+
+এই signal-টা সবচেয়ে বেশি জিজ্ঞেস করা হয়, কারণ এর উত্তর ভান করা সবচেয়ে কঠিন। যে সত্যিই দায় নেয় আর যে শুধু দায় নেওয়ার ভাষা জানে — তাদের পার্থক্য দ্বিতীয় বা তৃতীয় follow-up-এ বেরিয়ে আসে।
+
+## কেন এটা কঠিন
+
+**নিরাপদ ভুল বেছে নেওয়ার প্রলোভন।** "আমি খুব বেশি খুঁটিনাটি দেখি", "আমি নিজের উপর বেশি চাপ নিই" — এগুলো ছদ্মবেশে আত্মপ্রশংসা, আর ইন্টারভিউয়াররা এটা দিনে কয়েকবার শোনেন। এমন উত্তর signal দেয় না, শুধু জানায় যে আপনি প্রশ্নটা এড়াচ্ছেন। একইভাবে দুর্বল — এতই ছোট একটা ভুল বেছে নেওয়া যে তার কোনো পরিণতিই ছিল না।
+
+**দায় ভাগ হয়ে হালকা হয়ে যায়।** "requirement স্পষ্ট ছিল না, তাই ভুলটা হয়েছিল" — হয়তো সত্যি, কিন্তু এই বাক্যে আপনি অনুপস্থিত। ইন্টারভিউয়ার খুঁজছেন সেই বাক্যটা যেখানে **আপনি** কেন্দ্রে — "requirement অস্পষ্ট ছিল, আর আমি ধরে নিয়েছিলাম বদলে যাওয়া অংশটা কেউ জানাবে। জিজ্ঞেস করিনি — ওটাই আমার ভুল।"
+
+**শিক্ষা অংশটা ফাঁপা হয়ে যায়।** "শিখেছি যে যোগাযোগ জরুরি" — এটা কোনো শিক্ষা নয়, এটা প্রবাদ। শিক্ষা প্রমাণিত হয় **পরের ঘটনায়**: তারপর আপনি কোন নির্দিষ্ট জিনিসটা অন্যভাবে করেছিলেন, আর ফল কী হয়েছিল।
+
+**উল্টো দিকে — বেশি আত্মধিক্কার।** ভুলটা নিয়ে বেশি অনুশোচনা দেখালে মনে হয় আপনি এখনো ওটা নিয়ে ভুগছেন, আর চাপের মুখে আবার ভেঙে পড়বেন। সুর হওয়া উচিত শান্ত ও বিশ্লেষণী — যেন একটা postmortem পড়ে শোনাচ্ছেন, নিজেরটা।
+
+## কীভাবে কাজ করে
+
+**প্রশ্ন যেভাবে আসে:**
+
+- *"Tell me about a time you failed."*
+- *"Describe a mistake you made and what you did about it."*
+- *"Tell me about a project that did not go as planned."*
+- *"Tell me about a decision you would make differently today."*
+
+**একই প্রশ্ন তিনটে ভিন্ন জিনিস মাপতে পারে** — accountability (দায় নেন কি?), growth (শিখেছেন কি?), judgement (আগে থেকে আঁচ করা যেত কি?)। কোনটা চলছে বোঝা যায় follow-up থেকে। প্রথম উত্তরে তিনটেরই ছোঁয়া রাখুন, তারপর follow-up যেদিকে টানে সেদিকে গভীরে যান।
+
+**যা বললে পাস, যা বললে ফেল:**
+
+| ✅ যা খুঁজছেন | ❌ যা উল্টো পড়ে |
+|---|---|
+| পরিণতি ছিল এমন একটা ভুল | ঝুঁকিহীন, সাজানো ভুল |
+| "আমার সিদ্ধান্তটা ভুল ছিল" | "পরিস্থিতিটা কঠিন ছিল" |
+| নিজে ধরেছিলেন বা দ্রুত জানিয়েছিলেন | কেউ ধরার পর স্বীকার করেছিলেন |
+| নির্দিষ্ট বদল, আর তার প্রয়োগ | "যোগাযোগের গুরুত্ব শিখেছি" |
+| শান্ত, বিশ্লেষণী সুর | অতিরিক্ত অনুশোচনা বা হালকা রসিকতা |
+
+**গল্পটা যেভাবে দাঁড়ায়:**
+
+1. **কী ভুল হয়েছিল** — এক বাক্য, অজুহাত ছাড়া।
+2. **আপনার কোন সিদ্ধান্তটা এতে ভূমিকা রেখেছিল** — এই বাক্যটাই পুরো উত্তরের কেন্দ্র।
+3. **কত দ্রুত ধরা পড়ল, আর আপনি কাকে জানালেন** — খারাপ খবর দ্রুত উপরে ওঠানো নিজেই একটা শক্ত signal।
+4. **কী করে সামাল দিলেন** — তাৎক্ষণিক পদক্ষেপ।
+5. **কী বদলালেন, আর পরে সেটা কোথায় কাজে লাগল** — শেষ অংশটাই প্রমাণ।
+
+**ধাপ ৩ বাদ পড়ে সবচেয়ে বেশি।** অথচ ইন্টারভিউয়ারের কাছে সবচেয়ে দামি তথ্য প্রায়ই এটাই — আপনি খারাপ খবরটা চাপা দেন, না তুলে ধরেন। যে দ্রুত জানায়, তার ভুল সস্তায় মেটে।
+
+**Follow-up সাধারণত যেদিকে যায়:** *"আগে থেকে বোঝার কোনো উপায় ছিল কি?"* — এটা judgement-এর দিকে মোড়। সৎ উত্তর সাধারণত "হ্যাঁ, ছিল" — আর কোন সংকেতটা আপনি তখন দেখেও পাশ কাটিয়ে গিয়েছিলেন সেটা বলতে পারা পরিপক্বতার লক্ষণ।
+
+## অনুশীলন
+
+- আপনার inventory থেকে এমন একটা ভুল বাছুন যার **সত্যিকারের পরিণতি** ছিল — সময়, টাকা, বিশ্বাস বা ব্যবহারকারীর ক্ষতি। যেটায় পরিণতি নেই, সেটা বাদ দিন।
+- ঘটনাটার কেন্দ্রীয় বাক্যটা লিখুন: "আমার ___ সিদ্ধান্তটা ভুল ছিল, কারণ ___।" এই বাক্যে "কিন্তু" বা "যেহেতু অন্যরা" ঢুকলে আবার লিখুন।
+- লিখুন কে, কখন, কীভাবে ভুলটা জানতে পেরেছিল — আর আপনি নিজে জানিয়েছিলেন কি না। না হলে সেটাও সৎভাবে লিখুন, ওটাই আপনার শেখার জায়গা।
+- "কী শিখেছি"-র জায়গায় লিখুন **পরের কোন ঘটনায় আপনি অন্যভাবে করেছিলেন**। দ্বিতীয় ঘটনাটা মনে করতে না পারলে শিক্ষাটা এখনো প্রমাণহীন।
+- পুরোটা জোরে বলুন ও রেকর্ড করুন। শুনে সুর যাচাই করুন — আত্মধিক্কার বা হালকা রসিকতা শোনালে আবার বলুন, শান্ত postmortem-এর সুরে।
+- নিজেকে follow-up করুন: *"আগে থেকে বোঝার উপায় ছিল কি?"* — উত্তরে একটা নির্দিষ্ট সংকেতের নাম নিন।
+
+## মূল নিয়ম
+
+- পরিণতি ছিল এমন ভুল বাছুন। নিরাপদ ভুল কোনো signal দেয় না।
+- ছদ্ম-দুর্বলতা বলবেন না — "বেশি খুঁটিনাটি দেখি" ধরনের উত্তর ধরা পড়ে যায়।
+- কেন্দ্রে থাকুন। পরিস্থিতি নয়, **আপনার সিদ্ধান্ত** ভুল ছিল।
+- খারাপ খবর কাকে, কত দ্রুত জানিয়েছিলেন — বলতে ভুলবেন না।
+- শিক্ষা প্রমাণ করুন পরের ঘটনা দিয়ে। প্রবাদ শিক্ষা নয়।
+- সুর শান্ত রাখুন। অনুশোচনাও নয়, হালকা রসিকতাও নয়।
+- "আগে থেকে বোঝা যেত কি" — উত্তর তৈরি রাখুন, আর সৎ রাখুন।9:X
+e:X
+e:C
+0:{"buildId":"sU_0meduNPdkEcfcLArZN","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"১. সিগন্যাল"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০১.০৪"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Failure ও Mistake"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","019-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/019/","className":"chip chip--accent self-start","children":["দিন ","০১৯"," · ","STAR #৬ — ব্যর্থতা"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"STAR #৬ — **ব্যর্থতা:** সত্যিকারের একটা ভুল — কী ভুল, দোষ কোথায় আপনার, **তারপর থেকে কী আলাদা করেন** (ডক ০২.০২ · ডক ০১.০৪)"}]]}]]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"ViewportBoundary"]
+17:I[97367,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"MetadataBoundary"]
+18:I[27201,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"IconMark"]
+19:I[39756,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"default"]
+1a:I[37457,["/behavioural_interview_local_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_local_company/_next/static/chunks/0fahs63x4k8ce.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/01-03/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০১.০৩ Conflict ও Disagreement"}]]}],["$","$L2",null,{"href":"/doc/01-05/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০১.০৫ Ambiguity ও অসম্পূর্ণ তথ্য"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/behavioural_interview_local_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০১.০৪ · Failure ও Mistake — লোকাল behavioural"}],["$","meta","1",{"name":"description","content":"বাংলাদেশি কোম্পানির behavioural প্রশ্নের জন্য — ছয়টা STAR story লেখা, জোরে বলা আর যেকোনো প্রশ্নে খাটানো, ১৮০ দিনের plan-এর story-র ঘরে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/behavioural_interview_local_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"
