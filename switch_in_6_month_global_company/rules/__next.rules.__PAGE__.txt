@@ -1,0 +1,223 @@
+1:"$Sreact.fragment"
+2:I[82484,["/switch_in_6_month_global_company/_next/static/chunks/1fo35igr36231.js","/switch_in_6_month_global_company/_next/static/chunks/06zg692j7ulzb.js","/switch_in_6_month_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+3:T6b66,## লক্ষ্য
+
+> **১৮০ দিনে big tech মানের কোম্পানিতে — দেশে থেকে, রিমোটে — ১০টা আবেদন, আর অন্তত ৩টা interview process সম্পূর্ণ।**
+
+offer পাওয়া লক্ষ্য নয় — কে নিয়োগ দেবে তা বাজার ঠিক করে। আবেদন পাঠানো আর process শেষ করা পুরোটাই আপনার হাতে, তাই মাপা হবে ওটাই।
+
+**offer-এর নিচের সীমা: মাসে $১,৭০০** — রিমোটের সমান; `brainstorming/income-math.md`-এর "২ বছরে ২ লাখ" সেকশনের একমাত্র সংখ্যা (ব্যবহারকারীর সিদ্ধান্ত ২০২৬-০৯-১৫)। **সীমা, লক্ষ্য নয়** — এর নিচে নয়, এটুকুই। বেতনের আসল তথ্য (দিন ০৫৮, ০৯৪) পেলে উপরে তোলা যায়, নিচে নয়। সাথে কাজের সময়ের সীমা: রাত ১১টার পরে নয়; contractor হলে তুলনা insurance, ট্যাক্স আর ছুটির খরচ বাদ দিয়ে। offer হাতে আসার পরে মানুষ যেকোনো সংখ্যাকেই যুক্তি দিয়ে মেনে নেয়।
+
+**সংখ্যা কেন ২০ নয়, ১০:** দেশ থেকে রিমোটে নেয় এমন big tech মানের কোম্পানি হাতেগোনা; প্রতিটা process ৪–৬ রাউন্ড, চলে কয়েক সপ্তাহ; আর সপ্তাহের বড় অংশ যায় DSA আর system design-এ। একই plan-এ ২০টা লিখলে শুরু থেকেই dip।
+
+## সত্যের উৎস
+
+আবেদন আর process-এর সংখ্যা, আর "দেশে থেকে রিমোট, relocation নয়" — ব্যবহারকারীর সিদ্ধান্ত (২০২৬-০৯-১৫)। বাকি কাজ আগে থেকে লেখা ফাইল থেকে দিনে ভাঙা। কোনো তথ্য বদলালে এই ক্রমে:
+
+1. `brainstorming/ASSUMPTIONS.md`
+2. `brainstorming/` — বিশেষ করে `dsa.md` (তিন পথ · FAANG-এ কী ভালো), `system-design.md` (FAANG-এ কী ভালো), `which-market.md` (রিমোট কোম্পানি), `proof-projects-and-cv.md` (সিভি), `after-joining.md` (ধাপ ১১), `application-to-offer.md`
+3. এই ফোল্ডার
+
+এটা তিনটা বিকল্প plan-এর একটা — একজন একটাই চালায়: [লোকাল](https://sojibrd.github.io/switch_in_6_month_local_company/) · [রিমোট](https://sojibrd.github.io/switch_in_6_month_remote_company/) · **গ্লোবাল** (এটা)।
+
+**কখন:** brainstorming-এ গ্লোবাল কোনো stage-এ নেই — *"লক্ষ্য নয়, দিক"*। তবু plan-টা যেকোনো দিন শুরু করা যায় — সাইট প্রথমবার খুললে শুরুর তারিখ জিজ্ঞেস করে।
+
+## কীভাবে পড়বেন
+
+- ১৮০ দিন, ৩০ দিনের ৬টা ব্লক। **দিন ০০১ = সোমবার** ধরে লেখা — শুরুর তারিখ সোমবার বাছুন।
+- প্রতিটা দিনে কয়েকটা `- [ ]` কাজ, আর শেষে একটা **দিন শেষে** প্রশ্ন — হ্যাঁ/না।
+- `৩০′` = মিনিট। একটা দিন মোটামুটি ৬০′, তার মধ্যে রোজ ১৫′ মুখে ইংরেজি।
+- 🧠 (নাম) = কাজটা `learning_to_learn`-এর কোন নীতি থেকে এসেছে।
+- 🔁 = এই কাজ শেষ করার দিন থেকে **১, ৩, ৭, ২১ দিন পরে** না দেখে আবার। তারিখ সাইট নিজে হিসাব করে।
+- ⚑ = মাইলফলক। নির্ধারিত দিনে না হলে শেষ না হওয়া পর্যন্ত প্রতিদিন সামনে থাকবে।
+- ⏳ = আপনার উত্তর বাকি।
+
+## "আজ" মানে ক্যালেন্ডারের আজ
+
+plan পেছায় না। শুরু থেকে আজ ৫১তম দিন হলে আজকের কাজ দিন ০৫১-এর — গতকাল কী বাদ পড়েছে তা নয়।
+
+- **সাধারণ কাজ বাদ পড়লে** — সেদিনের সাথেই যায়। পরের দিন দ্বিগুণ করবেন না।
+- **⚑ মাইলফলক বাদ পড়লে** — জমে থাকে; আজকের কাজের আগে ওটা।
+- **ঘুম কেটে পূরণ নয়।** এক সপ্তাহ খারাপ গেলে পরের সপ্তাহে ছন্দে ফেরা — সেটাই পূরণ। 🧠 (Sleep · Efficiency trumps grit)
+- **যেদিন interview, সেদিন interview-ই দিনের কাজ।** plan-এর কাজ বাদ; রাতে ৫ লাইনের নোট।
+
+ফাইলে শুধু দিনের নম্বর, তারিখ নয়। শুরু সরালে পুরো plan একসাথে সরে। 🧠 (Parkinson's law)
+
+---
+
+## বাজার — একটা অস্বস্তিকর সত্য আগে
+
+FAANG (Google, Meta, Amazon…) বাংলাদেশ থেকে রিমোটে প্রায় নিয়োগই করে না। তাই এই plan-এর তালিকার **শর্ত দুটো, দুটোই চাই:**
+
+1. **interview-এর মান big tech-এর** — DSA-র রাউন্ড, system design-এর রাউন্ড, behavioral-এর রাউন্ড আলাদা আলাদা।
+2. **বাংলাদেশ থেকে রিমোটে নেয়** — careers পাতায় বা job post-এ যাচাই করে; যাচাই না হলে নাম বাদ। নাম অনুমানে বসানো নয়।
+
+টাইমজোনের নিয়ম রিমোটের মতোই: ইউরোপ/এশিয়ার কাজের সময় আগে; যুক্তরাষ্ট্র শুধু পুরো async হলে — রাত ৯টা–৩টা ছোট সন্তান নিয়ে টেকে না। নিয়োগ সাধারণত EOR বা contract দিয়ে, তাই **টাকা আনার ব্যবস্থা** রিমোটের মতোই আগে।
+
+## interview — কী মাপা হয়
+
+| রাউন্ড | কীভাবে আসে | এই plan-এ |
+|---|---|---|
+| **DSA** | ৪৫ মিনিটে ১–২টা প্রবলেম; সারাক্ষণ একজন শুনছেন আপনি কীভাবে ভাবছেন। সঠিক উত্তর অর্ধেক নম্বর — বাকি অর্ধেক প্রশ্ন করা, trade-off বলা, নিজের কোড নিজে test | গ্লোবাল DSA সাইট, রোজ |
+| **System design** | ৪৫ মিনিট, মুখে, ঘড়ির নিচে | [গ্লোবাল system design](https://sojibrd.github.io/system_design_global_company/) — ছয় সেকশনের ছাঁচে ৮টা সিস্টেম, প্রতিটা লিখে তারপর ৪৫′-এ বলে |
+| **Frontend system design** | frontend পদে আলাদা রাউন্ড — component, state, ডেটা আনা ও cache, performance, accessibility | [গ্লোবাল system design](https://sojibrd.github.io/system_design_global_company/) — ৬টা UI (autocomplete, news feed, infinite feed, file upload, chat, video player), ছয় ধাপে |
+| **Behavioral** | ছয়টা signal — দায়িত্ব, মতবিরোধ, ব্যর্থতা, অস্পষ্টতা, প্রভাব, শেখা | ৬ STAR story, এলোমেলো প্রশ্নে |
+
+**সংখ্যা জমান।** কত ব্যবহারকারী, কত শতাংশ দ্রুত, কত সময় বাঁচল — কাজ করার সময়ই নোট করুন; big tech-এর interviewer ঠিক ঐ সংখ্যা ধরেই প্রশ্ন করেন।
+
+---
+
+## সপ্তাহের ছন্দ
+
+সপ্তাহে ৭ ঘণ্টা:
+
+| দিন | কাজ | সময় |
+|---|---|---|
+| সোম | DSA · বার্তা বা রেফারেল ×১ | ৩০′ + ১৫′ |
+| মঙ্গল | DSA · system design-এর ছোট কাজ | ৩০′ + ২৫′ |
+| বুধ | DSA · STAR / behavioral | ৩০′ + ২৫′ |
+| বৃহস্পতি | DSA · frontend system design | ৩০′ + ২৫′ |
+| শুক্র | DSA · বার্তা বা follow-up | ৩০′ + ১৫′ |
+| শনি | লম্বা বসা — design doc লেখা, বা mock; সাত শনিবারে DSA-র mock (দিন ০৩৪, ০৬২, ০৯০, ১১৮, ১৪৬, ১৬৭, ১৭৪) | ৬০′ |
+| রবি | সপ্তাহের হিসাব · **এক রবিবার আবেদন, পরের রবিবার ৪৫′-এ মুখে design** | ১০′ + ৪৫′ |
+| রোজ | মুখে ইংরেজি — ঐ দিনের কাজ নিয়ে | ১৫′ |
+
+**আবেদন দুই সপ্তাহে ১টা** — দিন ০১৪, ০২৮, ০৪২ … ১৪০-এ ১০টা; তারপরও একই ছন্দ, সই না হওয়া পর্যন্ত। প্রতিটা আবেদনে সময় বেশি, কারণ রেফারেল খোঁজা আর সিভি মেলানো এখানে বড় কাজ।
+
+**DSA এক সাইটে — [গ্লোবাল DSA](https://sojibrd.github.io/dsa_prep_global_company/), দিন ০০৮–১৭৫:** ১৬৮ দিনে ১১০টা প্রবলেম — টপিক ১–৫-এর ভিত্তি থেকে সব ১০ টপিক, প্রথম দিন থেকে interview-এর পাঁচ ধাপে, ইংরেজিতে জোরে। ঐ সাইটে শুরুর তারিখ = এই plan-এর দিন ০০৮-এর তারিখ। সাইটটা স্বাধীন — আগে অন্য কোনো DSA সাইট লাগে না (ব্যবহারকারীর সিদ্ধান্ত ২০২৬-০৯-১৫)।
+
+**১৮০ দিনের মধ্যেই গ্লোবাল DSA শেষ** — নতুন প্রবলেম দিন ১৫৯-এর সপ্তাহে, থামা দিন ১৭৫-এ। তারপর ঐ ৩০′ = আজকের ঝালাই। **DSA শেষের অপেক্ষায় আবেদন থামে না।**
+
+**ঐ সাইটের দিন এই plan-এর ঘরের মাপে লেখা** — সোম–শুক্র একটা প্রবলেম, ৩০′। শনি-রবির হালকা কাজ (১৫′ আর ১০′) এই plan-এ আলাদা ঘর পায় না; সময় পেলে করুন। এই plan-এর হালকা দিনে (mock-এর আগের দিন) DSA-র ঘর নেই — ঐ দিনের প্রবলেম ⚑ হলে ঐ সাইটের হোমে জমে থাকে, পরের দিন করুন।
+
+ঐ সাইটের **সাতটা ⚑ DSA mock** (৬০′) এই plan-এর শনিবারে — **দিন ০৩৪, ০৬২, ০৯০, ১১৮, ১৪৬, ১৬৭,** আর দিন ১৭৪-এ mock #৪-এর পুরো loop-এর DSA অংশই ঐ সাইটের শেষ mock। ঐ শনিবারগুলোর কাজ পাশের দিনে সরানো (ব্যবহারকারীর সিদ্ধান্ত ২০২৬-০৯-১৫)। এই plan-এর নিজের চারটা mock-ও থাকছে (দিন ১০৪, ১৩৯, ১৬০, ১৭৪)।
+
+**System design এক সাইটে — [গ্লোবাল system design](https://sojibrd.github.io/system_design_global_company/), দিন ০০৮–১৭৫:** এই plan-এর system design-এর ঘরগুলোই (বেশিরভাগ মঙ্গল, বৃহস্পতি, শনি, রবি) ঐ সাইটের দিন — ছয় সেকশন, frontend-এর ছয় ধাপ, আট সিস্টেম, ৪৫′-এ মুখে বলা আর তাদের ঝালাই সব ওখানে। ঐ সাইটে শুরুর তারিখ = এই plan-এর দিন ০০৮-এর তারিখ; যে দিনে এখানে design-এর ঘর নেই, ঐ সাইটে সেদিন কাজ নেই। সাইটটা স্বাধীন — আগে অন্য কোনো system design সাইট লাগে না (ব্যবহারকারীর সিদ্ধান্ত ২০২৬-০৯-১৫)। দিন ১৩৯-এর system design mock আর দিন ১৭৪-এর পুরো loop এই plan-এই।
+
+দিনের নাম শুধু ছন্দ বোঝাতে; অফিসের ছুটির দিন অনুযায়ী ভারী দিনগুলো সরাতে চাইলে ফাইলে সরান।
+
+## কখন বসবেন ⏳
+
+দিন ০০১-এর কাজ। উত্তর এখানে লিখুন:
+
+- **মাথা সবচেয়ে ভালো চলে:** ⏳ — কঠিন কাজ (DSA, design) এই সময়ে 🧠 (Productivity time)
+- **সংকেত:** "⏳ করার পরেই বসব" — ইচ্ছাশক্তির উপর নয় 🧠 (Habits revisited)
+- **সহজ কাজ** (বার্তা, spreadsheet, তালিকা) বাকি সময়ে।
+
+---
+
+## প্রতিটা বসায় — শেখার নিয়ম
+
+| নিয়ম | কীভাবে | নীতি |
+|---|---|---|
+| বসার আগে এক লাইন | "আজ কোন দুর্বলতায় কাজ করব" লিখে তারপর শুরু | Deliberate practice |
+| টাইমার | শেষ সময় আগে ঠিক; ফোন অন্য ঘরে, notification বন্ধ | Have an endpoint · Deep work · Pomodoro |
+| না দেখে আবার | 🔁 কাজ ১, ৩, ৭, ২১ দিন পরে ঝালাই হয়ে ফিরে আসে | Spaced repetition · Test yourself |
+| তিন লাইনে ব্যাখ্যা | design, story বা প্রবলেম শেষে **ইংরেজিতে** ৩ লাইন; যেখানে আটকায় সেটাই ফাঁক | Feynman |
+| মিশিয়ে অনুশীলন | mock আর ঝালাইয়ে প্রশ্ন এলোমেলো তুলে | Interleaving |
+| নিজের গলা শোনা | ইংরেজি সপ্তাহে একবার রেকর্ড করে শোনা | Feedback |
+| আটকালে উঠে হাঁটা | ১০ মিনিট আটকে থাকলে বিরতি, ফোন ছাড়া | Focus vs Diffuse |
+| পড়া নয়, করা | ২৫টা ডক পড়া ইনপুট; নতুন design doc লেখা আর বলা আউটপুট — গোনা হবে শুধু দ্বিতীয়টা | Active learning |
+
+### DSA-র বসা
+
+প্রবলেম, বসার ধাপ, নোট আর DSA-র ঝালাই সব DSA-র সাইটে। এখানে টিক দিন শুধু ঘরটা বসা হয়েছে কি না তার জন্য।
+
+### Design-এর বসা
+
+ছয় সেকশনের লেখা, ৪৫′-এ বলা, frontend-এর ছয় ধাপ, আট সিস্টেমের তালিকা আর design-এর ঝালাই সব [গ্লোবাল system design](https://sojibrd.github.io/system_design_global_company/)-এ। এখানে টিক দিন শুধু ঘরটা বসা হয়েছে কি না তার জন্য।
+
+### STAR story-র বসা
+
+দিন ০০৬–১৪৩-এর story-র কাজ চলে [গ্লোবাল behavioural](https://sojibrd.github.io/behavioural_interview_global_company/)-এ — কোন দিনে কোন story, বসার চার ধাপ, ঝালাই আর `behavioural_interview`-এর ২৫টা ডক সব ওখানে (ঐ সাইটের দিন ০০১ = এই plan-এর দিন ০০৬; ব্যবহারকারীর সিদ্ধান্ত ২০২৬-০৯-১৫)। রোজের ইংরেজির ১৫′-এ story জোরে বলা আর mock interview এই plan-এই। এখানে টিক দিন শুধু ঘরটা বসা হয়েছে কি না তার জন্য।
+
+### ঝালাই — কীভাবে চলে
+
+- 🔁 কাজে টিক দিলে ঐ **আসল তারিখ** থেকে ১ → ৩ → ৭ → ২১ দিন।
+- প্রতিটা ঝালাইয়ে দুটো উত্তর: **মনে ছিল** (পরের ধাপে) বা **আটকে গেছি** (আবার ১ দিনে)। আটকে যাওয়া শাস্তি নয়, তথ্য।
+- ২১ দিনের ধাপ পার হলে ঝালাই শেষ — ওটা এখন স্থির।
+- এক দিনে অনেক জমলে কঠিনগুলো আগে, সহজগুলো কাল।
+
+---
+
+## আবেদনের নিয়ম
+
+- **পথ, কার্যকারিতার ক্রমে:** রেফারেল → engineer বা hiring manager-কে সরাসরি বার্তা → careers পাতা। big tech-এ রেফারেল ছাড়া সিভি ভিড়ে হারায় — প্রতিটা আবেদনের আগে ১ম বা ২য় ডিগ্রির সংযোগ খুঁজুন।
+- **প্রতিটা আবেদনের আগে সিভি ঐ পদের JD-র শব্দে মেলানো,** আর রেফারেল পেলে তাকে ৩ লাইনে: কোন পদ, কেন আপনি, একটা লিংক।
+- **LinkedIn বার্তা — তিন লাইনের বেশি নয়:**
+
+  ```
+  Hi [Name], I'm a frontend engineer (TypeScript · React · Ember, 4 yrs) in Dhaka, UTC+6.
+  I'm applying for the remote [Role] at [Company] — [one concrete link that matches the role].
+  Would you be open to referring me, or telling me what the team looks for?
+  ```
+
+- **সিভি — এক পাতা, এক কলাম, ছবি নয়;** মাথায় *"Dhaka, Bangladesh · Open to remote (UTC+6)"*; প্রতিটা bullet *কী করেছেন + কীভাবে + ফল*, ফলে সংখ্যা বা scope — **সংখ্যা বানানো কখনো নয়**, interviewer ঠিক ঐটা ধরেই প্রশ্ন করেন। ATS-এর জন্য সাধারণ heading, PDF।
+- **follow-up:** আবেদনের ৭–১০ দিন পরে একবার, একবারই।
+- **spreadsheet, ৬ কলাম:** কোম্পানি · তারিখ · কোন পথে · অবস্থা · পরের কাজ · নোট (কোন কোন রাউন্ড, রিমোট কোন দেশ থেকে)। মুছবেন না।
+- **২০২৬-১১-০১ থেকে** সারাংশে "nearly 4 years" → "4 years" (চাকরি শুরু Nov 2022)।
+
+## interview এলে
+
+- **২৪ ঘণ্টার মধ্যে উত্তর** — ধন্যবাদ + ২–৩টা সময়ের বিকল্প, ওদের টাইমজোনে, পাশে UTC+6।
+- **প্রথম কলেই জিজ্ঞেস:** কোন কোন রাউন্ড, কোন level-এর পদ, রিমোটটা বাংলাদেশ থেকে কীভাবে (EOR নাকি contract) — তারপর শুধু সেই রাউন্ডগুলোর প্রস্তুতি।
+- **প্রতিটা কলের আগে ৩০′:** প্রোডাক্ট ব্যবহার, JD আবার, ওদের stack, ওদের জন্য ২টা প্রশ্ন।
+- **DSA রাউন্ডে:** clarify → brute force → optimize → code → test; আটকালে চুপ নয়: *"I'm considering two approaches — let me think about which one fits the constraint."*
+- **Design রাউন্ডে:** প্রশ্ন আর scope আগে, সহজ কাজ-করা ডিজাইন আগে, তারপর ধাপে ধাপে; শেষে নিজে থেকে "কোথায় ভাঙবে"।
+- **প্রতিটা interview-এর পরে ৫ লাইন:** কী প্রশ্ন, কোথায় আটকেছি, পরের বার কী আলাদা। এই নোটগুলোই আসল সিলেবাস। 🧠 (Feedback · Failures don't count)
+- **process সম্পূর্ণ** মানে ঐ কোম্পানির শেষ ধাপ পর্যন্ত যাওয়া — offer, না, বা নিজে সরে আসা।
+
+---
+
+## Dip-এর নিয়ম — আগে থেকে লেখা
+
+ব্লক ৩–৬ (দিন ০৬১–১৮০) ছেড়ে দেওয়ার ঝুঁকির সময় — সবচেয়ে লম্বা মাঝখান: আবেদন অল্প, প্রতিটার উত্তর দেরিতে, DSA কঠিন হচ্ছে। তখন সিদ্ধান্ত নেবেন না — নিয়মগুলো আজই নেওয়া। 🧠 (The dip)
+
+- **সাড়া না এলেও দুই সপ্তাহে ১টা আবেদন।** মাপুন যা আপনার হাতে — পাঠানোর সংখ্যা, ফল নয়। 🧠 (System vs goal)
+- **ফানেল না দেখে দিক বদল নয়।** "সব ভুল হচ্ছে" মনে হলে আগে spreadsheet আর interview নোট খুলে দেখুন কোন রাউন্ডে ঝরছে। 🧠 (The dip)
+- **"আমি পারি না" নয়, "এখনো ___ রাউন্ডে আছি"।** 🧠 (It's all in the frame)
+- **ব্যর্থ interview = নোটের কাঁচামাল।** ৫ লাইন লেখা হলে ওটা ক্ষতি নয়। 🧠 (Failures don't count)
+- **নতুন টুল, নতুন কোর্স, নতুন repo — dip-এর ছদ্মবেশ।** এই সাইটে নতুন ফিচার যোগ করাও।
+
+## যা করবেন না
+
+- **DSA শেষের অপেক্ষায় আবেদন বা design বন্ধ নয়।** তিনটা সমান্তরালে।
+- **mock এড়িয়ে একা অনুশীলন নয়।** একা পারা আর কারও সামনে পারা আলাদা দক্ষতা।
+- **design doc না লিখে ডক পড়া নয়।** ২৫টা ডক রেফারেন্স হিসেবে যথেষ্ট।
+- **নাম না যাচাই করে তালিকায় তোলা নয়** — রিমোটে বাংলাদেশ থেকে নেয় কিনা, আগে দেখা।
+- **নতুন প্রজেক্ট নয়।** pin থাকবে তিনটা — `dsa_prep_local_company`, `system_design_local_company`, `srdtube`।
+- **"প্রস্তুত হয়ে আবেদন করব" নয়।** প্রথম interview-গুলো খারাপ যাবে — ওগুলোই আসল প্রস্তুতি।
+- **বর্তমান চাকরি ছাড়বেন না।** বেতন হাতে রেখে খোঁজাই সবচেয়ে শক্ত অবস্থান।
+
+## পাশাপাশি — টাকা
+
+- **টাকা আনার ব্যবস্থা offer-এর আগে:** Payoneer বা ব্যাংকে রেমিট্যান্স, ফ্রিল্যান্সার আইডি, ট্যাক্সের হিসাব — ব্লক ১-এ।
+- বেতনের দিনেই **৪০,০০০ টাকা** আলাদা করে **সোনায়**। খরচ ১৫,০০০। ৬ মাসের emergency fund নগদে আছে — তুললে আগে ওটা পূরণ।
+- নিজে insurance কিনবেন না; নতুন অফিস দিলে নেবেন। contract হলে insurance নেই — offer তুলনায় এটা ধরুন।
+
+## দিন ১৮০-র পরে
+
+- **offer এলে** — ১৮০ দিনের আগে হোক বা পরে: `brainstorming/application-to-offer.md`-এর ধাপ ৬ আর `after-joining.md`-এর ধাপ ৭। রিমোট offer-এ দেখবেন — employee (EOR) নাকি contractor, মুদ্রা আর টাকার পথ, ঢাকার সময়ে কখন কাজ, notice।
+- **না এলে** DSA-র ঝালাই, সপ্তাহে একটা mock, আর দুই সপ্তাহে একটা আবেদন চলতে থাকবে — **সই না হওয়া পর্যন্ত।**7:X
+c:X
+c:C
+0:{"buildId":"r1BCRs43Yd3QtDWG73iDQ","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — ১৮০ দিন, গ্লোবাল"}],["$","p",null,{"className":"t-body measure text-sm","children":"১৮০ দিন · ৩০ দিনের ৬টা ব্লক · দেশে থেকে big tech মানের কোম্পানিতে রিমোট"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L2",null,{"className":"measure","children":"$3"}]}]],["$L4"],"$L5"]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":"$L8","isPartial":"$@9","staleTime":"$7","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$7","varyParams":"$c"}],"isUpgradeableISRFallback":false,"a":"$@d","rootVaryParams":null,"needsRuntimeRequest":"$@e"}
+f:I[97367,["/switch_in_6_month_global_company/_next/static/chunks/1fo35igr36231.js","/switch_in_6_month_global_company/_next/static/chunks/06zg692j7ulzb.js"],"OutletBoundary"]
+10:"$Sreact.suspense"
+12:I[97367,["/switch_in_6_month_global_company/_next/static/chunks/1fo35igr36231.js","/switch_in_6_month_global_company/_next/static/chunks/06zg692j7ulzb.js"],"ViewportBoundary"]
+13:I[97367,["/switch_in_6_month_global_company/_next/static/chunks/1fo35igr36231.js","/switch_in_6_month_global_company/_next/static/chunks/06zg692j7ulzb.js"],"MetadataBoundary"]
+14:I[27201,["/switch_in_6_month_global_company/_next/static/chunks/1fo35igr36231.js","/switch_in_6_month_global_company/_next/static/chunks/06zg692j7ulzb.js"],"IconMark"]
+15:I[39756,["/switch_in_6_month_global_company/_next/static/chunks/1fo35igr36231.js","/switch_in_6_month_global_company/_next/static/chunks/06zg692j7ulzb.js"],"default"]
+16:I[37457,["/switch_in_6_month_global_company/_next/static/chunks/1fo35igr36231.js","/switch_in_6_month_global_company/_next/static/chunks/06zg692j7ulzb.js"],"default"]
+4:["$","script","script-0",{"src":"/switch_in_6_month_global_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+5:["$","$Lf",null,{"children":["$","$10",null,{"name":"Next.MetadataOutlet","children":"$@11"}]}]
+8:["$","$1","h",{"children":[null,["$","$L12",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$10",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"নিয়ম — ৬ মাসে গ্লোবাল বদল"}],["$","meta","1",{"name":"description","content":"দেশে থেকে big tech মানের কোম্পানিতে রিমোট — ১০টা আবেদন আর ৩টা সম্পূর্ণ interview process, ১৮০ দিন, প্রতিদিনের কাজ, ঝালাই আর learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/switch_in_6_month_global_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L14","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+a:["$","$1","c",{"children":[null,["$","$L15",null,{"parallelRouterKey":"children","template":["$","$L16",null,{}]}]]}]
+e:true
+11:null
+7:300
+7:C
+d:0
+9:"$undefined"
+b:"$undefined"
+6:"$undefined"
