@@ -1,0 +1,186 @@
+1:"$Sreact.fragment"
+2:I[82484,["/switch_in_6_month_local_company/_next/static/chunks/1fo35igr36231.js","/switch_in_6_month_local_company/_next/static/chunks/30ubrg5o6rp2i.js","/switch_in_6_month_local_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+3:T4e68,## লক্ষ্য
+
+> **১৮০ দিনে বাংলাদেশি কোম্পানিতে ২০টা আবেদন, আর অন্তত ৫টা interview process সম্পূর্ণ।**
+
+offer পাওয়া লক্ষ্য নয় — কে নিয়োগ দেবে তা বাজার ঠিক করে। আবেদন পাঠানো আর process শেষ করা পুরোটাই আপনার হাতে, তাই মাপা হবে ওটাই।
+
+## সত্যের উৎস
+
+এই plan নতুন কোনো লক্ষ্য, সংখ্যা বা তারিখ যোগ করে না — শুধু আগে থেকে লেখা কাজগুলো দিনে ভাঙে। কোনো তথ্য বদলালে এই ক্রমে:
+
+1. `brainstorming/ASSUMPTIONS.md`
+2. `brainstorming/` — বিশেষ করে `root-problem-and-first-goal.md` (প্রথম লক্ষ্য), `which-market.md` (বাংলাদেশি কোম্পানি), `application-to-offer.md`
+3. এই ফোল্ডার
+
+এটা তিনটা বিকল্প plan-এর একটা — একজন একটাই চালায়: **লোকাল** (এটা) · [রিমোট](https://sojibrd.github.io/switch_in_6_month_remote_company/) · [গ্লোবাল](https://sojibrd.github.io/switch_in_6_month_global_company/)। রিমোট আবেদন, সিভির রিমোট সংস্করণ আর টাকা আনার ব্যবস্থা রিমোটের plan-এ।
+
+## কীভাবে পড়বেন
+
+- ১৮০ দিন, ৩০ দিনের ৬টা ব্লক। ব্লক ক্যালেন্ডার মাস নয়।
+- প্রতিটা দিনে কয়েকটা `- [ ]` কাজ, আর শেষে একটা **দিন শেষে** প্রশ্ন — হ্যাঁ/না।
+- `৩০′` = মিনিট। একটা দিন মোটামুটি ৬০′, তার মধ্যে রোজ ১৫′ মুখে ইংরেজি।
+- 🧠 (নাম) = কাজটা `learning_to_learn`-এর কোন নীতি থেকে এসেছে।
+- 🔁 = এই কাজ শেষ করার দিন থেকে **১, ৩, ৭, ২১ দিন পরে** না দেখে আবার। তারিখ সাইট নিজে হিসাব করে।
+- ⚑ = মাইলফলক। নির্ধারিত দিনে না হলে শেষ না হওয়া পর্যন্ত প্রতিদিন সামনে থাকবে।
+- ⏳ = আপনার উত্তর বাকি।
+
+## "আজ" মানে ক্যালেন্ডারের আজ
+
+plan পেছায় না। শুরু থেকে আজ ৫১তম দিন হলে আজকের কাজ দিন ০৫১-এর — গতকাল কী বাদ পড়েছে তা নয়।
+
+- **সাধারণ কাজ বাদ পড়লে** — সেদিনের সাথেই যায়। পরের দিন দ্বিগুণ করবেন না।
+- **⚑ মাইলফলক বাদ পড়লে** — জমে থাকে; আজকের কাজের আগে ওটা।
+- **ঘুম কেটে পূরণ নয়।** এক সপ্তাহ খারাপ গেলে পরের সপ্তাহে ছন্দে ফেরা — সেটাই পূরণ। 🧠 (Sleep · Efficiency trumps grit)
+- **যেদিন interview, সেদিন interview-ই দিনের কাজ।** plan-এর কাজ বাদ; রাতে ৫ লাইনের নোট।
+
+ফাইলে শুধু দিনের নম্বর, তারিখ নয়। দিন ০০১ কোন তারিখে, সেটা সাইটের "আজ" পাতায় বসানো — এই plan ২০২৬-০৯-১৪-এ শুরু হয়েছিল, ওটাই আগে থেকে বসানো। শুরু সরালে পুরো plan একসাথে সরে। 🧠 (Parkinson's law)
+
+---
+
+## সপ্তাহের ছন্দ
+
+সপ্তাহে ৭ ঘণ্টা। দিন ০০১ = সোমবার ধরে লেখা। ব্লক ১–২-এ (DSA চলার সময়):
+
+| দিন | কাজ | সময় |
+|---|---|---|
+| সোম | DSA ১টা · LinkedIn বার্তা ×২ | ৩০′ + ১৫′ |
+| মঙ্গল | DSA ১টা · আবেদন ১টা | ৩০′ + ৩০′ |
+| বুধ | DSA ১টা · interview-প্রস্তুতি (STAR, README, …) | ৩০′ + ২৫′ |
+| বৃহস্পতি | DSA ১টা · আবেদন ১টা | ৩০′ + ৩০′ |
+| শুক্র | DSA ১টা · বার্তা ×১ · follow-up | ৩০′ + ১৫′ |
+| শনি | interview-প্রস্তুতির লম্বা বসা | ৬০′ |
+| রবি | সপ্তাহের হিসাব · প্রমাণের কাজ (README, design doc) | ১০′ + ৪৫′ |
+| রোজ | মুখে ইংরেজি — ঐ দিনের কাজ নিয়ে | ১৫′ |
+
+**দিন ০৪৭-এ DSA-র ৩০টা শেষ।** তারপর সোম–শুক্রের ঐ ৩০′-এ আগে আজকের ঝালাই — DSA-র ঝালাই [`dsa_prep_local_company`](https://sojibrd.github.io/dsa_prep_local_company/review/)-এ, STAR আর বাকি 🔁 কাজের ঝালাই এই সাইটে, ১৫′-এর মধ্যে — তারপর দিন ০৫০–০৭৭-এ [লোকাল system design](https://sojibrd.github.io/system_design_local_company/), দিন ০৭৮ থেকে ব্লকের interview-প্রস্তুতি। আবেদন সপ্তাহে ২টা চলতেই থাকবে — সই না হওয়া পর্যন্ত।
+
+দিনের নাম শুধু ছন্দ বোঝাতে; অফিসের ছুটির দিন অনুযায়ী ভারী দিনগুলো সরাতে চাইলে ফাইলে সরান।
+
+## কখন বসবেন
+
+দিন ০০১-এর কাজ। উত্তর (২০২৬-১০-০৩):
+
+- **মাথা সবচেয়ে ভালো চলে:** রাতে — সেপ্টেম্বরের commit-এর ৪১% রাত ১১টা থেকে ভোর ৬টায়, সকাল ৬–৯টায় প্রায় শূন্য। বসা **রাত ১০:৩০–১১:৩০**, বাসায়, PC-তে; অফিস ১০টা–৭টা। কঠিন কাজ (DSA, STAR) এই সময়ে 🧠 (Productivity time)
+- **সংকেত:** রাত ১০:৩০-এ ফোনে calendar-এর notification ("আজকের কাজ — switch plan", রোজ, দিন ১৮০ পর্যন্ত) → PC খুলে Claude-এ "আজকের কাজ"। আগের কাজ: **রাতের খাবার** — খাওয়া শেষ হলেই বসা (২০২৬-১০-২৭) 🧠 (Habits revisited)
+- **প্রথমে ইংরেজির ১৫′** — জোরে বলার কাজ, বাসার সবাই জেগে থাকতে।
+- **শেষ ১১:৩০** (২০২৬-১০-২৭-এ ১১:৪৫ থেকে) — এর পরে নয়; ঘুম কেটে পূরণ নয়। 🧠 (Have an endpoint · Sleep)
+- **সহজ কাজ** (আবেদন পাঠানো, বার্তা, spreadsheet) বাকি সময়ে।
+- **পর্যালোচনা ২০২৬-১০-১০** — এক সপ্তাহের টিক দেখে সময়টা টিকছে কিনা।
+
+---
+
+## প্রতিটা বসায় — শেখার নিয়ম
+
+| নিয়ম | কীভাবে | নীতি |
+|---|---|---|
+| বসার আগে এক লাইন | "আজ কোন দুর্বলতায় কাজ করব" লিখে তারপর শুরু | Deliberate practice |
+| টাইমার | শেষ সময় আগে ঠিক; ফোন অন্য ঘরে, notification বন্ধ | Have an endpoint · Deep work · Pomodoro |
+| না দেখে আবার | 🔁 কাজ ১, ৩, ৭, ২১ দিন পরে ঝালাই হয়ে ফিরে আসে | Spaced repetition · Test yourself |
+| তিন লাইনে ব্যাখ্যা | প্রবলেম বা story শেষে ইংরেজিতে ৩ লাইন; যেখানে আটকায় সেটাই ফাঁক | Feynman |
+| মিশিয়ে অনুশীলন | ভিত্তি হয়ে গেলে টপিক মিশিয়ে; প্রশ্ন এলোমেলো তুলে | Interleaving |
+| নিজের গলা শোনা | ইংরেজি সপ্তাহে একবার রেকর্ড করে শোনা | Feedback |
+| আটকালে উঠে হাঁটা | ১০ মিনিট আটকে থাকলে বিরতি, ফোন ছাড়া | Focus vs Diffuse |
+| পড়া নয়, করা | ভিডিও বা ডক পড়া কাজ গোনা হবে না — লেখা, বলা, কোড করা গোনা হবে | Active learning |
+
+### DSA-র বসা — ৩০′
+
+দিন ০০৮–০৪৭-এর ৩০′ DSA-র ঘর চলে [`dsa_prep_local_company`](https://sojibrd.github.io/dsa_prep_local_company/)-এ — কোন দিনে কোন প্রবলেম, বসার ৮ ধাপ, দুই ঘরের নোট আর DSA-র ঝালাই সব ওখানে (ঐ সাইটের দিন ০০১ = এই plan-এর দিন ০০৮)। এখানে টিক দিন শুধু ঘরটা বসা হয়েছে কি না তার জন্য।
+
+### system design-এর বসা
+
+দিন ০৫০–০৭৭-এর সোম–শুক্রের ৩০′-এ ঝালাইয়ের পরের সময়টা চলে [লোকাল system design](https://sojibrd.github.io/system_design_local_company/)-এ — সাতটা ডক নিজের প্রজেক্ট দিয়ে, `srdtube`-এর ছয় সেকশনের design doc, আর চারটা লোকাল প্রশ্ন মুখে (ঐ সাইটের দিন ০০১ = এই plan-এর দিন ০৫০; ব্যবহারকারীর সিদ্ধান্ত ২০২৬-০৯-১৫)। কাজের লেখা আর তার ঝালাই ওখানে; এখানে টিক দিন শুধু ঘরটা বসা হয়েছে কি না তার জন্য।
+
+### STAR story-র বসা
+
+দিন ০০৬–১৫৪-এর story-র কাজ চলে [লোকাল behavioural](https://sojibrd.github.io/behavioural_interview_local_company/)-এ — কোন দিনে কোন story, বসার চার ধাপ, ঝালাই আর `behavioural_interview`-এর ২৫টা ডক সব ওখানে (ঐ সাইটের দিন ০০১ = এই plan-এর দিন ০০৬; ব্যবহারকারীর সিদ্ধান্ত ২০২৬-০৯-১৫)। রোজের ইংরেজির ১৫′-এ story জোরে বলা আর mock interview এই plan-এই। এখানে টিক দিন শুধু ঘরটা বসা হয়েছে কি না তার জন্য।
+
+### ঝালাই — কীভাবে চলে
+
+- 🔁 কাজে টিক দিলে ঐ **আসল তারিখ** থেকে ১ → ৩ → ৭ → ২১ দিন।
+- প্রতিটা ঝালাইয়ে দুটো উত্তর: **মনে ছিল** (পরের ধাপে) বা **আটকে গেছি** (আবার ১ দিনে)। আটকে যাওয়া শাস্তি নয়, তথ্য।
+- ২১ দিনের ধাপ পার হলে ঝালাই শেষ — ওটা এখন স্থির।
+- এক দিনে অনেক জমলে কঠিনগুলো আগে, সহজগুলো কাল।
+
+---
+
+## আবেদনের নিয়ম
+
+- **পথ, কার্যকারিতার ক্রমে:** রেফারেল → সরাসরি বার্তা → careers পাতা → job portal। প্রতিটা আবেদনের আগে দেখুন ঐ কোম্পানিতে পরিচিত কেউ আছে কি না।
+- **প্রতিটা আবেদনের আগে ১০′** — সিভি ঐ পদের JD-র মূল শব্দের সাথে মেলানো।
+- **LinkedIn বার্তা — তিন লাইনের বেশি নয়:**
+
+  ```
+  Hi [Name], I'm a frontend engineer (TypeScript/React/Ember, 4 yrs) in Dhaka.
+  I saw the [Role] opening at [Company] and would love to apply.
+  Would you be open to referring me, or sharing what the team looks for?
+  ```
+
+- **follow-up:** আবেদনের ৭–১০ দিন পরে একবার, একবারই।
+- **spreadsheet, ৬ কলাম:** কোম্পানি · তারিখ · কোন পথে · অবস্থা · পরের কাজ · নোট। মুছবেন না — বদল ২-এর পুঁজি।
+- **১০টা আবেদনের আগে সিভিতে বড় পরিবর্তন নয়।** তার আগে যথেষ্ট তথ্যই জমে না।
+- **২০২৬-১১-০১ থেকে** সারাংশে "nearly 4 years" → "4 years"।
+
+## interview এলে
+
+- **২৪ ঘণ্টার মধ্যে উত্তর** — ধন্যবাদ + ২–৩টা সময়ের বিকল্প।
+- **প্রতিটা কলের আগে ৩০′:** প্রোডাক্ট ব্যবহার, JD আবার পড়া, ওদের stack, ওদের জন্য ২টা প্রশ্ন।
+- **প্রথম কলেই জিজ্ঞেস:** কোন কোন রাউন্ড হবে — তারপর শুধু সেগুলোর প্রস্তুতি।
+- **Take-home:** বলা সময়ই দেওয়া, বাড়তি ফিচার নয়; README-তে কোন সিদ্ধান্ত কেন, সময় থাকলে আর কী করতেন।
+- **আটকে গেলে চুপ নয়:** *"I'm stuck between two approaches — could I get a hint?"* ভাঙা ইংরেজিতে জোরে ভাবা চুপ থাকার চেয়ে ভালো।
+- **প্রতিটা interview-এর পরে ৫ লাইন:** কী প্রশ্ন, কোথায় আটকেছি, পরের বার কী আলাদা। এই নোটগুলোই আসল সিলেবাস। 🧠 (Feedback · Failures don't count)
+- **process সম্পূর্ণ** মানে ঐ কোম্পানির শেষ ধাপ পর্যন্ত যাওয়া — offer, না, বা নিজে সরে আসা। spreadsheet-এর "অবস্থা" কলামে লিখুন।
+
+---
+
+## Dip-এর নিয়ম — আগে থেকে লেখা
+
+ব্লক ৩–৬ (দিন ০৬১–১৮০) ছেড়ে দেওয়ার ঝুঁকির সময়: আবেদন গেছে, সাড়া আসছে না। তখন সিদ্ধান্ত নেবেন না — নিয়মগুলো আজই নেওয়া। 🧠 (The dip)
+
+- **সাড়া না এলেও সপ্তাহে ২টা আবেদন।** মাপুন যা আপনার হাতে — পাঠানোর সংখ্যা, ফল নয়। 🧠 (System vs goal)
+- **ফানেল না দেখে দিক বদল নয়।** "সব ভুল হচ্ছে" মনে হলে আগে spreadsheet খুলে দেখুন কোন ধাপে ঝরছে। 🧠 (The dip)
+- **"আমি পারি না" নয়, "এখনো ___ ধাপে আছি"।** 🧠 (It's all in the frame)
+- **ব্যর্থ interview = নোটের কাঁচামাল।** ৫ লাইন লেখা হলে ওটা ক্ষতি নয়। 🧠 (Failures don't count)
+- **নতুন টুল, নতুন কোর্স, নতুন repo — dip-এর ছদ্মবেশ।** এই সাইটে নতুন ফিচার যোগ করাও। ইচ্ছে হলে এক লাইনে লিখে রাখুন, বানাবেন না।
+
+## যা করবেন না
+
+- **৩০টার পরে নতুন DSA প্রবলেম নয়।** টপিক ৬–১০ বাংলাদেশি interview-তে প্রায় আসে না — ওগুলো অসম্পূর্ণ কাজ নয়, ভবিষ্যতের মজুদ ([রিমোট](https://sojibrd.github.io/dsa_prep_remote_company/) · [গ্লোবাল](https://sojibrd.github.io/dsa_prep_global_company/) পথে)। Must-do ট্যাগ FAANG-এর, লোকালের নয়।
+- **System design: ৭টা ডক আর নিজের প্রজেক্টের একটা design doc — ব্যস,** দিন ধরে [লোকাল system design](https://sojibrd.github.io/system_design_local_company/)-এ। Twitter ডিজাইন নয়, CAP theorem নয়।
+- **নতুন প্রজেক্ট নয়।** pin থাকবে তিনটা — `dsa_prep_local_company`, `system_design_local_company`, `srdtube`।
+- **Fullstack শেখা আবেদনের শর্ত নয়।** ওটা পরের লাফের গল্প।
+- **"প্রস্তুত হয়ে আবেদন করব" নয়।** প্রথম দুটো interview খারাপ যাবে — ওগুলোই আসল প্রস্তুতি।
+- **বর্তমান চাকরি ছাড়বেন না।** বেতন হাতে রেখে খোঁজাই সবচেয়ে শক্ত অবস্থান।
+
+## পাশাপাশি — টাকা
+
+- বেতনের দিনেই **৪০,০০০ টাকা** আলাদা করে **সোনায়**। খরচ ১৫,০০০। ৬ মাসের emergency fund নগদে আছে — তুললে আগে ওটা পূরণ।
+- নিজে insurance কিনবেন না; নতুন অফিস দিলে নেবেন।
+
+## দিন ১৮০-র পরে
+
+- **offer এলে** — ১৮০ দিনের আগে হোক বা পরে: `brainstorming/application-to-offer.md`-এর ধাপ ৬ আর `after-joining.md`-এর ধাপ ৭ — লিখিত offer, একবার দরাদরি, সইয়ের পরে পদত্যাগ, notice।
+- **না এলে** সপ্তাহের ছন্দ চলতে থাকবে — **সই না হওয়া পর্যন্ত আবেদন থামাবেন না।**7:X
+c:X
+c:C
+0:{"buildId":"t1-elCaZLdh_4Qh9MSl6F","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — ১৮০ দিন"}],["$","p",null,{"className":"t-body measure text-sm","children":"১৮০ দিন · ৩০ দিনের ৬টা ব্লক · বাংলাদেশি কোম্পানি"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L2",null,{"className":"measure","children":"$3"}]}]],["$L4"],"$L5"]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":"$L8","isPartial":"$@9","staleTime":"$7","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$7","varyParams":"$c"}],"isUpgradeableISRFallback":false,"a":"$@d","rootVaryParams":null,"needsRuntimeRequest":"$@e"}
+f:I[97367,["/switch_in_6_month_local_company/_next/static/chunks/1fo35igr36231.js","/switch_in_6_month_local_company/_next/static/chunks/30ubrg5o6rp2i.js"],"OutletBoundary"]
+10:"$Sreact.suspense"
+12:I[97367,["/switch_in_6_month_local_company/_next/static/chunks/1fo35igr36231.js","/switch_in_6_month_local_company/_next/static/chunks/30ubrg5o6rp2i.js"],"ViewportBoundary"]
+13:I[97367,["/switch_in_6_month_local_company/_next/static/chunks/1fo35igr36231.js","/switch_in_6_month_local_company/_next/static/chunks/30ubrg5o6rp2i.js"],"MetadataBoundary"]
+14:I[27201,["/switch_in_6_month_local_company/_next/static/chunks/1fo35igr36231.js","/switch_in_6_month_local_company/_next/static/chunks/30ubrg5o6rp2i.js"],"IconMark"]
+15:I[39756,["/switch_in_6_month_local_company/_next/static/chunks/1fo35igr36231.js","/switch_in_6_month_local_company/_next/static/chunks/30ubrg5o6rp2i.js"],"default"]
+16:I[37457,["/switch_in_6_month_local_company/_next/static/chunks/1fo35igr36231.js","/switch_in_6_month_local_company/_next/static/chunks/30ubrg5o6rp2i.js"],"default"]
+4:["$","script","script-0",{"src":"/switch_in_6_month_local_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+5:["$","$Lf",null,{"children":["$","$10",null,{"name":"Next.MetadataOutlet","children":"$@11"}]}]
+8:["$","$1","h",{"children":[null,["$","$L12",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$10",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"নিয়ম — ৬ মাসে লোকাল বদল"}],["$","meta","1",{"name":"description","content":"বাংলাদেশি কোম্পানিতে ২০টা আবেদন আর ৫টা সম্পূর্ণ interview process — ১৮০ দিন, প্রতিদিনের কাজ, ঝালাই আর learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/switch_in_6_month_local_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L14","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+a:["$","$1","c",{"children":[null,["$","$L15",null,{"parallelRouterKey":"children","template":["$","$L16",null,{}]}]]}]
+e:true
+11:null
+7:300
+7:C
+d:0
+9:"$undefined"
+b:"$undefined"
+6:"$undefined"
