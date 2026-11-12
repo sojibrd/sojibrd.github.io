@@ -1,0 +1,40 @@
+name: Deploy to GitHub Pages
+
+# The portfolio and every site live in this repo: the sites' own (private)
+# repos build and push their `out/` into `<site>/` here with a deploy key,
+# and each push lands the whole repo on Pages. Actions-based deploy, so the
+# "10 builds per hour" limit of branch builds does not apply.
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
