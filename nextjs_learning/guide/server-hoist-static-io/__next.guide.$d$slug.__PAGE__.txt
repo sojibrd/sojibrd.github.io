@@ -1,0 +1,170 @@
+1:"$Sreact.fragment"
+2:I[22016,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js","/nextjs_learning/_next/static/chunks/0mwqbw2ara0vf.js","/nextjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js","/nextjs_learning/_next/static/chunks/0mwqbw2ara0vf.js","/nextjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js","/nextjs_learning/_next/static/chunks/0mwqbw2ara0vf.js","/nextjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T1062,**Impact: HIGH (avoids repeated file/network I/O per request)**
+
+When loading static assets (fonts, logos, images, config files) in route handlers or server functions, hoist the I/O operation to module level. Module-level code runs once when the module is first imported, not on every request. This eliminates redundant file system reads or network fetches that would otherwise run on every invocation.
+
+**Incorrect (reads font file on every request):**
+
+```typescript
+// app/api/og/route.tsx
+import { ImageResponse } from 'next/og'
+
+export async function GET(request: Request) {
+  // Runs on EVERY request - expensive!
+  const fontData = await fetch(
+    new URL('./fonts/Inter.ttf', import.meta.url)
+  ).then(res => res.arrayBuffer())
+
+  const logoData = await fetch(
+    new URL('./images/logo.png', import.meta.url)
+  ).then(res => res.arrayBuffer())
+
+  return new ImageResponse(
+    <div style={{ fontFamily: 'Inter' }}>
+      <img src={logoData} />
+      Hello World
+    </div>,
+    { fonts: [{ name: 'Inter', data: fontData }] }
+  )
+}
+```
+
+**Correct (loads once at module initialization):**
+
+```typescript
+// app/api/og/route.tsx
+import { ImageResponse } from 'next/og'
+
+// Module-level: runs ONCE when module is first imported
+const fontData = fetch(
+  new URL('./fonts/Inter.ttf', import.meta.url)
+).then(res => res.arrayBuffer())
+
+const logoData = fetch(
+  new URL('./images/logo.png', import.meta.url)
+).then(res => res.arrayBuffer())
+
+export async function GET(request: Request) {
+  // Await the already-started promises
+  const [font, logo] = await Promise.all([fontData, logoData])
+
+  return new ImageResponse(
+    <div style={{ fontFamily: 'Inter' }}>
+      <img src={logo} />
+      Hello World
+    </div>,
+    { fonts: [{ name: 'Inter', data: font }] }
+  )
+}
+```
+
+**Correct (synchronous fs at module level):**
+
+```typescript
+// app/api/og/route.tsx
+import { ImageResponse } from 'next/og'
+import { readFileSync } from 'fs'
+import { join } from 'path'
+
+// Synchronous read at module level - blocks only during module init
+const fontData = readFileSync(
+  join(process.cwd(), 'public/fonts/Inter.ttf')
+)
+
+const logoData = readFileSync(
+  join(process.cwd(), 'public/images/logo.png')
+)
+
+export async function GET(request: Request) {
+  return new ImageResponse(
+    <div style={{ fontFamily: 'Inter' }}>
+      <img src={logoData} />
+      Hello World
+    </div>,
+    { fonts: [{ name: 'Inter', data: fontData }] }
+  )
+}
+```
+
+**Incorrect (reads config on every call):**
+
+```typescript
+import fs from 'node:fs/promises'
+
+export async function processRequest(data: Data) {
+  const config = JSON.parse(
+    await fs.readFile('./config.json', 'utf-8')
+  )
+  const template = await fs.readFile('./template.html', 'utf-8')
+
+  return render(template, data, config)
+}
+```
+
+**Correct (hoists config and template to module level):**
+
+```typescript
+import fs from 'node:fs/promises'
+
+const configPromise = fs
+  .readFile('./config.json', 'utf-8')
+  .then(JSON.parse)
+const templatePromise = fs.readFile('./template.html', 'utf-8')
+
+export async function processRequest(data: Data) {
+  const [config, template] = await Promise.all([
+    configPromise,
+    templatePromise,
+  ])
+
+  return render(template, data, config)
+}
+```
+
+When to use this pattern:
+
+- Loading fonts for OG image generation
+- Loading static logos, icons, or watermarks
+- Reading configuration files that don't change at runtime
+- Loading email templates or other static templates
+- Any static asset that's the same across all requests
+
+When not to use this pattern:
+
+- Assets that vary per request or user
+- Files that may change during runtime (use caching with TTL instead)
+- Large files that would consume too much memory if kept loaded
+- Sensitive data that shouldn't persist in memory
+
+With Vercel's [Fluid Compute](https://vercel.com/docs/fluid-compute), module-level caching is especially effective because multiple concurrent requests share the same function instance. The static assets stay loaded in memory across requests without cold start penalties.
+
+In traditional serverless, each cold start re-executes module-level code, but subsequent warm invocations reuse the loaded assets until the instance is recycled.b:X
+10:X
+10:C
+0:{"buildId":"704NRpYOYfAjgeoZJ4c5j","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[3," · ","Server-Side Performance"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Hoist Static I/O to Module Level"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"avoids repeated file/network I/O per request"}],[["$","$L2","051",{"href":"/day/051/","className":"chip chip--accent","children":["plan · দিন ","০৫১"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?"}],["$","$L3",null,{"children":"**Incorrect (reads font file on every request):**\n\n```typescript\n// app/api/og/route.tsx\nimport { ImageResponse } from 'next/og'\n\nexport async function GET(request: Request) {\n  // Runs on EVERY request - expensive!\n  const fontData = await fetch(\n    new URL('./fonts/Inter.ttf', import.meta.url)\n  ).then(res => res.arrayBuffer())\n\n  const logoData = await fetch(\n    new URL('./images/logo.png', import.meta.url)\n  ).then(res => res.arrayBuffer())\n\n  return new ImageResponse(\n    <div style={{ fontFamily: 'Inter' }}>\n      <img src={logoData} />\n      Hello World\n    </div>,\n    { fonts: [{ name: 'Inter', data: fontData }] }\n  )\n}\n```"}]]}],["$","$L4",null,{"taskIds":["d051-m55aqu"],"kind":"fix","children":[null,["$","$L3",null,{"children":"$5"}]]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"ViewportBoundary"]
+19:I[97367,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"MetadataBoundary"]
+1a:I[27201,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"IconMark"]
+1b:I[39756,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"default"]
+1c:I[37457,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/server-cache-lru/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Cross-Request LRU Caching"}]]}],["$","$L2",null,{"href":"/guide/server-serialization/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Minimize Serialization at RSC Boundaries"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/nextjs_learning/_next/static/chunks/0mwqbw2ara0vf.js","async":true}]
+8:["$","script","script-1",{"src":"/nextjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Hoist Static I/O to Module Level — nextjs learning"}],["$","meta","1",{"name":"description","content":"React আর Next.js-এর ৭০টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nextjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

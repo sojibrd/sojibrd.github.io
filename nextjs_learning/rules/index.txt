@@ -1,0 +1,140 @@
+1:"$Sreact.fragment"
+2:I[41681,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"default"]
+8:I[68027,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"default",1]
+:HL["/nextjs_learning/_next/static/chunks/44fhexqeauue0.css","style"]
+:HL["/nextjs_learning/_next/static/media/490cbca7f386131e-s.p.1zrwl0c4yv3pr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/nextjs_learning/_next/static/media/4b23c5ee480ee380-s.p.0qqufx6vw52v_.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/nextjs_learning/_next/static/media/520c929efec0b33f-s.p.3arxh35s5-kc0.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/nextjs_learning/_next/static/media/5e4d537aaa9e154b-s.p.1ewykk74tw0il.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/nextjs_learning/_next/static/media/6a1d08cf467f0848-s.p.240fzfer9e_rh.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/nextjs_learning/_next/static/media/6ea8d1bb8ea4af7a-s.p.1kk_wfe381bov.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/nextjs_learning/_next/static/media/70bc3e132a0a741e-s.p.3t6q91iet4nsy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/nextjs_learning/_next/static/media/70c15719a04fff13-s.p.376yc-xi7tht7.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/nextjs_learning/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+6:X
+0:{"P":null,"c":["","rules",""],"q":"","i":false,"f":[[["",{"children":["rules",{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/nextjs_learning/_next/static/chunks/44fhexqeauue0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"bn","className":"archivo_aabc0850-module__cplg6G__variable archivo_black_cc57a6c8-module__12WbNa__variable barlow_semi_condensed_66b51823-module__HKMkGa__variable jetbrains_mono_ce945e87-module__HTLkQq__variable noto_sans_bengali_ae4f5577-module__v5t5fW__variable h-full antialiased","children":["$","body",null,{"className":"surface-app flex min-h-full flex-col","children":[["$","a",null,{"href":"#main-content","className":"control control--primary sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 px-3 py-1.5 text-xs","children":"মূল কনটেন্টে যান"}],["$","$L2",null,{"blocks":[{"num":1,"slug":"rerender","name":"Re-render","range":"দিন ০০১–০১৬ · rerender","dip":false,"check":"১৫টা rule-এর প্রতিটায় না দেখে লেখা আর \"কেন\" ইংরেজিতে বলা হয়েছে, আর ⚑-এর উত্তর ২ মিনিটে মুখে এসেছে?","days":[{"num":1,"code":"001","label":"০০১","title":"Calculate Derived State During Rendering","taskIds":["d001-1lgo3y4"]},{"num":2,"code":"002","label":"০০২","title":"Defer State Reads to Usage Point","taskIds":["d002-1cx8u08"]},{"num":3,"code":"003","label":"০০৩","title":"Do not wrap a simple expression with a primitive result type in useMemo","taskIds":["d003-1ez7eza"]},{"num":4,"code":"004","label":"০০৪","title":"Don't Define Components Inside Components","taskIds":["d004-1p6v6rd"]},{"num":5,"code":"005","label":"০০৫","title":"Extract Default Non-primitive Parameter Value from Memoized Component to Constant","taskIds":["d005-zjrq2m"]},{"num":6,"code":"006","label":"০০৬","title":"Extract to Memoized Components","taskIds":["d006-1bddoze"]},{"num":7,"code":"007","label":"০০৭","title":"Narrow Effect Dependencies","taskIds":["d007-yvke8y"]},{"num":8,"code":"008","label":"০০৮","title":"Put Interaction Logic in Event Handlers","taskIds":["d008-vxs1sf"]},{"num":9,"code":"009","label":"০০৯","title":"Split Combined Hook Computations","taskIds":["d009-109q871"]},{"num":10,"code":"010","label":"০১০","title":"Subscribe to Derived State","taskIds":["d010-1ljaiiw"]},{"num":11,"code":"011","label":"০১১","title":"Use Functional setState Updates","taskIds":["d011-1j5rfy6"]},{"num":12,"code":"012","label":"০১২","title":"Use Lazy State Initialization","taskIds":["d012-190evsj"]},{"num":13,"code":"013","label":"০১৩","title":"Use Transitions for Non-Urgent Updates","taskIds":["d013-1b5gb35"]},{"num":14,"code":"014","label":"০১৪","title":"Use useDeferredValue for Expensive Derived Renders","taskIds":["d014-14ocvq7"]},{"num":15,"code":"015","label":"০১৫","title":"Use useRef for Transient Values","taskIds":["d015-1gxb3ql"]},{"num":16,"code":"016","label":"০১৬","title":"মুখে — re-render বনাম autotracking","taskIds":["d016-1km7518"]}]},{"num":2,"slug":"async","name":"Async","range":"দিন ০১৭–০২৭ · async · client","dip":false,"check":"১০টা rule-এর প্রতিটায় না দেখে লেখা আর \"কেন\" ইংরেজিতে বলা হয়েছে, আর ⚑-এর উত্তর ২ মিনিটে মুখে এসেছে?","days":[{"num":17,"code":"017","label":"০১৭","title":"Check Cheap Conditions Before Async Flags","taskIds":["d017-47vtes"]},{"num":18,"code":"018","label":"০১৮","title":"Defer Await Until Needed","taskIds":["d018-1rw4357"]},{"num":19,"code":"019","label":"০১৯","title":"Dependency-Based Parallelization","taskIds":["d019-1uszwsy"]},{"num":20,"code":"020","label":"০২০","title":"Prevent Waterfall Chains in API Routes","taskIds":["d020-tqgclp"]},{"num":21,"code":"021","label":"০২১","title":"Promise.all() for Independent Operations","taskIds":["d021-5d4fiq"]},{"num":22,"code":"022","label":"০২২","title":"Strategic Suspense Boundaries","taskIds":["d022-yw8byk"]},{"num":23,"code":"023","label":"০২৩","title":"Deduplicate Global Event Listeners","taskIds":["d023-5gkctq"]},{"num":24,"code":"024","label":"০২৪","title":"Use Passive Event Listeners for Scrolling Performance","taskIds":["d024-se1p8v"]},{"num":25,"code":"025","label":"০২৫","title":"Use SWR for Automatic Deduplication","taskIds":["d025-1nmc9fx"]},{"num":26,"code":"026","label":"০২৬","title":"Version and Minimize localStorage Data","taskIds":["d026-seovrd"]},{"num":27,"code":"027","label":"০২৭","title":"মুখে — useEffect-এ async","taskIds":["d027-uvdlv9"]}]},{"num":3,"slug":"rendering","name":"Rendering","range":"দিন ০২৮–০৩৯ · rendering","dip":false,"check":"১১টা rule-এর প্রতিটায় না দেখে লেখা আর \"কেন\" ইংরেজিতে বলা হয়েছে, আর ⚑-এর উত্তর ২ মিনিটে মুখে এসেছে?","days":[{"num":28,"code":"028","label":"০২৮","title":"Animate SVG Wrapper Instead of SVG Element","taskIds":["d028-vkq4km"]},{"num":29,"code":"029","label":"০২৯","title":"CSS content-visibility for Long Lists","taskIds":["d029-1hror20"]},{"num":30,"code":"030","label":"০৩০","title":"Hoist Static JSX Elements","taskIds":["d030-1uzphjz"]},{"num":31,"code":"031","label":"০৩১","title":"Optimize SVG Precision","taskIds":["d031-15r40b"]},{"num":32,"code":"032","label":"০৩২","title":"Prevent Hydration Mismatch Without Flickering","taskIds":["d032-16i247w"]},{"num":33,"code":"033","label":"০৩৩","title":"Suppress Expected Hydration Mismatches","taskIds":["d033-1qkclv"]},{"num":34,"code":"034","label":"০৩৪","title":"Use Activity Component for Show/Hide","taskIds":["d034-1nn8f6c"]},{"num":35,"code":"035","label":"০৩৫","title":"Use defer or async on Script Tags","taskIds":["d035-bxps7v"]},{"num":36,"code":"036","label":"০৩৬","title":"Use Explicit Conditional Rendering","taskIds":["d036-1iha8dz"]},{"num":37,"code":"037","label":"০৩৭","title":"Use React DOM Resource Hints","taskIds":["d037-aus8j2"]},{"num":38,"code":"038","label":"০৩৮","title":"Use useTransition Over Manual Loading States","taskIds":["d038-th3f61"]},{"num":39,"code":"039","label":"০৩৯","title":"মুখে — event loop আর Core Web Vitals","taskIds":["d039-400oi1"]}]},{"num":4,"slug":"bundle","name":"Bundle","range":"দিন ০৪০–০৪৬ · bundle","dip":false,"check":"৬টা rule-এর প্রতিটায় না দেখে লেখা আর \"কেন\" ইংরেজিতে বলা হয়েছে, আর ⚑-এর উত্তর ২ মিনিটে মুখে এসেছে?","days":[{"num":40,"code":"040","label":"০৪০","title":"Avoid Barrel File Imports","taskIds":["d040-oqdv99"]},{"num":41,"code":"041","label":"০৪১","title":"Conditional Module Loading","taskIds":["d041-197mvkh"]},{"num":42,"code":"042","label":"০৪২","title":"Defer Non-Critical Third-Party Libraries","taskIds":["d042-1im5fay"]},{"num":43,"code":"043","label":"০৪৩","title":"Dynamic Imports for Heavy Components","taskIds":["d043-1r0ss26"]},{"num":44,"code":"044","label":"০৪৪","title":"Prefer Statically Analyzable Paths","taskIds":["d044-xfvdaa"]},{"num":45,"code":"045","label":"০৪৫","title":"Preload Based on User Intent","taskIds":["d045-pbo40w"]},{"num":46,"code":"046","label":"০৪৬","title":"মুখে — page faster","taskIds":["d046-5nky8a"]}]},{"num":5,"slug":"server","name":"Server","range":"দিন ০৪৭–০৫৭ · server","dip":false,"check":"১০টা rule-এর প্রতিটায় না দেখে লেখা আর \"কেন\" ইংরেজিতে বলা হয়েছে, আর ⚑-এর উত্তর ২ মিনিটে মুখে এসেছে?","days":[{"num":47,"code":"047","label":"০৪৭","title":"Authenticate Server Actions Like API Routes","taskIds":["d047-1q745ra"]},{"num":48,"code":"048","label":"০৪৮","title":"Avoid Duplicate Serialization in RSC Props","taskIds":["d048-1ycb04g"]},{"num":49,"code":"049","label":"০৪৯","title":"Avoid Shared Module State for Request Data","taskIds":["d049-oulxvv"]},{"num":50,"code":"050","label":"০৫০","title":"Cross-Request LRU Caching","taskIds":["d050-cir9li"]},{"num":51,"code":"051","label":"০৫১","title":"Hoist Static I/O to Module Level","taskIds":["d051-m55aqu"]},{"num":52,"code":"052","label":"০৫২","title":"Minimize Serialization at RSC Boundaries","taskIds":["d052-10ns6tx"]},{"num":53,"code":"053","label":"০৫৩","title":"Parallel Data Fetching with Component Composition","taskIds":["d053-1t8o6te"]},{"num":54,"code":"054","label":"০৫৪","title":"Parallel Nested Data Fetching","taskIds":["d054-1qpojma"]},{"num":55,"code":"055","label":"০৫৫","title":"Per-Request Deduplication with React.cache()","taskIds":["d055-136jcqm"]},{"num":56,"code":"056","label":"০৫৬","title":"Use after() for Non-Blocking Operations","taskIds":["d056-w3msjh"]},{"num":57,"code":"057","label":"০৫৭","title":"মুখে — Server-এর তিনটা rule","taskIds":["d057-e5nk4"]}]},{"num":6,"slug":"js-and-advanced","name":"JS আর advanced","range":"দিন ০৫৮–০৭৬ · js · advanced","dip":false,"check":"১৮টা rule-এর প্রতিটায় না দেখে লেখা আর \"কেন\" ইংরেজিতে বলা হয়েছে, আর ⚑-এর উত্তর ২ মিনিটে মুখে এসেছে?","days":[{"num":58,"code":"058","label":"০৫৮","title":"Avoid Layout Thrashing","taskIds":["d058-xqcxjm"]},{"num":59,"code":"059","label":"০৫৯","title":"Build Index Maps for Repeated Lookups","taskIds":["d059-10miy3l"]},{"num":60,"code":"060","label":"০৬০","title":"Cache Property Access in Loops","taskIds":["d060-6jl6w8"]},{"num":61,"code":"061","label":"০৬১","title":"Cache Repeated Function Calls","taskIds":["d061-3baslp"]},{"num":62,"code":"062","label":"০৬২","title":"Cache Storage API Calls","taskIds":["d062-g9krmk"]},{"num":63,"code":"063","label":"০৬৩","title":"Combine Multiple Array Iterations","taskIds":["d063-150qw2y"]},{"num":64,"code":"064","label":"০৬৪","title":"Defer Non-Critical Work with requestIdleCallback","taskIds":["d064-1cmagce"]},{"num":65,"code":"065","label":"০৬৫","title":"Early Length Check for Array Comparisons","taskIds":["d065-cb0azr"]},{"num":66,"code":"066","label":"০৬৬","title":"Early Return from Functions","taskIds":["d066-a2bi76"]},{"num":67,"code":"067","label":"০৬৭","title":"Hoist RegExp Creation","taskIds":["d067-142upzu"]},{"num":68,"code":"068","label":"০৬৮","title":"Use flatMap to Map and Filter in One Pass","taskIds":["d068-131ieug"]},{"num":69,"code":"069","label":"০৬৯","title":"Use Loop for Min/Max Instead of Sort","taskIds":["d069-1jefggu"]},{"num":70,"code":"070","label":"০৭০","title":"Use Set/Map for O(1) Lookups","taskIds":["d070-a4y9ow"]},{"num":71,"code":"071","label":"০৭১","title":"Use toSorted() Instead of sort() for Immutability","taskIds":["d071-83hygu"]},{"num":72,"code":"072","label":"০৭২","title":"Do Not Put Effect Events in Dependency Arrays","taskIds":["d072-7ae5k9"]},{"num":73,"code":"073","label":"০৭৩","title":"Initialize App Once, Not Per Mount","taskIds":["d073-aq038i"]},{"num":74,"code":"074","label":"০৭৪","title":"Store Event Handlers in Refs","taskIds":["d074-wr33ha"]},{"num":75,"code":"075","label":"০৭৫","title":"useEffectEvent for Stable Callback Refs","taskIds":["d075-uxcsof"]},{"num":76,"code":"076","label":"০৭৬","title":"মুখে — JS আর advanced-এর তিনটা rule","taskIds":["d076-b8vbfz"]}]}],"children":"$L3"}]]}]}]]}],{"children":["$L4",{"children":["$L5",{},null,false,null]},null,false,"$6"]},null,false,null],"$L7",false]],"m":"$undefined","G":["$8",["$L9"]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"704NRpYOYfAjgeoZJ4c5j"}
+a:I[39756,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"default"]
+b:I[37457,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"default"]
+c:I[82484,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js","/nextjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+10:I[97367,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"ViewportBoundary"]
+12:I[97367,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"MetadataBoundary"]
+13:"$Sreact.suspense"
+3:["$","$La",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Lb",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]
+4:["$","$1","c",{"children":[null,["$","$La",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Lb",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+d:T37ba,## লক্ষ্য
+
+> **৭৬ দিনে React আর Next.js-এর ৭০টা best practice-এর প্রতিটায় না দেখে কোডটা লিখতে পারা, আর "কেন" ইংরেজিতে নিজের কথায় বলতে পারা — ঝালাইসহ।**
+
+এটা শূন্য থেকে Next.js শেখার সাইট নয়। কোড চালু আছে; ইন্টারভিউ জিজ্ঞেস করে "কেন" — AI ছাড়া, নিজের কথায়। প্রতিটা দিন একটা rule ধরে সেই "কেন"-টা মুখে আনার অনুশীলন — পড়ে নয়, লিখে আর বলে। 🧠 (Feynman technique · Active vs Passive learning)
+
+## সত্যের উৎস
+
+এই সাইট React বা Next.js নিয়ে নিজের কোনো rule যোগ করে না — প্রতিটা দিনের কোড আর ব্যাখ্যা rule-এর ফাইল থেকেই।
+
+1. `guide/` — `vercel-react-best-practices` skill-এর ৭০টা rule ফাইল, হুবহু ইংরেজিতে। লেখক আর লাইসেন্স `guide/README.md`-এ; সেকশনের নাম আর ক্রম `guide/_sections.md`-এ।
+2. `docs/` — এই plan: নিয়ম আর ৬টা ব্লক।
+3. ⚑ দিনের প্রশ্ন — প্রথম তিনটা `brainstorming/application-to-offer.md`-এর ইন্টারভিউ-বিষয় থেকে (দ্বিতীয় আর তৃতীয়টার শব্দ `switch_in_6_month_local_company/docs/05-technical.md`-এর দিন ১৩৩ আর ১৩৬-এর), চতুর্থটা ঐ ফাইলের দিন ১৩৭-এর। শেষ দুই ব্লকের জন্য কোথাও আলাদা প্রশ্ন লেখা নেই, তাই ওখানে ব্লকের rule-ই প্রশ্ন।
+
+## উৎসটা কী, কী নয়
+
+- **React আর Next.js মিলিয়ে।** সেকশনের নাম ধরে ভাগ করলে তিনটা সেকশন (`async-`, `bundle-`, `server-` — ২২টা rule) Next.js আর server-ঘেঁষা; বাকি পাঁচটা (৪৮টা) React আর সাধারণ JavaScript-এর।
+- **৬টা rule-এ Incorrect কোড নেই** — শুধু বর্ণনা আর উদাহরণ: `bundle-conditional`, `bundle-preload`, `rendering-activity`, `rendering-content-visibility`, `rendering-resource-hints`, `server-cache-lru`। ওগুলোয় কাজ ভুল ঠিক করা নয়, একটা উদাহরণ লেখা।
+- **rule-গুলো Next.js-এর কোনো নির্দিষ্ট version-এর সাথে বাঁধা নয়।** নিচের তালিকাটা তাই আলাদা করে মেলানো।
+
+### Next.js 16-এর সাথে চারটা অমিল
+
+২০২৬-১০-১১-এ শুধু সেই rule-গুলো মেলানো হয়েছে যেগুলো `next/…` থেকে import করে বা Next.js-এর নিজস্ব সেটিং ধরে — Next.js 16.3.5-এর package-এর সাথে আসা ডকের (`node_modules/next/dist/docs/01-app/`) সাথে। rule ফাইল বদলানো হয়নি; অমিলগুলো এখানে, যাতে ঐ দিনে Correct-টা হুবহু মুখস্থ না হয়। ঐ চার দিনে একই কথা একটা **সতর্কতা** হিসেবেও আসে — কাজে টিক দিলে দিনের কার্ডে, আর গাইডের পাতায় Correct-এর ভাঁজের ভেতরে। Correct খোলার আগে দেখায় না, কারণ তাতে উত্তরটাই বলে দেওয়া হয়।
+
+| দিন | rule | rule যা দেখায় | Next.js 16-এর ডক যা বলে |
+|---|---|---|---|
+| ০৩৫ | `rendering-script-defer-async` | শেষের নোটে `strategy="beforeInteractive"` সহ `<Script>` একটা `Page`-এর ভেতরে | `beforeInteractive` script root layout-এ রাখতে হয় (`03-api-reference/02-components/script.md`) |
+| ০৪২ | `bundle-defer-third-party` | Correct-এ `RootLayout`-এ `dynamic(…, { ssr: false })`, ফাইলে `'use client'` নেই | Server Component-এ `ssr: false` চলে না, error আসে; Client Component-এ সরাতে হয় (`02-guides/lazy-loading.md`) |
+| ০৪৩ | `bundle-dynamic-imports` | Correct-এ `{ ssr: false }`, ফাইলটা Client Component কিনা দেখানো নেই | একই — শুধু Client Component-এ চলে |
+| ০৪৭ | `server-auth-actions` | "middleware"-এর উপর ভরসা না করতে বলে | `middleware` file convention Next.js 16-এ deprecated, নতুন নাম `proxy` (`03-api-reference/03-file-conventions/proxy.md`) |
+
+একই মেলানোয় যা মিলেছে: `experimental.optimizePackageImports` (দিন ০৪০), `after()` আর await করা `headers()` / `cookies()` (দিন ০৫৬), `next/og`-এর `ImageResponse` (দিন ০৫১)। বাকি rule-গুলো — React-এর নিজের API আর সাধারণ JavaScript — কোনো version-এর সাথে মেলানো হয়নি।
+
+## কীভাবে পড়বেন
+
+- ৭৬ দিন, ৬টা ব্লক — ইন্টারভিউর ক্রমে: Re-render → Async → Rendering → Bundle → Server → JS আর advanced। উৎসের সেকশন ভাঙা হয়নি, শুধু ক্রম বদলেছে; সেকশনের ভেতরে rule উৎসের মতোই নামের বর্ণানুক্রমে।
+- প্রতিটা দিনে একটা rule, একটা `- [ ]` কাজ, আর শেষে **দিন শেষে** প্রশ্ন — হ্যাঁ/না। ব্লকের শেষ দিনটা ⚑।
+- `১০′` = মিনিট।
+- কাজের নিচে rule-এর **Incorrect কোড** (ছয়টা rule-এ তার বদলে বর্ণনা)। Correct আর ব্যাখ্যার লিংক আসে টিক দেওয়ার পরে — আগে চোখে পড়লে নিজে লেখার অনুশীলন থাকে না। 🧠 (Test yourself)
+- `impact` chip = উৎসে rule-টার গুরুত্ব, CRITICAL থেকে LOW।
+- 🧠 (নাম) = কাজটা `learning_to_learn`-এর কোন নীতি থেকে; chip চাপলে এক লাইনে কেন।
+- 🔁 = এই কাজ শেষ করার দিন থেকে **১, ৩, ৭, ২১ দিন পরে** না দেখে আবার। তারিখ সাইট নিজে হিসাব করে।
+- ⚑ = মাইলফলক। নির্ধারিত দিনে না হলে শেষ না হওয়া পর্যন্ত হোমে থাকে।
+
+## "আজ" মানে ক্যালেন্ডারের আজ
+
+ফাইলে তারিখ নেই, শুধু দিনের নম্বর। প্রথমবার সাইট খুললে শুরুর তারিখ জিজ্ঞেস করে। তারপর থেকে দিন = শুরু থেকে কত দিন।
+
+- **plan পেছায় না।** কাল বাদ পড়লে আজ আজকের rule, দুটো নয়।
+- **বাদ পড়া rule ফেরে না** — গাইডে থাকে, দিন ০৭৬-এর পরে ধরতে পারেন।
+- **ঘুম কেটে পূরণ নয়।** 🧠 (The science of sleep)
+
+## কখন বসবেন ⏳
+
+এই সাইটের দিনের ১০′ ১৮০ দিনের plan-এর সপ্তাহে ৭ ঘণ্টার **ভেতরে, নাকি বাইরে** — ⏳ আপনার উত্তর বাকি। `emberjs_learning`-এর সাথে একসাথে চলবে, নাকি একটার পরে একটা — সেটাও ⏳। উত্তর না আসা পর্যন্ত plan-এর কোনো ঘর থেকে সময় কাটা হয়নি, আর শুরুর তারিখের কোনো প্রস্তাব নেই।
+
+---
+
+## বসা — ১০′
+
+1. **টাইমার ১০′।** 🧠 (Have an endpoint)
+2. **Incorrect কোডটা পড়ুন** — কী ভুল, আগে এক লাইনে মুখে। Incorrect না থাকলে বর্ণনাটা পড়ুন।
+3. **না দেখে লিখুন** — ঠিক সংস্করণটা, বা (ছয়টা rule-এ) একটা উদাহরণ; editor-এ বা কাগজে, চালাতে হবে না। 🧠 (Test yourself)
+4. **"কেন" ইংরেজিতে, ২–৩ বাক্যে, জোরে।** ইন্টারভিউতে উত্তরটা মুখ দিয়েই যায়। 🧠 (Feynman technique)
+5. **খাতায় এক লাইন** — নিজের কোন সাইটে এটা আছে, বা নেই। সাইটে নোটের ঘর নেই, ইচ্ছা করেই; উত্তরটা খাতায়।
+6. **টিক দিন**, তারপর "Correct আর ব্যাখ্যা" খুলে নিজের লেখার সাথে মেলান। যেটুকু মেলেনি, সেটাই আজকের শেখা। 🧠 (The science of feedback)
+
+**না পারলে?** টিক দিন, Correct পড়ুন, বন্ধ করে আবার লিখুন। পরের দিনের ঝালাইয়ে নিজে থেকে ফিরবে। 🧠 (Failures don't count)
+
+## ঝালাই
+
+- 🔁 কাজে টিক দিলে ঐ **আসল তারিখ** থেকে ১ → ৩ → ৭ → ২১ দিন। 🧠 (Spaced repetition revisited)
+- **ঝালাইয়ের বসা:** rule-এর নাম দেখে, গাইড না খুলে — "কেন" এক লাইনে, ইংরেজিতে, জোরে।
+- দুটো উত্তর: **মনে ছিল** (পরের ধাপে) বা **আটকে গেছি** (আবার ১ দিনে)। আটকে যাওয়া শাস্তি নয়, তথ্য।
+- ২১ দিনের ধাপ পার হলে ঝালাই শেষ — ওটা এখন স্থির।
+
+## ⚑ দিন — মুখে ২ মিনিট
+
+প্রতিটা ব্লকের শেষ দিনে একটা প্রশ্ন: গাইড না খুলে, ইংরেজিতে, জোরে, ২ মিনিটে। প্রথম তিনটা প্রশ্ন ইন্টারভিউর — ব্লকের rule তার একটা অংশ ছোঁয়, পুরো উত্তর নয়।
+
+| দিন | ব্লক | প্রশ্ন |
+|---|---|---|
+| ০১৬ | Re-render | React-এর re-render আর Ember-এর autotracking কীভাবে আলাদা |
+| ০২৭ | Async | `useEffect`-এ async কাজ — দুবার fetch, বাসি data, unmount-এর পরে setState |
+| ০৩৯ | Rendering | event loop, rendering pipeline, Core Web Vitals |
+| ০৪৬ | Bundle | "How would you make this page faster?" |
+| ০৫৭ | Server | ব্লকের তিনটা rule-এর "কেন" |
+| ০৭৬ | JS আর advanced | ব্লকের তিনটা rule-এর "কেন" |
+
+## গাইডের পাতা
+
+"গাইড" পাতায় ৭০টা rule, উৎসের ৮টা সেকশন ধরে; প্রতিটার পাশে কোন দিনে আসে। rule-এর পাতায় Incorrect কোড (বা বর্ণনা) খোলা আর পুরো rule ভাঁজ করা — plan-এ ঐ কাজে টিক থাকলে ভাঁজ নিজে খোলে। পাতাগুলো রেফারেন্স; রোজ শুরু "আজ" থেকে। 🧠 (Create a roadmap)
+
+---
+
+## যা করবেন না
+
+- **এক দিনে একাধিক rule নয়।** working memory-তে একসাথে চারটার বেশি ধরে না। 🧠 (Long and short memory)
+- **চেষ্টার আগে Correct নয়।** পড়া চেনা লাগায়, শেখায় না।
+- **rule পরীক্ষা করতে নতুন প্রজেক্ট বা sandbox বানানো নয়।** এই plan-এ নেই, ইচ্ছা করেই; দরকার মনে হলে এক লাইনে লিখে রাখুন।
+- **নতুন rule, নতুন দাবি বা নতুন ফিচার নয়।** ইচ্ছে হলে এক লাইনে লিখে রাখুন, বানাবেন না।
+
+## দিন ০৭৬-এর পরে
+
+- 🔁 ঝালাই হোমে আসতেই থাকবে, যতদিন বাকি।
+- বাদ পড়া rule গাইড থেকে একটা একটা করে — একই বসা, একই ১০′।
+- ⚑-এর ছয়টা প্রশ্ন ইন্টারভিউর আগের সপ্তাহে আরেকবার, জোরে।5:["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — Next.js, কীভাবে থেকে কেন"}],["$","p",null,{"className":"t-body measure text-sm","children":"৭৬ দিন · ৭০টা rule আর ৬টা ⚑ · দিনে একটা, ১০′"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$Lc",null,{"className":"measure","children":"$d"}]}]],["$Le"],"$Lf"]}]
+7:["$","$1","h",{"children":[null,["$","$L10",null,{"children":"$L11"}],["$","div",null,{"hidden":true,"children":["$","$L12",null,{"children":["$","$13",null,{"name":"Next.Metadata","children":"$L14"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+9:["$","link","0",{"rel":"stylesheet","href":"/nextjs_learning/_next/static/chunks/44fhexqeauue0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+15:I[97367,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"OutletBoundary"]
+6:C
+e:["$","script","script-0",{"src":"/nextjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true,"nonce":"$undefined"}]
+f:["$","$L15",null,{"children":["$","$13",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]
+11:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+17:I[27201,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"IconMark"]
+14:[["$","title","0",{"children":"নিয়ম — nextjs learning"}],["$","meta","1",{"name":"description","content":"React আর Next.js-এর ৭০টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nextjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L17","3",{}]]
+16:null

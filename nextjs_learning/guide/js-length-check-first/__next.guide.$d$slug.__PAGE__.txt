@@ -1,0 +1,71 @@
+1:"$Sreact.fragment"
+2:I[22016,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js","/nextjs_learning/_next/static/chunks/0mwqbw2ara0vf.js","/nextjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js","/nextjs_learning/_next/static/chunks/0mwqbw2ara0vf.js","/nextjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js","/nextjs_learning/_next/static/chunks/0mwqbw2ara0vf.js","/nextjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T5d5,When comparing arrays with expensive operations (sorting, deep equality, serialization), check lengths first. If lengths differ, the arrays cannot be equal.
+
+In real-world applications, this optimization is especially valuable when the comparison runs in hot paths (event handlers, render loops).
+
+**Incorrect (always runs expensive comparison):**
+
+```typescript
+function hasChanges(current: string[], original: string[]) {
+  // Always sorts and joins, even when lengths differ
+  return current.sort().join() !== original.sort().join()
+}
+```
+
+Two O(n log n) sorts run even when `current.length` is 5 and `original.length` is 100. There is also overhead of joining the arrays and comparing the strings.
+
+**Correct (O(1) length check first):**
+
+```typescript
+function hasChanges(current: string[], original: string[]) {
+  // Early return if lengths differ
+  if (current.length !== original.length) {
+    return true
+  }
+  // Only sort when lengths match
+  const currentSorted = current.toSorted()
+  const originalSorted = original.toSorted()
+  for (let i = 0; i < currentSorted.length; i++) {
+    if (currentSorted[i] !== originalSorted[i]) {
+      return true
+    }
+  }
+  return false
+}
+```
+
+This new approach is more efficient because:
+- It avoids the overhead of sorting and joining the arrays when lengths differ
+- It avoids consuming memory for the joined strings (especially important for large arrays)
+- It avoids mutating the original arrays
+- It returns early when a difference is foundc:X
+11:X
+11:C
+0:{"buildId":"704NRpYOYfAjgeoZJ4c5j","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[7," · ","JavaScript Performance"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Early Length Check for Array Comparisons"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","MEDIUM-HIGH"]}],["$","span",null,{"className":"chip","children":"avoids expensive operations when lengths differ"}],[["$","$L2","065",{"href":"/day/065/","className":"chip chip--accent","children":["plan · দিন ","০৬৫"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?"}],["$","$L3",null,{"children":"**Incorrect (always runs expensive comparison):**\n\n```typescript\nfunction hasChanges(current: string[], original: string[]) {\n  // Always sorts and joins, even when lengths differ\n  return current.sort().join() !== original.sort().join()\n}\n```"}]]}],["$","$L4",null,{"taskIds":["d065-cb0azr"],"kind":"fix","children":[null,["$","$L3",null,{"children":"$5"}]]}],["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/js-request-idle-callback/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Defer Non-Critical Work with requestIdleCallback"}]]}],["$","$L2",null,{"href":"/guide/js-early-exit/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Early Return from Functions"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":["$L6","$L7"]}]]}]]}]],["$L8","$L9"],"$La"]}],"isPartial":"$@b","staleTime":"$c","varyParams":null},{"rsc":"$Ld","isPartial":"$@e","staleTime":"$c","varyParams":null},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$c","varyParams":"$11"},{"rsc":"$L12","isPartial":"$@13","staleTime":"$c","varyParams":"$11"}],"isUpgradeableISRFallback":false,"a":"$@14","rootVaryParams":null,"needsRuntimeRequest":"$@15"}
+16:I[97367,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"OutletBoundary"]
+17:"$Sreact.suspense"
+19:I[97367,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"ViewportBoundary"]
+1a:I[97367,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"MetadataBoundary"]
+1b:I[27201,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"IconMark"]
+1c:I[39756,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"default"]
+1d:I[37457,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"default"]
+6:["$","path",null,{"d":"M5 12h14"}]
+7:["$","path",null,{"d":"m12 5 7 7-7 7"}]
+8:["$","script","script-0",{"src":"/nextjs_learning/_next/static/chunks/0mwqbw2ara0vf.js","async":true}]
+9:["$","script","script-1",{"src":"/nextjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+a:["$","$L16",null,{"children":["$","$17",null,{"name":"Next.MetadataOutlet","children":"$@18"}]}]
+d:["$","$1","h",{"children":[null,["$","$L19",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1a",null,{"children":["$","$17",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Early Length Check for Array Comparisons — nextjs learning"}],["$","meta","1",{"name":"description","content":"React আর Next.js-এর ৭০টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nextjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1b","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","template":["$","$L1d",null,{}]}]]}]
+12:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","template":["$","$L1d",null,{}]}]]}]
+15:true
+18:null
+c:300
+c:C
+14:0
+e:"$undefined"
+10:"$undefined"
+13:"$undefined"
+b:"$undefined"

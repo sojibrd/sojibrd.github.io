@@ -1,0 +1,85 @@
+1:"$Sreact.fragment"
+2:I[22016,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js","/nextjs_learning/_next/static/chunks/0mwqbw2ara0vf.js","/nextjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js","/nextjs_learning/_next/static/chunks/0mwqbw2ara0vf.js","/nextjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js","/nextjs_learning/_next/static/chunks/0mwqbw2ara0vf.js","/nextjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T868,Build tools work best when import and file-system paths are obvious at build time. If you hide the real path inside a variable or compose it too dynamically, the tool either has to include a broad set of possible files, warn that it cannot analyze the import, or widen file tracing to stay safe.
+
+Prefer explicit maps or literal paths so the set of reachable files stays narrow and predictable. This is the same rule whether you are choosing modules with `import()` or reading files in server/build code.
+
+When analysis becomes too broad, the cost is real:
+- Larger server bundles
+- Slower builds
+- Worse cold starts
+- More memory use
+
+### Import Paths
+
+**Incorrect (the bundler cannot tell what may be imported):**
+
+```ts
+const PAGE_MODULES = {
+  home: './pages/home',
+  settings: './pages/settings',
+} as const
+
+const Page = await import(PAGE_MODULES[pageName])
+```
+
+**Correct (use an explicit map of allowed modules):**
+
+```ts
+const PAGE_MODULES = {
+  home: () => import('./pages/home'),
+  settings: () => import('./pages/settings'),
+} as const
+
+const Page = await PAGE_MODULES[pageName]()
+```
+
+### File-System Paths
+
+**Incorrect (a 2-value enum still hides the final path from static analysis):**
+
+```ts
+const baseDir = path.join(process.cwd(), 'content/' + contentKind)
+```
+
+**Correct (make each final path literal at the callsite):**
+
+```ts
+const baseDir =
+  kind === ContentKind.Blog
+    ? path.join(process.cwd(), 'content/blog')
+    : path.join(process.cwd(), 'content/docs')
+```
+
+In Next.js server code, this matters for output file tracing too. `path.join(process.cwd(), someVar)` can widen the traced file set because Next.js statically analyze `import`, `require`, and `fs` usage.
+
+Reference: [Next.js output](https://nextjs.org/docs/app/api-reference/config/next-config-js/output), [Next.js dynamic imports](https://nextjs.org/learn/seo/dynamic-imports), [Vite features](https://vite.dev/guide/features.html), [esbuild API](https://esbuild.github.io/api/), [Rollup dynamic import vars](https://www.npmjs.com/package/@rollup/plugin-dynamic-import-vars), [Webpack dependency management](https://webpack.js.org/guides/dependency-management/)c:X
+11:X
+11:C
+0:{"buildId":"704NRpYOYfAjgeoZJ4c5j","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[2," · ","Bundle Size Optimization"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Prefer Statically Analyzable Paths"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"avoids accidental broad bundles and file traces"}],[["$","$L2","044",{"href":"/day/044/","className":"chip chip--accent","children":["plan · দিন ","০৪৪"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?"}],["$","$L3",null,{"children":"**Incorrect (the bundler cannot tell what may be imported):**\n\n```ts\nconst PAGE_MODULES = {\n  home: './pages/home',\n  settings: './pages/settings',\n} as const\n\nconst Page = await import(PAGE_MODULES[pageName])\n```"}]]}],["$","$L4",null,{"taskIds":["d044-xfvdaa"],"kind":"fix","children":[null,["$","$L3",null,{"children":"$5"}]]}],["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":["$L6","$L7"]}]],["$L8","$L9"],"$La"]}],"isPartial":"$@b","staleTime":"$c","varyParams":null},{"rsc":"$Ld","isPartial":"$@e","staleTime":"$c","varyParams":null},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$c","varyParams":"$11"},{"rsc":"$L12","isPartial":"$@13","staleTime":"$c","varyParams":"$11"}],"isUpgradeableISRFallback":false,"a":"$@14","rootVaryParams":null,"needsRuntimeRequest":"$@15"}
+16:I[97367,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"OutletBoundary"]
+17:"$Sreact.suspense"
+19:I[97367,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"ViewportBoundary"]
+1a:I[97367,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"MetadataBoundary"]
+1b:I[27201,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"IconMark"]
+1c:I[39756,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"default"]
+1d:I[37457,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"default"]
+6:["$","$L2",null,{"href":"/guide/bundle-dynamic-imports/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Dynamic Imports for Heavy Components"}]]}]
+7:["$","$L2",null,{"href":"/guide/bundle-preload/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Preload Based on User Intent"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]
+8:["$","script","script-0",{"src":"/nextjs_learning/_next/static/chunks/0mwqbw2ara0vf.js","async":true}]
+9:["$","script","script-1",{"src":"/nextjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+a:["$","$L16",null,{"children":["$","$17",null,{"name":"Next.MetadataOutlet","children":"$@18"}]}]
+d:["$","$1","h",{"children":[null,["$","$L19",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1a",null,{"children":["$","$17",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Prefer Statically Analyzable Paths — nextjs learning"}],["$","meta","1",{"name":"description","content":"React আর Next.js-এর ৭০টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nextjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1b","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","template":["$","$L1d",null,{}]}]]}]
+12:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","template":["$","$L1d",null,{}]}]]}]
+15:true
+18:null
+c:300
+c:C
+14:0
+e:"$undefined"
+10:"$undefined"
+13:"$undefined"
+b:"$undefined"

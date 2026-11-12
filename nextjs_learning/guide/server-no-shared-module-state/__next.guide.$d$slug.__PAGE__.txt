@@ -1,0 +1,72 @@
+1:"$Sreact.fragment"
+2:I[22016,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js","/nextjs_learning/_next/static/chunks/0mwqbw2ara0vf.js","/nextjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js","/nextjs_learning/_next/static/chunks/0mwqbw2ara0vf.js","/nextjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js","/nextjs_learning/_next/static/chunks/0mwqbw2ara0vf.js","/nextjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T5f5,For React Server Components and client components rendered during SSR, avoid using mutable module-level variables to share request-scoped data. Server renders can run concurrently in the same process. If one render writes to shared module state and another render reads it, you can get race conditions, cross-request contamination, and security bugs where one user's data appears in another user's response.
+
+Treat module scope on the server as process-wide shared memory, not request-local state.
+
+**Incorrect (request data leaks across concurrent renders):**
+
+```tsx
+let currentUser: User | null = null
+
+export default async function Page() {
+  currentUser = await auth()
+  return <Dashboard />
+}
+
+async function Dashboard() {
+  return <div>{currentUser?.name}</div>
+}
+```
+
+If two requests overlap, request A can set `currentUser`, then request B overwrites it before request A finishes rendering `Dashboard`.
+
+**Correct (keep request data local to the render tree):**
+
+```tsx
+export default async function Page() {
+  const user = await auth()
+  return <Dashboard user={user} />
+}
+
+function Dashboard({ user }: { user: User | null }) {
+  return <div>{user?.name}</div>
+}
+```
+
+Safe exceptions:
+
+- Immutable static assets or config loaded once at module scope
+- Shared caches intentionally designed for cross-request reuse and keyed correctly
+- Process-wide singletons that do not store request- or user-specific mutable data
+
+For static assets and config, see [Hoist Static I/O to Module Level](./server-hoist-static-io.md).c:X
+11:X
+11:C
+0:{"buildId":"704NRpYOYfAjgeoZJ4c5j","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[3," · ","Server-Side Performance"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Avoid Shared Module State for Request Data"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"prevents concurrency bugs and request data leaks"}],[["$","$L2","049",{"href":"/day/049/","className":"chip chip--accent","children":["plan · দিন ","০৪৯"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?"}],["$","$L3",null,{"children":"**Incorrect (request data leaks across concurrent renders):**\n\n```tsx\nlet currentUser: User | null = null\n\nexport default async function Page() {\n  currentUser = await auth()\n  return <Dashboard />\n}\n\nasync function Dashboard() {\n  return <div>{currentUser?.name}</div>\n}\n```"}]]}],["$","$L4",null,{"taskIds":["d049-oulxvv"],"kind":"fix","children":[null,["$","$L3",null,{"children":"$5"}]]}],["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/server-dedup-props/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Avoid Duplicate Serialization in RSC Props"}]]}],["$","$L2",null,{"href":"/guide/server-cache-lru/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Cross-Request LRU Caching"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":["$L6","$L7"]}]]}]]}]],["$L8","$L9"],"$La"]}],"isPartial":"$@b","staleTime":"$c","varyParams":null},{"rsc":"$Ld","isPartial":"$@e","staleTime":"$c","varyParams":null},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$c","varyParams":"$11"},{"rsc":"$L12","isPartial":"$@13","staleTime":"$c","varyParams":"$11"}],"isUpgradeableISRFallback":false,"a":"$@14","rootVaryParams":null,"needsRuntimeRequest":"$@15"}
+16:I[97367,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"OutletBoundary"]
+17:"$Sreact.suspense"
+19:I[97367,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"ViewportBoundary"]
+1a:I[97367,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"MetadataBoundary"]
+1b:I[27201,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"IconMark"]
+1c:I[39756,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"default"]
+1d:I[37457,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"default"]
+6:["$","path",null,{"d":"M5 12h14"}]
+7:["$","path",null,{"d":"m12 5 7 7-7 7"}]
+8:["$","script","script-0",{"src":"/nextjs_learning/_next/static/chunks/0mwqbw2ara0vf.js","async":true}]
+9:["$","script","script-1",{"src":"/nextjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+a:["$","$L16",null,{"children":["$","$17",null,{"name":"Next.MetadataOutlet","children":"$@18"}]}]
+d:["$","$1","h",{"children":[null,["$","$L19",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1a",null,{"children":["$","$17",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Avoid Shared Module State for Request Data — nextjs learning"}],["$","meta","1",{"name":"description","content":"React আর Next.js-এর ৭০টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nextjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1b","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","template":["$","$L1d",null,{}]}]]}]
+12:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","template":["$","$L1d",null,{}]}]]}]
+15:true
+18:null
+c:300
+c:C
+14:0
+e:"$undefined"
+10:"$undefined"
+13:"$undefined"
+b:"$undefined"

@@ -1,0 +1,131 @@
+1:"$Sreact.fragment"
+2:I[82484,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js","/nextjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+3:T37ba,## লক্ষ্য
+
+> **৭৬ দিনে React আর Next.js-এর ৭০টা best practice-এর প্রতিটায় না দেখে কোডটা লিখতে পারা, আর "কেন" ইংরেজিতে নিজের কথায় বলতে পারা — ঝালাইসহ।**
+
+এটা শূন্য থেকে Next.js শেখার সাইট নয়। কোড চালু আছে; ইন্টারভিউ জিজ্ঞেস করে "কেন" — AI ছাড়া, নিজের কথায়। প্রতিটা দিন একটা rule ধরে সেই "কেন"-টা মুখে আনার অনুশীলন — পড়ে নয়, লিখে আর বলে। 🧠 (Feynman technique · Active vs Passive learning)
+
+## সত্যের উৎস
+
+এই সাইট React বা Next.js নিয়ে নিজের কোনো rule যোগ করে না — প্রতিটা দিনের কোড আর ব্যাখ্যা rule-এর ফাইল থেকেই।
+
+1. `guide/` — `vercel-react-best-practices` skill-এর ৭০টা rule ফাইল, হুবহু ইংরেজিতে। লেখক আর লাইসেন্স `guide/README.md`-এ; সেকশনের নাম আর ক্রম `guide/_sections.md`-এ।
+2. `docs/` — এই plan: নিয়ম আর ৬টা ব্লক।
+3. ⚑ দিনের প্রশ্ন — প্রথম তিনটা `brainstorming/application-to-offer.md`-এর ইন্টারভিউ-বিষয় থেকে (দ্বিতীয় আর তৃতীয়টার শব্দ `switch_in_6_month_local_company/docs/05-technical.md`-এর দিন ১৩৩ আর ১৩৬-এর), চতুর্থটা ঐ ফাইলের দিন ১৩৭-এর। শেষ দুই ব্লকের জন্য কোথাও আলাদা প্রশ্ন লেখা নেই, তাই ওখানে ব্লকের rule-ই প্রশ্ন।
+
+## উৎসটা কী, কী নয়
+
+- **React আর Next.js মিলিয়ে।** সেকশনের নাম ধরে ভাগ করলে তিনটা সেকশন (`async-`, `bundle-`, `server-` — ২২টা rule) Next.js আর server-ঘেঁষা; বাকি পাঁচটা (৪৮টা) React আর সাধারণ JavaScript-এর।
+- **৬টা rule-এ Incorrect কোড নেই** — শুধু বর্ণনা আর উদাহরণ: `bundle-conditional`, `bundle-preload`, `rendering-activity`, `rendering-content-visibility`, `rendering-resource-hints`, `server-cache-lru`। ওগুলোয় কাজ ভুল ঠিক করা নয়, একটা উদাহরণ লেখা।
+- **rule-গুলো Next.js-এর কোনো নির্দিষ্ট version-এর সাথে বাঁধা নয়।** নিচের তালিকাটা তাই আলাদা করে মেলানো।
+
+### Next.js 16-এর সাথে চারটা অমিল
+
+২০২৬-১০-১১-এ শুধু সেই rule-গুলো মেলানো হয়েছে যেগুলো `next/…` থেকে import করে বা Next.js-এর নিজস্ব সেটিং ধরে — Next.js 16.3.5-এর package-এর সাথে আসা ডকের (`node_modules/next/dist/docs/01-app/`) সাথে। rule ফাইল বদলানো হয়নি; অমিলগুলো এখানে, যাতে ঐ দিনে Correct-টা হুবহু মুখস্থ না হয়। ঐ চার দিনে একই কথা একটা **সতর্কতা** হিসেবেও আসে — কাজে টিক দিলে দিনের কার্ডে, আর গাইডের পাতায় Correct-এর ভাঁজের ভেতরে। Correct খোলার আগে দেখায় না, কারণ তাতে উত্তরটাই বলে দেওয়া হয়।
+
+| দিন | rule | rule যা দেখায় | Next.js 16-এর ডক যা বলে |
+|---|---|---|---|
+| ০৩৫ | `rendering-script-defer-async` | শেষের নোটে `strategy="beforeInteractive"` সহ `<Script>` একটা `Page`-এর ভেতরে | `beforeInteractive` script root layout-এ রাখতে হয় (`03-api-reference/02-components/script.md`) |
+| ০৪২ | `bundle-defer-third-party` | Correct-এ `RootLayout`-এ `dynamic(…, { ssr: false })`, ফাইলে `'use client'` নেই | Server Component-এ `ssr: false` চলে না, error আসে; Client Component-এ সরাতে হয় (`02-guides/lazy-loading.md`) |
+| ০৪৩ | `bundle-dynamic-imports` | Correct-এ `{ ssr: false }`, ফাইলটা Client Component কিনা দেখানো নেই | একই — শুধু Client Component-এ চলে |
+| ০৪৭ | `server-auth-actions` | "middleware"-এর উপর ভরসা না করতে বলে | `middleware` file convention Next.js 16-এ deprecated, নতুন নাম `proxy` (`03-api-reference/03-file-conventions/proxy.md`) |
+
+একই মেলানোয় যা মিলেছে: `experimental.optimizePackageImports` (দিন ০৪০), `after()` আর await করা `headers()` / `cookies()` (দিন ০৫৬), `next/og`-এর `ImageResponse` (দিন ০৫১)। বাকি rule-গুলো — React-এর নিজের API আর সাধারণ JavaScript — কোনো version-এর সাথে মেলানো হয়নি।
+
+## কীভাবে পড়বেন
+
+- ৭৬ দিন, ৬টা ব্লক — ইন্টারভিউর ক্রমে: Re-render → Async → Rendering → Bundle → Server → JS আর advanced। উৎসের সেকশন ভাঙা হয়নি, শুধু ক্রম বদলেছে; সেকশনের ভেতরে rule উৎসের মতোই নামের বর্ণানুক্রমে।
+- প্রতিটা দিনে একটা rule, একটা `- [ ]` কাজ, আর শেষে **দিন শেষে** প্রশ্ন — হ্যাঁ/না। ব্লকের শেষ দিনটা ⚑।
+- `১০′` = মিনিট।
+- কাজের নিচে rule-এর **Incorrect কোড** (ছয়টা rule-এ তার বদলে বর্ণনা)। Correct আর ব্যাখ্যার লিংক আসে টিক দেওয়ার পরে — আগে চোখে পড়লে নিজে লেখার অনুশীলন থাকে না। 🧠 (Test yourself)
+- `impact` chip = উৎসে rule-টার গুরুত্ব, CRITICAL থেকে LOW।
+- 🧠 (নাম) = কাজটা `learning_to_learn`-এর কোন নীতি থেকে; chip চাপলে এক লাইনে কেন।
+- 🔁 = এই কাজ শেষ করার দিন থেকে **১, ৩, ৭, ২১ দিন পরে** না দেখে আবার। তারিখ সাইট নিজে হিসাব করে।
+- ⚑ = মাইলফলক। নির্ধারিত দিনে না হলে শেষ না হওয়া পর্যন্ত হোমে থাকে।
+
+## "আজ" মানে ক্যালেন্ডারের আজ
+
+ফাইলে তারিখ নেই, শুধু দিনের নম্বর। প্রথমবার সাইট খুললে শুরুর তারিখ জিজ্ঞেস করে। তারপর থেকে দিন = শুরু থেকে কত দিন।
+
+- **plan পেছায় না।** কাল বাদ পড়লে আজ আজকের rule, দুটো নয়।
+- **বাদ পড়া rule ফেরে না** — গাইডে থাকে, দিন ০৭৬-এর পরে ধরতে পারেন।
+- **ঘুম কেটে পূরণ নয়।** 🧠 (The science of sleep)
+
+## কখন বসবেন ⏳
+
+এই সাইটের দিনের ১০′ ১৮০ দিনের plan-এর সপ্তাহে ৭ ঘণ্টার **ভেতরে, নাকি বাইরে** — ⏳ আপনার উত্তর বাকি। `emberjs_learning`-এর সাথে একসাথে চলবে, নাকি একটার পরে একটা — সেটাও ⏳। উত্তর না আসা পর্যন্ত plan-এর কোনো ঘর থেকে সময় কাটা হয়নি, আর শুরুর তারিখের কোনো প্রস্তাব নেই।
+
+---
+
+## বসা — ১০′
+
+1. **টাইমার ১০′।** 🧠 (Have an endpoint)
+2. **Incorrect কোডটা পড়ুন** — কী ভুল, আগে এক লাইনে মুখে। Incorrect না থাকলে বর্ণনাটা পড়ুন।
+3. **না দেখে লিখুন** — ঠিক সংস্করণটা, বা (ছয়টা rule-এ) একটা উদাহরণ; editor-এ বা কাগজে, চালাতে হবে না। 🧠 (Test yourself)
+4. **"কেন" ইংরেজিতে, ২–৩ বাক্যে, জোরে।** ইন্টারভিউতে উত্তরটা মুখ দিয়েই যায়। 🧠 (Feynman technique)
+5. **খাতায় এক লাইন** — নিজের কোন সাইটে এটা আছে, বা নেই। সাইটে নোটের ঘর নেই, ইচ্ছা করেই; উত্তরটা খাতায়।
+6. **টিক দিন**, তারপর "Correct আর ব্যাখ্যা" খুলে নিজের লেখার সাথে মেলান। যেটুকু মেলেনি, সেটাই আজকের শেখা। 🧠 (The science of feedback)
+
+**না পারলে?** টিক দিন, Correct পড়ুন, বন্ধ করে আবার লিখুন। পরের দিনের ঝালাইয়ে নিজে থেকে ফিরবে। 🧠 (Failures don't count)
+
+## ঝালাই
+
+- 🔁 কাজে টিক দিলে ঐ **আসল তারিখ** থেকে ১ → ৩ → ৭ → ২১ দিন। 🧠 (Spaced repetition revisited)
+- **ঝালাইয়ের বসা:** rule-এর নাম দেখে, গাইড না খুলে — "কেন" এক লাইনে, ইংরেজিতে, জোরে।
+- দুটো উত্তর: **মনে ছিল** (পরের ধাপে) বা **আটকে গেছি** (আবার ১ দিনে)। আটকে যাওয়া শাস্তি নয়, তথ্য।
+- ২১ দিনের ধাপ পার হলে ঝালাই শেষ — ওটা এখন স্থির।
+
+## ⚑ দিন — মুখে ২ মিনিট
+
+প্রতিটা ব্লকের শেষ দিনে একটা প্রশ্ন: গাইড না খুলে, ইংরেজিতে, জোরে, ২ মিনিটে। প্রথম তিনটা প্রশ্ন ইন্টারভিউর — ব্লকের rule তার একটা অংশ ছোঁয়, পুরো উত্তর নয়।
+
+| দিন | ব্লক | প্রশ্ন |
+|---|---|---|
+| ০১৬ | Re-render | React-এর re-render আর Ember-এর autotracking কীভাবে আলাদা |
+| ০২৭ | Async | `useEffect`-এ async কাজ — দুবার fetch, বাসি data, unmount-এর পরে setState |
+| ০৩৯ | Rendering | event loop, rendering pipeline, Core Web Vitals |
+| ০৪৬ | Bundle | "How would you make this page faster?" |
+| ০৫৭ | Server | ব্লকের তিনটা rule-এর "কেন" |
+| ০৭৬ | JS আর advanced | ব্লকের তিনটা rule-এর "কেন" |
+
+## গাইডের পাতা
+
+"গাইড" পাতায় ৭০টা rule, উৎসের ৮টা সেকশন ধরে; প্রতিটার পাশে কোন দিনে আসে। rule-এর পাতায় Incorrect কোড (বা বর্ণনা) খোলা আর পুরো rule ভাঁজ করা — plan-এ ঐ কাজে টিক থাকলে ভাঁজ নিজে খোলে। পাতাগুলো রেফারেন্স; রোজ শুরু "আজ" থেকে। 🧠 (Create a roadmap)
+
+---
+
+## যা করবেন না
+
+- **এক দিনে একাধিক rule নয়।** working memory-তে একসাথে চারটার বেশি ধরে না। 🧠 (Long and short memory)
+- **চেষ্টার আগে Correct নয়।** পড়া চেনা লাগায়, শেখায় না।
+- **rule পরীক্ষা করতে নতুন প্রজেক্ট বা sandbox বানানো নয়।** এই plan-এ নেই, ইচ্ছা করেই; দরকার মনে হলে এক লাইনে লিখে রাখুন।
+- **নতুন rule, নতুন দাবি বা নতুন ফিচার নয়।** ইচ্ছে হলে এক লাইনে লিখে রাখুন, বানাবেন না।
+
+## দিন ০৭৬-এর পরে
+
+- 🔁 ঝালাই হোমে আসতেই থাকবে, যতদিন বাকি।
+- বাদ পড়া rule গাইড থেকে একটা একটা করে — একই বসা, একই ১০′।
+- ⚑-এর ছয়টা প্রশ্ন ইন্টারভিউর আগের সপ্তাহে আরেকবার, জোরে।7:X
+c:X
+c:C
+0:{"buildId":"704NRpYOYfAjgeoZJ4c5j","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — Next.js, কীভাবে থেকে কেন"}],["$","p",null,{"className":"t-body measure text-sm","children":"৭৬ দিন · ৭০টা rule আর ৬টা ⚑ · দিনে একটা, ১০′"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L2",null,{"className":"measure","children":"$3"}]}]],["$L4"],"$L5"]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":"$L8","isPartial":"$@9","staleTime":"$7","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$7","varyParams":"$c"}],"isUpgradeableISRFallback":false,"a":"$@d","rootVaryParams":null,"needsRuntimeRequest":"$@e"}
+f:I[97367,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"OutletBoundary"]
+10:"$Sreact.suspense"
+12:I[97367,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"ViewportBoundary"]
+13:I[97367,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"MetadataBoundary"]
+14:I[27201,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"IconMark"]
+15:I[39756,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"default"]
+16:I[37457,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"default"]
+4:["$","script","script-0",{"src":"/nextjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+5:["$","$Lf",null,{"children":["$","$10",null,{"name":"Next.MetadataOutlet","children":"$@11"}]}]
+8:["$","$1","h",{"children":[null,["$","$L12",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$10",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"নিয়ম — nextjs learning"}],["$","meta","1",{"name":"description","content":"React আর Next.js-এর ৭০টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nextjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L14","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+a:["$","$1","c",{"children":[null,["$","$L15",null,{"parallelRouterKey":"children","template":["$","$L16",null,{}]}]]}]
+e:true
+11:null
+7:300
+7:C
+d:0
+9:"$undefined"
+b:"$undefined"
+6:"$undefined"

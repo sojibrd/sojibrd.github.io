@@ -1,0 +1,106 @@
+1:"$Sreact.fragment"
+2:I[22016,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js","/nextjs_learning/_next/static/chunks/0mwqbw2ara0vf.js","/nextjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js","/nextjs_learning/_next/static/chunks/0mwqbw2ara0vf.js","/nextjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js","/nextjs_learning/_next/static/chunks/0mwqbw2ara0vf.js","/nextjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T91e,**Impact: HIGH (reduces load time for critical resources)**
+
+React DOM provides APIs to hint the browser about resources it will need. These are especially useful in server components to start loading resources before the client even receives the HTML.
+
+- **`prefetchDNS(href)`**: Resolve DNS for a domain you expect to connect to
+- **`preconnect(href)`**: Establish connection (DNS + TCP + TLS) to a server
+- **`preload(href, options)`**: Fetch a resource (stylesheet, font, script, image) you'll use soon
+- **`preloadModule(href)`**: Fetch an ES module you'll use soon
+- **`preinit(href, options)`**: Fetch and evaluate a stylesheet or script
+- **`preinitModule(href)`**: Fetch and evaluate an ES module
+
+**Example (preconnect to third-party APIs):**
+
+```tsx
+import { preconnect, prefetchDNS } from 'react-dom'
+
+export default function App() {
+  prefetchDNS('https://analytics.example.com')
+  preconnect('https://api.example.com')
+
+  return <main>{/* content */}</main>
+}
+```
+
+**Example (preload critical fonts and styles):**
+
+```tsx
+import { preload, preinit } from 'react-dom'
+
+export default function RootLayout({ children }) {
+  // Preload font file
+  preload('/fonts/inter.woff2', { as: 'font', type: 'font/woff2', crossOrigin: 'anonymous' })
+
+  // Fetch and apply critical stylesheet immediately
+  preinit('/styles/critical.css', { as: 'style' })
+
+  return (
+    <html>
+      <body>{children}</body>
+    </html>
+  )
+}
+```
+
+**Example (preload modules for code-split routes):**
+
+```tsx
+import { preloadModule, preinitModule } from 'react-dom'
+
+function Navigation() {
+  const preloadDashboard = () => {
+    preloadModule('/dashboard.js', { as: 'script' })
+  }
+
+  return (
+    <nav>
+      <a href="/dashboard" onMouseEnter={preloadDashboard}>
+        Dashboard
+      </a>
+    </nav>
+  )
+}
+```
+
+**When to use each:**
+
+| API | Use case |
+|-----|----------|
+| `prefetchDNS` | Third-party domains you'll connect to later |
+| `preconnect` | APIs or CDNs you'll fetch from immediately |
+| `preload` | Critical resources needed for current page |
+| `preloadModule` | JS modules for likely next navigation |
+| `preinit` | Stylesheets/scripts that must execute early |
+| `preinitModule` | ES modules that must execute early |
+
+Reference: [React DOM Resource Preloading APIs](https://react.dev/reference/react-dom#resource-preloading-apis)b:X
+10:X
+10:C
+0:{"buildId":"704NRpYOYfAjgeoZJ4c5j","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[6," · ","Rendering Performance"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Use React DOM Resource Hints"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"reduces load time for critical resources"}],[["$","$L2","037",{"href":"/day/037/","className":"chip chip--accent","children":["plan · দিন ","০৩৭"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে নিজে — এটা কোডে কেমন দেখায়, একটা উদাহরণ লিখুন"}],["$","$L3",null,{"children":"**Impact: HIGH (reduces load time for critical resources)**\n\nReact DOM provides APIs to hint the browser about resources it will need. These are especially useful in server components to start loading resources before the client even receives the HTML.\n\n- **`prefetchDNS(href)`**: Resolve DNS for a domain you expect to connect to\n- **`preconnect(href)`**: Establish connection (DNS + TCP + TLS) to a server\n- **`preload(href, options)`**: Fetch a resource (stylesheet, font, script, image) you'll use soon\n- **`preloadModule(href)`**: Fetch an ES module you'll use soon\n- **`preinit(href, options)`**: Fetch and evaluate a stylesheet or script\n- **`preinitModule(href)`**: Fetch and evaluate an ES module"}]]}],["$","$L4",null,{"taskIds":["d037-aus8j2"],"kind":"example","children":[null,["$","$L3",null,{"children":"$5"}]]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"ViewportBoundary"]
+19:I[97367,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"MetadataBoundary"]
+1a:I[27201,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"IconMark"]
+1b:I[39756,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"default"]
+1c:I[37457,["/nextjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/nextjs_learning/_next/static/chunks/2qgszhx7wl90f.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/rendering-conditional-render/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Use Explicit Conditional Rendering"}]]}],["$","$L2",null,{"href":"/guide/rendering-usetransition-loading/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Use useTransition Over Manual Loading States"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/nextjs_learning/_next/static/chunks/0mwqbw2ara0vf.js","async":true}]
+8:["$","script","script-1",{"src":"/nextjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Use React DOM Resource Hints — nextjs learning"}],["$","meta","1",{"name":"description","content":"React আর Next.js-এর ৭০টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/nextjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"
