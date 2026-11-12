@@ -1,0 +1,310 @@
+<!DOCTYPE html><html lang="bn" class="archivo_aabc0850-module__cplg6G__variable archivo_black_cc57a6c8-module__12WbNa__variable barlow_semi_condensed_66b51823-module__HKMkGa__variable jetbrains_mono_ce945e87-module__HTLkQq__variable noto_sans_bengali_ae4f5577-module__v5t5fW__variable h-full antialiased"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" href="/emberjs_learning/_next/static/media/490cbca7f386131e-s.p.1zrwl0c4yv3pr.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/emberjs_learning/_next/static/media/4b23c5ee480ee380-s.p.0qqufx6vw52v_.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/emberjs_learning/_next/static/media/520c929efec0b33f-s.p.3arxh35s5-kc0.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/emberjs_learning/_next/static/media/5e4d537aaa9e154b-s.p.1ewykk74tw0il.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/emberjs_learning/_next/static/media/6a1d08cf467f0848-s.p.240fzfer9e_rh.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/emberjs_learning/_next/static/media/6ea8d1bb8ea4af7a-s.p.1kk_wfe381bov.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/emberjs_learning/_next/static/media/70bc3e132a0a741e-s.p.3t6q91iet4nsy.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/emberjs_learning/_next/static/media/70c15719a04fff13-s.p.376yc-xi7tht7.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="preload" href="/emberjs_learning/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2" as="font" crossorigin="" type="font/woff2"/><link rel="stylesheet" href="/emberjs_learning/_next/static/chunks/0g6dxcuh_dwa4.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/emberjs_learning/_next/static/chunks/0az8vxg2gfuhm.js"/><script src="/emberjs_learning/_next/static/chunks/2ul8ophnk13y-.js" async=""></script><script src="/emberjs_learning/_next/static/chunks/0dr-zs30cmz0j.js" async=""></script><script src="/emberjs_learning/_next/static/chunks/3m5g3y6o49b0y.js" async=""></script><script src="/emberjs_learning/_next/static/chunks/turbopack-0nfd4fc-wt88r.js" async=""></script><script src="/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js" async=""></script><script src="/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js" async=""></script><script src="/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js" async=""></script><script src="/emberjs_learning/_next/static/chunks/1t000xs0g969t.js" async=""></script><title>Build Reactive Chains with Dependent Getters — emberjs learning</title><meta name="description" content="আধুনিক Ember-এর ৫৮টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"/><link rel="icon" href="/emberjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico" sizes="256x256" type="image/x-icon"/><meta name="next-size-adjust" content=""/><script src="/emberjs_learning/_next/static/chunks/0cz1d0mv5g_q7.js" noModule=""></script></head><body class="surface-app flex min-h-full flex-col"><div hidden=""><!--$--><!--/$--></div><a href="#main-content" class="control control--primary sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 px-3 py-1.5 text-xs">মূল কনটেন্টে যান</a><div class="surface-app flex h-screen flex-col overflow-hidden"><header class="surface-app seam-b flex w-full shrink-0 items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:hidden"><div class="flex min-w-0 items-center gap-3"><button type="button" class="control control--quiet shrink-0 p-2" aria-label="নেভিগেশন খুলুন"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="20" height="20"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button><span class="shrink-0 text-2xl">🐹</span><div class="min-w-0"><a class="t-title block truncate text-base sm:text-xl" href="/emberjs_learning/">emberjs learning</a><p class="t-caption hidden sm:block">৬৫ দিন</p></div></div><div class="surface-raised hidden shrink-0 items-center gap-2 px-3 py-1.5 sm:flex sm:gap-3 sm:px-4"><span class="t-label hidden md:inline">অগ্রগতি</span><span class="t-mono t-accent text-xs sm:text-sm">০<!-- -->/<!-- -->৬৫<span class="hidden md:inline"> (<!-- -->০<!-- -->%)</span></span><div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="plan-এর অগ্রগতি" class="gauge h-2 w-16 sm:w-20"><div class="gauge-fill" style="width:0%"></div></div></div></header><div class="flex min-h-0 flex-1"><aside id="site-sidebar" class="surface-panel hidden min-h-0 w-80 shrink-0 lg:block"><div class="flex h-full flex-col"><div class="seam-b flex shrink-0 items-center justify-between gap-2 px-4 py-3"><a class="flex min-w-0 items-center gap-2" href="/emberjs_learning/"><span class="shrink-0 text-xl">🐹</span><span class="t-title truncate text-sm">emberjs learning</span></a><div class="flex shrink-0 items-center gap-1.5"><a class="control control--quiet p-1.5" aria-label="একাধিক ডিভাইসে সিঙ্ক" href="/emberjs_learning/sync/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path><path d="M3 21v-5h5"></path></svg></a><button type="button" class="control control--quiet p-1.5" aria-label="সূচিপত্র লুকান" aria-expanded="true" aria-controls="site-sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="16" height="16"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M9 3v18"></path><path d="m16 15-3-3 3-3"></path></svg></button></div></div><div class="flex shrink-0 flex-col gap-4 px-4 pt-4"><nav class="grid grid-cols-4 gap-1" aria-label="পাতা"><a class="tab px-1 py-1.5 text-xs" aria-selected="false" href="/emberjs_learning/">আজ</a><a class="tab px-1 py-1.5 text-xs" aria-selected="false" href="/emberjs_learning/review/">ঝালাই</a><a class="tab px-1 py-1.5 text-xs" aria-selected="true" aria-current="page" href="/emberjs_learning/guide/">গাইড</a><a class="tab px-1 py-1.5 text-xs" aria-selected="false" href="/emberjs_learning/rules/">নিয়ম</a></nav><div class="flex flex-col gap-2"><div class="flex items-baseline justify-between gap-2"><span class="t-label">৬৫<!-- --> দিনের কাজ</span><span class="t-mono t-accent text-xs">০<!-- -->/<!-- -->৬৫<!-- --> (<!-- -->০<!-- -->%)</span></div><div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="৬৫ দিনের অগ্রগতি" class="gauge h-2.5 w-full"><div class="gauge-fill" style="width:0%"></div></div></div></div><div class="flex-1 overflow-y-auto px-4 py-4"><div class="flex flex-col gap-4"><div class="topic-group pb-4"><a class="row mb-2 flex items-center justify-between gap-2 px-2 py-1.5 text-sm" href="/emberjs_learning/block/reactivity/"><span class="min-w-0 truncate">১<!-- --> · <!-- -->Reactivity</span><span class="flex shrink-0 items-center gap-1.5"><span class="chip">০<!-- -->/<!-- -->১৮</span></span></a><div class="seam-l ml-1 flex flex-col gap-1 pl-2"><a id="day-row-001" class="row flex w-full items-center justify-between gap-2 px-3 py-1.5 text-left text-xs" href="/emberjs_learning/day/001/"><span class="truncate">০০১<!-- --> <!-- -->Avoid Constructors in Components</span><span class="flex shrink-0 items-center gap-1.5"><span class="text-[10px]">(<!-- -->০<!-- -->/<!-- -->১<!-- -->)</span></span></a><a id="day-row-002" class="row flex w-full items-center justify-between gap-2 px-3 py-1.5 text-left text-xs" href="/emberjs_learning/day/002/"><span class="truncate">০০২<!-- --> <!-- -->Avoid CSS Classes in Learning Examples</span><span class="flex shrink-0 items-center gap-1.5"><span class="text-[10px]">(<!-- -->০<!-- -->/<!-- -->১<!-- -->)</span></span></a><a id="day-row-003" class="row flex w-full items-center justify-between gap-2 px-3 py-1.5 text-left text-xs" href="/emberjs_learning/day/003/"><span class="truncate">০০৩<!-- --> <!-- -->Avoid Legacy Lifecycle Hooks (did-insert, will-destroy, did-update)</span><span class="flex shrink-0 items-center gap-1.5"><span class="text-[10px]">(<!-- -->০<!-- -->/<!-- -->১<!-- -->)</span></span></a><a id="day-row-004" class="row flex w-full items-center justify-between gap-2 px-3 py-1.5 text-left text-xs" href="/emberjs_learning/day/004/"><span class="truncate">০০৪<!-- --> <!-- -->Avoid Unnecessary Tracking</span><span class="flex shrink-0 items-center gap-1.5"><span class="text-[10px]">(<!-- -->০<!-- -->/<!-- -->১<!-- -->)</span></span></a><a id="day-row-005" class="row flex w-full items-center justify-between gap-2 px-3 py-1.5 text-left text-xs" href="/emberjs_learning/day/005/"><span class="truncate">০০৫<!-- --> <!-- -->Build Reactive Chains with Dependent Getters</span><span class="flex shrink-0 items-center gap-1.5"><span class="text-[10px]">(<!-- -->০<!-- -->/<!-- -->১<!-- -->)</span></span></a><a id="day-row-006" class="row flex w-full items-center justify-between gap-2 px-3 py-1.5 text-left text-xs" href="/emberjs_learning/day/006/"><span class="truncate">০০৬<!-- --> <!-- -->Component File Naming and Export Conventions</span><span class="flex shrink-0 items-center gap-1.5"><span class="text-[10px]">(<!-- -->০<!-- -->/<!-- -->১<!-- -->)</span></span></a><a id="day-row-007" class="row flex w-full items-center justify-between gap-2 px-3 py-1.5 text-left text-xs" href="/emberjs_learning/day/007/"><span class="truncate">০০৭<!-- --> <!-- -->Prefer Named Exports, Fallback to Default for Implicit Template Lookup</span><span class="flex shrink-0 items-center gap-1.5"><span class="text-[10px]">(<!-- -->০<!-- -->/<!-- -->১<!-- -->)</span></span></a><a id="day-row-008" class="row flex w-full items-center justify-between gap-2 px-3 py-1.5 text-left text-xs" href="/emberjs_learning/day/008/"><span class="truncate">০০৮<!-- --> <!-- -->Prevent Memory Leaks in Components</span><span class="flex shrink-0 items-center gap-1.5"><span class="text-[10px]">(<!-- -->০<!-- -->/<!-- -->১<!-- -->)</span></span></a><a id="day-row-009" class="row flex w-full items-center justify-between gap-2 px-3 py-1.5 text-left text-xs" href="/emberjs_learning/day/009/"><span class="truncate">০০৯<!-- --> <!-- -->Use {{on}} Modifier for Event Handling</span><span class="flex shrink-0 items-center gap-1.5"><span class="text-[10px]">(<!-- -->০<!-- -->/<!-- -->১<!-- -->)</span></span></a><a id="day-row-010" class="row flex w-full items-center justify-between gap-2 px-3 py-1.5 text-left text-xs" href="/emberjs_learning/day/010/"><span class="truncate">০১০<!-- --> <!-- -->Use @cached for Expensive Getters</span><span class="flex shrink-0 items-center gap-1.5"><span class="text-[10px]">(<!-- -->০<!-- -->/<!-- -->১<!-- -->)</span></span></a><a id="day-row-011" class="row flex w-full items-center justify-between gap-2 px-3 py-1.5 text-left text-xs" href="/emberjs_learning/day/011/"><span class="truncate">০১১<!-- --> <!-- -->Use Class Fields for Component Composition</span><span class="flex shrink-0 items-center gap-1.5"><span class="text-[10px]">(<!-- -->০<!-- -->/<!-- -->১<!-- -->)</span></span></a><a id="day-row-012" class="row flex w-full items-center justify-between gap-2 px-3 py-1.5 text-left text-xs" href="/emberjs_learning/day/012/"><span class="truncate">০১২<!-- --> <!-- -->Use Component Composition Patterns</span><span class="flex shrink-0 items-center gap-1.5"><span class="text-[10px]">(<!-- -->০<!-- -->/<!-- -->১<!-- -->)</span></span></a><a id="day-row-013" class="row flex w-full items-center justify-between gap-2 px-3 py-1.5 text-left text-xs" href="/emberjs_learning/day/013/"><span class="truncate">০১৩<!-- --> <!-- -->Use Glimmer Components Over Classic Components</span><span class="flex shrink-0 items-center gap-1.5"><span class="text-[10px]">(<!-- -->০<!-- -->/<!-- -->১<!-- -->)</span></span></a><a id="day-row-014" class="row flex w-full items-center justify-between gap-2 px-3 py-1.5 text-left text-xs" href="/emberjs_learning/day/014/"><span class="truncate">০১৪<!-- --> <!-- -->Use Native Forms with Platform Validation</span><span class="flex shrink-0 items-center gap-1.5"><span class="text-[10px]">(<!-- -->০<!-- -->/<!-- -->১<!-- -->)</span></span></a><a id="day-row-015" class="row flex w-full items-center justify-between gap-2 px-3 py-1.5 text-left text-xs" href="/emberjs_learning/day/015/"><span class="truncate">০১৫<!-- --> <!-- -->Use Strict Mode and Template-Only Components</span><span class="flex shrink-0 items-center gap-1.5"><span class="text-[10px]">(<!-- -->০<!-- -->/<!-- -->১<!-- -->)</span></span></a><a id="day-row-016" class="row flex w-full items-center justify-between gap-2 px-3 py-1.5 text-left text-xs" href="/emberjs_learning/day/016/"><span class="truncate">০১৬<!-- --> <!-- -->Use Tracked Toolbox for Complex State</span><span class="flex shrink-0 items-center gap-1.5"><span class="text-[10px]">(<!-- -->০<!-- -->/<!-- -->১<!-- -->)</span></span></a><a id="day-row-017" class="row flex w-full items-center justify-between gap-2 px-3 py-1.5 text-left text-xs" href="/emberjs_learning/day/017/"><span class="truncate">০১৭<!-- --> <!-- -->Validate Component Arguments</span><span class="flex shrink-0 items-center gap-1.5"><span class="text-[10px]">(<!-- -->০<!-- -->/<!-- -->১<!-- -->)</span></span></a><a id="day-row-018" class="row flex w-full items-center justify-between gap-2 px-3 py-1.5 text-left text-xs" href="/emberjs_learning/day/018/"><span class="truncate">০১৮<!-- --> <!-- -->মুখে — autotracking বনাম re-render</span><span class="flex shrink-0 items-center gap-1.5"><span class="text-[10px]">(<!-- -->০<!-- -->/<!-- -->১<!-- -->)</span></span></a></div></div><div class="topic-group pb-4"><a class="row mb-2 flex items-center justify-between gap-2 px-2 py-1.5 text-sm" href="/emberjs_learning/block/state/"><span class="min-w-0 truncate">২<!-- --> · <!-- -->State</span><span class="flex shrink-0 items-center gap-1.5"><span class="chip">০<!-- -->/<!-- -->৬</span></span></a></div><div class="topic-group pb-4"><a class="row mb-2 flex items-center justify-between gap-2 px-2 py-1.5 text-sm" href="/emberjs_learning/block/async/"><span class="min-w-0 truncate">৩<!-- --> · <!-- -->Async</span><span class="flex shrink-0 items-center gap-1.5"><span class="chip">০<!-- -->/<!-- -->৬</span></span></a></div><div class="topic-group pb-4"><a class="row mb-2 flex items-center justify-between gap-2 px-2 py-1.5 text-sm" href="/emberjs_learning/block/data-loading/"><span class="min-w-0 truncate">৪<!-- --> · <!-- -->Data loading</span><span class="flex shrink-0 items-center gap-1.5"><span class="chip">০<!-- -->/<!-- -->৬</span></span></a></div><div class="topic-group pb-4"><a class="row mb-2 flex items-center justify-between gap-2 px-2 py-1.5 text-sm" href="/emberjs_learning/block/template/"><span class="min-w-0 truncate">৫<!-- --> · <!-- -->Template</span><span class="flex shrink-0 items-center gap-1.5"><span class="chip">০<!-- -->/<!-- -->১২</span></span></a></div><div class="topic-group pb-4"><a class="row mb-2 flex items-center justify-between gap-2 px-2 py-1.5 text-sm" href="/emberjs_learning/block/build/"><span class="min-w-0 truncate">৬<!-- --> · <!-- -->Build</span><span class="flex shrink-0 items-center gap-1.5"><span class="chip">০<!-- -->/<!-- -->৫</span></span></a></div><div class="topic-group pb-4"><a class="row mb-2 flex items-center justify-between gap-2 px-2 py-1.5 text-sm" href="/emberjs_learning/block/quality/"><span class="min-w-0 truncate">৭<!-- --> · <!-- -->Quality</span><span class="flex shrink-0 items-center gap-1.5"><span class="chip">০<!-- -->/<!-- -->১২</span></span></a></div></div></div></div></aside><main id="main-content" class="min-w-0 flex-1 overflow-y-auto"><div class="mx-auto flex w-full max-w-5xl flex-col gap-6 p-4 pb-16 md:p-6 lg:p-8"><header class="flex flex-col gap-2"><div class="t-label flex flex-wrap items-center gap-2"><a class="t-accent" href="/emberjs_learning/guide/">গাইড</a><span>•</span><span>3<!-- --> · <!-- -->Component and Reactivity Optimization</span></div><h1 class="t-title text-2xl sm:text-3xl">Build Reactive Chains with Dependent Getters</h1><div class="flex flex-wrap gap-1.5"><span class="chip">impact · <!-- -->HIGH</span><span class="chip">Clear data flow and automatic reactivity</span><a class="chip chip--accent" href="/emberjs_learning/day/005/">plan · দিন <!-- -->০০৫</a></div></header><section class="surface-panel flex flex-col gap-3 p-4 sm:p-6"><div class="t-label">আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?</div><div class="doc-prose "><p><strong>Incorrect (imperative updates):</strong></p>
+<pre><code class="language-glimmer-js">// app/components/shopping-cart.gjs
+import Component from &#x27;@glimmer/component&#x27;;
+import { tracked } from &#x27;@glimmer/tracking&#x27;;
+import { action } from &#x27;@ember/object&#x27;;
+
+class ShoppingCart extends Component {
+  @tracked items = [];
+  @tracked subtotal = 0;
+  @tracked tax = 0;
+  @tracked shipping = 0;
+  @tracked total = 0;
+
+  @action
+  addItem(item) {
+    this.items = [...this.items, item];
+    this.recalculate();
+  }
+
+  @action
+  removeItem(index) {
+    this.items = this.items.filter((_, i) =&gt; i !== index);
+    this.recalculate();
+  }
+
+  recalculate() {
+    this.subtotal = this.items.reduce((sum, item) =&gt; sum + item.price, 0);
+    this.tax = this.subtotal * 0.08;
+    this.shipping = this.subtotal &gt; 50 ? 0 : 5.99;
+    this.total = this.subtotal + this.tax + this.shipping;
+  }
+
+  &lt;template&gt;
+    &lt;div class=&quot;cart&quot;&gt;
+      &lt;div&gt;Subtotal: ${{this.subtotal}}&lt;/div&gt;
+      &lt;div&gt;Tax: ${{this.tax}}&lt;/div&gt;
+      &lt;div&gt;Shipping: ${{this.shipping}}&lt;/div&gt;
+      &lt;div&gt;Total: ${{this.total}}&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/template&gt;
+}
+</code></pre></div></section><details class="surface-panel p-4 sm:p-6"><summary class="t-label cursor-pointer select-none">পুরো rule · Correct আর ব্যাখ্যা — আগে নিজে লিখুন, তারপর খুলুন</summary><div class="mt-4"><div class="doc-prose "><p>Create reactive chains where getters depend on other getters or tracked properties for clear, maintainable data derivation.</p>
+<p><strong>Incorrect (imperative updates):</strong></p>
+<pre><code class="language-glimmer-js">// app/components/shopping-cart.gjs
+import Component from &#x27;@glimmer/component&#x27;;
+import { tracked } from &#x27;@glimmer/tracking&#x27;;
+import { action } from &#x27;@ember/object&#x27;;
+
+class ShoppingCart extends Component {
+  @tracked items = [];
+  @tracked subtotal = 0;
+  @tracked tax = 0;
+  @tracked shipping = 0;
+  @tracked total = 0;
+
+  @action
+  addItem(item) {
+    this.items = [...this.items, item];
+    this.recalculate();
+  }
+
+  @action
+  removeItem(index) {
+    this.items = this.items.filter((_, i) =&gt; i !== index);
+    this.recalculate();
+  }
+
+  recalculate() {
+    this.subtotal = this.items.reduce((sum, item) =&gt; sum + item.price, 0);
+    this.tax = this.subtotal * 0.08;
+    this.shipping = this.subtotal &gt; 50 ? 0 : 5.99;
+    this.total = this.subtotal + this.tax + this.shipping;
+  }
+
+  &lt;template&gt;
+    &lt;div class=&quot;cart&quot;&gt;
+      &lt;div&gt;Subtotal: ${{this.subtotal}}&lt;/div&gt;
+      &lt;div&gt;Tax: ${{this.tax}}&lt;/div&gt;
+      &lt;div&gt;Shipping: ${{this.shipping}}&lt;/div&gt;
+      &lt;div&gt;Total: ${{this.total}}&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/template&gt;
+}
+</code></pre>
+<p><strong>Correct (reactive getter chains):</strong></p>
+<pre><code class="language-glimmer-js">// app/components/shopping-cart.gjs
+import Component from &#x27;@glimmer/component&#x27;;
+import { tracked } from &#x27;@glimmer/tracking&#x27;;
+import { action } from &#x27;@ember/object&#x27;;
+import { TrackedArray } from &#x27;tracked-built-ins&#x27;;
+
+class ShoppingCart extends Component {
+  @tracked items = new TrackedArray([]);
+
+  // Base calculation
+  get subtotal() {
+    return this.items.reduce((sum, item) =&gt; sum + item.price, 0);
+  }
+
+  // Depends on subtotal
+  get tax() {
+    return this.subtotal * 0.08;
+  }
+
+  // Depends on subtotal
+  get shipping() {
+    return this.subtotal &gt; 50 ? 0 : 5.99;
+  }
+
+  // Depends on subtotal, tax, and shipping
+  get total() {
+    return this.subtotal + this.tax + this.shipping;
+  }
+
+  // Derived from total
+  get formattedTotal() {
+    return `$${this.total.toFixed(2)}`;
+  }
+
+  // Multiple dependencies
+  get discount() {
+    if (this.items.length &gt;= 5) return this.subtotal * 0.1;
+    if (this.subtotal &gt; 100) return this.subtotal * 0.05;
+    return 0;
+  }
+
+  // Depends on total and discount
+  get finalTotal() {
+    return this.total - this.discount;
+  }
+
+  @action
+  addItem(item) {
+    this.items.push(item);
+    // All getters automatically update!
+  }
+
+  @action
+  removeItem(index) {
+    this.items.splice(index, 1);
+    // All getters automatically update!
+  }
+
+  &lt;template&gt;
+    &lt;div class=&quot;cart&quot;&gt;
+      &lt;div&gt;Items: {{this.items.length}}&lt;/div&gt;
+      &lt;div&gt;Subtotal: ${{this.subtotal.toFixed 2}}&lt;/div&gt;
+      &lt;div&gt;Tax: ${{this.tax.toFixed 2}}&lt;/div&gt;
+      &lt;div&gt;Shipping: ${{this.shipping.toFixed 2}}&lt;/div&gt;
+      {{#if this.discount}}
+        &lt;div class=&quot;discount&quot;&gt;Discount: -${{this.discount.toFixed 2}}&lt;/div&gt;
+      {{/if}}
+      &lt;div class=&quot;total&quot;&gt;Total: {{this.formattedTotal}}&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/template&gt;
+}
+</code></pre>
+<p><strong>Complex reactive chains with @cached:</strong></p>
+<pre><code class="language-glimmer-js">// app/components/data-analysis.gjs
+import Component from &#x27;@glimmer/component&#x27;;
+import { cached } from &#x27;@glimmer/tracking&#x27;;
+
+class DataAnalysis extends Component {
+  // Base data
+  get rawData() {
+    return this.args.data || [];
+  }
+
+  // Level 1: Filter
+  @cached
+  get validData() {
+    return this.rawData.filter((item) =&gt; item.value != null);
+  }
+
+  // Level 2: Transform (depends on validData)
+  @cached
+  get normalizedData() {
+    const max = Math.max(...this.validData.map((d) =&gt; d.value));
+    return this.validData.map((item) =&gt; ({
+      ...item,
+      normalized: item.value / max,
+    }));
+  }
+
+  // Level 2: Statistics (depends on validData)
+  @cached
+  get statistics() {
+    const values = this.validData.map((d) =&gt; d.value);
+    const sum = values.reduce((a, b) =&gt; a + b, 0);
+    const mean = sum / values.length;
+    const variance = values.reduce((a, b) =&gt; a + Math.pow(b - mean, 2), 0) / values.length;
+
+    return {
+      count: values.length,
+      sum,
+      mean,
+      stdDev: Math.sqrt(variance),
+      min: Math.min(...values),
+      max: Math.max(...values),
+    };
+  }
+
+  // Level 3: Depends on normalizedData and statistics
+  @cached
+  get outliers() {
+    const threshold = this.statistics.mean + 2 * this.statistics.stdDev;
+    return this.normalizedData.filter((item) =&gt; item.value &gt; threshold);
+  }
+
+  // Level 3: Depends on statistics
+  get qualityScore() {
+    const validRatio = this.validData.length / this.rawData.length;
+    const outlierRatio = this.outliers.length / this.validData.length;
+    return validRatio * 0.7 + (1 - outlierRatio) * 0.3;
+  }
+
+  &lt;template&gt;
+    &lt;div class=&quot;analysis&quot;&gt;
+      &lt;h3&gt;Data Quality: {{this.qualityScore.toFixed 2}}&lt;/h3&gt;
+      &lt;div&gt;Valid: {{this.validData.length}} / {{this.rawData.length}}&lt;/div&gt;
+      &lt;div&gt;Mean: {{this.statistics.mean.toFixed 2}}&lt;/div&gt;
+      &lt;div&gt;Std Dev: {{this.statistics.stdDev.toFixed 2}}&lt;/div&gt;
+      &lt;div&gt;Outliers: {{this.outliers.length}}&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/template&gt;
+}
+</code></pre>
+<p><strong>Combining multiple tracked sources:</strong></p>
+<pre><code class="language-glimmer-js">// app/components/filtered-list.gjs
+import Component from &#x27;@glimmer/component&#x27;;
+import { tracked } from &#x27;@glimmer/tracking&#x27;;
+import { cached } from &#x27;@glimmer/tracking&#x27;;
+
+class FilteredList extends Component {
+  @tracked searchTerm = &#x27;&#x27;;
+  @tracked selectedCategory = &#x27;all&#x27;;
+  @tracked sortDirection = &#x27;asc&#x27;;
+
+  // Depends on args.items and searchTerm
+  @cached
+  get searchFiltered() {
+    if (!this.searchTerm) return this.args.items;
+
+    const term = this.searchTerm.toLowerCase();
+    return this.args.items.filter(
+      (item) =&gt;
+        item.name.toLowerCase().includes(term) || item.description?.toLowerCase().includes(term),
+    );
+  }
+
+  // Depends on searchFiltered and selectedCategory
+  @cached
+  get categoryFiltered() {
+    if (this.selectedCategory === &#x27;all&#x27;) return this.searchFiltered;
+
+    return this.searchFiltered.filter((item) =&gt; item.category === this.selectedCategory);
+  }
+
+  // Depends on categoryFiltered and sortDirection
+  @cached
+  get sorted() {
+    const items = [...this.categoryFiltered];
+    const direction = this.sortDirection === &#x27;asc&#x27; ? 1 : -1;
+
+    return items.sort((a, b) =&gt; direction * a.name.localeCompare(b.name));
+  }
+
+  // Final result
+  get items() {
+    return this.sorted;
+  }
+
+  // Metadata derived from chain
+  get resultsCount() {
+    return this.items.length;
+  }
+
+  get hasFilters() {
+    return this.searchTerm || this.selectedCategory !== &#x27;all&#x27;;
+  }
+
+  &lt;template&gt;
+    &lt;div class=&quot;filtered-list&quot;&gt;
+      &lt;input
+        type=&quot;search&quot;
+        value={{this.searchTerm}}
+        {{on &quot;input&quot; (pick &quot;target.value&quot; (set this &quot;searchTerm&quot;))}}
+      /&gt;
+
+      &lt;select
+        value={{this.selectedCategory}}
+        {{on &quot;change&quot; (pick &quot;target.value&quot; (set this &quot;selectedCategory&quot;))}}
+      &gt;
+        &lt;option value=&quot;all&quot;&gt;All Categories&lt;/option&gt;
+        {{#each @categories as |cat|}}
+          &lt;option value={{cat}}&gt;{{cat}}&lt;/option&gt;
+        {{/each}}
+      &lt;/select&gt;
+
+      &lt;p&gt;Showing {{this.resultsCount}} results&lt;/p&gt;
+
+      {{#each this.items as |item|}}
+        &lt;div&gt;{{item.name}}&lt;/div&gt;
+      {{/each}}
+    &lt;/div&gt;
+  &lt;/template&gt;
+}
+</code></pre>
+<p>Reactive getter chains provide automatic updates, clear data dependencies, and better performance through intelligent caching with @cached.</p>
+<p>Reference: <a href="https://guides.emberjs.com/release/in-depth-topics/autotracking-in-depth/" target="_blank" rel="noreferrer">Glimmer Tracking</a></p></div></div></details><nav class="grid grid-cols-2 gap-2" aria-label="rule"><a class="control justify-start px-3 py-2 text-xs" href="/emberjs_learning/guide/component-minimal-tracking/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="13" height="13"><path d="M19 12H5"></path><path d="m12 19-7-7 7-7"></path></svg><span class="truncate">Avoid Unnecessary Tracking</span></a><a class="control justify-end px-3 py-2 text-xs" href="/emberjs_learning/guide/component-file-conventions/"><span class="truncate">Component File Naming and Export Conventions</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="13" height="13"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a></nav><!--$--><!--/$--></div></main></div></div><script src="/emberjs_learning/_next/static/chunks/0az8vxg2gfuhm.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[41681,[\"/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js\",\"/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js\"],\"default\"]\n9:I[68027,[\"/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js\",\"/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js\"],\"default\",1]\n:HL[\"/emberjs_learning/_next/static/chunks/0g6dxcuh_dwa4.css\",\"style\"]\n:HL[\"/emberjs_learning/_next/static/media/490cbca7f386131e-s.p.1zrwl0c4yv3pr.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/emberjs_learning/_next/static/media/4b23c5ee480ee380-s.p.0qqufx6vw52v_.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/emberjs_learning/_next/static/media/520c929efec0b33f-s.p.3arxh35s5-kc0.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/emberjs_learning/_next/static/media/5e4d537aaa9e154b-s.p.1ewykk74tw0il.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/emberjs_learning/_next/static/media/6a1d08cf467f0848-s.p.240fzfer9e_rh.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/emberjs_learning/_next/static/media/6ea8d1bb8ea4af7a-s.p.1kk_wfe381bov.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/emberjs_learning/_next/static/media/70bc3e132a0a741e-s.p.3t6q91iet4nsy.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/emberjs_learning/_next/static/media/70c15719a04fff13-s.p.376yc-xi7tht7.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/emberjs_learning/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n7:X\n0:{\"P\":null,\"c\":[\"\",\"guide\",\"component-reactive-chains\",\"\"],\"q\":\"\",\"i\":false,\"f\":[[[\"\",{\"children\":[\"guide\",{\"children\":[[\"slug\",\"component-reactive-chains\",\"d\",[]],{\"children\":[\"__PAGE__\",{},\"$undefined\",\"$undefined\",4608]},\"$undefined\",\"$undefined\",4608]},\"$undefined\",\"$undefined\",4608]},\"$undefined\",\"$undefined\",4624],[[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/emberjs_learning/_next/static/chunks/0g6dxcuh_dwa4.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-0\",{\"src\":\"/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"bn\",\"className\":\"archivo_aabc0850-module__cplg6G__variable archivo_black_cc57a6c8-module__12WbNa__variable barlow_semi_condensed_66b51823-module__HKMkGa__variable jetbrains_mono_ce945e87-module__HTLkQq__variable noto_sans_bengali_ae4f5577-module__v5t5fW__variable h-full antialiased\",\"children\":[\"$\",\"body\",null,{\"className\":\"surface-app flex min-h-full flex-col\",\"children\":[[\"$\",\"a\",null,{\"href\":\"#main-content\",\"className\":\"control control--primary sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 px-3 py-1.5 text-xs\",\"children\":\"মূল কনটেন্টে যান\"}],[\"$\",\"$L2\",null,{\"blocks\":[{\"num\":1,\"slug\":\"reactivity\",\"name\":\"Reactivity\",\"range\":\"দিন ০০১–০১৮ · component · exports\",\"dip\":false,\"check\":\"১৭টা rule-এর প্রতিটায় না দেখে ঠিকটা লেখা আর \\\"কেন\\\" ইংরেজিতে বলা হয়েছে, আর ⚑-এর উত্তর ২ মিনিটে মুখে এসেছে?\",\"days\":[{\"num\":1,\"code\":\"001\",\"label\":\"০০১\",\"title\":\"Avoid Constructors in Components\",\"taskIds\":[\"d001-1eeau91\"]},{\"num\":2,\"code\":\"002\",\"label\":\"০০২\",\"title\":\"Avoid CSS Classes in Learning Examples\",\"taskIds\":[\"d002-f4bo7l\"]},{\"num\":3,\"code\":\"003\",\"label\":\"০০৩\",\"title\":\"Avoid Legacy Lifecycle Hooks (did-insert, will-destroy, did-update)\",\"taskIds\":[\"d003-svwt64\"]},{\"num\":4,\"code\":\"004\",\"label\":\"০০৪\",\"title\":\"Avoid Unnecessary Tracking\",\"taskIds\":[\"d004-ladjxc\"]},{\"num\":5,\"code\":\"005\",\"label\":\"০০৫\",\"title\":\"Build Reactive Chains with Dependent Getters\",\"taskIds\":[\"d005-1al0fkz\"]},{\"num\":6,\"code\":\"006\",\"label\":\"০০৬\",\"title\":\"Component File Naming and Export Conventions\",\"taskIds\":[\"d006-es3jry\"]},{\"num\":7,\"code\":\"007\",\"label\":\"০০৭\",\"title\":\"Prefer Named Exports, Fallback to Default for Implicit Template Lookup\",\"taskIds\":[\"d007-17zwezg\"]},{\"num\":8,\"code\":\"008\",\"label\":\"০০৮\",\"title\":\"Prevent Memory Leaks in Components\",\"taskIds\":[\"d008-osmr43\"]},{\"num\":9,\"code\":\"009\",\"label\":\"০০৯\",\"title\":\"Use {{on}} Modifier for Event Handling\",\"taskIds\":[\"d009-8x0qab\"]},{\"num\":10,\"code\":\"010\",\"label\":\"০১০\",\"title\":\"Use @cached for Expensive Getters\",\"taskIds\":[\"d010-h33xxj\"]},{\"num\":11,\"code\":\"011\",\"label\":\"০১১\",\"title\":\"Use Class Fields for Component Composition\",\"taskIds\":[\"d011-1fy5y2t\"]},{\"num\":12,\"code\":\"012\",\"label\":\"০১২\",\"title\":\"Use Component Composition Patterns\",\"taskIds\":[\"d012-1e4sfyy\"]},{\"num\":13,\"code\":\"013\",\"label\":\"০১৩\",\"title\":\"Use Glimmer Components Over Classic Components\",\"taskIds\":[\"d013-6jdmtq\"]},{\"num\":14,\"code\":\"014\",\"label\":\"০১৪\",\"title\":\"Use Native Forms with Platform Validation\",\"taskIds\":[\"d014-1xkmeic\"]},{\"num\":15,\"code\":\"015\",\"label\":\"০১৫\",\"title\":\"Use Strict Mode and Template-Only Components\",\"taskIds\":[\"d015-lzl4gt\"]},{\"num\":16,\"code\":\"016\",\"label\":\"০১৬\",\"title\":\"Use Tracked Toolbox for Complex State\",\"taskIds\":[\"d016-xn0dwn\"]},{\"num\":17,\"code\":\"017\",\"label\":\"০১৭\",\"title\":\"Validate Component Arguments\",\"taskIds\":[\"d017-183xfej\"]},{\"num\":18,\"code\":\"018\",\"label\":\"০১৮\",\"title\":\"মুখে — autotracking বনাম re-render\",\"taskIds\":[\"d018-7bzrrw\"]}]},{\"num\":2,\"slug\":\"state\",\"name\":\"State\",\"range\":\"দিন ০১৯–০২৪ · service\",\"dip\":false,\"check\":\"৫টা rule-এর প্রতিটায় না দেখে ঠিকটা লেখা আর \\\"কেন\\\" ইংরেজিতে বলা হয়েছে, আর ⚑-এর উত্তর ২ মিনিটে মুখে এসেছে?\",\"days\":[{\"num\":19,\"code\":\"019\",\"label\":\"০১৯\",\"title\":\"Cache API Responses in Services\",\"taskIds\":[\"d019-fwinin\"]},{\"num\":20,\"code\":\"020\",\"label\":\"০২০\",\"title\":\"Implement Robust Data Requesting Patterns\",\"taskIds\":[\"d020-1mwg16z\"]},{\"num\":21,\"code\":\"021\",\"label\":\"০২১\",\"title\":\"Manage Service Owner and Linkage Patterns\",\"taskIds\":[\"d021-14qbgig\"]},{\"num\":22,\"code\":\"022\",\"label\":\"০২২\",\"title\":\"Optimize WarpDrive Queries\",\"taskIds\":[\"d022-10ohdbe\"]},{\"num\":23,\"code\":\"023\",\"label\":\"০২৩\",\"title\":\"Use Services for Shared State\",\"taskIds\":[\"d023-lw13iu\"]},{\"num\":24,\"code\":\"024\",\"label\":\"০২৪\",\"title\":\"মুখে — কোন state কোথায়\",\"taskIds\":[\"d024-18163w4\"]}]},{\"num\":3,\"slug\":\"async\",\"name\":\"Async\",\"range\":\"দিন ০২৫–০৩০ · advanced\",\"dip\":false,\"check\":\"৫টা rule-এর প্রতিটায় না দেখে ঠিকটা লেখা আর \\\"কেন\\\" ইংরেজিতে বলা হয়েছে, আর ⚑-এর উত্তর ২ মিনিটে মুখে এসেছে?\",\"days\":[{\"num\":25,\"code\":\"025\",\"label\":\"০২৫\",\"title\":\"Use Ember Concurrency Correctly - User Concurrency Not Data Loading\",\"taskIds\":[\"d025-4r5u0u\"]},{\"num\":26,\"code\":\"026\",\"label\":\"০২৬\",\"title\":\"Use Ember Concurrency for User Input Concurrency\",\"taskIds\":[\"d026-5w1q7p\"]},{\"num\":27,\"code\":\"027\",\"label\":\"০২৭\",\"title\":\"Use Helper Functions for Reusable Logic\",\"taskIds\":[\"d027-ckd57r\"]},{\"num\":28,\"code\":\"028\",\"label\":\"০২৮\",\"title\":\"Use Modifiers for DOM Side Effects\",\"taskIds\":[\"d028-1tailvn\"]},{\"num\":29,\"code\":\"029\",\"label\":\"০২৯\",\"title\":\"Use Reactive Collections from @ember/reactive/collections\",\"taskIds\":[\"d029-5849ue\"]},{\"num\":30,\"code\":\"030\",\"label\":\"০৩০\",\"title\":\"মুখে — task বনাম useEffect\",\"taskIds\":[\"d030-1u4thjm\"]}]},{\"num\":4,\"slug\":\"data-loading\",\"name\":\"Data loading\",\"range\":\"দিন ০৩১–০৩৬ · route\",\"dip\":false,\"check\":\"৫টা rule-এর প্রতিটায় না দেখে ঠিকটা লেখা আর \\\"কেন\\\" ইংরেজিতে বলা হয়েছে, আর ⚑-এর উত্তর ২ মিনিটে মুখে এসেছে?\",\"days\":[{\"num\":31,\"code\":\"031\",\"label\":\"০৩১\",\"title\":\"Implement Smart Route Model Caching\",\"taskIds\":[\"d031-ttxxyh\"]},{\"num\":32,\"code\":\"032\",\"label\":\"০৩২\",\"title\":\"Parallel Data Loading in Model Hooks\",\"taskIds\":[\"d032-1sv0oij\"]},{\"num\":33,\"code\":\"033\",\"label\":\"০৩৩\",\"title\":\"Use Loading Substates for Better UX\",\"taskIds\":[\"d033-1kfacwb\"]},{\"num\":34,\"code\":\"034\",\"label\":\"০৩৪\",\"title\":\"Use Route-Based Code Splitting\",\"taskIds\":[\"d034-q9srxr\"]},{\"num\":35,\"code\":\"035\",\"label\":\"০৩৫\",\"title\":\"Use Separate Route and Template Files\",\"taskIds\":[\"d035-1blx9r5\"]},{\"num\":36,\"code\":\"036\",\"label\":\"০৩৬\",\"title\":\"মুখে — loading, error, empty\",\"taskIds\":[\"d036-lfq14m\"]}]},{\"num\":5,\"slug\":\"template\",\"name\":\"Template\",\"range\":\"দিন ০৩৭–০৪৮ · template · helper · performance\",\"dip\":false,\"check\":\"১১টা rule-এর প্রতিটায় না দেখে ঠিকটা লেখা আর \\\"কেন\\\" ইংরেজিতে বলা হয়েছে, আর ⚑-এর উত্তর ২ মিনিটে মুখে এসেছে?\",\"days\":[{\"num\":37,\"code\":\"037\",\"label\":\"০৩৭\",\"title\":\"Avoid Heavy Computation in Templates\",\"taskIds\":[\"d037-8b52tk\"]},{\"num\":38,\"code\":\"038\",\"label\":\"০৩৮\",\"title\":\"Compose Helpers for Reusable Logic\",\"taskIds\":[\"d038-1q9qtw5\"]},{\"num\":39,\"code\":\"039\",\"label\":\"০৩৯\",\"title\":\"Import Helpers Directly in Templates\",\"taskIds\":[\"d039-olcfjv\"]},{\"num\":40,\"code\":\"040\",\"label\":\"০৪০\",\"title\":\"No helper() Wrapper for Plain Functions\",\"taskIds\":[\"d040-2596ul\"]},{\"num\":41,\"code\":\"041\",\"label\":\"০৪১\",\"title\":\"Optimize Conditional Rendering\",\"taskIds\":[\"d041-nlzcxa\"]},{\"num\":42,\"code\":\"042\",\"label\":\"০৪২\",\"title\":\"Template-Only Components with In-Scope Functions\",\"taskIds\":[\"d042-11tvijc\"]},{\"num\":43,\"code\":\"043\",\"label\":\"০৪৩\",\"title\":\"Use {{#each}} with @key for Lists\",\"taskIds\":[\"d043-1xvuxmn\"]},{\"num\":44,\"code\":\"044\",\"label\":\"০৪৪\",\"title\":\"Use {{#let}} to Avoid Recomputation\",\"taskIds\":[\"d044-1h88aeb\"]},{\"num\":45,\"code\":\"045\",\"label\":\"০৪৫\",\"title\":\"Use {{fn}} for Partial Application Only\",\"taskIds\":[\"d045-83bdig\"]},{\"num\":46,\"code\":\"046\",\"label\":\"০৪৬\",\"title\":\"Use Helper Libraries Effectively\",\"taskIds\":[\"d046-2ui6el\"]},{\"num\":47,\"code\":\"047\",\"label\":\"০৪৭\",\"title\":\"Use {{on}} Modifier Instead of Event Handler Properties\",\"taskIds\":[\"d047-3to0n6\"]},{\"num\":48,\"code\":\"048\",\"label\":\"০৪৮\",\"title\":\"মুখে — logic কোথায় বসবে\",\"taskIds\":[\"d048-143h8qs\"]}]},{\"num\":6,\"slug\":\"build\",\"name\":\"Build\",\"range\":\"দিন ০৪৯–০৫৩ · bundle · vscode\",\"dip\":false,\"check\":\"৪টা rule-এর প্রতিটায় না দেখে ঠিকটা লেখা আর \\\"কেন\\\" ইংরেজিতে বলা হয়েছে, আর ⚑-এর উত্তর ২ মিনিটে মুখে এসেছে?\",\"days\":[{\"num\":49,\"code\":\"049\",\"label\":\"০৪৯\",\"title\":\"Avoid Importing Entire Addon Namespaces\",\"taskIds\":[\"d049-1lcb95l\"]},{\"num\":50,\"code\":\"050\",\"label\":\"০৫০\",\"title\":\"Lazy Load Heavy Dependencies\",\"taskIds\":[\"d050-skab8i\"]},{\"num\":51,\"code\":\"051\",\"label\":\"০৫১\",\"title\":\"Use Embroider Build Pipeline\",\"taskIds\":[\"d051-hwq4f8\"]},{\"num\":52,\"code\":\"052\",\"label\":\"০৫২\",\"title\":\"VSCode Extensions and MCP Configuration for Ember Projects\",\"taskIds\":[\"d052-qdfwgg\"]},{\"num\":53,\"code\":\"053\",\"label\":\"০৫৩\",\"title\":\"মুখে — Build-এর তিনটা rule\",\"taskIds\":[\"d053-1hwv929\"]}]},{\"num\":7,\"slug\":\"quality\",\"name\":\"Quality\",\"range\":\"দিন ০৫৪–০৬৫ · testing · a11y\",\"dip\":false,\"check\":\"১১টা rule-এর প্রতিটায় না দেখে ঠিকটা লেখা আর \\\"কেন\\\" ইংরেজিতে বলা হয়েছে, আর ⚑-এর উত্তর ২ মিনিটে মুখে এসেছে?\",\"days\":[{\"num\":54,\"code\":\"054\",\"label\":\"০৫৪\",\"title\":\"MSW (Mock Service Worker) Setup for Testing\",\"taskIds\":[\"d054-1ax50vq\"]},{\"num\":55,\"code\":\"055\",\"label\":\"০৫৫\",\"title\":\"Provide DOM-Abstracted Test Utilities for Library Components\",\"taskIds\":[\"d055-195f1iw\"]},{\"num\":56,\"code\":\"056\",\"label\":\"০৫৬\",\"title\":\"Use Appropriate Render Patterns in Tests\",\"taskIds\":[\"d056-1lrw6mz\"]},{\"num\":57,\"code\":\"057\",\"label\":\"০৫৭\",\"title\":\"Use Modern Testing Patterns\",\"taskIds\":[\"d057-1yotmc2\"]},{\"num\":58,\"code\":\"058\",\"label\":\"০৫৮\",\"title\":\"Use qunit-dom for Better Test Assertions\",\"taskIds\":[\"d058-q5eo07\"]},{\"num\":59,\"code\":\"059\",\"label\":\"০৫৯\",\"title\":\"Use Test Waiters for Async Operations\",\"taskIds\":[\"d059-1wkpk33\"]},{\"num\":60,\"code\":\"060\",\"label\":\"০৬০\",\"title\":\"Announce Route Transitions to Screen Readers\",\"taskIds\":[\"d060-1ws524z\"]},{\"num\":61,\"code\":\"061\",\"label\":\"০৬১\",\"title\":\"Form Labels and Error Announcements\",\"taskIds\":[\"d061-rw6mgy\"]},{\"num\":62,\"code\":\"062\",\"label\":\"০৬২\",\"title\":\"Keyboard Navigation Support\",\"taskIds\":[\"d062-ubnbeg\"]},{\"num\":63,\"code\":\"063\",\"label\":\"০৬৩\",\"title\":\"Semantic HTML and ARIA Attributes\",\"taskIds\":[\"d063-ca9cf6\"]},{\"num\":64,\"code\":\"064\",\"label\":\"০৬৪\",\"title\":\"Use ember-a11y-testing for Automated Checks\",\"taskIds\":[\"d064-n4cmir\"]},{\"num\":65,\"code\":\"065\",\"label\":\"০৬৫\",\"title\":\"মুখে — Quality-র তিনটা rule\",\"taskIds\":[\"d065-s9p6m9\"]}]}],\"children\":\"$L3\"}]]}]}]]}],{\"children\":[\"$L4\",{\"children\":[\"$L5\",{\"children\":[\"$L6\",{},null,false,null]},null,false,\"$7\"]},null,false,\"$7\"]},null,false,null],\"$L8\",false]],\"m\":\"$undefined\",\"G\":[\"$9\",[\"$La\"]],\"S\":true,\"h\":null,\"r\":\"$undefined\",\"s\":\"$undefined\",\"a\":\"$undefined\",\"l\":\"$undefined\",\"p\":\"$undefined\",\"d\":\"$undefined\",\"b\":\"ECqhzMK0omxLbwi2OoWHS\"}\nb:I[39756,[\"/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js\",\"/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js\"],\"default\"]\nc:I[37457,[\"/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js\",\"/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js\"],\"default\"]\ne:I[97367,[\"/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js\",\"/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js\"],\"OutletBoundary\"]\nf:\"$Sreact.suspense\"\n11:I[97367,[\"/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js\",\"/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js\"],\"ViewportBoundary\"]\n13:I[97367,[\"/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js\",\"/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js\"],\"MetadataBoundary\"]\n3:[\"$\",\"$Lb\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$Lc\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]\n4:[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$Lb\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$Lc\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}]\n5:[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$Lb\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$Lc\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}]\n6:[\"$\",\"$1\",\"c\",{\"children\":[\"$Ld\",[[\"$\",\"script\",\"script-0\",{\"src\":\"/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"$Le\",null,{\"children\":[\"$\",\"$f\",null,{\"name\":\"Next.MetadataOutlet\",\"children\":\"$@10\"}]}]]}]\n8:[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$L11\",null,{\"children\":\"$L12\"}],[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$L13\",null,{\"children\":[\"$\",\"$f\",null,{\"name\":\"Next.Metadata\",\"children\":\"$L14\"}]}]}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}]\na:[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/emberjs_learning/_next/static/chunks/0g6dxcuh_dwa4.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]\n15:I[22016,[\"/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js\",\"/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js\",\"/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js\",\"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js\"],\"\"]\n16:I[82484,[\"/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js\",\"/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js\",\"/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js\",\"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js\"],\"default\"]\n18:I[78818,[\"/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js\",\"/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js\",\"/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js\",\"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js\"],\"default\"]\n7:C\n17:T42c,**Incorrect (imperative updates):**\n\n```glimmer-js\n// app/components/shopping-cart.gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nclass ShoppingCart extends Component {\n  @tracked items = [];\n  @tracked subtotal = 0;\n  @tracked tax = 0;\n  @tracked shipping = 0;\n  @tracked total = 0;\n\n  @action\n  addItem(item) {\n    this.items = [...this.items, item];\n    this.recalculate();\n  }\n\n  @action\n  removeItem(index) {\n    this.items = this.items.filter((_, i) =\u003e i !== index);\n    this.recalculate();\n  }\n\n  recalculate() {\n    this.subtotal = this.items.reduce((sum, item) =\u003e sum + item.price, 0);\n    this.tax = this.subtotal * 0.08;\n    this.shipping = this.subtotal \u003e 50 ? 0 : 5.99;\n    this.total = this.subtotal + this.tax + this.shipping;\n  }\n\n  \u003ctemplate\u003e\n    \u003cdiv class=\"cart\"\u003e\n      \u003cdiv\u003eSubtotal: ${{this.subtotal}}\u003c/div\u003e\n      \u003cdiv\u003eTax: ${{this.tax}}\u003c/div\u003e\n      \u003cdiv\u003eShipping: ${{this.shipping}}\u003c/div\u003e\n      \u003cdiv\u003eTotal: ${{this.total}}\u003c/div\u003e\n    \u003c/div\u003e\n  \u003c/template\u003e\n}\n```19:T1ce9,Create reactive chains where getters depend on other getters or tracked properties for clear, maintainable data derivation.\n\n**Incorrect (imperative updates):**\n\n```glimmer-js\n// app/components/shopping-cart.gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nclass ShoppingCart extends Component {\n  @tracked items = [];\n  @tracked subtotal = 0;\n  @tracked tax = 0;\n  @tracked shipping = 0;\n  @tracked total = 0;\n\n  @action\n  addItem(item) {\n    this.items = [...this.items, item];\n    this.recalculate();\n  }\n\n  @action\n  removeItem(index) {\n    this.items = this.items.filter((_, i) =\u003e i !== index);\n    this.recalculate();\n  }\n\n  recalculate() {\n    this.subtotal = this.items.reduce((sum, item) =\u003e sum + item.price, 0);\n    this.tax = this.subtotal * 0.08;\n    this.shipping = this.subtotal \u003e 50 ? 0 : 5.99;\n    this.total = this.subtotal + this.tax + this.shipping;\n  }\n\n  \u003ctemplate\u003e\n    \u003cdiv class=\"cart\"\u003e\n      \u003cdiv\u003eSubtotal: ${{this.subtotal}}\u003c/div\u003e\n      \u003cdiv\u003eTax: ${{this.tax}}\u003c/div\u003e\n      \u003cdiv\u003eShipping: ${{this.shipping}}\u003c/div\u003e\n      \u003cdiv\u003eTotal: ${{this.total}}\u003c/div\u003e\n    \u003c/div\u003e\n  \u003c/template\u003e\n}\n```\n\n**Correct (reactive getter chains):**\n\n```glimmer-js\n// app/components/shopping-cart.gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\nimport { TrackedArray } from 'tracked-built-ins';\n\nclass ShoppingCart extends Component {\n  @tracked items = new TrackedArray([]);\n\n  // Base calculation\n  get subtotal() {\n    return this.items.reduce((sum, item) =\u003e sum + item.price, 0);\n  }\n\n  // Depends on subtotal\n  get tax() {\n    return this.subtotal * 0.08;\n  }\n\n  // Depends on subtotal\n  get shipping() {\n    return this.subtotal \u003e 50 ? 0 : 5.99;\n  }\n\n  // Depends on subtotal, tax, and shipping\n  get total() {\n    return this.subtotal + this.tax + this.shipping;\n  }\n\n  // Derived from total\n  get formattedTotal() {\n    return `$${this.total.toFixed(2)}`;\n  }\n\n  // Multiple dependencies\n  get discount() {\n    if (this.items.length \u003e= 5) return this.subtotal * 0.1;\n    if (this.subtotal \u003e 100) return this.subtotal * 0.05;\n    return 0;\n  }\n\n  // Depends on total and discount\n  get finalTotal() {\n    return this.total - this.discount;\n  }\n\n  @action\n  addItem(item) {\n    this.items.push(item);\n    // All getters automatically update!\n  }\n\n  @action\n  removeItem(index) {\n    this.items.splice(index, 1);\n    // All getters automatically update!\n  }\n\n  \u003ctemplate\u003e\n    \u003cdiv class=\"cart\"\u003e\n      \u003cdiv\u003eItems: {{this.items.length}}\u003c/div\u003e\n      \u003cdiv\u003eSubtotal: ${{this.subtotal.toFixed 2}}\u003c/div\u003e\n      \u003cdiv\u003eTax: ${{this.tax.toFixed 2}}\u003c/div\u003e\n      \u003cdiv\u003eShipping: ${{this.shipping.toFixed 2}}\u003c/div\u003e\n      {{#if this.discount}}\n        \u003cdiv class=\"discount\"\u003eDiscount: -${{this.discount.toFixed 2}}\u003c/div\u003e\n      {{/if}}\n      \u003cdiv class=\"total\"\u003eTotal: {{this.formattedTotal}}\u003c/div\u003e\n    \u003c/div\u003e\n  \u003c/template\u003e\n}\n```\n\n**Complex reactive chains with @cached:**\n\n```glimmer-js\n// app/components/data-analysis.gjs\nimport Component from '@glimmer/component';\nimport { cached } from '@glimmer/tracking';\n\nclass DataAnalysis extends Component {\n  // Base data\n  get rawData() {\n    return this.args.data || [];\n  }\n\n  // Level 1: Filter\n  @cached\n  get validData() {\n    return this.rawData.filter((item) =\u003e item.value != null);\n  }\n\n  // Level 2: Transform (depends on validData)\n  @cached\n  get normalizedData() {\n    const max = Math.max(...this.validData.map((d) =\u003e d.value));\n    return this.validData.map((item) =\u003e ({\n      ...item,\n      normalized: item.value / max,\n    }));\n  }\n\n  // Level 2: Statistics (depends on validData)\n  @cached\n  get statistics() {\n    const values = this.validData.map((d) =\u003e d.value);\n    const sum = values.reduce((a, b) =\u003e a + b, 0);\n    const mean = sum / values.length;\n    const variance = values.reduce((a, b) =\u003e a + Math.pow(b - mean, 2), 0) / values.length;\n\n    return {\n      count: values.length,\n      sum,\n      mean,\n      stdDev: Math.sqrt(variance),\n      min: Math.min(...values),\n      max: Math.max(...values),\n    };\n  }\n\n  // Level 3: Depends on normalizedData and statistics\n  @cached\n  get outliers() {\n    const threshold = this.statistics.mean + 2 * this.statistics.stdDev;\n    return this.normalizedData.filter((item) =\u003e item.value \u003e threshold);\n  }\n\n  // Level 3: Depends on statistics\n  get qualityScore() {\n    const validRatio = this.validData.length / this.rawData.length;\n    const outlierRatio = this.outliers.length / this.validData.length;\n    return validRatio * 0.7 + (1 - outlierRatio) * 0.3;\n  }\n\n  \u003ctemplate\u003e\n    \u003cdiv class=\"analysis\"\u003e\n      \u003ch3\u003eData Quality: {{this.qualityScore.toFixed 2}}\u003c/h3\u003e\n      \u003cdiv\u003eValid: {{this.validData.length}} / {{this.rawData.length}}\u003c/div\u003e\n      \u003cdiv\u003eMean: {{this.statistics.mean.toFixed 2}}\u003c/div\u003e\n      \u003cdiv\u003eStd Dev: {{this.statistics.stdDev.toFixed 2}}\u003c/div\u003e\n      \u003cdiv\u003eOutliers: {{this.outliers.length}}\u003c/div\u003e\n    \u003c/div\u003e\n  \u003c/template\u003e\n}\n```\n\n**Combining multiple tracked sources:**\n\n```glimmer-js\n// app/components/filtered-list.gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { cached } from '@glimmer/tracking';\n\nclass FilteredList extends Component {\n  @tracked searchTerm = '';\n  @tracked selectedCategory = 'all';\n  @tracked sortDirection = 'asc';\n\n  // Depends on args.items and searchTerm\n  @cached\n  get searchFiltered() {\n    if (!this.searchTerm) return this.args.items;\n\n    const term = this.searchTerm.toLowerCase();\n    return this.args.items.filter(\n      (item) =\u003e\n        item.name.toLowerCase().includes(term) || item.description?.toLowerCase().includes(term),\n    );\n  }\n\n  // Depends on searchFiltered and selectedCategory\n  @cached\n  get categoryFiltered() {\n    if (this.selectedCategory === 'all') return this.searchFiltered;\n\n    return this.searchFiltered.filter((item) =\u003e item.category === this.selectedCategory);\n  }\n\n  // Depends on categoryFiltered and sortDirection\n  @cached\n  get sorted() {\n    const items = [...this.categoryFiltered];\n    const direction = this.sortDirection === 'asc' ? 1 : -1;\n\n    return items.sort((a, b) =\u003e direction * a.name.localeCompare(b.name));\n  }\n\n  // Final result\n  get items() {\n    return this.sorted;\n  }\n\n  // Metadata derived from chain\n  get resultsCount() {\n    return this.items.length;\n  }\n\n  get hasFilters() {\n    return this.searchTerm || this.selectedCategory !== 'all';\n  }\n\n  \u003ctemplate\u003e\n    \u003cdiv class=\"filtered-list\"\u003e\n      \u003cinput\n        type=\"search\"\n        value={{this.searchTerm}}\n        {{on \"input\" (pick \"target.value\" (set this \"searchTerm\"))}}\n      /\u003e\n\n      \u003cselect\n        value={{this.selectedCategory}}\n        {{on \"change\" (pick \"target.value\" (set this \"selectedCategory\"))}}\n      \u003e\n        \u003coption value=\"all\"\u003eAll Categories\u003c/option\u003e\n        {{#each @categories as |cat|}}\n          \u003coption value={{cat}}\u003e{{cat}}\u003c/option\u003e\n        {{/each}}\n      \u003c/select\u003e\n\n      \u003cp\u003eShowing {{this.resultsCount}} results\u003c/p\u003e\n\n      {{#each this.items as |item|}}\n        \u003cdiv\u003e{{item.name}}\u003c/div\u003e\n      {{/each}}\n    \u003c/div\u003e\n  \u003c/template\u003e\n}\n```\n\nReactive getter chains provide automatic updates, clear data dependencies, and better performance through intelligent caching with @cached.\n\nReference: [Glimmer Tracking](https://guides.emberjs.com/release/in-depth-topics/autotracking-in-depth/)d:[[\"$\",\"header\",null,{\"className\":\"flex flex-col gap-2\",\"children\":[[\"$\",\"div\",null,{\"className\":\"t-label flex flex-wrap items-center gap-2\",\"children\":[[\"$\",\"$L15\",null,{\"href\":\"/guide/\",\"className\":\"t-accent\",\"children\":\"গাইড\"}],[\"$\",\"span\",null,{\"children\":\"•\"}],[\"$\",\"span\",null,{\"children\":[3,\" · \",\"Component and Reactivity Optimization\"]}]]}],[\"$\",\"h1\",null,{\"className\":\"t-title text-2xl sm:text-3xl\",\"children\":\"Build Reactive Chains with Dependent Getters\"}],[\"$\",\"div\",null,{\"className\":\"flex flex-wrap gap-1.5\",\"children\":[[\"$\",\"span\",null,{\"className\":\"chip\",\"children\":[\"impact · \",\"HIGH\"]}],[\"$\",\"span\",null,{\"className\":\"chip\",\"children\":\"Clear data flow and automatic reactivity\"}],[[\"$\",\"$L15\",\"005\",{\"href\":\"/day/005/\",\"className\":\"chip chip--accent\",\"children\":[\"plan · দিন \",\"০০৫\"]}]]]}]]}],[\"$\",\"section\",null,{\"className\":\"surface-panel flex flex-col gap-3 p-4 sm:p-6\",\"children\":[[\"$\",\"div\",null,{\"className\":\"t-label\",\"children\":\"আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?\"}],[\"$\",\"$L16\",null,{\"children\":\"$17\"}]]}],[\"$\",\"$L18\",null,{\"taskIds\":[\"d005-1al0fkz\"],\"children\":[\"$\",\"$L16\",null,{\"children\":\"$19\"}]}],\"$L1a\"]\n1a:[\"$\",\"nav\",null,{\"className\":\"grid grid-cols-2 gap-2\",\"aria-label\":\"rule\",\"children\":[[\"$\",\"$L15\",null,{\"href\":\"/guide/component-minimal-tracking/\",\"className\":\"control justify-start px-3 py-2 text-xs\",\"children\":[[\"$\",\"svg\",null,{\"viewBox\":\"0 0 24 24\",\"fill\":\"none\",\"stroke\":\"currentColor\",\"strokeWidth\":2,\"strokeLinecap\":\"round\",\"strokeLinejoin\":\"round\",\"aria-hidden\":true,\"width\":13,\"height\":13,\"children\":[[\"$\",\"path\",null,{\"d\":\"M19 12H5\"}],[\"$\",\"path\",null,{\"d\":\"m12 19-7-7 7-7\"}]]}],[\"$\",\"span\",null,{\"className\":\"truncate\",\"children\":\"Avoid Unnecessary Tracking\"}]]}],[\"$\",\"$L15\",null,{\"href\":\"/guide/component-file-conventions/\",\"className\":\"control justify-end px-3 py-2 text-xs\",\"children\":[[\"$\",\"span\",null,{\"className\":\"truncate\",\"children\":\"Component File Naming and Export Conventions\"}],[\"$\",\"svg\",null,{\"viewBox\":\"0 0 24 24\",\"fill\":\"none\",\"stroke\":\"currentColor\",\"strokeWidth\":2,\"strokeLinecap\":\"round\",\"strokeLinejoin\":\"round\",\"aria-hidden\":true,\"width\":13,\"height\":13,\"children\":[[\"$\",\"path\",null,{\"d\":\"M5 12h14\"}],[\"$\",\"path\",null,{\"d\":\"m12 5 7 7-7 7\"}]]}]]}]]}]\n12:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n1b:I[27201,[\"/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js\",\"/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js\"],\"IconMark\"]\n10:null\n14:[[\"$\",\"title\",\"0\",{\"children\":\"Build Reactive Chains with Dependent Getters — emberjs learning\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"আধুনিক Ember-এর ৫৮টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।\"}],[\"$\",\"link\",\"2\",{\"rel\":\"icon\",\"href\":\"/emberjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico\",\"sizes\":\"256x256\",\"type\":\"image/x-icon\"}],[\"$\",\"$L1b\",\"3\",{}]]\n"])</script></body></html>

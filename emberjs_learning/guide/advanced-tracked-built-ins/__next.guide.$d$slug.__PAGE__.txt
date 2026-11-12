@@ -1,0 +1,298 @@
+1:"$Sreact.fragment"
+2:I[22016,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T1c02,Use reactive collections from `@ember/reactive/collections` to make arrays, Maps, and Sets reactive in Ember. Standard JavaScript collections don't trigger Ember's reactivity system when mutated—reactive collections solve this.
+
+**The Problem:**
+Standard arrays, Maps, and Sets are not reactive in Ember when you mutate them. Changes won't trigger template updates.
+
+**The Solution:**
+Use Ember's built-in reactive collections from `@ember/reactive/collections`.
+
+### Reactive Arrays
+
+**Incorrect (non-reactive array):**
+
+```glimmer-js
+// app/components/todo-list.gjs
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
+
+export default class TodoList extends Component {
+  @tracked todos = []; // ❌ Array mutations (push, splice, etc.) won't trigger updates
+
+  @action
+  addTodo(text) {
+    // This won't trigger a re-render!
+    this.todos.push({ id: Date.now(), text });
+  }
+
+  @action
+  removeTodo(id) {
+    // This also won't trigger a re-render!
+    const index = this.todos.findIndex((t) => t.id === id);
+    this.todos.splice(index, 1);
+  }
+
+  <template>
+    <ul>
+      {{#each this.todos as |todo|}}
+        <li>
+          {{todo.text}}
+          <button {{on "click" (fn this.removeTodo todo.id)}}>Remove</button>
+        </li>
+      {{/each}}
+    </ul>
+    <button {{on "click" (fn this.addTodo "New todo")}}>Add</button>
+  </template>
+}
+```
+
+**Correct (reactive array with @ember/reactive/collections):**
+
+```glimmer-js
+// app/components/todo-list.gjs
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
+import { trackedArray } from '@ember/reactive/collections';
+
+export default class TodoList extends Component {
+  todos = trackedArray([]); // ✅ Mutations are reactive
+
+  @action
+  addTodo(text) {
+    // Now this triggers re-render!
+    this.todos.push({ id: Date.now(), text });
+  }
+
+  @action
+  removeTodo(id) {
+    // This also triggers re-render!
+    const index = this.todos.findIndex((t) => t.id === id);
+    this.todos.splice(index, 1);
+  }
+
+  <template>
+    <ul>
+      {{#each this.todos as |todo|}}
+        <li>
+          {{todo.text}}
+          <button {{on "click" (fn this.removeTodo todo.id)}}>Remove</button>
+        </li>
+      {{/each}}
+    </ul>
+    <button {{on "click" (fn this.addTodo "New todo")}}>Add</button>
+  </template>
+}
+```
+
+### Reactive Maps
+
+Maps are useful for key-value stores with non-string keys:
+
+```glimmer-js
+// app/components/user-cache.gjs
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
+import { trackedMap } from '@ember/reactive/collections';
+
+export default class UserCache extends Component {
+  userCache = trackedMap(); // key: userId, value: userData
+
+  @action
+  cacheUser(userId, userData) {
+    this.userCache.set(userId, userData);
+  }
+
+  @action
+  clearUser(userId) {
+    this.userCache.delete(userId);
+  }
+
+  get cachedUsers() {
+    return Array.from(this.userCache.values());
+  }
+
+  <template>
+    <ul>
+      {{#each this.cachedUsers as |user|}}
+        <li>{{user.name}}</li>
+      {{/each}}
+    </ul>
+    <p>Cache size: {{this.userCache.size}}</p>
+  </template>
+}
+```
+
+### Reactive Sets
+
+Sets are useful for unique collections:
+
+```glimmer-js
+// app/components/tag-selector.gjs
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
+import { trackedSet } from '@ember/reactive/collections';
+
+export default class TagSelector extends Component {
+  selectedTags = trackedSet();
+
+  @action
+  toggleTag(tag) {
+    if (this.selectedTags.has(tag)) {
+      this.selectedTags.delete(tag);
+    } else {
+      this.selectedTags.add(tag);
+    }
+  }
+
+  get selectedCount() {
+    return this.selectedTags.size;
+  }
+
+  <template>
+    <div>
+      {{#each @availableTags as |tag|}}
+        <label>
+          <input
+            type="checkbox"
+            checked={{this.selectedTags.has tag}}
+            {{on "change" (fn this.toggleTag tag)}}
+          />
+          {{tag}}
+        </label>
+      {{/each}}
+    </div>
+    <p>Selected: {{this.selectedCount}} tags</p>
+  </template>
+}
+```
+
+### When to Use Each Type
+
+| Type           | Use Case                                                           |
+| -------------- | ------------------------------------------------------------------ |
+| `trackedArray` | Ordered lists that need mutation methods (push, pop, splice, etc.) |
+| `trackedMap`   | Key-value pairs with non-string keys or when you need `size`       |
+| `trackedSet`   | Unique values, membership testing                                  |
+
+### Common Patterns
+
+**Initialize with data:**
+
+```javascript
+import { trackedArray, trackedMap, trackedSet } from '@ember/reactive/collections';
+
+// Array
+const todos = trackedArray([
+  { id: 1, text: 'First' },
+  { id: 2, text: 'Second' },
+]);
+
+// Map
+const userMap = trackedMap([
+  [1, { name: 'Alice' }],
+  [2, { name: 'Bob' }],
+]);
+
+// Set
+const tags = trackedSet(['javascript', 'ember', 'web']);
+```
+
+**Convert to plain JavaScript:**
+
+```javascript
+// Array
+const plainArray = [...trackedArray];
+const plainArray2 = Array.from(trackedArray);
+
+// Map
+const plainObject = Object.fromEntries(trackedMap);
+
+// Set
+const plainArray3 = [...trackedSet];
+```
+
+**Functional array methods still work:**
+
+```javascript
+const todos = trackedArray([...]);
+
+// All of these work and are reactive
+const completed = todos.filter(t => t.done);
+const titles = todos.map(t => t.title);
+const allDone = todos.every(t => t.done);
+const firstIncomplete = todos.find(t => !t.done);
+```
+
+### Alternative: Immutable Updates
+
+If you prefer immutability, you can use regular `@tracked` with reassignment:
+
+```javascript
+import { tracked } from '@glimmer/tracking';
+
+export default class TodoList extends Component {
+  @tracked todos = [];
+
+  @action
+  addTodo(text) {
+    // Reassignment is reactive
+    this.todos = [...this.todos, { id: Date.now(), text }];
+  }
+
+  @action
+  removeTodo(id) {
+    // Reassignment is reactive
+    this.todos = this.todos.filter((t) => t.id !== id);
+  }
+}
+```
+
+**When to use each approach:**
+
+- Use reactive collections when you need mutable operations (better performance for large lists)
+- Use immutable updates when you want simpler mental model or need history/undo
+
+### Best Practices
+
+1. **Don't mix approaches** - choose either reactive collections or immutable updates
+2. **Initialize in class field** - no need for constructor
+3. **Use appropriate type** - Map for key-value, Set for unique values, Array for ordered lists
+4. **Export from modules** if shared across components
+
+Reactive collections from `@ember/reactive/collections` provide the best of both worlds: mutable operations with full reactivity. They're especially valuable for large lists or frequent updates where immutable updates would be expensive.
+
+**References:**
+
+- [Ember Reactivity System](https://guides.emberjs.com/release/in-depth-topics/autotracking-in-depth/)
+- [JavaScript Built-in Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
+- [Reactive Collections RFC](https://github.com/emberjs/rfcs/blob/master/text/0869-reactive-collections.md)b:X
+10:X
+10:C
+0:{"buildId":"ECqhzMK0omxLbwi2OoWHS","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[10," · ","Advanced Patterns"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Use Reactive Collections from @ember/reactive/collections"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"Enables reactive arrays, maps, and sets"}],[["$","$L2","029",{"href":"/day/029/","className":"chip chip--accent","children":["plan · দিন ","০২৯"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?"}],["$","$L3",null,{"children":"**Incorrect (non-reactive array):**\n\n```glimmer-js\n// app/components/todo-list.gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nexport default class TodoList extends Component {\n  @tracked todos = []; // ❌ Array mutations (push, splice, etc.) won't trigger updates\n\n  @action\n  addTodo(text) {\n    // This won't trigger a re-render!\n    this.todos.push({ id: Date.now(), text });\n  }\n\n  @action\n  removeTodo(id) {\n    // This also won't trigger a re-render!\n    const index = this.todos.findIndex((t) => t.id === id);\n    this.todos.splice(index, 1);\n  }\n\n  <template>\n    <ul>\n      {{#each this.todos as |todo|}}\n        <li>\n          {{todo.text}}\n          <button {{on \"click\" (fn this.removeTodo todo.id)}}>Remove</button>\n        </li>\n      {{/each}}\n    </ul>\n    <button {{on \"click\" (fn this.addTodo \"New todo\")}}>Add</button>\n  </template>\n}\n```"}]]}],["$","$L4",null,{"taskIds":["d029-5849ue"],"children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"ViewportBoundary"]
+19:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"MetadataBoundary"]
+1a:I[27201,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"IconMark"]
+1b:I[39756,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+1c:I[37457,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/advanced-modifiers/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Use Modifiers for DOM Side Effects"}]]}],["$","span",null,{}]]}]
+7:["$","script","script-0",{"src":"/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","async":true}]
+8:["$","script","script-1",{"src":"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Use Reactive Collections from @ember/reactive/collections — emberjs learning"}],["$","meta","1",{"name":"description","content":"আধুনিক Ember-এর ৫৮টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/emberjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

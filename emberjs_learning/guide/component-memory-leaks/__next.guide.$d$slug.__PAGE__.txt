@@ -1,0 +1,240 @@
+1:"$Sreact.fragment"
+2:I[22016,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T1228,Properly clean up event listeners, timers, and subscriptions to prevent memory leaks.
+
+**Incorrect (no cleanup):**
+
+```glimmer-js
+// app/components/live-clock.gjs
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+
+class LiveClock extends Component {
+  @tracked time = new Date();
+
+  constructor() {
+    super(...arguments);
+
+    // Memory leak: interval never cleared
+    setInterval(() => {
+      this.time = new Date();
+    }, 1000);
+  }
+
+  <template>
+    <div>{{this.time}}</div>
+  </template>
+}
+```
+
+**Correct (proper cleanup with registerDestructor):**
+
+```glimmer-js
+// app/components/live-clock.gjs
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { registerDestructor } from '@ember/destroyable';
+
+class LiveClock extends Component {
+  @tracked time = new Date();
+
+  constructor() {
+    super(...arguments);
+
+    const intervalId = setInterval(() => {
+      this.time = new Date();
+    }, 1000);
+
+    // Proper cleanup
+    registerDestructor(this, () => {
+      clearInterval(intervalId);
+    });
+  }
+
+  <template>
+    <div>{{this.time}}</div>
+  </template>
+}
+```
+
+**Event listener cleanup:**
+
+```glimmer-js
+// app/components/window-size.gjs
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { registerDestructor } from '@ember/destroyable';
+
+class WindowSize extends Component {
+  @tracked width = window.innerWidth;
+  @tracked height = window.innerHeight;
+
+  constructor() {
+    super(...arguments);
+
+    const handleResize = () => {
+      this.width = window.innerWidth;
+      this.height = window.innerHeight;
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    registerDestructor(this, () => {
+      window.removeEventListener('resize', handleResize);
+    });
+  }
+
+  <template>
+    <div>Window: {{this.width}} x {{this.height}}</div>
+  </template>
+}
+```
+
+**Using modifiers for automatic cleanup:**
+
+```javascript
+// app/modifiers/window-listener.js
+import { modifier } from 'ember-modifier';
+
+export default modifier((element, [eventName, handler]) => {
+  window.addEventListener(eventName, handler);
+
+  // Automatic cleanup when element is removed
+  return () => {
+    window.removeEventListener(eventName, handler);
+  };
+});
+```
+
+```glimmer-js
+// app/components/resize-aware.gjs
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import windowListener from '../modifiers/window-listener';
+
+class ResizeAware extends Component {
+  @tracked size = { width: 0, height: 0 };
+
+  handleResize = () => {
+    this.size = {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+  };
+
+  <template>
+    <div {{windowListener "resize" this.handleResize}}>
+      {{this.size.width}}
+      x
+      {{this.size.height}}
+    </div>
+  </template>
+}
+```
+
+**Abort controller for fetch requests:**
+
+```glimmer-js
+// app/components/data-loader.gjs
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { registerDestructor } from '@ember/destroyable';
+
+class DataLoader extends Component {
+  @tracked data = null;
+  abortController = new AbortController();
+
+  constructor() {
+    super(...arguments);
+
+    this.loadData();
+
+    registerDestructor(this, () => {
+      this.abortController.abort();
+    });
+  }
+
+  async loadData() {
+    try {
+      const response = await fetch('/api/data', {
+        signal: this.abortController.signal,
+      });
+      this.data = await response.json();
+    } catch (error) {
+      if (error.name !== 'AbortError') {
+        console.error('Failed to load data:', error);
+      }
+    }
+  }
+
+  <template>
+    {{#if this.data}}
+      <div>{{this.data.content}}</div>
+    {{/if}}
+  </template>
+}
+```
+
+**Using ember-resources for automatic cleanup:**
+
+```glimmer-js
+// app/components/websocket-data.gjs
+import Component from '@glimmer/component';
+import { resource } from 'ember-resources';
+
+class WebsocketData extends Component {
+  messages = resource(({ on }) => {
+    const messages = [];
+    const ws = new WebSocket('wss://example.com/socket');
+
+    ws.onmessage = (event) => {
+      messages.push(event.data);
+    };
+
+    // Automatic cleanup
+    on.cleanup(() => {
+      ws.close();
+    });
+
+    return messages;
+  });
+
+  <template>
+    {{#each this.messages.value as |message|}}
+      <div>{{message}}</div>
+    {{/each}}
+  </template>
+}
+```
+
+Always clean up timers, event listeners, subscriptions, and pending requests to prevent memory leaks and performance degradation.
+
+Reference: [Ember Destroyable](https://api.emberjs.com/ember/release/modules/@ember%2Fdestroyable)b:X
+10:X
+10:C
+0:{"buildId":"ECqhzMK0omxLbwi2OoWHS","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[3," · ","Component and Reactivity Optimization"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Prevent Memory Leaks in Components"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"Avoid memory leaks and resource exhaustion"}],[["$","$L2","008",{"href":"/day/008/","className":"chip chip--accent","children":["plan · দিন ","০০৮"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?"}],["$","$L3",null,{"children":"**Incorrect (no cleanup):**\n\n```glimmer-js\n// app/components/live-clock.gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nclass LiveClock extends Component {\n  @tracked time = new Date();\n\n  constructor() {\n    super(...arguments);\n\n    // Memory leak: interval never cleared\n    setInterval(() => {\n      this.time = new Date();\n    }, 1000);\n  }\n\n  <template>\n    <div>{{this.time}}</div>\n  </template>\n}\n```"}]]}],["$","$L4",null,{"taskIds":["d008-osmr43"],"children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"ViewportBoundary"]
+19:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"MetadataBoundary"]
+1a:I[27201,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"IconMark"]
+1b:I[39756,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+1c:I[37457,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/exports-named-with-default-fallback/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Prefer Named Exports, Fallback to Default for Implicit Template Lookup"}]]}],["$","$L2",null,{"href":"/guide/component-on-modifier/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Use {{on}} Modifier for Event Handling"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","async":true}]
+8:["$","script","script-1",{"src":"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Prevent Memory Leaks in Components — emberjs learning"}],["$","meta","1",{"name":"description","content":"আধুনিক Ember-এর ৫৮টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/emberjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

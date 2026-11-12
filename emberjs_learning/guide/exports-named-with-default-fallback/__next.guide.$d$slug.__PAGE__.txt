@@ -1,0 +1,189 @@
+1:"$Sreact.fragment"
+2:I[22016,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T119d,Use named exports for shared modules imported directly in JS/TS (utilities, constants, pure functions). If a module should be invokable from `.hbs` templates via implicit lookup, provide a default export. In hybrid `.gjs`/`.hbs` projects, a practical pattern is a named export plus a default export alias.
+
+**Incorrect (default export in a shared utility module):**
+
+```javascript
+// app/utils/format-date.js
+export default function formatDate(date) {
+  return new Date(date).toLocaleDateString();
+}
+```
+
+**Correct (named export in a shared utility module):**
+
+```javascript
+// app/utils/format-date.js
+export function formatDate(date) {
+  return new Date(date).toLocaleDateString();
+}
+```
+
+**Correct (hybrid `.gjs`/`.hbs` named export + default alias):**
+
+```javascript
+// app/helpers/format-date.js
+import { helper } from '@ember/component/helper';
+
+export const formatDate = helper(([value]) => {
+  return new Date(value).toLocaleDateString();
+});
+
+export default formatDate;
+```
+
+## Where Named Exports Are Preferred
+
+Use named exports when the module is imported directly by other modules and is not resolved via implicit template lookup.
+
+**Example (utility module with multiple named exports):**
+
+```javascript
+// app/utils/validators.js
+export function isEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+export function isPhoneNumber(value) {
+  return /^\d{3}-\d{3}-\d{4}$/.test(value);
+}
+```
+
+Benefits:
+
+1. Explicit import contracts
+2. Better refactor safety (symbol rename tracking)
+3. Better tree-shaking for utility modules
+4. Easier multi-export module organization
+
+## Where Default Exports Are Required
+
+Use default exports for modules consumed through resolver/template lookup.
+If your project uses `.hbs`, invokables that should be accessible from templates should provide `export default`.
+In hybrid `.gjs`/`.hbs` codebases, use named exports plus a default export alias where you want both explicit imports and template compatibility.
+
+**Service:**
+
+```javascript
+// app/services/auth.js
+import Service from '@ember/service';
+
+export default class AuthService extends Service {
+  // ...
+}
+```
+
+**Route:**
+
+```javascript
+// app/routes/dashboard.js
+import Route from '@ember/routing/route';
+import { service } from '@ember/service';
+
+export default class DashboardRoute extends Route {
+  @service store;
+
+  model() {
+    return this.store.findAll('dashboard-item');
+  }
+}
+```
+
+**Modifier (when invoked from `.hbs`):**
+
+```javascript
+// app/modifiers/focus.js
+import { modifier } from 'ember-modifier';
+
+export default modifier((element) => {
+  element.focus();
+});
+```
+
+**Template (`.gjs`):**
+
+```glimmer-js
+// app/templates/dashboard.gjs
+<template>
+  <h1>Dashboard</h1>
+</template>
+```
+
+**Template (`.gts`):**
+
+```glimmer-ts
+// app/templates/dashboard.gts
+import type { TOC } from '@ember/component/template-only';
+
+interface Signature {
+  Args: {
+    model: unknown;
+  };
+}
+
+export default <template>
+  <h1>Dashboard</h1>
+</template> satisfies TOC<Signature>;
+```
+
+Template-tag files must resolve via a module default export in convention-based and `import.meta.glob` flows.
+For `app/templates/*.gjs`, the default export is implicit after compilation.
+
+## Strict Resolver Nuance
+
+With `ember-strict-application-resolver`, you can register explicit module values in `App.modules`:
+
+**Strict resolver explicit modules registration:**
+
+```ts
+modules = {
+  './services/manual': { default: ManualService },
+  './services/manual-shorthand': ManualService,
+};
+```
+
+In that explicit shorthand case, a direct value works without a default-exported module object.
+This is an explicit registration escape hatch and does not replace default-export requirements for `.hbs`-invokable modules.
+
+## Rule of Thumb
+
+1. If a module should be invokable from `.hbs`, provide a default export.
+2. In hybrid `.gjs`/`.hbs` projects, use named export + default alias for resolver-facing modules.
+3. Strict resolver explicit `modules` entries may use direct shorthand values where appropriate.
+4. Plain shared modules (`app/utils`, shared constants, reusable pure functions): prefer named exports.
+5. Template-tag components (`.gjs`/`.gts`): follow the component file-conventions rule and use named class exports.
+
+## References
+
+- [ES Modules Best Practices](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
+- [ember-strict-application-resolver](https://github.com/ember-cli/ember-strict-application-resolver)
+- [ember-resolver](https://github.com/ember-cli/ember-resolver)b:X
+10:X
+10:C
+0:{"buildId":"ECqhzMK0omxLbwi2OoWHS","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[3," · ","Component and Reactivity Optimization"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Prefer Named Exports, Fallback to Default for Implicit Template Lookup"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","LOW"]}],["$","span",null,{"className":"chip","children":"Clear export contracts across .hbs and template-tag codebases"}],[["$","$L2","007",{"href":"/day/007/","className":"chip chip--accent","children":["plan · দিন ","০০৭"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?"}],["$","$L3",null,{"children":"**Incorrect (default export in a shared utility module):**\n\n```javascript\n// app/utils/format-date.js\nexport default function formatDate(date) {\n  return new Date(date).toLocaleDateString();\n}\n```"}]]}],["$","$L4",null,{"taskIds":["d007-17zwezg"],"children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"ViewportBoundary"]
+19:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"MetadataBoundary"]
+1a:I[27201,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"IconMark"]
+1b:I[39756,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+1c:I[37457,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/component-file-conventions/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Component File Naming and Export Conventions"}]]}],["$","$L2",null,{"href":"/guide/component-memory-leaks/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Prevent Memory Leaks in Components"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","async":true}]
+8:["$","script","script-1",{"src":"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Prefer Named Exports, Fallback to Default for Implicit Template Lookup — emberjs learning"}],["$","meta","1",{"name":"description","content":"আধুনিক Ember-এর ৫৮টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/emberjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

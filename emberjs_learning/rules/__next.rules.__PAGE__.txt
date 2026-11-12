@@ -1,0 +1,114 @@
+1:"$Sreact.fragment"
+2:I[82484,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+3:T2786,## লক্ষ্য
+
+> **৬৫ দিনে আধুনিক Ember-এর ৫৮টা best practice-এর প্রতিটায় না দেখে ঠিক কোডটা লিখতে পারা, আর "কেন" ইংরেজিতে নিজের কথায় বলতে পারা — ঝালাইসহ।**
+
+এটা শূন্য থেকে Ember শেখার সাইট নয়। "কীভাবে" জানা আছে; ইন্টারভিউ জিজ্ঞেস করে "কেন"। প্রতিটা দিন একটা rule ধরে সেই "কেন"-টা মুখে আনার অনুশীলন — পড়ে নয়, লিখে আর বলে। 🧠 (Feynman technique · Active vs Passive learning)
+
+## সত্যের উৎস
+
+এই সাইট Ember নিয়ে নতুন কোনো দাবি যোগ করে না — প্রতিটা দিনের কোড আর ব্যাখ্যা rule-এর ফাইল থেকেই।
+
+1. `guide/` — `ember-best-practices` skill-এর ৫৮টা rule ফাইল, হুবহু ইংরেজিতে। লেখক আর লাইসেন্স `guide/README.md`-এ; সেকশনের নাম আর ক্রম `guide/_sections.md`-এ।
+2. `docs/` — এই plan: নিয়ম আর ৭টা ব্লক।
+3. ⚑ দিনের প্রশ্ন — প্রথম তিনটা `brainstorming/application-to-offer.md`-এর ইন্টারভিউ-বিষয় থেকে, পরের দুটো `ember-architect` skill-এর সিদ্ধান্ত থেকে। শেষ দুই ব্লকের জন্য কোথাও আলাদা প্রশ্ন লেখা নেই, তাই ওখানে ব্লকের rule-ই প্রশ্ন।
+
+## কীভাবে পড়বেন
+
+- ৬৫ দিন, ৭টা ব্লক — ইন্টারভিউর ক্রমে: Reactivity → State → Async → Data loading → Template → Build → Quality। উৎসের সেকশন ভাঙা হয়নি, শুধু ক্রম বদলেছে; সেকশনের ভেতরে rule উৎসের মতোই নামের বর্ণানুক্রমে।
+- প্রতিটা দিনে একটা rule, একটা `- [ ]` কাজ, আর শেষে **দিন শেষে** প্রশ্ন — হ্যাঁ/না। ব্লকের শেষ দিনটা ⚑।
+- `১০′` = মিনিট।
+- কাজের নিচে rule-এর **Incorrect কোড**। Correct আর ব্যাখ্যার লিংক আসে টিক দেওয়ার পরে — আগে চোখে পড়লে নিজে লেখার অনুশীলন থাকে না। 🧠 (Test yourself)
+- `impact` chip = উৎসে rule-টার গুরুত্ব, CRITICAL থেকে LOW।
+- 🧠 (নাম) = কাজটা `learning_to_learn`-এর কোন নীতি থেকে; chip চাপলে এক লাইনে কেন।
+- 🔁 = এই কাজ শেষ করার দিন থেকে **১, ৩, ৭, ২১ দিন পরে** না দেখে আবার। তারিখ সাইট নিজে হিসাব করে।
+- ⚑ = মাইলফলক। নির্ধারিত দিনে না হলে শেষ না হওয়া পর্যন্ত হোমে থাকে।
+
+## "আজ" মানে ক্যালেন্ডারের আজ
+
+ফাইলে তারিখ নেই, শুধু দিনের নম্বর। প্রথমবার সাইট খুললে শুরুর তারিখ জিজ্ঞেস করে। তারপর থেকে দিন = শুরু থেকে কত দিন।
+
+- **plan পেছায় না।** কাল বাদ পড়লে আজ আজকের rule, দুটো নয়।
+- **বাদ পড়া rule ফেরে না** — গাইডে থাকে, দিন ০৬৫-এর পরে ধরতে পারেন।
+- **ঘুম কেটে পূরণ নয়।** 🧠 (The science of sleep)
+
+## কখন বসবেন ⏳
+
+এই সাইটের দিনের ১০′ ১৮০ দিনের plan-এর সপ্তাহে ৭ ঘণ্টার **ভেতরে, নাকি বাইরে** — ⏳ আপনার উত্তর বাকি। উত্তর না আসা পর্যন্ত plan-এর কোনো ঘর থেকে সময় কাটা হয়নি, আর শুরুর তারিখের কোনো প্রস্তাব নেই।
+
+---
+
+## বসা — ১০′
+
+1. **টাইমার ১০′।** 🧠 (Have an endpoint)
+2. **Incorrect কোডটা পড়ুন** — কী ভুল, আগে এক লাইনে মুখে।
+3. **না দেখে ঠিক সংস্করণটা লিখুন** — editor-এ বা কাগজে; চালাতে হবে না। 🧠 (Test yourself)
+4. **"কেন" ইংরেজিতে, ২–৩ বাক্যে, জোরে।** ইন্টারভিউতে উত্তরটা মুখ দিয়েই যায়। 🧠 (Feynman technique)
+5. **খাতায় এক লাইন** — নিজের কাজে এটা কোথায় দেখেছেন। সাইটে নোটের ঘর নেই, ইচ্ছা করেই: অফিসের কোডের কথা সাইটে বা cloud-এ যায় না।
+6. **টিক দিন**, তারপর "Correct আর ব্যাখ্যা" খুলে নিজের লেখার সাথে মেলান। যেটুকু মেলেনি, সেটাই আজকের শেখা। 🧠 (The science of feedback)
+
+**না পারলে?** টিক দিন, Correct পড়ুন, বন্ধ করে আবার লিখুন। পরের দিনের ঝালাইয়ে নিজে থেকে ফিরবে। 🧠 (Failures don't count)
+
+## ঝালাই
+
+- 🔁 কাজে টিক দিলে ঐ **আসল তারিখ** থেকে ১ → ৩ → ৭ → ২১ দিন। 🧠 (Spaced repetition revisited)
+- **ঝালাইয়ের বসা:** rule-এর নাম দেখে, গাইড না খুলে — "কেন" এক লাইনে, ইংরেজিতে, জোরে।
+- দুটো উত্তর: **মনে ছিল** (পরের ধাপে) বা **আটকে গেছি** (আবার ১ দিনে)। আটকে যাওয়া শাস্তি নয়, তথ্য।
+- ২১ দিনের ধাপ পার হলে ঝালাই শেষ — ওটা এখন স্থির।
+
+## ⚑ দিন — মুখে ২ মিনিট
+
+প্রতিটা ব্লকের শেষ দিনে একটা প্রশ্ন: গাইড না খুলে, ইংরেজিতে, জোরে, ২ মিনিটে।
+
+| দিন | ব্লক | প্রশ্ন |
+|---|---|---|
+| ০১৮ | Reactivity | Ember-এর autotracking আর React-এর re-render কীভাবে আলাদা |
+| ০২৪ | State | কোন state কোথায় — component, service, নাকি URL |
+| ০৩০ | Async | ember-concurrency-র task বনাম React-এর `useEffect` |
+| ০৩৬ | Data loading | একটা data route-এর তিন outcome — loading, error, empty |
+| ০৪৮ | Template | logic কোথায় বসবে — helper, getter, service method, নাকি model hook |
+| ০৫৩ | Build | ব্লকের তিনটা rule-এর "কেন" |
+| ০৬৫ | Quality | ব্লকের তিনটা rule-এর "কেন" |
+
+## গাইডের পাতা
+
+"গাইড" পাতায় ৫৮টা rule, উৎসের ১০টা সেকশন ধরে; প্রতিটার পাশে কোন দিনে আসে। rule-এর পাতায় Incorrect কোড খোলা আর পুরো rule ভাঁজ করা — plan-এ ঐ কাজে টিক থাকলে ভাঁজ নিজে খোলে। পাতাগুলো রেফারেন্স; রোজ শুরু "আজ" থেকে। 🧠 (Create a roadmap)
+
+---
+
+## যা করবেন না
+
+- **এক দিনে একাধিক rule নয়।** working memory-তে একসাথে চারটার বেশি ধরে না। 🧠 (Long and short memory)
+- **চেষ্টার আগে Correct নয়।** পড়া চেনা লাগায়, শেখায় না।
+- **কোড চালানোর জন্য আলাদা Ember app বানানো নয়।** এই plan-এ sandbox নেই, ইচ্ছা করেই; দরকার মনে হলে এক লাইনে লিখে রাখুন।
+- **অফিসের কোড, প্রজেক্টের নাম বা ভেতরের নকশা এই repo-তে নয়।** সাইট public।
+- **নতুন rule, নতুন দাবি বা নতুন ফিচার নয়।** ইচ্ছে হলে এক লাইনে লিখে রাখুন, বানাবেন না।
+
+## দিন ০৬৫-এর পরে
+
+- 🔁 ঝালাই হোমে আসতেই থাকবে, যতদিন বাকি।
+- বাদ পড়া rule গাইড থেকে একটা একটা করে — একই বসা, একই ১০′।
+- ⚑-এর সাতটা প্রশ্ন ইন্টারভিউর আগের সপ্তাহে আরেকবার, জোরে।7:X
+c:X
+c:C
+0:{"buildId":"ECqhzMK0omxLbwi2OoWHS","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — Ember.js, কীভাবে থেকে কেন"}],["$","p",null,{"className":"t-body measure text-sm","children":"৬৫ দিন · ৫৮টা rule আর ৭টা ⚑ · দিনে একটা, ১০′"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L2",null,{"className":"measure","children":"$3"}]}]],["$L4"],"$L5"]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":"$L8","isPartial":"$@9","staleTime":"$7","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$7","varyParams":"$c"}],"isUpgradeableISRFallback":false,"a":"$@d","rootVaryParams":null,"needsRuntimeRequest":"$@e"}
+f:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"OutletBoundary"]
+10:"$Sreact.suspense"
+12:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"ViewportBoundary"]
+13:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"MetadataBoundary"]
+14:I[27201,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"IconMark"]
+15:I[39756,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+16:I[37457,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+4:["$","script","script-0",{"src":"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+5:["$","$Lf",null,{"children":["$","$10",null,{"name":"Next.MetadataOutlet","children":"$@11"}]}]
+8:["$","$1","h",{"children":[null,["$","$L12",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$10",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"নিয়ম — emberjs learning"}],["$","meta","1",{"name":"description","content":"আধুনিক Ember-এর ৫৮টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/emberjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L14","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+a:["$","$1","c",{"children":[null,["$","$L15",null,{"parallelRouterKey":"children","template":["$","$L16",null,{}]}]]}]
+e:true
+11:null
+7:300
+7:C
+d:0
+9:"$undefined"
+b:"$undefined"
+6:"$undefined"

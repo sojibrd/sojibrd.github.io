@@ -1,0 +1,133 @@
+1:"$Sreact.fragment"
+2:I[22016,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T80e,Keep route logic in `app/routes/*.js` and route templates in `app/templates/*.gjs`. Route classes imported from `@ember/routing/route` do not support inline `<template>` blocks.
+
+**Incorrect (inline template inside a route class):**
+
+```glimmer-js
+// app/routes/posts.gjs
+import Route from '@ember/routing/route';
+
+export default class PostsRoute extends Route {
+  model() {
+    return this.store.request({ url: '/posts' });
+  }
+
+  <template>
+    <h1>Posts</h1>
+    <ul>
+      {{#each @model as |post|}}
+        <li>{{post.title}}</li>
+      {{/each}}
+    </ul>
+
+    {{outlet}}
+  </template>
+}
+```
+
+**Correct (separate route module and template file):**
+
+```javascript
+// app/routes/posts.js
+import Route from '@ember/routing/route';
+
+export default class PostsRoute extends Route {
+  model() {
+    return this.store.request({ url: '/posts' });
+  }
+}
+```
+
+```glimmer-js
+// app/templates/posts.gjs
+<template>
+  <h1>Posts</h1>
+  <ul>
+    {{#each @model as |post|}}
+      <li>{{post.title}}</li>
+    {{/each}}
+  </ul>
+
+  {{outlet}}
+</template>
+```
+
+**With a separate template file for route UI:**
+
+```javascript
+// app/routes/posts.js
+import Route from '@ember/routing/route';
+import { service } from '@ember/service';
+
+export default class PostsRoute extends Route {
+  @service store;
+
+  model() {
+    return this.store.request({ url: '/posts' });
+  }
+}
+```
+
+```glimmer-js
+// app/templates/posts.gjs
+<template>
+  <div class="posts-page">
+    <h1>Posts</h1>
+
+    {{#if @model}}
+      <ul>
+        {{#each @model as |post|}}
+          <li>{{post.title}}</li>
+        {{/each}}
+      </ul>
+    {{/if}}
+
+    {{outlet}}
+  </div>
+</template>
+```
+
+**Template-only routes:**
+
+```glimmer-js
+// app/templates/about.gjs
+<template>
+  <div class="about-page">
+    <h1>About Us</h1>
+    <p>Welcome to our application!</p>
+  </div>
+</template>
+```
+
+Keeping route classes and route templates in their conventional files matches Ember's supported routing model and makes examples easier to apply in real apps.
+
+Reference: [Ember Routes](https://guides.emberjs.com/release/routing/)b:X
+10:X
+10:C
+0:{"buildId":"ECqhzMK0omxLbwi2OoWHS","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[1," · ","Route Loading and Data Fetching"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Use Separate Route and Template Files"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","MEDIUM-HIGH"]}],["$","span",null,{"className":"chip","children":"Better code organization and maintainability"}],[["$","$L2","035",{"href":"/day/035/","className":"chip chip--accent","children":["plan · দিন ","০৩৫"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?"}],["$","$L3",null,{"children":"**Incorrect (inline template inside a route class):**\n\n```glimmer-js\n// app/routes/posts.gjs\nimport Route from '@ember/routing/route';\n\nexport default class PostsRoute extends Route {\n  model() {\n    return this.store.request({ url: '/posts' });\n  }\n\n  <template>\n    <h1>Posts</h1>\n    <ul>\n      {{#each @model as |post|}}\n        <li>{{post.title}}</li>\n      {{/each}}\n    </ul>\n\n    {{outlet}}\n  </template>\n}\n```"}]]}],["$","$L4",null,{"taskIds":["d035-1blx9r5"],"children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"ViewportBoundary"]
+19:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"MetadataBoundary"]
+1a:I[27201,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"IconMark"]
+1b:I[39756,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+1c:I[37457,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/route-lazy-routes/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Use Route-Based Code Splitting"}]]}],["$","$L2",null,{"href":"/guide/bundle-direct-imports/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Avoid Importing Entire Addon Namespaces"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","async":true}]
+8:["$","script","script-1",{"src":"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Use Separate Route and Template Files — emberjs learning"}],["$","meta","1",{"name":"description","content":"আধুনিক Ember-এর ৫৮টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/emberjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

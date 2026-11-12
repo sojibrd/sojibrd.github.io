@@ -1,0 +1,115 @@
+1:"$Sreact.fragment"
+2:I[22016,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:Tae6,Move expensive computations from templates to cached getters in the component class or in-scope functions for template-only components. Templates should only display data, not compute it. Keep templates easy for humans to read by minimizing nested function invocations.
+
+**Why this matters:**
+
+- Templates should be easy to read and understand
+- Nested function calls create cognitive overhead
+- Computations should be cached and reused, not recalculated on every render
+- Template-only components (without `this`) need alternative patterns
+
+**Incorrect (heavy computation in template):**
+
+```glimmer-js
+// app/components/stats.gjs
+import { sum, map, div, max, multiply, sortBy } from '../helpers/math';
+
+<template>
+  <div>
+    <p>Total: {{sum (map @items "price")}}</p>
+    <p>Average: {{div (sum (map @items "price")) @items.length}}</p>
+    <p>Max: {{max (map @items "price")}}</p>
+
+    {{#each (sortBy "name" @items) as |item|}}
+      <div>{{item.name}}: {{multiply item.price item.quantity}}</div>
+    {{/each}}
+  </div>
+</template>
+```
+
+**Correct (computation in component with cached getters):**
+
+```glimmer-js
+// app/components/stats.gjs
+import Component from '@glimmer/component';
+import { cached } from '@glimmer/tracking';
+
+export class Stats extends Component {
+  // @cached is useful when getters are accessed multiple times
+  // For single access, regular getters are sufficient
+
+  @cached
+  get total() {
+    return this.args.items.reduce((sum, item) => sum + item.price, 0);
+  }
+
+  get average() {
+    // No @cached needed if only accessed once in template
+    return this.args.items.length > 0 ? this.total / this.args.items.length : 0;
+  }
+
+  get maxPrice() {
+    return Math.max(...this.args.items.map((item) => item.price));
+  }
+
+  @cached
+  get sortedItems() {
+    // @cached useful here as it's used by itemsWithTotal
+    return [...this.args.items].sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  @cached
+  get itemsWithTotal() {
+    // @cached useful as accessed multiple times in {{#each}}
+    return this.sortedItems.map((item) => ({
+      ...item,
+      total: item.price * item.quantity,
+    }));
+  }
+
+  <template>
+    <div>
+      <p>Total: {{this.total}}</p>
+      <p>Average: {{this.average}}</p>
+      <p>Max: {{this.maxPrice}}</p>
+
+      {{#each this.itemsWithTotal key="id" as |item|}}
+        <div>{{item.name}}: {{item.total}}</div>
+      {{/each}}
+    </div>
+  </template>
+}
+```
+
+**Note on @cached**: Use `@cached` when a getter is accessed multiple times (like in `{{#each}}` loops or by other getters). For getters accessed only once, regular getters are sufficient and avoid unnecessary memoization overhead.
+
+Moving computations to getters ensures they run only when dependencies change, not on every render. Templates remain clean and readable.b:X
+10:X
+10:C
+0:{"buildId":"ECqhzMK0omxLbwi2OoWHS","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[6," · ","Template Optimization"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Avoid Heavy Computation in Templates"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","MEDIUM"]}],["$","span",null,{"className":"chip","children":"40-60% reduction in render time"}],[["$","$L2","037",{"href":"/day/037/","className":"chip chip--accent","children":["plan · দিন ","০৩৭"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?"}],["$","$L3",null,{"children":"**Incorrect (heavy computation in template):**\n\n```glimmer-js\n// app/components/stats.gjs\nimport { sum, map, div, max, multiply, sortBy } from '../helpers/math';\n\n<template>\n  <div>\n    <p>Total: {{sum (map @items \"price\")}}</p>\n    <p>Average: {{div (sum (map @items \"price\")) @items.length}}</p>\n    <p>Max: {{max (map @items \"price\")}}</p>\n\n    {{#each (sortBy \"name\" @items) as |item|}}\n      <div>{{item.name}}: {{multiply item.price item.quantity}}</div>\n    {{/each}}\n  </div>\n</template>\n```"}]]}],["$","$L4",null,{"taskIds":["d037-8b52tk"],"children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"ViewportBoundary"]
+19:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"MetadataBoundary"]
+1a:I[27201,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"IconMark"]
+1b:I[39756,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+1c:I[37457,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/service-shared-state/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Use Services for Shared State"}]]}],["$","$L2",null,{"href":"/guide/helper-composition/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Compose Helpers for Reusable Logic"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","async":true}]
+8:["$","script","script-1",{"src":"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Avoid Heavy Computation in Templates — emberjs learning"}],["$","meta","1",{"name":"description","content":"আধুনিক Ember-এর ৫৮টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/emberjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

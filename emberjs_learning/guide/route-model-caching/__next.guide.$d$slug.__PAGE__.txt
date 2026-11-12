@@ -1,0 +1,266 @@
+1:"$Sreact.fragment"
+2:I[22016,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T1385,Implement intelligent model caching strategies to reduce redundant API calls and improve user experience.
+
+**Incorrect (always fetches fresh data):**
+
+```javascript
+// app/routes/post.js
+import Route from '@ember/routing/route';
+import { service } from '@ember/service';
+
+export default class PostRoute extends Route {
+  @service store;
+
+  model(params) {
+    // Always makes API call, even if we just loaded this post
+    return this.store.request({ url: `/posts/${params.post_id}` });
+  }
+}
+```
+
+```glimmer-js
+// app/templates/post.gjs
+<template>
+  <article>
+    <h1>{{@model.title}}</h1>
+    <div>{{@model.content}}</div>
+  </article>
+  {{outlet}}
+</template>
+```
+
+**Correct (with smart caching):**
+
+```javascript
+// app/routes/post.js
+import Route from '@ember/routing/route';
+import { service } from '@ember/service';
+
+export default class PostRoute extends Route {
+  @service store;
+
+  model(params) {
+    // Check cache first
+    const cached = this.store.cache.peek({
+      type: 'post',
+      id: params.post_id,
+    });
+
+    // Return cached if fresh (less than 5 minutes old)
+    if (cached && this.isCacheFresh(cached)) {
+      return cached;
+    }
+
+    // Fetch fresh data
+    return this.store.request({
+      url: `/posts/${params.post_id}`,
+      options: { reload: true },
+    });
+  }
+
+  isCacheFresh(record) {
+    const cacheTime = record.meta?.cachedAt || 0;
+    const fiveMinutes = 5 * 60 * 1000;
+    return Date.now() - cacheTime < fiveMinutes;
+  }
+}
+```
+
+```glimmer-js
+// app/templates/post.gjs
+<template>
+  <article>
+    <h1>{{@model.title}}</h1>
+    <div>{{@model.content}}</div>
+  </article>
+  {{outlet}}
+</template>
+```
+
+**Service-based caching layer:**
+
+```javascript
+// app/services/post-cache.js
+import Service from '@ember/service';
+import { service } from '@ember/service';
+import { TrackedMap } from 'tracked-built-ins';
+
+export default class PostCacheService extends Service {
+  @service store;
+
+  cache = new TrackedMap();
+  cacheTimes = new Map();
+  cacheTimeout = 5 * 60 * 1000; // 5 minutes
+
+  async getPost(id, { forceRefresh = false } = {}) {
+    const now = Date.now();
+    const cacheTime = this.cacheTimes.get(id) || 0;
+    const isFresh = now - cacheTime < this.cacheTimeout;
+
+    if (!forceRefresh && isFresh && this.cache.has(id)) {
+      return this.cache.get(id);
+    }
+
+    const post = await this.store.request({ url: `/posts/${id}` });
+
+    this.cache.set(id, post);
+    this.cacheTimes.set(id, now);
+
+    return post;
+  }
+
+  invalidate(id) {
+    this.cache.delete(id);
+    this.cacheTimes.delete(id);
+  }
+
+  invalidateAll() {
+    this.cache.clear();
+    this.cacheTimes.clear();
+  }
+}
+```
+
+```javascript
+// app/routes/post.js
+import Route from '@ember/routing/route';
+import { service } from '@ember/service';
+
+export default class PostRoute extends Route {
+  @service postCache;
+
+  model(params) {
+    return this.postCache.getPost(params.post_id);
+  }
+
+  // Refresh data when returning to route
+  async activate() {
+    super.activate(...arguments);
+    const params = this.paramsFor('post');
+    await this.postCache.getPost(params.post_id, { forceRefresh: true });
+  }
+}
+```
+
+```glimmer-js
+// app/templates/post.gjs
+<template>
+  <article>
+    <h1>{{@model.title}}</h1>
+    <div>{{@model.content}}</div>
+  </article>
+  {{outlet}}
+</template>
+```
+
+**Using query params for cache control:**
+
+```javascript
+// app/routes/posts.js
+import Route from '@ember/routing/route';
+import { service } from '@ember/service';
+
+export default class PostsRoute extends Route {
+  @service store;
+
+  queryParams = {
+    refresh: { refreshModel: true },
+  };
+
+  model(params) {
+    const options = params.refresh ? { reload: true } : { backgroundReload: true };
+
+    return this.store.request({
+      url: '/posts',
+      options,
+    });
+  }
+}
+```
+
+```glimmer-js
+// app/templates/posts.gjs
+<template>
+  <div class="posts">
+    <button {{on "click" (fn this.refresh)}}>
+      Refresh
+    </button>
+
+    <ul>
+      {{#each @model as |post|}}
+        <li>{{post.title}}</li>
+      {{/each}}
+    </ul>
+  </div>
+  {{outlet}}
+</template>
+```
+
+**Background refresh pattern:**
+
+```javascript
+// app/routes/dashboard.js
+import Route from '@ember/routing/route';
+import { service } from '@ember/service';
+
+export default class DashboardRoute extends Route {
+  @service store;
+
+  async model() {
+    // Return cached data immediately
+    const cached = this.store.cache.peek({ type: 'dashboard' });
+
+    // Refresh in background
+    this.store.request({
+      url: '/dashboard',
+      options: { backgroundReload: true },
+    });
+
+    return cached || this.store.request({ url: '/dashboard' });
+  }
+}
+```
+
+```glimmer-js
+// app/templates/dashboard.gjs
+<template>
+  <div class="dashboard">
+    <h1>Dashboard</h1>
+    <div>Stats: {{@model.stats}}</div>
+  </div>
+  {{outlet}}
+</template>
+```
+
+Smart caching reduces server load, improves perceived performance, and provides better offline support while keeping data fresh.
+
+Reference: [WarpDrive Caching](https://warp-drive.io/)b:X
+10:X
+10:C
+0:{"buildId":"ECqhzMK0omxLbwi2OoWHS","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[1," · ","Route Loading and Data Fetching"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Implement Smart Route Model Caching"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","MEDIUM-HIGH"]}],["$","span",null,{"className":"chip","children":"Reduce redundant API calls and improve UX"}],[["$","$L2","031",{"href":"/day/031/","className":"chip chip--accent","children":["plan · দিন ","০৩১"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?"}],["$","$L3",null,{"children":"**Incorrect (always fetches fresh data):**\n\n```javascript\n// app/routes/post.js\nimport Route from '@ember/routing/route';\nimport { service } from '@ember/service';\n\nexport default class PostRoute extends Route {\n  @service store;\n\n  model(params) {\n    // Always makes API call, even if we just loaded this post\n    return this.store.request({ url: `/posts/${params.post_id}` });\n  }\n}\n```"}]]}],["$","$L4",null,{"taskIds":["d031-ttxxyh"],"children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"ViewportBoundary"]
+19:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"MetadataBoundary"]
+1a:I[27201,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"IconMark"]
+1b:I[39756,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+1c:I[37457,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","span",null,{}],["$","$L2",null,{"href":"/guide/route-parallel-model/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Parallel Data Loading in Model Hooks"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","async":true}]
+8:["$","script","script-1",{"src":"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Implement Smart Route Model Caching — emberjs learning"}],["$","meta","1",{"name":"description","content":"আধুনিক Ember-এর ৫৮টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/emberjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

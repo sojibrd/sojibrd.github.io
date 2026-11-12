@@ -1,0 +1,231 @@
+1:"$Sreact.fragment"
+2:I[22016,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T1416,Set up recommended VSCode extensions and Model Context Protocol (MCP) servers for optimal Ember development experience.
+
+**Incorrect (no extension recommendations):**
+
+```json
+{
+  "recommendations": []
+}
+```
+
+**Correct (recommended extensions for Ember):**
+
+```json
+{
+  "recommendations": [
+    "emberjs.vscode-ember",
+    "vunguyentuan.vscode-glint",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint"
+  ]
+}
+```
+
+## Recommended VSCode Extensions
+
+Create a `.vscode/extensions.json` file in your project root to recommend extensions to all team members:
+
+```json
+{
+  "recommendations": [
+    "emberjs.vscode-ember",
+    "vunguyentuan.vscode-glint",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint"
+  ]
+}
+```
+
+### Core Ember Extensions
+
+**ember-extension-pack** (or individual extensions):
+
+- `emberjs.vscode-ember` - Ember.js language support
+- Syntax highlighting for `.hbs`, `.gjs`, `.gts` files
+- IntelliSense for Ember-specific patterns
+- Code snippets for common Ember patterns
+
+**Glint 2 Extension** (for TypeScript projects):
+
+- `vunguyentuan.vscode-glint` - Type checking for Glimmer templates
+- Real-time type errors in `.gts`/`.gjs` files
+- Template-aware autocomplete
+- Hover information for template helpers and components
+
+Install instructions:
+
+```bash
+# Via command palette
+# Press Cmd+Shift+P (Mac) or Ctrl+Shift+P (Windows/Linux)
+# Type: "Extensions: Install Extensions"
+# Search for "Ember" or "Glint"
+```
+
+## MCP (Model Context Protocol) Server Configuration
+
+Configure MCP servers in `.vscode/settings.json` to integrate AI coding assistants with Ember-specific context:
+
+```json
+{
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": false,
+    "markdown": false
+  },
+  "mcp.servers": {
+    "ember-mcp": {
+      "command": "npx",
+      "args": ["@ember/mcp-server"],
+      "description": "Ember.js MCP Server - Provides Ember-specific context"
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-chrome-devtools"],
+      "description": "Chrome DevTools MCP Server - Browser debugging integration"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp-server"],
+      "description": "Playwright MCP Server - Browser automation and testing"
+    }
+  }
+}
+```
+
+### MCP Server Benefits
+
+**Ember MCP Server** (`@ember/mcp-server`):
+
+- Ember API documentation lookup
+- Component and helper discovery
+- Addon documentation integration
+- Routing and data layer context
+
+**Chrome DevTools MCP** (`@modelcontextprotocol/server-chrome-devtools`):
+
+- Live browser inspection
+- Console debugging assistance
+- Network request analysis
+- Performance profiling integration
+
+**Playwright MCP** (optional, `@playwright/mcp-server`):
+
+- Test generation assistance
+- Browser automation context
+- E2E testing patterns
+- Debugging test failures
+
+## Complete VSCode Settings Example
+
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  "[glimmer-js]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[glimmer-ts]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "files.associations": {
+    "*.gjs": "glimmer-js",
+    "*.gts": "glimmer-ts"
+  },
+
+  "glint.enabled": true,
+  "glint.configPath": "./tsconfig.json",
+
+  "github.copilot.enable": {
+    "*": true
+  },
+
+  "mcp.servers": {
+    "ember-mcp": {
+      "command": "npx",
+      "args": ["@ember/mcp-server"],
+      "description": "Ember.js MCP Server"
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-chrome-devtools"],
+      "description": "Chrome DevTools MCP Server"
+    }
+  }
+}
+```
+
+## TypeScript Configuration (when using Glint)
+
+Ensure your `tsconfig.json` has Glint configuration:
+
+```json
+{
+  "compilerOptions": {
+    // ... standard TS options
+  },
+  "glint": {
+    "environment": ["ember-loose", "ember-template-imports"]
+  }
+}
+```
+
+## Installation Steps
+
+1. **Install extensions** (prompted automatically when opening project with `.vscode/extensions.json`)
+2. **Install Glint** (if using TypeScript):
+   ```bash
+   npm install --save-dev @glint/core @glint/environment-ember-loose @glint/environment-ember-template-imports
+   ```
+3. **Configure MCP servers** in `.vscode/settings.json`
+4. **Reload VSCode** to activate all extensions and MCP integrations
+
+## Benefits
+
+- **Consistent team setup**: All developers get same extensions
+- **Type safety**: Glint provides template type checking
+- **AI assistance**: MCP servers give AI tools Ember-specific context
+- **Better DX**: Autocomplete, debugging, and testing integration
+- **Reduced onboarding**: New team members get productive faster
+
+## References
+
+- [VSCode Ember Extension](https://marketplace.visualstudio.com/items?itemName=emberjs.vscode-ember)
+- [Glint Documentation](https://typed-ember.gitbook.io/glint/)
+- [MCP Protocol Specification](https://modelcontextprotocol.io/)
+- [Ember Primitives VSCode Setup Example](https://github.com/universal-ember/ember-primitives/tree/main/.vscode)b:X
+10:X
+10:C
+0:{"buildId":"ECqhzMK0omxLbwi2OoWHS","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[9," · ","Tooling and Configuration"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"VSCode Extensions and MCP Configuration for Ember Projects"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"Improves editor consistency and AI-assisted debugging setup"}],[["$","$L2","052",{"href":"/day/052/","className":"chip chip--accent","children":["plan · দিন ","০৫২"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?"}],["$","$L3",null,{"children":"**Incorrect (no extension recommendations):**\n\n```json\n{\n  \"recommendations\": []\n}\n```"}]]}],["$","$L4",null,{"taskIds":["d052-qdfwgg"],"children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"ViewportBoundary"]
+19:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"MetadataBoundary"]
+1a:I[27201,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"IconMark"]
+1b:I[39756,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+1c:I[37457,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/testing-test-waiters/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Use Test Waiters for Async Operations"}]]}],["$","$L2",null,{"href":"/guide/advanced-data-loading-with-ember-concurrency/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Use Ember Concurrency Correctly - User Concurrency Not Data Loading"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","async":true}]
+8:["$","script","script-1",{"src":"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"VSCode Extensions and MCP Configuration for Ember Projects — emberjs learning"}],["$","meta","1",{"name":"description","content":"আধুনিক Ember-এর ৫৮টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/emberjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

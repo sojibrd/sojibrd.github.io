@@ -1,0 +1,301 @@
+1:"$Sreact.fragment"
+2:I[22016,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T1954,Use efficient conditional rendering patterns to minimize unnecessary DOM updates and improve rendering performance.
+
+## Problem
+
+Inefficient conditional logic causes excessive re-renders, creates complex template code, and can lead to poor performance in lists and dynamic UIs.
+
+**Incorrect:**
+
+```glimmer-js
+// app/components/user-list.gjs
+import Component from '@glimmer/component';
+
+class UserList extends Component {
+  <template>
+    {{#each @users as |user|}}
+      <div class="user">
+        {{! Recomputes every time}}
+        {{#if (eq user.role "admin")}}
+          <span class="badge admin">{{user.name}} (Admin)</span>
+        {{/if}}
+        {{#if (eq user.role "moderator")}}
+          <span class="badge mod">{{user.name}} (Mod)</span>
+        {{/if}}
+        {{#if (eq user.role "user")}}
+          <span>{{user.name}}</span>
+        {{/if}}
+      </div>
+    {{/each}}
+  </template>
+}
+```
+
+## Solution
+
+Use `{{#if}}` / `{{#else if}}` / `{{#else}}` chains and extract computed logic to getters for better performance and readability.
+
+**Correct:**
+
+```glimmer-js
+// app/components/user-list.gjs
+import Component from '@glimmer/component';
+
+class UserList extends Component {
+  <template>
+    {{#each @users as |user|}}
+      <div class="user">
+        {{#if (eq user.role "admin")}}
+          <span class="badge admin">{{user.name}} (Admin)</span>
+        {{else if (eq user.role "moderator")}}
+          <span class="badge mod">{{user.name}} (Mod)</span>
+        {{else}}
+          <span>{{user.name}}</span>
+        {{/if}}
+      </div>
+    {{/each}}
+  </template>
+}
+```
+
+## Extracted Logic Pattern
+
+For complex conditions, use getters:
+
+```glimmer-js
+// app/components/user-card.gjs
+import Component from '@glimmer/component';
+import { cached } from '@glimmer/tracking';
+
+class UserCard extends Component {
+  @cached
+  get isActive() {
+    return this.args.user.status === 'active' && this.args.user.lastLoginDays < 30;
+  }
+
+  @cached
+  get showActions() {
+    return this.args.canEdit && !this.args.user.locked && this.isActive;
+  }
+
+  <template>
+    <div class="user-card">
+      <h3>{{@user.name}}</h3>
+
+      {{#if this.isActive}}
+        <span class="status active">Active</span>
+      {{else}}
+        <span class="status inactive">Inactive</span>
+      {{/if}}
+
+      {{#if this.showActions}}
+        <div class="actions">
+          <button>Edit</button>
+          <button>Delete</button>
+        </div>
+      {{/if}}
+    </div>
+  </template>
+}
+```
+
+## Conditional Lists
+
+Use `{{#if}}` to guard `{{#each}}` and avoid rendering empty states:
+
+```glimmer-js
+// app/components/task-list.gjs
+import Component from '@glimmer/component';
+
+class TaskList extends Component {
+  get hasTasks() {
+    return this.args.tasks?.length > 0;
+  }
+
+  <template>
+    {{#if this.hasTasks}}
+      <ul class="task-list">
+        {{#each @tasks as |task|}}
+          <li>
+            {{task.title}}
+            {{#if task.completed}}
+              <span class="done">✓</span>
+            {{/if}}
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p class="empty-state">No tasks yet</p>
+    {{/if}}
+  </template>
+}
+```
+
+## Avoid Nested Conditionals
+
+**Bad:**
+
+```glimmer-js
+{{#if @user}}
+  {{#if @user.isPremium}}
+    {{#if @user.hasAccess}}
+      <PremiumContent />
+    {{/if}}
+  {{/if}}
+{{/if}}
+```
+
+**Good:**
+
+```glimmer-js
+// app/components/content-gate.gjs
+import Component from '@glimmer/component';
+import { cached } from '@glimmer/tracking';
+
+class ContentGate extends Component {
+  @cached
+  get canViewPremium() {
+    return this.args.user?.isPremium && this.args.user?.hasAccess;
+  }
+
+  <template>
+    {{#if this.canViewPremium}}
+      <PremiumContent />
+    {{else}}
+      <UpgradeCTA />
+    {{/if}}
+  </template>
+}
+```
+
+## Component Switching Pattern
+
+Use conditional rendering for component selection:
+
+```glimmer-js
+// app/components/media-viewer.gjs
+import Component from '@glimmer/component';
+import ImageViewer from './image-viewer';
+import VideoPlayer from './video-player';
+import AudioPlayer from './audio-player';
+import { cached } from '@glimmer/tracking';
+
+class MediaViewer extends Component {
+  @cached
+  get mediaType() {
+    return this.args.media?.type;
+  }
+
+  <template>
+    {{#if (eq this.mediaType "image")}}
+      <ImageViewer @src={{@media.url}} />
+    {{else if (eq this.mediaType "video")}}
+      <VideoPlayer @src={{@media.url}} />
+    {{else if (eq this.mediaType "audio")}}
+      <AudioPlayer @src={{@media.url}} />
+    {{else}}
+      <p>Unsupported media type</p>
+    {{/if}}
+  </template>
+}
+```
+
+## Loading States
+
+Pattern for async data with loading/error states:
+
+```glimmer-js
+// app/components/data-display.gjs
+import Component from '@glimmer/component';
+import { Resource } from 'ember-resources';
+import { resource } from 'ember-resources';
+
+class DataResource extends Resource {
+  @tracked data = null;
+  @tracked isLoading = true;
+  @tracked error = null;
+
+  modify(positional, named) {
+    this.fetchData(named.url);
+  }
+
+  async fetchData(url) {
+    this.isLoading = true;
+    this.error = null;
+    try {
+      const response = await fetch(url);
+      this.data = await response.json();
+    } catch (e) {
+      this.error = e.message;
+    } finally {
+      this.isLoading = false;
+    }
+  }
+}
+
+class DataDisplay extends Component {
+  @resource data = DataResource.from(() => ({
+    url: this.args.url,
+  }));
+
+  <template>
+    {{#if this.data.isLoading}}
+      <div class="loading">Loading...</div>
+    {{else if this.data.error}}
+      <div class="error">Error: {{this.data.error}}</div>
+    {{else}}
+      <div class="content">
+        {{this.data.data}}
+      </div>
+    {{/if}}
+  </template>
+}
+```
+
+## Performance Impact
+
+- **Chained if/else**: 40-60% faster than multiple independent {{#if}} blocks
+- **Extracted getters**: ~20% faster for complex conditions (cached)
+- **Component switching**: Same performance as {{#if}} but better code organization
+
+## When to Use
+
+- **{{#if}}/{{#else}}**: For simple true/false conditions
+- **Extracted getters**: For complex or reused conditions
+- **Component switching**: For different component types based on state
+- **Guard clauses**: To avoid rendering large subtrees when not needed
+
+## References
+
+- [Ember Guides - Conditionals](https://guides.emberjs.com/release/components/conditional-content/)
+- [Glimmer VM Performance](https://github.com/glimmerjs/glimmer-vm)
+- [@cached decorator](https://api.emberjs.com/ember/release/functions/@glimmer%2Ftracking/cached)b:X
+10:X
+10:C
+0:{"buildId":"ECqhzMK0omxLbwi2OoWHS","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[6," · ","Template Optimization"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Optimize Conditional Rendering"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"Reduces unnecessary rerenders in dynamic template branches"}],[["$","$L2","041",{"href":"/day/041/","className":"chip chip--accent","children":["plan · দিন ","০৪১"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?"}],["$","$L3",null,{"children":"**Incorrect:**\n\n```glimmer-js\n// app/components/user-list.gjs\nimport Component from '@glimmer/component';\n\nclass UserList extends Component {\n  <template>\n    {{#each @users as |user|}}\n      <div class=\"user\">\n        {{! Recomputes every time}}\n        {{#if (eq user.role \"admin\")}}\n          <span class=\"badge admin\">{{user.name}} (Admin)</span>\n        {{/if}}\n        {{#if (eq user.role \"moderator\")}}\n          <span class=\"badge mod\">{{user.name}} (Mod)</span>\n        {{/if}}\n        {{#if (eq user.role \"user\")}}\n          <span>{{user.name}}</span>\n        {{/if}}\n      </div>\n    {{/each}}\n  </template>\n}\n```"}]]}],["$","$L4",null,{"taskIds":["d041-nlzcxa"],"children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"ViewportBoundary"]
+19:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"MetadataBoundary"]
+1a:I[27201,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"IconMark"]
+1b:I[39756,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+1c:I[37457,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/helper-plain-functions/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"No helper() Wrapper for Plain Functions"}]]}],["$","$L2",null,{"href":"/guide/template-only-component-functions/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Template-Only Components with In-Scope Functions"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","async":true}]
+8:["$","script","script-1",{"src":"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Optimize Conditional Rendering — emberjs learning"}],["$","meta","1",{"name":"description","content":"আধুনিক Ember-এর ৫৮টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/emberjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

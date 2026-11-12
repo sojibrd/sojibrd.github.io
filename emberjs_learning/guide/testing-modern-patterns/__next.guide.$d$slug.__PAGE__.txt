@@ -1,0 +1,361 @@
+1:"$Sreact.fragment"
+2:I[22016,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T284f,Use modern Ember testing patterns with `@ember/test-helpers` and `qunit-dom` for better test coverage and maintainability.
+
+**Incorrect (old testing patterns):**
+
+```glimmer-js
+// tests/integration/components/user-card-test.js
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, find, click } from '@ember/test-helpers';
+import UserCard from 'my-app/components/user-card';
+
+module('Integration | Component | user-card', function (hooks) {
+  setupRenderingTest(hooks);
+
+  test('it renders', async function (assert) {
+    await render(<template><UserCard /></template>);
+
+    // Using find() instead of qunit-dom
+    assert.ok(find('.user-card'));
+  });
+});
+```
+
+**Correct (modern testing patterns):**
+
+```glimmer-js
+// tests/integration/components/user-card-test.js
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, click } from '@ember/test-helpers';
+import { setupIntl } from 'ember-intl/test-support';
+import UserCard from 'my-app/components/user-card';
+
+module('Integration | Component | user-card', function (hooks) {
+  setupRenderingTest(hooks);
+  setupIntl(hooks);
+
+  test('it renders user information', async function (assert) {
+    const user = {
+      name: 'John Doe',
+      email: 'john@example.com',
+      avatarUrl: '/avatar.jpg',
+    };
+
+    await render(<template><UserCard @user={{user}} /></template>);
+
+    // qunit-dom assertions
+    assert.dom('[data-test-user-name]').hasText('John Doe');
+    assert.dom('[data-test-user-email]').hasText('john@example.com');
+    assert
+      .dom('[data-test-user-avatar]')
+      .hasAttribute('src', '/avatar.jpg')
+      .hasAttribute('alt', 'John Doe');
+  });
+
+  test('it handles edit action', async function (assert) {
+    assert.expect(1);
+
+    const user = { name: 'John Doe', email: 'john@example.com' };
+    const handleEdit = (editedUser) => {
+      assert.deepEqual(editedUser, user, 'Edit handler called with user');
+    };
+
+    await render(<template><UserCard @user={{user}} @onEdit={{handleEdit}} /></template>);
+
+    await click('[data-test-edit-button]');
+  });
+});
+```
+
+**Component testing with reactive state:**
+
+```glimmer-ts
+// tests/integration/components/search-box-test.ts
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, fillIn } from '@ember/test-helpers';
+import { trackedObject } from '@ember/reactive/collections';
+import SearchBox from 'my-app/components/search-box';
+
+module('Integration | Component | search-box', function (hooks) {
+  setupRenderingTest(hooks);
+
+  test('it performs search', async function (assert) {
+    // Use trackedObject for reactive state in tests
+    const state = trackedObject({
+      results: [] as string[],
+    });
+
+    const handleSearch = (query: string) => {
+      state.results = [`Result for ${query}`];
+    };
+
+    await render(
+      <template>
+        <SearchBox @onSearch={{handleSearch}} />
+        <ul data-test-results>
+          {{#each state.results as |result|}}
+            <li>{{result}}</li>
+          {{/each}}
+        </ul>
+      </template>,
+    );
+
+    await fillIn('[data-test-search-input]', 'ember');
+
+    // State updates reactively - no waitFor needed when using test-waiters
+    assert.dom('[data-test-results] li').hasText('Result for ember');
+  });
+});
+```
+
+**Testing with ember-concurrency tasks:**
+
+```glimmer-js
+// app/components/async-button.js
+import Component from '@glimmer/component';
+import { task } from 'ember-concurrency';
+
+export default class AsyncButtonComponent extends Component {
+  @task
+  *saveTask() {
+    yield this.args.onSave();
+  }
+
+  <template>
+    <button
+      type="button"
+      disabled={{this.saveTask.isRunning}}
+      {{on "click" (perform this.saveTask)}}
+      data-test-button
+    >
+      {{#if this.saveTask.isRunning}}
+        <span data-test-loading-spinner>Saving...</span>
+      {{else}}
+        {{yield}}
+      {{/if}}
+    </button>
+  </template>
+}
+```
+
+```glimmer-js
+// tests/integration/components/async-button-test.js
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, click } from '@ember/test-helpers';
+import AsyncButton from 'my-app/components/async-button';
+
+module('Integration | Component | async-button', function (hooks) {
+  setupRenderingTest(hooks);
+
+  test('it shows loading state during task execution', async function (assert) {
+    let resolveTask;
+    const onSave = () => {
+      return new Promise((resolve) => {
+        resolveTask = resolve;
+      });
+    };
+
+    await render(
+      <template>
+        <AsyncButton @onSave={{onSave}}>
+          Save
+        </AsyncButton>
+      </template>,
+    );
+
+    // Trigger the task
+    await click('[data-test-button]');
+
+    // ember-concurrency automatically registers test waiters
+    // The button will be disabled while the task runs
+    assert.dom('[data-test-button]').hasAttribute('disabled');
+    assert.dom('[data-test-loading-spinner]').hasText('Saving...');
+
+    // Resolve the task
+    resolveTask();
+    // No need to call settled() - ember-concurrency's test waiters handle this
+
+    assert.dom('[data-test-button]').doesNotHaveAttribute('disabled');
+    assert.dom('[data-test-loading-spinner]').doesNotExist();
+    assert.dom('[data-test-button]').hasText('Save');
+  });
+});
+```
+
+**When to use test-waiters with ember-concurrency:**
+
+- **ember-concurrency auto-registers test waiters** - You don't need to manually register test waiters for ember-concurrency tasks. The library automatically waits for tasks to complete before test helpers like `click()`, `fillIn()`, etc. resolve.
+
+- **You still need test-waiters when:**
+  - Using raw Promises outside of ember-concurrency tasks
+  - Working with third-party async operations that don't integrate with Ember's test waiter system
+  - Creating custom async behavior that needs to pause test execution
+
+- **You DON'T need additional test-waiters when:**
+  - Using ember-concurrency tasks (already handled)
+  - Using Ember Data operations (already handled)
+  - Using `settled()` from `@ember/test-helpers` (already coordinates with test waiters)
+  - **Note**: `waitFor()` and `waitUntil()` from `@ember/test-helpers` are code smells - if you need them, it indicates missing test-waiters in your code. Instrument your async operations with test-waiters instead.
+
+**Route testing with MSW (Mock Service Worker):**
+
+```javascript
+// tests/acceptance/posts-test.js
+import { module, test } from 'qunit';
+import { visit, currentURL, click } from '@ember/test-helpers';
+import { setupApplicationTest } from 'ember-qunit';
+import { http, HttpResponse } from 'msw';
+import { setupMSW } from 'my-app/tests/helpers/msw';
+
+module('Acceptance | posts', function (hooks) {
+  setupApplicationTest(hooks);
+  const { server } = setupMSW(hooks);
+
+  test('visiting /posts', async function (assert) {
+    server.use(
+      http.get('/api/posts', () => {
+        return HttpResponse.json({
+          data: [
+            { id: '1', type: 'post', attributes: { title: 'Post 1' } },
+            { id: '2', type: 'post', attributes: { title: 'Post 2' } },
+            { id: '3', type: 'post', attributes: { title: 'Post 3' } },
+          ],
+        });
+      }),
+    );
+
+    await visit('/posts');
+
+    assert.strictEqual(currentURL(), '/posts');
+    assert.dom('[data-test-post-item]').exists({ count: 3 });
+  });
+
+  test('clicking a post navigates to detail', async function (assert) {
+    server.use(
+      http.get('/api/posts', () => {
+        return HttpResponse.json({
+          data: [{ id: '1', type: 'post', attributes: { title: 'Test Post', slug: 'test-post' } }],
+        });
+      }),
+      http.get('/api/posts/test-post', () => {
+        return HttpResponse.json({
+          data: { id: '1', type: 'post', attributes: { title: 'Test Post', slug: 'test-post' } },
+        });
+      }),
+    );
+
+    await visit('/posts');
+    await click('[data-test-post-item]:first-child');
+
+    assert.strictEqual(currentURL(), '/posts/test-post');
+    assert.dom('[data-test-post-title]').hasText('Test Post');
+  });
+});
+```
+
+**Note:** Use MSW (Mock Service Worker) for API mocking instead of Mirage. MSW provides better conventions and doesn't lead developers astray. See `testing-msw-setup.md` for detailed setup instructions.
+
+**Accessibility testing:**
+
+```glimmer-js
+// tests/integration/components/modal-test.js
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, click } from '@ember/test-helpers';
+import a11yAudit from 'ember-a11y-testing/test-support/audit';
+import Modal from 'my-app/components/modal';
+
+module('Integration | Component | modal', function (hooks) {
+  setupRenderingTest(hooks);
+
+  test('it passes accessibility audit', async function (assert) {
+    await render(
+      <template>
+        <Modal @isOpen={{true}} @title="Test Modal">
+          <p>Modal content</p>
+        </Modal>
+      </template>,
+    );
+
+    await a11yAudit();
+    assert.ok(true, 'no a11y violations');
+  });
+
+  test('it traps focus', async function (assert) {
+    await render(
+      <template>
+        <Modal @isOpen={{true}}>
+          <button data-test-first>First</button>
+          <button data-test-last>Last</button>
+        </Modal>
+      </template>,
+    );
+
+    assert.dom('[data-test-first]').isFocused();
+
+    // Tab should stay within modal
+    await click('[data-test-last]');
+    assert.dom('[data-test-last]').isFocused();
+  });
+});
+```
+
+**Testing with data-test attributes:**
+
+```glimmer-js
+// app/components/user-profile.gjs
+import Component from '@glimmer/component';
+
+class UserProfile extends Component {
+  <template>
+    <div class="user-profile" data-test-user-profile>
+      <img src={{@user.avatar}} alt={{@user.name}} data-test-avatar />
+      <h2 data-test-name>{{@user.name}}</h2>
+      <p data-test-email>{{@user.email}}</p>
+
+      {{#if @onEdit}}
+        <button {{on "click" (fn @onEdit @user)}} data-test-edit-button>
+          Edit
+        </button>
+      {{/if}}
+    </div>
+  </template>
+}
+```
+
+Modern testing patterns with `@ember/test-helpers`, `qunit-dom`, and data-test attributes provide better test reliability, readability, and maintainability.
+
+Reference: [Ember Testing](https://guides.emberjs.com/release/testing/)b:X
+10:X
+10:C
+0:{"buildId":"ECqhzMK0omxLbwi2OoWHS","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[8," · ","Testing Best Practices"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Use Modern Testing Patterns"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"Better test coverage and maintainability"}],[["$","$L2","057",{"href":"/day/057/","className":"chip chip--accent","children":["plan · দিন ","০৫৭"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?"}],["$","$L3",null,{"children":"**Incorrect (old testing patterns):**\n\n```glimmer-js\n// tests/integration/components/user-card-test.js\nimport { module, test } from 'qunit';\nimport { setupRenderingTest } from 'ember-qunit';\nimport { render, find, click } from '@ember/test-helpers';\nimport UserCard from 'my-app/components/user-card';\n\nmodule('Integration | Component | user-card', function (hooks) {\n  setupRenderingTest(hooks);\n\n  test('it renders', async function (assert) {\n    await render(<template><UserCard /></template>);\n\n    // Using find() instead of qunit-dom\n    assert.ok(find('.user-card'));\n  });\n});\n```"}]]}],["$","$L4",null,{"taskIds":["d057-1yotmc2"],"children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"ViewportBoundary"]
+19:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"MetadataBoundary"]
+1a:I[27201,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"IconMark"]
+1b:I[39756,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+1c:I[37457,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/testing-render-patterns/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Use Appropriate Render Patterns in Tests"}]]}],["$","$L2",null,{"href":"/guide/testing-qunit-dom-assertions/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Use qunit-dom for Better Test Assertions"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","async":true}]
+8:["$","script","script-1",{"src":"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Use Modern Testing Patterns — emberjs learning"}],["$","meta","1",{"name":"description","content":"আধুনিক Ember-এর ৫৮টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/emberjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

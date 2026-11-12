@@ -1,0 +1,77 @@
+1:"$Sreact.fragment"
+2:I[55607,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3vwh6x6kx4x1f.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[22016,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3vwh6x6kx4x1f.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+5:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+a:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"ViewportBoundary"]
+b:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"MetadataBoundary"]
+3:T4a7,**Incorrect (manual async handling with race conditions):**
+
+```glimmer-js
+// app/components/search.gjs
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
+
+class Search extends Component {
+  @tracked results = [];
+  @tracked isSearching = false;
+  @tracked error = null;
+  currentRequest = null;
+
+  @action
+  async search(event) {
+    const query = event.target.value;
+
+    // Manual cancelation - easy to get wrong
+    if (this.currentRequest) {
+      this.currentRequest.abort();
+    }
+
+    this.isSearching = true;
+    this.error = null;
+
+    const controller = new AbortController();
+    this.currentRequest = controller;
+
+    try {
+      const response = await fetch(`/api/search?q=${query}`, {
+        signal: controller.signal,
+      });
+      this.results = await response.json();
+    } catch (e) {
+      if (e.name !== 'AbortError') {
+        this.error = e.message;
+      }
+    } finally {
+      this.isSearching = false;
+    }
+  }
+
+  <template>
+    <input {{on "input" this.search}} />
+    {{#if this.isSearching}}Loading...{{/if}}
+    {{#if this.error}}Error: {{this.error}}{{/if}}
+  </template>
+}
+```9:X
+12:X
+12:C
+0:{"buildId":"ECqhzMK0omxLbwi2OoWHS","data":[{"rsc":["$","$1","c",{"children":[[null,["$","$L2",null,{"day":{"num":26,"code":"026","label":"০২৬","title":"Use Ember Concurrency for User Input Concurrency","tasks":[{"id":"d026-5w1q7p","text":"**Use Ember Concurrency for User Input Concurrency** — নিচের Incorrect কোড পড়ে, না দেখে ঠিক সংস্করণটা লিখুন; তারপর \"কেন\" ইংরেজিতে ২–৩ বাক্যে জোরে বলুন, আর খাতায় এক লাইন: নিজের কাজে এটা কোথায় দেখেছেন","minutes":10,"principles":["Test yourself","Feynman technique"],"milestone":false,"repeat":true,"rule":{"slug":"advanced-concurrency","title":"Use Ember Concurrency for User Input Concurrency","impact":"HIGH","sectionName":"Advanced Patterns","problem":"$3"}}],"check":"না দেখে ঠিকটা লেখা, আর \"কেন\" ইংরেজিতে জোরে বলা হয়েছে?","blockSlug":"async","blockName":"Async","dip":false},"blockName":"Async","blockSlug":"async","totalDays":65}],["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"দিন","children":[["$","$L4",null,{"href":"/day/025/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"দিন ০২৫ · Use Ember Concurrency Correctly - User Concurrency Not Data Loading"}]]}],["$","$L4",null,{"href":"/day/027/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"দিন ০২৭ · Use Helper Functions for Reusable Logic"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]],[["$","script","script-0",{"src":"/emberjs_learning/_next/static/chunks/3vwh6x6kx4x1f.js","async":true}],["$","script","script-1",{"src":"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$La",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$Lb",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"দিন ০২৬ · Use Ember Concurrency for User Input Concurrency — emberjs learning"}],["$","meta","1",{"name":"description","content":"আধুনিক Ember-এর ৫৮টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],"$Lc","$Ld"]}]}]}],"$Le"]}],"isPartial":"$@f","staleTime":"$9","varyParams":null},{"rsc":"$L10","isPartial":"$@11","staleTime":"$9","varyParams":"$12"},{"rsc":"$L13","isPartial":"$@14","staleTime":"$9","varyParams":"$12"}],"isUpgradeableISRFallback":false,"a":"$@15","rootVaryParams":null,"needsRuntimeRequest":"$@16"}
+17:I[27201,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"IconMark"]
+18:I[39756,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+19:I[37457,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+7:null
+c:["$","link","2",{"rel":"icon","href":"/emberjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}]
+d:["$","$L17","3",{}]
+e:["$","meta",null,{"name":"next-size-adjust","content":""}]
+10:["$","$1","c",{"children":[null,["$","$L18",null,{"parallelRouterKey":"children","template":["$","$L19",null,{}]}]]}]
+13:["$","$1","c",{"children":[null,["$","$L18",null,{"parallelRouterKey":"children","template":["$","$L19",null,{}]}]]}]
+16:true
+9:300
+9:C
+15:0
+f:"$undefined"
+11:"$undefined"
+14:"$undefined"
+8:"$undefined"

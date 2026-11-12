@@ -1,0 +1,101 @@
+1:"$Sreact.fragment"
+2:I[22016,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T709,Use `{{#let}}` to compute expensive values once and reuse them in the template instead of calling getters or helpers multiple times.
+
+**Incorrect (recomputes on every reference):**
+
+```glimmer-js
+// app/components/user-card.gjs
+<template>
+  <div class="user-card">
+    {{#if (and this.user.isActive (not this.user.isDeleted))}}
+      <h3>{{this.user.fullName}}</h3>
+      <p>Status: Active</p>
+    {{/if}}
+
+    {{#if (and this.user.isActive (not this.user.isDeleted))}}
+      <button {{on "click" this.editUser}}>Edit</button>
+    {{/if}}
+
+    {{#if (and this.user.isActive (not this.user.isDeleted))}}
+      <button {{on "click" this.deleteUser}}>Delete</button>
+    {{/if}}
+  </div>
+</template>
+```
+
+**Correct (compute once, reuse):**
+
+```glimmer-js
+// app/components/user-card.gjs
+<template>
+  {{#let (and this.user.isActive (not this.user.isDeleted)) as |isEditable|}}
+    <div class="user-card">
+      {{#if isEditable}}
+        <h3>{{this.user.fullName}}</h3>
+        <p>Status: Active</p>
+      {{/if}}
+
+      {{#if isEditable}}
+        <button {{on "click" this.editUser}}>Edit</button>
+      {{/if}}
+
+      {{#if isEditable}}
+        <button {{on "click" this.deleteUser}}>Delete</button>
+      {{/if}}
+    </div>
+  {{/let}}
+</template>
+```
+
+**Multiple values:**
+
+```glimmer-js
+// app/components/checkout.gjs
+<template>
+  {{#let
+    (this.calculateTotal this.items) (this.formatCurrency this.total) (this.hasDiscount this.user)
+    as |total formattedTotal showDiscount|
+  }}
+    <div class="checkout">
+      <p>Total: {{formattedTotal}}</p>
+
+      {{#if showDiscount}}
+        <p>Original: {{total}}</p>
+        <p>Discount Applied!</p>
+      {{/if}}
+    </div>
+  {{/let}}
+</template>
+```
+
+`{{#let}}` computes values once and caches them for the block scope, reducing redundant calculations.c:X
+11:X
+11:C
+0:{"buildId":"ECqhzMK0omxLbwi2OoWHS","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[6," · ","Template Optimization"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Use {{#let}} to Avoid Recomputation"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","MEDIUM"]}],["$","span",null,{"className":"chip","children":"30-50% reduction in duplicate work"}],[["$","$L2","044",{"href":"/day/044/","className":"chip chip--accent","children":["plan · দিন ","০৪৪"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?"}],["$","$L3",null,{"children":"**Incorrect (recomputes on every reference):**\n\n```glimmer-js\n// app/components/user-card.gjs\n<template>\n  <div class=\"user-card\">\n    {{#if (and this.user.isActive (not this.user.isDeleted))}}\n      <h3>{{this.user.fullName}}</h3>\n      <p>Status: Active</p>\n    {{/if}}\n\n    {{#if (and this.user.isActive (not this.user.isDeleted))}}\n      <button {{on \"click\" this.editUser}}>Edit</button>\n    {{/if}}\n\n    {{#if (and this.user.isActive (not this.user.isDeleted))}}\n      <button {{on \"click\" this.deleteUser}}>Delete</button>\n    {{/if}}\n  </div>\n</template>\n```"}]]}],["$","$L4",null,{"taskIds":["d044-1h88aeb"],"children":["$","$L3",null,{"children":"$5"}]}],["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":["$L6","$L7"]}]],["$L8","$L9"],"$La"]}],"isPartial":"$@b","staleTime":"$c","varyParams":null},{"rsc":"$Ld","isPartial":"$@e","staleTime":"$c","varyParams":null},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$c","varyParams":"$11"},{"rsc":"$L12","isPartial":"$@13","staleTime":"$c","varyParams":"$11"}],"isUpgradeableISRFallback":false,"a":"$@14","rootVaryParams":null,"needsRuntimeRequest":"$@15"}
+16:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"OutletBoundary"]
+17:"$Sreact.suspense"
+19:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"ViewportBoundary"]
+1a:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"MetadataBoundary"]
+1b:I[27201,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"IconMark"]
+1c:I[39756,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+1d:I[37457,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+6:["$","$L2",null,{"href":"/guide/template-each-key/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Use {{#each}} with @key for Lists"}]]}]
+7:["$","$L2",null,{"href":"/guide/template-fn-helper/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Use {{fn}} for Partial Application Only"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]
+8:["$","script","script-0",{"src":"/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","async":true}]
+9:["$","script","script-1",{"src":"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+a:["$","$L16",null,{"children":["$","$17",null,{"name":"Next.MetadataOutlet","children":"$@18"}]}]
+d:["$","$1","h",{"children":[null,["$","$L19",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1a",null,{"children":["$","$17",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Use {{#let}} to Avoid Recomputation — emberjs learning"}],["$","meta","1",{"name":"description","content":"আধুনিক Ember-এর ৫৮টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/emberjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1b","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","template":["$","$L1d",null,{}]}]]}]
+12:["$","$1","c",{"children":[null,["$","$L1c",null,{"parallelRouterKey":"children","template":["$","$L1d",null,{}]}]]}]
+15:true
+18:null
+c:300
+c:C
+14:0
+e:"$undefined"
+10:"$undefined"
+13:"$undefined"
+b:"$undefined"

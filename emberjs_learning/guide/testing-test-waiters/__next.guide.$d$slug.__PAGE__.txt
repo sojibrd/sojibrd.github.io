@@ -1,0 +1,330 @@
+1:"$Sreact.fragment"
+2:I[22016,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T2015,Instrument async code with test waiters instead of using `waitFor()` or `waitUntil()` in tests. Test waiters abstract async implementation details so tests focus on user behavior rather than timing.
+
+**Why Test Waiters Matter:**
+
+Test waiters allow `settled()` and other test helpers to automatically wait for your async operations. This means:
+
+- Tests don't need to know about implementation details (timeouts, polling intervals, etc.)
+- Tests are written from a user's perspective ("click button, see result")
+- Code refactoring doesn't break tests
+- Tests are more reliable and less flaky
+
+**Incorrect (testing implementation details):**
+
+```glimmer-js
+// tests/integration/components/data-loader-test.js
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, click, waitFor } from '@ember/test-helpers';
+import DataLoader from 'my-app/components/data-loader';
+
+module('Integration | Component | data-loader', function (hooks) {
+  setupRenderingTest(hooks);
+
+  test('it loads data', async function (assert) {
+    await render(<template><DataLoader /></template>);
+
+    await click('[data-test-load-button]');
+
+    // BAD: Test knows about implementation details
+    // If the component changes from polling every 100ms to 200ms, test breaks
+    await waitFor('[data-test-data]', { timeout: 5000 });
+
+    assert.dom('[data-test-data]').hasText('Loaded data');
+  });
+});
+```
+
+**Correct (using test waiters):**
+
+```glimmer-js
+// app/components/data-loader.gjs
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { registerDestructor } from '@ember/destroyable';
+import { buildWaiter } from '@ember/test-waiters';
+
+const waiter = buildWaiter('data-loader');
+
+export class DataLoader extends Component {
+  @tracked data = null;
+  @tracked isLoading = false;
+
+  loadData = async () => {
+    // Register the async operation with test waiter
+    const token = waiter.beginAsync();
+
+    try {
+      this.isLoading = true;
+
+      // Simulate async data loading
+      const response = await fetch('/api/data');
+      this.data = await response.json();
+    } finally {
+      this.isLoading = false;
+      // Always end the async operation, even on error
+      waiter.endAsync(token);
+    }
+  };
+
+  <template>
+    <div>
+      <button {{on "click" this.loadData}} data-test-load-button>
+        Load Data
+      </button>
+
+      {{#if this.isLoading}}
+        <div data-test-loading>Loading...</div>
+      {{/if}}
+
+      {{#if this.data}}
+        <div data-test-data>{{this.data}}</div>
+      {{/if}}
+    </div>
+  </template>
+}
+```
+
+```glimmer-js
+// tests/integration/components/data-loader-test.js
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, click, settled } from '@ember/test-helpers';
+import DataLoader from 'my-app/components/data-loader';
+
+module('Integration | Component | data-loader', function (hooks) {
+  setupRenderingTest(hooks);
+
+  test('it loads data', async function (assert) {
+    await render(<template><DataLoader /></template>);
+
+    await click('[data-test-load-button]');
+
+    // GOOD: settled() automatically waits for test waiters
+    // No knowledge of timing needed - tests from user's perspective
+    await settled();
+
+    assert.dom('[data-test-data]').hasText('Loaded data');
+  });
+});
+```
+
+**Test waiter with cleanup:**
+
+```glimmer-js
+// app/components/polling-widget.gjs
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { registerDestructor } from '@ember/destroyable';
+import { buildWaiter } from '@ember/test-waiters';
+
+const waiter = buildWaiter('polling-widget');
+
+export class PollingWidget extends Component {
+  @tracked status = 'idle';
+  intervalId = null;
+  token = null;
+
+  constructor(owner, args) {
+    super(owner, args);
+
+    registerDestructor(this, () => {
+      this.stopPolling();
+    });
+  }
+
+  startPolling = () => {
+    // Register async operation
+    this.token = waiter.beginAsync();
+
+    this.intervalId = setInterval(() => {
+      this.checkStatus();
+    }, 1000);
+  };
+
+  stopPolling = () => {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+      this.intervalId = null;
+    }
+
+    // End async operation on cleanup
+    if (this.token) {
+      waiter.endAsync(this.token);
+      this.token = null;
+    }
+  };
+
+  checkStatus = async () => {
+    const response = await fetch('/api/status');
+    this.status = await response.text();
+
+    if (this.status === 'complete') {
+      this.stopPolling();
+    }
+  };
+
+  <template>
+    <div>
+      <button {{on "click" this.startPolling}} data-test-start>
+        Start Polling
+      </button>
+      <div data-test-status>{{this.status}}</div>
+    </div>
+  </template>
+}
+```
+
+**Test waiter with Services:**
+
+```glimmer-js
+// app/services/data-sync.js
+import Service from '@ember/service';
+import { tracked } from '@glimmer/tracking';
+import { buildWaiter } from '@ember/test-waiters';
+
+const waiter = buildWaiter('data-sync-service');
+
+export class DataSyncService extends Service {
+  @tracked isSyncing = false;
+
+  async sync() {
+    const token = waiter.beginAsync();
+
+    try {
+      this.isSyncing = true;
+
+      const response = await fetch('/api/sync', { method: 'POST' });
+      const result = await response.json();
+
+      return result;
+    } finally {
+      this.isSyncing = false;
+      waiter.endAsync(token);
+    }
+  }
+}
+```
+
+```glimmer-js
+// tests/unit/services/data-sync-test.js
+import { module, test } from 'qunit';
+import { setupTest } from 'ember-qunit';
+import { settled } from '@ember/test-helpers';
+
+module('Unit | Service | data-sync', function (hooks) {
+  setupTest(hooks);
+
+  test('it syncs data', async function (assert) {
+    const service = this.owner.lookup('service:data-sync');
+
+    // Start async operation
+    const syncPromise = service.sync();
+
+    // No need for manual waiting - settled() handles it
+    await settled();
+
+    const result = await syncPromise;
+    assert.ok(result, 'Sync completed successfully');
+  });
+});
+```
+
+**Multiple concurrent operations:**
+
+```glimmer-js
+// app/components/parallel-loader.gjs
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { buildWaiter } from '@ember/test-waiters';
+
+const waiter = buildWaiter('parallel-loader');
+
+export class ParallelLoader extends Component {
+  @tracked results = [];
+
+  loadAll = async () => {
+    const urls = ['/api/data1', '/api/data2', '/api/data3'];
+
+    // Each request gets its own token
+    const requests = urls.map(async (url) => {
+      const token = waiter.beginAsync();
+
+      try {
+        const response = await fetch(url);
+        return await response.json();
+      } finally {
+        waiter.endAsync(token);
+      }
+    });
+
+    this.results = await Promise.all(requests);
+  };
+
+  <template>
+    <button {{on "click" this.loadAll}} data-test-load-all>
+      Load All
+    </button>
+
+    {{#each this.results as |result|}}
+      <div data-test-result>{{result}}</div>
+    {{/each}}
+  </template>
+}
+```
+
+**Benefits:**
+
+1. **User-focused tests**: Tests describe user actions, not implementation
+2. **Resilient to refactoring**: Change timing/polling without breaking tests
+3. **No arbitrary timeouts**: Tests complete as soon as operations finish
+4. **Automatic waiting**: `settled()`, `click()`, etc. wait for all registered operations
+5. **Better debugging**: Test waiters show pending operations when tests hang
+
+**When to use test waiters:**
+
+- Network requests (fetch, XHR)
+- Timers and intervals (setTimeout, setInterval)
+- Animations and transitions
+- Polling operations
+- Any async operation that affects rendered output
+
+**When NOT needed:**
+
+- ember-concurrency already registers test waiters automatically
+- Promises that complete before render (data preparation in constructors)
+- Operations that don't affect the DOM or component state
+
+**Key principle:** If your code does something async that users care about, register it with a test waiter. Tests should never use `waitFor()` or `waitUntil()` - those are code smells indicating missing test waiters.
+
+Reference: [@ember/test-waiters](https://github.com/emberjs/ember-test-waiters)b:X
+10:X
+10:C
+0:{"buildId":"ECqhzMK0omxLbwi2OoWHS","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[8," · ","Testing Best Practices"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Use Test Waiters for Async Operations"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"Reliable tests that don't depend on implementation details"}],[["$","$L2","059",{"href":"/day/059/","className":"chip chip--accent","children":["plan · দিন ","০৫৯"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?"}],["$","$L3",null,{"children":"**Incorrect (testing implementation details):**\n\n```glimmer-js\n// tests/integration/components/data-loader-test.js\nimport { module, test } from 'qunit';\nimport { setupRenderingTest } from 'ember-qunit';\nimport { render, click, waitFor } from '@ember/test-helpers';\nimport DataLoader from 'my-app/components/data-loader';\n\nmodule('Integration | Component | data-loader', function (hooks) {\n  setupRenderingTest(hooks);\n\n  test('it loads data', async function (assert) {\n    await render(<template><DataLoader /></template>);\n\n    await click('[data-test-load-button]');\n\n    // BAD: Test knows about implementation details\n    // If the component changes from polling every 100ms to 200ms, test breaks\n    await waitFor('[data-test-data]', { timeout: 5000 });\n\n    assert.dom('[data-test-data]').hasText('Loaded data');\n  });\n});\n```"}]]}],["$","$L4",null,{"taskIds":["d059-1wkpk33"],"children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"ViewportBoundary"]
+19:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"MetadataBoundary"]
+1a:I[27201,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"IconMark"]
+1b:I[39756,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+1c:I[37457,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/testing-qunit-dom-assertions/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Use qunit-dom for Better Test Assertions"}]]}],["$","$L2",null,{"href":"/guide/vscode-setup-recommended/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"VSCode Extensions and MCP Configuration for Ember Projects"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","async":true}]
+8:["$","script","script-1",{"src":"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Use Test Waiters for Async Operations — emberjs learning"}],["$","meta","1",{"name":"description","content":"আধুনিক Ember-এর ৫৮টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/emberjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

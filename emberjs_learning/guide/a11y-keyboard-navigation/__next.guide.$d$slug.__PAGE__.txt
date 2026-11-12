@@ -1,0 +1,184 @@
+1:"$Sreact.fragment"
+2:I[22016,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T1079,Ensure all interactive elements are keyboard accessible and focus management is handled properly, especially in modals and dynamic content.
+
+**Incorrect (no keyboard support):**
+
+```glimmer-js
+// app/components/dropdown.gjs
+<template>
+  <div class="dropdown" {{on "click" this.toggleMenu}}>
+    Menu
+    {{#if this.isOpen}}
+      <div class="dropdown-menu">
+        <div {{on "click" this.selectOption}}>Option 1</div>
+        <div {{on "click" this.selectOption}}>Option 2</div>
+      </div>
+    {{/if}}
+  </div>
+</template>
+```
+
+**Correct (full keyboard support with custom modifier):**
+
+```javascript
+// app/modifiers/focus-first.js
+import { modifier } from 'ember-modifier';
+
+export default modifier((element, [selector = 'button']) => {
+  // Focus first matching element when modifier runs
+  element.querySelector(selector)?.focus();
+});
+```
+
+```glimmer-js
+// app/components/dropdown.gjs
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
+import { fn } from '@ember/helper';
+import focusFirst from '../modifiers/focus-first';
+
+class Dropdown extends Component {
+  @tracked isOpen = false;
+
+  @action
+  toggleMenu() {
+    this.isOpen = !this.isOpen;
+  }
+
+  @action
+  handleButtonKeyDown(event) {
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      this.isOpen = true;
+    }
+  }
+
+  @action
+  handleMenuKeyDown(event) {
+    if (event.key === 'Escape') {
+      this.isOpen = false;
+      // Return focus to button
+      event.target.closest('.dropdown').querySelector('button').focus();
+    }
+    // Handle arrow key navigation between menu items
+    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+      event.preventDefault();
+      this.moveFocus(event.key === 'ArrowDown' ? 1 : -1);
+    }
+  }
+
+  moveFocus(direction) {
+    const items = Array.from(document.querySelectorAll('[role="menuitem"] button'));
+    const currentIndex = items.indexOf(document.activeElement);
+    const nextIndex = (currentIndex + direction + items.length) % items.length;
+    items[nextIndex]?.focus();
+  }
+
+  @action
+  selectOption(value) {
+    this.args.onSelect?.(value);
+    this.isOpen = false;
+  }
+
+  <template>
+    <div class="dropdown">
+      <button
+        type="button"
+        {{on "click" this.toggleMenu}}
+        {{on "keydown" this.handleButtonKeyDown}}
+        aria-haspopup="true"
+        aria-expanded="{{this.isOpen}}"
+      >
+        Menu
+      </button>
+
+      {{#if this.isOpen}}
+        <ul
+          class="dropdown-menu"
+          role="menu"
+          {{focusFirst '[role="menuitem"] button'}}
+          {{on "keydown" this.handleMenuKeyDown}}
+        >
+          <li role="menuitem">
+            <button type="button" {{on "click" (fn this.selectOption "1")}}>
+              Option 1
+            </button>
+          </li>
+          <li role="menuitem">
+            <button type="button" {{on "click" (fn this.selectOption "2")}}>
+              Option 2
+            </button>
+          </li>
+        </ul>
+      {{/if}}
+    </div>
+  </template>
+}
+```
+
+**For focus trapping in modals, use ember-focus-trap:**
+
+```bash
+ember install ember-focus-trap
+```
+
+```glimmer-js
+// app/components/modal.gjs
+import FocusTrap from 'ember-focus-trap/components/focus-trap';
+
+<template>
+  {{#if this.showModal}}
+    <FocusTrap @isActive={{true}} @initialFocus="#modal-title">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <h2 id="modal-title">{{@title}}</h2>
+        {{yield}}
+        <button type="button" {{on "click" this.closeModal}}>Close</button>
+      </div>
+    </FocusTrap>
+  {{/if}}
+</template>
+```
+
+**Alternative: Use libraries for keyboard support:**
+
+For complex keyboard interactions, consider using libraries that abstract keyboard support patterns:
+
+```bash
+npm install @fluentui/keyboard-keys
+```
+
+Or use [tabster](https://tabster.io/) for comprehensive keyboard navigation management including focus trapping, arrow key navigation, and modalizers.
+
+Proper keyboard navigation ensures all users can interact with your application effectively.
+
+Reference: [Ember Accessibility - Keyboard](https://guides.emberjs.com/release/accessibility/keyboard/)b:X
+10:X
+10:C
+0:{"buildId":"ECqhzMK0omxLbwi2OoWHS","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[4," · ","Accessibility Best Practices"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Keyboard Navigation Support"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"Critical for keyboard-only users"}],[["$","$L2","062",{"href":"/day/062/","className":"chip chip--accent","children":["plan · দিন ","০৬২"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?"}],["$","$L3",null,{"children":"**Incorrect (no keyboard support):**\n\n```glimmer-js\n// app/components/dropdown.gjs\n<template>\n  <div class=\"dropdown\" {{on \"click\" this.toggleMenu}}>\n    Menu\n    {{#if this.isOpen}}\n      <div class=\"dropdown-menu\">\n        <div {{on \"click\" this.selectOption}}>Option 1</div>\n        <div {{on \"click\" this.selectOption}}>Option 2</div>\n      </div>\n    {{/if}}\n  </div>\n</template>\n```"}]]}],["$","$L4",null,{"taskIds":["d062-ubnbeg"],"children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"ViewportBoundary"]
+19:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"MetadataBoundary"]
+1a:I[27201,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"IconMark"]
+1b:I[39756,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+1c:I[37457,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/a11y-form-labels/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Form Labels and Error Announcements"}]]}],["$","$L2",null,{"href":"/guide/a11y-semantic-html/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Semantic HTML and ARIA Attributes"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","async":true}]
+8:["$","script","script-1",{"src":"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Keyboard Navigation Support — emberjs learning"}],["$","meta","1",{"name":"description","content":"আধুনিক Ember-এর ৫৮টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/emberjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

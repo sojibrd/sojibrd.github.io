@@ -1,0 +1,363 @@
+1:"$Sreact.fragment"
+2:I[22016,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T2142,Use proper patterns for data fetching including parallel requests, error handling, request cancellation, and retry logic.
+`export default` in route/service snippets below is intentional because these modules are commonly resolved by convention and referenced from templates. In hybrid `.gjs`/`.hbs` codebases, you can pair named exports with a default alias where needed.
+
+## Problem
+
+Naive data fetching creates waterfall requests, doesn't handle errors properly, and can cause race conditions or memory leaks from uncanceled requests.
+
+**Incorrect:**
+
+```javascript
+// app/routes/dashboard.js
+import Route from '@ember/routing/route';
+
+export default class DashboardRoute extends Route {
+  async model() {
+    // Sequential waterfall - slow!
+    const user = await this.store.request({ url: '/users/me' });
+    const posts = await this.store.request({ url: '/posts' });
+    const notifications = await this.store.request({ url: '/notifications' });
+
+    // No error handling
+    // No cancellation
+    return { user, posts, notifications };
+  }
+}
+```
+
+## Solution: Parallel Requests
+
+Use `RSVP.hash` or `Promise.all` for parallel loading:
+
+**Correct (parallelized model loading):**
+
+```javascript
+// app/routes/dashboard.js
+import Route from '@ember/routing/route';
+import { hash } from 'rsvp';
+
+export default class DashboardRoute extends Route {
+  async model() {
+    return hash({
+      user: this.store.request({ url: '/users/me' }),
+      posts: this.store.request({ url: '/posts?recent=true' }),
+      notifications: this.store.request({ url: '/notifications?unread=true' }),
+    });
+  }
+}
+```
+
+## Error Handling Pattern
+
+Handle errors gracefully with fallbacks:
+
+```javascript
+// app/services/api.js
+import Service, { service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
+
+export default class ApiService extends Service {
+  @service store;
+  @tracked lastError = null;
+
+  async fetchWithFallback(url, fallback = null) {
+    try {
+      const response = await this.store.request({ url });
+      this.lastError = null;
+      return response.content;
+    } catch (error) {
+      this.lastError = error.message;
+      console.error(`API Error fetching ${url}:`, error);
+      return fallback;
+    }
+  }
+
+  async fetchWithRetry(url, { maxRetries = 3, delay = 1000 } = {}) {
+    for (let attempt = 0; attempt < maxRetries; attempt++) {
+      try {
+        return await this.store.request({ url });
+      } catch (error) {
+        if (attempt === maxRetries - 1) throw error;
+        await new Promise((resolve) => setTimeout(resolve, delay * (attempt + 1)));
+      }
+    }
+  }
+}
+```
+
+## Request Cancellation with AbortController
+
+Prevent race conditions by canceling stale requests:
+
+```glimmer-js
+// app/components/search-results.gjs
+import Component from '@glimmer/component';
+import { service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
+import { restartableTask, timeout } from 'ember-concurrency';
+
+class SearchResults extends Component {
+  @service store;
+  @tracked results = [];
+
+  // Automatically cancels previous searches
+  @restartableTask
+  *searchTask(query) {
+    yield timeout(300); // Debounce
+
+    try {
+      const response = yield this.store.request({
+        url: `/search?q=${encodeURIComponent(query)}`,
+      });
+      this.results = response.content;
+    } catch (error) {
+      if (error.name !== 'TaskCancelation') {
+        console.error('Search failed:', error);
+      }
+    }
+  }
+
+  <template>
+    <input
+      type="search"
+      {{on "input" (fn this.searchTask.perform @value)}}
+      placeholder="Search..."
+    />
+
+    {{#if this.searchTask.isRunning}}
+      <div class="loading">Searching...</div>
+    {{else}}
+      <ul>
+        {{#each this.results as |result|}}
+          <li>{{result.title}}</li>
+        {{/each}}
+      </ul>
+    {{/if}}
+  </template>
+}
+```
+
+## Manual AbortController Pattern
+
+For non-ember-concurrency scenarios:
+
+```javascript
+// app/services/data-fetcher.js
+import Service, { service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
+import { registerDestructor } from '@ember/destroyable';
+
+export default class DataFetcherService extends Service {
+  @service store;
+  @tracked data = null;
+  @tracked isLoading = false;
+
+  abortController = null;
+
+  constructor() {
+    super(...arguments);
+    registerDestructor(this, () => {
+      this.abortController?.abort();
+    });
+  }
+
+  async fetch(url) {
+    // Cancel previous request
+    this.abortController?.abort();
+    this.abortController = new AbortController();
+
+    this.isLoading = true;
+    try {
+      // Note: WarpDrive handles AbortSignal internally
+      const response = await this.store.request({
+        url,
+        signal: this.abortController.signal,
+      });
+      this.data = response.content;
+    } catch (error) {
+      if (error.name !== 'AbortError') {
+        throw error;
+      }
+    } finally {
+      this.isLoading = false;
+    }
+  }
+}
+```
+
+## Dependent Requests Pattern
+
+When requests depend on previous results:
+
+```javascript
+// app/routes/post.js
+import Route from '@ember/routing/route';
+import { hash } from 'rsvp';
+
+export default class PostRoute extends Route {
+  async model({ post_id }) {
+    // First fetch the post
+    const post = await this.store.request({
+      url: `/posts/${post_id}`,
+    });
+
+    // Then fetch related data in parallel
+    return hash({
+      post,
+      author: this.store.request({
+        url: `/users/${post.content.authorId}`,
+      }),
+      comments: this.store.request({
+        url: `/posts/${post_id}/comments`,
+      }),
+      relatedPosts: this.store.request({
+        url: `/posts/${post_id}/related`,
+      }),
+    });
+  }
+}
+```
+
+## Polling Pattern
+
+For real-time data updates:
+
+```javascript
+// app/services/live-data.js
+import Service, { service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
+import { registerDestructor } from '@ember/destroyable';
+
+export default class LiveDataService extends Service {
+  @service store;
+  @tracked data = null;
+
+  intervalId = null;
+
+  constructor() {
+    super(...arguments);
+    registerDestructor(this, () => {
+      this.stopPolling();
+    });
+  }
+
+  startPolling(url, interval = 5000) {
+    this.stopPolling();
+
+    this.poll(url); // Initial fetch
+    this.intervalId = setInterval(() => this.poll(url), interval);
+  }
+
+  async poll(url) {
+    try {
+      const response = await this.store.request({ url });
+      this.data = response.content;
+    } catch (error) {
+      console.error('Polling error:', error);
+    }
+  }
+
+  stopPolling() {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+      this.intervalId = null;
+    }
+  }
+}
+```
+
+## Batch Requests
+
+Optimize multiple similar requests:
+
+```javascript
+// app/services/batch-loader.js
+import Service, { service } from '@ember/service';
+
+export default class BatchLoaderService extends Service {
+  @service store;
+
+  pendingIds = new Set();
+  batchTimeout = null;
+
+  async loadUser(id) {
+    this.pendingIds.add(id);
+
+    if (!this.batchTimeout) {
+      this.batchTimeout = setTimeout(() => this.executeBatch(), 50);
+    }
+
+    // Return a promise that resolves when batch completes
+    return new Promise((resolve) => {
+      this.registerCallback(id, resolve);
+    });
+  }
+
+  async executeBatch() {
+    const ids = Array.from(this.pendingIds);
+    this.pendingIds.clear();
+    this.batchTimeout = null;
+
+    const response = await this.store.request({
+      url: `/users?ids=${ids.join(',')}`,
+    });
+
+    // Resolve all pending promises
+    response.content.forEach((user) => {
+      this.resolveCallback(user.id, user);
+    });
+  }
+}
+```
+
+## Performance Impact
+
+- **Parallel requests (RSVP.hash)**: 60-80% faster than sequential
+- **Request cancellation**: Prevents memory leaks and race conditions
+- **Retry logic**: Improves reliability with < 5% overhead
+- **Batch loading**: 40-70% reduction in requests
+
+## When to Use
+
+- **RSVP.hash**: Independent data that can load in parallel
+- **ember-concurrency**: Search, autocomplete, or user-driven requests
+- **AbortController**: Long-running requests that may become stale
+- **Retry logic**: Critical data with transient network issues
+- **Batch loading**: Loading many similar items (N+1 scenarios)
+
+## References
+
+- [WarpDrive Documentation](https://warp-drive.io/)
+- [ember-concurrency](https://ember-concurrency.com/)
+- [RSVP.js](https://github.com/tildeio/rsvp.js)
+- [AbortController MDN](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)b:X
+10:X
+10:C
+0:{"buildId":"ECqhzMK0omxLbwi2OoWHS","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[5," · ","Service and State Management"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Implement Robust Data Requesting Patterns"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"Prevents request waterfalls and race conditions in data flows"}],[["$","$L2","020",{"href":"/day/020/","className":"chip chip--accent","children":["plan · দিন ","০২০"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?"}],["$","$L3",null,{"children":"**Incorrect:**\n\n```javascript\n// app/routes/dashboard.js\nimport Route from '@ember/routing/route';\n\nexport default class DashboardRoute extends Route {\n  async model() {\n    // Sequential waterfall - slow!\n    const user = await this.store.request({ url: '/users/me' });\n    const posts = await this.store.request({ url: '/posts' });\n    const notifications = await this.store.request({ url: '/notifications' });\n\n    // No error handling\n    // No cancellation\n    return { user, posts, notifications };\n  }\n}\n```"}]]}],["$","$L4",null,{"taskIds":["d020-1mwg16z"],"children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"ViewportBoundary"]
+19:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"MetadataBoundary"]
+1a:I[27201,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"IconMark"]
+1b:I[39756,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+1c:I[37457,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/service-cache-responses/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Cache API Responses in Services"}]]}],["$","$L2",null,{"href":"/guide/service-owner-linkage/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Manage Service Owner and Linkage Patterns"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","async":true}]
+8:["$","script","script-1",{"src":"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Implement Robust Data Requesting Patterns — emberjs learning"}],["$","meta","1",{"name":"description","content":"আধুনিক Ember-এর ৫৮টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/emberjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

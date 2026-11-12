@@ -1,0 +1,343 @@
+1:"$Sreact.fragment"
+2:I[22016,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T2266,**Never use `{{did-insert}}`, `{{will-destroy}}`, or `{{did-update}}` in new code.** These legacy helpers create coupling between templates and component lifecycle, making code harder to test and maintain. Modern Ember provides better alternatives through derived data and custom modifiers.
+
+### Why These Are Problematic
+
+1. **Memory Leaks**: Easy to forget cleanup, especially with `did-insert`
+2. **Tight Coupling**: Mixes template concerns with JavaScript logic
+3. **Poor Testability**: Lifecycle hooks are harder to unit test
+4. **Not Composable**: Can't be easily shared across components
+5. **Deprecated Pattern**: Not recommended in modern Ember
+
+### Alternative 1: Use Derived Data
+
+For computed values or reactive transformations, use getters and `@cached`:
+
+**❌ Incorrect (did-update):**
+
+```glimmer-js
+// app/components/user-greeting.gjs
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
+
+class UserGreeting extends Component {
+  @tracked displayName = '';
+
+  @action
+  updateDisplayName() {
+    // Runs on every render - inefficient and error-prone
+    this.displayName = `${this.args.user.firstName} ${this.args.user.lastName}`;
+  }
+
+  <template>
+    <div {{did-update this.updateDisplayName @user}}>
+      Hello,
+      {{this.displayName}}
+    </div>
+  </template>
+}
+```
+
+**✅ Correct (derived data with getter):**
+
+```glimmer-js
+// app/components/user-greeting.gjs
+import Component from '@glimmer/component';
+
+class UserGreeting extends Component {
+  // Automatically reactive - updates when args change
+  get displayName() {
+    return `${this.args.user.firstName} ${this.args.user.lastName}`;
+  }
+
+  <template>
+    <div>
+      Hello,
+      {{this.displayName}}
+    </div>
+  </template>
+}
+```
+
+**✅ Even better (use @cached for expensive computations):**
+
+```glimmer-js
+// app/components/user-stats.gjs
+import Component from '@glimmer/component';
+import { cached } from '@glimmer/tracking';
+
+class UserStats extends Component {
+  @cached
+  get sortedPosts() {
+    // Expensive computation only runs when @posts changes
+    return [...this.args.posts].sort((a, b) => b.createdAt - a.createdAt);
+  }
+
+  @cached
+  get statistics() {
+    return {
+      total: this.args.posts.length,
+      published: this.args.posts.filter((p) => p.published).length,
+      drafts: this.args.posts.filter((p) => !p.published).length,
+    };
+  }
+
+  <template>
+    <div>
+      <p>Total: {{this.statistics.total}}</p>
+      <p>Published: {{this.statistics.published}}</p>
+      <p>Drafts: {{this.statistics.drafts}}</p>
+
+      <ul>
+        {{#each this.sortedPosts as |post|}}
+          <li>{{post.title}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </template>
+}
+```
+
+### Alternative 2: Use Custom Modifiers
+
+For DOM side effects, element setup, or cleanup, use custom modifiers:
+
+**❌ Incorrect (did-insert + will-destroy):**
+
+```glimmer-js
+// app/components/chart.gjs
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
+
+class Chart extends Component {
+  chartInstance = null;
+
+  @action
+  setupChart(element) {
+    this.chartInstance = new Chart(element, this.args.config);
+  }
+
+  willDestroy() {
+    super.willDestroy();
+    // Easy to forget cleanup!
+    this.chartInstance?.destroy();
+  }
+
+  <template>
+    <canvas {{did-insert this.setupChart}}></canvas>
+  </template>
+}
+```
+
+**✅ Correct (custom modifier with automatic cleanup):**
+
+```javascript
+// app/modifiers/chart.js
+import { modifier } from 'ember-modifier';
+import { registerDestructor } from '@ember/destroyable';
+
+export default modifier((element, [config]) => {
+  // Setup
+  const chartInstance = new Chart(element, config);
+
+  // Cleanup happens automatically
+  registerDestructor(element, () => {
+    chartInstance.destroy();
+  });
+});
+```
+
+```glimmer-js
+// app/components/chart.gjs
+import chart from '../modifiers/chart';
+
+<template>
+  <canvas {{chart @config}}></canvas>
+</template>
+```
+
+### Alternative 3: Use Resources for Lifecycle Management
+
+For complex state management with automatic cleanup, use `ember-resources`:
+
+**❌ Incorrect (did-insert for data fetching):**
+
+```glimmer-js
+// app/components/user-profile.gjs
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
+
+class UserProfile extends Component {
+  @tracked userData = null;
+  @tracked loading = true;
+  controller = new AbortController();
+
+  @action
+  async loadUser() {
+    this.loading = true;
+    try {
+      const response = await fetch(`/api/users/${this.args.userId}`, {
+        signal: this.controller.signal,
+      });
+      this.userData = await response.json();
+    } finally {
+      this.loading = false;
+    }
+  }
+
+  willDestroy() {
+    super.willDestroy();
+    this.controller.abort(); // Easy to forget!
+  }
+
+  <template>
+    <div {{did-insert this.loadUser}}>
+      {{#if this.loading}}
+        Loading...
+      {{else}}
+        {{this.userData.name}}
+      {{/if}}
+    </div>
+  </template>
+}
+```
+
+**✅ Correct (Resource with automatic cleanup):**
+
+```javascript
+// app/resources/user-data.js
+import { Resource } from 'ember-resources';
+import { tracked } from '@glimmer/tracking';
+
+export default class UserDataResource extends Resource {
+  @tracked data = null;
+  @tracked loading = true;
+  controller = new AbortController();
+
+  modify(positional, named) {
+    const [userId] = positional;
+    this.loadUser(userId);
+  }
+
+  async loadUser(userId) {
+    this.loading = true;
+    try {
+      const response = await fetch(`/api/users/${userId}`, {
+        signal: this.controller.signal,
+      });
+      this.data = await response.json();
+    } finally {
+      this.loading = false;
+    }
+  }
+
+  willDestroy() {
+    // Cleanup happens automatically
+    this.controller.abort();
+  }
+}
+```
+
+```glimmer-js
+// app/components/user-profile.gjs
+import Component from '@glimmer/component';
+import UserDataResource from '../resources/user-data';
+
+class UserProfile extends Component {
+  userData = UserDataResource.from(this, () => [this.args.userId]);
+
+  <template>
+    {{#if this.userData.loading}}
+      Loading...
+    {{else}}
+      {{this.userData.data.name}}
+    {{/if}}
+  </template>
+}
+```
+
+### When to Use Each Alternative
+
+| Use Case         | Solution                            | Why                                       |
+| ---------------- | ----------------------------------- | ----------------------------------------- |
+| Computed values  | Getters + `@cached`                 | Reactive, efficient, no lifecycle needed  |
+| DOM manipulation | Custom modifiers                    | Encapsulated, reusable, automatic cleanup |
+| Data fetching    | getPromiseState from warp-drive     | Declarative, automatic cleanup            |
+| Event listeners  | `{{on}}` modifier                   | Built-in, automatic cleanup               |
+| Focus management | Custom modifier or ember-focus-trap | Proper lifecycle, accessibility           |
+
+### Migration Strategy
+
+If you have existing code using these hooks:
+
+1. **Identify the purpose**: What is the hook doing?
+2. **Choose the right alternative**:
+   - Deriving data? → Use getters/`@cached`
+   - DOM setup/teardown? → Use a custom modifier
+   - Async data loading? → Use getPromiseState from warp-drive
+3. **Test thoroughly**: Ensure cleanup happens correctly
+4. **Remove the legacy hook**: Delete `{{did-insert}}`, `{{will-destroy}}`, or `{{did-update}}`
+
+### Performance Benefits
+
+Modern alternatives provide better performance:
+
+- **Getters**: Only compute when dependencies change
+- **@cached**: Memoizes expensive computations
+- **Modifiers**: Scoped to specific elements, composable
+- **getPromiseState**: Declarative data loading, automatic cleanup
+
+### Common Pitfalls to Avoid
+
+❌ **Don't use `willDestroy()` for cleanup when a modifier would work**
+❌ **Don't use `@action` + `did-insert` when a getter would suffice**
+❌ **Don't manually track changes when `@cached` handles it automatically**
+❌ **Don't forget `registerDestructor` in custom modifiers**
+
+### Summary
+
+Modern Ember provides superior alternatives to legacy lifecycle hooks:
+
+- **Derived Data**: Use getters and `@cached` for reactive computations
+- **DOM Side Effects**: Use custom modifiers with `registerDestructor`
+- **Async Data Loading**: Use getPromiseState from warp-drive/reactiveweb
+- **Better Code**: More testable, composable, and maintainable
+
+**Never use `{{did-insert}}`, `{{will-destroy}}`, or `{{did-update}}` in new code.**
+
+Reference:
+
+- [Ember Modifiers](https://github.com/ember-modifier/ember-modifier)
+- [warp-drive/reactiveweb](https://github.com/emberjs/data/tree/main/packages/reactiveweb)
+- [Glimmer Tracking](https://guides.emberjs.com/release/in-depth-topics/autotracking-in-depth/)b:X
+10:X
+10:C
+0:{"buildId":"ECqhzMK0omxLbwi2OoWHS","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[3," · ","Component and Reactivity Optimization"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Avoid Legacy Lifecycle Hooks (did-insert, will-destroy, did-update)"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"Prevents memory leaks and enforces modern patterns"}],[["$","$L2","003",{"href":"/day/003/","className":"chip chip--accent","children":["plan · দিন ","০০৩"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?"}],["$","$L3",null,{"children":"**❌ Incorrect (did-update):**\n\n```glimmer-js\n// app/components/user-greeting.gjs\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\nimport { action } from '@ember/object';\n\nclass UserGreeting extends Component {\n  @tracked displayName = '';\n\n  @action\n  updateDisplayName() {\n    // Runs on every render - inefficient and error-prone\n    this.displayName = `${this.args.user.firstName} ${this.args.user.lastName}`;\n  }\n\n  <template>\n    <div {{did-update this.updateDisplayName @user}}>\n      Hello,\n      {{this.displayName}}\n    </div>\n  </template>\n}\n```"}]]}],["$","$L4",null,{"taskIds":["d003-svwt64"],"children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"ViewportBoundary"]
+19:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"MetadataBoundary"]
+1a:I[27201,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"IconMark"]
+1b:I[39756,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+1c:I[37457,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/component-avoid-classes-in-examples/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Avoid CSS Classes in Learning Examples"}]]}],["$","$L2",null,{"href":"/guide/component-minimal-tracking/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Avoid Unnecessary Tracking"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","async":true}]
+8:["$","script","script-1",{"src":"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Avoid Legacy Lifecycle Hooks (did-insert, will-destroy, did-update) — emberjs learning"}],["$","meta","1",{"name":"description","content":"আধুনিক Ember-এর ৫৮টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/emberjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

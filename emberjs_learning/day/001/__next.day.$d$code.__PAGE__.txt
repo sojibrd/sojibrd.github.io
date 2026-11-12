@@ -1,0 +1,77 @@
+1:"$Sreact.fragment"
+2:I[82484,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3vwh6x6kx4x1f.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+3:I[55607,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3vwh6x6kx4x1f.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:I[22016,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3vwh6x6kx4x1f.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+6:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+b:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"ViewportBoundary"]
+c:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"MetadataBoundary"]
+4:T475,**Incorrect (using constructor):**
+
+```glimmer-js
+// app/components/user-profile.gjs
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { service } from '@ember/service';
+
+class UserProfile extends Component {
+  constructor() {
+    super(...arguments);
+
+    // Anti-pattern: Manual service lookup
+    this.store = this.owner.lookup('service:store');
+    this.router = this.owner.lookup('service:router');
+
+    // Anti-pattern: Imperative initialization
+    this.data = null;
+    this.isLoading = false;
+    this.error = null;
+
+    // Anti-pattern: Side effects in constructor
+    this.loadUserData();
+  }
+
+  async loadUserData() {
+    this.isLoading = true;
+    try {
+      this.data = await this.store.request({
+        url: `/users/${this.args.userId}`,
+      });
+    } catch (e) {
+      this.error = e;
+    } finally {
+      this.isLoading = false;
+    }
+  }
+
+  <template>
+    {{#if this.isLoading}}
+      <div>Loading...</div>
+    {{else if this.error}}
+      <div>Error: {{this.error.message}}</div>
+    {{else if this.data}}
+      <h1>{{this.data.name}}</h1>
+    {{/if}}
+  </template>
+}
+```a:X
+13:X
+13:C
+0:{"buildId":"ECqhzMK0omxLbwi2OoWHS","data":[{"rsc":["$","$1","c",{"children":[[["$","div",null,{"className":"callout p-4","children":[["$","div",null,{"className":"t-label mb-2","children":["ব্লক ১ — Reactivity"," · ","দিন ০০১–০১৮ · component · exports"]}],["$","$L2",null,{"className":"t-body","children":"উৎসের সেকশন ৩ (*Component and Reactivity Optimization*) — ১৭টা rule, দিনে একটা; শেষ দিনে ⚑। Glimmer component, tracked state, getter আর component-এর গড়ন। `brainstorming/application-to-offer.md`-এর ইন্টারভিউ-বিষয়গুলোর প্রথমটা — autotracking বনাম re-render — এই ব্লকের, তাই এটা সবার আগে। 🧠 (Trunk based knowledge)"}]]}],["$","$L3",null,{"day":{"num":1,"code":"001","label":"০০১","title":"Avoid Constructors in Components","tasks":[{"id":"d001-1eeau91","text":"**Avoid Constructors in Components** — নিচের Incorrect কোড পড়ে, না দেখে ঠিক সংস্করণটা লিখুন; তারপর \"কেন\" ইংরেজিতে ২–৩ বাক্যে জোরে বলুন, আর খাতায় এক লাইন: নিজের কাজে এটা কোথায় দেখেছেন","minutes":10,"principles":["Test yourself","Feynman technique"],"milestone":false,"repeat":true,"rule":{"slug":"component-avoid-constructors","title":"Avoid Constructors in Components","impact":"HIGH","sectionName":"Component and Reactivity Optimization","problem":"$4"}}],"check":"না দেখে ঠিকটা লেখা, আর \"কেন\" ইংরেজিতে জোরে বলা হয়েছে?","blockSlug":"reactivity","blockName":"Reactivity","dip":false},"blockName":"Reactivity","blockSlug":"reactivity","totalDays":65}],["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"দিন","children":[["$","span",null,{}],["$","$L5",null,{"href":"/day/002/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"দিন ০০২ · Avoid CSS Classes in Learning Examples"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]],[["$","script","script-0",{"src":"/emberjs_learning/_next/static/chunks/3vwh6x6kx4x1f.js","async":true}],["$","script","script-1",{"src":"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":"$@9","staleTime":"$a","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$Lb",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$Lc",null,{"children":["$","$7",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"দিন ০০১ · Avoid Constructors in Components — emberjs learning"}],["$","meta","1",{"name":"description","content":"আধুনিক Ember-এর ৫৮টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],"$Ld","$Le"]}]}]}],"$Lf"]}],"isPartial":"$@10","staleTime":"$a","varyParams":null},{"rsc":"$L11","isPartial":"$@12","staleTime":"$a","varyParams":"$13"},{"rsc":"$L14","isPartial":"$@15","staleTime":"$a","varyParams":"$13"}],"isUpgradeableISRFallback":false,"a":"$@16","rootVaryParams":null,"needsRuntimeRequest":"$@17"}
+18:I[27201,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"IconMark"]
+19:I[39756,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+1a:I[37457,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+8:null
+d:["$","link","2",{"rel":"icon","href":"/emberjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}]
+e:["$","$L18","3",{}]
+f:["$","meta",null,{"name":"next-size-adjust","content":""}]
+11:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+14:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+17:true
+a:300
+a:C
+16:0
+10:"$undefined"
+12:"$undefined"
+15:"$undefined"
+9:"$undefined"

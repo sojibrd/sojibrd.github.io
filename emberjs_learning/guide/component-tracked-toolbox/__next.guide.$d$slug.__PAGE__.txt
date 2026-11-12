@@ -1,0 +1,92 @@
+1:"$Sreact.fragment"
+2:I[22016,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T672,For complex state patterns like maps, sets, and arrays that need fine-grained reactivity, use tracked-toolbox utilities instead of marking entire structures as @tracked.
+
+**Incorrect (tracking entire structures):**
+
+```javascript
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+
+class TodoList extends Component {
+  @tracked items = []; // Entire array replaced on every change
+
+  addItem = (item) => {
+    // Creates new array, invalidates all consumers
+    this.items = [...this.items, item];
+  };
+
+  removeItem = (index) => {
+    // Creates new array again
+    this.items = this.items.filter((_, i) => i !== index);
+  };
+}
+```
+
+**Correct (using tracked-toolbox):**
+
+```javascript
+import Component from '@glimmer/component';
+import { TrackedArray } from 'tracked-built-ins';
+
+class TodoList extends Component {
+  items = new TrackedArray([]);
+
+  // Use arrow functions for methods used in templates (no @action needed)
+  addItem = (item) => {
+    // Efficiently adds to tracked array
+    this.items.push(item);
+  };
+
+  removeItem = (index) => {
+    // Efficiently removes from tracked array
+    this.items.splice(index, 1);
+  };
+}
+```
+
+**Also useful for Maps and Sets:**
+
+```javascript
+import { TrackedMap, TrackedSet } from 'tracked-built-ins';
+
+class Cache extends Component {
+  cache = new TrackedMap(); // Fine-grained reactivity per key
+  selected = new TrackedSet(); // Fine-grained reactivity per item
+}
+```
+
+tracked-built-ins provides fine-grained reactivity and better performance than replacing entire structures.
+
+Reference: [tracked-built-ins](https://github.com/tracked-tools/tracked-built-ins)e:X
+13:X
+13:C
+0:{"buildId":"ECqhzMK0omxLbwi2OoWHS","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[3," · ","Component and Reactivity Optimization"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Use Tracked Toolbox for Complex State"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"Cleaner state management"}],[["$","$L2","016",{"href":"/day/016/","className":"chip chip--accent","children":["plan · দিন ","০১৬"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?"}],["$","$L3",null,{"children":"**Incorrect (tracking entire structures):**\n\n```javascript\nimport Component from '@glimmer/component';\nimport { tracked } from '@glimmer/tracking';\n\nclass TodoList extends Component {\n  @tracked items = []; // Entire array replaced on every change\n\n  addItem = (item) => {\n    // Creates new array, invalidates all consumers\n    this.items = [...this.items, item];\n  };\n\n  removeItem = (index) => {\n    // Creates new array again\n    this.items = this.items.filter((_, i) => i !== index);\n  };\n}\n```"}]]}],["$","$L4",null,{"taskIds":["d016-xn0dwn"],"children":["$","$L3",null,{"children":"$5"}]}],["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/component-strict-mode/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":["$L6","$L7"]}],"$L8"]}],"$L9"]}]],["$La","$Lb"],"$Lc"]}],"isPartial":"$@d","staleTime":"$e","varyParams":null},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$e","varyParams":null},{"rsc":"$L11","isPartial":"$@12","staleTime":"$e","varyParams":"$13"},{"rsc":"$L14","isPartial":"$@15","staleTime":"$e","varyParams":"$13"}],"isUpgradeableISRFallback":false,"a":"$@16","rootVaryParams":null,"needsRuntimeRequest":"$@17"}
+18:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"OutletBoundary"]
+19:"$Sreact.suspense"
+1b:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"ViewportBoundary"]
+1c:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"MetadataBoundary"]
+1d:I[27201,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"IconMark"]
+1e:I[39756,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+1f:I[37457,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+6:["$","path",null,{"d":"M19 12H5"}]
+7:["$","path",null,{"d":"m12 19-7-7 7-7"}]
+8:["$","span",null,{"className":"truncate","children":"Use Strict Mode and Template-Only Components"}]
+9:["$","$L2",null,{"href":"/guide/component-args-validation/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Validate Component Arguments"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]
+a:["$","script","script-0",{"src":"/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","async":true}]
+b:["$","script","script-1",{"src":"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+c:["$","$L18",null,{"children":["$","$19",null,{"name":"Next.MetadataOutlet","children":"$@1a"}]}]
+f:["$","$1","h",{"children":[null,["$","$L1b",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1c",null,{"children":["$","$19",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Use Tracked Toolbox for Complex State — emberjs learning"}],["$","meta","1",{"name":"description","content":"আধুনিক Ember-এর ৫৮টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/emberjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1d","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1e",null,{"parallelRouterKey":"children","template":["$","$L1f",null,{}]}]]}]
+14:["$","$1","c",{"children":[null,["$","$L1e",null,{"parallelRouterKey":"children","template":["$","$L1f",null,{}]}]]}]
+17:true
+1a:null
+e:300
+e:C
+16:0
+10:"$undefined"
+12:"$undefined"
+15:"$undefined"
+d:"$undefined"

@@ -1,0 +1,562 @@
+1:"$Sreact.fragment"
+2:I[22016,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:I[78818,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js","/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","/emberjs_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:T35f8,Use MSW (Mock Service Worker) for API mocking in tests. MSW provides a cleaner approach than Mirage by intercepting requests at the network level without introducing unnecessary ORM patterns or abstractions.
+
+**Incorrect (using Mirage with ORM complexity):**
+
+```javascript
+// mirage/config.js
+export default function () {
+  this.namespace = '/api';
+
+  // Complex schema and factories
+  this.get('/users', (schema) => {
+    return schema.users.all();
+  });
+
+  // Need to maintain schema, factories, serializers
+  this.post('/users', (schema, request) => {
+    let attrs = JSON.parse(request.requestBody);
+    return schema.users.create(attrs);
+  });
+}
+```
+
+**Correct (using MSW with simple network mocking):**
+
+```javascript
+// tests/helpers/msw.js
+import { http, HttpResponse } from 'msw';
+
+// Simple request/response mocking
+export const handlers = [
+  http.get('/api/users', () => {
+    return HttpResponse.json([
+      { id: 1, name: 'Alice' },
+      { id: 2, name: 'Bob' },
+    ]);
+  }),
+
+  http.post('/api/users', async ({ request }) => {
+    const user = await request.json();
+    return HttpResponse.json({ id: 3, ...user }, { status: 201 });
+  }),
+];
+```
+
+**Why MSW over Mirage:**
+
+- **Better conventions** - Mock at the network level, not with an ORM
+- **Simpler mental model** - Define request handlers, return responses
+- **Doesn't lead developers astray** - No schema migrations or factories to maintain
+- **Works everywhere** - Same mocks work in tests, Storybook, and development
+- **More realistic** - Actually intercepts fetch/XMLHttpRequest
+
+Reference: [Ember.js Community Discussion on MSW](https://discuss.emberjs.com/t/my-cookbook-for-various-emberjs-things/19679)
+
+### Installation
+
+```bash
+npm install --save-dev msw
+```
+
+### Setup Test Helper
+
+Create a test helper to set up MSW in your tests:
+
+```javascript
+// tests/helpers/msw.js
+import { setupServer } from 'msw/node';
+import { http, HttpResponse } from 'msw';
+
+// Define default handlers that apply to all tests
+const defaultHandlers = [
+  // Add default handlers here if needed
+];
+
+export function setupMSW(hooks, handlers = []) {
+  const server = setupServer(...defaultHandlers, ...handlers);
+
+  hooks.beforeEach(function () {
+    server.listen({ onUnhandledRequest: 'warn' });
+  });
+
+  hooks.afterEach(function () {
+    server.resetHandlers();
+  });
+
+  hooks.after(function () {
+    server.close();
+  });
+
+  return { server };
+}
+
+// Re-export for convenience
+export { http, HttpResponse };
+```
+
+### Basic Usage in Tests
+
+```javascript
+// tests/acceptance/users-test.js
+import { module, test } from 'qunit';
+import { visit, currentURL, click } from '@ember/test-helpers';
+import { setupApplicationTest } from 'ember-qunit';
+import { setupMSW, http, HttpResponse } from 'my-app/tests/helpers/msw';
+
+module('Acceptance | users', function (hooks) {
+  setupApplicationTest(hooks);
+  const { server } = setupMSW(hooks);
+
+  test('displays list of users', async function (assert) {
+    server.use(
+      http.get('/api/users', () => {
+        return HttpResponse.json({
+          data: [
+            {
+              id: '1',
+              type: 'user',
+              attributes: { name: 'Alice', email: 'alice@example.com' },
+            },
+            {
+              id: '2',
+              type: 'user',
+              attributes: { name: 'Bob', email: 'bob@example.com' },
+            },
+          ],
+        });
+      }),
+    );
+
+    await visit('/users');
+
+    assert.strictEqual(currentURL(), '/users');
+    assert.dom('[data-test-user-item]').exists({ count: 2 });
+    assert.dom('[data-test-user-name]').hasText('Alice');
+  });
+
+  test('handles server errors gracefully', async function (assert) {
+    server.use(
+      http.get('/api/users', () => {
+        return HttpResponse.json({ errors: [{ title: 'Server Error' }] }, { status: 500 });
+      }),
+    );
+
+    await visit('/users');
+
+    assert.dom('[data-test-error-message]').exists();
+    assert.dom('[data-test-error-message]').containsText('Server Error');
+  });
+});
+```
+
+### Mocking POST/PUT/DELETE Requests
+
+```javascript
+import { visit, click, fillIn } from '@ember/test-helpers';
+
+test('creates a new user', async function (assert) {
+  let capturedRequest = null;
+
+  server.use(
+    http.post('/api/users', async ({ request }) => {
+      capturedRequest = await request.json();
+
+      return HttpResponse.json(
+        {
+          data: {
+            id: '3',
+            type: 'user',
+            attributes: capturedRequest.data.attributes,
+          },
+        },
+        { status: 201 },
+      );
+    }),
+  );
+
+  await visit('/users/new');
+  await fillIn('[data-test-name-input]', 'Charlie');
+  await fillIn('[data-test-email-input]', 'charlie@example.com');
+  await click('[data-test-submit-button]');
+
+  assert.strictEqual(currentURL(), '/users/3');
+  assert.deepEqual(capturedRequest.data.attributes, {
+    name: 'Charlie',
+    email: 'charlie@example.com',
+  });
+});
+
+test('updates an existing user', async function (assert) {
+  server.use(
+    http.get('/api/users/1', () => {
+      return HttpResponse.json({
+        data: {
+          id: '1',
+          type: 'user',
+          attributes: { name: 'Alice', email: 'alice@example.com' },
+        },
+      });
+    }),
+    http.patch('/api/users/1', async ({ request }) => {
+      const body = await request.json();
+      return HttpResponse.json({
+        data: {
+          id: '1',
+          type: 'user',
+          attributes: body.data.attributes,
+        },
+      });
+    }),
+  );
+
+  await visit('/users/1/edit');
+  await fillIn('[data-test-name-input]', 'Alice Updated');
+  await click('[data-test-submit-button]');
+
+  assert.dom('[data-test-user-name]').hasText('Alice Updated');
+});
+
+test('deletes a user', async function (assert) {
+  server.use(
+    http.get('/api/users', () => {
+      return HttpResponse.json({
+        data: [{ id: '1', type: 'user', attributes: { name: 'Alice' } }],
+      });
+    }),
+    http.delete('/api/users/1', () => {
+      return new HttpResponse(null, { status: 204 });
+    }),
+  );
+
+  await visit('/users');
+  await click('[data-test-delete-button]');
+
+  assert.dom('[data-test-user-item]').doesNotExist();
+});
+```
+
+### Query Parameters and Dynamic Routes
+
+```javascript
+test('filters users by query parameter', async function (assert) {
+  server.use(
+    http.get('/api/users', ({ request }) => {
+      const url = new URL(request.url);
+      const searchQuery = url.searchParams.get('filter[name]');
+
+      const users = [
+        { id: '1', type: 'user', attributes: { name: 'Alice' } },
+        { id: '2', type: 'user', attributes: { name: 'Bob' } },
+      ];
+
+      const filtered = searchQuery
+        ? users.filter((u) => u.attributes.name.includes(searchQuery))
+        : users;
+
+      return HttpResponse.json({ data: filtered });
+    }),
+  );
+
+  await visit('/users?filter[name]=Alice');
+
+  assert.dom('[data-test-user-item]').exists({ count: 1 });
+  assert.dom('[data-test-user-name]').hasText('Alice');
+});
+
+test('handles dynamic route segments', async function (assert) {
+  server.use(
+    http.get('/api/users/:id', ({ params }) => {
+      return HttpResponse.json({
+        data: {
+          id: params.id,
+          type: 'user',
+          attributes: { name: `User ${params.id}` },
+        },
+      });
+    }),
+  );
+
+  await visit('/users/42');
+
+  assert.dom('[data-test-user-name]').hasText('User 42');
+});
+```
+
+### Network Delays and Race Conditions
+
+```javascript
+test('handles slow network responses', async function (assert) {
+  server.use(
+    http.get('/api/users', async () => {
+      // Simulate network delay
+      await new Promise((resolve) => setTimeout(resolve, 100));
+
+      return HttpResponse.json({
+        data: [{ id: '1', type: 'user', attributes: { name: 'Alice' } }],
+      });
+    }),
+  );
+
+  const visitPromise = visit('/users');
+
+  // Loading state should be visible
+  assert.dom('[data-test-loading-spinner]').exists();
+
+  await visitPromise;
+
+  assert.dom('[data-test-loading-spinner]').doesNotExist();
+  assert.dom('[data-test-user-item]').exists();
+});
+```
+
+### Shared Handlers with Reusable Fixtures
+
+```javascript
+// tests/helpers/msw-handlers.js
+import { http, HttpResponse } from 'msw';
+
+export const userHandlers = {
+  list: (users = []) => {
+    return http.get('/api/users', () => {
+      return HttpResponse.json({ data: users });
+    });
+  },
+
+  get: (user) => {
+    return http.get(`/api/users/${user.id}`, () => {
+      return HttpResponse.json({ data: user });
+    });
+  },
+
+  create: (attributes) => {
+    return http.post('/api/users', () => {
+      return HttpResponse.json(
+        {
+          data: {
+            id: String(Math.random()),
+            type: 'user',
+            attributes,
+          },
+        },
+        { status: 201 },
+      );
+    });
+  },
+};
+
+// Common fixtures
+export const fixtures = {
+  users: {
+    alice: {
+      id: '1',
+      type: 'user',
+      attributes: { name: 'Alice', email: 'alice@example.com' },
+    },
+    bob: {
+      id: '2',
+      type: 'user',
+      attributes: { name: 'Bob', email: 'bob@example.com' },
+    },
+  },
+};
+```
+
+```javascript
+// tests/acceptance/users-test.js
+import { userHandlers, fixtures } from 'my-app/tests/helpers/msw-handlers';
+
+test('displays list of users', async function (assert) {
+  server.use(userHandlers.list([fixtures.users.alice, fixtures.users.bob]));
+
+  await visit('/users');
+
+  assert.dom('[data-test-user-item]').exists({ count: 2 });
+});
+```
+
+### Integration Test Setup
+
+MSW works in integration tests too:
+
+```javascript
+// tests/integration/components/user-list-test.js
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, waitFor } from '@ember/test-helpers';
+import { setupMSW, http, HttpResponse } from 'my-app/tests/helpers/msw';
+import UserList from 'my-app/components/user-list';
+
+module('Integration | Component | user-list', function (hooks) {
+  setupRenderingTest(hooks);
+  const { server } = setupMSW(hooks);
+
+  test('fetches and displays users', async function (assert) {
+    server.use(
+      http.get('/api/users', () => {
+        return HttpResponse.json({
+          data: [{ id: '1', type: 'user', attributes: { name: 'Alice' } }],
+        });
+      }),
+    );
+
+    await render(
+      <template>
+        <UserList />
+      </template>,
+    );
+
+    // Wait for async data to load
+    await waitFor('[data-test-user-item]');
+
+    assert.dom('[data-test-user-item]').exists();
+    assert.dom('[data-test-user-name]').hasText('Alice');
+  });
+});
+```
+
+### Best Practices
+
+1. **Define handlers per test** - Use `server.use()` in individual tests rather than global handlers
+2. **Reset between tests** - The helper automatically resets handlers after each test
+3. **Use JSON:API format** - Keep responses consistent with your API format
+4. **Test error states** - Mock various HTTP error codes (400, 401, 403, 404, 500)
+5. **Capture requests** - Use the request object to verify what your app sent
+6. **Use fixtures** - Create reusable test data to keep tests DRY
+7. **Simulate delays** - Test loading states with artificial delays
+8. **Type-safe responses** - In TypeScript, type your response payloads
+
+### Common Patterns
+
+**Default handlers for all tests:**
+
+```javascript
+// tests/helpers/msw.js
+const defaultHandlers = [
+  // Always return current user
+  http.get('/api/current-user', () => {
+    return HttpResponse.json({
+      data: {
+        id: '1',
+        type: 'user',
+        attributes: { name: 'Test User', role: 'admin' },
+      },
+    });
+  }),
+];
+```
+
+**One-time handlers (don't persist):**
+
+```javascript
+// MSW handlers persist until resetHandlers() is called
+// The test helper automatically resets after each test
+// For a one-time handler within a test, manually reset:
+test('one-time response', async function (assert) {
+  server.use(
+    http.get('/api/special', () => {
+      return HttpResponse.json({ data: 'special' });
+    }),
+  );
+
+  // First request gets mocked response
+  await visit('/special');
+  assert.dom('[data-test-data]').hasText('special');
+
+  // Reset to remove this handler
+  server.resetHandlers();
+
+  // Subsequent requests will use default handlers or be unhandled
+});
+```
+
+**Conditional responses:**
+
+```javascript
+http.post('/api/login', async ({ request }) => {
+  const { email, password } = await request.json();
+
+  if (email === 'test@example.com' && password === 'password') {
+    return HttpResponse.json({
+      data: { token: 'abc123' },
+    });
+  }
+
+  return HttpResponse.json({ errors: [{ title: 'Invalid credentials' }] }, { status: 401 });
+});
+```
+
+### Migration from Mirage
+
+If migrating from Mirage:
+
+1. Remove `ember-cli-mirage` dependency
+2. Delete `mirage/` directory (models, factories, scenarios)
+3. Install MSW: `npm install --save-dev msw`
+4. Create the MSW test helper (see above)
+5. Replace `setupMirage(hooks)` with `setupMSW(hooks)`
+6. Convert Mirage handlers:
+   - `this.server.get()` → `http.get()`
+   - `this.server.create()` → Return inline JSON
+   - `this.server.createList()` → Return array of JSON objects
+
+**Before (Mirage):**
+
+```javascript
+test('lists posts', async function (assert) {
+  this.server.createList('post', 3);
+  await visit('/posts');
+  assert.dom('[data-test-post]').exists({ count: 3 });
+});
+```
+
+**After (MSW):**
+
+```javascript
+test('lists posts', async function (assert) {
+  server.use(
+    http.get('/api/posts', () => {
+      return HttpResponse.json({
+        data: [
+          { id: '1', type: 'post', attributes: { title: 'Post 1' } },
+          { id: '2', type: 'post', attributes: { title: 'Post 2' } },
+          { id: '3', type: 'post', attributes: { title: 'Post 3' } },
+        ],
+      });
+    }),
+  );
+  await visit('/posts');
+  assert.dom('[data-test-post]').exists({ count: 3 });
+});
+```
+
+Reference: [MSW Documentation](https://mswjs.io/docs/)b:X
+10:X
+10:C
+0:{"buildId":"ECqhzMK0omxLbwi2OoWHS","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/guide/","className":"t-accent","children":"গাইড"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":[8," · ","Testing Best Practices"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"MSW (Mock Service Worker) Setup for Testing"}],["$","div",null,{"className":"flex flex-wrap gap-1.5","children":[["$","span",null,{"className":"chip","children":["impact · ","HIGH"]}],["$","span",null,{"className":"chip","children":"Proper API mocking without ORM complexity"}],[["$","$L2","054",{"href":"/day/054/","className":"chip chip--accent","children":["plan · দিন ","০৫৪"]}]]]}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-3 p-4 sm:p-6","children":[["$","div",null,{"className":"t-label","children":"আগে নিজে — এই কোডে কী ভুল, ঠিকটা কেমন হবে?"}],["$","$L3",null,{"children":"**Incorrect (using Mirage with ORM complexity):**\n\n```javascript\n// mirage/config.js\nexport default function () {\n  this.namespace = '/api';\n\n  // Complex schema and factories\n  this.get('/users', (schema) => {\n    return schema.users.all();\n  });\n\n  // Need to maintain schema, factories, serializers\n  this.post('/users', (schema, request) => {\n    let attrs = JSON.parse(request.requestBody);\n    return schema.users.create(attrs);\n  });\n}\n```"}]]}],["$","$L4",null,{"taskIds":["d054-1ax50vq"],"children":["$","$L3",null,{"children":"$5"}]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"ViewportBoundary"]
+19:I[97367,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"MetadataBoundary"]
+1a:I[27201,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"IconMark"]
+1b:I[39756,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+1c:I[37457,["/emberjs_learning/_next/static/chunks/2whgslu1r3fnj.js","/emberjs_learning/_next/static/chunks/26ibs4bmq6otp.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"rule","children":[["$","$L2",null,{"href":"/guide/performance-on-modifier-vs-handlers/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"Use {{on}} Modifier Instead of Event Handler Properties"}]]}],["$","$L2",null,{"href":"/guide/testing-library-dom-abstraction/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"Provide DOM-Abstracted Test Utilities for Library Components"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/emberjs_learning/_next/static/chunks/3e7qsdew_iqwn.js","async":true}]
+8:["$","script","script-1",{"src":"/emberjs_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"MSW (Mock Service Worker) Setup for Testing — emberjs learning"}],["$","meta","1",{"name":"description","content":"আধুনিক Ember-এর ৫৮টা best practice — দিনে একটা, ১০′: Incorrect কোড দেখে না দেখে ঠিকটা লেখা আর কেন ইংরেজিতে বলা, ঝালাইসহ।"}],["$","link","2",{"rel":"icon","href":"/emberjs_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"
