@@ -1,0 +1,145 @@
+1:"$Sreact.fragment"
+2:I[22016,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+9:X
+e:X
+e:C
+0:{"buildId":"l-BOHA4hlHsZGkKwBaPqg","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"২. চিন্তার সাথে"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০২.০১"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Critical Thinking — যুক্তি যাচাই করা"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"plan-এ যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","026-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/026/","className":"chip chip--accent self-start","children":["দিন ","০২৬"," · ","একটা সিদ্ধান্ত, তিন কলামে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**একটা সিদ্ধান্ত, তিন কলামে** — টিমে সম্প্রতি নেওয়া একটা প্রযুক্তিগত সিদ্ধান্ত: দাবি, প্রমাণ আর অনুমান আলাদা কলামে; নিচে \"কাজ করতে হলে কী সত্য হতে হবে\"-র তালিকা, আর যা কেউ যাচাই করেননি তাতে চিহ্ন (ডক ০২.০১)"}]]}],["$","li","027-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/027/","className":"chip chip--accent self-start","children":["দিন ","০২৭"," · ","আত্মবিশ্বাসের খাতা"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**আত্মবিশ্বাসের খাতা** — এই সপ্তাহের কাজ নিয়ে পাঁচটা ছোট পূর্বাভাস, শতাংশসহ — \"এই PR বৃহস্পতিবারের মধ্যে merge হবে: ৭০%\" · পূর্ণ মাপে: সপ্তাহ শেষে মিলিয়ে দেখা — বেশি আত্মবিশ্বাসী ছিলেন, নাকি কম (ডক ০২.০১)"}]]}],["$","li","028-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/028/","className":"chip chip--accent self-start","children":["দিন ","০২৮"," · ","ইংরেজিতে একটা প্রমাণের প্রশ্ন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**ইংরেজিতে একটা প্রমাণের প্রশ্ন** — আজকের কোনো review, মিটিং বা লিখিত আলোচনায় একবার, কৌতূহলী সুরে: \"What would have to be true for this to work?\" — না থাকলে শেষ যে প্রস্তাব দেখেছেন, তার জন্য প্রশ্নটা লিখে জোরে দুবার · সুযোগ এলে: পরের review বা মিটিংয়ে, আর প্রশ্নটা নতুন আলোচনা খুলল কিনা (ডক ০২.০১)"}]]}],["$","li","029-3",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/029/","className":"chip chip--accent self-start","children":["দিন ","০২৯"," · ","টিমের সাথে pre-mortem"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**টিমের সাথে pre-mortem** — আসন্ন একটা ফিচার বা প্রকল্প নিয়ে একা ৫ মিনিট: \"ছয় মাস পরে এটা ব্যর্থ হয়েছে — কেন?\" — তিনটা কারণ খাতায়, আর একটার জন্য একটা প্রতিরোধ · সুযোগ এলে: পরের প্রকল্পের শুরুতে টিমের সাথে ১৫ মিনিট, প্রত্যেকে আলাদা করে লিখে (ডক ০২.০১)"}]]}],["$","li","030-4",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/030/","className":"chip chip--accent self-start","children":["দিন ","০৩০"," · ","বড় বাজির অনুমান"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**বড় বাজির অনুমান** — টিম বা প্রতিষ্ঠানের একটা চলমান পরিকল্পনা নিয়ে \"কী সত্য হতে হবে\"-র তালিকা; প্রতিটার পাশে মাপা হয়েছে কিনা, আর না-মাপা একটার জন্য সবচেয়ে সস্তা পরীক্ষা · সুযোগ এলে: প্রস্তাবটা পরিকল্পনার লেখককে পাঠানো (ডক ০২.০১)"}]]}],["$","li","041-5",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/041/","className":"chip chip--accent self-start","children":["দিন ","০৪১"," · ","মুখে — চিন্তার সাথে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"এই ব্লকের তিন অধ্যায়ের প্রতিটা থেকে একটা মূল নিয়ম — গাইড না খুলে, মনে করে — ইংরেজিতে জোরে, সাথে এই ব্লকের drill থেকে নিজের একটা ঘটনা; মোট ২ মিনিটে, ফোনে রেকর্ড করে (ডক ০২.০১ · ডক ০২.০২ · ডক ০২.০৩)"}]]}]]}]]}],"$L4","$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+14:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"OutletBoundary"]
+15:"$Sreact.suspense"
+17:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"ViewportBoundary"]
+18:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"MetadataBoundary"]
+19:I[27201,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"IconMark"]
+1a:I[39756,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+1b:I[37457,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+13:T4766,## সংজ্ঞা
+
+**Critical thinking** হলো কোনো দাবি মেনে নেওয়ার আগে তার পেছনের **দাবি, প্রমাণ আর অনুমান** আলাদা করে যাচাই করা — আর সেই একই যাচাই নিজের চিন্তার উপর চালানো।
+
+ভিত্তিটা এই অধ্যায় ধরে নেয়: সংশয় আর নেতিবাচকতা এক নয়; উদ্দেশ্য দাবি ভাঙা নয়, দাবিটা কতটা ওজন বইতে পারে তা মাপা। পরের স্তরে তিনটা জিনিস যোগ হয়:
+
+- **আত্মবিশ্বাস সংখ্যায়** — "সত্য না মিথ্যা" নয়, "কতটা নিশ্চিত, আর কোন তথ্যে কতটা বদলাবে"।
+- **ভুল আগে খোঁজা** — সিদ্ধান্ত হয়ে যাওয়ার আগেই, ইচ্ছা করে।
+- **যাচাই নিরাপদ করা** — যাতে টিমে প্রশ্ন তোলা আক্রমণ না শোনায়।
+
+## কেন এটা কঠিন
+
+**১. Confirmation bias ডিফল্ট।** Nickerson-এর পর্যালোচনা (১৯৯৮) এর সংজ্ঞা দেয়: প্রমাণ এমনভাবে খোঁজা বা ব্যাখ্যা করা, যা আগের বিশ্বাস বা হাতের অনুমানের পক্ষে যায়। আর তিনি এটা দেখান নানা চেহারায়, নানা পেশায় — এটা অল্প কিছু মানুষের দোষ নয়, সবার ডিফল্ট।
+
+**২. নিজের ঝোঁক নিজের চোখে পড়ে না।** Pronin, Lin আর Ross-এর গবেষণায় (২০০২) মানুষ নিজেদের বিভিন্ন ঝোঁকে কম আক্রান্ত ভেবেছেন — "গড় মানুষ", সহপাঠী, বিমানবন্দরের সহযাত্রীদের তুলনায়; আর অন্যের একই রকম আত্মপক্ষ-সমর্থক ব্যাখ্যাকে ঝোঁক বলেছেন, নিজেরটাকে নয়। একে বলে *bias blind spot*। "আমি নিরপেক্ষভাবে দেখেছি" — এই অনুভূতিটাই তাই সবচেয়ে অনির্ভরযোগ্য সংকেত।
+
+**৩. যুক্তি দাঁড় করাতে পারা রক্ষাকবচ নয়।** Kunda-র বিশ্লেষণে (১৯৯০) মানুষ কাঙ্ক্ষিত সিদ্ধান্তে পৌঁছায় — কিন্তু শুধু ততক্ষণ, যতক্ষণ যুক্তিসঙ্গত দেখানো একটা যুক্তি দাঁড় করানো যায়। মানে যত ভালো যুক্তি গড়তে পারেন, নিজের চাওয়ার পক্ষে তত ভালো উকিলও হতে পারেন।
+
+**৪. এখন সব দাবির পক্ষেই "প্রমাণ" মেলে।** একটা benchmark, একটা blog post, একটা AI-এর সাবলীল উত্তর — প্রমাণ **আছে কি না** আর প্রশ্ন নয়; প্রশ্ন প্রমাণটা **কতটা ভালো**। আর AI-এর উত্তরে সাবলীলতা সঠিকতার সংকেত নয়।
+
+**৫. প্রশ্ন তোলা আক্রমণ শোনায়।** অনেক টিমে কারো প্রস্তাবে প্রশ্ন মানে তাঁর বিরোধিতা। তাই যাচাইয়ের আগেই সিদ্ধান্ত পাস হয়, আর ভুল ধরা পড়ে production-এ।
+
+## কীভাবে কাজ করে
+
+### দাবি, প্রমাণ, অনুমান
+
+| অংশ | প্রশ্ন | উদাহরণ |
+|---|---|---|
+| **দাবি** | কী বলা হচ্ছে? | "আমাদের microservices-এ যাওয়া উচিত" |
+| **প্রমাণ** | কীসের ভিত্তিতে? | "deploy করতে ৪০ মিনিট লাগে" |
+| **অনুমান** | কী সত্য ধরে নেওয়া হয়েছে? | "deploy ধীর হওয়ার কারণ monolith" |
+
+ভুল প্রায়ই তৃতীয় ঘরে — আর ওটাই একমাত্র ঘর যা কেউ উচ্চারণ করেন না। পরের স্তরের প্রশ্ন: **"এটা কাজ করতে হলে কী কী সত্য হতে হবে?"** তালিকাটা লিখলে অনুমানগুলো নিজে থেকে বেরিয়ে আসে, আর কোনটা কেউ যাচাই করেননি, সেটা চোখে পড়ে।
+
+### আত্মবিশ্বাস সংখ্যায়, আর ছোট ছোট বদল
+
+Tetlock আর Gardner-এর *Superforecasting*-এ (২০১৫) Good Judgment Project-এর সেরা পূর্বাভাসদাতাদের একটা চিহ্ন ছিল — নতুন তথ্য এলে তাঁরা অনুমান শুধরে নিতেন; সম্ভাবনায় ভাবতেন, আর ভুল স্বীকার করে ঠিক করতেন। কাজে:
+
+- **"হবে / হবে না" নয়, শতাংশ।** "৭০% নিশ্চিত যে এই fix-এ latency নামবে।"
+- **নতুন তথ্যে পুরো উল্টো নয়, সরানো।** ৭০% থেকে ৫৫% — তারপর আরও তথ্য।
+- **পরে মিলিয়ে দেখুন।** যেগুলোতে "৭০%" বলেছিলেন, তার মোটামুটি ৭০% কি ঠিক হলো? না হলে আপনার সংখ্যা ভুল মাপে।
+
+### Steelman — Rapoport-এর নিয়ম
+
+Daniel Dennett (২০১৩) Anatol Rapoport-এর নামে চারটা নিয়ম দেন, সমালোচনার আগে:
+
+1. প্রতিপক্ষের অবস্থান এত স্পষ্ট আর ন্যায্যভাবে বলুন, যাতে তিনি বলেন: "ধন্যবাদ, আমি নিজে এভাবে বলতে পারলে ভালো হতো।"
+2. যেখানে একমত, তা বলুন — বিশেষ করে যা সবার কাছে স্পষ্ট নয়।
+3. তাঁর কাছ থেকে যা শিখেছেন, তা বলুন।
+4. **তারপরই** — একটা শব্দও সমালোচনা।
+
+এটা ভদ্রতা নয়, কৌশল: এতে প্রতিপক্ষ আপনার সমালোচনা শোনার মতো শ্রোতা হয়ে ওঠেন।
+
+### Pre-mortem — ভুল আগে খোঁজা
+
+Gary Klein-এর (২০০৭) পদ্ধতি: কাজ শুরুর আগে ধরে নিন — ছয় মাস পরে, প্রকল্পটা ব্যর্থ হয়েছে। এবার প্রত্যেকে আলাদা করে লিখুন, **কেন** ব্যর্থ হলো। Klein ১৯৮৯-এর এক গবেষণার (Mitchell, Russo আর Pennington) উল্লেখ করেন: ঘটনা "ঘটে গেছে" ধরে কারণ খুঁজলে ভবিষ্যৎ ফলের কারণ ঠিকভাবে চেনার ক্ষমতা ৩০% বাড়ে। "কী ভুল হতে পারে?" জিজ্ঞেস করলে মানুষ ভদ্র থাকেন; "কী ভুল হয়েছিল?" জিজ্ঞেস করলে খোলেন।
+
+### প্রমাণের মান — চার প্রশ্ন
+
+- **নমুনা** — কতগুলো ঘটনা? একটা ঘটনা গল্প, ডেটা নয়।
+- **উৎস** — যিনি বলছেন, তাঁর কি এই সিদ্ধান্তে স্বার্থ আছে? AI হলে — উৎসটা কোথায়, আর আমি কি একটা মূল উৎস নিজে খুলে দেখেছি?
+- **প্রেক্ষাপট** — কার জন্য কাজ করেছে? অন্য মাপের টিমের সমাধান আপনার টিমে খাটে কিনা।
+- **কারণ নাকি সহসম্পর্ক** — একসাথে ঘটা মানে একটা অন্যটার কারণ নয়।
+
+## রিমোট আর দ্বিতীয় ভাষায়
+
+- **রিমোটে যাচাই হয় লেখায়।** design doc আর PR-এর মন্তব্যে রায় নয়, প্রশ্ন লিখুন — "এটা ভুল" নয়, "এটা কাজ করতে হলে X সত্য হতে হবে; আমরা কি সেটা মেপেছি?" লেখায় সুর হারায়, তাই প্রশ্নের রূপটাই সুর বহন করে।
+- **দ্বিতীয় ভাষায় চ্যালেঞ্জ করার বাক্য আগে থেকে তৈরি রাখুন।** মাঝ-মিটিংয়ে ভদ্র কিন্তু স্পষ্ট প্রশ্নের শব্দ খুঁজতে খুঁজতে মুহূর্তটা চলে যায়। নিচের বাক্যগুলো কৌতূহলী সুরে — আক্রমণ নয়।
+- **লিখিত আলোচনায় সময় নিন।** রিমোটের একটা সুবিধা: সাথে সাথে উত্তর দিতে হয় না। "একটু ভেবে বিকেলে লিখছি" — অফিসে যা অপ্রস্তুত শোনাত, async-এ তা স্বাভাবিক।
+
+| কখন | বাক্য |
+|---|---|
+| প্রমাণ চাওয়া | "What's the evidence for this? Just want to understand." |
+| অনুমান খোঁজা | "What would have to be true for this to work?" |
+| বিকল্প বাদ দেওয়ার কারণ | "I might be missing something — how did we rule out X?" |
+| আত্মবিশ্বাস জানতে চাওয়া | "How confident are we, roughly? 50%? 90%?" |
+| বিপক্ষ হিসেবে বলা | "Let me play devil's advocate for a second." |
+| সময় চাওয়া | "Let me think about this and reply in the doc this afternoon." |
+
+## Senior থেকে Staff
+
+| | Senior | Lead | Staff |
+|---|---|---|---|
+| **কী যাচাই করেন** | নিজের যুক্তি, PR আর ticket-এর দাবি | টিমের সিদ্ধান্তের অনুমান | প্রতিষ্ঠানের বড় বাজির অনুমান |
+| **মূল কৌশল** | দাবি-প্রমাণ-অনুমান, আত্মবিশ্বাস সংখ্যায় | pre-mortem চালানো, প্রশ্নকে নিরাপদ করা | "কী সত্য হতে হবে"-র তালিকা, সবচেয়ে সস্তা পরীক্ষার প্রস্তাব |
+| **ঝুঁকি** | নিজের অবস্থানের উকিল হয়ে যাওয়া | টিম আপনার মত আন্দাজ করে প্রশ্ন বন্ধ করে | আপনার সংশয় "না" হিসেবে পড়া হয়, অথচ আপনি শুধু প্রশ্ন করছিলেন |
+| **সাফল্যের মাপ** | নিজের ভুল নিজে আগে ধরেন | ভুল ধরা পড়ে মিটিংয়ে, production-এ নয় | বড় সিদ্ধান্তের আগে অনুমানগুলো লেখা আর মাপা থাকে |
+
+Lead থেকে উপরে আপনার প্রশ্নের ওজন বাড়ে — তাই কখন প্রশ্নটা শুধু প্রশ্ন, আর কখন আপত্তি, সেটা স্পষ্ট করে বলুন।
+
+## অনুশীলন
+
+- **একটা সিদ্ধান্ত, তিন কলামে।** টিমে সম্প্রতি নেওয়া একটা প্রযুক্তিগত সিদ্ধান্ত বেছে দাবি, প্রমাণ আর অনুমান আলাদা কলামে লিখুন; নিচে "কাজ করতে হলে কী সত্য হতে হবে"-র তালিকা। যেটা কেউ যাচাই করেননি, চিহ্ন দিন — ওটাই প্রশ্ন করার জায়গা। (Senior)
+- **আত্মবিশ্বাসের খাতা।** এই সপ্তাহে কাজের পাঁচটা ছোট পূর্বাভাস শতাংশসহ লিখুন — "এই PR বৃহস্পতিবারের মধ্যে merge হবে: ৭০%"। সপ্তাহ শেষে মিলিয়ে দেখুন; বেশি আত্মবিশ্বাসী ছিলেন নাকি কম। (Senior)
+- **ইংরেজিতে একটা প্রমাণের প্রশ্ন।** পরের review বা মিটিংয়ে অন্তত একবার, কৌতূহলী সুরে ইংরেজিতে জিজ্ঞেস করুন: "What would have to be true for this to work?" উত্তর পেলেন, নাকি প্রশ্নটা নতুন আলোচনা খুলল — খাতায় লিখুন। (Senior)
+- **টিমের সাথে pre-mortem।** পরের ফিচার বা প্রকল্পের শুরুতে ১৫ মিনিট: "ছয় মাস পরে এটা ব্যর্থ হয়েছে — কেন?" প্রত্যেকে আলাদা করে লিখবেন, তারপর একসাথে পড়বেন। সবচেয়ে বেশি আসা তিনটা কারণের একটার জন্য একটা প্রতিরোধ ঠিক করুন। (Lead)
+- **বড় বাজির অনুমান।** প্রতিষ্ঠানের একটা চলমান পরিকল্পনা বা strategy doc নিয়ে "কী সত্য হতে হবে"-র তালিকা লিখুন; প্রতিটার পাশে — মাপা হয়েছে কিনা। না-মাপা একটার জন্য সবচেয়ে সস্তা পরীক্ষাটা প্রস্তাব করে লেখককে পাঠান। (Staff)
+
+## মূল নিয়ম
+
+- ভুল দাবিতে নয়, না-বলা অনুমানে বাস করে — "কী সত্য হতে হবে?" জিজ্ঞেস করুন।
+- "আমি নিরপেক্ষভাবে দেখেছি" — এই অনুভূতিটাই সবচেয়ে অনির্ভরযোগ্য।
+- যুক্তি দাঁড় করাতে পারা মানে সঠিক হওয়া নয়।
+- আত্মবিশ্বাস সংখ্যায় বলুন, আর নতুন তথ্যে সংখ্যাটা সরান।
+- সমালোচনার আগে প্রতিপক্ষের অবস্থান তাঁর চেয়েও ভালো করে বলুন।
+- ভুল আগে খুঁজুন: "এটা ব্যর্থ হয়েছে — কেন?"
+- AI-এর সাবলীল উত্তর প্রমাণ নয়; একটা মূল উৎস নিজে খুলে দেখুন।
+
+## উৎস
+
+- Nickerson, R. S. (1998). "Confirmation bias: A ubiquitous phenomenon in many guises." *Review of General Psychology*, 2(2), 175–220. [DOI](https://doi.org/10.1037/1089-2680.2.2.175)
+- Pronin, E., Lin, D. Y. & Ross, L. (2002). "The bias blind spot: Perceptions of bias in self versus others." *Personality and Social Psychology Bulletin*, 28(3), 369–381. [DOI](https://doi.org/10.1177/0146167202286008)
+- Kunda, Z. (1990). "The case for motivated reasoning." *Psychological Bulletin*, 108(3), 480–498. [DOI](https://doi.org/10.1037/0033-2909.108.3.480)
+- Tetlock, P. E. & Gardner, D. (2015). *Superforecasting: The Art and Science of Prediction*. Crown.
+- Dennett, D. C. (2013). *Intuition Pumps and Other Tools for Thinking*. W. W. Norton. — Rapoport-এর নিয়ম।
+- Klein, G. (2007). "Performing a Project Premortem." *Harvard Business Review*, September 2007. — আর Mitchell, D. J., Russo, J. E. & Pennington, N. (1989). "Back to the future: Temporal perspective in the explanation of events." *Journal of Behavioral Decision Making*, 2(1), 25–38।4:["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$13"}]}]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/01-04/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০১.০৪ Time Management — সময় ও মনোযোগ পরিচালনা"}]]}],["$","$L2",null,{"href":"/doc/02-02/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০২.০২ Problem Solving — সমস্যার সমাধান"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L14",null,{"children":["$","$15",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]
+a:["$","$1","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L18",null,{"children":["$","$15",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০২.০১ · Critical Thinking — যুক্তি যাচাই করা — সফট স্কিল"}],["$","meta","1",{"name":"description","content":"সফট স্কিলের ১০৪টা drill, ১০৮ দিনে — Senior থেকে Staff, রিমোট আর ইংরেজিসহ; দিনে একটা, আজ একবার, আসল কথোপকথনে; চার স্তরে নির্ভরতার ক্রমে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/soft_skill_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+12:true
+16:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

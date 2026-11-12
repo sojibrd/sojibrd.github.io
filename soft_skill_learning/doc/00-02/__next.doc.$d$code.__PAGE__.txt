@@ -1,0 +1,96 @@
+1:"$Sreact.fragment"
+2:I[22016,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T1f7d,## সংজ্ঞা
+
+এই সাইটের দুটো অংশ:
+
+- **গাইড** — ২২টা অধ্যায়, চার স্তরে নির্ভরতার ক্রমে। এটা রেফারেন্স — পড়ার জন্য, ফিরে দেখার জন্য।
+- **Plan** — ১০৮ দিন, দিনে একটা drill। এটা কাজ — করার জন্য।
+
+ক্রমটা গুরুত্বপূর্ণ: অধ্যায়ের নম্বরই পড়ার ক্রম, কারণ প্রতিটা স্তর আগেরটার উপর দাঁড়ানো ([সফট স্কিল আসলে কী](/doc/00-01/))। আর সবচেয়ে জরুরি কথা — **পড়া শেষ মানে শেখা শেষ নয়।** অধ্যায় পড়া ইনপুট; স্কিল আসে drill থেকে, আসল কথোপকথনে।
+
+## অধ্যায় কীভাবে পড়বেন
+
+প্রতিটা স্কিল-অধ্যায় একই আটটা সেকশন মানে:
+
+| সেকশন | কী দেয় | কীভাবে পড়বেন |
+|---|---|---|
+| **সংজ্ঞা** | স্কিলটা কী — ভিত্তি জানা ধরে | দ্রুত |
+| **কেন এটা কঠিন** | ভিত্তির নিয়ম যেখানে ভাঙে | ধীরে — নিজেকে খুঁজুন |
+| **কীভাবে কাজ করে** | গভীর model, trade-off | মন দিয়ে |
+| **রিমোট আর দ্বিতীয় ভাষায়** | async, সময়-অঞ্চল, ইংরেজিতে বলার বাক্য | বাক্যগুলো মুখস্থ করার জন্য |
+| **Senior থেকে Staff** | একই স্কিল তিন পদে | এখনকার পদ আর পরের পদ দেখুন |
+| **অনুশীলন** | পাঁচটা drill | এখানেই আসল কাজ |
+| **মূল নিয়ম** | এক লাইনের নিয়ম | পরে ফিরে দেখার জন্য |
+| **উৎস** | যে বই আর গবেষণা থেকে দাবিগুলো | সন্দেহ হলে মিলিয়ে দেখুন |
+
+"কেন এটা কঠিন" এড়াবেন না — সংজ্ঞা যেকোনো জায়গায় পাবেন, নিজের অন্ধ জায়গাটা পাবেন না।
+
+## Plan কীভাবে চলে
+
+- **দিনে একটা drill, "আজ একবার"।** গাইডের drill প্রায়ই সপ্তাহজুড়ে বা কোনো ঘটনার অপেক্ষায় লেখা; plan-এর কাজ তার সেই অংশ, যেটা আজই করা যায়। পুরো drill থাকে কাজের শেষে, `পূর্ণ মাপে:` বা `সুযোগ এলে:` লিখে।
+- **drill-এর তিন চিহ্ন।** `(Senior)` — আজই, কোনো পদ ছাড়া। `(Lead)` আর `(Staff)` — পুরোটায় দায়িত্ব লাগে, তাই plan-এ এদের ছোট রূপ: শেষবারের ঘটনা খাতায়, আর পরের সুযোগের প্রস্তুতি।
+- **টিক পড়ে আজকের অংশে।** পড়ার সাথে সাথে নয় — যেদিন সত্যিই করেছেন, সেদিন।
+- **🔁 ঝালাই, মিশ্র।** টিকের দিন থেকে ১, ৩, ৭, ২১ দিন পরে কাজটা ফেরে। প্রথমবার — আবার একবার করা, নতুন কথোপকথনে; পরের তিনবার — নাম দেখে, গাইড না খুলে, ইংরেজিতে জোরে দুই বাক্য।
+- **⚑ প্রতিটা স্তরের শেষে।** ২ মিনিট, গাইড না খুলে, ইংরেজিতে, রেকর্ড করে: স্তরের তিনটা মূল নিয়ম আর নিজের একটা ঘটনা।
+- **"আজ" মানে ক্যালেন্ডারের আজ।** plan পেছায় না; কাল বাদ পড়লে আজ আজকের drill।
+
+সব progress আপনার browser-এ থাকে। sync key বসালে আরেকটা device-এ নেমে আসে; না বসালে শুধু এই device-এ।
+
+## কত সময় লাগবে
+
+- **দিনে ১০′ টেবিলে** — drill পড়া, আজকের অংশ ঠিক করা, পরে খাতায় এক লাইন। কথোপকথনের সময় এর বাইরে, কারণ drill হয় এমন কথোপকথনেই, যা এমনিতেও হতো।
+- **১০৮ দিন** — চার স্তর, শেষে আবার শুরুর baseline।
+- **শেষ বলে কিছু নেই।** plan শেষ হলে ঝালাই চলতে থাকে, আর যে drill-এর ঝালাই স্থির হয়েছে, সেটা এবার পুরো মাপে — গাইডের ছন্দে, একটা drill এক সপ্তাহ।
+
+## যদি ক্রম ভাঙতেই হয়
+
+আদর্শ ক্রম উপর থেকে নিচে। কিন্তু নির্দিষ্ট সমস্যা নিয়ে এলে:
+
+| আপনার সমস্যা | যেখানে যাবেন | কিন্তু আগে পড়ুন |
+|---|---|---|
+| "আমার কথা কেউ বোঝেন না" | Communication | Self-awareness, Listening |
+| "মিটিংয়ে ইংরেজিতে আটকে যাই" | Speaking English | Communication |
+| "টিমে সবসময় ঝামেলা লাগে" | Conflict | Emotional Intelligence, Listening |
+| "সময় পাই না" | Time Management | Self-awareness |
+| "সিদ্ধান্ত নিতে পারি না" | Decision Making | Critical Thinking |
+| "নতুনদের সাহায্য করতে গিয়ে নিজের কাজ আটকায়" | Mentoring | Listening, Feedback |
+| "অন্য টিম আমার কাজ নেয় না" | Cross-team work | Persuasion ও Negotiation |
+| "টিম আমাকে follow করে না" | Leadership | পুরো স্তর ১–৩ |
+
+শেষ সারিটা লক্ষ করুন — Leadership-এর কোনো shortcut নেই।
+
+## মূল নিয়ম
+
+- ক্রম মেনে পড়ুন; নিচের স্তর বাদ দিয়ে উপরে উঠলে সময় নষ্ট হয়।
+- "কেন এটা কঠিন" সেকশনটাই সবচেয়ে দামি — এড়াবেন না।
+- পড়া ইনপুট, drill কাজ — টিক পড়ে শুধু করায়।
+- দিনে একটা নতুন drill — একসাথে পাঁচটা আচরণ বদলানো মানে একটাও না বদলানো।
+- ঝালাই শাস্তি নয়; "আটকে গেছি" একটা তথ্য।
+- "রিমোট আর দ্বিতীয় ভাষায়"-এর বাক্যগুলো মুখস্থ করুন — চাপের মুহূর্তে শব্দ খুঁজতে হয় না।9:X
+e:X
+e:C
+0:{"buildId":"l-BOHA4hlHsZGkKwBaPqg","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"শুরু"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০০.০২"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"এই সাইট কীভাবে ব্যবহার করবেন"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"plan-এ যেখানে আসে"}],["$","div",null,{"className":"surface-well t-caption p-4 text-center","children":["plan-এর কোনো দিনে এই অধ্যায় নেই — এতে drill নেই। সাইট কীভাবে চলে, তা এখন"," ",["$","$L2",null,{"href":"/rules/","className":"t-accent","children":"নিয়মের পাতায়"}],"।"]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"ViewportBoundary"]
+17:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"MetadataBoundary"]
+18:I[27201,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"IconMark"]
+19:I[39756,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+1a:I[37457,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/00-01/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০০.০১ সফট স্কিল আসলে কী"}]]}],["$","$L2",null,{"href":"/doc/01-01/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০১.০১ Self-awareness — নিজেকে চেনা"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০০.০২ · এই সাইট কীভাবে ব্যবহার করবেন — সফট স্কিল"}],["$","meta","1",{"name":"description","content":"সফট স্কিলের ১০৪টা drill, ১০৮ দিনে — Senior থেকে Staff, রিমোট আর ইংরেজিসহ; দিনে একটা, আজ একবার, আসল কথোপকথনে; চার স্তরে নির্ভরতার ক্রমে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/soft_skill_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

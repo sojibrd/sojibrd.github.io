@@ -1,0 +1,141 @@
+1:"$Sreact.fragment"
+2:I[22016,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+9:X
+e:X
+e:C
+0:{"buildId":"l-BOHA4hlHsZGkKwBaPqg","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"৩. একজন মানুষের সাথে"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০৩.০৫"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Feedback — মতামত দেওয়া ও নেওয়া"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"plan-এ যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","062-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/062/","className":"chip chip--accent self-start","children":["দিন ","০৬২"," · ","SBI, কাজের দিকে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**SBI, কাজের দিকে** — যে ঘটনা নিয়ে কথা বলা দরকার, SBI-র তিন অংশে খাতায়; তারপর প্রতিটা শব্দ পরীক্ষা — কোনোটা কি মানুষটা কেমন তা নিয়ে, কাজ বা আচরণ নয়? থাকলে কাটুন; কাটাকাটিটাই আসল drill (ডক ০৩.০৫)"}]]}],["$","li","063-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/063/","className":"chip chip--accent self-start","children":["দিন ","০৬৩"," · ","ট্রিগারের নাম দিন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**ট্রিগারের নাম দিন** — শেষ যে feedback পেয়েছিলেন, খাতায়: কোন ট্রিগার জেগেছিল — সত্য, সম্পর্ক, নাকি পরিচয় — আর কথাটার কোন অংশ সত্যি হতে পারে · সুযোগ এলে: পরের feedback-এর এক দিনের মধ্যে একই দুই লাইন (ডক ০৩.০৫)"}]]}],["$","li","064-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/064/","className":"chip chip--accent self-start","children":["দিন ","০৬৪"," · ","ইংরেজিতে নির্দিষ্ট প্রশংসা"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**ইংরেজিতে নির্দিষ্ট প্রশংসা** — আজ একজনকে ইংরেজিতে, chat-এ বা মুখে, প্রশংসা — আচরণ আর প্রভাব দুটোই, \"good job\" নয়; প্রতিক্রিয়া সাধারণ প্রশংসার চেয়ে কতটা আলাদা, খাতায় (ডক ০৩.০৫)"}]]}],["$","li","065-3",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/065/","className":"chip chip--accent self-start","children":["দিন ","০৬৫"," · ","ধরন বলে দিন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**ধরন বলে দিন** — আজ কাউকে feedback দেওয়ার থাকলে শুরুতে এক বাক্যে ধরন বলুন — appreciation, coaching, নাকি evaluation; না থাকলে শেষ যে feedback দিয়েছিলেন, সেটা কোন ধরন ছিল আর তিনি কোনটা চাইছিলেন — খাতায় · সুযোগ এলে: পরের দুটো এক-একের আলাপে (ডক ০৩.০৫)"}]]}],["$","li","066-4",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/066/","className":"chip chip--accent self-start","children":["দিন ","০৬৬"," · ","অন্য টিমের design-এ feedback"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**অন্য টিমের design-এ feedback** — অন্য একটা টিমের design doc বা বড় PR খুলে তিনটা মন্তব্যের খসড়া — সমালোচনা প্রশ্ন বা SBI-র রূপে, আর একটা নির্দিষ্ট appreciation · সুযোগ এলে: পাঠিয়ে লেখককে জিজ্ঞেস — কোনটা সবচেয়ে কাজে লাগল, কোনটা আক্রমণ মনে হলো (ডক ০৩.০৫)"}]]}],["$","li","082-5",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/082/","className":"chip chip--accent self-start","children":["দিন ","০৮২"," · ","মুখে — একজন মানুষের সাথে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"এই ব্লকের আট অধ্যায় থেকে তিনটা মূল নিয়ম, একটা Speaking English বা Mentoring থেকে — গাইড না খুলে, মনে করে — প্রতিটা ইংরেজিতে জোরে, সাথে এই ব্লকের drill থেকে নিজের একটা ঘটনা; মোট ২ মিনিটে, ফোনে রেকর্ড করে (ডক ০৩.০১ · ডক ০৩.০২ · ডক ০৩.০৩ · ডক ০৩.০৪ · ডক ০৩.০৫ · ডক ০৩.০৬ · ডক ০৩.০৭ · ডক ০৩.০৮)"}]]}]]}]]}],"$L4","$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+14:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"OutletBoundary"]
+15:"$Sreact.suspense"
+17:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"ViewportBoundary"]
+18:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"MetadataBoundary"]
+19:I[27201,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"IconMark"]
+1a:I[39756,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+1b:I[37457,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+13:T3ef5,## সংজ্ঞা
+
+**Feedback** হলো কারো নির্দিষ্ট আচরণ আর তার প্রভাব সম্পর্কে তথ্য দেওয়া, যাতে তিনি পরেরবার সচেতনভাবে বেছে নিতে পারেন।
+
+ভিত্তিটা এই অধ্যায় ধরে নেয়: ব্যক্তিত্ব নয়, আচরণ; প্রভাবসহ; প্রশংসাও নির্দিষ্ট করে; নেওয়ার সময় ব্যাখ্যা নয়, প্রশ্ন। পরের স্তরে তিনটা অস্বস্তিকর সত্য যোগ হয়:
+
+- **Feedback উল্টো ফলও দেয়** — আর কখন দেয়, তার একটা নিয়ম আছে।
+- **একই শব্দ "feedback" তিনটা আলাদা জিনিস বোঝায়** — ধরন না মিললে ভালো feedback-ও ব্যর্থ হয়।
+- **নেওয়ার সময় আমরা তিনটা আলাদা কারণে আটকাই** — কারণটা চিনলে তবে পার হওয়া যায়।
+
+## কেন এটা কঠিন
+
+**১. Feedback সবসময় কাজে লাগে না।** Kluger আর DeNisi-র meta-analysis-এ (১৯৯৬) feedback দেওয়ার উদ্যোগগুলো গড়ে কাজের ফল বাড়িয়েছিল — কিন্তু **এক-তৃতীয়াংশের বেশি ক্ষেত্রে কমিয়েছিল**, আর সেটা ইতিবাচক না নেতিবাচক feedback, তা দিয়ে ব্যাখ্যা হয়নি। তাঁদের ব্যাখ্যা: মনোযোগ যত কাজ থেকে সরে মানুষটার "নিজের" দিকে যায় — "আমি কেমন মানুষ" — feedback তত কম কাজ করে।
+
+**২. ধরন না মিললে ভালো কথাও হারায়।** Stone আর Heen (*Thanks for the Feedback*, ২০১৪) feedback-কে তিন ভাগে দেখেন: **appreciation** (স্বীকৃতি, উৎসাহ), **coaching** (দক্ষতা বাড়ানো), **evaluation** (মানদণ্ডে কোথায় দাঁড়িয়ে)। কেউ appreciation চাইছেন আর পাচ্ছেন coaching — তখন হতাশা আসে, যদিও coaching-টা ঠিক।
+
+**৩. নেওয়ার তিন ট্রিগার।** একই বইয়ে: **সত্যের** ট্রিগার — "এটা ভুল, অন্যায্য"; **সম্পর্কের** ট্রিগার — "উনি বলার কে?"; **পরিচয়ের** ট্রিগার — "তাহলে কি আমি খারাপ engineer?" প্রতিটা ট্রিগার মনোযোগ কথার বিষয় থেকে সরিয়ে দেয়।
+
+**৪. যত্ন আর চ্যালেঞ্জ — একটা ছাড়া অন্যটা ভাঙে।** Kim Scott-এর *Radical Candor* (২০১৭) দুটো অক্ষ দেখায়: ব্যক্তিগতভাবে যত্ন নেওয়া আর সরাসরি চ্যালেঞ্জ করা। চ্যালেঞ্জ আছে কিন্তু যত্ন নেই — তিনি বলেন *obnoxious aggression*; যত্ন আছে কিন্তু চ্যালেঞ্জ নেই — *ruinous empathy*, যেখানে ভালোমানুষি করে আসল কথাটা বলা হয় না। আর তিনি সতর্ক করেন: radical candor নিষ্ঠুর হওয়ার অনুমতি নয়।
+
+**৫. দেরি আর জমা।** অস্বস্তিকর কথা পরে বলব ভেবে জমে, তারপর review-এ ছয় মাসের তালিকা একসাথে। তখন ঘটনা মনে থাকে না, আর প্রশ্ন আসে "এতদিন বলেননি কেন?"
+
+## কীভাবে কাজ করে
+
+### SBI — মনোযোগ কাজের উপর রাখার কাঠামো
+
+Center for Creative Leadership-এর *Situation–Behavior–Impact*:
+
+> **Situation** — "গতকালের design review-তে,"
+> **Behavior** — "রাকিব যখন প্রস্তাব বলছিলেন, আপনি মাঝপথে থামিয়ে নিজের সমাধান বলা শুরু করলেন।"
+> **Impact** — "এরপর উনি আর কিছু বলেননি, আর আমরা তাঁর বাকি যুক্তি কখনো শুনিনি।"
+
+তিনটাই ক্যামেরায় ধরা পড়ত। কোথাও "আপনি অভদ্র" নেই — আর ঠিক এটাই Kluger আর DeNisi-র নিয়মের সাথে মেলে: কথা কাজ আর আচরণে থাকে, "আপনি কেমন মানুষ"-এ যায় না। শেষে একটা প্রশ্ন: "আপনার দিক থেকে কী মনে হয়েছিল?"
+
+### ধরন বলে দিন
+
+বলার আগে এক বাক্যে জানান কোনটা: "এটা মূল্যায়ন নয় — একটা কৌশল দেখাতে চাই" (coaching), বা "শুধু বলতে চাই কালকের কাজটা কতটা কাজে লেগেছে" (appreciation)। নেওয়ার সময় উল্টোটা জিজ্ঞেস করুন: "আপনি কি মূল্যায়ন দিচ্ছেন, নাকি কীভাবে আরও ভালো করা যায় তা বলছেন?"
+
+### যত্ন আর চ্যালেঞ্জ একসাথে
+
+| | **চ্যালেঞ্জ কম** | **চ্যালেঞ্জ বেশি** |
+|---|---|---|
+| **যত্ন বেশি** | Ruinous empathy — আসল কথা বলা হয় না | **Radical candor** — সরাসরি, কারণ আপনি চান তিনি এগোন |
+| **যত্ন কম** | — | Obnoxious aggression — সত্যি, কিন্তু আঘাত করে |
+
+যত্ন দেখানো মানে নরম ভাষা নয় — মানে তিনি জানেন, আপনি কেন বলছেন।
+
+### নেওয়ার নিয়ম — ট্রিগার আগে চিনুন
+
+1. **প্রথম প্রতিক্রিয়াটা থামান।** কয়েক সেকেন্ড কিছু বলবেন না।
+2. **কোন ট্রিগার, নাম দিন।** সত্য, সম্পর্ক, নাকি পরিচয়? নাম দিলেই একটু দূরত্ব আসে।
+3. **"কোনটা ঠিক?" খুঁজুন।** ভুল মনে হলেও জিজ্ঞেস করুন: এর মধ্যে কোন অংশটা সত্যি হতে পারে?
+4. **উদাহরণ চান, ব্যাখ্যা নয়।** "একটা উদাহরণ দিতে পারবেন?"
+5. **ধন্যবাদ, তারপর ভাবুন।** সাথে সাথে একমত বা দ্বিমত — দুটোরই দরকার নেই।
+
+### সময় আর জায়গা
+
+- **প্রশংসা প্রকাশ্যে, সমালোচনা একান্তে।**
+- **যত দ্রুত সম্ভব, আবেগ ঠান্ডা হওয়ার পর।** ঘটনা মনে থাকতে থাকতে।
+- **অনুমতি নিন।** "একটা জিনিস নিয়ে কথা বলতে চাই — এখন সময় হবে?"
+
+## রিমোট আর দ্বিতীয় ভাষায়
+
+- **কঠিন feedback লেখায় নয়।** লেখায় সুর হারায় আর থেকে যায়। সমালোচনা ভিডিও কলে, তারপর লেখায় এক লাইনের সারাংশ — কী নিয়ে কথা হলো, কী ঠিক হলো। প্রশংসা লেখায় চলে, বরং লেখায় ভালো — সেটা থেকে যায়।
+- **সংস্কৃতিভেদে সরাসরি বলার মাত্রা আলাদা।** Erin Meyer-এর *The Culture Map*-এ নেতিবাচক feedback সরাসরি না পরোক্ষ — এটা একটা আলাদা মাপকাঠি। আন্তর্জাতিক টিমে আপনার "নরম" কথা কারো কাছে অস্পষ্ট, কারো কাছে ঠিক; আর অন্যের সরাসরি কথা আপনার কাছে রূঢ় শোনাতে পারে, যদিও উদ্দেশ্য তা নয়। নিশ্চিত না হলে জিজ্ঞেস করুন: "How direct would you like me to be?"
+- **দ্বিতীয় ভাষায় SBI আগে লিখে রাখুন।** তিন বাক্য তৈরি থাকলে কঠিন মুহূর্তে শব্দ খুঁজতে হয় না, আর বিচারের শব্দও ঢোকে না।
+
+| কখন | বাক্য |
+|---|---|
+| অনুমতি | "Can I share some feedback on yesterday's demo?" |
+| SBI | "In yesterday's review, when you …, the impact was …" |
+| তাঁর দিক | "What's your side of it?" |
+| ধরন জানতে চাওয়া | "Are you looking for feedback on the approach, or on the details?" |
+| উদাহরণ চাওয়া | "Thanks — could you give me a specific example?" |
+| নির্দিষ্ট প্রশংসা | "The way you wrote up the incident saved us a lot of questions." |
+
+## Senior থেকে Staff
+
+| | Senior | Lead | Staff |
+|---|---|---|---|
+| **কাকে দেন** | সহকর্মী, review-এ | নিজের টিম, নিয়মিত | অন্য টিম, অন্য টিমের lead, উপরের মানুষ |
+| **মূল কাজ** | ভালোভাবে নেওয়া, নির্দিষ্টভাবে দেওয়া | নিয়মিত ছোট feedback, যাতে review-এ চমক না থাকে | কর্তৃত্ব ছাড়া — design-এ, প্রক্রিয়ায়, উপরের দিকে |
+| **ঝুঁকি** | নেওয়ার সময় ব্যাখ্যা | ruinous empathy — টিমকে খুশি রাখতে আসল কথা চেপে রাখা | কথাটা আক্রমণ শোনায়, কারণ পদের ওজন আছে কিন্তু সম্পর্ক নেই |
+| **সাফল্যের মাপ** | মানুষ আপনাকে সত্যি বলেন | review-এ কেউ অবাক হন না | অন্য টিম আপনার feedback নিজে থেকে চায় |
+
+পদ যত উপরে, আপনার feedback তত ভারী — আর তত বেশি দরকার "কেন বলছি" স্পষ্ট করা।
+
+## অনুশীলন
+
+- **SBI, কাজের দিকে।** যে ঘটনা নিয়ে কথা বলা দরকার, SBI-র তিন অংশে লিখুন। তারপর প্রতিটা শব্দ পরীক্ষা করুন — কোনোটা কি কাজ বা আচরণ নয়, মানুষটা কেমন তা নিয়ে? থাকলে কাটুন; কাটাকাটিটাই আসল drill। (Senior)
+- **ট্রিগারের নাম দিন।** পরের যে feedback পাবেন, এক দিনের মধ্যে খাতায় তিনটা জিনিস লিখুন: কোন ট্রিগার জেগেছিল — সত্য, সম্পর্ক, নাকি পরিচয় — আর কথাটার কোন অংশ সত্যি হতে পারে। (Senior)
+- **ইংরেজিতে নির্দিষ্ট প্রশংসা।** এই সপ্তাহে একজনকে ইংরেজিতে প্রশংসা দিন — আচরণ আর প্রভাব দুটোই বলে, "good job" নয়। সাধারণ প্রশংসার চেয়ে তাঁর প্রতিক্রিয়া কতটা আলাদা হলো, খাতায় লিখুন। (Senior)
+- **ধরন বলে দিন।** পরের দুটো এক-একের আলাপে feedback দেওয়ার আগে এক বাক্যে বলুন সেটা কোন ধরনের — appreciation, coaching, নাকি evaluation। শেষে জিজ্ঞেস করুন, আগে বলে দেওয়ায় শোনা সহজ হলো কিনা। (Lead)
+- **অন্য টিমের design-এ feedback।** অন্য একটা টিমের design doc পড়ে মন্তব্য দিন — সমালোচনা প্রশ্ন বা SBI-র রূপে, আর অন্তত একটা নির্দিষ্ট appreciation। পরে লেখককে জিজ্ঞেস করুন, কোন মন্তব্যটা সবচেয়ে কাজে লেগেছে, আর কোনটা আক্রমণ মনে হয়েছে। (Staff)
+
+## মূল নিয়ম
+
+- কথা রাখুন কাজ আর আচরণে — "আপনি কেমন মানুষ"-এ গেলে feedback উল্টো ফল দিতে পারে।
+- ধরন বলে দিন: স্বীকৃতি, coaching, নাকি মূল্যায়ন।
+- যত্ন আর চ্যালেঞ্জ একসাথে — একটা ছাড়া অন্যটা ভাঙে।
+- নেওয়ার সময় আগে ট্রিগারের নাম, তারপর "কোনটা সত্যি হতে পারে?"
+- উদাহরণ চান, ব্যাখ্যা দেবেন না।
+- কঠিন কথা কলে, সারাংশ লেখায়; প্রশংসা লেখায়ও চলে।
+- পদ যত উপরে, তত স্পষ্ট করে বলুন কেন বলছেন।
+
+## উৎস
+
+- Kluger, A. N. & DeNisi, A. (1996). "The effects of feedback interventions on performance: A historical review, a meta-analysis, and a preliminary feedback intervention theory." *Psychological Bulletin*, 119(2), 254–284.
+- Stone, D. & Heen, S. (2014). *Thanks for the Feedback: The Science and Art of Receiving Feedback Well*. Viking.
+- Scott, K. (2017). *Radical Candor*. St. Martin's Press.
+- Center for Creative Leadership. *Situation–Behavior–Impact (SBI)*. — CCL-এর trademark।
+- Meyer, E. (2014). *The Culture Map*. PublicAffairs. — নেতিবাচক feedback সরাসরি বনাম পরোক্ষ।4:["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$13"}]}]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/03-04/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০৩.০৪ Writing — লিখে বোঝানো"}]]}],["$","$L2",null,{"href":"/doc/03-06/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০৩.০৬ Mentoring — অন্যকে শেখানো"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L14",null,{"children":["$","$15",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]
+a:["$","$1","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L18",null,{"children":["$","$15",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০৩.০৫ · Feedback — মতামত দেওয়া ও নেওয়া — সফট স্কিল"}],["$","meta","1",{"name":"description","content":"সফট স্কিলের ১০৪টা drill, ১০৮ দিনে — Senior থেকে Staff, রিমোট আর ইংরেজিসহ; দিনে একটা, আজ একবার, আসল কথোপকথনে; চার স্তরে নির্ভরতার ক্রমে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/soft_skill_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+12:true
+16:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

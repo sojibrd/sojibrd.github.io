@@ -1,0 +1,183 @@
+1:"$Sreact.fragment"
+2:I[22016,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+9:X
+e:X
+e:C
+0:{"buildId":"l-BOHA4hlHsZGkKwBaPqg","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"৩. একজন মানুষের সাথে"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০৩.০২"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Communication — কথা বলা ও বোঝানো"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"plan-এ যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","047-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/047/","className":"chip chip--accent self-start","children":["দিন ","০৪৭"," · ","একটা প্রস্তাব দুইভাবে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**একটা প্রস্তাব দুইভাবে** — পরের প্রস্তাবটা দুইভাবে খাতায় — একবার শুধু উত্তর দিয়ে শুরু করে, একবার SCQA-র চার বাক্যে; পাঠকের দিক থেকে কোনটা ঠিক, আর কেন — এক লাইনে · সুযোগ এলে: ঐটা পাঠানো (ডক ০৩.০২)"}]]}],["$","li","048-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/048/","className":"chip chip--accent self-start","children":["দিন ","০৪৮"," · ","পাল্টা প্রশ্ন ছাড়া async অনুরোধ"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**পাল্টা প্রশ্ন ছাড়া async অনুরোধ** — আজকের পরের প্রশ্ন বা অনুরোধ চার অংশে — প্রসঙ্গ, যা চেষ্টা করেছেন, ঠিক প্রশ্ন, default আর সময়সীমা; উত্তরদাতা কয়টা পাল্টা প্রশ্ন করলেন, গুনে রাখুন — শূন্যই লক্ষ্য (ডক ০৩.০২)"}]]}],["$","li","049-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/049/","className":"chip chip--accent self-start","children":["দিন ","০৪৯"," · ","ইংরেজিতে teach-back"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**ইংরেজিতে teach-back** — আজকের কোনো ইংরেজি ব্যাখ্যার শেষে — না থাকলে নিজের কাজের ব্যাখ্যা রেকর্ড করে, শেষে প্রশ্নটাসহ — \"Just to check I explained it well — what would you do first?\" · সুযোগ এলে: আসল শ্রোতার উত্তরে যে ধাপ বাদ গেল, সেটাই ব্যাখ্যার ফাঁক — খাতায় (ডক ০৩.০২)"}]]}],["$","li","050-3",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/050/","className":"chip chip--accent self-start","children":["দিন ","০৫০"," · ","সিদ্ধান্তের রেকর্ড পাঠান"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**সিদ্ধান্তের রেকর্ড পাঠান** — শেষ যে মিটিংয়ে সিদ্ধান্ত হয়েছিল, তার চার লাইনের রেকর্ড আজ লিখে পাঠান — কী ঠিক হলো, কে, কবে, কী খোলা · সুযোগ এলে: পরের মিটিং শেষের এক ঘণ্টার মধ্যে, আর এক সপ্তাহ পরে দেখা — কেউ আবার প্রশ্ন তুললেন কিনা (ডক ০৩.০২)"}]]}],["$","li","051-4",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/051/","className":"chip chip--accent self-start","children":["দিন ","০৫১"," · ","একই দিক-বদল, তিন শ্রোতা"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**একই দিক-বদল, তিন শ্রোতা** — একটা প্রযুক্তিগত বদল — migration, deprecation, নতুন নিয়ম — নিয়ে তিনটা প্রথম অনুচ্ছেদ খাতায়: যে টিম কাজটা করবে, যে টিম প্রভাবিত হবে, আর ম্যানেজমেন্ট; তিনটার প্রথম বাক্য আলাদা কিনা দেখুন (ডক ০৩.০২)"}]]}],["$","li","082-5",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/082/","className":"chip chip--accent self-start","children":["দিন ","০৮২"," · ","মুখে — একজন মানুষের সাথে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"এই ব্লকের আট অধ্যায় থেকে তিনটা মূল নিয়ম, একটা Speaking English বা Mentoring থেকে — গাইড না খুলে, মনে করে — প্রতিটা ইংরেজিতে জোরে, সাথে এই ব্লকের drill থেকে নিজের একটা ঘটনা; মোট ২ মিনিটে, ফোনে রেকর্ড করে (ডক ০৩.০১ · ডক ০৩.০২ · ডক ০৩.০৩ · ডক ০৩.০৪ · ডক ০৩.০৫ · ডক ০৩.০৬ · ডক ০৩.০৭ · ডক ০৩.০৮)"}]]}]]}]]}],"$L4","$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+14:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"OutletBoundary"]
+15:"$Sreact.suspense"
+17:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"ViewportBoundary"]
+18:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"MetadataBoundary"]
+19:I[27201,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"IconMark"]
+1a:I[39756,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+1b:I[37457,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+13:T6154,## সংজ্ঞা
+
+**Communication** হলো নিজের চিন্তা এমনভাবে পৌঁছে দেওয়া যে সামনের মানুষ সেটা **আপনার উদ্দেশ্য অনুযায়ী বোঝেন, আর সেই বোঝা দিয়ে কাজ করতে পারেন।**
+
+এই অধ্যায় ভিত্তিটা জানা ধরে নেয়: মাপকাঠি আপনি কী বলেছেন নয়, শ্রোতা কী বুঝেছেন; উপসংহার আগে, যুক্তি পরে (BLUF); শ্রোতা বুঝে স্তর বদলানো; "শীঘ্রই" বা "প্রায়"-এর বদলে তারিখ আর সংখ্যা। পরের স্তরে প্রশ্নটা বদলায় — "আমি কি স্পষ্ট বললাম?" থেকে **"এই মানুষ, এই মাধ্যমে, এই ভাষায়, এই সময়ে আমার কথা থেকে কী নিয়ে যাবেন — আর আমি না থাকলেও কি সেটা টিকবে?"**
+
+শেষ অংশটা — আপনি না থাকলেও টেকা — পদ যত উপরে, তত বড় হয়। Senior-এর কথাকে একটা মিটিং পার হলেই চলে; Staff-এর কথাকে তিনটা টিম আর কয়েক মাস পার হতে হয়।
+
+## কেন এটা কঠিন
+
+ভিত্তির নিয়মগুলো মানলেও যোগাযোগ ভাঙে — এই জায়গাগুলোতে।
+
+**১. নিজের স্পষ্টতা আপনি মাপেন নিজের মাথা দিয়ে।** Stanford-এ Elizabeth Newton-এর একটা পরীক্ষায় একদল মানুষ টেবিলে চেনা গানের তাল ঠুকেছিলেন, আরেকদল শুনে গানটা ধরার চেষ্টা করেছিলেন। যাঁরা ঠুকছিলেন, তাঁরা ভেবেছিলেন অর্ধেক গান ধরা পড়বে; আসলে ১২০টার মধ্যে ধরা পড়েছিল ৩টা। ঠোকার সময় নিজের মাথায় সুর বাজে, শ্রোতার কানে বাজে শুধু ঠকঠক। এর নাম **curse of knowledge**। ভিত্তির "শ্রোতা বুঝে বলুন" নিয়ম একে সারায় না — কারণ শ্রোতা কতটা বুঝবেন, সেই আন্দাজটাও আপনার মাথা থেকেই আসে।
+
+**২. লিখলে সুর হারায়, আর আপনি টের পান না।** Kruger ও সহকর্মীদের গবেষণায় (২০০৫) ইমেইলের প্রেরকেরা নিয়মিত ধরে নিয়েছিলেন যে তাঁদের সুর — ঠাট্টা না গুরুতর — প্রাপক ঠিক ধরবেন; প্রাপকেরা তার চেয়ে অনেক কম ধরেছিলেন। "আবেগের কথা chat-এ নয়" জানা থাকলেও সমস্যা থাকে, কারণ কোন মেসেজটা আবেগের হয়ে পড়েছে, সেটাই আপনি জানেন না।
+
+**৩. BLUF সব শ্রোতার কাছে কাজ করে না।** উপসংহার আগে বলা কাজ করে তখন, যখন শ্রোতা আগেই মানেন যে সমস্যাটা আছে। সন্দেহপ্রবণ শ্রোতার কাছে প্রথম বাক্যে "আমার প্রস্তাব: পুরো module নতুন করে লেখা" মানে আলোচনা শুরুর আগেই প্রতিরোধ। আর কিছু সংস্কৃতিতে আগে প্রেক্ষাপট বা নীতি, তারপর উপসংহার শোনাই স্বাভাবিক — Erin Meyer একে বলেন "principles-first", উল্টোটাকে "applications-first"।
+
+**৪. সিদ্ধান্ত মুখে হয়, স্মৃতিতে মরে।** মিটিংয়ের শেষে সবাই একমত; এক সপ্তাহ পরে প্রত্যেকে আলাদা জিনিস মনে রেখেছেন। লেখা না থাকলে "আমরা তো ঠিক করেছিলাম" আর তর্কের মধ্যে কোনো তফাত থাকে না।
+
+**৫. কথা যত দূরে যায়, তত ছোট হয়।** আপনার শ্রোতা যখন নিজের টিমকে আপনার কথা বলেন, বিস্তারিত ঝরে পড়ে, থাকে একটা বাক্য। কোন বাক্যটা টিকবে, সেটা আপনি না বাছলে অন্য কেউ বাছবেন — আর সেটা আপনার বাক্য হবে না।
+
+## কীভাবে কাজ করে
+
+### Pyramid আর SCQA — BLUF-এর পরের ধাপ
+
+Barbara Minto-র **Pyramid Principle**: উপরে একটা মূল বক্তব্য, তার নিচে সেটাকে ধরে রাখা কয়েকটা যুক্তি, প্রতিটার নিচে প্রমাণ। BLUF বলে "উপসংহার আগে"; pyramid বলে **উপসংহারের নিচে কী থাকবে, আর কোন ক্রমে।**
+
+কোথা থেকে শুরু করবেন, তা ঠিক করে শ্রোতা। শ্রোতা সমস্যাটা আগেই মানলে — উত্তর আগে। না মানলে Minto-র **SCQA** দিয়ে ঢুকুন, চার বাক্যে:
+
+| অংশ | কী | উদাহরণ |
+|---|---|---|
+| **S**ituation | যা সবাই মানেন | "checkout পাতা দুই বছর ধরে একই কোডে চলছে।" |
+| **C**omplication | যা বদলেছে | "গত তিনটা payment-ফিচারের প্রতিটায় এক সপ্তাহ গেছে শুধু পুরনো কোড বুঝতে।" |
+| **Q**uestion | যে প্রশ্নটা উঠে আসে | "পরের ফিচারগুলোও কি একই দামে করব?" |
+| **A**nswer | আপনার প্রস্তাব | "না — আগে দুই sprint-এ payment অংশটা আলাদা করি।" |
+
+Situation আর Complication শ্রোতাকে সমস্যায় রাজি করায়। তারপর Answer আর প্রতিরোধ পায় না, কারণ প্রশ্নটা তিনি নিজেই মনে মনে করে ফেলেছেন।
+
+### মাধ্যম — অভাব না, নাকি একাধিক অর্থ
+
+Daft আর Lengel-এর **media richness** ধারণায় মাধ্যমগুলো একটা মইয়ে সাজানো: সামনাসামনি কথা সবচেয়ে "ধনী" — সুর, মুখ, সাথে সাথে প্রশ্ন; লিখিত রিপোর্ট আর সংখ্যার তালিকা সবচেয়ে কম। তাঁদের একটা পার্থক্য কাজের:
+
+- **তথ্যের অভাব** (uncertainty) মেটে আরও তথ্যে — লিখিত, লিংক, সংখ্যা।
+- **একাধিক অর্থ** (equivocality) — যেখানে সবাই একই তথ্য দেখে আলাদা মানে করেন — মেটে ধনী মাধ্যমে, কথা বলে।
+
+ভুল দুই রকম: বিতর্ক chat-এ চালানো, আর সিদ্ধান্ত শুধু কলে রেখে দেওয়া। ভিডিও কল আর chat এই মইয়ের মাঝখানে কোথাও — এটা পরের ব্যাখ্যা, মূল গবেষণা ১৯৮৬-এর।
+
+### যাচাই — teach-back
+
+ভিত্তির প্রশ্ন "তোমার ভাষায় পরের ধাপটা কী?"-এর একটা নাম আছে: **teach-back**। স্বাস্থ্যসেবায় এটা মানক পদ্ধতি — রোগীকে নির্দেশনা নিজের ভাষায় ফিরিয়ে বলতে বলা, না পারলে অন্য ভাষায় আবার বোঝানো, আর দায়টা রাখা যিনি বোঝাচ্ছেন তাঁর উপর। কাজে তিনটা নিয়ম:
+
+- **প্রশ্ন কাজ নিয়ে, জ্ঞান নিয়ে নয়।** "প্রথমে কী করবে?" — "বুঝলে?" নয়।
+- **ভুল ফিরলে একই কথা জোরে নয়, অন্যভাবে।** উদাহরণ, ছবি, ছোট ধাপ।
+- **দায় নিজের।** "আমি ঠিকমতো বোঝাতে পারলাম কিনা দেখতে চাই।"
+
+### সিদ্ধান্তের রেকর্ড
+
+প্রতিটা সিদ্ধান্তের আলোচনা শেষ হয় একটা লিখিত রেকর্ডে: **কী ঠিক হলো · কে করবেন · কবে · কী খোলা রইল।** এটা মিটিংয়ের নোট নয় — নোট বলে কী আলোচনা হলো, রেকর্ড বলে কী বদলাল। যিনি রেকর্ডটা লিখে পাঠান, আলোচনার শেষ রূপটা তাঁর হাতে; তাই কাজটা নিজে নিন।
+
+### বার্তা যেন একা টেকে
+
+যে কথা আপনার শ্রোতা অন্যকে বলবেন, তার এক বাক্যের রূপটা নিজেই বানিয়ে দিন — "টিমকে বলতে চাইলে: …"। না দিলে তিনি নিজে বানাবেন।
+
+## রিমোট আর দ্বিতীয় ভাষায়
+
+### async — প্রতিটা পাল্টা প্রশ্ন একটা দিন
+
+একই অফিসে একটা অস্পষ্ট মেসেজের দাম পাঁচ মিনিট। রিমোটে, যেখানে উত্তর আসে পরের কর্মদিবসে, দাম একটা পুরো দিন। তাই async মেসেজের মাপ একটাই: **উত্তরদাতা কিছু জিজ্ঞেস না করেই কাজ করতে পারেন।**
+
+ভালো async অনুরোধে চারটা অংশ:
+
+1. **প্রসঙ্গ** — এক বাক্যে, লিংকসহ।
+2. **যা চেষ্টা করেছেন** — যাতে উত্তরদাতা একই পথে না হাঁটেন।
+3. **ঠিক প্রশ্নটা** — হ্যাঁ/না, বা বিকল্পগুলোর মধ্যে বাছাই।
+4. **default আর সময়সীমা** — "বৃহস্পতিবার ১০টা (UTC)-র মধ্যে না শুনলে B ধরে এগোব।" এতে নীরবতাও একটা উত্তর হয়ে যায়।
+
+শুধু "Hi" বা "একটা প্রশ্ন ছিল" লিখে অপেক্ষা — অন্য সময়-অঞ্চলে একটা দিন হারানোর সবচেয়ে সহজ উপায়। আর সময় লিখলে সময়-অঞ্চলও লিখুন: "কাল সকালে" — কার সকাল?
+
+### সাপ্তাহিক লিখিত হালনাগাদ
+
+রিমোটে আপনাকে দেখা যায় শুধু আপনার লেখায়। সপ্তাহে একবার, চার লাইন: **কী শেষ হলো · কী চলছে · কী ঝুঁকিতে · আমার কী দরকার।** শেষ লাইনটা ফাঁকা হলেও লিখুন — "কিছু দরকার নেই"-ও তথ্য।
+
+### দ্বিতীয় ভাষায় বলা — লক্ষ্য বোধগম্যতা, accent নয়
+
+Munro আর Derwing-এর গবেষণা (১৯৯৫) দেখিয়েছে, accent কতটা ভারী আর কথা কতটা বোঝা যায় — এ দুটো সম্পর্কিত, কিন্তু আংশিকভাবে আলাদা: **ভারী accent-এর কথাও পুরোপুরি বোধগম্য হতে পারে।** তাই সময় দেওয়ার জায়গা accent নয়, এই চারটা:
+
+- **ছোট বাক্য, এক বাক্যে এক কথা।** লম্বা বাক্যের মাঝপথে ব্যাকরণ হারায়; ছোট বাক্যে হারানোর জায়গা থাকে না।
+- **আগে সংকেত, তারপর কথা।** "Two things. First, … Second, …" — শ্রোতা জানেন কতটা আসছে, আপনিও জানেন কোথায় আছেন।
+- **প্রথম বাক্যটা আগে থেকে তৈরি।** মিটিংয়ের, standup-এর, ডেমোর প্রথম বাক্য — বাকিটা তার পরে সহজে আসে।
+- **সময় কেনার আর যাচাইয়ের বাক্য মুখস্থ** — নিচের তালিকা।
+
+| কখন | বাক্য |
+|---|---|
+| ভাবার সময় চাই | "Let me think about that for a second." |
+| প্রশ্ন বুঝিনি | "Sorry, could you say that again, a bit more slowly?" |
+| ঠিক বুঝলাম কিনা | "Just to make sure I understood — you'd like me to …?" |
+| উত্তর জানি না | "I don't know yet. I'll check and get back to you by …" |
+| কথার মাঝে ঢুকতে | "Can I add something here?" |
+| শেষে যাচাই | "So the next step is …, right?" |
+
+ভাঙা ইংরেজিতে বলা চুপ থাকার চেয়ে ভালো — চুপ থাকলে মিটিং ধরে নেয় আপনার কিছু বলার নেই।
+
+### লেখায় দ্বিতীয় ভাষা
+
+লেখায় সময় আছে, তাই নিয়ম আলাদা: আগে নিজের ভাষায় মূল কথাটা এক বাক্যে ঠিক করুন, তারপর ইংরেজিতে লিখুন। ভাষা বদলানো আর চিন্তা গোছানো একসাথে করলে দুটোই খারাপ হয়। AI দিয়ে ব্যাকরণ ঠিক করা যায়; কিন্তু মূল বাক্যটা নিজের হলে তবেই আলোচনায় সেটা নিজের মুখে বলতে পারবেন।
+
+## Senior থেকে Staff
+
+একই স্কিল, তিন পদে — শ্রোতার পরিধি বাড়ে, আর আপনার কথাকে আপনাকে ছাড়া টিকতে হয় আরও দূর পর্যন্ত।
+
+| | Senior | Lead | Staff |
+|---|---|---|---|
+| **শ্রোতা** | নিজের টিম, PM | টিম, আর টিমের বাইরের কয়েকজন | অনেক টিম, ম্যানেজমেন্ট |
+| **মূল কাজ** | নিজের কাজ আর সিদ্ধান্ত বোঝানো | টিমকে এক দিকে রাখা — উপরের কথা নিচে, নিচের কথা উপরে | দিক-বদলের কথা এমনভাবে লেখা যে মাস পেরিয়েও টেকে |
+| **মাধ্যম** | PR, standup, chat | মিটিং চালানো, সিদ্ধান্তের রেকর্ড | design doc, RFC, লিখিত দিক |
+| **ব্যর্থতার রূপ** | "আমি তো বলেছিলাম" | টিমের দুজন দুই রকম বুঝেছেন | তিন টিম একই কথার তিন রকম মানে ধরে কাজ করছে |
+| **সাফল্যের মাপ** | পাল্টা প্রশ্ন ছাড়াই কাজ এগোয় | একই সিদ্ধান্ত আবার তোলা হয় না | আপনার অনুপস্থিতিতে আপনার বাক্যটা অন্যরা বলেন |
+
+তিনটা জিনিস পদের সাথে বদলায়:
+
+- **কথার ওজন।** Lead থেকে উপরে আপনার "একটা ভাবনা" টিমের কাছে নির্দেশ হয়ে যায়। ভাবনা হলে বলে দিন: "এটা শুধু ভাবনা, সিদ্ধান্ত নয়।"
+- **পুনরাবৃত্তি।** Senior-এ একবার বললেই চলে। Staff-এ একই কথা প্রতিটা শ্রোতার জন্য আলাদা করে, আর বারবার — এখানে পুনরাবৃত্তি বিরক্তিকর অভ্যাস নয়, কাজেরই অংশ।
+- **কর্তৃত্ব ছাড়া।** Tanya Reilly *The Staff Engineer's Path*-এ Staff পদকে দেখান সরাসরি কর্তৃত্ব ছাড়া নেতৃত্ব হিসেবে। তখন যোগাযোগই প্রধান যন্ত্র — নির্দেশ দেওয়ার উপায় নেই, আছে শুধু বোঝানো।
+
+## অনুশীলন
+
+- **একটা প্রস্তাব দুইভাবে।** পরের প্রস্তাবটা দুইভাবে লিখুন — একবার শুধু উত্তর দিয়ে শুরু করে, একবার SCQA-র চার বাক্যে। যাঁকে পাঠাবেন তিনি সমস্যাটা আগেই মানেন কিনা ভেবে একটা পাঠান; কোনটা পাঠালেন আর কেন, খাতায় এক লাইন। (Senior)
+- **পাল্টা প্রশ্ন ছাড়া async অনুরোধ।** পরের প্রশ্ন বা অনুরোধ চার অংশে লিখুন — প্রসঙ্গ, যা চেষ্টা করেছেন, ঠিক প্রশ্ন, default আর সময়সীমা। উত্তরদাতা কয়টা পাল্টা প্রশ্ন করলেন, গুনে রাখুন — শূন্যই লক্ষ্য। (Senior)
+- **ইংরেজিতে teach-back।** পরের যে ব্যাখ্যা ইংরেজিতে দেবেন, শেষে বলুন: "Just to check I explained it well — what would you do first?" উত্তরে যে ধাপ বাদ গেল, সেটাই আপনার ব্যাখ্যার ফাঁক; খাতায় লিখুন। (Senior)
+- **সিদ্ধান্তের রেকর্ড পাঠান।** পরের যে মিটিংয়ে সিদ্ধান্ত হবে, শেষ হওয়ার এক ঘণ্টার মধ্যে চার লাইন পাঠান — কী ঠিক হলো, কে, কবে, কী খোলা। এক সপ্তাহ পরে দেখুন, ঐ সিদ্ধান্ত নিয়ে কেউ আবার প্রশ্ন তুললেন কিনা। (Lead)
+- **একই দিক-বদল, তিন শ্রোতা।** একটা প্রযুক্তিগত বদল — migration, deprecation, নতুন নিয়ম — তিনটা প্রথম অনুচ্ছেদে লিখুন: যে টিম কাজটা করবে, যে টিম প্রভাবিত হবে, আর ম্যানেজমেন্ট। তিনটার প্রথম বাক্য আলাদা না হলে আপনি শ্রোতা বদলাননি। (Staff)
+
+## মূল নিয়ম
+
+- মাপ বলা নয়, বোঝা — আর বোঝাও নয়, সেই বোঝা দিয়ে কাজ।
+- নিজের স্পষ্টতা নিজের মাথায় মাপবেন না; শ্রোতার মুখ থেকে ফিরিয়ে শুনুন।
+- শ্রোতা সমস্যা মানলে উত্তর আগে; না মানলে আগে Situation আর Complication।
+- একাধিক অর্থের বিষয় কথায়, সিদ্ধান্ত লেখায় — উল্টোটা কখনো নয়।
+- async মেসেজের মাপ: উত্তরদাতাকে কিছু জিজ্ঞেস করতে হয় না; শেষে default আর সময়সীমা।
+- দ্বিতীয় ভাষায় লক্ষ্য বোধগম্যতা — ছোট বাক্য আর সংকেত, নিখুঁত accent নয়।
+- যে সিদ্ধান্ত লেখা হয়নি, সেটা হয়নি।
+- পদ যত উপরে, আপনার কাজ তত বেশি — আপনাকে ছাড়া আপনার কথা টেকানো।
+
+## উৎস
+
+- Heath, C. & Heath, D. (2007). *Made to Stick: Why Some Ideas Survive and Others Die*. Random House. — Elizabeth Newton-এর tapping পরীক্ষা (Stanford) আর curse of knowledge।
+- Kruger, J., Epley, N., Parker, J. & Ng, Z.-W. (2005). "Egocentrism over e-mail: Can we communicate as well as we think?" *Journal of Personality and Social Psychology*, 89(6), 925–936. [PubMed](https://pubmed.ncbi.nlm.nih.gov/16393025/)
+- Minto, B. *The Minto Pyramid Principle: Logic in Writing, Thinking and Problem Solving* (বর্ধিত সংস্করণ, 1996; প্রথম বই *The Pyramid Principle*, ১৯৮০-এর দশকে)। — Pyramid আর SCQA।
+- Daft, R. L. & Lengel, R. H. (1986). "Organizational Information Requirements, Media Richness and Structural Design." *Management Science*, 32(5), 554–571. [DOI](https://doi.org/10.1287/mnsc.32.5.554)
+- AHRQ. *Health Literacy Universal Precautions Toolkit* — teach-back পদ্ধতি। [ahrq.gov](https://www.ahrq.gov/health-literacy/improve/precautions/tool5.html)
+- Munro, M. J. & Derwing, T. M. (1995). "Foreign Accent, Comprehensibility, and Intelligibility in the Speech of Second Language Learners." *Language Learning*, 45(1), 73–97. [DOI](https://doi.org/10.1111/j.1467-1770.1995.tb00963.x)
+- Meyer, E. (2014). *The Culture Map*. PublicAffairs. — "principles-first" আর "applications-first"।
+- Reilly, T. (2022). *The Staff Engineer's Path*. O'Reilly. — Staff পদ, সরাসরি কর্তৃত্ব ছাড়া নেতৃত্ব হিসেবে।4:["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$13"}]}]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/03-01/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০৩.০১ Listening — শোনা"}]]}],["$","$L2",null,{"href":"/doc/03-03/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০৩.০৩ Speaking English — দ্বিতীয় ভাষায় মুখে বলা"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L14",null,{"children":["$","$15",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]
+a:["$","$1","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L18",null,{"children":["$","$15",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০৩.০২ · Communication — কথা বলা ও বোঝানো — সফট স্কিল"}],["$","meta","1",{"name":"description","content":"সফট স্কিলের ১০৪টা drill, ১০৮ দিনে — Senior থেকে Staff, রিমোট আর ইংরেজিসহ; দিনে একটা, আজ একবার, আসল কথোপকথনে; চার স্তরে নির্ভরতার ক্রমে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/soft_skill_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+12:true
+16:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

@@ -1,0 +1,132 @@
+1:"$Sreact.fragment"
+2:I[22016,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+9:X
+e:X
+e:C
+0:{"buildId":"l-BOHA4hlHsZGkKwBaPqg","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"৩. একজন মানুষের সাথে"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০৩.০১"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Listening — শোনা"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"plan-এ যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","042-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/042/","className":"chip chip--accent self-start","children":["দিন ","০৪২"," · ","গুনে রাখা paraphrase"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**গুনে রাখা paraphrase** — আজ একটা কথোপকথনে, উত্তরের আগে নিজের ভাষায় সারমর্ম: \"তাহলে আপনি বলছেন…\"; সামনের মানুষ শুধরে দিলেন কিনা, খাতায় · পূর্ণ মাপে: তিনটা কথোপকথন — শুধরে দেওয়ার সংখ্যাটাই আসল listening-এর মাপ (ডক ০৩.০১)"}]]}],["$","li","043-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/043/","className":"chip chip--accent self-start","children":["দিন ","০৪৩"," · ","স্পঞ্জ থেকে trampoline"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**স্পঞ্জ থেকে trampoline** — আজকের যেকোনো আলাপে কেউ সমস্যা বা পরিকল্পনা বললে, নিজের মত বলার আগে দুটো গভীরে নেওয়ার প্রশ্ন — \"কী কী চেষ্টা করেছেন?\", \"কোনটা নিয়ে সবচেয়ে বেশি চিন্তা?\"; তিনি নতুন কিছু বললেন কিনা, খাতায় · সুযোগ এলে: পরের সমস্যা নিয়ে আসা আলাপে (ডক ০৩.০১)"}]]}],["$","li","044-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/044/","className":"chip chip--accent self-start","children":["দিন ","০৪৪"," · ","ইংরেজিতে \"say more\""]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**ইংরেজিতে \"say more\"** — আজকের কোনো ইংরেজি কলে কেউ একটা কথা শেষ করলে একবার: \"Can you say more about that?\" — তারপর তিন সেকেন্ড চুপ; না থাকলে বাক্যটা পরের কলের জন্য জোরে দুবার · সুযোগ এলে: পরের ইংরেজি কলে, আর দ্বিতীয় অংশে নতুন কী এল (ডক ০৩.০১)"}]]}],["$","li","045-3",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/045/","className":"chip chip--accent self-start","children":["দিন ","০৪৫"," · ","টিমের নীরবতা শুনুন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**টিমের নীরবতা শুনুন** — আজকের বা শেষ টিম মিটিং নিয়ে খাতায় দুটো জিনিস: কে একবারও কথা বলেননি, আর কোন বিষয় সবাই এড়িয়ে গেলেন · সুযোগ এলে: তাঁদের একজনের সাথে আলাদা কথা — \"I noticed X in the meeting — what's your take?\" (ডক ০৩.০১)"}]]}],["$","li","046-4",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/046/","className":"chip chip--accent self-start","children":["দিন ","০৪৬"," · ","একটা listening tour"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**একটা listening tour** — তিনটা ভিন্ন টিমের তিনজনকে বেছে খাতায়, আর একটাই প্রশ্ন — \"আপনার টিমকে সবচেয়ে বেশি কী ধীর করে?\"; আজ প্রথমজনকে ৩০ মিনিটের সময় চেয়ে মেসেজ · পূর্ণ মাপে: তিনটা আলাপ, শুধু শোনা আর লেখা, তারপর এক পাতার সারাংশ ফেরত — \"ঠিক ধরেছি?\" (ডক ০৩.০১)"}]]}],["$","li","082-5",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/082/","className":"chip chip--accent self-start","children":["দিন ","০৮২"," · ","মুখে — একজন মানুষের সাথে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"এই ব্লকের আট অধ্যায় থেকে তিনটা মূল নিয়ম, একটা Speaking English বা Mentoring থেকে — গাইড না খুলে, মনে করে — প্রতিটা ইংরেজিতে জোরে, সাথে এই ব্লকের drill থেকে নিজের একটা ঘটনা; মোট ২ মিনিটে, ফোনে রেকর্ড করে (ডক ০৩.০১ · ডক ০৩.০২ · ডক ০৩.০৩ · ডক ০৩.০৪ · ডক ০৩.০৫ · ডক ০৩.০৬ · ডক ০৩.০৭ · ডক ০৩.০৮)"}]]}]]}]]}],"$L4","$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+14:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"OutletBoundary"]
+15:"$Sreact.suspense"
+17:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"ViewportBoundary"]
+18:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"MetadataBoundary"]
+19:I[27201,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"IconMark"]
+1a:I[39756,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+1b:I[37457,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+13:T3dd0,## সংজ্ঞা
+
+**Listening** হলো সামনের মানুষটি যা বলছেন, তা **বোঝার উদ্দেশ্যে** শোনা — উত্তর দেওয়ার উদ্দেশ্যে নয়।
+
+ভিত্তিটা এই অধ্যায় ধরে নেয়: paraphrase, খোলা প্রশ্ন, নীরবতা, আর সমাধানের আগে অনুমতি। পরের স্তরে listening শুধু তথ্য পাওয়ার উপায় নয় — **মানুষকে বদলাতে সাহায্য করার উপায়**: ঠিকভাবে শোনা হলে বক্তা নিজেই নিজের চিন্তা আরও খোলাভাবে দেখেন। আর পদ বাড়লে listening একজন মানুষ থেকে টিম আর প্রতিষ্ঠানে ছড়ায় — অনেক কণ্ঠ শুনে আসল সমস্যাটা ধরা।
+
+এটা স্তর ৩-এর প্রথম অধ্যায়, কারণ বাকি সব যোগাযোগ এর উপর দাঁড়ানো: যিনি বোঝেননি, তিনি ঠিক কথাটা বলতে পারেন না।
+
+## কেন এটা কঠিন
+
+**১. মাথা কথার চেয়ে দ্রুত চলে।** Nichols আর Stevens-এর প্রবন্ধে (১৯৫৭) গড় আমেরিকান মিনিটে প্রায় ১২৫ শব্দ বলেন, আর শোনার সময় মাথায় চিন্তা চলে তার চেয়ে অনেক দ্রুত। ঐ বাড়তি জায়গা খালি থাকে না — ভরে যায় নিজের উত্তর, বিচার আর অসম্মতিতে।
+
+**২. ভালো শোনা মানে চুপ থাকা — এই ভুল ধারণা।** Zenger আর Folkman (২০১৬) লেখেন, বেশিরভাগ মানুষ ভাবেন ভালো শোনা মানে তিনটা জিনিস: অন্যের কথার সময় চুপ, মুখে-মাথায় সায়, আর কথাটা ফিরিয়ে বলতে পারা। ৩,৪৯২ জন ম্যানেজারের ৩৬০-ডিগ্রি মূল্যায়ন ঘেঁটে তাঁরা দেখেন, সেরা শ্রোতারা এর চেয়ে বেশি করেন — প্রশ্ন করেন, ভাবনা ফিরিয়ে দেন। তাঁদের তুলনায় ভালো শ্রোতা স্পঞ্জ নয় (সব শুষে নেওয়া), trampoline (ভাবনা আরও উঁচুতে ফিরিয়ে দেওয়া)।
+
+**৩. পাল্টা যুক্তি উল্টো ফল দেয়।** Itzchakov আর Kluger-এর গবেষণা দলের ব্যাখ্যায় পাল্টা যুক্তি শ্রোতার কাছে হুমকি মনে হয়, আত্মরক্ষা জাগায়, আর প্রায়ই আগের মতকে আরও শক্ত করে। উল্টো দিকে তাঁদের পরীক্ষায় মনোযোগী, সহমর্মী, বিচারহীন শোনা বক্তার সামাজিক উদ্বেগ আর আত্মরক্ষা কমিয়েছে — আর বক্তারা নিজেদের মতের ভেতরের দ্বন্দ্ব বেশি দেখেছেন, মত কম চরম হয়েছে।
+
+**৪. শব্দ শুনি, চাহিদা শুনি না।** "এই ticket আবার আমার কাছে এল" — কথাটা হয়তো ticket নিয়ে নয়, কাজের বণ্টন নিয়ে। কথার বিষয় আর উদ্দেশ্য প্রায়ই আলাদা।
+
+**৫. নীরবতা অস্বস্তিকর।** কয়েক সেকেন্ডের বিরতি এলে বেশিরভাগ মানুষ সেটা ভরে দেন — অথচ দ্বিতীয় স্তরের কথাটা প্রায়ই ঐ বিরতির **পরে** আসে।
+
+## কীভাবে কাজ করে
+
+### শোনার তিন স্তর
+
+| স্তর | মনোযোগ কোথায় | ফল |
+|---|---|---|
+| **১. নিজের দিকে** | "এটা আমার সাথে কীভাবে সম্পর্কিত?" | নিজের গল্প বলা শুরু |
+| **২. অন্যের দিকে** | "উনি কী বলছেন?" | শব্দ বোঝা |
+| **৩. পুরো পরিস্থিতির দিকে** | "উনি কী *বলছেন না*? সুর কেমন? কী এড়িয়ে যাচ্ছেন?" | আসল বিষয় বোঝা |
+
+### স্পঞ্জ নয়, trampoline
+
+শুধু শোনা প্রথম ধাপ। তারপর:
+
+- **ফিরিয়ে বলুন, নিজের ভাষায়।** "তাহলে deadline সমস্যা নয় — scope বদলাচ্ছে অথচ deadline বদলাচ্ছে না, ঠিক বুঝলাম?" ভুল বুঝলে তিনি এখনই শুধরে দেবেন, তিন সপ্তাহ পরে নয়।
+- **গভীরে নেওয়ার প্রশ্ন।** "কী কী চেষ্টা করেছেন?" "কোনটা নিয়ে সবচেয়ে বেশি চিন্তা?" — হ্যাঁ/না নয়, খোলা।
+- **বুঝে তারপর যোগ করুন।** নিজের মত আসবে **পরে**, তাঁর কথা পুরোপুরি বোঝার পর — আর সেটা তাঁর ভাবনাকে এগিয়ে নেওয়ার জন্য, ছাপিয়ে যাওয়ার জন্য নয়।
+
+### নীরবতা — তিন সেকেন্ড
+
+কথা শেষ হলে মনে মনে তিন গুনুন। অস্বস্তিটা আপনার, কিন্তু ফলও আপনার — বেশিরভাগ সময় তিনি আরও কিছু বলবেন।
+
+### শোনা আগে, feedback পরে
+
+Itzchakov আর Kluger listening-কে feedback-এর বদলি বলেন না; তাঁদের কথা — আগে মানুষটির নিজের অভিজ্ঞতার কথা শুনলে পরের feedback বেশি কাজে লাগে, কারণ তিনি কম আত্মরক্ষায় থাকেন। কাজে: কঠিন কথার আগে পাঁচ মিনিট শুধু প্রশ্ন আর শোনা।
+
+### সমাধানের আগে অনুমতি
+
+কেউ সমস্যা বললেই সমাধান চান না — চাইতে পারেন সমাধান, মতামত, নাকি শুধু শোনা। "চান কি আমি এটা নিয়ে ভাবি, নাকি এখন শুধু শুনি?"
+
+### অনেক কণ্ঠ শোনা
+
+পদ বাড়লে listening মানে অনেক মানুষের কথা জুড়ে একটা ছবি বানানো। নিয়ম তিনটা: সবাইকে **একই প্রশ্ন** করুন, যাতে উত্তর মেলানো যায়; শোনার সময় সমাধান দেবেন না, শুধু লিখুন; আর শেষে যা বুঝলেন তা লিখে **ফিরিয়ে পাঠান** — "ঠিক ধরেছি?"
+
+## রিমোট আর দ্বিতীয় ভাষায়
+
+- **ভিডিও কলে শোনা দেখা যায় না, তাই দেখাতে হয়।** কেউ কথা বলার সময় অন্য কিছু টাইপ করবেন না; শেষে এক বাক্যে ফিরিয়ে বলুন — রিমোটে ওটাই প্রমাণ যে আপনি শুনেছেন।
+- **async-এ শোনা মানে পুরোটা পড়া।** thread-এর শেষ মেসেজ নয়, পুরো thread পড়ে তবে উত্তর। লম্বা হলে উত্তরের শুরুতে এক লাইনের সারাংশ — "আমি যা বুঝলাম: …"।
+- **দ্বিতীয় ভাষায় শোনা বেশি খাটুনির।** accent আর গতি আলাদা হলে কিছু শব্দ হারায়। আবার বলতে বলায় লজ্জা নেই; আর সংখ্যা, তারিখ, নাম — কলের পরে লিখে মিলিয়ে নিন। caption বা transcript চালু থাকলে ব্যবহার করুন।
+
+| কখন | বাক্য |
+|---|---|
+| ফিরিয়ে বলা | "So what I'm hearing is … Is that right?" |
+| গভীরে নেওয়া | "Can you say more about that?" |
+| অনুমতি নেওয়া | "Do you want my advice, or should I just listen for now?" |
+| আবার শুনতে চাওয়া | "Sorry, I missed the last part — could you repeat it?" |
+| সংখ্যা মেলানো | "Let me make sure I got the numbers right: …" |
+| thread-এর সারাংশ | "Summary of what I understood: …" |
+
+## Senior থেকে Staff
+
+| | Senior | Lead | Staff |
+|---|---|---|---|
+| **কাকে শোনেন** | একজন মানুষ, এক কথোপকথনে | টিম — এক-একের আলাপ, standup-এর নীরবতা | কয়েকটা টিম, প্রতিষ্ঠান |
+| **মূল কাজ** | বোঝা, তারপর ফিরিয়ে বলা | যা বলা হচ্ছে না, তা শোনা | অনেক কণ্ঠ জুড়ে একটা ছবি — আর ফিরিয়ে পাঠানো |
+| **ঝুঁকি** | উত্তর তৈরি করতে করতে শোনা | টিম আপনার যা শুনতে ভালো লাগে, তা-ই বলে | শুধু জোরালো কণ্ঠগুলো শোনা |
+| **সাফল্যের মাপ** | সামনের মানুষ আপনাকে কম শুধরে দেন | সমস্যা ছোট থাকতেই আপনার কাছে আসে | মানুষ বলেন "হ্যাঁ, ঠিক এটাই আমরা বলছিলাম" |
+
+পদ যত উপরে, মানুষ তত বেশি আপনি যা শুনতে চান তা বলেন — তাই শোনার ব্যবস্থা ইচ্ছা করে বানাতে হয়, আর প্রশ্ন হতে হয় খোলা।
+
+## অনুশীলন
+
+- **গুনে রাখা paraphrase।** তিনটা কথোপকথনে উত্তর দেওয়ার আগে নিজের ভাষায় সারমর্ম বলুন — "তাহলে আপনি বলছেন…"। সামনের মানুষ কতবার শুধরে দিলেন, গুনে রাখুন; সংখ্যাটাই আপনার আসল listening-এর মাপ। (Senior)
+- **স্পঞ্জ থেকে trampoline।** পরের যে আলাপে কেউ সমস্যা নিয়ে আসবেন, নিজের মত বলার আগে অন্তত দুটো গভীরে নেওয়ার প্রশ্ন করুন — "কী কী চেষ্টা করেছেন?", "কোনটা নিয়ে সবচেয়ে বেশি চিন্তা?" তিনি কি এমন কিছু বললেন যা শুরুতে বলেননি? খাতায় লিখুন। (Senior)
+- **ইংরেজিতে "say more"।** পরের ইংরেজি কলে কেউ একটা কথা শেষ করলে একবার বলুন "Can you say more about that?" — তারপর তিন সেকেন্ড চুপ। দ্বিতীয় অংশে নতুন কী এল, খাতায় লিখুন। (Senior)
+- **টিমের নীরবতা শুনুন।** পরের টিম মিটিংয়ের পরে দুটো জিনিস লিখুন: কে একবারও কথা বলেননি, আর কোন বিষয় সবাই এড়িয়ে গেলেন। তাঁদের একজনের সাথে আলাদা করে কথা বলুন: "I noticed X in the meeting — what's your take?" (Lead)
+- **একটা listening tour।** তিনটা ভিন্ন টিমের একজন করে মানুষের সাথে ৩০ মিনিট, একই প্রশ্নে — "আপনার টিমকে সবচেয়ে বেশি কী ধীর করে?" — শুধু শুনুন আর লিখুন। তারপর এক পাতার সারাংশ তাঁদের পাঠান: "ঠিক ধরেছি?" (Staff)
+
+## মূল নিয়ম
+
+- উত্তর দিতে নয়, বুঝতে শুনুন — উত্তর তৈরি করতে করতে শোনা শোনা নয়।
+- চুপ থাকাই ভালো শোনা নয়; প্রশ্ন করুন, ফিরিয়ে বলুন, তারপর যোগ করুন।
+- পাল্টা যুক্তি প্রায়ই মত আরও শক্ত করে; আগে শুনুন।
+- কথার বিষয় আর উদ্দেশ্য আলাদা হতে পারে — দুটোই শুনুন।
+- তিন সেকেন্ডের নীরবতা দ্বিতীয় স্তরের কথা নিয়ে আসে।
+- কঠিন feedback-এর আগে পাঁচ মিনিট শুধু শুনুন।
+- অনেকের কথা শুনলে একই প্রশ্ন করুন, আর যা বুঝলেন তা ফিরিয়ে পাঠান।
+
+## উৎস
+
+- Nichols, R. G. & Stevens, L. A. (1957). "Listening to People." *Harvard Business Review*, 1957. — প্রায় ১২৫ শব্দ প্রতি মিনিট।
+- Zenger, J. & Folkman, J. (2016). "What Great Listeners Actually Do." *Harvard Business Review*, ১৪ জুলাই ২০১৬।
+- Itzchakov, G., Kluger, A. N. & Castro, D. R. (2017). "I Am Aware of My Inconsistencies but Can Tolerate Them." *Personality and Social Psychology Bulletin*. [DOI](https://doi.org/10.1177/0146167216675339)4:["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$13"}]}]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/02-03/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০২.০৩ Decision Making — সিদ্ধান্ত নেওয়া"}]]}],["$","$L2",null,{"href":"/doc/03-02/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০৩.০২ Communication — কথা বলা ও বোঝানো"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L14",null,{"children":["$","$15",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]
+a:["$","$1","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L18",null,{"children":["$","$15",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০৩.০১ · Listening — শোনা — সফট স্কিল"}],["$","meta","1",{"name":"description","content":"সফট স্কিলের ১০৪টা drill, ১০৮ দিনে — Senior থেকে Staff, রিমোট আর ইংরেজিসহ; দিনে একটা, আজ একবার, আসল কথোপকথনে; চার স্তরে নির্ভরতার ক্রমে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/soft_skill_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+12:true
+16:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

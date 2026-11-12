@@ -1,0 +1,149 @@
+1:"$Sreact.fragment"
+2:I[22016,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+9:X
+e:X
+e:C
+0:{"buildId":"l-BOHA4hlHsZGkKwBaPqg","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"৩. একজন মানুষের সাথে"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০৩.০৪"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Writing — লিখে বোঝানো"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"plan-এ যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","057-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/057/","className":"chip chip--accent self-start","children":["দিন ","০৫৭"," · ","শেষ ৩০% কাটুন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**শেষ ৩০% কাটুন** — আজকের একটা লম্বা মেসেজ বা ডক — নতুন না থাকলে নিজের আগের একটা লেখা — পাঠানোর আগে এক-তৃতীয়াংশ কাটুন, অর্থ না হারিয়ে; কত শব্দ থেকে কততে নামল, খাতায় · পূর্ণ মাপে: সপ্তাহে তিনবার (ডক ০৩.০৪)"}]]}],["$","li","058-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/058/","className":"chip chip--accent self-start","children":["দিন ","০৫৮"," · ","পুরনো আগে, নতুন শেষে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**পুরনো আগে, নতুন শেষে** — নিজের সাম্প্রতিক একটা ডকের এক অনুচ্ছেদ নিয়ে প্রতিটা বাক্য আবার লিখুন — শুরু চেনা তথ্যে, শেষ নতুনে · সুযোগ এলে: দুটো রূপ একজনকে দেখিয়ে জিজ্ঞেস — কোনটা সহজে পড়া যায় (ডক ০৩.০৪)"}]]}],["$","li","059-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/059/","className":"chip chip--accent self-start","children":["দিন ","০৫৯"," · ","ইংরেজিতে TL;DR আর \"What I need\""]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**ইংরেজিতে TL;DR আর \"What I need\"** — আজকের পরের লম্বা ইংরেজি মেসেজ — না থাকলে আগের একটা আবার লিখে — শুরু \"TL;DR:\" আর এক বাক্যে, শেষ \"What I need from you: …\" দিয়ে · সুযোগ এলে: পাঠিয়ে উত্তর কত দ্রুত এল, আগের সাথে তুলনা (ডক ০৩.০৪)"}]]}],["$","li","060-3",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/060/","className":"chip chip--accent self-start","children":["দিন ","০৬০"," · ","সাপ্তাহিক চার লাইন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**সাপ্তাহিক চার লাইন** — এই সপ্তাহের হালনাগাদ চার লাইনে — কী শেষ হলো, কী চলছে, কী ঝুঁকিতে, কী দরকার — টিমের হয়ে, বা নিজের কাজের; লিখে পাঠান · পূর্ণ মাপে: তিন সপ্তাহ, তারপর একজন stakeholder-কে — কোন লাইন সবচেয়ে কাজে লাগে (ডক ০৩.০৪)"}]]}],["$","li","061-4",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/061/","className":"chip chip--accent self-start","children":["দিন ","০৬১"," · ","slide নয়, এক পাতার narrative"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**slide নয়, এক পাতার narrative** — একটা চলমান বা আসন্ন প্রস্তাবের এক পাতার narrative-এর খসড়া — মূল অংশে bullet নয়, \"কারণ\" আর \"তাই\"-ভরা অনুচ্ছেদ · সুযোগ এলে: মিটিংয়ের শুরুতে ১০ মিনিট সবাই চুপচাপ পড়বেন, তারপর আলোচনা (ডক ০৩.০৪)"}]]}],["$","li","082-5",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/082/","className":"chip chip--accent self-start","children":["দিন ","০৮২"," · ","মুখে — একজন মানুষের সাথে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"এই ব্লকের আট অধ্যায় থেকে তিনটা মূল নিয়ম, একটা Speaking English বা Mentoring থেকে — গাইড না খুলে, মনে করে — প্রতিটা ইংরেজিতে জোরে, সাথে এই ব্লকের drill থেকে নিজের একটা ঘটনা; মোট ২ মিনিটে, ফোনে রেকর্ড করে (ডক ০৩.০১ · ডক ০৩.০২ · ডক ০৩.০৩ · ডক ০৩.০৪ · ডক ০৩.০৫ · ডক ০৩.০৬ · ডক ০৩.০৭ · ডক ০৩.০৮)"}]]}]]}]]}],"$L4","$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+14:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"OutletBoundary"]
+15:"$Sreact.suspense"
+17:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"ViewportBoundary"]
+18:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"MetadataBoundary"]
+19:I[27201,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"IconMark"]
+1a:I[39756,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+1b:I[37457,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+13:T418e,## সংজ্ঞা
+
+**Writing** এখানে কাজের লেখা: PR description, ticket, design doc, RFC, স্ট্যাটাস আপডেট, incident report, email।
+
+ভিত্তিটা এই অধ্যায় ধরে নেয়: লেখককে ছাড়া লেখাকে একা দাঁড়াতে হয়; উপসংহার আগে; শেষে "কী চাই"; ছাঁটাই। পরের স্তরে লেখা দুটো নতুন কাজ পায়:
+
+- **চিন্তার যন্ত্র** — লিখতে গিয়েই ধরা পড়ে চিন্তায় কোথায় ফাঁক। লেখা কঠিন লাগা প্রায়ই চিন্তা অস্পষ্ট থাকার সংকেত।
+- **প্রতিষ্ঠানের অবকাঠামো** — পদ বাড়লে আপনার লেখা এমন মানুষ পড়েন যাঁদের সাথে কখনো কথা হয়নি, আর এমন সময়ে, যখন আপনি সেখানে নেই।
+
+## কেন এটা কঠিন
+
+**১. লেখক জানেন, পাঠক জানেন না — আর লেখক সেটা ভুলে যান।** Steven Pinker *The Sense of Style*-এ (২০১৪) curse of knowledge-কে বলেন ভালো মানুষের খারাপ গদ্য লেখার একক সবচেয়ে ভালো ব্যাখ্যা: লেখক ভুলে যান পাঠক তাঁর jargon জানেন না, যে ধাপ লেখকের কাছে স্পষ্ট তা বাদ দেন, আর যে দৃশ্য লেখকের মাথায় আছে তা পাঠক দেখতে পান না। অলসতা নয় — না-জানা কেমন, সেটা কল্পনা করতে না পারা।
+
+**২. লেখকের ক্রম আর পাঠকের প্রত্যাশা আলাদা।** Gopen আর Swan (১৯৯০) দেখান, পাঠক বাক্যের নির্দিষ্ট জায়গায় নির্দিষ্ট ধরনের তথ্য আশা করেন — শুরুতে চেনা তথ্য, যা আগের কথার সাথে জোড়ে; শেষে নতুন বা জোর দেওয়ার তথ্য। তাঁদের মতে পেশাদার লেখার এক নম্বর সমস্যা পুরনো আর নতুন তথ্যের ভুল জায়গা — কারণ লেখক লেখেন যে ক্রমে মাথায় আসে।
+
+**৩. লম্বা লেখা সহজ, ছোট লেখা কঠিন।** সব লিখে দেওয়া অলসতা, ছাঁটাই পরিশ্রম। আর লম্বা ডক কম পড়া হয় — বেশি লেখা প্রায়ই কম পৌঁছানো।
+
+**৪. bullet সম্পর্ক লুকায়।** তালিকা দেখতে গোছানো, কিন্তু বিন্দুগুলোর মধ্যে "কারণ", "তাই", "তবু" থাকে না। চিন্তার আসল কাজটা — কোনটা কোনটার ফল — পাঠকের উপর ছেড়ে দেওয়া হয়।
+
+**৫. সুর অনুমান করা হয়, দেওয়া হয় না।** সংক্ষিপ্ত মেসেজ লেখকের কাছে নিরপেক্ষ, পাঠকের কাছে ঠান্ডা। আর প্রেরকেরা নিয়মিত বেশি আন্দাজ করেন যে তাঁদের সুর পৌঁছাবে (Kruger ও সহকর্মী, ২০০৫)।
+
+## কীভাবে কাজ করে
+
+### কাঠামো: কী → কেন → বিস্তারিত → কী চাই
+
+```
+১. কী — এক বাক্যে সিদ্ধান্ত বা অনুরোধ
+২. কেন — ২–৪টা কারণ
+৩. বিস্তারিত — যিনি পড়তে চান, তাঁর জন্য
+৪. কী চাই — পাঠকের কাছ থেকে ঠিক কোন কাজ
+```
+
+চার নম্বর সবচেয়ে বেশি বাদ পড়ে। প্রতিটা লেখার শেষ লাইন: মতামত চাই, অনুমোদন চাই, নাকি শুধু জানাচ্ছি — আর কবের মধ্যে।
+
+### বাক্যের ভেতরে — পুরনো আগে, নতুন শেষে
+
+Gopen আর Swan-এর নিয়ম কাজে:
+
+- ❌ "Redis cache যোগ করলে latency ৪০% কমবে — এটা আমাদের গত সপ্তাহের profiling থেকে দেখা গেছে, যেখানে সবচেয়ে বেশি সময় যাচ্ছিল user lookup-এ।"
+- ✅ "গত সপ্তাহের profiling-এ সবচেয়ে বেশি সময় যাচ্ছিল user lookup-এ। এই lookup-এর সামনে Redis cache বসালে latency কমবে প্রায় ৪০%।"
+
+দ্বিতীয়টায় প্রতিটা বাক্য শুরু হয় যা পাঠক জানেন তা দিয়ে, আর শেষ হয় নতুন কথায়। পরের বাক্য আবার শুরু করে ঐ নতুন কথা থেকে — শিকলের মতো।
+
+### Narrative — যখন bullet যথেষ্ট নয়
+
+Jeff Bezos-এর ২০১৭-এর শেয়ারহোল্ডার চিঠি: Amazon-এ PowerPoint বা slide-ভিত্তিক উপস্থাপনা হয় না; তার বদলে ছয় পাতার narrative-কাঠামোর memo, যা মিটিংয়ের শুরুতে সবাই চুপচাপ পড়েন। একই চিঠিতে তিনি ভালো memo লেখাকে handstand শেখার সাথে তুলনা করেন — বেশিরভাগ মানুষ যতটা ভাবেন, তার চেয়ে অনেক বেশি সময় লাগে।
+
+কাজে: বড় প্রস্তাবের মূল অংশ অনুচ্ছেদে লিখুন, যেখানে "কারণ" আর "তাই" লিখতেই হয়। bullet রাখুন তালিকার জন্য — বিকল্প, ধাপ, ঝুঁকি — যুক্তির জন্য নয়।
+
+### ছাঁটাই
+
+প্রথম খসড়ার বড় একটা অংশ প্রায়ই বাদ দেওয়া যায়। যা কাটবেন:
+
+| কাটুন | কারণ |
+|---|---|
+| "আমি মনে করি", "আমার মতে" | আপনি লিখছেন, তাই এটা আপনার মত |
+| "মূলত", "আসলে", "একরকম" | অর্থ যোগ করে না |
+| ভূমিকার অনুচ্ছেদ | পাঠক জানেন কেন পড়ছেন |
+| একই কথা দুই বাক্যে | একটা রাখুন |
+| কর্তাহীন বাক্য | "সিদ্ধান্ত নেওয়া হয়েছে" → কে নিলেন? |
+
+### স্ক্যানযোগ্য, আর সুর ইচ্ছা করে
+
+- ছোট অনুচ্ছেদ; শিরোনাম যেন সারাংশ বলে — "পটভূমি" নয়, "কেন বর্তমান cache যথেষ্ট নয়"।
+- **bold** পাতায় দুই-তিনটার বেশি নয়।
+- দ্বিমতের জায়গায় রায় নয়, প্রশ্ন আর সম্ভাবনা: "আমার একটা দুশ্চিন্তা — X হলে কী হবে? হয়তো আমি কিছু মিস করছি।"
+- ভবিষ্যতের পাঠকের জন্য: সর্বনাম নয়, নাম ("auth-service"); আপেক্ষিক নয়, নির্দিষ্ট তারিখ; সিদ্ধান্তের সাথে কারণ।
+
+## রিমোট আর দ্বিতীয় ভাষায়
+
+- **রিমোটে লেখাই প্রধান মাধ্যম।** অফিসে যা করিডোরে মিটত, রিমোটে তা লেখায় মেটে — বা মেটে না। স্ট্যাটাস, সিদ্ধান্ত, প্রশ্ন — লেখার মান সরাসরি কাজের গতি।
+- **দ্বিতীয় ভাষায় আগে নিজের ভাষায় মূল কথা।** এক বাক্যে বাংলায় ঠিক করুন কী বলতে চান, তারপর ইংরেজিতে লিখুন — ভাষা বদলানো আর চিন্তা গোছানো একসাথে করলে দুটোই খারাপ হয়।
+- **idiom নয়, সরল শব্দ।** BBC-র প্রবন্ধে (২০১৬) একটা দ্ব্যর্থক শব্দের কারণে একটা প্রকল্পে বড় ক্ষতির গল্প আছে: non-native প্রাপক অভিধানে দুটো উল্টো অর্থ পেয়ে ভুলটা বেছে নিয়েছিলেন। আন্তর্জাতিক পাঠকের জন্য যে শব্দের একটাই অর্থ, সেটা বাছুন।
+- **AI ব্যাকরণ ঠিক করুক, চিন্তা নয়।** মূল বাক্য নিজের হলে আলোচনায় নিজের মুখে বলতে পারবেন।
+
+| কখন | বাক্য |
+|---|---|
+| শুরুতে সারাংশ | "TL;DR: we should move the cron job to the queue." |
+| সময়সীমা | "Decision needed by Friday." |
+| প্রসঙ্গ | "Context: since the last release, …" |
+| কী চাই | "What I need from you: a yes/no on option B." |
+| খোলা প্রশ্ন | "Open question: who owns the migration?" |
+| নরম দ্বিমত | "One concern — what happens if X? I might be missing something." |
+
+## Senior থেকে Staff
+
+| | Senior | Lead | Staff |
+|---|---|---|---|
+| **কী লেখেন** | PR, ticket, স্ট্যাটাস | টিমের ডক, সিদ্ধান্তের রেকর্ড, সাপ্তাহিক হালনাগাদ | design doc, RFC, strategy — অনেক টিম পড়ে |
+| **পাঠক** | reviewer, PM | টিম আর stakeholder | যাঁদের সাথে কখনো কথা হয়নি |
+| **মূল কাজ** | পাল্টা প্রশ্ন ছাড়া বোঝা যায় | টিম আর বাইরের জগতের মাঝে একই ছবি রাখা | এমন লেখা, যা আপনাকে ছাড়া এক বছর টেকে আর সিদ্ধান্ত সরিয়ে দেয় |
+| **ব্যর্থতার রূপ** | reviewer-কে তিনবার জিজ্ঞেস করতে হয় | হালনাগাদ লেখা হয়, কিন্তু কেউ পড়েন না | ডক নিখুঁত, কিন্তু কোনো সিদ্ধান্ত হয় না |
+
+পদ যত উপরে, তত বেশি আপনার প্রভাব যায় লেখার মধ্য দিয়ে — কারণ লেখা একসাথে অনেক ঘরে পৌঁছায়, আপনি পারেন না।
+
+## অনুশীলন
+
+- **শেষ ৩০% কাটুন।** এই সপ্তাহের একটা লম্বা মেসেজ বা ডক পাঠানোর আগে এক-তৃতীয়াংশ কাটুন, অর্থ না হারিয়ে। কত শব্দ থেকে কততে নামল, খাতায় লিখুন; সপ্তাহে তিনবার করুন। (Senior)
+- **পুরনো আগে, নতুন শেষে।** নিজের সাম্প্রতিক একটা ডকের এক অনুচ্ছেদ নিন। প্রতিটা বাক্য এমনভাবে আবার লিখুন, যাতে শুরু হয় চেনা তথ্যে আর শেষ হয় নতুনে। দুটো রূপ একজনকে দেখিয়ে জিজ্ঞেস করুন — কোনটা সহজে পড়া যায়। (Senior)
+- **ইংরেজিতে TL;DR আর "What I need"।** পরের লম্বা ইংরেজি মেসেজ শুরু করুন "TL;DR:" আর এক বাক্যে, আর শেষ করুন "What I need from you: …" দিয়ে। আগের মেসেজগুলোর তুলনায় উত্তর কত দ্রুত এল, লক্ষ করুন। (Senior)
+- **সাপ্তাহিক চার লাইন।** তিন সপ্তাহ, সপ্তাহে একবার টিমের হালনাগাদ লিখুন: কী শেষ হলো, কী চলছে, কী ঝুঁকিতে, কী দরকার। তৃতীয় সপ্তাহে একজন stakeholder-কে জিজ্ঞেস করুন, কোন লাইনটা সবচেয়ে কাজে লাগে। (Lead)
+- **slide নয়, এক পাতার narrative।** পরের বড় প্রস্তাবের জন্য এক পাতার narrative লিখুন — মূল অংশে bullet নয়, অনুচ্ছেদ। মিটিংয়ের শুরুতে ১০ মিনিট সবাই চুপচাপ পড়বেন, তারপর আলোচনা। আলোচনার মান আগের slide-ভিত্তিক মিটিংয়ের তুলনায় কেমন হলো, লিখুন। (Staff)
+
+## মূল নিয়ম
+
+- লেখা কঠিন লাগলে আগে চিন্তা পরিষ্কার করুন — শব্দ পরে।
+- পাঠক যা জানেন না, তা আপনি ভুলে যাবেন — তাই ধাপ বাদ দেবেন না।
+- প্রতিটা বাক্যের শুরুতে চেনা তথ্য, শেষে নতুন।
+- যুক্তির জন্য অনুচ্ছেদ, তালিকার জন্য bullet।
+- প্রতিটা লেখার শেষে "কী চাই" আর কবের মধ্যে।
+- আন্তর্জাতিক পাঠকের জন্য idiom নয়, এক-অর্থের শব্দ।
+- পদ যত উপরে, তত বেশি প্রভাব লেখার মধ্য দিয়ে — লিখুন যেন আপনাকে ছাড়া টেকে।
+
+## উৎস
+
+- Pinker, S. (2014). *The Sense of Style: The Thinking Person's Guide to Writing in the 21st Century*. Viking. — curse of knowledge।
+- Gopen, G. D. & Swan, J. A. (1990). "The Science of Scientific Writing." *American Scientist*, 78(6), 550–558.
+- Bezos, J. (2018). "2017 Letter to Shareholders." Amazon. — ছয় পাতার narrative memo।
+- Kruger, J., Epley, N., Parker, J. & Ng, Z.-W. (2005). "Egocentrism over e-mail: Can we communicate as well as we think?" *Journal of Personality and Social Psychology*, 89(6), 925–936. [PubMed](https://pubmed.ncbi.nlm.nih.gov/16393025/)
+- Morrison, L. (2016). "Native English speakers are the world's worst communicators." BBC, ৩১ অক্টোবর ২০১৬।4:["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$13"}]}]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/03-03/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০৩.০৩ Speaking English — দ্বিতীয় ভাষায় মুখে বলা"}]]}],["$","$L2",null,{"href":"/doc/03-05/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০৩.০৫ Feedback — মতামত দেওয়া ও নেওয়া"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L14",null,{"children":["$","$15",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]
+a:["$","$1","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L18",null,{"children":["$","$15",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০৩.০৪ · Writing — লিখে বোঝানো — সফট স্কিল"}],["$","meta","1",{"name":"description","content":"সফট স্কিলের ১০৪টা drill, ১০৮ দিনে — Senior থেকে Staff, রিমোট আর ইংরেজিসহ; দিনে একটা, আজ একবার, আসল কথোপকথনে; চার স্তরে নির্ভরতার ক্রমে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/soft_skill_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+12:true
+16:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

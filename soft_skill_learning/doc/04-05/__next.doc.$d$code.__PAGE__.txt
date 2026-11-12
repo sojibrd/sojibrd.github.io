@@ -1,0 +1,147 @@
+1:"$Sreact.fragment"
+2:I[22016,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+9:X
+e:X
+e:C
+0:{"buildId":"l-BOHA4hlHsZGkKwBaPqg","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"৪. অনেক মানুষের সাথে"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০৪.০৫"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Leadership — নেতৃত্ব"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"plan-এ যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","103-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/103/","className":"chip chip--accent self-start","children":["দিন ","১০৩"," · ","\"কী\"-এর সাথে \"কেন\""]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**\"কী\"-এর সাথে \"কেন\"** — আজ যতবার কাউকে কোনো কাজ দেবেন বা কাজ চাইবেন, সাথে এক লাইনে কেন দরকার; একবার হলেও, আর তিনি কী জিজ্ঞেস করলেন — খাতায় · পূর্ণ মাপে: পুরো সপ্তাহ, আর কতবার তিনি আপনার ভাবনার চেয়ে ভালো সমাধান আনলেন (ডক ০৪.০৫)"}]]}],["$","li","104-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/104/","className":"chip chip--accent self-start","children":["দিন ","১০৪"," · ","উত্তরের বদলে প্রশ্ন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**উত্তরের বদলে প্রশ্ন** — আজকের পরের \"এটা কীভাবে করব?\"-এ সরাসরি উত্তর নয়, আগে \"কী কী ভেবেছেন?\"; না এলে শেষবারের এমন প্রশ্নটা খাতায় — প্রশ্ন করলে কী হতো · পূর্ণ মাপে: পরের পাঁচটা, আর কয়েক সপ্তাহে প্রশ্ন কমল কিনা (ডক ০৪.০৫)"}]]}],["$","li","105-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/105/","className":"chip chip--accent self-start","children":["দিন ","১০৫"," · ","ইংরেজিতে প্রকাশ্যে ভুল স্বীকার"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**ইংরেজিতে প্রকাশ্যে ভুল স্বীকার** — নিজের একটা সিদ্ধান্তের ভুল খাতায়, কারণসহ, আর ইংরেজি বাক্য — \"That was my call, and it was wrong. Here's what I learned.\" — জোরে দুবার · সুযোগ এলে: টিমের সামনে বলা, আর এরপর কেউ নিজের ভুল বলা শুরু করলেন কিনা (ডক ০৪.০৫)"}]]}],["$","li","106-3",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/106/","className":"chip chip--accent self-start","children":["দিন ","১০৬"," · ","ছুটির পরীক্ষা"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**ছুটির পরীক্ষা** — আপনি দুই সপ্তাহ না থাকলে কোন কোন জিনিস থামবে, খাতায় তালিকা; প্রতিটার পাশে কে শিখতে পারেন, আর তিন মাসে কীভাবে শেখাবেন — এই তালিকাটাই পরের তিন মাসের আসল কাজ (ডক ০৪.০৫)"}]]}],["$","li","107-4",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/107/","className":"chip chip--accent self-start","children":["দিন ","১০৭"," · ","আপনার archetype"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**আপনার archetype** — Larson-এর চার ধরনের মধ্যে — Tech Lead, Architect, Solver, Right Hand — আপনার এখনকার কাজ কোনটার সবচেয়ে কাছে, আর কোনটার দিকে যেতে চান, খাতায়; পরের quarter-এর কাজের তালিকায় কোনগুলো ঐ দিকে নেয়, চিহ্ন দিন · সুযোগ এলে: ম্যানেজারের সাথে আলোচনা (ডক ০৪.০৫)"}]]}],["$","li","108-5",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/108/","className":"chip chip--accent self-start","children":["দিন ","১০৮"," · ","মুখে — অনেক মানুষের সাথে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"এই ব্লকের পাঁচ অধ্যায় থেকে তিনটা মূল নিয়ম, একটা Leadership থেকে — গাইড না খুলে, মনে করে — প্রতিটা ইংরেজিতে জোরে, সাথে এই ব্লকের drill থেকে নিজের একটা ঘটনা; মোট ২ মিনিটে, ফোনে রেকর্ড করে (ডক ০৪.০১ · ডক ০৪.০২ · ডক ০৪.০৩ · ডক ০৪.০৪ · ডক ০৪.০৫)"}]]}]]}]]}],"$L4","$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+14:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"OutletBoundary"]
+15:"$Sreact.suspense"
+17:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"ViewportBoundary"]
+18:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"MetadataBoundary"]
+19:I[27201,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"IconMark"]
+1a:I[39756,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+1b:I[37457,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+13:T459c,## সংজ্ঞা
+
+**Leadership** হলো একদল মানুষকে এমন একটা ফলের দিকে নিয়ে যাওয়া, যেখানে তাঁরা একা পৌঁছাতে পারতেন না — আর সেই পথে তাঁদের বড় করে তোলা।
+
+এটা গাইডের শেষ অধ্যায়, কারণ **leadership আলাদা কোনো স্কিল নয় — আগের সবগুলোর যোগফল**, একসাথে অনেক মানুষের উপর প্রয়োগ করা:
+
+| যা লাগে | কোথা থেকে |
+|---|---|
+| নিজের প্রতিক্রিয়া সামলানো | স্তর ১ — Self |
+| অস্পষ্টতার মধ্যে সিদ্ধান্ত | স্তর ২ — Thinking |
+| শোনা, feedback, শেখানো, মতবিরোধ | স্তর ৩ — Interpersonal |
+| কর্তৃত্ব ছাড়া প্রভাব, টিমের বাইরে কাজ | স্তর ৪ — Influence |
+
+ভিত্তিটা এই অধ্যায় ধরে নেয়: leadership পদ নয়, আচরণ — management একটা পদ, leadership যে কেউ যেকোনো পদে করতে পারেন। পরের স্তরে প্রশ্ন বদলায়: **কোন ধরনের নেতৃত্ব — টিম চালানো, নাকি টিম ছাড়াই কয়েকটা টিমকে দিক দেখানো?** engineer-দের জন্য দুটো পথ আলাদা: manager পথ, আর Staff পথ — যেখানে নেতৃত্ব হয় সরাসরি কর্তৃত্ব ছাড়া।
+
+## কেন এটা কঠিন
+
+**১. যে দক্ষতায় এখানে এসেছেন, সেটা আর প্রধান নয়।** ভালো ডেভেলপার হয়ে নেতৃত্বে আসেন, তারপর দেখেন — নিজে কোড লেখা আর অন্যদের ভালো কোড লিখতে সাহায্য করা সম্পূর্ণ আলাদা কাজ। নিজে করাই সবচেয়ে বড় প্রলোভন, কারণ ওটায় আপনি ভালো আর ফল সাথে সাথে দেখা যায়।
+
+**২. কথার ওজন বদলেছে, আপনি টের পাননি।** আগে যা "একটা ভাবনা", এখন টিমের কাছে নির্দেশ।
+
+**৩. স্বাধীনতা দেওয়ার মাপ ভুল হয়।** Google-এর Project Oxygen ভালো আর খারাপ মূল্যায়নের ম্যানেজারদের তুলনা করে নির্দিষ্ট, শেখানো-যায় এমন আচরণের তালিকা বানিয়েছিল — প্রথমে আটটা, ২০১৮-এ দশটা। তার দুটো: ভালো coach — যিনি সব সমস্যা সাথে সাথে নিজে সমাধান করে দেন না; আর টিমকে ক্ষমতা দেন, micromanage করেন না — স্বাধীনতা দেন টিমের দক্ষতার মাপে। খুব কম স্বাধীনতা টিমকে থামায়; দক্ষতার চেয়ে বেশি স্বাধীনতা তাঁদের একা ফেলে দেয়।
+
+**৪. ফল দেরিতে আসে।** ভালো বা খারাপ নেতৃত্বের ফল ৬–১২ মাসে দেখা যায়; দৈনিক feedback নেই।
+
+**৫. জনপ্রিয়তা আর কার্যকারিতা আলাদা দিকে যায়।** কঠিন সিদ্ধান্ত, স্পষ্ট feedback, "না" — জনপ্রিয় করে না, কিন্তু কাজ এগুলোই।
+
+**৬. সংকটে চরিত্র দেখা যায়।** outage-এর রাতে, ব্যর্থ deadline-এর দিনে আপনি যা করেন, টিম সেটাই মনে রাখে।
+
+## কীভাবে কাজ করে
+
+### নেতৃত্বের তিন কাজ
+
+1. **দিক** — কোথায় যাচ্ছি আর **কেন**। "কেন" জানা টিম ছোট সিদ্ধান্তগুলো নিজে নেয়; না জানলে প্রতিটায় আপনার কাছে ফেরে, আর আপনি bottleneck।
+2. **পথ পরিষ্কার** — কে আটকে, কোন সিদ্ধান্ত ঝুলে, কোন অনুমোদন আসছে না — খুঁজে সরানো। বেশিরভাগ আসল কাজ এটাই, আর কোনো metric-এ দেখা যায় না।
+3. **মানুষ বড় করা** — যাতে আপনাকে ছাড়াও চলে। পরীক্ষা: দুই সপ্তাহ ছুটিতে গেলে কী থামে?
+
+### Oxygen-এর কয়েকটা আচরণ — একটা আয়না
+
+Project Oxygen-এর ২০১৫-এর তালিকার কয়েকটা আচরণ নিজের সাথে মিলিয়ে দেখার মতো: ভালো coach হওয়া; টিমকে ক্ষমতা দেওয়া আর micromanage না করা; কাজে লাগানোর মতো feedback; প্রত্যেককে আলাদা মানুষ হিসেবে দেখা; টিমকে অগ্রাধিকারের কাজে স্থির রাখা; উপরের তথ্য টিমের সাথে ভাগ করা; পেশাগত বৃদ্ধি নিয়ে কথা বলা; স্পষ্ট লক্ষ্য; আর প্রযুক্তিগত দক্ষতা। পরের সংস্করণে তালিকা বদলেছে, তাই এটা আয়না — চূড়ান্ত তালিকা নয়।
+
+### উত্তর নয়, প্রশ্ন — আর কখন ব্যতিক্রম
+
+- ❌ "Redis ব্যবহার করো।"
+- ✅ "কোন কোন পথ ভেবেছেন? কোনটা বাছবেন, কেন?"
+
+তাঁর পছন্দ আপনার চেয়ে মোটামুটি ভালো হলেই যথেষ্ট — বাকিটুকুর জন্য তাঁর শেখা নষ্ট করবেন না। ব্যতিক্রম: one-way door সিদ্ধান্ত আর সংকটের মুহূর্ত — তখন সরাসরি সিদ্ধান্ত দিন।
+
+### কৃতিত্ব নিচে, দায় উপরে
+
+সাফল্যে নাম বলুন তাঁদের, যাঁরা করেছেন। ব্যর্থতায় বাইরে "আমাদের দায়", ভেতরে নির্দিষ্ট করে আলোচনা। উল্টোটা করলে টিমের আস্থা একবারেই যায়।
+
+### আচরণ দিয়ে মান
+
+টিম আপনার বলা নিয়ম নয়, আপনার **সবচেয়ে খারাপ গৃহীত আচরণ** অনুসরণ করে — রাতে মেসেজ দিলে টিম শেখে রাতে উত্তর দিতে হয়, যতই বলুন "জরুরি নয়"। যা আপনি সহ্য করেন, সেটাই আসল মান।
+
+### সংকটে
+
+- **শান্ত থাকুন** — টিম আপনার মুখ দেখে ঠিক করে কতটা ভয় পাবে।
+- **দোষ পরে, সমাধান আগে।**
+- **স্পষ্ট মালিকানা** — Customer Service অধ্যায়ের SRE-ভূমিকার মতো: কে ঠিক করছেন, কে জানাচ্ছেন, কে সিদ্ধান্ত নিচ্ছেন।
+- **পরে দোষহীন পর্যালোচনা** — মানুষ নয়, প্রক্রিয়া কীভাবে এটা হতে দিল।
+
+### টিম ছাড়া নেতৃত্ব — Staff পথ
+
+Tanya Reilly *The Staff Engineer's Path*-এ (২০২২) Staff-এর কাজকে তিন স্তম্ভে দেখান — বড় ছবির চিন্তা, প্রকল্প বাস্তবায়ন, আর প্রতিষ্ঠানের engineering-এর মানে ইতিবাচক প্রভাব — সবটাই সরাসরি কর্তৃত্ব ছাড়া। Will Larson-এর *Staff Engineer* (২০২১) চার ধরন দেখায় — Tech Lead, Architect, Solver, Right Hand (Cross-team অধ্যায়ে বিস্তারিত)। কাজের প্রশ্ন: আপনার আগ্রহ আর প্রতিষ্ঠানের দরকার কোন ধরনের দিকে, আর পরের quarter-এর কাজ সেই দিকে যাচ্ছে কিনা।
+
+## রিমোট আর দ্বিতীয় ভাষায়
+
+- **দিক লেখায়।** রিমোটে "কোথায় আর কেন" একবার মুখে বললে হারায়। এক পাতার লিখিত দিক — লক্ষ্য, কেন, কী করব না — আর প্রতিটা বড় সিদ্ধান্তে সেটার উল্লেখ।
+- **ছন্দ ইচ্ছা করে।** নিয়মিত এক-একের আলাপ, সাপ্তাহিক লিখিত হালনাগাদ, দৃশ্যমান সিদ্ধান্তের রেকর্ড — অফিসে যা নিজে থেকে ঘটত, রিমোটে নিয়ম করে।
+- **দ্বিতীয় ভাষায় নেতৃত্ব — স্পষ্টতা, বাগ্মিতা নয়।** ছোট বাক্যে দিক, লেখায় পুনরাবৃত্তি, আর মিটিংয়ের ইংরেজি সামলানো — দ্রুতভাষীকে ধীর করা, চুপ থাকা non-native সহকর্মীকে ডাকা (Speaking English অধ্যায়)।
+
+| কখন | বাক্য |
+|---|---|
+| দিক আর কেন | "Here's where we're going, and why it matters." |
+| পথ পরিষ্কার | "What's blocking you right now, and who can unblock it?" |
+| উত্তরের বদলে প্রশ্ন | "What options have you considered? Which would you pick?" |
+| দায় নেওয়া | "That was my call, and it was wrong. Here's what I learned." |
+| সংকটে মালিকানা | "Ruma owns the fix, Rakib owns comms, I'll make the decisions." |
+| কৃতিত্ব | "This launch happened because of Ruma's work on the migration." |
+
+## Senior থেকে Staff
+
+| | Senior | Lead | Staff |
+|---|---|---|---|
+| **কাকে নেতৃত্ব** | নিজের কাজ, আর আশপাশের মানুষ — উদাহরণ দিয়ে | একটা টিম — প্রযুক্তিগত দিক আর মানুষ | কয়েকটা টিম — কর্তৃত্ব ছাড়া |
+| **মূল কাজ** | পথ পরিষ্কার রাখা, প্রশ্ন দিয়ে সাহায্য | দিক, কাজ ভাগ, মানুষ বড় করা — আর এখনো কিছু কোড | বড় ছবি, কয়েকটা টিমের প্রকল্প, engineering-এর মান |
+| **ঝুঁকি** | নিজে সব করে ফেলা | হাতে-কলমে কাজ ছাড়তে না পারা, বা পুরো ছেড়ে দেওয়া | কোনো archetype-এ নেই — সবকিছুতে আছেন, কোনোটায় গভীরে নন |
+| **সাফল্যের মাপ** | মানুষ আটকে গেলে আপনার কাছে আসেন | আপনি ছুটিতে গেলে টিম চলে | আপনার দিক অন্য টিমের মুখে শোনা যায় |
+
+Camille Fournier-এর *The Manager's Path* (২০১৭) tech lead-কে দেখান এক মিশ্র ভূমিকা হিসেবে — architect, পরিকল্পনাকারী, developer আর টিমের নেতা একসাথে — আর সতর্ক করেন: শুধু সবচেয়ে অভিজ্ঞ বলে কাউকে tech lead বানানো ঠিক নয়।
+
+## অনুশীলন
+
+- **"কী"-এর সাথে "কেন"।** এই সপ্তাহে যতবার কাউকে কোনো কাজ দেবেন বা কাজ চাইবেন, সাথে এক লাইনে বলুন কেন দরকার। কতবার তিনি আপনার ভাবনার চেয়ে ভালো সমাধান আনলেন, লক্ষ করুন। (Senior)
+- **উত্তরের বদলে প্রশ্ন।** পরের পাঁচটা "এটা কীভাবে করব?"-এ সরাসরি উত্তর নয় — আগে জিজ্ঞেস করুন "কী কী ভেবেছেন?" প্রথমে ধীর লাগবে; কয়েক সপ্তাহে প্রশ্ন কমল কিনা, গুনে রাখুন। (Senior)
+- **ইংরেজিতে প্রকাশ্যে ভুল স্বীকার।** নিজের একটা সিদ্ধান্তের ভুল টিমের সামনে ইংরেজিতে স্বীকার করুন, কারণসহ: "That was my call, and it was wrong. Here's what I learned." এরপর টিমে কেউ নিজের ভুল বলা শুরু করলেন কিনা, লক্ষ করুন। (Senior)
+- **ছুটির পরীক্ষা।** লিখুন — আপনি দুই সপ্তাহ না থাকলে কোন কোন জিনিস থামবে। প্রতিটার পাশে কে শিখতে পারেন, আর তিন মাসে কীভাবে শেখাবেন। এই তালিকাটাই আপনার পরের তিন মাসের আসল কাজ। (Lead)
+- **আপনার archetype।** Larson-এর চার ধরনের মধ্যে আপনার এখনকার কাজ কোনটার সবচেয়ে কাছে, আর কোনটার দিকে যেতে চান — লিখুন। পরের quarter-এর কাজের তালিকা থেকে কোনগুলো ঐ দিকে নেয় আর কোনগুলো নয়, চিহ্ন দিয়ে ম্যানেজারের সাথে আলোচনা করুন। (Staff)
+
+## মূল নিয়ম
+
+- leadership পদ নয়, আচরণ — আর আগের সব স্কিলের যোগফল।
+- "কী"-এর সাথে "কেন" বলুন; "কেন" জানা টিম আপনাকে ছাড়া সিদ্ধান্ত নেয়।
+- সব সমস্যা নিজে সমাধান করবেন না; স্বাধীনতা দিন দক্ষতার মাপে।
+- উত্তর নয়, প্রশ্ন — ব্যতিক্রম one-way door আর সংকট।
+- কৃতিত্ব নিচে, দায় উপরে।
+- যা আপনি সহ্য করেন, সেটাই আসল মান।
+- Staff পথে নেতৃত্ব কর্তৃত্ব ছাড়া — কোন ধরনের, সেটা সচেতনভাবে বাছুন।
+
+## উৎস
+
+- Google re:Work. Project Oxygen — ভালো ম্যানেজারের আচরণ; ২০১৫-এর তালিকার সারাংশ: [World Economic Forum](https://www.weforum.org/stories/leadership/the-9-habits-of-the-best-managers-according-to-googles-hr-boss/)।
+- Reilly, T. (2022). *The Staff Engineer's Path*. O'Reilly. — তিন স্তম্ভ।
+- Larson, W. (2021). *Staff Engineer: Leadership beyond the management track*. — চার archetype। [staffeng.com](https://staffeng.com/guides/staff-archetypes/)
+- Fournier, C. (2017). *The Manager's Path*. O'Reilly. — tech lead।
+- Beyer, B., Jones, C., Petoff, J. & Murphy, N. R. (eds.) (2016). *Site Reliability Engineering*. O'Reilly. — incident-এর ভূমিকা।4:["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$13"}]}]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/04-04/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০৪.০৪ Customer Service — ব্যবহারকারীর সাথে আচরণ"}]]}],["$","span",null,{}]]}]
+6:["$","script","script-0",{"src":"/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L14",null,{"children":["$","$15",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]
+a:["$","$1","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L18",null,{"children":["$","$15",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০৪.০৫ · Leadership — নেতৃত্ব — সফট স্কিল"}],["$","meta","1",{"name":"description","content":"সফট স্কিলের ১০৪টা drill, ১০৮ দিনে — Senior থেকে Staff, রিমোট আর ইংরেজিসহ; দিনে একটা, আজ একবার, আসল কথোপকথনে; চার স্তরে নির্ভরতার ক্রমে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/soft_skill_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+12:true
+16:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

@@ -1,0 +1,143 @@
+1:"$Sreact.fragment"
+2:I[22016,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+9:X
+e:X
+e:C
+0:{"buildId":"l-BOHA4hlHsZGkKwBaPqg","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"১. নিজের সাথে"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০১.০১"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Self-awareness — নিজেকে চেনা"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"plan-এ যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","005-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/005/","className":"chip chip--accent self-start","children":["দিন ","০০৫"," · ","\"কী\" দিয়ে এক সপ্তাহের লগ"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**\"কী\" দিয়ে এক সপ্তাহের লগ** — আজ কাজ শেষে দুই লাইন: আজকের সবচেয়ে অস্বস্তিকর মুহূর্ত, আর তার ঠিক আগে কী ঘটেছিল — \"কেন\" নয়, শুধু \"কী\" · পূর্ণ মাপে: পাঁচ কর্মদিবস, শেষে দুবারের বেশি আসা প্যাটার্নের একটা নাম (ডক ০১.০১)"}]]}],["$","li","006-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/006/","className":"chip chip--accent self-start","children":["দিন ","০০৬"," · ","একই প্রশ্ন তিনজনকে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**একই প্রশ্ন তিনজনকে** — আজ একজনকে, দিন ০০৩-এর মানুষটি বাদে: \"আমার সাথে কাজ করতে গিয়ে কোন জিনিসটা সবচেয়ে কঠিন লাগে? একটা উদাহরণ দিতে পারবেন?\" — উত্তর হুবহু খাতায় · পূর্ণ মাপে: তিনজন, আলাদাভাবে; দুবারের বেশি যা আসে, সেটাই প্রথম blind spot (ডক ০১.০১)"}]]}],["$","li","007-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/007/","className":"chip chip--accent self-start","children":["দিন ","০০৭"," · ","নিজের ইংরেজি শুনুন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**নিজের ইংরেজি শুনুন** — আজ ইংরেজিতে একটা standup বা নিজের কাজের ২ মিনিটের ব্যাখ্যা ফোনে রেকর্ড করুন; শুনে তিনটা জিনিস খাতায় — কোথায় থেমেছেন, কোন শব্দ বারবার এসেছে, আর যা বলতে চেয়েছিলেন বনাম যা বলেছেন · সুযোগ এলে: আসল standup বা ব্যাখ্যা রেকর্ড করে (ডক ০১.০১)"}]]}],["$","li","008-3",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/008/","className":"chip chip--accent self-start","children":["দিন ","০০৮"," · ","আপনার ছায়া মাপুন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**আপনার ছায়া মাপুন** — আজ টিমের একজনকে আলাদাভাবে: \"আমার কোন আচরণ টিমের মেজাজ বদলে দেয় — ভালো বা খারাপ দিকে?\" — উত্তর হুবহু খাতায় · পূর্ণ মাপে: দুজন, তারপর একটা আচরণ বেছে দুই সপ্তাহ লক্ষ রাখা (ডক ০১.০১)"}]]}],["$","li","009-4",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/009/","className":"chip chip--accent self-start","children":["দিন ","০০৯"," · ","যে ঘরে আপনি নেই"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**যে ঘরে আপনি নেই** — আজ অন্য একটা টিমের একজনকে মেসেজে: \"আমার নাম শুনলে আপনার টিম কী ধরনের কাজের কথা ভাবে?\" — পাশে নিজের আন্দাজ আগে লিখে রাখুন · পূর্ণ মাপে: তিনটা ভিন্ন টিমের তিনজন; আন্দাজ আর উত্তরের ফাঁকটাই সুনামের blind spot (ডক ০১.০১)"}]]}],["$","li","025-5",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/025/","className":"chip chip--accent self-start","children":["দিন ","০২৫"," · ","মুখে — নিজের সাথে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"এই ব্লকের পাঁচ অধ্যায় থেকে তিনটা মূল নিয়ম — গাইড না খুলে, মনে করে — প্রতিটা ইংরেজিতে জোরে, সাথে এই ব্লকের drill থেকে নিজের একটা ঘটনা; মোট ২ মিনিটে, ফোনে রেকর্ড করে (ডক ০০.০১ · ডক ০১.০১ · ডক ০১.০২ · ডক ০১.০৩ · ডক ০১.০৪)"}]]}]]}]]}],"$L4","$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+14:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"OutletBoundary"]
+15:"$Sreact.suspense"
+17:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"ViewportBoundary"]
+18:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"MetadataBoundary"]
+19:I[27201,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"IconMark"]
+1a:I[39756,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+1b:I[37457,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+13:T4455,## সংজ্ঞা
+
+**Self-awareness** হলো নিজের আবেগ, প্রবণতা আর আচরণ — আর সেগুলো অন্যদের উপর কী প্রভাব ফেলে — **ঘটার সময়ই** দেখতে পারা, পরে নয়।
+
+Tasha Eurich-এর গবেষণা দল একে দুই ভাগে দেখে, আর তাঁদের পর্যবেক্ষণ — দুটো একসাথে চলে না:
+
+- **Internal self-awareness** — আমি কী মূল্য দিই, কী চাই, কী আমাকে নাড়া দেয়।
+- **External self-awareness** — অন্যরা আমাকে কেমন দেখেন, আমার আচরণ তাঁদের উপর কী ফেলে।
+
+একটায় শক্ত, অন্যটায় দুর্বল — খুব সাধারণ। আর তাঁদের হিসাবে বেশিরভাগ মানুষ নিজেকে self-aware ভাবলেও আসলে মাত্র ১০–১৫% সেই মাপে পৌঁছান।
+
+পরের স্তরে self-awareness আর শুধু একটা গুণ নয় — **একটা ব্যবস্থা**: নিজের সম্পর্কে সত্যি তথ্য নিয়মিত আসার পথ, যেটা আপনি নিজে বানান। কারণ পদ যত উপরে ওঠে, তথ্য নিজে থেকে আসা তত কমে।
+
+## কেন এটা কঠিন
+
+**১. "কেন" প্রশ্ন গল্প বানায়।** "আমি কেন এমন করলাম?" — এর উত্তরে মন একটা যুক্তিসঙ্গত গল্প দেয়, আসল কারণ নয়। Eurich-এর পর্যবেক্ষণ: "কেন" প্রশ্ন বিস্ময়করভাবে অকেজো; "কী" প্রশ্ন — কোন পরিস্থিতিতে এটা হয়, তখন আমি কী করি — সামনের দিকে নিয়ে যায়। অনেক বেশি আত্মদর্শন তাই সবসময় বেশি self-awareness আনে না।
+
+**২. অভিজ্ঞতা আর ক্ষমতা আয়না ঝাপসা করে।** Eurich-এর দল দেখেছে, নেতারা যত অভিজ্ঞ আর ক্ষমতাবান হন, নিজের সম্পর্কে তাঁদের ধারণা তত কম নির্ভুল হয়। কারণটা সহজ: উপরের মানুষকে সত্যি বলার খরচ বেশি, তাই কম মানুষ বলেন।
+
+**৩. Blind spot একা বসে দেখা যায় না।** যা আপনি জানেন না কিন্তু অন্যরা জানেন — সংজ্ঞা অনুযায়ীই একা ভেবে সেখানে পৌঁছানো যায় না। পথ একটাই: জিজ্ঞেস করা।
+
+**৪. সত্যি বলার ঝুঁকি তাঁদের, লাভ আপনার।** আপনার আচরণের সবচেয়ে ভালো ডেটা আছে সহকর্মীদের কাছে। কিন্তু বললে ঝুঁকি তাঁদের — সম্পর্ক, পদ, আপনার মেজাজ। তাই ডিফল্ট নীরবতা, আর নীরবতাকে আপনি পড়েন "সব ঠিক আছে"।
+
+**৫. তথ্য পেলেও ব্যবহার হয় না।** কঠিন feedback শোনার প্রথম প্রতিক্রিয়া ব্যাখ্যা দেওয়া। ব্যাখ্যা শুরু হলে বক্তা বোঝেন বলে লাভ নেই — আর পরেরবার বলেন না। ফলে self-awareness-এর সবচেয়ে বড় শত্রু তথ্যের অভাব নয়, তথ্য আসার পরের পাঁচ সেকেন্ড।
+
+## কীভাবে কাজ করে
+
+### দুই অক্ষ, চার ধরন
+
+Eurich-এর দল internal আর external মিলিয়ে চারটা ধরন দেখায়:
+
+| | **external কম** | **external বেশি** |
+|---|---|---|
+| **internal বেশি** | **Introspectors** — নিজেকে চেনেন, কিন্তু blind spot খোঁজেন না | **Aware** — দুটোই |
+| **internal কম** | **Seekers** — দুই দিকেই বাড়ার জায়গা | **Pleasers** — অন্যের চোখে ভালো থাকায় ব্যস্ত, নিজের চাওয়া হারান |
+
+প্রথম কাজ: নিজে কোন ঘরে আছেন, আন্দাজ করা — তারপর অন্যদের জিজ্ঞেস করে আন্দাজটা যাচাই।
+
+### Johari Window — blind spot ছোট করা
+
+Luft আর Ingham-এর (১৯৫৫) চার ঘর — আমি জানি কি না × অন্যরা জানে কি না: Open, Hidden, **Blind spot**, Unknown। পরের স্তরে কাজটা Blind spot ছোট করা, আর সেটা হয় শুধু জিজ্ঞেস করে। উল্টো দিকও আছে: Hidden ঘর থেকে কিছু নিজে খুলে বলা — "আমি সামনাসামনি সমালোচনায় শক্ত হয়ে যাই" — অন্যদের কাজ সহজ করে, কারণ তাঁরা জানেন কীভাবে বলবেন।
+
+### "কেন" নয়, "কী"
+
+- ❌ "আমি কেন এত রেগে গেলাম?" → গল্প, দোষ, আত্মপক্ষ সমর্থন।
+- ✅ "ঠিক কী অনুভব করেছি? তার আগে কী ঘটেছিল? আমি কী করেছি? পরেরবার কী করব?" → পর্যবেক্ষণ আর পরের পদক্ষেপ।
+
+"কেন" প্রশ্নে আপনি নিজের উকিল; "কী" প্রশ্নে সাক্ষী।
+
+### তথ্যের পাইপলাইন
+
+তথ্য নিজে থেকে না এলে আসার পথ বানান — নিয়মিত, ছোট, নির্দিষ্ট:
+
+| পথ | কত ঘন ঘন | প্রশ্ন বা কাজ |
+|---|---|---|
+| এক-একের আলাপ | মাসে একবার | "গত মাসে আমার কোন আচরণ তোমার কাজ কঠিন করেছে?" |
+| কাজের পরে | প্রতিটা বড় কাজের পরে | "পরেরবার আমি কী আলাদা করলে ভালো হতো?" |
+| নিজের রেকর্ড | সপ্তাহে একবার | নিজের একটা লেখা বা রেকর্ড করা কথা পরে পড়া বা শোনা |
+| নির্ভরযোগ্য সমালোচক | তিন মাসে একবার | দুজন মানুষ, যাঁরা আপনার ভালো চান আর সত্যি বলবেন — Eurich এঁদের বলেন "loving critics" |
+
+প্রশ্ন সবসময় নির্দিষ্ট — "কোনো feedback আছে?" নয়। আর উত্তরের পরে প্রথম বাক্য: "ধন্যবাদ, একটা উদাহরণ দিতে পারবেন?" — ব্যাখ্যা নয়।
+
+### একজনের কথা গল্প, তিনজনের কথা ডেটা
+
+একজনের feedback তাঁর নিজের চোখের কথা। একই জিনিস দুজনের বেশি মানুষ আলাদাভাবে বললে সেটা আর মতামত নয় — প্যাটার্ন। অবাক করা কিছু শুনলে আরও দুজনকে যাচাই করুন, আগে বদলাতে ছুটবেন না।
+
+## রিমোট আর দ্বিতীয় ভাষায়
+
+- **external self-awareness রিমোটে কঠিন।** মিটিংয়ে আপনার কথার পরে কারো মুখ কেমন হলো, ঘরে কী নীরবতা নামল — ভিডিও কলে অনেকটা হারায়, লেখায় প্রায় সবটা। আর লেখায় সুর কতটা পৌঁছায়, তা প্রেরকেরা নিয়মিত বেশি আন্দাজ করেন (Communication অধ্যায়, Kruger ও সহকর্মী)। তাই রিমোটে জিজ্ঞেস করার দাম বেশি: "Did that come across okay?"
+- **নিজেকে দেখা আর নিজেকে চেনা এক নয়।** Bailenson (২০২১) ভিডিও কলের ক্লান্তির যে চারটা কারণ দেখিয়েছেন, তার একটা — সারাক্ষণ নিজের ভিডিও দেখায় নিজেকে মূল্যায়ন বেড়ে যাওয়া। ওটা চেহারা পাহারা দেওয়া, self-awareness নয়। নিজের ছবি একবার দেখে লুকিয়ে রাখুন; মনোযোগ রাখুন অন্যদের প্রতিক্রিয়ায়।
+- **দ্বিতীয় ভাষায় আপনার ছবি অন্যরকম পৌঁছায়।** যা বাংলায় নরম করে বলতেন, ইংরেজিতে সেটা সংক্ষিপ্ত হয়ে রূঢ় শোনাতে পারে; আবার দ্বিধা আত্মবিশ্বাসের অভাব মনে হতে পারে। নিজের ইংরেজি কথা রেকর্ড করে শুনুন — ঠিক যেমনটা অন্যরা শোনেন।
+
+| কখন | বাক্য |
+|---|---|
+| প্রভাব যাচাই | "How did that land for you?" |
+| নির্দিষ্ট feedback চাওয়া | "What's one thing I could do differently in meetings?" |
+| উদাহরণ চাওয়া | "Could you give me an example? That would really help." |
+| নিজের প্রবণতা খুলে বলা | "I tend to be blunt in reviews — tell me if it's too much." |
+
+## Senior থেকে Staff
+
+| | Senior | Lead | Staff |
+|---|---|---|---|
+| **কী দেখতে হয়** | নিজের আচরণ, আর এক-দুজনের উপর তার প্রভাব | নিজের মেজাজ — টিমের আবহাওয়া হয়ে যায় | নিজের সুনাম — যে ঘরে আপনি নেই, সেখানে আপনার নাম কী বোঝায় |
+| **তথ্য আসে** | সহকর্মী আর review থেকে, সহজে | কম — টিম আপনার কাছে রিপোর্ট করে | আরও কম — অনেকে আপনাকে শুধু লেখায় চেনেন |
+| **যা লাগে** | প্রশ্ন করার অভ্যাস | নিরাপদে বলার পরিবেশ | ইচ্ছা করে বানানো তথ্যের পথ |
+| **ব্যর্থতার রূপ** | একই ভুল বারবার | টিম আপনার খারাপ দিনটা আন্দাজ করে কাজ সাজায় | সবাই জানে আপনি কোথায় ভুল, শুধু আপনি জানেন না |
+
+পদ যত উপরে, আপনার "একটা খারাপ দিন" তত বেশি মানুষের দিন খারাপ করে — আর তত কম মানুষ সেটা আপনাকে বলেন।
+
+## অনুশীলন
+
+- **"কী" দিয়ে এক সপ্তাহের লগ।** পাঁচ কর্মদিবস, প্রতিদিন কাজ শেষে দুই লাইন: আজকের সবচেয়ে অস্বস্তিকর মুহূর্ত, আর তার ঠিক আগে কী ঘটেছিল — "কেন" নয়, শুধু "কী"। সপ্তাহ শেষে যে প্যাটার্ন দুবারের বেশি এল, তার একটা নাম দিন। (Senior)
+- **একই প্রশ্ন তিনজনকে।** তিনজনকে আলাদাভাবে জিজ্ঞেস করুন: "আমার সাথে কাজ করতে গিয়ে কোন জিনিসটা সবচেয়ে কঠিন লাগে? একটা উদাহরণ দিতে পারবেন?" দুবারের বেশি যা আসে, সেটাই প্রথম blind spot। উত্তরে ব্যাখ্যা নয় — শুধু ধন্যবাদ। (Senior)
+- **নিজের ইংরেজি শুনুন।** ইংরেজিতে একটা standup বা ব্যাখ্যা ফোনে রেকর্ড করে পরদিন শুনুন। তিনটা জিনিস লিখুন: কোথায় থেমেছেন, কোন শব্দ বারবার এসেছে, আর যা বলতে চেয়েছিলেন বনাম যা বলেছেন। (Senior)
+- **আপনার ছায়া মাপুন।** টিমের দুজনকে আলাদাভাবে জিজ্ঞেস করুন: "আমার কোন আচরণ টিমের মেজাজ বদলে দেয় — ভালো বা খারাপ দিকে?" দুজনের উত্তর পাশাপাশি লিখুন, আর একটা আচরণ বেছে নিন যেটা পরের দুই সপ্তাহ লক্ষ রাখবেন। (Lead)
+- **যে ঘরে আপনি নেই।** ভিন্ন টিমের তিনজনকে জিজ্ঞেস করুন: "আমার নাম শুনলে আপনার টিম কী ধরনের কাজের কথা ভাবে?" আপনি কী ভেবেছিলেন আর কী শুনলেন, পাশাপাশি লিখুন — ফাঁকটাই আপনার সুনামের blind spot। (Staff)
+
+## মূল নিয়ম
+
+- আপনার উদ্দেশ্য নয়, আপনার আচরণই অন্যদের কাছে আপনি।
+- "কেন" প্রশ্ন গল্প আনে, "কী" প্রশ্ন তথ্য আর পরের পদক্ষেপ আনে।
+- Blind spot একা বসে কমে না — জিজ্ঞেস করে কমে, নির্দিষ্ট প্রশ্নে।
+- feedback-এর পরের প্রথম বাক্য ধন্যবাদ আর একটা উদাহরণ চাওয়া — ব্যাখ্যা নয়।
+- একজনের কথা গল্প, তিনজনের কথা ডেটা।
+- পদ যত উপরে, তথ্য তত কম আসে — আসার পথ নিজে বানান।
+- নিজের ভিডিও দেখা self-awareness নয়; অন্যের প্রতিক্রিয়া দেখাই self-awareness।
+
+## উৎস
+
+- Eurich, T. (2018). "What Self-Awareness Really Is (and How to Cultivate It)." *Harvard Business Review*, January 2018. [HBR](https://hbr.org/2018/01/what-self-awareness-really-is-and-how-to-cultivate-it) — internal আর external, চার ধরন, ১০–১৫%, "কেন" বনাম "কী", অভিজ্ঞতা আর ক্ষমতা, loving critics।
+- Luft, J. & Ingham, H. (1955). "The Johari window, a graphic model of interpersonal awareness." *Proceedings of the Western Training Laboratory in Group Development*, UCLA.
+- Bailenson, J. N. (2021). "Nonverbal Overload: A Theoretical Argument for the Causes of Zoom Fatigue." *Technology, Mind, and Behavior*. [DOI](https://doi.org/10.1037/tmb0000030)
+- Kruger, J., Epley, N., Parker, J. & Ng, Z.-W. (2005). "Egocentrism over e-mail: Can we communicate as well as we think?" *Journal of Personality and Social Psychology*, 89(6), 925–936. [PubMed](https://pubmed.ncbi.nlm.nih.gov/16393025/)4:["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$13"}]}]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/00-02/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০০.০২ এই সাইট কীভাবে ব্যবহার করবেন"}]]}],["$","$L2",null,{"href":"/doc/01-02/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০১.০২ Emotional Intelligence — আবেগ বোঝা ও সামলানো"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L14",null,{"children":["$","$15",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]
+a:["$","$1","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L18",null,{"children":["$","$15",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০১.০১ · Self-awareness — নিজেকে চেনা — সফট স্কিল"}],["$","meta","1",{"name":"description","content":"সফট স্কিলের ১০৪টা drill, ১০৮ দিনে — Senior থেকে Staff, রিমোট আর ইংরেজিসহ; দিনে একটা, আজ একবার, আসল কথোপকথনে; চার স্তরে নির্ভরতার ক্রমে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/soft_skill_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+12:true
+16:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

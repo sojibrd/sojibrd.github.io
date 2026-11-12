@@ -1,0 +1,157 @@
+1:"$Sreact.fragment"
+2:I[22016,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+9:X
+e:X
+e:C
+0:{"buildId":"l-BOHA4hlHsZGkKwBaPqg","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"৪. অনেক মানুষের সাথে"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০৪.০২"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Persuasion ও Negotiation — রাজি করানো ও দর-কষাকষি"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"plan-এ যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","088-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/088/","className":"chip chip--accent self-start","children":["দিন ","০৮৮"," · ","একটা প্রস্তাব অনুবাদ"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**একটা প্রস্তাব অনুবাদ** — যা করতে চান কিন্তু অনুমোদন পাচ্ছেন না, তার কারণ নিজের ভাষায় খাতায়, তারপর সিদ্ধান্তদাতার ভাষায় আবার — তাঁর metric-এ, তাঁর ঝুঁকিতে; দুটোর পার্থক্য এক লাইনে (ডক ০৪.০২)"}]]}],["$","li","089-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/089/","className":"chip chip--accent self-start","children":["দিন ","০৮৯"," · ","বিকল্প আগে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**বিকল্প আগে** — পরের দরকষাকষির — scope, deadline, কাজের ভাগ — তিন লাইন খাতায়: লক্ষ্য, সীমা, বিকল্প; বিকল্পের ঘর ফাঁকা থাকলে আজই একটা বিকল্প তৈরি করুন · সুযোগ এলে: তিন লাইন হাতে রেখে আলোচনায় (ডক ০৪.০২)"}]]}],["$","li","090-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/090/","className":"chip chip--accent self-start","children":["দিন ","০৯০"," · ","ইংরেজিতে label আর \"What\" প্রশ্ন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**ইংরেজিতে label আর \"What\" প্রশ্ন** — আজকের কোনো ইংরেজি আলাপে — না থাকলে শেষ মতবিরোধটা মনে করে, জোরে — একটা label (\"It seems like…\") আর একটা \"How/What\" প্রশ্ন · সুযোগ এলে: পরের ইংরেজি মতবিরোধ বা দরকষাকষিতে, আর উত্তরে নতুন কী তথ্য এল (ডক ০৪.০২)"}]]}],["$","li","091-3",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/091/","className":"chip chip--accent self-start","children":["দিন ","০৯১"," · ","scope-এর দরকষাকষি, তিন পথে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**scope-এর দরকষাকষি, তিন পথে** — শেষ যে deadline আর scope-এর সংঘর্ষ হয়েছিল, তার জন্য তিনটা পথ খাতায় — সময় বাড়ানো, scope কমানো, লোক যোগ — প্রতিটার খরচসহ · সুযোগ এলে: পরের সংঘর্ষে PM-কে তিন পথ, বাছাই তাঁর হাতে (ডক ০৪.০২)"}]]}],["$","li","092-4",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/092/","className":"chip chip--accent self-start","children":["দিন ","০৯২"," · ","একটা প্রস্তাব আগে থেকে জানান"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**একটা প্রস্তাব আগে থেকে জানান** — আসন্ন একটা বড় সিদ্ধান্তের জন্য প্রধান তিনজন stakeholder-এর নাম আর প্রত্যেকের সম্ভাব্য আপত্তি খাতায়; আজ একজনকে আলাদা কথার জন্য মেসেজ · পূর্ণ মাপে: তিনজনের সাথে কথা, প্রস্তাব শোধরানো, আর মিটিংয়ে চমক এল কিনা (ডক ০৪.০২)"}]]}],["$","li","108-5",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/108/","className":"chip chip--accent self-start","children":["দিন ","১০৮"," · ","মুখে — অনেক মানুষের সাথে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"এই ব্লকের পাঁচ অধ্যায় থেকে তিনটা মূল নিয়ম, একটা Leadership থেকে — গাইড না খুলে, মনে করে — প্রতিটা ইংরেজিতে জোরে, সাথে এই ব্লকের drill থেকে নিজের একটা ঘটনা; মোট ২ মিনিটে, ফোনে রেকর্ড করে (ডক ০৪.০১ · ডক ০৪.০২ · ডক ০৪.০৩ · ডক ০৪.০৪ · ডক ০৪.০৫)"}]]}]]}]]}],"$L4","$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+14:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"OutletBoundary"]
+15:"$Sreact.suspense"
+17:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"ViewportBoundary"]
+18:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"MetadataBoundary"]
+19:I[27201,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"IconMark"]
+1a:I[39756,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+1b:I[37457,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+13:T4768,## সংজ্ঞা
+
+দুটো আলাদা জিনিস, একই ভিত্তিতে:
+
+- **Persuasion** — কাউকে একটা দৃষ্টিভঙ্গি বা পদক্ষেপে রাজি করানো, যেখানে তাঁকে বাধ্য করার ক্ষমতা আপনার নেই।
+- **Negotiation** — দুই পক্ষের ভিন্ন চাহিদা থেকে এমন বোঝাপড়ায় পৌঁছানো, যা দুজনেই মেনে নেন।
+
+ভিত্তিটা এই অধ্যায় ধরে নেয়: নিজের কারণ নয়, তাঁর ভাষায় প্রস্তাব; আগে তাঁর অবস্থান বলা; ঝুঁকি ছোট করা; একাধিক মাত্রায় খেলা। আর একটা সীমা: **রাজি করানো আর ঠকানো এক নয়** — যে কৌশল শুধু তখনই কাজ করে যখন অন্য পক্ষ পুরো ছবি দেখেন না, সেটা manipulation, আর সেটা একবারই কাজ করে।
+
+পরের স্তরে তিনটা জিনিস যোগ হয়: মানুষ কোন চেনা পথে রাজি হন — আর সেগুলো সৎভাবে ব্যবহার; প্রথম সংখ্যার শক্তি; আর দরকষাকষিকে যুদ্ধ নয়, খোঁজ হিসেবে দেখা।
+
+## কেন এটা কঠিন
+
+**১. সঠিক হওয়াই যথেষ্ট মনে হয়।** সিদ্ধান্ত হয় আস্থা, ঝুঁকি আর অগ্রাধিকারে; যুক্তি তার একটা উপাদান মাত্র।
+
+**২. নিজের কারণ বলি, তাঁর কারণ নয়।** আপনি চান refactor, কারণ কোড অগোছালো; ম্যানেজার চান deadline। "অগোছালো" তাঁর কাছে কারণ নয় — "এই অংশে প্রতি মাসে তিন দিন bug fix-এ যায়" কারণ।
+
+**৩. প্রথম সংখ্যা আলোচনাকে টেনে ধরে।** Galinsky আর Mussweiler-এর পরীক্ষায় (২০০১) যে পক্ষ প্রথম প্রস্তাব দিয়েছিলেন — ক্রেতা হোন বা বিক্রেতা — তাঁরা ভালো ফল পেয়েছিলেন, আর প্রথম প্রস্তাব চূড়ান্ত দামের জোরালো পূর্বাভাস দিয়েছিল; ফলটা সামনাসামনি আর email — দুই রকম দরকষাকষিতেই দেখা গিয়েছিল। তবে সুবিধাটা মিলিয়ে গিয়েছিল, যখন অন্য পক্ষ মন দিয়েছিলেন এমন তথ্যে যা ঐ প্রস্তাবের বিরুদ্ধে যায় — প্রতিপক্ষের বিকল্প, তাঁর সীমা, বা নিজের লক্ষ্য।
+
+**৪. "না"-র ভয়ে কম চাওয়া।** প্রত্যাখ্যান এড়াতে দুর্বল অবস্থান দিয়ে শুরু; যা পেতে পারতেন, তার কম পান — আর অন্য পক্ষ কখনো জানেনও না।
+
+**৫. প্রভাবের কৌশল সহজে ঠকানো হয়ে যায়।** নকল সময়সীমা, বানানো "সবাই তো এটা করছে" — এগুলো কাজ করে, ঠিক যতক্ষণ ধরা না পড়ে। ধরা পড়লে আপনার পরের সত্যি কথাও সন্দেহ পায়।
+
+## কীভাবে কাজ করে
+
+### তাঁর ভাষায় অনুবাদ
+
+| আপনার কারণ | ম্যানেজারের ভাষায় | ব্যবসার ভাষায় |
+|---|---|---|
+| "কোডটা অগোছালো" | "প্রতি feature-এ দুই দিন বেশি লাগছে" | "release ধীর হচ্ছে" |
+| "test নেই" | "প্রতি release-এ rollback-এর ঝুঁকি" | "গত quarter-এ তিনটা outage" |
+| "নতুন টুলটা ভালো" | "onboarding দুই সপ্তাহ থেকে চার দিনে" | "নতুন লোক দ্রুত কাজে লাগবেন" |
+
+প্রস্তাব তাঁর সমস্যার সমাধান হিসেবে, আপনার পছন্দ হিসেবে নয়।
+
+### মানুষ কোন পথে রাজি হন — সৎভাবে
+
+Robert Cialdini-র *Influence* ছয়টা নীতি দেখায়, আর *Pre-Suasion*-এ (২০১৬) যোগ হয় সপ্তম। Cialdini নিজেও এগুলোকে অসৎ প্রভাব থেকে বাঁচার উপায় হিসেবেও দেখান। কাজে সৎ রূপ:
+
+| নীতি | সৎ রূপ | অসৎ রূপ |
+|---|---|---|
+| **Reciprocity** | আগে সাহায্য করুন — তাঁর একটা PR review | "আমি তো আপনার জন্য করেছিলাম" দিয়ে চাপ |
+| **Commitment & consistency** | ছোট প্রথম ধাপ — দুই সপ্তাহের pilot | ছোট "হ্যাঁ" দিয়ে বড় ফাঁদ |
+| **Social proof** | যে টিম সত্যিই ব্যবহার করছে, তার ফল দেখান | "সবাই করছে" — যখন করছে না |
+| **Authority** | official ডক, মাপা benchmark | নিজের পদ দেখিয়ে আলোচনা বন্ধ |
+| **Liking** | সম্পর্ক — যখন কিছু চাই না, তখনও | কাজ হাসিলের জন্য হঠাৎ বন্ধুত্ব |
+| **Scarcity** | আসল সময়সীমা — "freeze-এর আগে শেষ সুযোগ" | বানানো তাড়া |
+| **Unity** | যৌথ পরিচয় — "আমরা একই platform-এর মানুষ" | "আমরা বনাম ওরা" |
+
+পরীক্ষা একটাই: অন্য পক্ষ পুরো ছবি দেখলে কি এখনো রাজি থাকতেন?
+
+### প্রথম সংখ্যা — দুই দিক থেকে
+
+- **পরিসর জানা থাকলে প্রথম প্রস্তাব আপনিই দিন** — সময়, scope, দাম; আর সেটা যুক্তিসঙ্গত কিন্তু উচ্চাভিলাষী রাখুন।
+- **অন্য পক্ষ আগে সংখ্যা বললে** নিজের বিকল্প আর নিজের লক্ষ্যে মন ফেরান — Galinsky আর Mussweiler-এর পরীক্ষায় ঠিক এটাই anchor-এর টান কাটিয়েছিল। মুখে বলুন: "আমার হিসাব অন্যরকম — আমি এখান থেকে দেখছি…"
+
+### তিনটা প্রস্তুতি — বিকল্পই আসল ক্ষমতা
+
+| | কী | কেন |
+|---|---|---|
+| **লক্ষ্য** | আদর্শ ফল | দিক ঠিক রাখে |
+| **সীমা** | এর নিচে রাজি নই | মাঝপথে সরে যাওয়া আটকায় |
+| **বিকল্প** | রাজি না হলে আমি কী করব | সবচেয়ে বড় শক্তি |
+
+তৃতীয়টার নাম Fisher আর Ury-র *Getting to Yes*-এ *BATNA* — best alternative to a negotiated agreement। ভালো বিকল্প থাকলে চাপ দেওয়া কঠিন; না থাকলে আলোচনার আগে বিকল্প তৈরি করাই আলোচনার চেয়ে জরুরি।
+
+### খোঁজ হিসেবে দরকষাকষি
+
+Chris Voss-এর *Never Split the Difference* (২০১৬) দরকষাকষিকে যুদ্ধের চেয়ে খোঁজ হিসেবে দেখে। তিনটা কৌশল:
+
+- **Label** — অন্যের অবস্থা নাম দিন: "মনে হচ্ছে timeline-টাই সবচেয়ে বড় চিন্তা।" ঠিক হলে তিনি সায় দেন, ভুল হলে শুধরে দেন — দুটোতেই তথ্য।
+- **Mirror** — তাঁর শেষ কয়েকটা শব্দ প্রশ্নের সুরে ফিরিয়ে বলে চুপ থাকুন; তিনি নিজেই আরও বলবেন।
+- **"How" আর "What" প্রশ্ন** — "কীভাবে এটা সম্ভব করা যায়?", "কী হলে এটা আপনার জন্য চলবে?" এগুলো সমস্যাটা তাঁর হাতে দেয়, আর "না"-কে সংঘর্ষ ছাড়া বলার সুযোগ দেয় — "How am I supposed to do that?"
+
+### ঝুঁকি ছোট করুন, আর একাধিক মাত্রায় খেলুন
+
+বেশিরভাগ "না" যুক্তির বিরোধিতা নয়, ঝুঁকির ভয়। সময়সীমা দিন ("দুই সপ্তাহ চালাই"), আকার ছোট করুন ("একটা module-এ"), ফেরার পথ দেখান ("flag-এ, এক কমান্ডে বন্ধ"), আর সফলতার মাপ আগে ঠিক করুন। এক মাত্রায় আটকালে অন্য মাত্রা খুলুন — সময়, scope, লোক, মান — আর বাছাইটা অন্য পক্ষের হাতে দিন।
+
+## রিমোট আর দ্বিতীয় ভাষায়
+
+- **আগে থেকে একে একে কথা বলুন।** রিমোটে বড় সিদ্ধান্তের মিটিংয়ে চমক আরও খারাপ যায় — প্রধান তিন-চারজনের সাথে আগে আলাদা কথা বলে আপত্তি শুনুন, প্রস্তাব শোধরান।
+- **লিখিত প্রস্তাব narrative-এ।** Writing অধ্যায়ের মতো — "কারণ" আর "তাই" লিখতে হয় এমন অনুচ্ছেদ। email-এ anchor-এর প্রভাবও কাজ করে, তাই প্রথম সংখ্যা লেখায়ও সাবধানে।
+- **দ্বিতীয় ভাষায় সংখ্যা আর মূল বাক্য আগে থেকে তৈরি।** Voss-এর কৌশলগুলো সরল ইংরেজিতে চলে — "It seems like…", "What would it take…?" — জটিল শব্দের দরকার নেই।
+
+| কখন | বাক্য |
+|---|---|
+| label | "It seems like the timeline is the biggest concern for you." |
+| calibrated প্রশ্ন | "What would it take to make this work for your team?" |
+| সংঘর্ষ ছাড়া "না" | "How am I supposed to deliver that by Friday?" |
+| ঝুঁকি ছোট করা | "Could we try it for two weeks and review together?" |
+| anchor কাটানো | "I see it differently — here's how I'm calculating it." |
+| বিকল্প দেওয়া | "There are three ways to do this. Which works best for you?" |
+
+## Senior থেকে Staff
+
+| | Senior | Lead | Staff |
+|---|---|---|---|
+| **কাকে রাজি করান** | টিম আর PM — প্রযুক্তিগত বাছাইয়ে | PM আর stakeholder — টিমের হয়ে scope আর সময় | কয়েকটা টিম আর leadership |
+| **মূল কৌশল** | তাঁর ভাষায় অনুবাদ, ঝুঁকি ছোট করা | তিন পথ দিয়ে দরকষাকষি, বিকল্প তৈরি রাখা | আগে একে একে কথা, জোট গড়া, unity |
+| **ঝুঁকি** | সঠিক হয়েও প্রত্যাখ্যাত | টিমের জন্য অতিরিক্ত প্রতিশ্রুতি | কৌশল ধরা পড়ে, আর পরের সব কথা সন্দেহ পায় |
+| **সাফল্যের মাপ** | প্রস্তাব পাস হয়, সম্পর্ক অক্ষত | টিম অসম্ভব deadline পায় না | বড় সিদ্ধান্তের মিটিংয়ে চমক থাকে না |
+
+পদ যত উপরে, প্রতিটা প্রভাবের কৌশল তত বেশি মানুষ দেখেন — আর সততার দাম তত বেশি, কারণ সুনাম সবার আগে ঢোকে।
+
+## অনুশীলন
+
+- **একটা প্রস্তাব অনুবাদ।** যা করতে চান কিন্তু অনুমোদন পাচ্ছেন না, তার কারণ নিজের ভাষায় লিখুন, তারপর সিদ্ধান্তদাতার ভাষায় আবার — তাঁর metric-এ, তাঁর ঝুঁকিতে। দুটোর পার্থক্য এক লাইনে লিখুন — ওটাই এতদিনের সমস্যা। (Senior)
+- **বিকল্প আগে।** পরের যেকোনো দরকষাকষির আগে — scope, deadline, কাজের ভাগ — তিন লাইন লিখুন: লক্ষ্য, সীমা, বিকল্প। বিকল্পের ঘর ফাঁকা থাকলে আলোচনার আগে একটা বিকল্প তৈরি করুন। (Senior)
+- **ইংরেজিতে label আর "What" প্রশ্ন।** পরের ইংরেজি মতবিরোধ বা দরকষাকষিতে একটা label ("It seems like…") আর একটা "How/What" প্রশ্ন ব্যবহার করুন। উত্তরে নতুন কী তথ্য এল, খাতায় লিখুন। (Senior)
+- **scope-এর দরকষাকষি, তিন পথে।** পরেরবার deadline আর scope সংঘর্ষে গেলে PM-কে তিনটা পথ দিন — সময় বাড়ানো, scope কমানো, লোক যোগ — প্রতিটার খরচসহ, আর বাছাই তাঁর হাতে দিন। সিদ্ধান্ত কত দ্রুত হলো, আগের বারের সাথে তুলনা করুন। (Lead)
+- **একটা প্রস্তাব আগে থেকে জানান।** কয়েকটা টিমের সিদ্ধান্তের মিটিংয়ের আগে প্রধান তিনজন stakeholder-এর সাথে আলাদা কথা বলুন — আপত্তি শুনুন, প্রস্তাব শোধরান। মিটিংয়ে কোনো চমক এল কিনা, লিখুন। (Staff)
+
+## মূল নিয়ম
+
+- সঠিক হওয়া যথেষ্ট নয় — প্রস্তাব দিন তাঁর ভাষায়, তাঁর সমস্যার সমাধান হিসেবে।
+- প্রভাবের প্রতিটা নীতির একটা সৎ রূপ আছে; পরীক্ষা — পুরো ছবি দেখলে কি রাজি থাকতেন?
+- পরিসর জানা থাকলে প্রথম সংখ্যা আপনার; অন্যের সংখ্যায় নিজের বিকল্পে মন ফেরান।
+- আলোচনার আগে বিকল্প তৈরি করুন — সেটাই আসল ক্ষমতা।
+- label করুন, "How" আর "What" জিজ্ঞেস করুন — দরকষাকষি খোঁজ, যুদ্ধ নয়।
+- "না"-র নিচে প্রায়ই ঝুঁকির ভয় — ঝুঁকি ছোট করুন।
+- বড় মিটিংয়ের আগে একে একে কথা বলুন; চমক সিদ্ধান্ত মারে।
+
+## উৎস
+
+- Cialdini, R. B. (1984). *Influence: The Psychology of Persuasion*. — ছয় নীতি; আর Cialdini, R. B. (2016). *Pre-Suasion* — সপ্তম নীতি, unity।
+- Galinsky, A. D. & Mussweiler, T. (2001). "First offers as anchors: The role of perspective-taking and negotiator focus." *Journal of Personality and Social Psychology*, 81(4), 657–669. [PubMed](https://pubmed.ncbi.nlm.nih.gov/11642352)
+- Fisher, R. & Ury, W. (1981). *Getting to Yes*. Houghton Mifflin. — BATNA।
+- Voss, C. & Raz, T. (2016). *Never Split the Difference*. — label, mirror, calibrated প্রশ্ন।4:["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$13"}]}]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/04-01/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০৪.০১ Presentation — উপস্থাপনা"}]]}],["$","$L2",null,{"href":"/doc/04-03/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০৪.০৩ Cross-team work — টিমের বাইরে কাজ"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L14",null,{"children":["$","$15",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]
+a:["$","$1","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L18",null,{"children":["$","$15",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০৪.০২ · Persuasion ও Negotiation — রাজি করানো ও দর-কষাকষি — সফট স্কিল"}],["$","meta","1",{"name":"description","content":"সফট স্কিলের ১০৪টা drill, ১০৮ দিনে — Senior থেকে Staff, রিমোট আর ইংরেজিসহ; দিনে একটা, আজ একবার, আসল কথোপকথনে; চার স্তরে নির্ভরতার ক্রমে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/soft_skill_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+12:true
+16:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

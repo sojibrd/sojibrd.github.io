@@ -1,0 +1,154 @@
+1:"$Sreact.fragment"
+2:I[22016,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+9:X
+e:X
+e:C
+0:{"buildId":"l-BOHA4hlHsZGkKwBaPqg","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"৩. একজন মানুষের সাথে"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০৩.০৭"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Conflict — মতবিরোধ সামলানো"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"plan-এ যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","072-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/072/","className":"chip chip--accent self-start","children":["দিন ","০৭২"," · ","position-এর নিচে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**position-এর নিচে** — চলমান বা সাম্প্রতিক একটা মতবিরোধে অন্য পক্ষের position খাতায়, তারপর পেছনের interest-এর আন্দাজ · সুযোগ এলে: তাঁকে জিজ্ঞেস — \"এটা আপনার জন্য কেন গুরুত্বপূর্ণ?\" — আন্দাজ কতটা মিলল, সেটাই ফল (ডক ০৩.০৭)"}]]}],["$","li","073-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/073/","className":"chip chip--accent self-start","children":["দিন ","০৭৩"," · ","মানদণ্ড আগে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**মানদণ্ড আগে** — শেষ যে প্রযুক্তিগত মতবিরোধ হয়েছিল, তার জন্য তিনটা মানদণ্ড খাতায়, আর এক লাইন — এগুলোতে আগে একমত হলে আলোচনা কেমন হতো · সুযোগ এলে: পরের মতবিরোধে বিকল্পের আগে মানদণ্ডের প্রস্তাব (ডক ০৩.০৭)"}]]}],["$","li","074-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/074/","className":"chip chip--accent self-start","children":["দিন ","০৭৪"," · ","ইংরেজিতে chat থেকে কলে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**ইংরেজিতে chat থেকে কলে** — বাক্যটা জোরে দুবার — \"I think we see this differently — can we jump on a quick call?\" — আর কলের পরের সারাংশের তিন লাইনের ইংরেজি ছাঁচ খাতায় · সুযোগ এলে: লিখিত মতবিরোধ তিন উত্তর পেরোলে বাক্যটা, তারপর সারাংশ (ডক ০৩.০৭)"}]]}],["$","li","075-3",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/075/","className":"chip chip--accent self-start","children":["দিন ","০৭৫"," · ","দুজনের মাঝে মধ্যস্থতা"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**দুজনের মাঝে মধ্যস্থতা** — শেষ যে মতবিরোধ দুজন সহকর্মীর মধ্যে দেখেছেন, খাতায়: প্রত্যেকের অবস্থান — অন্যজন যেভাবে বললে তিনি \"হ্যাঁ, ঠিক এটাই\" বলতেন — আর তিনটা মানদণ্ড · সুযোগ এলে: দুজনকে একসাথে বসানো — আগে অবস্থান, তারপর মানদণ্ড, তারপর বিকল্প (ডক ০৩.০৭)"}]]}],["$","li","076-4",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/076/","className":"chip chip--accent self-start","children":["দিন ","০৭৬"," · ","দুই টিমের interest মানচিত্র"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**দুই টিমের interest মানচিত্র** — একটা টিম-জোড়া মতবিরোধ — অগ্রাধিকার বা মালিকানা — নিয়ে টেবিল: প্রতিটা টিমের position, তার নিচের interest, আর এমন একটা বিকল্প যা দুই পক্ষের interest মেটায় · সুযোগ এলে: দুই টিমের lead-কে পাঠানো (ডক ০৩.০৭)"}]]}],["$","li","082-5",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/082/","className":"chip chip--accent self-start","children":["দিন ","০৮২"," · ","মুখে — একজন মানুষের সাথে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"এই ব্লকের আট অধ্যায় থেকে তিনটা মূল নিয়ম, একটা Speaking English বা Mentoring থেকে — গাইড না খুলে, মনে করে — প্রতিটা ইংরেজিতে জোরে, সাথে এই ব্লকের drill থেকে নিজের একটা ঘটনা; মোট ২ মিনিটে, ফোনে রেকর্ড করে (ডক ০৩.০১ · ডক ০৩.০২ · ডক ০৩.০৩ · ডক ০৩.০৪ · ডক ০৩.০৫ · ডক ০৩.০৬ · ডক ০৩.০৭ · ডক ০৩.০৮)"}]]}]]}]]}],"$L4","$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+14:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"OutletBoundary"]
+15:"$Sreact.suspense"
+17:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"ViewportBoundary"]
+18:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"MetadataBoundary"]
+19:I[27201,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"IconMark"]
+1a:I[39756,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+1b:I[37457,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+13:T4632,## সংজ্ঞা
+
+**Conflict** হলো দুই বা তার বেশি পক্ষের লক্ষ্য, চাহিদা বা মতের সংঘর্ষ; **conflict handling** হলো সেই সংঘর্ষ সম্পর্ক না ভেঙে নিষ্পত্তি করা।
+
+গবেষণায় মতবিরোধকে সাধারণত তিন ভাগে দেখা হয়:
+
+- **Task conflict** — কাজ নিয়ে: "Postgres না Mongo?"
+- **Relationship conflict** — মানুষ নিয়ে: "উনি সবসময় আমার কথা উড়িয়ে দেন।"
+- **Process conflict** — কাজ কীভাবে হবে, কে কী করবেন: "review কার দায়িত্ব?"
+
+ভিত্তির একটা চেনা কথা — "task conflict স্বাস্থ্যকর" — পরের স্তরে শুধরে নিতে হয়। task conflict নিজে থেকে ভালো নয়; **ভালো হতে পারে, যদি মানুষ নিয়ে সংঘর্ষে না গড়ায়।** এই অধ্যায়ের দক্ষতা ঠিক সেটাই: কাজের মতবিরোধকে কাজেই রাখা।
+
+## কেন এটা কঠিন
+
+**১. task conflict সহজে relationship conflict-এ গড়ায়।** De Dreu আর Weingart-এর meta-analysis-এ (২০০৩) relationship conflict আর task conflict — দুটোই টিমের কাজের ফল আর সন্তুষ্টির সাথে জোরালোভাবে নেতিবাচকভাবে সম্পর্কিত পাওয়া গিয়েছিল; task conflict-এর ক্ষেত্রে এটা গবেষকদের প্রত্যাশার উল্টো। পরে de Wit, Greer আর Jehn-এর বড় meta-analysis (২০১২, ১১৬টা গবেষণা) task conflict আর কাজের ফলের মধ্যে অত জোরালো নেতিবাচক সম্পর্ক পায়নি; আর সম্পর্কটা বেশি ইতিবাচক ছিল যেখানে task আর relationship conflict একে অপরের সাথে কম জড়ানো, top management টিমে, আর যেখানে মাপা হয়েছে সিদ্ধান্তের মান বা আর্থিক ফল। relationship আর process conflict-এর সম্পর্ক ছিল ধারাবাহিকভাবে নেতিবাচক।
+
+**২. Position আর interest গুলিয়ে যায়।** মানুষ বলেন কী **চান** (position), কেন চান (interest) বলেন না। দুটো position প্রায়ই মেলে না, কিন্তু পেছনের interest প্রায়ই মেলে। Fisher আর Ury-র *Getting to Yes* (১৯৮১) position নিয়ে দরকষাকষিকেই সমস্যা বলে — এতে খারাপ সমাধান আসে আর সম্পর্কে চাপ পড়ে।
+
+**৩. আচরণ থেকে উদ্দেশ্য আন্দাজ।** কেউ আপনার প্রস্তাব নাকচ করলে মনে হয় আপনাকে নাকচ করছেন। প্রায়ই তিনি এমন চাপে আছেন, যা আপনি দেখছেন না।
+
+**৪. এড়ানো কাজ করে — অল্প সময়ের জন্য।** আজকের দিন শান্ত কাটে; অমীমাংসিত জিনিস জমে, আর পরে একটা তুচ্ছ ব্যাপারে বড় বিস্ফোরণ।
+
+**৫. লেখায় দ্রুত খারাপ হয়।** chat বা PR comment-এ সুর নেই, বিরতি নেই; প্রতিটা উত্তরে দুই পক্ষ অবস্থান আরও শক্ত করে, কারণ লেখা থেকে যায়।
+
+## কীভাবে কাজ করে
+
+### Position থেকে interest — Getting to Yes-এর চার নীতি
+
+Fisher আর Ury-র চার নীতি:
+
+1. **মানুষকে সমস্যা থেকে আলাদা করুন** — দুই পক্ষ মুখোমুখি নয়, পাশাপাশি বসে সমস্যার মুখোমুখি।
+2. **Position নয়, interest-এ মন দিন** — "এটা আপনার জন্য কেন গুরুত্বপূর্ণ?"
+3. **দুই পক্ষের লাভের বিকল্প খুঁজুন** — সিদ্ধান্তের আগে বিকল্পের তালিকা।
+4. **বস্তুনিষ্ঠ মানদণ্ড চান** — কে জোরে বলেন তা নয়, কোন মাপকাঠিতে বিচার।
+
+```
+Position:  "এই sprint-এ feature X দেব না।"
+    ↓ কেন?
+Interest:  "টিম টানা তিন sprint overtime করছে; আরেকটা দিলে কেউ ছুটি নিতে পারবেন না।"
+```
+
+interest জানলে সমাধানের জায়গা খোলে — scope কমানো, সময় বাড়ানো, লোক যোগ।
+
+### task-কে task-এ রাখা
+
+de Wit-দের ফলের কাজের অর্থ: মতবিরোধ থেকে লাভ পেতে হলে সেটা মানুষের দিকে গড়াতে দেওয়া যাবে না। তিনটা কৌশল:
+
+- **আগে মানদণ্ড, তারপর বিকল্প।** "কীসের ভিত্তিতে বিচার করব — latency, খরচ, টিমের পরিচিতি?" মানদণ্ডে একমত হলে বিকল্পের তর্ক ব্যক্তিগত হয় না।
+- **"আপনি" নয়, "এই প্রস্তাব"।** "আপনার design ভুল" নয় — "এই design-এ X হলে কী হবে?"
+- **Rapoport-এর নিয়ম** (Critical Thinking অধ্যায়): নিজের আপত্তির আগে তাঁর অবস্থান তাঁর সন্তুষ্টি মতো বলুন।
+
+### কঠিন কথোপকথন — যখন ঝুঁকি বেশি
+
+Patterson, Grenny, McMillan আর Switzler-এর *Crucial Conversations* (২০০২) এমন আলাপকে বলে যেখানে তিনটা একসাথে: ঝুঁকি বেশি, মত আলাদা, আবেগ তীব্র। তখন মানুষ দুই দিকে সরে — **নীরবতা** (এড়ানো, ইঙ্গিত, ঠাট্টা) বা **আক্রমণ** (অন্যের ভাবনাকে আঘাত)। প্রতিকার: আগে আলাপটা **নিরাপদ** করা, যাতে প্রাসঙ্গিক তথ্য খোলাভাবে আসে। কাজে চার ধাপ:
+
+1. **উদ্দেশ্য বলুন** — "আমি চাই আমরা দুজনেই এটা নিয়ে স্বস্তিতে কাজ করতে পারি।"
+2. **ঘটনা বলুন, বিচার নয়** — "গত দুটো PR-এ আমার comment-এর উত্তর আসেনি।"
+3. **নিজের ব্যাখ্যাকে অনুমান হিসেবে বলুন** — "মনে হচ্ছিল কাজটা গুরুত্ব পাচ্ছে না — কিন্তু এটা আমার অনুমান।"
+4. **প্রশ্ন, তারপর নীরবতা** — "আপনার দিক থেকে কী ঘটছিল?"
+
+### কখন কোন ধরন — Thomas-Kilmann
+
+Thomas আর Kilmann-এর মডেল দুই অক্ষে পাঁচটা ধরন দেখায় — নিজের চাওয়ার পেছনে কতটা যান (assertiveness), আর অন্যের চাওয়া কতটা মেটাতে চান (cooperativeness):
+
+| ধরন | কখন খাটে |
+|---|---|
+| **Competing** | দ্রুত সিদ্ধান্ত দরকার, ঝুঁকি স্পষ্ট — নিরাপত্তা, production বন্ধ |
+| **Collaborating** | দুই পক্ষেরই জোরালো interest, সময় আছে — সবচেয়ে বেশি সময় নেয়, সবচেয়ে ভালো ফল |
+| **Compromising** | দুই পক্ষ সমান শক্ত, অর্ধেক সমাধানও চলে |
+| **Accommodating** | বিষয়টা আপনার কাছে কম গুরুত্বপূর্ণ, সম্পর্ক বেশি |
+| **Avoiding** | তুচ্ছ বিষয়, বা আবেগ এত চড়া যে এখন কথা বললে খারাপ হবে — তবে সচেতনভাবে, আর পরে ফেরার তারিখসহ |
+
+কোনো ধরন সবসময় ঠিক নয়; ভুলটা হলো সব মতবিরোধে একই ধরন।
+
+## রিমোট আর দ্বিতীয় ভাষায়
+
+- **লেখা থেকে কথায়।** লিখিত মতবিরোধ তিনটা উত্তর পেরোলে থামিয়ে কল — তারপর লেখায় এক অনুচ্ছেদের সারাংশ, যাতে যিনি কলে ছিলেন না তিনিও জানেন।
+- **সময়-অঞ্চলের সতর্কতা।** নিজের দিনের শেষে কঠিন মেসেজ পাঠালে অন্যজন সেটা নিয়ে আট ঘণ্টা একা থাকেন, আপনি উত্তর দিতে পারেন না। কঠিন কথা পাঠান যখন দুজনেরই কয়েক ঘণ্টা overlap বাকি।
+- **দ্বিতীয় ভাষায় কম বলুন, ধীরে।** কঠিন আলাপে লম্বা বাক্য ভুল বোঝার জায়গা বাড়ায়। আর আন্তর্জাতিক টিমে সরাসরি বলার মাত্রা সংস্কৃতিভেদে আলাদা (Feedback অধ্যায়, Erin Meyer) — অন্যের সরাসরি কথা আক্রমণ ধরবেন না, আগে জিজ্ঞেস করুন।
+
+| কখন | বাক্য |
+|---|---|
+| কথায় নেওয়া | "I think we see this differently — can we jump on a quick call?" |
+| interest খোঁজা | "Help me understand what's most important to you here." |
+| ভালো ফল কেমন | "What would a good outcome look like for you?" |
+| ভুল পড়া যাচাই | "I may have misread your message — did you mean …?" |
+| মানদণ্ড আগে | "Before we pick, can we agree on how we'll decide?" |
+| নিজের ব্যাখ্যা অনুমান হিসেবে | "My guess was that … — is that fair?" |
+
+## Senior থেকে Staff
+
+| | Senior | Lead | Staff |
+|---|---|---|---|
+| **কোন মতবিরোধ** | নিজের, সহকর্মীর সাথে | টিমের দুজনের মাঝে | টিমের মাঝে — অগ্রাধিকার, মালিকানা, architecture |
+| **মূল কাজ** | interest খোঁজা, নিজের প্রতিক্রিয়া সামলানো | মধ্যস্থতা, task-কে task-এ রাখা | দুই পক্ষের interest দৃশ্যমান করা, escalation-এর পথ স্পষ্ট রাখা |
+| **ঝুঁকি** | জেতার জন্য তর্ক | এড়িয়ে যাওয়া, যতক্ষণ না বিস্ফোরণ | এক টিমের পক্ষ নেওয়া, যখন আপনার কাজ দুই পক্ষকেই দেখা |
+| **সাফল্যের মাপ** | তর্কের পরেও সম্পর্ক অক্ষত | টিমে দ্বিমত হয়, কিন্তু ব্যক্তিগত হয় না | টিমের মাঝে মতবিরোধ দ্রুত আর লিখিতভাবে মেটে |
+
+পদ যত উপরে, তত বেশি মতবিরোধ আপনার নিজের নয় — আর তত বেশি আপনার কাজ সেগুলোকে নিরাপদ জায়গায় নামানো।
+
+## অনুশীলন
+
+- **position-এর নিচে।** চলমান বা সাম্প্রতিক একটা মতবিরোধে অন্য পক্ষের position লিখুন, তারপর আন্দাজ করুন পেছনের interest কী। এরপর তাঁকে জিজ্ঞেস করুন: "এটা আপনার জন্য কেন গুরুত্বপূর্ণ?" আন্দাজ কতটা মিলল, সেটাই ফল। (Senior)
+- **মানদণ্ড আগে।** পরের প্রযুক্তিগত মতবিরোধে বিকল্প নিয়ে তর্কের আগে প্রস্তাব দিন — তিনটা মানদণ্ডে একমত হই। মানদণ্ড ঠিক হওয়ার পরে আলোচনার সুর কি বদলাল, খাতায় লিখুন। (Senior)
+- **ইংরেজিতে chat থেকে কলে।** পরেরবার লিখিত মতবিরোধ তিনটা উত্তর পেরোলে লিখুন: "I think we see this differently — can we jump on a quick call?" কলের পরে ইংরেজিতে এক অনুচ্ছেদের সারাংশ পাঠান। (Senior)
+- **দুজনের মাঝে মধ্যস্থতা।** টিমের দুজন একমত না হলে দুজনকে একসাথে বসান। নিয়ম একটা: আলোচনার আগে প্রত্যেকে অন্যজনের অবস্থান এমনভাবে বলবেন যাতে তিনি বলেন "হ্যাঁ, ঠিক এটাই"। তারপর মানদণ্ড, তারপর বিকল্প। ফল লিখুন। (Lead)
+- **দুই টিমের interest মানচিত্র।** একটা টিম-জোড়া মতবিরোধ — অগ্রাধিকার বা মালিকানা — নিয়ে একটা টেবিল বানান: প্রতিটা টিমের position, আর তার নিচের interest। দুই টিমের lead-কে পাঠান, সাথে এমন একটা বিকল্প, যা দুই পক্ষের interest-ই মেটায়। (Staff)
+
+## মূল নিয়ম
+
+- মতবিরোধ এড়ানো সমস্যা; কিন্তু task conflict নিজে থেকে স্বাস্থ্যকর নয় — মানুষে গড়ালে ক্ষতি।
+- Position-এর নিচে interest খুঁজুন: "এটা আপনার জন্য কেন গুরুত্বপূর্ণ?"
+- বিকল্পের আগে মানদণ্ডে একমত হোন।
+- "আপনি" নয়, "এই প্রস্তাব" — মানুষকে সমস্যা থেকে আলাদা রাখুন।
+- নিজের ব্যাখ্যাকে অনুমান হিসেবে বলুন, তারপর প্রশ্ন আর নীরবতা।
+- লিখিত মতবিরোধ তিন উত্তর পেরোলে কথায় যান, তারপর লিখিত সারাংশ।
+- কোনো ধরন সবসময় ঠিক নয় — এড়ানোও, যদি সচেতনভাবে আর ফেরার তারিখসহ।
+
+## উৎস
+
+- De Dreu, C. K. W. & Weingart, L. R. (2003). "Task versus relationship conflict, team performance, and team member satisfaction: A meta-analysis." *Journal of Applied Psychology*, 88(4), 741–749. [DOI](https://doi.org/10.1037/0021-9010.88.4.741)
+- de Wit, F. R. C., Greer, L. L. & Jehn, K. A. (2012). "The paradox of intragroup conflict: A meta-analysis." *Journal of Applied Psychology*. [DOI](https://doi.org/10.1037/a0024844)
+- Fisher, R. & Ury, W. (1981). *Getting to Yes: Negotiating Agreement Without Giving In*. Houghton Mifflin.
+- Patterson, K., Grenny, J., McMillan, R. & Switzler, A. (2002). *Crucial Conversations: Tools for Talking When Stakes Are High*. McGraw-Hill.
+- Thomas, K. W. & Kilmann, R. H. *Thomas-Kilmann Conflict Mode Instrument* (১৯৭০-এর দশক)। — পাঁচ ধরন, দুই অক্ষ।4:["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$13"}]}]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/03-06/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০৩.০৬ Mentoring — অন্যকে শেখানো"}]]}],["$","$L2",null,{"href":"/doc/03-08/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০৩.০৮ Teamwork — দলে কাজ করা"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L14",null,{"children":["$","$15",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]
+a:["$","$1","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L18",null,{"children":["$","$15",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০৩.০৭ · Conflict — মতবিরোধ সামলানো — সফট স্কিল"}],["$","meta","1",{"name":"description","content":"সফট স্কিলের ১০৪টা drill, ১০৮ দিনে — Senior থেকে Staff, রিমোট আর ইংরেজিসহ; দিনে একটা, আজ একবার, আসল কথোপকথনে; চার স্তরে নির্ভরতার ক্রমে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/soft_skill_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+12:true
+16:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

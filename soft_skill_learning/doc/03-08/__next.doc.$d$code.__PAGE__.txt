@@ -1,0 +1,140 @@
+1:"$Sreact.fragment"
+2:I[22016,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+9:X
+e:X
+e:C
+0:{"buildId":"l-BOHA4hlHsZGkKwBaPqg","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"৩. একজন মানুষের সাথে"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০৩.০৮"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Teamwork — দলে কাজ করা"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"plan-এ যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","077-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/077/","className":"chip chip--accent self-start","children":["দিন ","০৭৭"," · ","প্রকাশ্যে \"জানি না\""]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**প্রকাশ্যে \"জানি না\"** — এই সপ্তাহের মিটিংয়ের বিষয়ে যা সত্যিই বোঝেন না, খাতায়, আর স্বীকার করার বাক্য · সুযোগ এলে: মিটিংয়ে বলা, আর এরপর আর কেউ প্রশ্ন করলেন কিনা (ডক ০৩.০৮)"}]]}],["$","li","078-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/078/","className":"chip chip--accent self-start","children":["দিন ","০৭৮"," · ","আটকে যাওয়ার দিনই"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**আটকে যাওয়ার দিনই** — আজ কোথাও আটকালে আজই জানান — কী, কেন, কী দরকার — আর দ্বিধা হলো কিনা খাতায়; না আটকালে, শেষবার আটকে কত দিন পরে জানিয়েছিলেন · পূর্ণ মাপে: দুই সপ্তাহ, দ্বিধার সংখ্যা গুনে (ডক ০৩.০৮)"}]]}],["$","li","079-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/079/","className":"chip chip--accent self-start","children":["দিন ","০৭৯"," · ","ইংরেজিতে অদৃশ্য কাজের কৃতিত্ব"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**ইংরেজিতে অদৃশ্য কাজের কৃতিত্ব** — আজ টিমের chat বা মিটিংয়ে ইংরেজিতে একজনের এমন কাজের প্রশংসা, যা কোনো ticket-এ নেই — কী করেছেন আর কী প্রভাব, দুটোই (ডক ০৩.০৮)"}]]}],["$","li","080-3",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/080/","className":"chip chip--accent self-start","children":["দিন ","০৮০"," · ","পাঁচ প্রশ্নের নাড়ি পরীক্ষা"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**পাঁচ প্রশ্নের নাড়ি পরীক্ষা** — Aristotle-এর পাঁচ বিষয়ে নিজের টিমকে নিজে ১–৫ দিন, খাতায়; সবচেয়ে কম নম্বরেরটার জন্য একটা বদলের প্রস্তাব · সুযোগ এলে: টিমকে নাম ছাড়া একই জরিপ, তারপর আলোচনা (ডক ০৩.০৮)"}]]}],["$","li","081-4",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/081/","className":"chip chip--accent self-start","children":["দিন ","০৮১"," · ","টিমের মাঝে নির্ভরতার মানচিত্র"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**টিমের মাঝে নির্ভরতার মানচিত্র** — আপনার টিম আর অন্য দুটো টিমের মাঝে কে কার কাছ থেকে কী, কবে পায় — টেবিলে, প্রতিটার পাশে মালিক আর তারিখ; মালিকহীন একটা চিহ্ন দিন · সুযোগ এলে: তিন টিমকে পাঠিয়ে মালিকহীনটা কারো দায়িত্বে (ডক ০৩.০৮)"}]]}],["$","li","082-5",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/082/","className":"chip chip--accent self-start","children":["দিন ","০৮২"," · ","মুখে — একজন মানুষের সাথে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"এই ব্লকের আট অধ্যায় থেকে তিনটা মূল নিয়ম, একটা Speaking English বা Mentoring থেকে — গাইড না খুলে, মনে করে — প্রতিটা ইংরেজিতে জোরে, সাথে এই ব্লকের drill থেকে নিজের একটা ঘটনা; মোট ২ মিনিটে, ফোনে রেকর্ড করে (ডক ০৩.০১ · ডক ০৩.০২ · ডক ০৩.০৩ · ডক ০৩.০৪ · ডক ০৩.০৫ · ডক ০৩.০৬ · ডক ০৩.০৭ · ডক ০৩.০৮)"}]]}]]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":"$L4"}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+14:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"OutletBoundary"]
+15:"$Sreact.suspense"
+17:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"ViewportBoundary"]
+18:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"MetadataBoundary"]
+19:I[27201,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"IconMark"]
+1a:I[39756,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+1b:I[37457,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+13:T4118,## সংজ্ঞা
+
+**Teamwork** হলো এমনভাবে কাজ করা যাতে **দলের ফলাফল** বাড়ে — শুধু নিজের ব্যক্তিগত আউটপুট নয়।
+
+ভিত্তিটা এই অধ্যায় ধরে নেয়: যিনি নিজে সবচেয়ে দ্রুত কিন্তু কেউ তাঁর কোড বোঝেন না বা তাঁকে প্রশ্ন করতে সাহস পান না, তিনি দলের জন্য দামি। পরের স্তরে প্রশ্নটা হয়: **একটা টিম কেন অন্য টিমের চেয়ে ভালো কাজ করে — আর তার কোন অংশ আমার হাতে?**
+
+Amy Edmondson-এর (১৯৯৯) সংজ্ঞায় **psychological safety** হলো টিমের সদস্যদের একটা যৌথ বিশ্বাস — এই টিমে মানুষের সামনে ঝুঁকি নেওয়া নিরাপদ: প্রশ্ন করা, ভুল স্বীকার, অন্য মত বলা। এটা এক জনের অনুভূতি নয়, টিমের বৈশিষ্ট্য — আর সাধারণত কেউ এ নিয়ে কথা বলেন না, স্বাভাবিক ধরে নেন।
+
+## কেন এটা কঠিন
+
+**১. নিরাপত্তা চোখে পড়ে না।** Edmondson-এর পর্যবেক্ষণে বিশ্বাসটা নীরব — ধরে নেওয়া, আলোচনা হয় না। তাই এটা ভাঙলেও কেউ বলেন না; শুধু প্রশ্ন কমে, ভুল লুকায়।
+
+**২. শুধু নিরাপত্তা যথেষ্ট নয়।** Google-এর Project Aristotle টিমের কার্যকারিতায় পাঁচটা বিষয় পেয়েছিল — psychological safety (প্রথম আর সবচেয়ে গুরুত্বপূর্ণ হিসেবে উপস্থাপিত), নির্ভরযোগ্যতা, কাঠামো আর স্পষ্টতা, কাজের অর্থ, আর কাজের প্রভাব। নিরাপদ কিন্তু অগোছালো টিম, বা নিরাপদ কিন্তু কেউ সময়ে কাজ দেন না — দুটোই ব্যর্থ।
+
+**৩. যা ভাবা হয় জরুরি, তা অনেক সময় নয়।** একই গবেষণায় এক জায়গায় বসে কাজ করা, পদের seniority, টিমের আকার, কতদিন একসাথে — এগুলো কার্যকারিতার সাথে উল্লেখযোগ্যভাবে সম্পর্কিত পাওয়া যায়নি। মানে রিমোট টিমও কার্যকর হতে পারে — যদি আচরণগুলো ঠিক থাকে।
+
+**৪. দূরত্ব যোগাযোগ খায়।** MIT-র Thomas Allen ১৯৭০-এর দশকে দেখিয়েছিলেন, engineer-দের অফিসের দূরত্ব বাড়লে তাঁদের প্রযুক্তিগত যোগাযোগ খুব দ্রুত কমে — একে বলে *Allen curve*। আলাদা তলায় বসাই যোগাযোগ কমায়; আলাদা দেশ তো আরও বেশি। রিমোটে যা ইচ্ছা করে করা হয় না, তা ঘটে না।
+
+**৫. দক্ষতা বাড়লে ধৈর্য কমে।** যত বেশি জানেন, সহজ প্রশ্নে তত বিরক্তি — আর বিরক্তি মুখে না বললেও সুরে পৌঁছায়। তারপর মানুষ প্রশ্ন করা বন্ধ করেন। এভাবে দলের সবচেয়ে দক্ষ মানুষটি দলের শেখা থামিয়ে দিতে পারেন।
+
+**৬. ব্যক্তিগত অবদান দৃশ্যমান, দলগত নয়।** commit আর ticket নামের সাথে; কারো প্রশ্নের উত্তর, দুজনের ভুল বোঝাবুঝি মেটানো, একটা খারাপ সিদ্ধান্ত আগে ধরা — কোনো metric-এ আসে না।
+
+## কীভাবে কাজ করে
+
+### Aristotle-এর পাঁচ প্রশ্ন — একটা পরীক্ষার তালিকা
+
+| বিষয় | টিমকে জিজ্ঞেস করুন |
+|---|---|
+| **Psychological safety** | এই টিমে ভুল স্বীকার করলে বা "জানি না" বললে কী হয়? |
+| **Dependability** | কাজ বললে কি সময়ে, মান রেখে আসে? |
+| **Structure & clarity** | কার কী দায়িত্ব, লক্ষ্য কী — সবাই কি একই উত্তর দেবেন? |
+| **Meaning** | এই কাজ কি আমাদের প্রত্যেকের কাছে কোনো অর্থ বহন করে? |
+| **Impact** | আমরা কি বিশ্বাস করি এই কাজ কোনো পার্থক্য আনছে? |
+
+সবচেয়ে কম নম্বরের বিষয়টাই পরের কাজ — সাধারণত সবচেয়ে উপরেরটা নয়।
+
+### নিরাপত্তা কীভাবে তৈরি হয় — আচরণে
+
+- **নিজের অজ্ঞতা প্রকাশ্যে স্বীকার।** "এই অংশটা আমি বুঝি না, কেউ বুঝিয়ে দেবেন?" অভিজ্ঞ কেউ বললে বাকিদের জন্য দরজা খোলে।
+- **নিজের ভুল আগে বলা।** "এই bug আমার আগের PR থেকে।"
+- **প্রশ্নকে স্বাগত** — বিশেষ করে যেগুলো আপনার কাছে সহজ।
+- **ভুলের পরে কারণ, দোষ নয়।** "কে করেছে" নয় — "আমাদের প্রক্রিয়ায় এটা কীভাবে পার হলো" (Problem Solving অধ্যায়, blameless postmortem)।
+
+### নীরবতা ভাঙা
+
+- **নাম ধরে, নির্দিষ্ট প্রশ্নে** — "রুমা, আপনি এই অংশে আগে কাজ করেছেন — কোথায় ঝুঁকি দেখছেন?"
+- **দুর্বলতা চেয়ে নিন** — "এই পরিকল্পনার সবচেয়ে বড় দুর্বলতা কী? কেউ একটা বলুন।"
+- **কম অভিজ্ঞরা আগে বলুন** — অভিজ্ঞ কেউ আগে বললে বাকিরা তাঁর দিকে ঝুঁকে পড়েন।
+
+### নির্ভরযোগ্যতা — নির্ভরতা আগে জানান
+
+- আটকে গেলে **একই দিনে** বলুন।
+- কারো কাজের উপর নির্ভর করলে **আগে** জানান, দরকারের দিন নয়।
+- অনুমান লিখুন: "আমি ধরে নিচ্ছি API বুধবার পাব — ঠিক আছে?"
+
+### জ্ঞান ছড়ানো আর কৃতিত্ব
+
+- যা শুধু আপনি জানেন, তা লিখে ফেলুন — সেটাই আপনার সরে যাওয়ার টিকিট।
+- সাফল্যে অন্যের নাম, বিশেষ করে যাঁদের কাজ দৃশ্যমান নয়।
+- ব্যর্থতায় "আমরা", তারপর নিজের অংশটুকু নির্দিষ্ট করে।
+- নিজের অবদান লুকাবেন না — সেটা বিনয় নয়, ভুল তথ্য।
+
+## রিমোট আর দ্বিতীয় ভাষায়
+
+- **Allen curve-এর বিরুদ্ধে ইচ্ছা করে যোগাযোগ।** নিয়মিত এক-একের আলাপ, লিখিত async standup, আর একটা ছোট "working agreements" ডক — সাড়া দেওয়ার সময়, কোন কথা কোন মাধ্যমে, কোন সময় সবাই অনলাইন।
+- **Aristotle-এর আশার কথা মনে রাখুন।** এক জায়গায় বসা কার্যকারিতার নির্ধারক হিসেবে আসেনি — রিমোট টিমে নিরাপত্তা, নির্ভরযোগ্যতা আর স্পষ্টতা ইচ্ছা করে বানানো যায়।
+- **non-native সহকর্মীদের জায়গা দিন।** দ্রুত কথার মিটিংয়ে কম কথা বলা সহকর্মীকে chat-এ লেখার সুযোগ দিন, মিটিংয়ের পরে লিখিত সারাংশ পাঠান — আর নিজে non-native হলে নিজের জন্যও একই জিনিস চান।
+
+| কখন | বাক্য |
+|---|---|
+| "জানি না" | "I don't understand this part — could someone walk me through it?" |
+| আটকে যাওয়া | "I'm blocked on X. I need Y by Wednesday to stay on track." |
+| অনুমান যাচাই | "I'm assuming the API lands on Wednesday — is that right?" |
+| নিজের ভুল | "That bug came from my PR last week. Here's the fix." |
+| দুর্বলতা চাওয়া | "What's the weakest part of this plan?" |
+| প্রকাশ্য কৃতিত্ব | "Shout-out to Ruma for untangling the auth issue — it saved us a day." |
+
+## Senior থেকে Staff
+
+| | Senior | Lead | Staff |
+|---|---|---|---|
+| **কোন দল** | নিজের টিম, সহকর্মী হিসেবে | নিজের টিম, দায়িত্বে | টিমের টিম — কয়েকটা টিম একসাথে |
+| **মূল কাজ** | নির্ভরযোগ্য হওয়া, অন্যকে আটকানো থেকে মুক্ত করা | নিরাপত্তা আর স্পষ্টতা তৈরি — পাঁচ প্রশ্ন নিয়মিত | টিমের মাঝে নির্ভরতা দৃশ্যমান রাখা, সবার জন্য চলে এমন নিয়ম |
+| **ঝুঁকি** | silo — নিজের অংশের একমাত্র জ্ঞানী | নিজের ভুল লুকিয়ে টিমকে লুকানো শেখানো | টিমের মাঝের ফাঁক কারো দায়িত্বে নেই |
+| **সাফল্যের মাপ** | কেউ আপনার জন্য অপেক্ষা করে আটকে থাকেন না | টিমে ভুল দ্রুত আর প্রকাশ্যে আসে | কোনো টিম অন্য টিমের দেরির খবর শেষ মুহূর্তে পায় না |
+
+পদ যত উপরে, তত বেশি আপনার আচরণ টিমের নিয়ম হয়ে যায় — আপনি যা সহ্য করেন, সেটাই আসল মান।
+
+## অনুশীলন
+
+- **প্রকাশ্যে "জানি না"।** এই সপ্তাহে একটা মিটিংয়ে স্বীকার করুন, কোনো একটা জিনিস আপনি বোঝেন না, আর বুঝিয়ে দিতে বলুন। এরপর আর কেউ প্রশ্ন করলেন কিনা, লক্ষ করুন। (Senior)
+- **আটকে যাওয়ার দিনই।** দুই সপ্তাহ, যেখানেই আটকান, একই দিনে টিমকে জানান — কী, কেন, কী দরকার। কতবার জানাতে দ্বিধা হলো, গুনে রাখুন; সংখ্যাটা আপনার নিজের psychological safety-র মাপ। (Senior)
+- **ইংরেজিতে অদৃশ্য কাজের কৃতিত্ব।** টিমের chat বা মিটিংয়ে ইংরেজিতে একজনের এমন কাজের প্রশংসা করুন, যা কোনো ticket-এ নেই — কারো প্রশ্নের উত্তর, কারো code বোঝানো, একটা খারাপ সিদ্ধান্ত থামানো — কী করেছেন আর কী প্রভাব, দুটোই। (Senior)
+- **পাঁচ প্রশ্নের নাড়ি পরীক্ষা।** টিমকে নাম ছাড়া একটা ছোট জরিপ দিন — Aristotle-এর পাঁচ বিষয়ে একটা করে প্রশ্ন, ১–৫। সবচেয়ে কম নম্বরের বিষয়টা টিমের সাথে আলোচনা করে একটা বদল ঠিক করুন; এক মাস পরে আবার। (Lead)
+- **টিমের মাঝে নির্ভরতার মানচিত্র।** আপনার টিম আর অন্য দুটো টিমের মাঝে কে কার কাছ থেকে কী, কবে পায় — একটা টেবিল বানান, প্রতিটার পাশে মালিক আর প্রত্যাশিত তারিখ। তিন টিমকে পাঠান; মালিকহীন একটা নির্ভরতা খুঁজে কারো দায়িত্বে দিন। (Staff)
+
+## মূল নিয়ম
+
+- দলের ফল ব্যক্তিগত আউটপুটের চেয়ে বড় — দ্রুত কিন্তু দুর্বোধ্য কাজ দলের জন্য দামি।
+- নিরাপত্তা যৌথ বিশ্বাস, আর নীরব — ভাঙলে কেউ বলেন না।
+- নিরাপত্তা একা যথেষ্ট নয়: নির্ভরযোগ্যতা, স্পষ্টতা, অর্থ, প্রভাবও।
+- নিজের অজ্ঞতা আর ভুল আগে বলুন — অভিজ্ঞের স্বীকারোক্তি সবার জন্য দরজা খোলে।
+- নীরবতাকে সম্মতি ধরবেন না; নাম ধরে, নির্দিষ্ট প্রশ্নে ডাকুন।
+- আটকে গেলে একই দিনে বলুন।
+- রিমোটে যোগাযোগ নিজে থেকে হয় না — ইচ্ছা করে বানান।
+
+## উৎস
+
+- Edmondson, A. (1999). "Psychological Safety and Learning Behavior in Work Teams." *Administrative Science Quarterly*, 44(2). [DOI](https://doi.org/10.2307/2666999)
+- Google re:Work. "Guide: Understand team effectiveness." — Project Aristotle-এর পাঁচ বিষয়, আর যেগুলো উল্লেখযোগ্য পাওয়া যায়নি। [rework.withgoogle.com](https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness)
+- Allen, T. J. (1977). *Managing the Flow of Technology*. MIT Press. — Allen curve।4:["$","$L3",null,{"children":"$13"}]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/03-07/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০৩.০৭ Conflict — মতবিরোধ সামলানো"}]]}],["$","$L2",null,{"href":"/doc/04-01/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০৪.০১ Presentation — উপস্থাপনা"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L14",null,{"children":["$","$15",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]
+a:["$","$1","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L18",null,{"children":["$","$15",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০৩.০৮ · Teamwork — দলে কাজ করা — সফট স্কিল"}],["$","meta","1",{"name":"description","content":"সফট স্কিলের ১০৪টা drill, ১০৮ দিনে — Senior থেকে Staff, রিমোট আর ইংরেজিসহ; দিনে একটা, আজ একবার, আসল কথোপকথনে; চার স্তরে নির্ভরতার ক্রমে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/soft_skill_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+12:true
+16:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

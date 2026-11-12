@@ -1,0 +1,134 @@
+1:"$Sreact.fragment"
+2:I[22016,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T4421,## সংজ্ঞা
+
+**Soft skill** হলো মানুষ ও নিজের সাথে কাজ করার আচরণগত দক্ষতা — যা অনুশীলনে বাড়ে, কিন্তু certificate বা এক ঘণ্টার test দিয়ে প্রমাণ করা যায় না।
+
+hard skill — React, SQL, Docker — এ প্রশ্নের একটা সঠিক উত্তর থাকে। soft skill-এ সঠিক উত্তর নির্ভর করে **কার সাথে, কোন পরিস্থিতিতে, কোন সময়ে**। নামটা বিভ্রান্তিকর: "soft" মানে সহজ নয় — hard skill-এর documentation আছে, soft skill-এর নেই।
+
+এই গাইড ধরে নেয় আপনি কয়েক বছর কাজ করছেন, আর ভিত্তির কথাগুলো — শোনা, স্পষ্ট বলা, feedback — চেনেন। তাই প্রতিটা অধ্যায় তিনটা প্রশ্নের উত্তর দেয়:
+
+- **গভীরতা** — ভিত্তির নিয়ম কোথায় ভাঙে, আর তার নিচে কোন model কাজ করে।
+- **প্রসঙ্গ** — রিমোট কাজে আর দ্বিতীয় ভাষায়, মানে ইংরেজিতে, স্কিলটা কীভাবে বদলায়।
+- **পদ** — Senior থেকে Lead হয়ে Staff পর্যন্ত একই স্কিলের চেহারা কীভাবে বদলায়।
+
+## কেন এটা কঠিন
+
+**১. Feedback loop ভাঙা।** কোড ভুল হলে compiler সাথে সাথে বলে। মিটিংয়ে কারো কথা কেটে দিলে কেউ বলে না — তাঁরা শুধু পরেরবার কম কথা বলেন। ভুলটা আজ, ফলটা তিন মাস পরে, আর তখন দুটোকে মেলানো যায় না। রিমোটে loop আরও লম্বা — মুখ দেখা যায় না, করিডোরের কথাও নেই।
+
+**২. নিজের মূল্যায়ন সবচেয়ে অনির্ভরযোগ্য।** Svenson-এর একটা পরীক্ষায় (১৯৮১) বেশিরভাগ চালক নিজেকে গড় চালকের চেয়ে দক্ষ আর নিরাপদ ভেবেছিলেন — বেশিরভাগ মানুষ গড়ের উপরে হতে পারেন না। কাজের স্কিলেও একই ঝোঁক কাজ করে: আপনি নিজের **উদ্দেশ্য** দেখেন, অন্যরা দেখেন আপনার **আচরণ**।
+
+**৩. Context বদলালে সঠিক উত্তর বদলায়।** নতুন একজন সহকর্মীকে সরাসরি "এটা ভুল" বলা নিষ্ঠুর শোনাতে পারে; অভিজ্ঞ একজনকে ঘুরিয়ে বলা সময়ের অপচয়। নিয়ম মুখস্থ করে চলে না, বিচার লাগে — আর পদ যত উপরে, context তত বেশি, বিচারের দামও তত বেশি।
+
+**৪. পড়লেই মনে হয় শেখা হয়ে গেছে।** সংজ্ঞা বোঝার অনুভূতিকে মস্তিষ্ক পারার অনুভূতি ভেবে নেয় — এর নাম *illusion of competence*। "Active listening" পড়ে বোঝা যায়; পরের মিটিংয়ে আপনি তবু আগের মতোই মাঝখানে কথা বলবেন। **বোঝা আর পারা এক নয়** — এই গাইডের প্রতিটা drill ঐ ফাঁকটার জন্য।
+
+**৫. উপরে উঠলে মাপ বদলায়, কেউ বলে দেয় না।** Senior পদে ভালো soft skill মানে নিজের কাজ পরিষ্কার বোঝানো; Staff পদে মানে অনেক টিমকে এক দিকে নেওয়া। পুরনো মাপে ভালো থেকেও নতুন পদে আটকে যাওয়া সহজ — কারণ খেলার নিয়ম যে বদলেছে, সেটা কেউ স্পষ্ট করে বলে না।
+
+## কীভাবে কাজ করে
+
+### চার স্তর, নির্ভরতার ক্রমে
+
+চাকরির বিজ্ঞাপনে soft skill-এর যে তালিকা থাকে — communication, teamwork, leadership — সেটা **উপসর্গের তালিকা, কাঠামো নয়**। ওখানে পাশাপাশি বসানো জিনিসগুলো একই স্তরের নয়: কয়েকটা ভিত্তি, কয়েকটা ঐ ভিত্তির উপর দাঁড়ানো প্রয়োগ। আসল কাঠামো চার স্তরের, আর **নিচেরটা না পারলে উপরেরটা কাজ করে না**:
+
+| স্তর | স্কিল | কার সাথে |
+|---|---|---|
+| **১. Self** | Self-awareness, Emotional Intelligence, Adaptability, Time Management | নিজের সাথে |
+| **২. Thinking** | Critical Thinking, Problem Solving, Decision Making | সমস্যার সাথে |
+| **৩. Interpersonal** | Listening, Communication, Speaking English, Writing, Feedback, Mentoring, Conflict, Teamwork | একজন মানুষের সাথে |
+| **৪. Influence** | Presentation, Persuasion ও Negotiation, Cross-team work, Customer Service, Leadership | অনেক মানুষের সাথে |
+
+নির্ভরতা কীভাবে কাজ করে, চারটা উদাহরণে:
+
+- **রাগ সামলাতে না পারলে (স্তর ১) স্পষ্ট চিন্তা হয় না (স্তর ২)।** রেগে থাকা অবস্থায় নেওয়া সিদ্ধান্ত পরদিন প্রায়ই ভালো লাগে না।
+- **চিন্তা অস্পষ্ট থাকলে (স্তর ২) যোগাযোগ ঠিক হয় না (স্তর ৩)।** বেশিরভাগ "communication problem" আসলে মানুষটা নিজেই জানেন না কী বলতে চান।
+- **কী বলবেন না জানলে অন্য ভাষায় বলা আরও কঠিন।** তাই Speaking English আসে Communication-এর পরে, আর Mentoring আসে Listening আর Feedback-এর পরে।
+- **একজনের সাথে না পারলে (স্তর ৩) দশজনের সাথে পারবেন না (স্তর ৪)।** Leadership আলাদা স্কিল নয় — নিচের তিন স্তরের যোগফল, অনেক মানুষের উপর একসাথে প্রয়োগ করা। তাই এটা সবার শেষে: শুরুর জায়গা নয়, পৌঁছানোর জায়গা।
+
+### প্রতিটা অধ্যায়ের আটটা সেকশন
+
+| সেকশন | কী দেয় |
+|---|---|
+| সংজ্ঞা | স্কিলটা কী — ভিত্তি জানা ধরে, ছোট |
+| কেন এটা কঠিন | ভিত্তির নিয়ম যেখানে ভাঙে |
+| কীভাবে কাজ করে | গভীর model, trade-off, ব্যতিক্রম |
+| রিমোট আর দ্বিতীয় ভাষায় | async, সময়-অঞ্চল, ইংরেজিতে বলার বাক্য |
+| Senior থেকে Staff | একই স্কিল তিন পদে — টেবিল আর উদাহরণ |
+| অনুশীলন | drill, প্রতিটার শেষে কোন পদের |
+| মূল নিয়ম | এক লাইনের নিয়ম, পরে ফিরে দেখার জন্য |
+| উৎস | যে বই বা গবেষণা থেকে দাবিগুলো |
+
+### drill-এর তিন চিহ্ন
+
+- **(Senior)** — নিজের কাজ আর আশপাশের মানুষ নিয়ে; কোনো পদ ছাড়াই আজ করা যায়।
+- **(Lead)** — একটা টিম নিয়ে; পুরোটা করতে সাধারণত দায়িত্ব লাগে।
+- **(Staff)** — অনেক টিম নিয়ে; কর্তৃত্ব ছাড়া প্রভাবের কাজ।
+
+পদ না থাকলেও Lead আর Staff-এর drill-এর একটা ছোট রূপ করা যায় — শেষবারের ঘটনা খাতায়, আর পরের সুযোগের প্রস্তুতি। এই সাইটের plan সেভাবেই সাজানো।
+
+## রিমোট আর দ্বিতীয় ভাষায়
+
+তিনটা জিনিস প্রায় সব স্কিলেই বদলায়:
+
+- **সংকেত কমে।** মুখ, শরীর, ঘরের নীরবতা — ভিডিও কলে অনেকটা হারায়, লেখায় প্রায় সবটা। তাই যে স্কিল অন্যকে পড়ার উপর দাঁড়ানো — Emotional Intelligence, Listening, Conflict — রিমোটে সেখানে অনুমান যাচাইয়ের দাম বাড়ে।
+- **লেখাই আপনি।** অফিসে মানুষ আপনাকে দেখে চেনেন; রিমোটে চেনেন আপনার মেসেজ, PR আর ডক দেখে। Writing আর Communication-এর ওজন সেখানে বেশি।
+- **দ্বিতীয় ভাষায় দুটো কাজ একসাথে।** কী বলবেন আর কোন শব্দে বলবেন — দুটো একসাথে সামলাতে হয়, তাই কঠিন মুহূর্তে (মতবিরোধ, সমালোচনা, দরকষাকষি) প্রস্তুতির দাম বেশি। উল্টো দিকও আছে: Keysar ও সহকর্মীদের গবেষণায় (২০১২) দ্বিতীয় ভাষায় সিদ্ধান্ত নিলে কয়েকটা চেনা ঝোঁক কমে গিয়েছিল; তাঁদের ব্যাখ্যা — দ্বিতীয় ভাষা আবেগ থেকে একটু দূরত্ব দেয়।
+
+## Senior থেকে Staff
+
+| | Senior | Lead | Staff |
+|---|---|---|---|
+| **পরিধি** | নিজের কাজ আর আশপাশের মানুষ | একটা টিম | অনেক টিম, প্রতিষ্ঠান |
+| **soft skill-এর জায়গা** | কাজের একটা অংশ | কাজের বড় অংশ | কাজের প্রধান যন্ত্র |
+| **সবচেয়ে বেশি লাগে** | Communication, Writing, Feedback নেওয়া | Feedback দেওয়া, Conflict, Mentoring | Persuasion, Cross-team work, Leadership |
+| **ভুলের দাম** | নিজের কাজ দেরি | টিমের কাজ দেরি | কয়েকটা টিম ভুল দিকে |
+
+বাজারও এই দিকে যাচ্ছে। Deming-এর গবেষণায় (২০১৭) ১৯৮০ থেকে ২০১২-এর মধ্যে যুক্তরাষ্ট্রে বেশি সামাজিক মিথস্ক্রিয়ার চাকরির ভাগ বেড়েছে প্রায় ১২ শতাংশ-বিন্দু; আর কর্মসংস্থান ও বেতন সবচেয়ে বেড়েছে সেইসব চাকরিতে, যেখানে গণিত আর সামাজিক — দুই দক্ষতাই বেশি লাগে। প্রযুক্তির দক্ষতা দরজা খোলে; উপরে তোলে দুটো একসাথে।
+
+## অনুশীলন
+
+- **দুই চোখের baseline।** ২০টা স্কিলের প্রতিটায় নিজেকে দুটো নম্বর দিন, ১–৫: একটা নিজের চোখে, একটা আপনার ধারণায় একজন সহকর্মীর চোখে। তারিখসহ সেভ করুন; তিন মাস পরে আবার দেবেন। যে স্কিলে দুই নম্বরের ফাঁক সবচেয়ে বড়, সেটাই প্রথম কাজের জায়গা। (Senior)
+- **আটকানোর ঘটনা স্তরে ফেলুন।** গত ছয় মাসে কাজে আটকানোর ৫টা ঘটনা লিখুন। প্রতিটার পাশে দুটো জিনিস: কোন স্তরে পড়ে, আর আটকানোটা জানায় ছিল নাকি করায়। বেশিরভাগ ঘটনা যে স্তরে, সেটাই আপনার আসল শুরুর জায়গা — তালিকার ১ নম্বর নয়। (Senior)
+- **একজনকে নির্দিষ্ট প্রশ্ন।** যিনি আপনার সাথে ছয় মাসের বেশি কাজ করেছেন, তাঁকে জিজ্ঞেস করুন: "আমার সাথে কাজ করতে গিয়ে সবচেয়ে কঠিন কী লাগে? একটা উদাহরণ দিতে পারবেন?" "কোনো feedback আছে?" নয় — ঐ প্রশ্নের উত্তর প্রায় সবসময় "না"। উত্তরে নিজেকে ব্যাখ্যা নয়, শুধু ধন্যবাদ। (Senior)
+- **একটা ঘটনা তিন চোখে।** সাম্প্রতিক একটা মতবিরোধ তিনবার লিখুন: নিজের দৃষ্টিতে, অন্যজনের দৃষ্টিতে — তাঁর যুক্তি যতটা পারা যায় শক্ত করে — আর পাশে বসে থাকা তৃতীয় একজনের দৃষ্টিতে। কোনটা লিখতে সবচেয়ে কষ্ট হলো, এক লাইনে। (Senior)
+
+## মূল নিয়ম
+
+- Soft skill "সহজ" নয় — এর documentation নেই, তাই শেখা কঠিন।
+- বোঝা আর পারা এক নয়; পড়া শেষ মানে শেখা শেষ নয়।
+- নিজের মূল্যায়নকে ডেটা ভাববেন না — অন্যের observation-ই ডেটা।
+- স্তর ধরে শিখুন, তালিকা ধরে নয়; নিচের স্তর দুর্বল রেখে উপরে দেওয়া সময় নষ্ট হয়।
+- রিমোটে আর দ্বিতীয় ভাষায় সংকেত কমে — অনুমান যাচাই করুন, কঠিন মুহূর্তের আগে প্রস্তুত হন।
+- পদ বদলালে মাপ বদলায় — কেউ বলে দেবে না, নিজে জিজ্ঞেস করুন।
+- অগ্রগতি মাপুন আচরণে, জ্ঞানে নয়।
+
+## উৎস
+
+- Svenson, O. (1981). "Are we all less risky and more skillful than our fellow drivers?" *Acta Psychologica*, 47, 143–148. [DOI](https://doi.org/10.1016/0001-6918(81)90005-6)
+- Keysar, B., Hayakawa, S. & An, S. (2012). "The foreign-language effect: Thinking in a foreign tongue reduces decision biases." *Psychological Science*, 23(6), 661–668. [DOI](https://doi.org/10.1177/0956797611432178)
+- Deming, D. J. (2017). "The Growing Importance of Social Skills in the Labor Market." *The Quarterly Journal of Economics*, 132(4), 1593–1640. [NBER](https://www.nber.org/papers/w21473)9:X
+e:X
+e:C
+0:{"buildId":"l-BOHA4hlHsZGkKwBaPqg","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"শুরু"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০০.০১"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"সফট স্কিল আসলে কী"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"plan-এ যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","001-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/001/","className":"chip chip--accent self-start","children":["দিন ","০০১"," · ","দুই চোখের baseline"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**দুই চোখের baseline** — ২০টা স্কিলের প্রতিটায় দুটো নম্বর, ১–৫: নিজের চোখে, আর আপনার ধারণায় একজন সহকর্মীর চোখে — আজকের তারিখসহ খাতায়; যে স্কিলে দুই নম্বরের ফাঁক সবচেয়ে বড়, তার পাশে তারা। দিন ০৯১-এ আবার দেবেন (ডক ০০.০১)"}]]}],["$","li","002-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/002/","className":"chip chip--accent self-start","children":["দিন ","০০২"," · ","আটকানোর ঘটনা স্তরে ফেলুন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**আটকানোর ঘটনা স্তরে ফেলুন** — গত ছয় মাসে কাজে আটকানোর ৫টা ঘটনা খাতায়; প্রতিটার পাশে দুটো জিনিস — কোন স্তরে পড়ে, আর আটকানোটা জানায় ছিল নাকি করায়। বেশিরভাগ যে স্তরে, সেটাই আসল শুরুর জায়গা (ডক ০০.০১)"}]]}],["$","li","003-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/003/","className":"chip chip--accent self-start","children":["দিন ","০০৩"," · ","একজনকে নির্দিষ্ট প্রশ্ন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**একজনকে নির্দিষ্ট প্রশ্ন** — ছয় মাসের বেশি একসাথে কাজ করা একজনকে আজ, মুখে বা মেসেজে: \"আমার সাথে কাজ করতে গিয়ে সবচেয়ে কঠিন কী লাগে? একটা উদাহরণ দিতে পারবেন?\" — \"কোনো feedback আছে?\" নয়; উত্তরে ব্যাখ্যা নয়, শুধু ধন্যবাদ (ডক ০০.০১)"}]]}],["$","li","004-3",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/004/","className":"chip chip--accent self-start","children":["দিন ","০০৪"," · ","একটা ঘটনা তিন চোখে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**একটা ঘটনা তিন চোখে** — সাম্প্রতিক একটা মতবিরোধ তিনবার খাতায়: নিজের দৃষ্টিতে, অন্যজনের দৃষ্টিতে — তাঁর যুক্তি যতটা পারা যায় শক্ত করে — আর পাশে বসা তৃতীয় একজনের দৃষ্টিতে; কোনটা লিখতে সবচেয়ে কষ্ট হলো, এক লাইনে (ডক ০০.০১)"}]]}],["$","li","025-4",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/025/","className":"chip chip--accent self-start","children":["দিন ","০২৫"," · ","মুখে — নিজের সাথে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"এই ব্লকের পাঁচ অধ্যায় থেকে তিনটা মূল নিয়ম — গাইড না খুলে, মনে করে — প্রতিটা ইংরেজিতে জোরে, সাথে এই ব্লকের drill থেকে নিজের একটা ঘটনা; মোট ২ মিনিটে, ফোনে রেকর্ড করে (ডক ০০.০১ · ডক ০১.০১ · ডক ০১.০২ · ডক ০১.০৩ · ডক ০১.০৪)"}]]}],["$","li","091-5",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/091/","className":"chip chip--accent self-start","children":["দিন ","০৯১"," · ","scope-এর দরকষাকষি, তিন পথে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**baseline আবার** — দিন ০০১-এর খাতা না দেখে ২০টা স্কিলে আবার দুটো নম্বর, ১–৫ — নিজের চোখে আর সহকর্মীর চোখে — আজকের তারিখসহ; তারপর দুটো পাশাপাশি — নম্বর নয়, নম্বরের পরিবর্তনটাই তথ্য (ডক ০০.০১)"}]]}]]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"ViewportBoundary"]
+17:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"MetadataBoundary"]
+18:I[27201,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"IconMark"]
+19:I[39756,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+1a:I[37457,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","span",null,{}],["$","$L2",null,{"href":"/doc/00-02/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০০.০২ এই সাইট কীভাবে ব্যবহার করবেন"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০০.০১ · সফট স্কিল আসলে কী — সফট স্কিল"}],["$","meta","1",{"name":"description","content":"সফট স্কিলের ১০৪টা drill, ১০৮ দিনে — Senior থেকে Staff, রিমোট আর ইংরেজিসহ; দিনে একটা, আজ একবার, আসল কথোপকথনে; চার স্তরে নির্ভরতার ক্রমে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/soft_skill_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

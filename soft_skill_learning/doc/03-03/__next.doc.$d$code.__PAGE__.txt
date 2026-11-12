@@ -1,0 +1,142 @@
+1:"$Sreact.fragment"
+2:I[22016,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+9:X
+e:X
+e:C
+0:{"buildId":"l-BOHA4hlHsZGkKwBaPqg","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"৩. একজন মানুষের সাথে"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০৩.০৩"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Speaking English — দ্বিতীয় ভাষায় মুখে বলা"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"plan-এ যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","052-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/052/","className":"chip chip--accent self-start","children":["দিন ","০৫২"," · ","নিজের কাজ নিয়ে 4/3/2"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**নিজের কাজ নিয়ে 4/3/2** — এখনকার কাজের একটা ব্যাখ্যা ইংরেজিতে ফোনে রেকর্ড করুন — ৪ মিনিটে, তারপর ৩, তারপর ২; শুনে থামা কোথায় কমল, আর কোন বাক্য তৃতীয়বারে সহজে এল — খাতায় (ডক ০৩.০৩)"}]]}],["$","li","053-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/053/","className":"chip chip--accent self-start","children":["দিন ","০৫৩"," · ","standup-এর তিন লাইন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**standup-এর তিন লাইন** — আজ ইংরেজিতে তিন লাইন লিখুন — কাল কী, আজ কী, কোথায় আটকে — তারপর না পড়ে বলুন: standup ইংরেজিতে হলে সেখানে, না হলে ফোনে রেকর্ড করে; কোথায় শব্দ খুঁজতে থামলেন, খাতায় · পূর্ণ মাপে: পাঁচ কর্মদিবস (ডক ০৩.০৩)"}]]}],["$","li","054-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/054/","className":"chip chip--accent self-start","children":["দিন ","০৫৪"," · ","সামলানোর পাঁচ বাক্য"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**সামলানোর পাঁচ বাক্য** — অধ্যায়ের টেবিল থেকে পাঁচটা বাক্য বেছে মুখস্থ — বই বন্ধ করে জোরে বলে দেখুন কোনটা আটকায় · সুযোগ এলে: এই সপ্তাহের আসল কলে অন্তত দুটো, আর তারপর কথাটা কি চলল (ডক ০৩.০৩)"}]]}],["$","li","055-3",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/055/","className":"chip chip--accent self-start","children":["দিন ","০৫৫"," · ","ইংরেজিতে একটা মিটিং চালান"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**ইংরেজিতে একটা মিটিং চালান** — ১৫ মিনিটের একটা মিটিংয়ের তিনটা বাক্য ইংরেজিতে তৈরি করে জোরে বলুন — শুরুর agenda, চুপ থাকা একজনকে নাম ধরে ডাকা, শেষের সারাংশ আর পরের পদক্ষেপ · সুযোগ এলে: টিমের একটা মিটিং ইংরেজিতে চালানো, আর কোথায় শব্দ হারালেন (ডক ০৩.০৩)"}]]}],["$","li","056-4",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/056/","className":"chip chip--accent self-start","children":["দিন ","০৫৬"," · ","অন্য টিমের সামনে ৫ মিনিট"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**অন্য টিমের সামনে ৫ মিনিট** — একটা প্রস্তাবের প্রথম ৬০ সেকেন্ড ইংরেজিতে লিখে মুখস্থ, আর তিনটা সম্ভাব্য প্রশ্নের উত্তর খাতায়; প্রথম মিনিট একবার রেকর্ড করুন · সুযোগ এলে: অন্য টিমের সামনে ৫ মিনিট আর তিনটা প্রশ্ন, পরে একজন শ্রোতাকে — \"What was unclear?\" (ডক ০৩.০৩)"}]]}],["$","li","082-5",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/082/","className":"chip chip--accent self-start","children":["দিন ","০৮২"," · ","মুখে — একজন মানুষের সাথে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"এই ব্লকের আট অধ্যায় থেকে তিনটা মূল নিয়ম, একটা Speaking English বা Mentoring থেকে — গাইড না খুলে, মনে করে — প্রতিটা ইংরেজিতে জোরে, সাথে এই ব্লকের drill থেকে নিজের একটা ঘটনা; মোট ২ মিনিটে, ফোনে রেকর্ড করে (ডক ০৩.০১ · ডক ০৩.০২ · ডক ০৩.০৩ · ডক ০৩.০৪ · ডক ০৩.০৫ · ডক ০৩.০৬ · ডক ০৩.০৭ · ডক ০৩.০৮)"}]]}]]}]]}],"$L4","$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+14:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"OutletBoundary"]
+15:"$Sreact.suspense"
+17:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"ViewportBoundary"]
+18:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"MetadataBoundary"]
+19:I[27201,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"IconMark"]
+1a:I[39756,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+1b:I[37457,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+13:T44b3,## সংজ্ঞা
+
+**Speaking English** এই অধ্যায়ে মানে কাজের মুখের ইংরেজি — standup, মিটিং, কল, ডেমো, interview — যা সহকর্মীরা **বুঝতে পারেন আর তা দিয়ে কাজ করতে পারেন**। লক্ষ্য native-এর মতো শোনানো নয়।
+
+Communication অধ্যায় ঠিক করে **কী** বলবেন। এই অধ্যায় সেই কথা দ্বিতীয় ভাষায়, সাথে সাথে, চাপের মধ্যে বলা নিয়ে। তিনটা আলাদা দক্ষতা:
+
+- **বোধগম্যতা** — শ্রোতা শব্দগুলো ধরতে পারেন।
+- **সাবলীলতা** — কথা থেমে থেমে নয়, প্রবাহে আসে।
+- **সামলানো** — শব্দ হারালে, প্রশ্ন না বুঝলে, ভুল বললে কথাটা থামে না।
+
+তিনটার কোনোটাই নিখুঁত ব্যাকরণ বা accent দাবি করে না।
+
+## কেন এটা কঠিন
+
+**১. দুটো কাজ একসাথে।** কী বলবেন আর কোন শব্দে বলবেন — দুটো মাথা একসাথে সামলায়। চাপ বাড়লে প্রথমটাই আগে হারায়: আপনি জানেন উত্তর, কিন্তু বাক্য খুঁজতে খুঁজতে মুহূর্তটা চলে যায়।
+
+**২. ভয়টা আলাদা ধরনের।** Horwitz, Horwitz আর Cope (১৯৮৬) বিদেশি ভাষার উদ্বেগকে একটা আলাদা, পরিস্থিতি-নির্দিষ্ট উদ্বেগ হিসেবে দেখান — তিন উৎসে: কথা বলার ভয়, পরীক্ষার ভয়, আর **অন্যের নেতিবাচক বিচারের ভয়**। কাজের মিটিংয়ে তৃতীয়টাই সবচেয়ে ভারী: ভুল ইংরেজির চেয়ে "ওরা কী ভাববে" বেশি থামায়।
+
+**৩. ভুল জিনিসে সময় দেওয়া।** Munro আর Derwing (১৯৯৫) দেখিয়েছেন, accent কতটা ভারী আর কথা কতটা বোঝা যায় — এ দুটো সম্পর্কিত, কিন্তু আংশিকভাবে আলাদা; ভারী accent-এর কথাও পুরোপুরি বোধগম্য হতে পারে। তাই accent "ঠিক" করায় দেওয়া সময় প্রায়ই ভুল জায়গায় যায়।
+
+**৪. মাপকাঠি native নয়।** আন্তর্জাতিক টিমে অনেক সময় native-রাই সবচেয়ে কঠিন। BBC-র একটা প্রবন্ধে (২০১৬) প্রশিক্ষক Chia Suan Chong-এর পর্যবেক্ষণ: non-native-রা সাধারণত সাবধানে, সীমিত সহজ শব্দে কথা বলেন; native-রা প্রায়ই দ্রুত বলেন, ঠাট্টা, slang, সংক্ষেপ আর সংস্কৃতি-নির্দিষ্ট উল্লেখ ব্যবহার করেন। একই প্রবন্ধে Jennifer Jenkins: native-রা সাধারণত এক-ভাষী, আর ভাষার বৈচিত্র্যে কান মেলাতে ততটা দক্ষ নন।
+
+**৫. চুপ থাকা "কিছু বলার নেই" পড়া হয়।** শব্দ খুঁজতে না পেয়ে চুপ থাকলে মিটিং ধরে নেয় আপনার মত নেই। ফলে ভালো ধারণা হারায়, আর আপনাকে চেনা হয় কম।
+
+## কীভাবে কাজ করে
+
+### বোধগম্যতা আগে
+
+Jennifer Jenkins (২০০০) non-native-দের নিজেদের মধ্যে কথোপকথন বিশ্লেষণ করে একটা *Lingua Franca Core* প্রস্তাব করেছিলেন — উচ্চারণের যে অংশগুলো পারস্পরিক বোধগম্যতার জন্য সত্যিই জরুরি; বাকি অমিলগুলোকে ভুল নয়, গ্রহণযোগ্য বৈচিত্র্য ধরতে বলেছিলেন। কোন অংশ ঠিক ঐ তালিকায় পড়ে, তা নিয়ে বিতর্ক আছে; কিন্তু দিকনির্দেশ কাজের: **native-এর মতো নয়, বোধগম্য হওয়ার মতো।** কাজে চারটা জিনিস:
+
+- **গতি কমান।** দ্রুত বলা আত্মবিশ্বাস দেখায় না, শব্দ হারায়।
+- **শব্দের শেষ ব্যঞ্জন পরিষ্কার।** "fix" আর "fixed", "test" আর "tests" — অর্থ বদলায়।
+- **সংখ্যা, নাম, তারিখ — আলাদা জোরে।** "fifteen" আর "fifty"-র মতো জোড়া কলে সহজে গুলিয়ে যায়; দরকার হলে লিখে দিন।
+- **এক বাক্যে এক কথা।** লম্বা বাক্যের মাঝপথে ব্যাকরণও হারায়, শ্রোতাও।
+
+### সাবলীলতা — একই কথা, কম সময়ে, তিনবার
+
+*4/3/2* কৌশল (Maurice, ১৯৮৩; Paul Nation ১৯৮৯-এ বিশ্লেষণ করেছেন): একটা বিষয় তিনজন আলাদা শ্রোতাকে বলুন — প্রথমবার ৪ মিনিটে, তারপর ৩, তারপর ২; শ্রোতা শুধু শোনেন, প্রশ্ন করেন না। Nation-এর বিশ্লেষণে তৃতীয়বারে কথার গতি বেড়েছিল, থামা কমেছিল, আর পুনরাবৃত্ত অংশে ব্যাকরণের ভুল কমেছিল। কারণ সহজ: বিষয়বস্তু তখন জানা, তাই মাথা ভাষায় মন দিতে পারে। একা অনুশীলনে শ্রোতার জায়গায় ফোনের রেকর্ডার চলে।
+
+### তৈরি বাক্যের খণ্ড
+
+দ্বিতীয় ভাষায় প্রবাহ আসে শব্দ জুড়ে নয়, তৈরি খণ্ড থেকে। তিন ধরনের খণ্ড মুখস্থ রাখুন:
+
+- **প্রথম বাক্য** — standup, মিটিং, ডেমোর শুরু। বাকিটা তার পরে সহজে আসে।
+- **সংকেত** — "Two things. First… Second…", "The main point is…", "To sum up…"
+- **সামলানোর বাক্য** — নিচের টেবিল।
+
+### আটকে গেলে — থামবেন না, ঘুরে যান
+
+- **শব্দ হারালে বর্ণনা করুন।** "the thing that checks the token before the request" — শব্দটা না পেলেও অর্থ পৌঁছায়।
+- **শব্দটা চেয়ে নিন।** "What's the word — the opposite of deprecate?" স্বাভাবিক, লজ্জার নয়।
+- **বাক্য আবার শুরু করুন।** "Let me say that again." — ভাঙা বাক্য টেনে শেষ করার চেয়ে নতুন করে শুরু পরিষ্কার।
+- **প্রশ্ন না বুঝলে ফিরিয়ে বলুন।** "Just to check — are you asking about X or Y?"
+
+### প্রস্তুতি সেখানেই, যেখানে চাপ সবচেয়ে বেশি
+
+সব কথা তৈরি করা যায় না, কিন্তু চাপের মুহূর্তগুলো আগে থেকে জানা: standup, নিজের কাজের ডেমো, কঠিন প্রশ্নের উত্তর, interview। এগুলোর জন্য তিন লাইনের নোট — পুরো স্ক্রিপ্ট নয়, পুরো স্ক্রিপ্ট পড়লে শোনায় পড়ার মতো।
+
+## রিমোট আর দ্বিতীয় ভাষায়
+
+পুরো অধ্যায়টাই দ্বিতীয় ভাষা নিয়ে; এখানে শুধু রিমোটের আলাদা জিনিসগুলো।
+
+- **অডিও আপনার উচ্চারণের অর্ধেক।** দুর্বল মাইক বা নেটওয়ার্কে পরিষ্কার উচ্চারণও ঝাপসা পৌঁছায়। একটা ভালো headset — সস্তা, আর প্রথম দিন থেকেই কাজ করে।
+- **latency-তে কথা কাটাকাটি।** কলে অন্যের কথা শেষ হওয়ার পর এক মুহূর্ত থামুন; একসাথে দুজন শুরু করলে "Go ahead" বলে ছেড়ে দিন।
+- **কলের পরে লিখিত সারাংশ।** মুখে যা হারাল, লেখায় ফেরে — আর আপনার নিজের বোঝাও যাচাই হয়।
+- **ক্লান্ত সময়ে কঠিন কথা নয়।** সময়-অঞ্চলের কারণে কল যদি আপনার দিনের শেষে পড়ে, সেখানে বড় উপস্থাপনা না রেখে সকালে রেকর্ড করা ভিডিও পাঠানো যায়।
+
+| কখন | বাক্য |
+|---|---|
+| শুরুর সংকেত | "I have two updates. First, … Second, …" |
+| শব্দ হারালে | "What's the word… it's the thing that …" |
+| আবার শুরু | "Sorry, let me say that again." |
+| প্রশ্ন না বুঝলে | "Just to check — are you asking about X or Y?" |
+| গতি কমাতে বলা | "Could you slow down a little? I want to make sure I follow." |
+| ভাবার সময় | "Good question. Let me think for a second." |
+| ঢোকার অনুমতি | "Can I jump in here?" |
+
+## Senior থেকে Staff
+
+| | Senior | Lead | Staff |
+|---|---|---|---|
+| **কোথায় বলেন** | standup, নিজের কাজের ব্যাখ্যা, প্রশ্ন | মিটিং চালানো, টিমের হয়ে বলা | অন্য টিম আর leadership-এর সামনে উপস্থাপনা, Q&A |
+| **চাপের মুহূর্ত** | হঠাৎ প্রশ্ন | মিটিংয়ে মতবিরোধ, সময় সামলানো | অপ্রত্যাশিত কঠিন প্রশ্ন, অনেক শ্রোতা |
+| **মূল দক্ষতা** | তৈরি প্রথম বাক্য, সামলানোর বাক্য | সঞ্চালনার বাক্য — শুরু, ডাকা, থামানো, সারাংশ | তৈরি প্রথম ৬০ সেকেন্ড, সম্ভাব্য প্রশ্নের উত্তর |
+| **ঝুঁকি** | চুপ থেকে অদৃশ্য হওয়া | মিটিং native-ভাষীদের দখলে যাওয়া | লিখে ভালো, মুখে দুর্বল — তাই সিদ্ধান্তের ঘরে প্রভাব কম |
+
+Lead থেকে উপরে আপনি শুধু নিজের ইংরেজি সামলান না — **মিটিংয়ের ইংরেজি** সামলান: দ্রুতভাষীকে ধীর করা, idiom-এর মানে জিজ্ঞেস করা, চুপ থাকা non-native সহকর্মীকে ডাকা।
+
+## অনুশীলন
+
+- **নিজের কাজ নিয়ে 4/3/2।** এখনকার কাজের একটা ব্যাখ্যা তৈরি করুন, তারপর ফোনে রেকর্ড করুন — ৪ মিনিটে, তারপর ৩, তারপর ২। তিনটা রেকর্ড শুনে দেখুন থামা কোথায় কমল; কোন বাক্য তৃতীয়বারে সহজে এল, খাতায় লিখুন। (Senior)
+- **standup-এর তিন লাইন।** পাঁচ কর্মদিবস standup-এর আগে ইংরেজিতে তিন লাইন লিখুন — কাল কী, আজ কী, কোথায় আটকে। কিন্তু বলার সময় পড়বেন না; কোথায় শব্দ খুঁজতে থামলেন, পরে খাতায় লিখুন। (Senior)
+- **সামলানোর পাঁচ বাক্য।** টেবিল থেকে পাঁচটা বাক্য মুখস্থ করুন, আর এই সপ্তাহের আসল কলে অন্তত দুটো ব্যবহার করুন। কোনটা ব্যবহার করলেন, আর তারপর কথাটা কি চলল — খাতায় লিখুন। (Senior)
+- **ইংরেজিতে একটা মিটিং চালান।** টিমের একটা ১৫ মিনিটের মিটিং ইংরেজিতে চালান: প্রথম বাক্যে agenda, চুপ থাকা একজনকে নাম ধরে ডাকা, শেষে সারাংশ আর পরের পদক্ষেপ। কোথায় শব্দ হারালেন, আর মিটিং কি সময়ে শেষ হলো — লিখুন। (Lead)
+- **অন্য টিমের সামনে ৫ মিনিট।** একটা প্রস্তাব অন্য টিমের সামনে ইংরেজিতে ৫ মিনিটে বলুন, তারপর তিনটা প্রশ্ন নিন। আগে তৈরি রাখুন প্রথম ৬০ সেকেন্ড আর তিনটা সম্ভাব্য প্রশ্নের উত্তর। পরে একজন শ্রোতাকে জিজ্ঞেস করুন: "What was unclear?" (Staff)
+
+## মূল নিয়ম
+
+- লক্ষ্য বোধগম্যতা, native-এর মতো শোনানো নয়।
+- accent নয়, গতি, শব্দের শেষ আর সংখ্যা — সময় দিন সেখানে।
+- একই কথা কম সময়ে বারবার বলুন — সাবলীলতা এভাবেই আসে।
+- প্রথম বাক্য, সংকেত আর সামলানোর বাক্য মুখস্থ রাখুন।
+- শব্দ হারালে থামবেন না, বর্ণনা করুন।
+- ভাঙা ইংরেজিতে বলা চুপ থাকার চেয়ে ভালো।
+- রিমোটে ভালো headset আর কলের পরের লিখিত সারাংশ — দুটোই উচ্চারণের অংশ।
+
+## উৎস
+
+- Munro, M. J. & Derwing, T. M. (1995). "Foreign Accent, Comprehensibility, and Intelligibility in the Speech of Second Language Learners." *Language Learning*, 45(1), 73–97. [DOI](https://doi.org/10.1111/j.1467-1770.1995.tb00963.x)
+- Jenkins, J. (2000). *The Phonology of English as an International Language*. Oxford University Press. — Lingua Franca Core।
+- Morrison, L. (2016). "Native English speakers are the world's worst communicators." BBC, ৩১ অক্টোবর ২০১৬। — Chia Suan Chong আর Jennifer Jenkins-এর মন্তব্য।
+- Horwitz, E. K., Horwitz, M. B. & Cope, J. (1986). "Foreign Language Classroom Anxiety." *The Modern Language Journal*, 70(2), 125–132. [DOI](https://doi.org/10.2307/327317)
+- Nation, P. (1989). "Improving speaking fluency." *System*, 17(3), 377–384. — 4/3/2; মূল কৌশল Maurice, K. (1983), "The fluency workshop," *TESOL Newsletter*।4:["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$13"}]}]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/03-02/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০৩.০২ Communication — কথা বলা ও বোঝানো"}]]}],["$","$L2",null,{"href":"/doc/03-04/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০৩.০৪ Writing — লিখে বোঝানো"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L14",null,{"children":["$","$15",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]
+a:["$","$1","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L18",null,{"children":["$","$15",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০৩.০৩ · Speaking English — দ্বিতীয় ভাষায় মুখে বলা — সফট স্কিল"}],["$","meta","1",{"name":"description","content":"সফট স্কিলের ১০৪টা drill, ১০৮ দিনে — Senior থেকে Staff, রিমোট আর ইংরেজিসহ; দিনে একটা, আজ একবার, আসল কথোপকথনে; চার স্তরে নির্ভরতার ক্রমে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/soft_skill_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+12:true
+16:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

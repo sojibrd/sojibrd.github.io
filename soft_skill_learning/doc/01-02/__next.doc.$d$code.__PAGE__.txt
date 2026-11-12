@@ -1,0 +1,151 @@
+1:"$Sreact.fragment"
+2:I[22016,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+9:X
+e:X
+e:C
+0:{"buildId":"l-BOHA4hlHsZGkKwBaPqg","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"১. নিজের সাথে"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০১.০২"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Emotional Intelligence — আবেগ বোঝা ও সামলানো"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"plan-এ যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","010-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/010/","className":"chip chip--accent self-start","children":["দিন ","০১০"," · ","দিনে তিনবার, নির্দিষ্ট শব্দে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**দিনে তিনবার, নির্দিষ্ট শব্দে** — আজ তিনবার থেমে: \"এখন ঠিক কোন আবেগটা?\" — \"ভালো/খারাপ\" নয়, অধ্যায়ের টেবিলের মতো সূক্ষ্ম শব্দ; না এলে \"পাইনি\" · পূর্ণ মাপে: পাঁচ কর্মদিবস, শেষে কোন শব্দগুলো নতুন যোগ হলো (ডক ০১.০২)"}]]}],["$","li","011-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/011/","className":"chip chip--accent self-start","children":["দিন ","০১১"," · ","পুনর্মূল্যায়ন, লিখে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**পুনর্মূল্যায়ন, লিখে** — শেষ যে ঘটনায় রাগ বা অপমান লেগেছিল, খাতায়: তীব্রতা ১–১০, প্রথম ব্যাখ্যা, আরেকটা সম্ভাব্য সত্যি ব্যাখ্যা, তারপর তীব্রতা আবার · সুযোগ এলে: পরের এমন ঘটনায় প্রতিক্রিয়ার আগেই, আর দ্বিতীয় ব্যাখ্যা ধরে উত্তর (ডক ০১.০২)"}]]}],["$","li","012-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/012/","className":"chip chip--accent self-start","children":["দিন ","০১২"," · ","ইংরেজিতে আবেগের শব্দ"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**ইংরেজিতে আবেগের শব্দ** — আজকের কোনো ইংরেজি কল বা মেসেজে — না থাকলে ফোনে রেকর্ড করে, একজন সহকর্মীকে বলছেন ধরে — একবার নিজের অবস্থা (\"I'm a bit worried about…\") আর একবার স্বীকৃতি (\"That sounds frustrating\") · সুযোগ এলে: পরের ইংরেজি আলাপে, আর সামনের মানুষের পরের বাক্য কি বদলাল (ডক ০১.০২)"}]]}],["$","li","013-3",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/013/","className":"chip chip--accent self-start","children":["দিন ","০১৩"," · ","খারাপ খবর, আগে স্বীকৃতি"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**খারাপ খবর, আগে স্বীকৃতি** — সাম্প্রতিক একটা খারাপ খবর — deadline বদল, বাতিল ফিচার — নিয়ে তিন লাইন খাতায়: কী হয়েছে, এটা কেন খারাপ লাগবে, পরের পদক্ষেপ; তারপর ঐ ক্রমে জোরে একবার · সুযোগ এলে: টিমকে পরের খারাপ খবর এই ক্রমে, আর কে কী প্রশ্ন করলেন (ডক ০১.০২)"}]]}],["$","li","014-4",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/014/","className":"chip chip--accent self-start","children":["দিন ","০১৪"," · ","লোকসানের নাম দিন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**লোকসানের নাম দিন** — সাম্প্রতিক বা আসন্ন একটা বদল, যা কয়েকটা টিম বা কয়েকজনকে ছোঁয় — migration, reorg, বাতিল প্রকল্প — তার জন্য এক অনুচ্ছেদের খসড়া: মানুষ কী হারাচ্ছেন (চেনা টুল, নিজের বানানো কোড, পরিকল্পনা) · সুযোগ এলে: ঘোষণার খসড়ায় বসিয়ে একজনকে দেখানো (ডক ০১.০২)"}]]}],["$","li","025-5",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/025/","className":"chip chip--accent self-start","children":["দিন ","০২৫"," · ","মুখে — নিজের সাথে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"এই ব্লকের পাঁচ অধ্যায় থেকে তিনটা মূল নিয়ম — গাইড না খুলে, মনে করে — প্রতিটা ইংরেজিতে জোরে, সাথে এই ব্লকের drill থেকে নিজের একটা ঘটনা; মোট ২ মিনিটে, ফোনে রেকর্ড করে (ডক ০০.০১ · ডক ০১.০১ · ডক ০১.০২ · ডক ০১.০৩ · ডক ০১.০৪)"}]]}]]}]]}],"$L4","$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+14:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"OutletBoundary"]
+15:"$Sreact.suspense"
+17:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"ViewportBoundary"]
+18:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"MetadataBoundary"]
+19:I[27201,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"IconMark"]
+1a:I[39756,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+1b:I[37457,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+13:T470b,## সংজ্ঞা
+
+**Emotional Intelligence (EI)** হলো নিজের ও অন্যের আবেগ চিনতে পারা, আর সেই তথ্য দিয়ে চিন্তা ও আচরণ পরিচালনা করা।
+
+Goleman, Boyatzis আর McKee-র (২০০২) মডেলে চারটা অংশ, নির্ভরতার ক্রমে:
+
+| অংশ | প্রশ্ন |
+|---|---|
+| **Self-awareness** | আমি এখন কী অনুভব করছি? |
+| **Self-management** | অনুভূতিটা আমাকে চালাবে, নাকি আমি ওটাকে? |
+| **Social awareness** | সামনের মানুষটি কী অনুভব করছেন? |
+| **Relationship management** | এই দুটো জেনে আমি কী করব? |
+
+ভিত্তিটা এই অধ্যায় ধরে নেয়: EI মানে সবসময় শান্ত থাকা নয়, আবেগকে **তথ্য** হিসেবে পড়া। পরের স্তরে দুটো প্রশ্ন যোগ হয় — **কোন কৌশলে সামলাবেন** (সব কৌশল সমান নয়), আর **অন্যদের আবেগের মুখে আপনার দায়িত্ব কতটা**, যখন আপনার কথা অনেক মানুষকে ছোঁয়।
+
+## কেন এটা কঠিন
+
+**১. দমন কাজ করে না, শুধু লুকায়।** Gross আর John-এর গবেষণায় (২০০৩) যাঁরা অভ্যাসে আবেগ চেপে রাখেন, তাঁরা নিজেরাই বেশি নেতিবাচক আবেগ অনুভব করার কথা বলেছেন, সম্পর্কে খারাপ করেছেন, আর ভালো-থাকায় পিছিয়ে ছিলেন। যাঁরা পরিস্থিতিটা অন্যভাবে দেখার চেষ্টা করেন (reappraisal), তাঁদের ফল ছিল উল্টো। বাইরে শান্ত দেখানো তাই EI-এর প্রমাণ নয়।
+
+**২. শব্দভাণ্ডার ছোট।** "রাগ", "খারাপ", "ঠিক আছে" — তিন শব্দে সব আবেগ। Kashdan, Barrett আর McKnight (২০১৫) যেসব গবেষণা জড়ো করেছেন, সেখানে যাঁরা কষ্টের মুহূর্তে আবেগকে সূক্ষ্মভাবে ভাগ করতে পারেন — একে বলে *emotional granularity* — তাঁরা ক্ষতিকর পথে (মদ, আগ্রাসন) কম যান। যে আবেগের নাম জানেন না, সেটা সামলানোও কঠিন।
+
+**৩. অন্যের আবেগ পড়তে গিয়ে নিজের গল্প বসাই।** কেউ মিটিংয়ে চুপ — আপনি পড়লেন "উনি একমত নন"। আসলে হয়তো ক্লান্ত। ভুল পড়ার চেয়ে বিপজ্জনক ভুল পড়াটাকে সত্য ধরে পরের পদক্ষেপ নেওয়া।
+
+**৪. পদ বাড়লে আপনার আবেগ আর ব্যক্তিগত থাকে না।** আপনার উদ্বেগ টিম দেখে দিক হিসেবে পড়ে — "উনি চিন্তিত, তাহলে খারাপ কিছু হচ্ছে"। আপনার কাছে যা একটা খারাপ সকাল, টিমের কাছে সেটা সপ্তাহের আবহাওয়া।
+
+**৫. EI-এর সীমানা ঝাপসা।** অন্যের আবেগ পড়ে তাঁকে বোঝা আর সেই পড়া দিয়ে তাঁকে চালানো — দুটোর মাঝের রেখা পাতলা। পদ যত উপরে, রেখাটা তত গুরুত্বপূর্ণ: স্বীকৃতি সত্যি না হলে মানুষ সেটা টের পান, আর পরের সত্যি স্বীকৃতিও বিশ্বাস করেন না।
+
+## কীভাবে কাজ করে
+
+### ফাঁকটাই পুরো স্কিল
+
+```
+ঘটনা  →  [ ফাঁক ]  →  প্রতিক্রিয়া
+```
+
+ফাঁক তৈরির তিন কৌশল, দ্রুত থেকে ধীর:
+
+- **নাম দিন** (৫ সেকেন্ড)। Lieberman ও সহকর্মীদের fMRI গবেষণায় (২০০৭) নেতিবাচক আবেগের ছবিতে শব্দ দিয়ে আবেগের নাম দিলে amygdala-র সাড়া কমেছিল — একে বলে *affect labeling*। মনে মনে "এটা হতাশা" বলাটাই প্রথম ব্রেক।
+- **শরীর দেখুন** (৩০ সেকেন্ড)। চোয়াল, কাঁধ, শ্বাস — নাম পাওয়ার আগেই শরীর সংকেত দেয়।
+- **সময় কিনুন** (এক রাত)। রেগে লেখা মেসেজ draft-এ, পরদিন সকালে পড়ে তবে পাঠানো।
+
+### কোন কৌশলে সামলাবেন — আগে, সময়ে, পরে
+
+| কখন | কৌশল | উদাহরণ |
+|---|---|---|
+| **আগে** | পরিস্থিতি বাছা বা বদলানো | কঠিন আলোচনা ক্লান্ত সন্ধ্যায় নয়, সকালে |
+| **সময়ে** | পুনর্মূল্যায়ন (reappraisal) | "উনি আমাকে অপমান করছেন" → "উনি deadline-এর চাপে আছেন" |
+| **পরে** | দমন (suppression) | মুখ শান্ত রাখা, ভেতরে ফুটতে থাকা — শেষ উপায়, প্রথম নয় |
+
+টেবিলের ক্রমটা পরামর্শ; Gross আর John-এর ফল সমর্থন করে শেষ দুটোর তুলনা — পুনর্মূল্যায়ন দমনের চেয়ে ভালো। পুনর্মূল্যায়ন মানে মিথ্যা আশ্বাস নয় — আরেকটা **সম্ভাব্য সত্যি** ব্যাখ্যা খোঁজা।
+
+### সূক্ষ্ম নাম, সূক্ষ্ম সমাধান
+
+মোটা শব্দকে ভাগ করুন — প্রতিটার পরের পদক্ষেপ আলাদা:
+
+| মোটা শব্দ | সূক্ষ্ম নাম | যা দরকার |
+|---|---|---|
+| রাগ | অপমানিত | স্বীকৃতি |
+| রাগ | হতাশ | পথ খুলে দেওয়া |
+| রাগ | ভীত | নিরাপত্তা |
+| খারাপ | ক্লান্ত | বিশ্রাম |
+| খারাপ | উদ্বিগ্ন | স্পষ্টতা |
+| খারাপ | অপরাধবোধ | সংশোধনের সুযোগ |
+
+### অন্যের আবেগে — আগে স্বীকৃতি, তারপর সমাধান
+
+কেউ হতাশা প্রকাশ করলে প্রথম চাহিদা সমাধান নয়, **স্বীকৃতি**। স্বীকৃতির আগে সমাধান দিলে সেটা শোনা হয় না। আর অন্যের আবেগ সম্পর্কে আপনার পড়া একটা অনুমান — যাচাই করুন: "আপনাকে একটু চিন্তিত মনে হচ্ছে, ঠিক ধরলাম?"
+
+### নিজের সীমানা
+
+অন্যের আবেগ বোঝা মানে সেটা বয়ে বেড়ানো নয়। স্বীকৃতি দিন, সাহায্য করুন — কিন্তু অন্যের হতাশা নিজের দায়িত্ব বানালে কয়েক সপ্তাহে নিজেই খালি হয়ে যাবেন। "আমি বুঝতে পারছি এটা কঠিন" আর "এটা আমি ঠিক করে দেব" — দুটো আলাদা বাক্য।
+
+## রিমোট আর দ্বিতীয় ভাষায়
+
+- **লেখায় আবেগ নিজে নিজে ভরে যায়।** ছোট উত্তর "ঠিক আছে" — বিরক্ত নাকি ব্যস্ত? পাঠক সাধারণত খারাপ ব্যাখ্যাটা ধরেন। নিজে পাঠানোর সময় আবেগটা শব্দে লিখে দিন, আর পড়ার সময় খারাপ ব্যাখ্যায় লাফানোর আগে একটা ভালো ব্যাখ্যা খুঁজুন।
+- **দ্বিতীয় ভাষা দূরত্ব দেয় — সুবিধা আর ঝুঁকি দুটোই।** Keysar ও সহকর্মীদের গবেষণায় (২০১২) দ্বিতীয় ভাষায় সিদ্ধান্তের দুটো চেনা ঝোঁক — framing আর loss aversion — কমে গিয়েছিল; তাঁদের ব্যাখ্যা — দ্বিতীয় ভাষা আবেগ থেকে একটু দূরে রাখে। কঠিন আলোচনায় এটা কাজে লাগে; কিন্তু অন্যরা আপনাকে ঠান্ডা বা উদাসীন পড়তে পারেন। তাই ইংরেজিতে আবেগের শব্দ ইচ্ছা করে যোগ করুন।
+- **ক্যামেরা বন্ধ মানে মুখ নেই।** বড় খবর, সমালোচনা বা কঠিন সিদ্ধান্তের কথা হলে ক্যামেরা চালু রাখার অনুরোধ করুন — অন্তত ঐ অংশটুকু।
+
+| কখন | বাক্য |
+|---|---|
+| নিজের অবস্থা বলা | "I'm a bit worried about the timeline." |
+| স্বীকৃতি দেওয়া | "That sounds really frustrating." |
+| অনুমান যাচাই | "You seem a little concerned — am I reading that right?" |
+| সময় কেনা | "I need a moment to think about this. Can I get back to you this afternoon?" |
+| কৃতজ্ঞতা, নির্দিষ্ট করে | "I really appreciate you staying late on this." |
+
+## Senior থেকে Staff
+
+| | Senior | Lead | Staff |
+|---|---|---|---|
+| **কার আবেগ** | নিজের, আর সরাসরি সহকর্মীর | টিমের | কয়েকটা টিমের, বদলের মুখে |
+| **কঠিন মুহূর্ত** | review-এ কঠিন মন্তব্য, চাপের deadline | খারাপ খবর দেওয়া, ঝগড়া থামানো | reorg, বাতিল project, অনেক মানুষের লোকসান |
+| **মূল দক্ষতা** | নিজের ফাঁক তৈরি | চাপের মধ্যে নিজে শান্ত থেকে টিমকে শান্ত রাখা | মানুষ কী হারাচ্ছে তার নাম দিয়ে দিক দেখানো |
+| **ব্যর্থতার রূপ** | রেগে পাঠানো একটা মেসেজ | টিম আপনার মেজাজ আন্দাজ করে খারাপ খবর লুকায় | ঘোষণা ঠিক, কিন্তু মানুষ নিজেদের অবহেলিত ভাবে |
+
+Lead থেকে উপরে কাজটা আর শুধু নিজের আবেগ সামলানো নয় — **খারাপ খবর এমনভাবে দেওয়া, যাতে মানুষ খবরটা আর আপনাকে আলাদা করে দেখতে পারেন।**
+
+## অনুশীলন
+
+- **দিনে তিনবার, নির্দিষ্ট শব্দে।** পাঁচ কর্মদিবস, দিনে তিনবার থেমে: "এখন ঠিক কোন আবেগটা?" — "ভালো/খারাপ" নয়, টেবিলের মতো সূক্ষ্ম শব্দ। শব্দ না এলে "পাইনি" লিখুন; সপ্তাহ শেষে দেখুন কোন শব্দগুলো নতুন যোগ হলো। (Senior)
+- **পুনর্মূল্যায়ন, লিখে।** পরের যে ঘটনায় রাগ বা অপমান লাগবে, প্রতিক্রিয়ার আগে তিনটা জিনিস লিখুন: তীব্রতা ১–১০, প্রথম ব্যাখ্যা, আর আরেকটা সম্ভাব্য সত্যি ব্যাখ্যা। দ্বিতীয়টা ধরে উত্তর দিন; তারপর তীব্রতা আবার মাপুন। (Senior)
+- **ইংরেজিতে আবেগের শব্দ।** পরের ইংরেজি আলাপে অন্তত একবার নিজের অবস্থা শব্দে বলুন ("I'm a bit worried about…"), আর অন্যের জন্য একবার স্বীকৃতি দিন ("That sounds frustrating")। সামনের মানুষের পরের বাক্য কি বদলাল, খাতায় লিখুন। (Senior)
+- **খারাপ খবর, আগে স্বীকৃতি।** টিমকে পরের খারাপ খবর — deadline বদল, বাতিল ফিচার — দেওয়ার আগে তিন লাইন লিখুন: কী হয়েছে, এটা কেন খারাপ লাগবে, তারপর পরের পদক্ষেপ। সেই ক্রমেই বলুন; পরে কে কী প্রশ্ন করলেন, খাতায় লিখুন। (Lead)
+- **লোকসানের নাম দিন।** যে বদল কয়েকটা টিমকে ছোঁয় — migration, reorg, বাতিল project — তার ঘোষণার খসড়ায় একটা অনুচ্ছেদ যোগ করুন: মানুষ কী হারাচ্ছেন (চেনা টুল, নিজের বানানো কোড, পরিকল্পনা)। খসড়াটা একজনকে দেখিয়ে জিজ্ঞেস করুন, ঐ অনুচ্ছেদ থাকায় বাকিটা শুনতে সহজ হলো কিনা। (Staff)
+
+## মূল নিয়ম
+
+- আবেগ দমন করা EI নয়; আবেগকে তথ্য হিসেবে পড়াই EI।
+- নাম দিন আগে — যে আবেগের নাম জানেন না, সেটা সামলানো কঠিন।
+- চেপে রাখার চেয়ে আরেকটা সত্যি ব্যাখ্যা খোঁজা ভালো।
+- আগে স্বীকৃতি, তারপর সমাধান — ক্রম উল্টালে দুটোই নষ্ট।
+- অন্যের আবেগ সম্পর্কে আপনার পড়া একটা অনুমান — যাচাই করুন।
+- দ্বিতীয় ভাষায় আবেগের শব্দ ইচ্ছা করে বলুন; নইলে ঠান্ডা শোনায়।
+- পদ যত উপরে, আপনার মেজাজ তত বেশি মানুষের আবহাওয়া।
+
+## উৎস
+
+- Goleman, D., Boyatzis, R. & McKee, A. (2002). *Primal Leadership: Realizing the Power of Emotional Intelligence*. Harvard Business School Press. — EI-এর চার অংশ।
+- Gross, J. J. & John, O. P. (2003). "Individual differences in two emotion regulation processes: Implications for affect, relationships, and well-being." *Journal of Personality and Social Psychology*, 85(2), 348–362. [DOI](https://doi.org/10.1037/0022-3514.85.2.348)
+- Kashdan, T. B., Barrett, L. F. & McKnight, P. E. (2015). "Unpacking Emotion Differentiation: Transforming Unpleasant Experience by Perceiving Distinctions in Negativity." *Current Directions in Psychological Science*, 24(1), 10–16. [DOI](https://doi.org/10.1177/0963721414550708)
+- Lieberman, M. D., Eisenberger, N. I., Crockett, M. J., Tom, S. M., Pfeifer, J. H. & Way, B. M. (2007). "Putting feelings into words: Affect labeling disrupts amygdala activity in response to affective stimuli." *Psychological Science*, 18(5), 421–428. [PubMed](https://pubmed.ncbi.nlm.nih.gov/17576282/)
+- Keysar, B., Hayakawa, S. & An, S. (2012). "The foreign-language effect: Thinking in a foreign tongue reduces decision biases." *Psychological Science*, 23(6), 661–668. [DOI](https://doi.org/10.1177/0956797611432178)4:["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$13"}]}]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/01-01/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০১.০১ Self-awareness — নিজেকে চেনা"}]]}],["$","$L2",null,{"href":"/doc/01-03/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০১.০৩ Adaptability — বদলের সাথে মানিয়ে নেওয়া"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L14",null,{"children":["$","$15",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]
+a:["$","$1","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L18",null,{"children":["$","$15",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০১.০২ · Emotional Intelligence — আবেগ বোঝা ও সামলানো — সফট স্কিল"}],["$","meta","1",{"name":"description","content":"সফট স্কিলের ১০৪টা drill, ১০৮ দিনে — Senior থেকে Staff, রিমোট আর ইংরেজিসহ; দিনে একটা, আজ একবার, আসল কথোপকথনে; চার স্তরে নির্ভরতার ক্রমে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/soft_skill_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+12:true
+16:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

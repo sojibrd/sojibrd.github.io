@@ -1,0 +1,135 @@
+1:"$Sreact.fragment"
+2:I[22016,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+9:X
+e:X
+e:C
+0:{"buildId":"l-BOHA4hlHsZGkKwBaPqg","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"৪. অনেক মানুষের সাথে"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০৪.০১"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Presentation — উপস্থাপনা"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"plan-এ যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","083-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/083/","className":"chip chip--accent self-start","children":["দিন ","০৮৩"," · ","এক বাক্যের বার্তা"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**এক বাক্যের বার্তা** — পরের উপস্থাপনা বা ডেমোর — না থাকলে নিজের সাম্প্রতিক একটা কাজের ৩ মিনিটের ব্যাখ্যার — বাক্যটা খাতায়: \"একটা জিনিস মনে রাখলে সেটা হবে ___\"; তারপর প্রতিটা slide বা পয়েন্ট — এটা কি ঐ বাক্যকে সমর্থন করে? না করলে বাদ (ডক ০৪.০১)"}]]}],["$","li","084-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/084/","className":"chip chip--accent self-start","children":["দিন ","০৮৪"," · ","একটা deck, assertion–evidence-এ"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**একটা deck, assertion–evidence-এ** — নিজের বা টিমের একটা বিদ্যমান deck — না থাকলে একটা লম্বা README — নিয়ে প্রথম তিনটা slide বা অংশের শিরোনাম পূর্ণ বাক্যের দাবিতে বদলান, আর bullet সরিয়ে একটা দৃশ্যমান প্রমাণ · সুযোগ এলে: একজনকে দুই রূপ দেখিয়ে জিজ্ঞেস — কোনটা থেকে মূল কথা দ্রুত বুঝলেন (ডক ০৪.০১)"}]]}],["$","li","085-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/085/","className":"chip chip--accent self-start","children":["দিন ","০৮৫"," · ","ইংরেজিতে \"I'm excited\""]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**ইংরেজিতে \"I'm excited\"** — দিন ০৮৩-এর ব্যাখ্যাটা ইংরেজিতে রেকর্ড করার ঠিক আগে শান্ত হওয়ার চেষ্টা নয়, জোরে বলুন \"I'm excited.\"; তারপর রেকর্ড, আর উদ্বেগ ও নিজের পারফরম্যান্স ১–৫ · সুযোগ এলে: আসল ইংরেজি উপস্থাপনা বা ডেমোর আগে, আর আগেরবারের সাথে তুলনা (ডক ০৪.০১)"}]]}],["$","li","086-3",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/086/","className":"chip chip--accent self-start","children":["দিন ","০৮৬"," · ","হালনাগাদ, অনুরোধ দিয়ে শেষ"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**হালনাগাদ, অনুরোধ দিয়ে শেষ** — stakeholder-দের কাছে পরের হালনাগাদের শুরু আর শেষ খাতায় — শুরুতে তিন উত্তর (কেন জড়িত, কতক্ষণ, কী চাই), শেষে একটা স্পষ্ট অনুরোধ — তারপর জোরে একবার · সুযোগ এলে: আসল হালনাগাদে, আর ঘরেই কী কী সিদ্ধান্ত হলো (ডক ০৪.০১)"}]]}],["$","li","087-4",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/087/","className":"chip chip--accent self-start","children":["দিন ","০৮৭"," · ","leadership-এর সামনে ১০ মিনিট"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**leadership-এর সামনে ১০ মিনিট** — একটা প্রস্তাবের ১০ মিনিটের কাঠামো খাতায় — একটা বার্তা, তিনটা দাবি-শিরোনাম, আর পাঁচটা সম্ভাব্য কঠিন প্রশ্নের উত্তর · সুযোগ এলে: উপস্থাপনার পরে লেখা — কোন প্রশ্ন অবাক করল, আর পরেরবার সেটা কীভাবে আন্দাজ করতেন (ডক ০৪.০১)"}]]}],["$","li","108-5",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/108/","className":"chip chip--accent self-start","children":["দিন ","১০৮"," · ","মুখে — অনেক মানুষের সাথে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"এই ব্লকের পাঁচ অধ্যায় থেকে তিনটা মূল নিয়ম, একটা Leadership থেকে — গাইড না খুলে, মনে করে — প্রতিটা ইংরেজিতে জোরে, সাথে এই ব্লকের drill থেকে নিজের একটা ঘটনা; মোট ২ মিনিটে, ফোনে রেকর্ড করে (ডক ০৪.০১ · ডক ০৪.০২ · ডক ০৪.০৩ · ডক ০৪.০৪ · ডক ০৪.০৫)"}]]}]]}]]}],"$L4","$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+14:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"OutletBoundary"]
+15:"$Sreact.suspense"
+17:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"ViewportBoundary"]
+18:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"MetadataBoundary"]
+19:I[27201,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"IconMark"]
+1a:I[39756,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+1b:I[37457,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+13:T4228,## সংজ্ঞা
+
+**Presentation** হলো একদল মানুষের সামনে একটা নির্দিষ্ট বার্তা এমনভাবে পৌঁছে দেওয়া, যাতে তাঁরা **বার্তাটা মনে রাখেন আর সেই অনুযায়ী কিছু করেন।**
+
+ভিত্তিটা এই অধ্যায় ধরে নেয়: তথ্য পাঠানোর জন্য ডকুমেন্ট ভালো, সস্তা আর দ্রুত — একদল মানুষকে একসাথে বসানোর যুক্তি একটাই, এমন কিছু ঘটানো যা লেখা পড়ে ঘটত না: সিদ্ধান্ত, বিশ্বাস, প্রশ্নোত্তর, দিক-বদল। আর একটা বার্তা, শ্রোতার প্রথম তিন প্রশ্ন, slide-এ কম লেখা।
+
+পরের স্তরে তিনটা প্রশ্ন: slide আসলে কোন কাজে লাগে — আর কোথায় ক্ষতি করে; স্নায়ুকে শান্ত করব, নাকি অন্যভাবে কাজে লাগাব; আর পদ বাড়লে কোন ঘরে, কাদের সামনে উপস্থাপনা সিদ্ধান্ত বদলায়।
+
+## কেন এটা কঠিন
+
+**১. যা জানি, তার সবটা বলতে চাই।** তিন সপ্তাহের কাজ ১৫ মিনিটে — কম বললে পরিশ্রম ছোট দেখাবে মনে হয়। ফল: শ্রোতা সব শোনেন, কিছুই মনে রাখেন না।
+
+**২. slide-এ যা বলছি, তাই লেখা।** Mayer আর Moreno-র *redundancy principle* (২০০২): ছবি আর মুখের বর্ণনা একসাথে ভালো কাজ করে; তার সাথে হুবহু একই লেখা পর্দায় যোগ করলে শেখা খারাপ হয়। পরের গবেষণা কিছু ব্যতিক্রম দেখিয়েছে — ছোট মূল শব্দ, প্রক্রিয়ার ধাপের নাম, আর যাঁদের ভাষায় অসুবিধা আছে এমন শ্রোতা — কিন্তু অনুচ্ছেদভরা slide পড়ে শোনানো ব্যতিক্রমে পড়ে না।
+
+**৩. শিরোনাম বিষয় বলে, কথা বলে না।** "Cache — বর্তমান অবস্থা" একটা বিষয়; "বর্তমান cache-এ ৪০% request miss হয়" একটা কথা। Garner আর Alley-র গবেষণায় (২০১৩) পূর্ণ বাক্যের শিরোনাম আর নিচে দৃশ্যমান প্রমাণ — *assertion–evidence* — দিয়ে বানানো slide দেখা শ্রোতারা বিষয়-শিরোনাম আর bullet-এর slide দেখা শ্রোতাদের চেয়ে বেশি বুঝেছিলেন আর মনে রেখেছিলেন।
+
+**৪. "শান্ত হও" ভুল পরামর্শ।** Alison Wood Brooks-এর গবেষণায় (২০১৪) বেশিরভাগ মানুষ মনে করেছিলেন উপস্থাপনার আগে শান্ত হওয়াই সেরা কৌশল; কিন্তু যাঁরা উদ্বেগকে **উত্তেজনা** হিসেবে নতুন করে দেখেছিলেন — যেমন জোরে "I am excited" বলে — তাঁরা বেশি উত্তেজিত বোধ করেছিলেন আর জনসমক্ষে বক্তৃতাসহ কয়েকটা কাজে ভালো করেছিলেন। শরীরের উত্তেজনা থামানো কঠিন; তার নাম বদলানো সহজ।
+
+**৫. প্রশ্নোত্তরকে শেষের ফালতু অংশ ভাবা।** প্রায়ই ওটাই সবচেয়ে দামি অংশ — সেখানেই শ্রোতা তাঁর আসল দুশ্চিন্তা বলেন।
+
+## কীভাবে কাজ করে
+
+### একটাই বার্তা, আর শুরুতেই তিন উত্তর
+
+> "শ্রোতা সব ভুলে গিয়েও যদি একটা জিনিস মনে রাখেন, সেটা হবে — ___।"
+
+যা এই বাক্যকে সমর্থন করে না, সেটা বাদ। আর প্রথম মিনিটে শ্রোতার তিন প্রশ্নের উত্তর: এটা আমার সাথে কীভাবে জড়িত, কতক্ষণ, আর আমার কাছে কী চাওয়া হচ্ছে — "১৫ মিনিট, তিনটা বিকল্প, শেষে আপনাদের একটা সিদ্ধান্ত দরকার।"
+
+### কাঠামো — SCQA দিয়ে ঢোকা
+
+Communication অধ্যায়ের SCQA উপস্থাপনার কাঠামোও: Situation (সবাই যা জানেন, দ্রুত), Complication (কী বদলেছে, কী খরচ), Question, Answer — তারপর দুই-তিনটা প্রমাণ, আর শেষে স্পষ্ট অনুরোধ। সবচেয়ে সাধারণ ভুল প্রথম দুই অংশে অর্ধেক সময় খরচ করা; শ্রোতা প্রায় সবসময় আপনার ধারণার চেয়ে বেশি জানেন।
+
+### Assertion–evidence slide
+
+| ❌ বিষয়-শিরোনাম আর bullet | ✅ পূর্ণ বাক্য আর প্রমাণ |
+|---|---|
+| শিরোনাম: "Cache" | শিরোনাম: "বর্তমান cache-এ ৪০% request miss হয়" |
+| পাঁচটা bullet | একটা graph — hit বনাম miss, সময় ধরে |
+| বক্তা bullet পড়েন | বক্তা graph ব্যাখ্যা করেন |
+
+নিয়ম: প্রতিটা slide-এর শিরোনাম একটা পূর্ণ বাক্য, যা ঐ slide-এর দাবি; নিচে সেই দাবির দৃশ্যমান প্রমাণ — graph, diagram, screenshot। আর নোট আলাদা: **slide শ্রোতার জন্য, নোট আপনার জন্য।**
+
+### স্নায়ু — নাম বদলান, তারপর প্রস্তুতি
+
+- **"I'm excited."** উপস্থাপনার আগে শান্ত হওয়ার চেষ্টা নয় — জোরে বা মনে মনে বলুন আপনি উত্তেজিত (Brooks)।
+- **প্রথম ৬০ সেকেন্ড মুখস্থ।** ভয় সবচেয়ে বেশি প্রথম মিনিটে।
+- **জোরে অন্তত দুবার।** মনে মনে পড়ায় ধরা পড়ে না কোথায় বাক্য ভাঙে; Speaking English অধ্যায়ের 4/3/2 এখানেও খাটে।
+- **ধীরে, আর বিরতি।** গুরুত্বপূর্ণ বাক্যের পর দুই সেকেন্ড চুপ — জোর দেওয়ার সবচেয়ে সস্তা উপায়।
+
+### প্রশ্নোত্তর
+
+- উত্তরের আগে প্রশ্নটা **আবার বলুন** — সবাই শোনেন, আপনি ভাবার সময় পান।
+- উত্তর না জানলে "জানি না, শুক্রবারের মধ্যে জানাব" — আর সত্যিই জানান।
+- কঠিন প্রশ্নকে স্বাগত — প্রশ্নকারী অন্তত মন দিয়ে শুনেছেন।
+
+## রিমোট আর দ্বিতীয় ভাষায়
+
+- **ক্যামেরা চোখের সমান উঁচুতে, আর মাঝে মাঝে সরাসরি ক্যামেরায় তাকান।** পর্দায় মানুষের মুখ দেখলে শ্রোতার মনে হয় আপনি নিচে তাকাচ্ছেন।
+- **কয়েক মিনিট পরপর শ্রোতাকে কাজে লাগান।** ভিডিও কলে মনোযোগ দ্রুত সরে যায় — নাম ধরে প্রশ্ন, chat-এ একটা উত্তর চাওয়া, ছোট একটা বিরতি।
+- **non-native শ্রোতার জন্য মূল শব্দ পর্দায়।** redundancy principle-এর ব্যতিক্রম এখানেই কাজের: পুরো বাক্য নয়, মূল শব্দ আর সংখ্যা slide-এ — ভাষার অসুবিধা থাকলে সেটা সাহায্য করে। slide আগে পাঠিয়ে দিন, আর পরে রেকর্ডিং।
+- **নিজে non-native হলে প্রথম ৬০ সেকেন্ড আর তিনটা সম্ভাব্য প্রশ্নের উত্তর ইংরেজিতে তৈরি।** বাকিটা নোট থেকে, মুখস্থ নয়।
+
+| কখন | বাক্য |
+|---|---|
+| শুরুর তিন উত্তর | "In the next 15 minutes, I'll show three options and ask you for a decision." |
+| একটা বার্তা | "If you remember one thing, it's this: …" |
+| প্রশ্ন আবার বলা | "Let me repeat the question for everyone: …" |
+| না জানলে | "Good question — I don't know yet. I'll follow up by Friday." |
+| শ্রোতাকে কাজে লাগানো | "Let me pause here — any questions so far?" |
+| শেষের অনুরোধ | "What I need from you today is a yes or no on option B." |
+
+## Senior থেকে Staff
+
+| | Senior | Lead | Staff |
+|---|---|---|---|
+| **কোথায়** | নিজের কাজের ডেমো, sprint review | stakeholder-দের কাছে টিমের হালনাগাদ, roadmap | leadership-এর সামনে প্রস্তাব, অন্য টিম, বাইরের বক্তৃতা |
+| **কী বদলায়** | কাজ বোঝা যায় | টিমের কাজ দৃশ্যমান হয়, অনুরোধ মেটে | কয়েকটা টিমের দিক, বাজেট, অগ্রাধিকার |
+| **মূল দক্ষতা** | একটা বার্তা, পরিষ্কার ডেমো | শেষে স্পষ্ট অনুরোধ, প্রশ্নের জন্য সময় | কঠিন প্রশ্নের প্রস্তুতি, কম সময়ে সিদ্ধান্ত বের করা |
+| **ব্যর্থতার রূপ** | বিস্তারিতে হারিয়ে যাওয়া | তথ্য দেওয়া হলো, সিদ্ধান্ত হলো না | ঘরের সবচেয়ে ক্ষমতাবান মানুষের প্রশ্নে উত্তর তৈরি ছিল না |
+
+পদ যত উপরে, উপস্থাপনা তত ছোট আর সিদ্ধান্ত তত বড় — আর প্রশ্নোত্তর তত বেশি সময় নেয় মূল অংশের চেয়ে।
+
+## অনুশীলন
+
+- **এক বাক্যের বার্তা।** পরের উপস্থাপনা বা ডেমোর আগে লিখুন: "একটা জিনিস মনে রাখলে সেটা হবে ___।" তারপর প্রতিটা slide দেখে জিজ্ঞেস করুন, এটা কি ঐ বাক্যকে সমর্থন করে? না করলে বাদ দিন। (Senior)
+- **একটা deck, assertion–evidence-এ।** নিজের বা টিমের একটা বিদ্যমান deck নিন। প্রতিটা slide-এর শিরোনাম পূর্ণ বাক্যের দাবিতে বদলান, আর bullet সরিয়ে একটা দৃশ্যমান প্রমাণ বসান। একজনকে দুটো রূপ দেখিয়ে জিজ্ঞেস করুন, কোনটা থেকে মূল কথা দ্রুত বুঝলেন। (Senior)
+- **ইংরেজিতে "I'm excited"।** পরের ইংরেজি উপস্থাপনা বা ডেমোর ঠিক আগে শান্ত হওয়ার চেষ্টা না করে জোরে বলুন "I'm excited." পরে উদ্বেগ আর নিজের পারফরম্যান্স ১–৫ দিন, আর আগেরবারের সাথে তুলনা করুন। (Senior)
+- **হালনাগাদ, অনুরোধ দিয়ে শেষ।** stakeholder-দের কাছে টিমের পরের হালনাগাদ শুরু করুন তিন উত্তর দিয়ে — কেন জড়িত, কতক্ষণ, কী চাই — আর শেষ করুন একটা স্পষ্ট অনুরোধে। ঘরেই কী কী সিদ্ধান্ত হলো, লিখুন। (Lead)
+- **leadership-এর সামনে ১০ মিনিট।** একটা প্রস্তাব ১০ মিনিটে তৈরি করুন — একটা বার্তা, assertion–evidence slide, আর পাঁচটা সম্ভাব্য কঠিন প্রশ্নের উত্তর। উপস্থাপনার পরে লিখুন, কোন প্রশ্ন আপনাকে অবাক করেছিল, আর পরেরবার সেটা আগে থেকে কীভাবে আন্দাজ করতেন। (Staff)
+
+## মূল নিয়ম
+
+- উপস্থাপনার একমাত্র যুক্তি — এমন কিছু ঘটানো, যা ডক পড়ে ঘটত না।
+- একটা বার্তা; তিনটা বার্তা মানে শূন্য বার্তা।
+- slide-এর শিরোনাম একটা দাবি, নিচে তার প্রমাণ।
+- যা বলছেন, তা হুবহু পর্দায় নয় — মূল শব্দ চলে, অনুচ্ছেদ নয়।
+- স্নায়ু শান্ত করার চেষ্টা নয়, উত্তেজনা হিসেবে নাম দিন — তারপর প্রথম মিনিট মুখস্থ।
+- প্রশ্নোত্তর শেষের ফালতু অংশ নয়, প্রায়ই আসল অংশ।
+- শেষ বাক্য একটা স্পষ্ট অনুরোধ।
+
+## উৎস
+
+- Mayer, R. E. & Moreno, R. (2002). — redundancy principle। [PDF](https://www.sfu.ca/~jcnesbit/EDUC220/ThinkPaper/MayerMoreno2002.pdf) — আর ব্যতিক্রম নিয়ে Yue, C. L., Bjork, E. L. & Bjork, R. A. (2013), UCLA।
+- Garner, J. K. & Alley, M. P. (2013). "How the design of presentation slides affects audience comprehension: A case for the assertion–evidence approach." *International Journal of Engineering Education*, 29(6), 1564–1579.
+- Brooks, A. W. (2014). "Get excited: Reappraising pre-performance anxiety as excitement." *Journal of Experimental Psychology: General*, 143(3), 1144–1158. [DOI](https://doi.org/10.1037/a0035325)
+- Minto, B. *The Minto Pyramid Principle* (বর্ধিত সংস্করণ, 1996)। — SCQA।4:["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$13"}]}]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/03-08/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০৩.০৮ Teamwork — দলে কাজ করা"}]]}],["$","$L2",null,{"href":"/doc/04-02/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০৪.০২ Persuasion ও Negotiation — রাজি করানো ও দর-কষাকষি"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L14",null,{"children":["$","$15",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]
+a:["$","$1","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L18",null,{"children":["$","$15",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০৪.০১ · Presentation — উপস্থাপনা — সফট স্কিল"}],["$","meta","1",{"name":"description","content":"সফট স্কিলের ১০৪টা drill, ১০৮ দিনে — Senior থেকে Staff, রিমোট আর ইংরেজিসহ; দিনে একটা, আজ একবার, আসল কথোপকথনে; চার স্তরে নির্ভরতার ক্রমে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/soft_skill_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+12:true
+16:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

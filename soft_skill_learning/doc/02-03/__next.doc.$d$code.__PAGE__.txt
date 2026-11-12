@@ -1,0 +1,157 @@
+1:"$Sreact.fragment"
+2:I[22016,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+9:X
+e:X
+e:C
+0:{"buildId":"l-BOHA4hlHsZGkKwBaPqg","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"২. চিন্তার সাথে"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০২.০৩"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Decision Making — সিদ্ধান্ত নেওয়া"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"plan-এ যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","036-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/036/","className":"chip chip--accent self-start","children":["দিন ","০৩৬"," · ","দুই দরজায় ভাগ"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**দুই দরজায় ভাগ** — ঝুলে থাকা সব সিদ্ধান্তের তালিকা, প্রতিটার পাশে one-way না two-way; two-way-গুলো আজই নিয়ে ফেলুন, আর একটা one-way-কে two-way বানানোর উপায় লিখুন (ডক ০২.০৩)"}]]}],["$","li","037-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/037/","className":"chip chip--accent self-start","children":["দিন ","০৩৭"," · ","পাঁচ লাইনের decision journal"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**পাঁচ লাইনের decision journal** — আজকের একটা অর্থপূর্ণ সিদ্ধান্তে পাঁচ লাইন, আত্মবিশ্বাসের শতাংশসহ, আর তিন মাস পরের একটা reminder — তখন বিচার করবেন প্রক্রিয়া, ফল নয় (ডক ০২.০৩)"}]]}],["$","li","038-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/038/","className":"chip chip--accent self-start","children":["দিন ","০৩৮"," · ","ইংরেজিতে disagree and commit"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**ইংরেজিতে disagree and commit** — শেষ যে সিদ্ধান্তে একমত ছিলেন না কিন্তু পাস হয়েছিল, তার জন্য ইংরেজিতে দুই বাক্য — আপত্তি, আর \"I disagree, but I'll commit.\" — জোরে দুবার · সুযোগ এলে: পরের এমন সিদ্ধান্তের আগে আপত্তি, পরে commit — আর এক সপ্তাহ পরে নিজেকে জিজ্ঞেস, আধা-মনে ছিলেন কি (ডক ০২.০৩)"}]]}],["$","li","039-3",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/039/","className":"chip chip--accent self-start","children":["দিন ","০৩৯"," · ","কার হাতে D"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**কার হাতে D** — আসন্ন বা সাম্প্রতিক একটা টিম-সিদ্ধান্তের RAPID ভূমিকা খাতায় — Recommend, Agree, Perform, Input, Decide — প্রতিটা কে; কোনটা অস্পষ্ট ছিল, চিহ্ন দিন · সুযোগ এলে: পরের বড় সিদ্ধান্তের শুরুতেই সবাইকে জানানো (ডক ০২.০৩)"}]]}],["$","li","040-4",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/040/","className":"chip chip--accent self-start","children":["দিন ","০৪০"," · ","একটা ADR"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**একটা ADR** — সাম্প্রতিক একটা সিদ্ধান্ত, যা টিম বা কয়েকটা টিমকে ছোঁয়, চার অংশে খাতায় — Status, Context, Decision, Consequences · সুযোগ এলে: repo-তে রেখে দুটো টিমকে পড়তে দেওয়া — কেউ কি এমন consequence যোগ করলেন যা আপনি ভাবেননি (ডক ০২.০৩)"}]]}],["$","li","041-5",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/041/","className":"chip chip--accent self-start","children":["দিন ","০৪১"," · ","মুখে — চিন্তার সাথে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"এই ব্লকের তিন অধ্যায়ের প্রতিটা থেকে একটা মূল নিয়ম — গাইড না খুলে, মনে করে — ইংরেজিতে জোরে, সাথে এই ব্লকের drill থেকে নিজের একটা ঘটনা; মোট ২ মিনিটে, ফোনে রেকর্ড করে (ডক ০২.০১ · ডক ০২.০২ · ডক ০২.০৩)"}]]}]]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":"$L4"}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+14:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"OutletBoundary"]
+15:"$Sreact.suspense"
+17:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"ViewportBoundary"]
+18:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"MetadataBoundary"]
+19:I[27201,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"IconMark"]
+1a:I[39756,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+1b:I[37457,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+13:T4795,## সংজ্ঞা
+
+**Decision making** হলো অসম্পূর্ণ তথ্যের ভিত্তিতে একটা পথ বেছে নেওয়া, আর সেটার দায়িত্ব নেওয়া। সব তথ্য থাকলে সেটা সিদ্ধান্ত হতো না, হতো হিসাব।
+
+ভিত্তিটা এই অধ্যায় ধরে নেয়: ফেরানো যায় আর যায় না এমন সিদ্ধান্ত আলাদা; সব তথ্যের অপেক্ষা দেরির অজুহাত; আপত্তি আগে, তারপর পূর্ণ সহযোগিতা। পরের স্তরে তিনটা জিনিস যোগ হয়:
+
+- **সিদ্ধান্তের মান বিচার** — ফল দেখে নয়, প্রক্রিয়া দেখে; আর তার জন্য আগে লিখে রাখা।
+- **সিদ্ধান্তের মালিকানা** — কে বলবেন, কে মত দেবেন, কে আটকাতে পারবেন।
+- **সিদ্ধান্তের স্মৃতি** — এক বছর পরে নতুন কেউ যেন জানতে পারেন, কেন এভাবে।
+
+## কেন এটা কঠিন
+
+**১. Outcome bias।** Baron আর Hershey-র গবেষণায় (১৯৮৮) মানুষ অনিশ্চয়তার মধ্যে নেওয়া সিদ্ধান্ত বিচার করেছিলেন — আর জানতেন সিদ্ধান্তদাতার কাছে তাঁদের সমান তথ্যই ছিল। তবু ফল ভালো হলে সিদ্ধান্তের মান, সিদ্ধান্তদাতার দক্ষতা — দুটোকেই বেশি নম্বর দিয়েছিলেন। ২০২৩-এর একটা বড় পুনরাবৃত্তিতেও ফলটা টিকেছে, এমনকি যাঁরা বলেছিলেন ফল দিয়ে বিচার করা উচিত নয়, তাঁদের মধ্যেও। Annie Duke এই ভুলকে বলেন *resulting*।
+
+**২. Hindsight bias।** Fischhoff-এর গবেষণায় (১৯৭৫) কোন ফল ঘটেছে জানানো হলে মানুষ সেটাকে আগে থেকেই বেশি সম্ভাব্য ভেবেছেন — ঐ জ্ঞান উপেক্ষা করতে বলার পরেও। "আমি তো জানতামই" — স্মৃতি নিজেকে চুপচাপ শুধরে নেয়, তাই পরে ফিরে দেখে শেখা কঠিন।
+
+**৩. আরও তথ্যের অপেক্ষা সবসময় যুক্তিসঙ্গত শোনায়।** "আরেকটু ডেটা দেখি" কখনো ভুল শোনায় না; কিন্তু প্রায়ই সেটা দেরির সম্মানজনক নাম।
+
+**৪. সিদ্ধান্ত না নেওয়াও সিদ্ধান্ত — দায়হীন।** "এখনো ঠিক হয়নি" অবস্থায় সময় যায়, বিকল্প বন্ধ হয়, টিম আটকে থাকে — অথচ কেউ ভুলের দায় নেন না। এই কারণেই নিষ্ক্রিয়তা নিরাপদ মনে হয়, আর সেটাই বিপদ।
+
+**৫. কে সিদ্ধান্ত নেবেন, কেউ জানেন না।** Rogers আর Blenko-র (২০০৬) পর্যবেক্ষণ: সবচেয়ে ভালো প্রতিষ্ঠানগুলো বড় সিদ্ধান্তে প্রতিটা ভূমিকার দায়িত্ব কার, তা নির্দিষ্ট করে। না করলে একই আলোচনা বারবার ফেরে, কারণ কোনো একজনের "হ্যাঁ"-তে সেটা শেষ হয় না।
+
+## কীভাবে কাজ করে
+
+### এক-দরজা আর দুই-দরজা
+
+Jeff Bezos-এর ২০১৬-এর শেয়ারহোল্ডার চিঠির ভাগ: কিছু সিদ্ধান্ত **one-way door** — ফেরানো যায় না বা প্রায় যায় না, তাই ধীরে, যত্নে; বেশিরভাগই **two-way door** — ভুল হলে ফিরে আসা যায়, তাই দ্রুত, ছোট দলে।
+
+| | **Two-way door** | **One-way door** |
+|---|---|---|
+| উদাহরণ | লাইব্রেরি বাছাই, UI বদল, feature flag | database বাছাই, public API, data model, নিয়োগ |
+| কীভাবে নেবেন | দ্রুত, ছোট দলে, পরীক্ষা করে | ধীরে, কয়েকজনের মত নিয়ে, লিখিতভাবে |
+
+সবচেয়ে সাধারণ ভুল: two-way door-কে one-way-এর মতো নেওয়া — তিনটা মিটিং আর একটা তুলনার sheet, অথচ এক দিনে বদলানো যেত। আর পরের স্তরের কৌশল: **one-way door-কে two-way বানানো** — feature flag, ধাপে ধাপে rollout, পুরনোটা কিছুদিন চালু রাখা।
+
+### কখন থামবেন — ৭০%
+
+একই চিঠিতে Bezos: বেশিরভাগ সিদ্ধান্ত নেওয়া উচিত যতটা তথ্য চান তার মোটামুটি ৭০% নিয়ে; ৯০%-এর অপেক্ষা করলে বেশিরভাগ ক্ষেত্রে আপনি ধীর। সাথে একটা প্রশ্ন: **"আর কোন একটা তথ্য পেলে সিদ্ধান্ত বদলাবে?"** উত্তর থাকলে ঐ তথ্যটাই একমাত্র বৈধ অপেক্ষা; না থাকলে আপনি তথ্য নয়, সাহস খুঁজছেন।
+
+### সিদ্ধান্তের ভূমিকা — কার হাতে D
+
+Rogers আর Blenko-র **RAPID** — বড় সিদ্ধান্তে পাঁচটা ভূমিকা:
+
+| ভূমিকা | কাজ |
+|---|---|
+| **R**ecommend | প্রস্তাব তৈরি, বিকল্প সাজানো |
+| **A**gree | যাঁর সম্মতি ছাড়া এগোনো যায় না (যেমন security, legal) |
+| **P**erform | যাঁরা বাস্তবায়ন করবেন |
+| **I**nput | তথ্য আর মত দেন, কিন্তু আটকাতে পারেন না |
+| **D**ecide | একজন — শেষ কথা, আর দায় |
+
+অক্ষরগুলো ক্রম নয়। মূল কথা: **D একজনের**, আর সেটা আলোচনার শুরুতেই সবাই জানেন।
+
+### Decision journal — আগে লিখুন
+
+hindsight bias-এর একমাত্র প্রতিকার: ফল আসার **আগে** লিখে রাখা।
+
+```
+তারিখ:
+সিদ্ধান্ত:
+কী আশা করছি, কতটা নিশ্চিত (%):
+কোন তথ্যের ভিত্তিতে:
+কী দেখলে বুঝব ভুল ছিল:
+```
+
+তিন মাস পরে পড়ুন, আর বিচার করুন প্রক্রিয়া — ফল নয়: তথ্য যা ছিল, তা দিয়ে কি যুক্তিসঙ্গত বাছাই ছিল?
+
+### Architecture Decision Record
+
+Michael Nygard-এর (২০১১) ছোট নথি — প্রতিটা গুরুত্বপূর্ণ প্রযুক্তিগত সিদ্ধান্তের জন্য একটা: **Status** (proposed, accepted, superseded…), **Context** (কোন সমস্যা সিদ্ধান্তটা আনল), **Decision**, **Consequences** (কী সহজ হলো, কী কঠিন)। পুরনো রেকর্ড মোছা হয় না — নতুন সিদ্ধান্ত এলে পুরনোটা *superseded* হয়, আর নতুনটা তাকে উল্লেখ করে। এক বছর পরে "কেন এমন?" প্রশ্নের উত্তর তখন repo-তেই থাকে।
+
+### Disagree and commit
+
+Bezos-এর একই চিঠির শব্দবন্ধ: সত্যিকারের মতবিরোধে আপত্তি বলুন, শুনুন — তারপর সিদ্ধান্ত হলে পুরোপুরি সাথে থাকুন। দুটো নিয়ম: আপত্তি সিদ্ধান্তের **আগে**, পরে নয়; আর সাথে থাকা মানে আধা-মনে নয় — "আমি একমত নই, কারণটা বলেছি; সিদ্ধান্ত হয়েছে, আমি পুরোপুরি আছি।"
+
+## রিমোট আর দ্বিতীয় ভাষায়
+
+- **async সিদ্ধান্ত লেখায় শুরু, লেখায় শেষ।** প্রস্তাব, বিকল্প, D কার, আর সময়সীমা ও default — "শুক্রবারের মধ্যে আপত্তি না এলে option B"। শেষে একটা ADR বা এক লাইনের রেকর্ড; নইলে অন্য সময়-অঞ্চলের কেউ পরের সপ্তাহে আবার জিজ্ঞেস করবেন।
+- **দুই-দরজা সিদ্ধান্তে async-এ আরও দ্রুত।** ফেরানো গেলে মিটিংয়ের অপেক্ষা নয় — জানিয়ে করুন: "Reversible — going ahead, shout if you disagree."
+- **দ্বিতীয় ভাষা একটু দূরত্ব দেয়।** Keysar ও সহকর্মীদের গবেষণায় (২০১২) দ্বিতীয় ভাষায় বিকল্প দেখলে framing-এর প্রভাব আর loss aversion কমেছিল। বড় সিদ্ধান্তের বিকল্পগুলো একবার ইংরেজিতে লিখে পড়া — চেষ্টা করার মতো একটা কৌশল, নিশ্চিত প্রতিকার নয়।
+
+| কখন | বাক্য |
+|---|---|
+| মালিক জানা | "Who's the decision-maker here?" |
+| দরজার ধরন | "Is this reversible? If so, let's just try it." |
+| অপেক্ষার শর্ত | "What would change your mind?" |
+| async default | "If there are no objections by Friday, we'll go with B." |
+| আপত্তি আর সাথে থাকা | "I disagree, and here's why — but I'll commit to the decision." |
+| রেকর্ড | "Let's write this up as an ADR so we remember why." |
+
+## Senior থেকে Staff
+
+| | Senior | Lead | Staff |
+|---|---|---|---|
+| **কোন সিদ্ধান্ত** | নিজের প্রযুক্তিগত সিদ্ধান্ত | টিমের — বেশিরভাগ two-way | কয়েকটা টিম ছোঁয় এমন one-way door |
+| **মূল কাজ** | দ্রুত নেওয়া, journal-এ লেখা | D স্পষ্ট করা, ছোট সিদ্ধান্ত টিমকে দিয়ে দেওয়া | one-way-কে two-way বানানো, ADR, কী সিদ্ধান্ত নেবেন না তা ঠিক করা |
+| **ঝুঁকি** | ছোট সিদ্ধান্তে বেশি সময় | সব সিদ্ধান্ত নিজের কাছে টেনে bottleneck হওয়া | সিদ্ধান্ত হয়েছে, কিন্তু লেখা নেই — এক বছর পরে আবার তর্ক |
+| **সাফল্যের মাপ** | একই প্রশ্নে দুবার আটকান না | টিম আপনাকে ছাড়াই two-way সিদ্ধান্ত নেয় | "কেন এমন?"-এর উত্তর repo-তে মেলে |
+
+পদ যত উপরে, কম সিদ্ধান্ত **নিজে** নেবেন — বেশি সিদ্ধান্তের **কাঠামো** ঠিক করবেন: কে নেবেন, কোন দরজা, কোথায় লেখা থাকবে।
+
+## অনুশীলন
+
+- **দুই দরজায় ভাগ।** এখন ঝুলে থাকা সব সিদ্ধান্তের তালিকা করে প্রতিটার পাশে one-way না two-way লিখুন। two-way-গুলো আজই নিয়ে ফেলুন, আর একটা one-way-কে two-way বানানোর উপায় খুঁজে লিখুন। (Senior)
+- **পাঁচ লাইনের decision journal।** পরের অর্থপূর্ণ সিদ্ধান্তে পাঁচ লাইন লিখুন, আত্মবিশ্বাসের শতাংশসহ, আর তিন মাস পরের একটা reminder বসান। তখন বিচার করবেন প্রক্রিয়া — ফল নয়। (Senior)
+- **ইংরেজিতে disagree and commit।** পরের যে সিদ্ধান্তে একমত নন কিন্তু পাস হতে যাচ্ছে, সিদ্ধান্তের আগে ইংরেজিতে আপত্তি বলুন, আর পরে: "I disagree, but I'll commit." তারপর সত্যিই পুরোপুরি সাথে থাকুন; এক সপ্তাহ পরে নিজেকে জিজ্ঞেস করুন — আধা-মনে ছিলেন কি? (Senior)
+- **কার হাতে D।** টিমের পরের বড় সিদ্ধান্তের আগে RAPID-এর পাঁচ ভূমিকা কার কার, এক লাইনে লিখে আলোচনার শুরুতে সবাইকে জানান। আলোচনা কত দ্রুত শেষ হলো, আগের মতো সিদ্ধান্তের সাথে তুলনা করুন। (Lead)
+- **একটা ADR।** সাম্প্রতিক একটা সিদ্ধান্ত, যা কয়েকটা টিমকে ছোঁয়, Nygard-এর চার অংশে লিখুন — Status, Context, Decision, Consequences — repo-তে রাখুন, আর দুটো টিমকে পড়ে মন্তব্য দিতে বলুন। কেউ কি এমন consequence যোগ করলেন যা আপনি ভাবেননি? (Staff)
+
+## মূল নিয়ম
+
+- ভালো সিদ্ধান্ত আর ভালো ফল এক নয় — প্রক্রিয়া দিয়ে বিচার করুন।
+- ফল আসার আগে লিখুন; পরে স্মৃতি নিজেকে শুধরে নেয়।
+- ফেরানো যায় এমন সিদ্ধান্ত দ্রুত; না গেলে ধীরে — আর পারলে ফেরানোর পথ বানান।
+- যতটা তথ্য চান তার ৭০%-এ নিন; "কোন তথ্যে বদলাবে?"-র উত্তর না থাকলে অপেক্ষা নয়।
+- D একজনের, আর সেটা শুরুতেই সবাই জানেন।
+- আপত্তি আগে বলুন, পরে নয় — তারপর পুরোপুরি সাথে থাকুন।
+- যে সিদ্ধান্ত লেখা নেই, এক বছর পরে সেটা আবার তর্ক।
+
+## উৎস
+
+- Baron, J. & Hershey, J. C. (1988). "Outcome bias in decision evaluation." *Journal of Personality and Social Psychology*, 54(4), 569–579. — আর ২০২৩-এর পুনরাবৃত্তি: [PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC12372742/)
+- Duke, A. (2018). *Thinking in Bets*. Portfolio. — *resulting*।
+- Fischhoff, B. (1975). "Hindsight ≠ foresight: The effect of outcome knowledge on judgment under uncertainty." *Journal of Experimental Psychology: Human Perception and Performance*, 1(3). [DOI](https://doi.org/10.1037/0096-1523.1.3.288)
+- Bezos, J. (2017). "2016 Letter to Shareholders." Amazon. — one-way আর two-way door, ৭০%, disagree and commit। [Fortune-এ পূর্ণ লেখা](https://fortune.com/2017/05/11/jeff-bezos-shareholder-letter)
+- Rogers, P. & Blenko, M. (2006). "Who Has the D? How Clear Decision Roles Enhance Organizational Performance." *Harvard Business Review*, January 2006. — RAPID।
+- Nygard, M. (2011). "Documenting Architecture Decisions." Relevance blog, ১৫ নভেম্বর ২০১১।
+- Keysar, B., Hayakawa, S. & An, S. (2012). "The foreign-language effect: Thinking in a foreign tongue reduces decision biases." *Psychological Science*, 23(6), 661–668. [DOI](https://doi.org/10.1177/0956797611432178)4:["$","$L3",null,{"children":"$13"}]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/02-02/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০২.০২ Problem Solving — সমস্যার সমাধান"}]]}],["$","$L2",null,{"href":"/doc/03-01/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০৩.০১ Listening — শোনা"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L14",null,{"children":["$","$15",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]
+a:["$","$1","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L18",null,{"children":["$","$15",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০২.০৩ · Decision Making — সিদ্ধান্ত নেওয়া — সফট স্কিল"}],["$","meta","1",{"name":"description","content":"সফট স্কিলের ১০৪টা drill, ১০৮ দিনে — Senior থেকে Staff, রিমোট আর ইংরেজিসহ; দিনে একটা, আজ একবার, আসল কথোপকথনে; চার স্তরে নির্ভরতার ক্রমে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/soft_skill_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+12:true
+16:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

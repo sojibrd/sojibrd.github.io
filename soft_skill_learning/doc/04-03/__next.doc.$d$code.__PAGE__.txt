@@ -1,0 +1,145 @@
+1:"$Sreact.fragment"
+2:I[22016,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+9:X
+e:X
+e:C
+0:{"buildId":"l-BOHA4hlHsZGkKwBaPqg","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"৪. অনেক মানুষের সাথে"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০৪.০৩"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Cross-team work — টিমের বাইরে কাজ"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"plan-এ যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","093-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/093/","className":"chip chip--accent self-start","children":["দিন ","০৯৩"," · ","প্রসঙ্গসহ নির্ভরতার অনুরোধ"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**প্রসঙ্গসহ নির্ভরতার অনুরোধ** — অন্য টিমের কাছে আপনার পরের — বা ঝুলে থাকা — অনুরোধটা নতুন করে লিখুন: প্রসঙ্গ, তাদের জন্য কেন জরুরি, ঠিক কী, কবের মধ্যে, আর নিজে অংশ নেওয়ার প্রস্তাব · সুযোগ এলে: পাঠিয়ে উত্তরের গতি আগের সাথে তুলনা (ডক ০৪.০৩)"}]]}],["$","li","094-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/094/","className":"chip chip--accent self-start","children":["দিন ","০৯৪"," · ","অন্য টিমের মুদ্রা"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**অন্য টিমের মুদ্রা** — যে টিমের উপর সবচেয়ে বেশি নির্ভর করেন, তারা কী মূল্য দেয় — পাঁচ মুদ্রার ঘরে খাতায়; একটা বেছে আজই কিছু চাওয়ার আগে দিন — একটা review, একটা fix, একটা প্রকাশ্য ধন্যবাদ (ডক ০৪.০৩)"}]]}],["$","li","095-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/095/","className":"chip chip--accent self-start","children":["দিন ","০৯৫"," · ","ইংরেজিতে অন্য টিমের মিটিংয়ে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**ইংরেজিতে অন্য টিমের মিটিংয়ে** — অন্য একটা টিমের মিটিং বা office hours খুঁজে বের করুন, আর নিজের দরকার ইংরেজিতে তিন বাক্যে লিখে জোরে বলুন — কী, কেন, কবে · সুযোগ এলে: সেখানে গিয়ে বলা, তারপর লেখায় এক অনুচ্ছেদের follow-up (ডক ০৪.০৩)"}]]}],["$","li","096-3",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/096/","className":"chip chip--accent self-start","children":["দিন ","০৯৬"," · ","মিথস্ক্রিয়ার ধরন ঠিক করুন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**মিথস্ক্রিয়ার ধরন ঠিক করুন** — প্রতিটা প্রতিবেশী টিমের সাথে এখন কোন ধরনে কাজ হচ্ছে — collaboration, X-as-a-Service, facilitating — আর কোনটা হওয়া উচিত, টেবিলে · সুযোগ এলে: একটা টিমের lead-এর সাথে আলোচনা করে একটা বদল ঠিক করা (ডক ০৪.০৩)"}]]}],["$","li","097-4",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/097/","className":"chip chip--accent self-start","children":["দিন ","০৯৭"," · ","আঠার কাজ দৃশ্যমান করুন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**আঠার কাজ দৃশ্যমান করুন** — এই মাসে আপনি বা টিমের কেউ যত আঠার কাজ করেছেন — onboarding, roadmap হালনাগাদ, টিমগুলোর মাঝে সমন্বয় — তালিকা, প্রতিটার প্রভাবসহ; নিজের হালনাগাদে বসান · সুযোগ এলে: ম্যানেজারের সাথে কথা — এই কাজ কীভাবে গোনা হয় (ডক ০৪.০৩)"}]]}],["$","li","108-5",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/108/","className":"chip chip--accent self-start","children":["দিন ","১০৮"," · ","মুখে — অনেক মানুষের সাথে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"এই ব্লকের পাঁচ অধ্যায় থেকে তিনটা মূল নিয়ম, একটা Leadership থেকে — গাইড না খুলে, মনে করে — প্রতিটা ইংরেজিতে জোরে, সাথে এই ব্লকের drill থেকে নিজের একটা ঘটনা; মোট ২ মিনিটে, ফোনে রেকর্ড করে (ডক ০৪.০১ · ডক ০৪.০২ · ডক ০৪.০৩ · ডক ০৪.০৪ · ডক ০৪.০৫)"}]]}]]}]]}],"$L4","$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+14:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"OutletBoundary"]
+15:"$Sreact.suspense"
+17:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"ViewportBoundary"]
+18:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"MetadataBoundary"]
+19:I[27201,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"IconMark"]
+1a:I[39756,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+1b:I[37457,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+13:T4472,## সংজ্ঞা
+
+**Cross-team work** হলো নিজের টিমের সীমানা পেরিয়ে কাজ এগিয়ে নেওয়া — এমন মানুষদের সাথে, যাঁদের অগ্রাধিকার আপনি ঠিক করেন না, যাঁদের ম্যানেজার আপনি নন, আর যাঁদের কাছে আপনার কাজ তাঁদের তালিকার অনেক নিচে।
+
+এটা Persuasion-এর পরে আসে, কারণ এখানে প্রায় সবটাই **কর্তৃত্ব ছাড়া প্রভাব**; আর Leadership-এর আগে, কারণ টিমের বাইরে নেতৃত্বের প্রথম অনুশীলন এখানেই। তিনটা জিনিস এই অধ্যায়ে একসাথে:
+
+- **নির্ভরতা** — অন্য টিমের কাছ থেকে কিছু পাওয়া, বা তাদের দেওয়া।
+- **সীমানা** — কোন টিম কী দেখে, আর টিমের মাঝের যোগাযোগ কেমন।
+- **আঠার কাজ** — যা কোনো টিমের তালিকায় নেই, কিন্তু না হলে সব আটকে যায়।
+
+## কেন এটা কঠিন
+
+**১. অন্য টিমের অগ্রাধিকার আলাদা।** আপনার জরুরি কাজ তাদের roadmap-এ নেই। তারা খারাপ মানুষ নন — তাদের নিজেদের deadline, নিজেদের ম্যানেজার।
+
+**২. কর্তৃত্ব নেই, তাই বিনিময় লাগে।** Cohen আর Bradford-এর *Influence Without Authority* প্রভাবকে দেখে বিনিময় হিসেবে — অন্যজন যা মূল্য দেন, তা দিয়ে নিজের যা দরকার তা পাওয়া; তাঁরা একে বলেন reciprocity-র নিয়ম। সমস্যা হলো, অন্য টিম কী মূল্য দেয়, তা আমরা প্রায়ই জিজ্ঞেস করি না।
+
+**৩. সংগঠনের গড়নই system-এর গড়ন।** Melvin Conway-র প্রবন্ধে (১৯৬৮): যে প্রতিষ্ঠান কোনো system design করে, তার design প্রতিষ্ঠানের যোগাযোগের গড়নের নকল হয়ে ওঠে — পরে যার নাম হয় *Conway's law*। টিমের সীমানা আর system-এর সীমানা না মিললে প্রতিটা ফিচারে কয়েকটা টিমের সমন্বয় লাগে, আর ঘর্ষণ সেখান থেকেই। এর পক্ষে পরীক্ষামূলক প্রমাণ শুরুতে কম ছিল; তবু পর্যবেক্ষণটা ব্যাপকভাবে ব্যবহৃত।
+
+**৪. আঠার কাজ চোখে পড়ে না।** Tanya Reilly *glue work* শব্দটা তৈরি করেন সেইসব কাজের জন্য, যা টিম আর প্রকল্পকে জুড়ে রাখে — নতুনদের onboarding, roadmap হালনাগাদ রাখা, সবাই মোটামুটি এক দিকে যাচ্ছে কিনা দেখা। জরুরি, কিন্তু প্রায়ই পদোন্নতির হিসাবে আসে না; সচেতনভাবে করলে নেতৃত্বের দক্ষতা দেখায়, অসচেতনভাবে করলে পেশায় আটকে দিতে পারে।
+
+**৫. অন্য টিমের মাথায় জায়গা সীমিত।** Skelton আর Pais-এর *Team Topologies* টিমের *cognitive load*-কে কেন্দ্রীয় বিষয় ধরে — একটা টিম একসাথে কতটা বুঝতে আর বইতে পারে। আপনার অনুরোধ তাদের ঐ বোঝার উপর আরেকটা ভার।
+
+**৬. দূরত্ব।** Teamwork অধ্যায়ের Allen curve: আলাদা তলাতেই যোগাযোগ কমে, আলাদা টিম আর সময়-অঞ্চলে আরও বেশি।
+
+## কীভাবে কাজ করে
+
+### মুদ্রা — অন্য টিম কী মূল্য দেয়
+
+Cohen আর Bradford বিনিময়ের "মুদ্রা"-কে কয়েক ভাগে দেখান:
+
+| মুদ্রা | উদাহরণ — আপনি যা দিতে পারেন |
+|---|---|
+| **কাজের** | নিজে PR খুলে দেওয়া, তাদের একটা bug ঠিক করা, তথ্য বা ডেটা |
+| **পদের** | তাদের কাজের প্রকাশ্য স্বীকৃতি, তাদের নাম উপরের রিপোর্টে |
+| **সম্পর্কের** | তাদের সমস্যা বোঝা, সিদ্ধান্তে তাদের ডাকা |
+| **অনুপ্রেরণার** | বড় লক্ষ্যের সাথে তাদের কাজের যোগ দেখানো |
+| **ব্যক্তিগত** | কৃতজ্ঞতা, তাদের কাজ সহজ করা |
+
+চাওয়ার আগে জিজ্ঞেস করুন: "আপনার টিমের জন্য কী জিনিস সহজ করলে এটা হাতে নেওয়া সহজ হয়?"
+
+### টিমের মাঝে মিথস্ক্রিয়ার তিন ধরন
+
+*Team Topologies* তিনটা ধরন দেখায়, আর বলে — ধরনটা সচেতনভাবে বাছুন:
+
+| ধরন | কী | কখন |
+|---|---|---|
+| **Collaboration** | দুই টিম ঘনিষ্ঠভাবে একসাথে | নতুন, অস্পষ্ট সমস্যা — অস্থায়ী, কারণ এটা দামি |
+| **X-as-a-Service** | এক টিম অন্যকে পরিষ্কার interface-এ সেবা দেয় | সীমানা স্পষ্ট, platform পরিপক্ব |
+| **Facilitating** | এক টিম অন্যকে শেখায়, নিয়ম চাপিয়ে নয় | অন্য টিমকে স্বাধীন করা লক্ষ্য |
+
+সবচেয়ে সাধারণ ভুল: অনির্দিষ্টকালের collaboration — প্রতিটা ছোট কাজে দুই টিমের মিটিং, কারণ interface কখনো ঠিক হয়নি।
+
+### নির্ভরতার শিষ্টাচার
+
+- **আগে চান, দরকারের দিন নয়।** তাদের পরিকল্পনায় জায়গা লাগে।
+- **অনুরোধ একা দাঁড়ায় এমনভাবে লিখুন** — প্রসঙ্গ, কেন জরুরি, ঠিক কী, কবের মধ্যে।
+- **নিজে কাজের অংশ নিন।** "আমি PR খুলে দিই, আপনারা review করবেন?" — প্রায়ই সবচেয়ে দ্রুত পথ।
+- **আগে interface-এ একমত, তারপর সমান্তরালে।** contract ঠিক হলে দুই টিম একে অপরের অপেক্ষা ছাড়াই কাজ করতে পারে।
+- **একসাথে escalate করুন, মাথার উপর দিয়ে নয়।** আটকে গেলে দুই টিমের lead মিলে একটা নোট — কী আটকে, কী বিকল্প, কার সিদ্ধান্ত দরকার।
+
+### আঠার কাজ — সচেতনভাবে
+
+Reilly-র সতর্কতার কাজে লাগানোর রূপ: আঠার কাজ করুন, কিন্তু **দৃশ্যমান** রাখুন — নিজের হালনাগাদে লিখুন কী করলেন আর কী প্রভাব; সময় বেঁধে নিন; আর ম্যানেজারের সাথে খোলাখুলি কথা বলুন, এই কাজ কীভাবে গোনা হয়।
+
+## রিমোট আর দ্বিতীয় ভাষায়
+
+- **করিডোর নেই, তাই দরজা বানান।** অন্য টিমের office hours, শেয়ার করা channel, একটা লিখিত "কীভাবে আমাদের কাছে অনুরোধ করবেন" পাতা — নিজের টিমের জন্যও একটা রাখুন।
+- **interface লেখায়।** RFC বা ছোট design doc-এ contract লিখে দুই টিমের সই — সময়-অঞ্চল পেরিয়ে এটাই সবচেয়ে কম ভুল বোঝার পথ।
+- **অন্য টিমের মানুষ প্রায়ই অন্য ভাষার, অন্য সংস্কৃতির।** মিটিংয়ের সিদ্ধান্ত লেখায় নিশ্চিত করুন, আর idiom এড়ান (Writing অধ্যায়)।
+
+| কখন | বাক্য |
+|---|---|
+| নিজে অংশ নেওয়া | "I know this isn't on your roadmap — would it help if I opened the PR myself?" |
+| মুদ্রা খোঁজা | "What would make this easier for your team?" |
+| interface আগে | "Can we agree on the API contract first, so both teams can work in parallel?" |
+| ঠিক মানুষ খোঁজা | "Who's the right person to talk to about X?" |
+| একসাথে escalate | "Let's escalate this together — I'll draft the note, you review it?" |
+| স্বীকৃতি | "Thanks to the payments team for turning this around so quickly." |
+
+## Senior থেকে Staff
+
+| | Senior | Lead | Staff |
+|---|---|---|---|
+| **পরিধি** | নিজের কাজের একটা নির্ভরতা | টিমের সব প্রতিবেশী টিম | কয়েকটা টিম জুড়ে প্রকল্প, টিমের সীমানা |
+| **মূল কাজ** | ভালো অনুরোধ, নিজে অংশ নেওয়া | interface আর মিথস্ক্রিয়ার ধরন ঠিক রাখা | সীমানা আর system মেলানো, প্রকল্প চালানো, আঠার কাজ দৃশ্যমান রাখা |
+| **ঝুঁকি** | অনুরোধ পাঠিয়ে অপেক্ষা | চিরকালের collaboration | কারো দায়িত্বে না থাকা কাজ আপনার ঘাড়ে, আর কেউ গোনেন না |
+| **সাফল্যের মাপ** | অন্য টিম আপনার অনুরোধ দ্রুত নেয় | প্রতিবেশী টিমের সাথে কাজ মিটিং ছাড়াই এগোয় | কয়েকটা টিমের প্রকল্প শেষ হয়, আর সবাই জানেন কে কী করেছেন |
+
+Will Larson-এর *Staff Engineer* Staff পদের চারটা ধরন দেখায় — **Tech Lead** (এক বা কয়েকটা টিমের প্রযুক্তিগত দিক আর বাস্তবায়ন), **Architect** (একটা গুরুত্বপূর্ণ এলাকার দিক আর মান), **Solver** (কঠিন, ঝুঁকির সমস্যায় গভীরে নামা), **Right Hand** (একজন নির্বাহীর মনোযোগ বাড়ানো)। চারটাই মূলত টিমের বাইরে কাজ — শুধু পরিধি আলাদা।
+
+## অনুশীলন
+
+- **প্রসঙ্গসহ নির্ভরতার অনুরোধ।** পরেরবার অন্য টিমের কাছ থেকে কিছু লাগলে অনুরোধটা লিখুন: প্রসঙ্গ, তাদের জন্য কেন জরুরি, ঠিক কী, কবের মধ্যে — আর নিজে অংশ নেওয়ার প্রস্তাব। উত্তর কত দ্রুত এল, আগের অনুরোধের সাথে তুলনা করুন। (Senior)
+- **অন্য টিমের মুদ্রা।** যে টিমের উপর আপনি সবচেয়ে বেশি নির্ভর করেন, তারা কী মূল্য দেয় — পাঁচ মুদ্রার ঘরে লিখুন। একটা জিনিস বেছে কিছু চাওয়ার আগেই দিন — একটা review, একটা fix, একটা প্রকাশ্য ধন্যবাদ। (Senior)
+- **ইংরেজিতে অন্য টিমের মিটিংয়ে।** অন্য একটা টিমের মিটিং বা office hours-এ গিয়ে নিজের দরকার ইংরেজিতে তিন বাক্যে বলুন — কী, কেন, কবে। তারপর লেখায় এক অনুচ্ছেদের follow-up পাঠান। (Senior)
+- **মিথস্ক্রিয়ার ধরন ঠিক করুন।** প্রতিটা প্রতিবেশী টিমের সাথে এখন কোন ধরনে কাজ হচ্ছে — collaboration, X-as-a-Service, facilitating — আর কোনটা হওয়া উচিত, টেবিলে লিখুন। একটা টিমের lead-এর সাথে আলোচনা করে একটা বদল ঠিক করুন। (Lead)
+- **আঠার কাজ দৃশ্যমান করুন।** এই মাসে আপনি বা টিমের কেউ যত আঠার কাজ করেছেন — onboarding, roadmap হালনাগাদ, টিমগুলোর মাঝে সমন্বয় — তার তালিকা করুন, প্রতিটার প্রভাবসহ। নিজের হালনাগাদে বসান, আর ম্যানেজারের সাথে কথা বলুন এই কাজ কীভাবে গোনা হয়। (Staff)
+
+## মূল নিয়ম
+
+- অন্য টিম আপনার অগ্রাধিকার দেখে না — তাদের অগ্রাধিকারের ভাষায় চান।
+- কর্তৃত্ব নেই মানে বিনিময় — কী মূল্য দেয়, আগে জিজ্ঞেস করুন, আর আগে দিন।
+- টিমের সীমানা আর system-এর সীমানা না মিললে ঘর্ষণ আসবেই।
+- মিথস্ক্রিয়ার ধরন সচেতনভাবে বাছুন; collaboration অস্থায়ী রাখুন।
+- নিজে কাজের অংশ নিন — "আমি PR খুলে দিই" প্রায়ই সবচেয়ে দ্রুত পথ।
+- আটকে গেলে একসাথে escalate করুন, মাথার উপর দিয়ে নয়।
+- আঠার কাজ করুন, কিন্তু দৃশ্যমান রাখুন।
+
+## উৎস
+
+- Cohen, A. R. & Bradford, D. L. *Influence Without Authority*. Wiley (প্রথম সংস্করণ ১৯৯০-এর দশকের শুরুতে; পরে তৃতীয় সংস্করণ)। — মুদ্রা আর reciprocity।
+- Conway, M. E. (1968). "How Do Committees Invent?" *Datamation*, April 1968.
+- Skelton, M. & Pais, M. (2019). *Team Topologies*. IT Revolution. — তিন মিথস্ক্রিয়ার ধরন, cognitive load; সারাংশ: [Martin Fowler](https://martinfowler.com/bliki/TeamTopologies.html)।
+- Reilly, T. "Being Glue." — প্রবন্ধ আর বক্তৃতা; glue work।
+- Larson, W. (2021). *Staff Engineer: Leadership beyond the management track*. — চার archetype। [staffeng.com](https://staffeng.com/guides/staff-archetypes/)
+- Allen, T. J. (1977). *Managing the Flow of Technology*. MIT Press.4:["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$13"}]}]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/04-02/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০৪.০২ Persuasion ও Negotiation — রাজি করানো ও দর-কষাকষি"}]]}],["$","$L2",null,{"href":"/doc/04-04/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০৪.০৪ Customer Service — ব্যবহারকারীর সাথে আচরণ"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L14",null,{"children":["$","$15",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]
+a:["$","$1","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L18",null,{"children":["$","$15",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০৪.০৩ · Cross-team work — টিমের বাইরে কাজ — সফট স্কিল"}],["$","meta","1",{"name":"description","content":"সফট স্কিলের ১০৪টা drill, ১০৮ দিনে — Senior থেকে Staff, রিমোট আর ইংরেজিসহ; দিনে একটা, আজ একবার, আসল কথোপকথনে; চার স্তরে নির্ভরতার ক্রমে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/soft_skill_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+12:true
+16:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

@@ -1,0 +1,150 @@
+1:"$Sreact.fragment"
+2:I[22016,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+9:X
+e:X
+e:C
+0:{"buildId":"l-BOHA4hlHsZGkKwBaPqg","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"৩. একজন মানুষের সাথে"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০৩.০৬"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Mentoring — অন্যকে শেখানো"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"plan-এ যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","067-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/067/","className":"chip chip--accent self-start","children":["দিন ","০৬৭"," · ","জোরে ভেবে কাজ"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**জোরে ভেবে কাজ** — আজকের কোনো কাজ ১০ মিনিট জোরে ভেবে করুন — কী দেখছেন, কেন, পরের ধাপ — কাউকে পাশে পেলে তাঁর সামনে, না পেলে ফোনে রেকর্ড করে; পরে শুনে দেখুন কোথায় ধাপ লাফিয়েছেন · সুযোগ এলে: কারো সামনে, শেষে তাঁকে ধাপগুলো নিজের ভাষায় বলতে বলা (ডক ০৩.০৬)"}]]}],["$","li","068-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/068/","className":"chip chip--accent self-start","children":["দিন ","০৬৮"," · ","review-এ শেখানো মন্তব্য"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**review-এ শেখানো মন্তব্য** — আজকের পরের code review-এ — না থাকলে একটা খোলা PR-এ — একটা মন্তব্য, যা শুধু \"বদলান\" নয়: কারণ আর একটা লিংকসহ, আর স্পষ্ট লেখা যে এটা আটকাচ্ছে না · পূর্ণ মাপে: পরের তিনটা review, আর লেখককে জিজ্ঞেস — কাজে লাগল কিনা (ডক ০৩.০৬)"}]]}],["$","li","069-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/069/","className":"chip chip--accent self-start","children":["দিন ","০৬৯"," · ","ইংরেজিতে GROW"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**ইংরেজিতে GROW** — GROW-এর চারটা প্রশ্ন ইংরেজিতে খাতায়, তারপর নিজের একটা আটকে থাকা সমস্যায় নিজেকেই জোরে চার প্রশ্ন — উত্তরও ইংরেজিতে · সুযোগ এলে: আটকে থাকা একজন সহকর্মীর সাথে ১৫ মিনিট, শুধু প্রশ্নে — সমাধান দেওয়ার তাড়না কতবার এল (ডক ০৩.০৬)"}]]}],["$","li","070-3",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/070/","className":"chip chip--accent self-start","children":["দিন ","০৭০"," · ","সাহায্য কমিয়ে আনুন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**সাহায্য কমিয়ে আনুন** — এমন একজনকে বাছুন, যাঁকে কোনো বারবার আসা কাজে আপনি সাহায্য করেন; এখন কী কী সাহায্য দেন, তালিকা, আর তিন সপ্তাহে প্রতি সপ্তাহে একটা সরানোর পরিকল্পনা · সুযোগ এলে: পরিকল্পনাটা তাঁকে জানানো (ডক ০৩.০৬)"}]]}],["$","li","071-4",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/071/","className":"chip chip--accent self-start","children":["দিন ","০৭১"," · ","একজনের sponsor হন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**একজনের sponsor হন** — অন্য টিমের — বা নিজের টিমের — এমন একজনের নাম আর কারণ খাতায়, যিনি বড় কাজের জন্য প্রস্তুত; কোন আলোচনায় তাঁর নাম বলা যায়, সেটাও · সুযোগ এলে: সেখানে লিখিত বা মুখে প্রস্তাব, কারণসহ, তারপর তাঁকে জানানো (ডক ০৩.০৬)"}]]}],["$","li","082-5",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/082/","className":"chip chip--accent self-start","children":["দিন ","০৮২"," · ","মুখে — একজন মানুষের সাথে"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"এই ব্লকের আট অধ্যায় থেকে তিনটা মূল নিয়ম, একটা Speaking English বা Mentoring থেকে — গাইড না খুলে, মনে করে — প্রতিটা ইংরেজিতে জোরে, সাথে এই ব্লকের drill থেকে নিজের একটা ঘটনা; মোট ২ মিনিটে, ফোনে রেকর্ড করে (ডক ০৩.০১ · ডক ০৩.০২ · ডক ০৩.০৩ · ডক ০৩.০৪ · ডক ০৩.০৫ · ডক ০৩.০৬ · ডক ০৩.০৭ · ডক ০৩.০৮)"}]]}]]}]]}],"$L4","$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+14:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"OutletBoundary"]
+15:"$Sreact.suspense"
+17:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"ViewportBoundary"]
+18:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"MetadataBoundary"]
+19:I[27201,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"IconMark"]
+1a:I[39756,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+1b:I[37457,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+13:T443c,## সংজ্ঞা
+
+**Mentoring** হলো সময় নিয়ে আরেকজনের দক্ষতা আর বিচার-বুদ্ধি বাড়াতে সাহায্য করা — এমনভাবে, যাতে শেষে তাঁর আর আপনাকে দরকার না হয়।
+
+চারটা কাজ প্রায়ই এক নামে চলে, কিন্তু আলাদা:
+
+| কাজ | কী | প্রশ্ন |
+|---|---|---|
+| **Teaching** | যা জানেন, তা দেখানো আর বোঝানো | "এটা এভাবে কাজ করে" |
+| **Coaching** | প্রশ্ন দিয়ে তাঁকে নিজের উত্তরে পৌঁছাতে সাহায্য | "আপনি কী কী ভেবেছেন?" |
+| **Mentoring** | দীর্ঘ সম্পর্কে দিক, অভিজ্ঞতা আর পরামর্শ | "আমি এমন অবস্থায় যা শিখেছি…" |
+| **Sponsoring** | যে ঘরে সুযোগ ঠিক হয়, সেখানে তাঁর নাম বলা | "এই প্রকল্পে ওনাকে নেওয়া যায়" |
+
+ভালো mentor চারটার মাঝে ঠিক সময়ে বদলান। এই অধ্যায় Listening আর Feedback-এর উপর দাঁড়ানো — না শুনে শেখানো যায় না, আর feedback ছাড়া শেখা এগোয় না।
+
+## কেন এটা কঠিন
+
+**১. আপনি ভুলে গেছেন না-জানা কেমন।** Communication অধ্যায়ের curse of knowledge এখানে সবচেয়ে বেশি কাজ করে: যে ধাপ আপনার কাছে স্বয়ংক্রিয়, তা আপনি আর দেখতেই পান না — তাই ব্যাখ্যায় বাদ পড়ে।
+
+**২. নিজে করা দ্রুত।** দশ মিনিটে নিজে ঠিক করে দেওয়া যায়, শেখাতে লাগে এক ঘণ্টা। প্রতিবার দ্রুত পথ নিলে তিনি শেখেন না, আর পরেরবারও আপনার কাছেই আসেন।
+
+**৩. যে সাহায্য শুরুতে কাজে লাগে, পরে আটকায়।** Kalyuga, Ayres, Chandler আর Sweller-এর *expertise reversal effect* (২০০৩): নতুনদের জন্য খুব কার্যকর নির্দেশনা অভিজ্ঞদের জন্য কার্যকারিতা হারায়, এমনকি ক্ষতিও করতে পারে। মানে একই মাপের সাহায্য সবসময় দিলে, তিনি যত এগোন, আপনি তত বাধা।
+
+**৪. উত্তর দিলে নির্ভরতা তৈরি হয়।** প্রতিবার সরাসরি উত্তর দেওয়ার মানে পরের প্রশ্নও আপনার কাছে আসবে। মাঝের পথ — প্রশ্ন দিয়ে তাঁকে পৌঁছাতে দেওয়া — ধীর, আর ধৈর্য চায়।
+
+**৫. ফল ধীরে আসে, আর প্রত্যাশা বেশি থাকে।** Allen ও সহকর্মীদের meta-analysis-এ (২০০৪) mentoring protégé-র পেশাগত সুবিধার পক্ষে প্রমাণ মিলেছে, কিন্তু বেতনের মতো বস্তুগত ফলের প্রভাব ছিল **ছোট**। Mentoring জাদু নয় — একটা ধীর, স্থির ধাক্কা।
+
+## কীভাবে কাজ করে
+
+### Cognitive apprenticeship — ছয় পদ্ধতি
+
+Collins, Brown আর Newman (১৯৮৯) কারিগরের শিক্ষানবিশির ধারণাকে চিন্তার কাজে আনেন — কারণ চিন্তা চোখে দেখা যায় না, তাই ইচ্ছা করে দৃশ্যমান করতে হয়:
+
+| পদ্ধতি | কী করবেন | কাজের উদাহরণ |
+|---|---|---|
+| **Modeling** | নিজের চিন্তা জোরে বলে কাজ করা | debug করার সময় বলা — "প্রথমে log দেখছি, কারণ…" |
+| **Coaching** | তিনি করছেন, আপনি পাশে থেকে ইঙ্গিত দিচ্ছেন | pair-এ তিনি keyboard-এ, আপনি প্রশ্নে |
+| **Scaffolding** | কাঠামো দেওয়া, তারপর ধীরে সরিয়ে নেওয়া (*fading*) | প্রথমে template, পরে শুধু checklist, তারপর কিছুই না |
+| **Articulation** | তাঁকে নিজের যুক্তি মুখে বলানো | "কেন এই পথ বেছে নিলেন?" |
+| **Reflection** | নিজের কাজ অন্যের সাথে তুলনা | তাঁর PR আর একজন অভিজ্ঞের PR পাশাপাশি |
+| **Exploration** | নিজে সমস্যা বেছে নিজে চেষ্টা | "পরের ফিচারের design আপনি প্রথমে করুন" |
+
+ক্রমটা মোটামুটি এই: আপনি দেখান → তিনি করেন আপনার সাহায্যে → সাহায্য কমে → তিনি একা।
+
+### সাহায্য কমিয়ে আনা — পরিকল্পনা করে
+
+expertise reversal-এর শিক্ষা: সাহায্যের মাপ তাঁর দক্ষতার সাথে বদলাতে হয়। প্রতি কয়েক সপ্তাহে জিজ্ঞেস করুন — "এখন কোন সাহায্যটা আর লাগে না?" — আর সেটা সরিয়ে নিন। সাহায্য সরানো অবহেলা নয়; সেটাই উন্নতির প্রমাণ।
+
+### Coaching-এর কথোপকথন — GROW
+
+John Whitmore-এর *Coaching for Performance* (১৯৯২) চার ধাপের প্রশ্ন জনপ্রিয় করে:
+
+| ধাপ | প্রশ্ন |
+|---|---|
+| **G**oal | "এই আলাপের শেষে কী চান?" |
+| **R**eality | "এখন অবস্থা কী? কী চেষ্টা করেছেন?" |
+| **O**ptions | "আর কী কী পথ আছে?" |
+| **W**ill | "কোনটা করবেন, আর কবে?" |
+
+নিয়ম একটাই: চার ধাপেই প্রশ্ন আপনার, উত্তর তাঁর।
+
+### Code review — সবচেয়ে নিয়মিত শেখানোর জায়গা
+
+Google-এর code review গাইডে "Mentoring" নামে একটা অংশ আছে: এমন মন্তব্য রাখা সবসময় ঠিক, যা developer-কে নতুন কিছু শেখায়। কাজে: শুধু "এটা বদলান" নয় — কারণ, আর পারলে একটা লিংক। আর কোন মন্তব্য বাধ্যতামূলক আর কোনটা শুধু শেখার জন্য, সেটা আলাদা করে বলুন, যাতে শেখার মন্তব্য merge আটকায় না।
+
+### শেখালে নিজেও শেখেন
+
+Nestojko, Bui, Kornell আর Bjork-এর পরীক্ষায় (২০১৪) যাঁরা পড়েছিলেন "পরে অন্যকে শেখাতে হবে" ভেবে, তাঁরা পরীক্ষার জন্য পড়া মানুষদের চেয়ে বেশি আর বেশি গোছানোভাবে মনে করতে পেরেছিলেন — বিশেষ করে মূল বিষয়গুলো। পরীক্ষাটা ছিল অল্প সময়ের পরের; তবু দিকটা স্পষ্ট: শেখানোর প্রস্তুতি নিজের বোঝাকে গোছায়।
+
+## রিমোট আর দ্বিতীয় ভাষায়
+
+- **রিমোটে modeling ইচ্ছা করে করতে হয়।** অফিসে পাশে বসে দেখে শেখা যায়; রিমোটে স্ক্রিন শেয়ার করে জোরে ভেবে কাজ করুন, আর সপ্তাহে একটা নির্দিষ্ট pair-এর সময় রাখুন।
+- **লিখে রাখুন, যাতে একবারের ব্যাখ্যা বহুবার কাজে লাগে।** একই প্রশ্ন দুবার এলে উত্তরটা ডকে — অন্য সময়-অঞ্চলের নতুন সহকর্মীও তখন একা এগোতে পারেন।
+- **দ্বিতীয় ভাষায় শেখানো আর শেখা — দুদিকেই যাচাই।** ব্যাখ্যার পরে teach-back (Communication অধ্যায়): "What would you do first?" আর আপনি নিজে mentee হলে, বুঝিনি বলায় লজ্জা নেই — বুঝেছি ভান করাই দামি ভুল।
+
+| কখন | বাক্য |
+|---|---|
+| modeling | "I'll think out loud as I go — stop me anytime." |
+| coaching শুরু | "Walk me through how you'd approach this." |
+| অবস্থা জানা | "What have you tried so far?" |
+| দেখানো বনাম চেষ্টা | "Want me to show you, or would you rather try first?" |
+| reflection | "What would you do differently next time?" |
+| review-এ শেখার মন্তব্য | "Not blocking — just sharing why I'd use X here." |
+
+## Senior থেকে Staff
+
+| | Senior | Lead | Staff |
+|---|---|---|---|
+| **কাকে** | এক-দুজন junior, নতুন সহকর্মী | পুরো টিম | অন্য senior-রা, অন্য টিমের মানুষ |
+| **মূল কাজ** | modeling, review-এ শেখানো | কাজ ভাগ করা বৃদ্ধি মাথায় রেখে, পেশাগত আলাপ | sponsor হওয়া, শেখার ব্যবস্থা বানানো — onboarding, ডক, প্রোগ্রাম |
+| **ঝুঁকি** | নিজে করে দেওয়া | সব কঠিন কাজ সবচেয়ে দক্ষকে দেওয়া — বাকিরা বাড়েন না | শুধু পরামর্শ, কখনো নাম বলা নয় |
+| **সাফল্যের মাপ** | তিনি একই প্রশ্ন দুবার করেন না | আপনি ছুটিতে গেলে টিম চলে | যাঁদের আপনি এগিয়েছেন, তাঁরা এখন অন্যদের এগোচ্ছেন |
+
+Staff পদে সবচেয়ে কম ব্যবহৃত কাজ sponsoring: পরামর্শ দেওয়া সহজ, কিন্তু যে ঘরে প্রকল্প আর পদ ঠিক হয়, সেখানে কারো নাম নেওয়া — সেখানেই সবচেয়ে বড় পার্থক্য।
+
+## অনুশীলন
+
+- **জোরে ভেবে কাজ।** পরেরবার কোনো সমস্যা কারো সামনে সমাধান করার সময় ১৫ মিনিট নিজের চিন্তা জোরে বলুন — কী দেখছেন, কেন, পরের ধাপ কী। শেষে তাঁকে আপনার ধাপগুলো নিজের ভাষায় বলতে বলুন; কোন ধাপ তাঁর বলায় বাদ গেল, খাতায় লিখুন। (Senior)
+- **review-এ শেখানো মন্তব্য।** পরের তিনটা code review-এ অন্তত একটা করে মন্তব্য দিন যা শুধু "বদলান" নয় — কারণ আর একটা লিংকসহ, আর স্পষ্ট লেখা যে এটা আটকাচ্ছে না। পরে লেখককে জিজ্ঞেস করুন, মন্তব্যটা কাজে লেগেছে কিনা। (Senior)
+- **ইংরেজিতে GROW।** যে সহকর্মী একটা সমস্যায় আটকে আছেন, তাঁর সাথে ১৫ মিনিটের GROW আলাপ ইংরেজিতে করুন — চার ধাপেই শুধু প্রশ্ন, একবারও সমাধান নয়। শেষে তিনি কী করবেন বলে ঠিক করলেন, আর আপনার সমাধান দেওয়ার তাড়না কতবার এল — লিখুন। (Senior)
+- **সাহায্য কমিয়ে আনুন।** টিমের একজনের এমন একটা বারবার আসা কাজ বেছে নিন, যেখানে আপনি সাহায্য করেন। এখন কী কী সাহায্য দেন, তার তালিকা করুন, আর তিন সপ্তাহে প্রতি সপ্তাহে একটা সরানোর পরিকল্পনা লিখে তাঁকে জানান। (Lead)
+- **একজনের sponsor হন।** অন্য টিমের এমন একজনকে খুঁজুন, যিনি বড় কাজের জন্য প্রস্তুত। যেখানে সুযোগ ঠিক হয় — প্রকল্পের আলোচনা, পরিকল্পনার মিটিং — সেখানে লিখিতভাবে বা মুখে তাঁর নাম প্রস্তাব করুন, কারণসহ। পরে তাঁকে জানান। (Staff)
+
+## মূল নিয়ম
+
+- শেখানো, coaching, mentoring, sponsoring — চারটা আলাদা; ঠিক সময়ে বদলান।
+- যে ধাপ আপনার কাছে স্বয়ংক্রিয়, সেটাই ব্যাখ্যায় সবার আগে হারায়।
+- নিজের চিন্তা জোরে বলুন — চিন্তা চোখে দেখা যায় না।
+- সাহায্যের মাপ দক্ষতার সাথে কমান; একই মাপের সাহায্য পরে বাধা।
+- coaching-এ প্রশ্ন আপনার, উত্তর তাঁর।
+- review-এ কারণ লিখুন, আর শেখার মন্তব্যকে merge-এর বাধা বানাবেন না।
+- পরামর্শ দেওয়া সহজ; যেখানে সুযোগ ঠিক হয়, সেখানে নাম বলাই আসল।
+
+## উৎস
+
+- Collins, A., Brown, J. S. & Newman, S. E. (1989). "Cognitive apprenticeship: Teaching the crafts of reading, writing, and mathematics." In L. B. Resnick (Ed.), *Knowing, Learning, and Instruction: Essays in Honor of Robert Glaser* (pp. 453–494). Lawrence Erlbaum.
+- Kalyuga, S., Ayres, P., Chandler, P. & Sweller, J. (2003). "The expertise reversal effect." *Educational Psychologist*, 38(1), 23–31.
+- Allen, T. D., Eby, L. T., Poteet, M. L., Lentz, E. & Lima, L. (2004). "Career benefits associated with mentoring for protégés: A meta-analysis." *Journal of Applied Psychology*, 89(1), 127–136. [DOI](https://doi.org/10.1037/0021-9010.89.1.127)
+- Nestojko, J. F., Bui, D. C., Kornell, N. & Bjork, E. L. (2014). "Expecting to teach enhances learning and organization of knowledge in free recall of text passages." *Memory & Cognition*, 42(7), 1038–1048. [DOI](https://doi.org/10.3758/s13421-014-0416-z)
+- Whitmore, J. (1992). *Coaching for Performance*. Nicholas Brealey. — GROW; মডেলটা ১৯৮০-এর দশকের শেষে Graham Alexander, Alan Fine আর Whitmore-এর কাজ থেকে।
+- Google. "The Standard of Code Review" — *Google Engineering Practices*. [google.github.io](https://google.github.io/eng-practices/review/reviewer/standard.html) — "Mentoring" অংশ।4:["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$13"}]}]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/03-05/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০৩.০৫ Feedback — মতামত দেওয়া ও নেওয়া"}]]}],["$","$L2",null,{"href":"/doc/03-07/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০৩.০৭ Conflict — মতবিরোধ সামলানো"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L14",null,{"children":["$","$15",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]
+a:["$","$1","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L18",null,{"children":["$","$15",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০৩.০৬ · Mentoring — অন্যকে শেখানো — সফট স্কিল"}],["$","meta","1",{"name":"description","content":"সফট স্কিলের ১০৪টা drill, ১০৮ দিনে — Senior থেকে Staff, রিমোট আর ইংরেজিসহ; দিনে একটা, আজ একবার, আসল কথোপকথনে; চার স্তরে নির্ভরতার ক্রমে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/soft_skill_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1a",null,{"parallelRouterKey":"children","template":["$","$L1b",null,{}]}]]}]
+12:true
+16:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"
