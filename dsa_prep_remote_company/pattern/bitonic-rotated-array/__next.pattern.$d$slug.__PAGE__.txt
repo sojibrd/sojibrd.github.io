@@ -1,0 +1,63 @@
+1:"$Sreact.fragment"
+2:I[22016,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js","/dsa_prep_remote_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_remote_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js","/dsa_prep_remote_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_remote_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:I[76270,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js","/dsa_prep_remote_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_remote_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T4a1,**Demo: Search in Rotated Sorted Array** — [LC 33](https://leetcode.com/problems/search-in-rotated-sorted-array/) _(Medium — Amazon/Meta/Google High)_
+
+**Statement (Demo):** A sorted array of unique values `nums` was rotated at some pivot (e.g. `[0,1,2,4,5,6,7]` → `[4,5,6,7,0,1,2]`). Return the index of `target`, or `-1`. Must run in O(log n).
+Example: `nums=[4,5,6,7,0,1,2], target=0` → `4` | ⚡ `n ≤ 5000`, `-10⁴ ≤ nums[i], target ≤ 10⁴`
+
+**Approach:** At each step, find which half is sorted (`nums[lo] <= nums[mid]` means the left half). If the target lies in that sorted half's range, go there; otherwise go to the other half.
+
+```js
+function search(nums, target) {
+  let lo = 0,
+    hi = nums.length - 1;
+  while (lo <= hi) {
+    const mid = (lo + hi) >> 1;
+    if (nums[mid] === target) return mid;
+    if (nums[lo] <= nums[mid]) {
+      // left half is sorted
+      if (nums[lo] <= target && target < nums[mid]) hi = mid - 1;
+      else lo = mid + 1;
+    } else {
+      // right half is sorted
+      if (nums[mid] < target && target <= nums[hi]) lo = mid + 1;
+      else hi = mid - 1;
+    }
+  }
+  return -1;
+}
+```
+
+**Complexity:** Time O(log n), Space O(1)f:X
+14:X
+14:C
+0:{"buildId":"UyMS9L2FLHpjmQcyt4p2a","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/patterns/","className":"t-accent","children":"প্যাটার্ন"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":["টপিক ",2," · ","Binary Search"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":["2.4"," ","Bitonic / Rotated Array"]}]]}],["$","section",null,{"className":"callout callout--accent p-4","children":[["$","div",null,{"className":"t-label mb-1","children":"চিনবেন কীভাবে"}],["$","$L3",null,{"inline":true,"className":"t-body text-sm","children":"\"rotated sorted array\", \"peak/mountain element\", \"bitonic\" — the array is not fully sorted, but **one half is always sorted**; use that half to decide where to go"}]]}],["$","details",null,{"className":"surface-panel p-4 sm:p-6","children":[["$","summary",null,{"className":"t-label cursor-pointer select-none","children":"Demo · approach · কোড — আগে নিজে চেষ্টা, আটকালে খুলুন"}],["$","$L3",null,{"className":"measure mt-4","children":"$4"}]]}],["$","section",null,{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":["Demo · ","Search in Rotated Sorted Array"]}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","051",{"href":"/day/051/","className":"chip chip--accent","children":["plan · দিন ","০৫১"]}]],["$","a",null,{"href":"https://leetcode.com/problems/search-in-rotated-sorted-array/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 33",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],["$","$L5",null,{"problemKey":"lc33"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"প্রবলেম"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","lc153",{"id":"lc153","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"Find Minimum in Rotated Sorted Array"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","015",{"href":"/day/015/","className":"chip chip--accent","children":["plan · দিন ","০১৫"]}]],false,"$L6"]}]]}],"","$L7","$L8"]}],"$L9"]}],false,false]}],"$La"],["$Lb","$Lc"],"$Ld"]}],"isPartial":"$@e","staleTime":"$f","varyParams":null},{"rsc":"$L10","isPartial":"$@11","staleTime":"$f","varyParams":null},{"rsc":"$L12","isPartial":"$@13","staleTime":"$f","varyParams":"$14"},{"rsc":"$L15","isPartial":"$@16","staleTime":"$f","varyParams":"$14"}],"isUpgradeableISRFallback":false,"a":"$@17","rootVaryParams":null,"needsRuntimeRequest":"$@18"}
+19:I[97367,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js"],"OutletBoundary"]
+1a:"$Sreact.suspense"
+1c:I[97367,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js"],"ViewportBoundary"]
+1d:I[97367,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js"],"MetadataBoundary"]
+1e:I[27201,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js"],"IconMark"]
+1f:I[39756,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js"],"default"]
+20:I[37457,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js"],"default"]
+6:["$","a",null,{"href":"https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 153",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]
+7:["$","$L3",null,{"className":"text-sm","children":"Statement: A sorted array of unique values was rotated between 1 and n times. Return its minimum element in O(log n).  \nExample: `nums=[3,4,5,1,2]` → `1` | ⚡ `n ≤ 5000`, `-5000 ≤ nums[i] ≤ 5000`"}]
+8:["$","$L5",null,{"problemKey":"lc153"}]
+9:["$","li","lc162",{"id":"lc162","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"Find Peak Element"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","038",{"href":"/day/038/","className":"chip chip--accent","children":["plan · দিন ","০৩৮"]}]],false,["$","a",null,{"href":"https://leetcode.com/problems/find-peak-element/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 162",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],["$","$L3",null,{"inline":true,"className":"t-caption","children":"_(follow the slope to discard half)_"}],["$","$L3",null,{"className":"text-sm","children":"Statement: Given a 0-indexed integer array `nums`, return the index of any peak — an element strictly greater than its neighbours (`nums[i] > nums[i-1]` and `nums[i] > nums[i+1]`). O(log n).  \nExample: `nums=[1,2,3,1]` → `2` | ⚡ `n ≤ 1000`, `-2³¹ ≤ nums[i] ≤ 2³¹ - 1`"}],["$","$L5",null,{"problemKey":"lc162"}]]}]
+a:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"প্যাটার্ন","children":[["$","$L2",null,{"href":"/pattern/allocation-problems/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"2.3 Allocation Problems"}]]}],["$","$L2",null,{"href":"/pattern/fast-slow-pointers/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"3.1 Fast & Slow Pointers"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+b:["$","script","script-0",{"src":"/dsa_prep_remote_company/_next/static/chunks/0bza-gg8kwbbi.js","async":true}]
+c:["$","script","script-1",{"src":"/dsa_prep_remote_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+d:["$","$L19",null,{"children":["$","$1a",null,{"name":"Next.MetadataOutlet","children":"$@1b"}]}]
+10:["$","$1","h",{"children":[null,["$","$L1c",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1d",null,{"children":["$","$1a",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"2.4 Bitonic / Rotated Array — রিমোট DSA"}],["$","meta","1",{"name":"description","content":"রিমোট কোম্পানির ভেটিং স্ক্রিন আর live pairing-এর জন্য ৫০টা প্রবলেম — শূন্য থেকে, প্রথম দিন থেকে ঘড়ি ধরে আর ইংরেজিতে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/dsa_prep_remote_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1e","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+12:["$","$1","c",{"children":[null,["$","$L1f",null,{"parallelRouterKey":"children","template":["$","$L20",null,{}]}]]}]
+15:["$","$1","c",{"children":[null,["$","$L1f",null,{"parallelRouterKey":"children","template":["$","$L20",null,{}]}]]}]
+18:true
+1b:null
+f:300
+f:C
+17:0
+11:"$undefined"
+13:"$undefined"
+16:"$undefined"
+e:"$undefined"

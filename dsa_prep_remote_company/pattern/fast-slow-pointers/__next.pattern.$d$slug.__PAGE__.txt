@@ -1,0 +1,64 @@
+1:"$Sreact.fragment"
+2:I[22016,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js","/dsa_prep_remote_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_remote_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js","/dsa_prep_remote_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_remote_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:I[76270,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js","/dsa_prep_remote_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_remote_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T41b,**Demo: Linked List Cycle II** — [LC 142](https://leetcode.com/problems/linked-list-cycle-ii/) _(Medium — Amazon/Meta/Google High)_
+
+**Statement (Demo):** Given the `head` of a linked list, return the node where the cycle begins, or `null` if there is no cycle. Use O(1) space.
+Example: `head=[3,2,0,-4]`, tail connects to index 1 → node with value `2` | ⚡ `n ≤ 10⁴`
+
+**Approach:** Fast moves 2 steps, slow moves 1 — if they meet, there is a cycle. Then move one pointer back to head and step both one at a time; where they meet again is the cycle's start (math: distance head→start = distance meeting→start, mod cycle length).
+
+```js
+function detectCycle(head) {
+  let slow = head,
+    fast = head;
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+    if (slow === fast) {
+      // cycle found
+      let p = head;
+      while (p !== slow) {
+        p = p.next;
+        slow = slow.next;
+      }
+      return p; // start of the cycle
+    }
+  }
+  return null;
+}
+```
+
+**Complexity:** Time O(n), Space O(1)10:X
+15:X
+15:C
+0:{"buildId":"UyMS9L2FLHpjmQcyt4p2a","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/patterns/","className":"t-accent","children":"প্যাটার্ন"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":["টপিক ",3," · ","Linked Lists"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":["3.1"," ","Fast & Slow Pointers"]}]]}],["$","section",null,{"className":"callout callout--accent p-4","children":[["$","div",null,{"className":"t-label mb-1","children":"চিনবেন কীভাবে"}],["$","$L3",null,{"inline":true,"className":"t-body text-sm","children":"\"detect cycle\", \"middle of list\", \"nth from end\", \"intersection\" — two pointers at different speeds or a fixed gap"}]]}],["$","details",null,{"className":"surface-panel p-4 sm:p-6","children":[["$","summary",null,{"className":"t-label cursor-pointer select-none","children":"Demo · approach · কোড — আগে নিজে চেষ্টা, আটকালে খুলুন"}],["$","$L3",null,{"className":"measure mt-4","children":"$4"}]]}],"$undefined",["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"প্রবলেম"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","lc141",{"id":"lc141","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"Linked List Cycle"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","019",{"href":"/day/019/","className":"chip chip--accent","children":["plan · দিন ","০১৯"]}]],false,["$","a",null,{"href":"https://leetcode.com/problems/linked-list-cycle/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 141",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],"",["$","$L3",null,{"className":"text-sm","children":"Statement: Given the `head` of a linked list, return `true` if it has a cycle (some node's `next` points back to an earlier node), otherwise `false`.  \nExample: `head=[3,2,0,-4]`, tail connects to index 1 → `true` | ⚡ `n ≤ 10⁴`"}],["$","$L5",null,{"problemKey":"lc141"}]]}],["$","li","lc876",{"id":"lc876","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"Middle of the Linked List"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[["$L6"],false,"$L7"]}]]}],"","$L8","$L9"]}],"$La"]}],false,false]}],"$Lb"],["$Lc","$Ld"],"$Le"]}],"isPartial":"$@f","staleTime":"$10","varyParams":null},{"rsc":"$L11","isPartial":"$@12","staleTime":"$10","varyParams":null},{"rsc":"$L13","isPartial":"$@14","staleTime":"$10","varyParams":"$15"},{"rsc":"$L16","isPartial":"$@17","staleTime":"$10","varyParams":"$15"}],"isUpgradeableISRFallback":false,"a":"$@18","rootVaryParams":null,"needsRuntimeRequest":"$@19"}
+1a:I[97367,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js"],"OutletBoundary"]
+1b:"$Sreact.suspense"
+1d:I[97367,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js"],"ViewportBoundary"]
+1e:I[97367,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js"],"MetadataBoundary"]
+1f:I[27201,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js"],"IconMark"]
+20:I[39756,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js"],"default"]
+21:I[37457,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js"],"default"]
+6:["$","$L2","018",{"href":"/day/018/","className":"chip chip--accent","children":["plan · দিন ","০১৮"]}]
+7:["$","a",null,{"href":"https://leetcode.com/problems/middle-of-the-linked-list/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 876",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]
+8:["$","$L3",null,{"className":"text-sm","children":"Statement: Given the `head` of a singly linked list, return its middle node. With two middles, return the second.  \nExample: `[1,2,3,4,5]` → node `3` | ⚡ `n ≤ 100`"}]
+9:["$","$L5",null,{"problemKey":"lc876"}]
+a:["$","li","lc19",{"id":"lc19","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"Remove Nth Node From End of List"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","022",{"href":"/day/022/","className":"chip chip--accent","children":["plan · দিন ","০২২"]}]],false,["$","a",null,{"href":"https://leetcode.com/problems/remove-nth-node-from-end-of-list/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 19",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],["$","$L3",null,{"inline":true,"className":"t-caption","children":"_(two pointers n apart + dummy)_"}],["$","$L3",null,{"className":"text-sm","children":"Statement: Given the `head` of a linked list and an integer `n`, remove the `n`-th node from the end and return the head. Do it in one pass.  \nExample: `[1,2,3,4,5], n=2` → `[1,2,3,5]` | ⚡ `n ≤ 30`"}],["$","$L5",null,{"problemKey":"lc19"}]]}]
+b:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"প্যাটার্ন","children":[["$","$L2",null,{"href":"/pattern/bitonic-rotated-array/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"2.4 Bitonic / Rotated Array"}]]}],["$","$L2",null,{"href":"/pattern/dummy-node-technique/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"3.2 Dummy Node Technique"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+c:["$","script","script-0",{"src":"/dsa_prep_remote_company/_next/static/chunks/0bza-gg8kwbbi.js","async":true}]
+d:["$","script","script-1",{"src":"/dsa_prep_remote_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+e:["$","$L1a",null,{"children":["$","$1b",null,{"name":"Next.MetadataOutlet","children":"$@1c"}]}]
+11:["$","$1","h",{"children":[null,["$","$L1d",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1e",null,{"children":["$","$1b",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"3.1 Fast & Slow Pointers — রিমোট DSA"}],["$","meta","1",{"name":"description","content":"রিমোট কোম্পানির ভেটিং স্ক্রিন আর live pairing-এর জন্য ৫০টা প্রবলেম — শূন্য থেকে, প্রথম দিন থেকে ঘড়ি ধরে আর ইংরেজিতে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/dsa_prep_remote_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1f","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+13:["$","$1","c",{"children":[null,["$","$L20",null,{"parallelRouterKey":"children","template":["$","$L21",null,{}]}]]}]
+16:["$","$1","c",{"children":[null,["$","$L20",null,{"parallelRouterKey":"children","template":["$","$L21",null,{}]}]]}]
+19:true
+1c:null
+10:300
+10:C
+18:0
+12:"$undefined"
+14:"$undefined"
+17:"$undefined"
+f:"$undefined"

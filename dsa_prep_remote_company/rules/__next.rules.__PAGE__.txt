@@ -1,0 +1,156 @@
+1:"$Sreact.fragment"
+2:I[82484,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js","/dsa_prep_remote_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+3:T379e,## লক্ষ্য
+
+> **৭০ দিনে ৫০টা প্রবলেম, দিনে একটা, প্রথম দিন থেকে ঘড়ি ধরে আর ইংরেজিতে — টপিক ১–৫-এর ভিত্তি, তারপর Heaps, Graph আর সহজ DP।**
+
+রিমোটে আসল পরীক্ষা অ্যালগরিদম নয়, **ঘড়ি আর ভাষা।** সাধারণত দুটো রূপে আসে:
+- **ভেটিং প্ল্যাটফর্মের স্ক্রিন** (Codility-ধাঁচের): ৬০–৯০ মিনিট, একা বসে দিতে হয়।
+- **shared editor-এ live pairing:** ইংরেজিতে বলতে বলতে কোড লিখতে হয়।
+
+তাই এই পথে প্রবলেম শেখা আর শর্ত শেখা একসাথে — প্রথম প্রবলেম থেকেই টাইমার, সাদা editor আর ইংরেজি। 🧠 (Everything is a game · Pareto)
+
+## সত্যের উৎস
+
+1. `brainstorming/ASSUMPTIONS.md`
+2. `brainstorming/` — `dsa.md` (তিন পথ · রিমোটে কী উপেক্ষা), `which-market.md` (রিমোট কোম্পানি)
+3. এই ফোল্ডার — `docs/` আর `patterns/` (ইংরেজি; `dsa_prep_global_company/patterns/`-এর অংশ)
+
+**স্বাধীন পথ।** আগে অন্য কোনো DSA সাইট শেষ করতে হয় না — এই সাইট টপিক ১–৫-এর প্রথম প্রবলেম থেকে শেখায়। প্রথম ৩০টা `dsa_prep_local_company`-এর একই ৩০টা; ওটা করা থাকলে চেনা লাগবে, কিন্তু ঘড়ি আর ভাষা তবু নতুন — বাদ দেবেন না।
+
+**কখন:** শুরুর তারিখ ⏳ আপনার উত্তর বাকি — সাইট প্রথমবার খুললে জিজ্ঞেস করবে।
+
+## কীভাবে পড়বেন
+
+- ৭০ দিন, ৫টা ব্লক। প্রতিটা দিনে কয়েকটা `- [ ]` কাজ, আর শেষে **দিন শেষে** প্রশ্ন — হ্যাঁ/না।
+- `৩০′` = মিনিট।
+- `(LC 1 · ১.৪ Hashing)` = LeetCode-এর নম্বর আর প্যাটার্ন। কাজের নিচে LeetCode আর প্যাটার্নের পাতার লিংক, আর দুই ঘরের নোট — ইংরেজিতে।
+- ব্লক ৩-এ `(LC 49)` — প্যাটার্ন লেখা **নেই**, ইচ্ছাকৃত। আগে নিজে নাম বলুন; প্যাটার্নের লিংক টিক দেওয়ার পরে দেখায়। 🧠 (Interleaving)
+- 🧠 (নাম) = কাজটা `learning_to_learn`-এর কোন নীতি থেকে; chip চাপলে এক লাইনে কেন।
+- 🔁 = এই কাজ শেষ করার দিন থেকে **১, ৩, ৭, ২১ দিন পরে** না দেখে আবার। তারিখ সাইট নিজে হিসাব করে।
+- ⚑ = মাইলফলক। নির্ধারিত দিনে না হলে শেষ না হওয়া পর্যন্ত হোমে থাকে।
+- ⏳ = আপনার উত্তর বাকি।
+
+## "আজ" মানে ক্যালেন্ডারের আজ
+
+ফাইলে শুধু দিনের নম্বর, দিন ০০১ = সোমবার ধরে লেখা। শুরুর তারিখ সাইটে একবার বসান; তারপর plan পেছায় না। বাদ পড়া দিন ফেরে না, শুধু ⚑ জমে থাকে। ঘুম কেটে পূরণ নয়। 🧠 (Sleep)
+
+---
+
+## সপ্তাহের ছন্দ
+
+সপ্তাহে ৭ ঘণ্টার হিসাবে লেখা — DSA দিনে **৩০′**, সাথে approach ইংরেজিতে বলার **১৫′**।
+
+| দিন | এই সাইটের কাজ | সময় |
+|---|---|---|
+| সোম–শুক্র | নতুন প্রবলেম ১টা · ইংরেজিতে approach | ৩০′ + ১৫′ |
+| শনি | সপ্তাহের প্রবলেম না দেখে — pattern আর এক লাইন, জোরে | ১৫′ |
+| প্রতি চতুর্থ শনি (দিন ০২৭, ০৫৫) আর শেষ শনি (দিন ০৬৯) | ⚑ স্ক্রিনের মহড়া — ২টা প্রবলেম, টানা | ৬০′ |
+| রবি | "Where I got stuck" পাশাপাশি — পরের সপ্তাহের দুর্বলতা | ১০′ |
+
+প্রতিদিনের 🔁 ঝালাই আলাদা — হোমে আসে, প্রতিটা ১৫′-এর বেশি নয়। অনেক জমলে কঠিনগুলো আগে। 🧠 (System vs goal · It pays to be not busy)
+
+---
+
+## স্ক্রিনের বসা — ৩০′
+
+যে অবস্থায় পরীক্ষা, সেই অবস্থায় অনুশীলন:
+
+1. **বসার আগে এক লাইন:** আজ কোন দুর্বলতায় কাজ — আগের রবিবারের নোট থেকে। 🧠 (Deliberate practice revisited)
+2. **Constraint আগে।** প্রবলেম পড়ার আগে `n`-এর সীমা দেখে complexity-র লক্ষ্য (নিচের টেবিল)।
+3. **টাইমার ৩০′, সাদা editor।** Copilot, AI, autocomplete বন্ধ; ফোন অন্য ঘরে। 🧠 (Have an endpoint · Deep work · Test yourself)
+4. **ইংরেজিতে জোরে ভাবুন** — কেউ না শুনলেও: *"First, a brute force would be… that's O(n²). We can do better with…"* 🧠 (Active learning · Skill stacking)
+5. **১০′ আটকালে উঠে হাঁটুন,** ফোন ছাড়া। **২০′-এ না হলে demo** খুলুন — পড়ে **বন্ধ করে** নিজে আবার লিখুন। 🧠 (Focus vs Diffuse · Efficiency trumps grit)
+6. **সমাধানের পরে এক মিনিট:** আরেকভাবে হয়? 🧠 (Einstellung)
+7. **নোট ইংরেজিতে।** "My solution" ২–৩ লাইন, "Where I got stuck" এক লাইন। বাংলায় ভাবলে ঘড়ির নিচে অনুবাদের একটা বাড়তি ধাপ তৈরি হয়। 🧠 (Feedback · Concepts vs Facts)
+8. **টিক দিন** — ঝালাই নিজে থেকে আসবে।
+
+**demo দেখে লিখেছেন? লজ্জার কিছু নেই।** কিন্তু পরের দিনের ঝালাইয়ে ফাঁকা editor-এ নিজে লিখতে হবে। দেখা ঠিক আছে; আবার না করাটা ঠিক নয়। 🧠 (Failures don't count · Active learning)
+
+## Constraint পড়া
+
+| দেখলে | ভাবুন |
+|---|---|
+| N ≤ 20 | brute force / backtracking / bitmask |
+| N ≤ 1,000 | O(n²) চলে — DP টেবিল, pair comparison |
+| N ≤ 10⁵ | O(n log n) বা O(n) — sort / heap / hashmap / prefix |
+| N ≤ 10⁶ | O(n) one-pass |
+| Sorted input | binary search / two pointers |
+| Unweighted shortest path | BFS |
+| Top K / Kth | heap |
+| Count / frequency | hashmap |
+| min/max over choices, "number of ways" | DP |
+
+## স্ক্রিনের মহড়া — মাসে একবার
+
+- দিন ০২৭, ০৫৫ আর ০৬৯ — টানা **৬০′:** ২টা প্রবলেম, প্রতিটা ২৫′, তারপর ১০′ হিসাব। মাঝে উঠবেন না।
+- যা শেষ হয়েছে তার থেকে এলোমেলো — কোনটা, আগে থেকে না দেখে; প্রবলেমের তালিকা থেকে চোখ বন্ধ করে আঙুল রাখুন।
+- শেষে হিসাব: কয়টা পুরো চলেছে, কোথায় সময় গেছে — idea, code, না বলায়। 🧠 (Feedback · Deliberate practice)
+- সঙ্গী থাকলে একটা প্রবলেম live pairing-এর মতো — সে প্রশ্ন করবে, আপনি বলতে বলতে লিখবেন। সঙ্গী ⏳। 🧠 (Community)
+
+## ঝালাই
+
+- 🔁 কাজে টিক দিলে ঐ **আসল তারিখ** থেকে ১ → ৩ → ৭ → ২১ দিন। 🧠 (Spaced repetition revisited)
+- ঝালাই মানে ফাঁকা editor-এ, **১৫′ টাইমার,** ইংরেজিতে জোরে — আগে pattern, তারপর কোড। নোট বন্ধ।
+- দুটো উত্তর: **মনে ছিল** (পরের ধাপে) বা **আটকে গেছি** (আবার ১ দিনে)। আটকে যাওয়া শাস্তি নয়, তথ্য।
+
+## প্যাটার্নের পাতা
+
+ক্লু, statement, approach — সব **ইংরেজিতে**, ইচ্ছাকৃত। প্যাটার্ন ফাইল `dsa_prep_global_company`-এর অংশ; এখানে শুধু এই পথের ২৮টা। 🧠 (Trunk based knowledge)
+
+---
+
+## `learning_to_learn` — কোনটা কোথায়
+
+| ডক | এই plan-এ যেভাবে |
+|---|---|
+| **Principle** | Pareto — ৫০টা, বাকি পরে। Learning vs Winning — প্রথম সপ্তাহে ৩০′-এ না হওয়া, সেটাই শেখা। The obstacle — ইংরেজিতে আটকানো। The dip — ব্লক ২, সপ্তাহ ৪। Compound learning, Failures don't count, It's all in the frame, Choice vs Chore — রবিবারের হিসাব। Skill stacking — DSA + ইংরেজি + লেখা। Productivity time, Self learning paradigm, What is success?, Happiness factors — ব্লক আর থামার দিনে। |
+| **Lies** | 10,000 hours rule — ৫০-এ থামা। You can avoid risk — "আরও প্রস্তুত হয়ে আবেদন" নয়। Trust this one person — একটা ভেটিং গাইড নয়। Follow your passion — ইংরেজিতে বলা ভালো লাগার অপেক্ষা নয়। |
+| **Pillars** | Everything is a game — স্ক্রিনের নিয়ম। Feynman — ইংরেজিতে ৩ লাইন। Trunk based knowledge — প্যাটার্ন। Efficiency trumps grit — টাইমার শেষে থামা। |
+| **Science** | Focus vs Diffuse, Be bored, Sleep, Feedback, Procrastination, Motivation, Long and short memory, Active learning, Goals, It pays to be not busy, Chunking, Deliberate practice, Spaced repetition, Energy saving with habits, Be adventurous, Have an endpoint, Brain training — প্রতিটা দিনের 🧠 chip-এ। |
+| **Techniques** | Interleaving — ব্লক ৩ আর মহড়া। Parkinson's law, Pomodoro, Deep work — টাইমার। Test yourself — সাদা editor। Method of loci — প্যাটার্নের ঘর। Einstellung, Chunk the subject, Create a roadmap, Deliberate practice revisited, Spaced repetition revisited, Community, Habits revisited, System vs goal, The power of senses, Pareto principle revisited, Stakes & Rewards, Concepts vs Facts, The first 20 hours — দিনের কাজে। |
+
+---
+
+## যা উপেক্ষা করবেন
+
+- **বাংলা ক্লু** — এখানে বাড়তি অনুবাদ।
+- **ঘড়ি ছাড়া অনুশীলন** — এখানে ঘড়িই পরীক্ষা।
+- **টুলের আরাম** — demo, notes, AI খোলা রেখে বসা।
+- **গভীরতা** — DP-র বাকি ৮টা, Graph-এর বাকি ৬টা, Backtracking, Trie/Design। ওগুলো গ্লোবালের।
+- **🔥 Must-do ট্যাগ** — এই সাইটে দেখায় না।
+
+## যা করবেন না
+
+- **এক জায়গায় গভীরে, বাকিগুলো ফাঁকা নয়।** স্ক্রিন দশ জায়গা থেকে সহজ প্রশ্ন করে।
+- **৫০টার পরে নতুন নয়।** 🧠 (10,000 hours rule)
+- **DSA শেষের অপেক্ষায় রিমোট আবেদন আটকে রাখা নয়।**
+- **এই সাইটে নতুন ফিচার নয়।**
+
+## দিন ৭০-এর পরে
+
+- সোম–শুক্রের DSA সময় = এই সাইটের আজকের ঝালাই, ১৫′ টাইমারে।
+- মাসে একটা শনিবার স্ক্রিনের মহড়া চলতে থাকবে — ভেটিং বা interview-এর তারিখ না আসা পর্যন্ত।
+- গ্লোবালের পথ (`dsa_prep_global_company`) আলাদা, স্বাধীন — সেটাও শূন্য থেকে শুরু হয়; এই ৫০টা ওর প্রথম ৫০টা।7:X
+c:X
+c:C
+0:{"buildId":"UyMS9L2FLHpjmQcyt4p2a","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — রিমোট কোম্পানির DSA"}],["$","p",null,{"className":"t-body measure text-sm","children":"৭০ দিন · ৫০টা প্রবলেম · শূন্য থেকে · ঘড়ি ধরে, ইংরেজিতে"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L2",null,{"className":"measure","children":"$3"}]}]],["$L4"],"$L5"]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":"$L8","isPartial":"$@9","staleTime":"$7","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$7","varyParams":"$c"}],"isUpgradeableISRFallback":false,"a":"$@d","rootVaryParams":null,"needsRuntimeRequest":"$@e"}
+f:I[97367,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js"],"OutletBoundary"]
+10:"$Sreact.suspense"
+12:I[97367,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js"],"ViewportBoundary"]
+13:I[97367,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js"],"MetadataBoundary"]
+14:I[27201,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js"],"IconMark"]
+15:I[39756,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js"],"default"]
+16:I[37457,["/dsa_prep_remote_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_remote_company/_next/static/chunks/3gl56s8gebrbe.js"],"default"]
+4:["$","script","script-0",{"src":"/dsa_prep_remote_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+5:["$","$Lf",null,{"children":["$","$10",null,{"name":"Next.MetadataOutlet","children":"$@11"}]}]
+8:["$","$1","h",{"children":[null,["$","$L12",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$10",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"নিয়ম — রিমোট DSA"}],["$","meta","1",{"name":"description","content":"রিমোট কোম্পানির ভেটিং স্ক্রিন আর live pairing-এর জন্য ৫০টা প্রবলেম — শূন্য থেকে, প্রথম দিন থেকে ঘড়ি ধরে আর ইংরেজিতে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/dsa_prep_remote_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L14","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+a:["$","$1","c",{"children":[null,["$","$L15",null,{"parallelRouterKey":"children","template":["$","$L16",null,{}]}]]}]
+e:true
+11:null
+7:300
+7:C
+d:0
+9:"$undefined"
+b:"$undefined"
+6:"$undefined"
