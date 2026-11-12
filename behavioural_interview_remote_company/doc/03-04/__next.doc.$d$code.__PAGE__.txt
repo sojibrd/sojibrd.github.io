@@ -1,0 +1,126 @@
+1:"$Sreact.fragment"
+2:I[22016,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js","/behavioural_interview_remote_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js","/behavioural_interview_remote_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T2b24,## সংজ্ঞা
+
+**ঝালাই** মানে আগে তৈরি করা story আবার বলা — **ব্যবধান রেখে, নোট না দেখে, একটা নির্দিষ্ট দুর্বলতা ধরে।**
+
+তিনটে শর্তই অপরিহার্য, আর তিনটেই আলাদা কাজ করে:
+
+- **ব্যবধান** — ভুলে যাওয়ার ঠিক আগমুহূর্তে ফিরে এলে স্মৃতি সবচেয়ে বেশি শক্ত হয়। ব্যবধান বাড়তে থাকে: **১ → ৩ → ৭ → ২১ দিন।**
+- **নোট না দেখে** — দেখে বললে ওটা পড়া, ঝালাই নয়। মনে করার চেষ্টাটাই আসল কাজ।
+- **নির্দিষ্ট দুর্বলতা** — লক্ষ্যহীন পুনরাবৃত্তি শুধু সময় খরচ। প্রতিবার আগে ঠিক করুন **আজ কোনটা নিয়ে কাজ করব**।
+
+আর একটা **সাপ্তাহিক সিস্টেম** — কারণ লক্ষ্য বলে কোথায় যেতে চান, সিস্টেম বলে এই সপ্তাহে কী করবেন। ইন্টারভিউর তারিখ ঠিক হওয়ার পর প্রস্তুতি শুরু করলে ঝালাইয়ের জন্য সময়ই থাকে না।
+
+## কেন এটা কঠিন
+
+**Story তৈরি হয়ে গেলে মনে হয় কাজ শেষ।** কার্ড ভরা, গল্প গোছানো — তাই পরের দিন আর ছোঁয়া হয় না। কিন্তু আপনি ইন্টারভিউ দেবেন হয়তো ছয় সপ্তাহ পরে, আর ততদিনে গোছানো গল্পের বেশিরভাগটাই ঝাপসা। **তৈরি করা আর মনে রাখা দুটো আলাদা কাজ।**
+
+**পুনরাবৃত্তি উন্নতির ছদ্মবেশ ধরে।** একই গল্প দশবার একইভাবে বললে সেটা সাবলীল হয়, কিন্তু ভালো হয় না — কারণ যে ত্রুটিটা ছিল, সেটাও দশবার অনুশীলন হলো। উন্নতির জন্য প্রতিবার একটা নির্দিষ্ট জিনিস বদলানোর চেষ্টা থাকতে হয়।
+
+**সব প্রস্তুতি শেষ সপ্তাহে জমে।** তারিখ ঠিক হওয়ার পর হঠাৎ তিন দিনে সব করার চেষ্টা — আর ওই তিন দিনে যা হয় সেটা মুখস্থ, শেখা নয়। ব্যবধানের পুরো সুবিধাটাই তখন হাতছাড়া।
+
+**খাতা রাখা বিরক্তিকর।** কোন গল্প কবে ঝালাই করেছেন মনে থাকে না, ফলে যেগুলো সহজ সেগুলোই বারবার হয় আর কঠিনগুলো বাদ পড়তে থাকে। অথচ কঠিনগুলোরই ঝালাই সবচেয়ে বেশি দরকার।
+
+## কীভাবে কাজ করে
+
+### ব্যবধানের ছক
+
+একটা story প্রথমবার ভালোভাবে বলার দিন থেকে গোনা:
+
+| ঝালাই | কবে | কী করবেন |
+|---|---|---|
+| ১ম | পরদিন | নোট ছাড়া পুরো গল্প, রেকর্ড |
+| ২য় | ৩ দিন পর | একটা দুর্বলতা ধরে, রেকর্ড |
+| ৩য় | ৭ দিন পর | + তিনটে follow-up |
+| ৪র্থ | ২১ দিন পর | ঠান্ডা শুরু, তিন দৈর্ঘ্যের একটা |
+
+২১ দিনের ধাপ পার হলে story-টা সূচি থেকে সরান — ওটা এখন স্থির। **আটকে গেলে ধাপ আবার ১ দিনে ফিরে আসে।** এটা শাস্তি নয়; আটকে যাওয়া মানে ওটা এখনো বসেনি।
+
+### খাতা — এক লাইনে
+
+একটা ফাইলে টেবিল রাখুন, নিজের ব্যক্তিগত জায়গায়:
+
+```
+| story | শেষ ঝালাই | পরের ঝালাই | ধাপ | আজকের লক্ষ্য | ফল |
+|---|---|---|---|---|---|
+| Release আটকানো | ২০২৬-০৯-১২ | ২০২৬-০৯-১৫ | ৩ দিন | Situation ছোট করা | ৪০s → ২২s |
+```
+
+শেষ দুটো কলামই এই খাতাটাকে কাজের করে তোলে। ওগুলো ছাড়া এটা শুধু হাজিরা খাতা।
+
+### আজকের লক্ষ্য কীভাবে বাছবেন
+
+প্রতিবার ঝালাইয়ের **আগে** একটা দুর্বলতা বাছুন — কার্ডের "যেখানে আটকাই" ঘর থেকে, বা `03-common-failures.md`-এর টেবিল থেকে। একটাই, একাধিক নয়।
+
+| লক্ষ্যের নমুনা | কীভাবে মাপবেন |
+|---|---|
+| Situation ছোট করা | সেকেন্ড গুনুন |
+| "আমরা" কমানো | গুনে ফেলুন |
+| Action-এ বিকল্প যোগ | আছে কি নেই |
+| শেষটা পরিষ্কার করা | শেষ বাক্যটা শুনুন |
+| Follow-up-এ না আটকানো | তিনটের কটায় থেমেছেন |
+
+ঝালাই শেষে খাতায় ফলটা লিখুন — "৪০s → ২২s"। উন্নতি মাপা না গেলে পরের বার একই ভুলটাই আবার হবে।
+
+### সাপ্তাহিক সিস্টেম
+
+তারিখ জানা থাক বা না থাক, সপ্তাহে **দুটো বসা** — প্রতিটা ৩০–৪৫ মিনিট। সংকেতটা আগে ঠিক করুন ("অফিসের পর, ল্যাপটপ খোলার সাথে সাথে"), ইচ্ছাশক্তির উপর ছাড়বেন না।
+
+| বসা | কাজ |
+|---|---|
+| **বসা ১** (৩০ মি) | আজ যেসব story-র তারিখ এসেছে — ঝালাই, রেকর্ড, খাতা হালনাগাদ |
+| **বসা ২** (৪৫ মি) | নতুন story তৈরি বা দুর্বল ম্যাপ-কলাম ভরা, তারপর একটা drill (`04-question-bank/04-how-to-drill.md`) |
+
+তারিখ ঠিক হয়ে গেলে ঘনত্ব বাড়ান, কিন্তু **ব্যবধানের ছক ভাঙবেন না** — শেষ তিন দিনে সব একসাথে করলে ওটা মুখস্থ হবে, আর মুখস্থ উত্তর follow-up-এ ভেঙে পড়ে। শেষ দুই দিনে নতুন story তৈরি করবেন না; যা আছে তার ঝালাই করুন।
+
+### একটা বসায় কতটা
+
+দুটোর বেশি story নয়। তিনটে করতে গেলে তাড়াহুড়ো হয়, আর তাড়াহুড়োর ঝালাই ঝালাই নয়। বরং কম story, বেশি মনোযোগ।
+
+## অনুশীলন
+
+- খাতার টেবিলটা বানান, আপনার সব তৈরি story বসান, প্রতিটার পরের ঝালাইয়ের তারিখ লিখুন।
+- আজকের তারিখ যেগুলোর এসেছে, সেগুলোর একটা নিন — **আগে আজকের লক্ষ্য লিখুন**, তারপর নোট ছাড়া বলুন ও রেকর্ড করুন।
+- রেকর্ডিং শুনে শুধু ওই লক্ষ্যটা মাপুন, আর খাতায় ফলটা লিখুন (আগে → পরে)।
+- পরের ঝালাইয়ের তারিখ ছকের পরের ধাপে সরান। আটকে গিয়ে থাকলে ১ দিনে ফেরত আনুন — সৎভাবে।
+- ক্যালেন্ডারে সপ্তাহের দুটো বসা বসিয়ে দিন, সংকেতসহ। "সময় পেলে করব" রাখবেন না।
+- সপ্তাহ শেষে খাতাটা দেখুন — কোন story-টা সবচেয়ে কমবার ঝালাই হয়েছে? পরের সপ্তাহে ওটা দিয়ে শুরু করুন।
+
+## মূল নিয়ম
+
+- ব্যবধান বাড়িয়ে ঝালাই করুন: ১ → ৩ → ৭ → ২১ দিন।
+- নোট দেখে বলা ঝালাই নয়। মনে করার চেষ্টাটাই কাজ করে।
+- প্রতিবার **একটা** দুর্বলতা ঠিক করুন, বলার আগে। লক্ষ্যহীন পুনরাবৃত্তি সময় নষ্ট।
+- ফলটা খাতায় লিখুন, সংখ্যায়। না মাপলে উন্নতি হয় না।
+- আটকে গেলে ধাপ ১ দিনে ফেরান। এটা শাস্তি নয়, তথ্য।
+- সপ্তাহে দুটো বসা, সংকেত ঠিক করে। ইচ্ছাশক্তির উপর ছাড়বেন না।
+- এক বসায় দুটোর বেশি story নয়।
+- শেষ তিন দিনে নতুন কিছু তৈরি করবেন না — শুধু ঝালাই।
+- ২১ দিন পার হলে সূচি থেকে সরান। ওটা এখন স্থির।9:X
+e:X
+e:C
+0:{"buildId":"aQifbzyxcymAU-Lsuyxj1","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"৩. ডেলিভারি"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০৩.০৪"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"ঝালাইয়ের সূচি — ১/৩/৭/২১ দিন"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","div",null,{"className":"surface-well t-caption p-4 text-center","children":"এই পথের কোনো দিনে এই ডক নেই — জেনেশুনে বাদ, দরকার হলে পরে। 🧠 Pareto principle"}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"ViewportBoundary"]
+17:I[97367,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"MetadataBoundary"]
+18:I[27201,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"IconMark"]
+19:I[39756,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"default"]
+1a:I[37457,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/03-03/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০৩.০৩ যে ভুলগুলোয় ক্যান্ডিডেট বাদ পড়ে"}]]}],["$","$L2",null,{"href":"/doc/03-05/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০৩.০৫ জোরে বলুন, রেকর্ড করুন, ছাঁটুন"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/behavioural_interview_remote_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০৩.০৪ · ঝালাইয়ের সূচি — ১/৩/৭/২১ দিন — রিমোট behavioural"}],["$","meta","1",{"name":"description","content":"বাংলাদেশে বসে বিদেশি রিমোট কোম্পানির behavioural প্রশ্নের জন্য — ছয়টা STAR story ইংরেজিতে, একটা লিখে বোঝানো নিয়ে, ১৮০ দিনের plan-এর story-র ঘরে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/behavioural_interview_remote_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

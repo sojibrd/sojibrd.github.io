@@ -1,0 +1,103 @@
+1:"$Sreact.fragment"
+2:I[22016,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js","/behavioural_interview_remote_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js","/behavioural_interview_remote_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T2b1c,## সংজ্ঞা
+
+এই অধ্যায়ে সেই ভুলগুলোর তালিকা যেগুলো **প্রস্তুতি থাকা সত্ত্বেও** ঘটে — এবং যেগুলোর প্রতিটি নিজে থেকে ধরা কঠিন, কারণ ভুলটা ঘটার সময় আপনার কাছে সেটা ভুল মনে হয় না।
+
+ভুলগুলোকে দুই ভাগে ভাগ করা যায়:
+
+- **যা আপনি বলেন** — বিষয়বস্তুর ভুল। সাধারণত সংশোধন করা সহজ।
+- **যেভাবে আপনি বলেন** — সুর, দৈর্ঘ্য, ভঙ্গির ভুল। এগুলো নিজের কানে ধরা পড়ে না, রেকর্ডিং লাগে।
+
+তালিকাটা মুখস্থ করার জিনিস নয়। এটা **রেকর্ডিং শোনার সময়ের চেকলিস্ট** — একবারে একটা ধরে খুঁজুন।
+
+## কেন এটা কঠিন
+
+**প্রতিটা ভুলের পেছনে একটা যুক্তিসঙ্গত কারণ আছে।** প্রেক্ষাপট বেশি বলা হয় কারণ আপনি চান শ্রোতা বুঝুক। "আমরা" বলা হয় কারণ কৃতিত্ব একা নেওয়া অভদ্র মনে হয়। অন্য পক্ষের দোষ বলা হয় কারণ ওটাই আপনার মনে গাঁথা সত্যি। **ভুলগুলো অসততা নয়, ভালো অভ্যাসের ভুল প্রয়োগ** — আর সেজন্যই এগুলো এত টেকসই।
+
+**প্রত্যাখ্যানের কারণ কেউ বলে না।** "আমরা অন্য প্রার্থী বেছেছি" — এর ভেতরে কোন ভুলটা কাজ করেছিল, সেটা জানার উপায় নেই। তাই একই ভুল বছরের পর বছর চলতে পারে, প্রতিবার নতুন ব্যাখ্যা দিয়ে ঢাকা পড়ে ("ওদের বাজেট ছিল না", "টাইমিং ভালো ছিল না")।
+
+## কীভাবে কাজ করে
+
+### যা বলেন — বিষয়বস্তুর ভুল
+
+| ভুল | কেন ক্ষতিকর | সংশোধন |
+|---|---|---|
+| **ভূমিকা অস্পষ্ট** ("আমরা…") | আপনার অবদান বোঝা যায় না | নিজের কাজে "আমি", টিমের কাজে "আমরা" |
+| **অন্য পক্ষের নিন্দা** | আপনার সম্পর্কেই উল্টো signal | তার যুক্তি সৎভাবে বলুন |
+| **সিদ্ধান্ত নেই, শুধু ধাপ** | মাপার কিছু থাকে না | বিকল্প + বাছাইয়ের ভিত্তি যোগ করুন |
+| **ফল নেই** | প্রচেষ্টা প্রভাব নয় | সংখ্যা, দিক বা বাইরের সাক্ষ্য |
+| **আন্দাজে সংখ্যা** | follow-up-এ ফাটে | ব্যাখ্যা করতে না পারলে বলবেন না |
+| **ছদ্ম-দুর্বলতা** | সবাই চেনে | পরিণতি ছিল এমন ভুল বাছুন |
+| **প্রতিটা প্রশ্নে একই story** | ভাণ্ডার ফুরিয়েছে মনে হয় | ম্যাপ ধরে বাছুন |
+| **প্রশ্নের উত্তর নয়** | signal মেলে না | প্রশ্নের ক্রিয়াপদ ধরুন |
+
+### যেভাবে বলেন — উপস্থাপনার ভুল
+
+| ভুল | কেন ক্ষতিকর | সংশোধন |
+|---|---|---|
+| **উত্তর ৪ মিনিট+** | বাকি signal-এর ঘর খালি থাকে | ২ মিনিট, তারপর থামুন |
+| **Situation-এ অর্ধেক সময়** | Action-এ পৌঁছানোর আগে মনোযোগ শেষ | তিন বাক্য |
+| **মুখস্থ শোনানো** | বিশ্বাসযোগ্যতা পড়ে | ল্যান্ডমার্ক, স্ক্রিপ্ট নয় |
+| **শেষ না করে ঝুলিয়ে দেওয়া** | নোটে লেখার মতো কিছু থাকে না | ফল বা শিক্ষা দিয়ে শেষ |
+| **নীরবতা ভরাট করা** | শক্ত অংশ দুর্বল হয়ে যায় | থামুন, চুপ থাকুন |
+| **রক্ষণাত্মক সুর** | নিজেই একটা signal | "হ্যাঁ, ওটাও বিকল্প ছিল" |
+| **অতিরিক্ত অনুশোচনা** | চাপে ভেঙে পড়ার ইঙ্গিত | শান্ত postmortem-এর সুর |
+| **হালকা রসিকতায় ঢাকা** | দায় এড়ানো মনে হয় | সরাসরি বলুন |
+
+### তিনটে ভুল যেগুলো একাই রাউন্ড শেষ করে দিতে পারে
+
+**১. আগের কোম্পানি বা সহকর্মীদের নিয়ে তিক্ততা।** এক-দুটো বাক্যই যথেষ্ট। ইন্টারভিউয়ার স্বাভাবিকভাবেই ভাবেন — এই লোক পরে আমাদের নিয়েও এভাবে বলবে। অসন্তোষ থাকলে সেটা ঘটনার বিবরণে থাকুক, বিশেষণে নয়।
+
+**২. কোনো দায় না নেওয়া।** পুরো কথোপকথনে যদি একবারও "আমার ভুল ছিল" জাতীয় কিছু না আসে, তাহলে failure-এর ঘরটা "না" হয়ে যায় — যতই বাকি উত্তর ভালো হোক।
+
+**৩. প্রশ্নের উত্তর না দেওয়া।** আপনি যেটা বলতে চান সেটা বললেন, যেটা জিজ্ঞেস করা হলো সেটা নয়। ভালো প্রস্তুতির একটা পার্শ্বপ্রতিক্রিয়া এটা — তৈরি story-টা বলার তাড়া। প্রশ্ন শুনে এক সেকেন্ড থেমে **ক্রিয়াপদটা** ধরুন, তারপর বাছুন।
+
+### কীভাবে নিজের ভুলটা খুঁজবেন
+
+একবারে একটা ধরে রেকর্ডিং শুনুন — উপরের কোনো একটা সারি বেছে নিয়ে। সব একসাথে খুঁজলে কিছুই পাওয়া যায় না। যে ভুলটা তিনটে ভিন্ন story-তে ফিরে আসে, সেটাই আপনার **নিজস্ব** ভুল; বাকিগুলো ওই একটা গল্পের সমস্যা।
+
+## অনুশীলন
+
+- উপরের দুটো টেবিল থেকে **তিনটে** ভুল বাছুন যেগুলো আপনার হওয়ার সম্ভাবনা সবচেয়ে বেশি। শুধু ওই তিনটে ধরে একটা রেকর্ডিং শুনুন।
+- তিনটে আলাদা story-র রেকর্ডিং শুনে খুঁজুন কোন ভুলটা তিনবারই ফিরে এসেছে। ওটাই আপনার প্রধান লক্ষ্য।
+- আগের কোম্পানি নিয়ে আপনার গল্পগুলোয় বিশেষণ খুঁজুন ("অগোছালো", "বিষাক্ত", "অদক্ষ")। প্রতিটা বিশেষণ কেটে তার জায়গায় একটা ঘটনা বসান।
+- আপনার সব উত্তর মিলিয়ে দেখুন — কোথাও কি নিজের ভুল স্বীকার করা আছে? না থাকলে একটা failure-এর গল্প তৈরি করুন।
+- কাউকে দিয়ে একটা প্রশ্ন করান, আর উত্তর দেওয়ার আগে **জোরে বলুন** প্রশ্নটার ক্রিয়াপদ কী আর কোন signal মাপা হচ্ছে। তারপর উত্তর দিন।
+- একটা রেকর্ডিংয়ে শুধু নীরবতা খুঁজুন — উত্তর শেষ হওয়ার পর আপনি কতবার আবার কথা শুরু করেছেন, গুনুন।
+
+## মূল নিয়ম
+
+- ভুলগুলো একবারে একটা ধরে খুঁজুন। সব একসাথে খুঁজলে কিছুই পাওয়া যায় না।
+- যে ভুল তিনটে গল্পে ফেরে, সেটাই আপনার ভুল — বাকিগুলো গল্পের সমস্যা।
+- আগের কোম্পানি বা সহকর্মী নিয়ে বিশেষণ ব্যবহার করবেন না। ঘটনা বলুন।
+- পুরো কথোপকথনে অন্তত একবার নিজের ভুল স্বীকার করা থাকুক।
+- যেটা জিজ্ঞেস করা হয়েছে সেটার উত্তর দিন — যেটা আপনি বলতে চান সেটা নয়।
+- দীর্ঘ উত্তর মানে অন্য signal-এর ঘর খালি থাকা। খালি ঘর "না"।
+- ভুলগুলো অসততা নয়, ভালো অভ্যাসের ভুল প্রয়োগ — তাই নিজে থেকে সারে না, খুঁজে বের করতে হয়।9:X
+e:X
+e:C
+0:{"buildId":"aQifbzyxcymAU-Lsuyxj1","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"৩. ডেলিভারি"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০৩.০৩"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"যে ভুলগুলোয় ক্যান্ডিডেট বাদ পড়ে"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","div",null,{"className":"surface-well t-caption p-4 text-center","children":"এই পথের কোনো দিনে এই ডক নেই — জেনেশুনে বাদ, দরকার হলে পরে। 🧠 Pareto principle"}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"ViewportBoundary"]
+17:I[97367,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"MetadataBoundary"]
+18:I[27201,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"IconMark"]
+19:I[39756,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"default"]
+1a:I[37457,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/03-02/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০৩.০২ Follow-up প্রশ্ন সামলানো"}]]}],["$","$L2",null,{"href":"/doc/03-04/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০৩.০৪ ঝালাইয়ের সূচি — ১/৩/৭/২১ দিন"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/behavioural_interview_remote_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০৩.০৩ · যে ভুলগুলোয় ক্যান্ডিডেট বাদ পড়ে — রিমোট behavioural"}],["$","meta","1",{"name":"description","content":"বাংলাদেশে বসে বিদেশি রিমোট কোম্পানির behavioural প্রশ্নের জন্য — ছয়টা STAR story ইংরেজিতে, একটা লিখে বোঝানো নিয়ে, ১৮০ দিনের plan-এর story-র ঘরে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/behavioural_interview_remote_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

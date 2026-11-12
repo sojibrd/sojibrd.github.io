@@ -1,0 +1,120 @@
+1:"$Sreact.fragment"
+2:I[22016,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js","/behavioural_interview_remote_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js","/behavioural_interview_remote_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T2f7a,## সংজ্ঞা
+
+রাউন্ডের শেষে প্রায় সবসময় আসে — *"Do you have any questions for me?"* — আর এটা ভদ্রতার আনুষ্ঠানিকতা নয়। **এটাও মূল্যায়নের অংশ**, দুই দিক থেকেই:
+
+- **আপনাকে মাপা হচ্ছে** — আপনি কী নিয়ে ভাবেন, কতটা প্রস্তুত হয়ে এসেছেন, কাজের কোন দিকটা আপনার কাছে গুরুত্বপূর্ণ।
+- **আপনি মাপছেন** — জায়গাটা আসলে কেমন। এই অংশটা বেশিরভাগ ক্যান্ডিডেট নষ্ট করেন, কারণ তাঁরা ভুলে যান যে সিদ্ধান্তটা দুই পক্ষের।
+
+ভালো প্রশ্নের একটাই চিহ্ন: **উত্তরটা আপনার সিদ্ধান্ত বদলাতে পারে।** যে প্রশ্নের উত্তর যা-ই হোক আপনি একই সিদ্ধান্ত নেবেন, সেটা প্রশ্ন নয়, ভদ্রতা।
+
+## কেন এটা কঠিন
+
+**"কোনো প্রশ্ন নেই" সবচেয়ে খারাপ উত্তর।** এটা পড়া হয় আগ্রহের অভাব হিসেবে — বা আরও খারাপ, যে আপনি কাজটা নিয়ে আদৌ ভাবেননি। ক্লান্ত থাকলেও অন্তত দুটো প্রশ্ন হাতে রাখতে হয়।
+
+**গুগল করলেই পাওয়া যায় এমন প্রশ্ন উল্টো ক্ষতি করে।** "আপনারা কী প্রযুক্তি ব্যবহার করেন?" — এটা তাঁদের চাকরির বিজ্ঞাপনেই লেখা আছে। প্রশ্নটা বলে দেয় আপনি প্রস্তুতি নেননি।
+
+**সাজানো চালাক প্রশ্ন ধরা পড়ে।** ইন্টারনেটের "দশটা চমৎকার প্রশ্ন" তালিকা থেকে তোলা প্রশ্ন শুনলেই বোঝা যায়, কারণ সেটা আলোচনার সাথে জোড়া লাগে না। সবচেয়ে ভালো প্রশ্ন প্রায়ই **ওই রাউন্ডেই উঠে আসা কিছু থেকে** তৈরি হয়।
+
+**সময়ের হিসাব ভুল হয়।** শেষে থাকে ৫ মিনিট, আর সেখানে সাতটা প্রশ্ন করলে জেরা মনে হয়। দুটো-তিনটে ভালো প্রশ্ন যথেষ্ট।
+
+## কীভাবে কাজ করে
+
+### কাকে কী জিজ্ঞেস করবেন
+
+| কে | যা তিনি ভালো জানেন | যা জিজ্ঞেস করবেন না |
+|---|---|---|
+| **হায়ারিং ম্যানেজার** | টিমের অগ্রাধিকার, সাফল্যের মাপ, সমস্যা | HR নীতি, ছুটির হিসাব |
+| **ভবিষ্যৎ সহকর্মী** | দৈনন্দিন বাস্তবতা, প্রক্রিয়া, সংস্কৃতি | বেতন, পদোন্নতির নীতি |
+| **স্কিপ-লেভেল / ডিরেক্টর** | দিক, বিনিয়োগ, সংগঠনের ভবিষ্যৎ | কোড রিভিউ কীভাবে হয় |
+| **HR / রিক্রুটার** | প্রক্রিয়া, সময়সীমা, প্যাকেজ | কারিগরি বিস্তারিত |
+
+**একই প্রশ্ন একাধিক জনকে করা বৈধ, আর কখনো কখনো কাজেরও** — উত্তরগুলোর পার্থক্য নিজেই তথ্য। তিনজন যদি "সবচেয়ে বড় চ্যালেঞ্জ কী" প্রশ্নের তিন রকম উত্তর দেন, সেটা বলে দেয় টিমে দিক নিয়ে ঐকমত্য কতটা।
+
+### যেগুলো সত্যিকারের তথ্য দেয়
+
+**কাজের বাস্তবতা নিয়ে:**
+- "এই পদে প্রথম ছয় মাসে কী হলে আপনি বলবেন নিয়োগটা সফল হয়েছে?"
+- "গত ছয় মাসে টিমের সবচেয়ে কঠিন সিদ্ধান্তটা কী ছিল?"
+- "এখন টিমের সবচেয়ে বড় বাধা কোনটা?"
+
+**কাজ কীভাবে হয়:**
+- "একটা পরিবর্তন কোড থেকে ব্যবহারকারী পর্যন্ত পৌঁছাতে সাধারণত কত সময় লাগে?"
+- "অগ্রাধিকার কে ঠিক করে, আর মাঝপথে বদলালে কী হয়?"
+- "শেষ কবে কোনো incident হয়েছিল, আর তারপর কী বদলেছিল?"
+
+**মানুষ ও বৃদ্ধি নিয়ে:**
+- "এই টিমে সাম্প্রতিক সময়ে কেউ প্রমোশন পেয়েছেন? কীসের ভিত্তিতে?"
+- "গত বছরে টিম ছেড়ে কেউ গেছেন? সাধারণত কী কারণে যান?"
+- "আপনি নিজে এখানে কতদিন, আর কী আপনাকে ধরে রেখেছে?"
+
+শেষ প্রশ্নটা প্রায় সবসময় ভালো কাজ করে — মানুষ নিজের অভিজ্ঞতা নিয়ে সৎ উত্তর দেন, আর সেই উত্তরের **সুর** তথ্যের চেয়ে বেশি বলে।
+
+### যেগুলো এড়াবেন
+
+- বিজ্ঞাপনে বা ওয়েবসাইটে লেখা আছে এমন কিছু।
+- প্রথম রাউন্ডে বেতন, ছুটি বা রিমোট নীতি — এগুলো রিক্রুটারের সাথে, পরে।
+- "আমার দুর্বলতা কী মনে হলো?" — অস্বস্তিকর, আর সৎ উত্তর পাওয়ার সম্ভাবনা কম।
+- এত সুনির্দিষ্ট প্রশ্ন যে উত্তর দেওয়া যায় না (ভেতরের সংখ্যা, গোপন পরিকল্পনা)।
+- এমন প্রশ্ন যার উত্তর আপনি আগেই জানেন — ওটা পরীক্ষা নেওয়ার মতো শোনায়।
+
+### উত্তরগুলো কীভাবে পড়বেন
+
+প্রশ্নের চেয়ে **উত্তরের চেহারা** বেশি বলে:
+
+- **নির্দিষ্ট উদাহরণ আসছে?** না এলে হয় তাঁরা ভাবেননি, নয় বলতে চাইছেন না।
+- **সমস্যার কথা স্বীকার করছেন?** যে টিমে কোনো সমস্যা নেই বলা হয়, সেখানে সমস্যা আছে কিন্তু আলোচনা হয় না।
+- **কে ছেড়ে গেছে প্রশ্নে অস্বস্তি?** অস্বস্তিটাই উত্তর।
+- **সাফল্যের সংজ্ঞা কি মাপযোগ্য?** "ভালো কাজ করলেই হবে" শুনলে প্রমোশনের পথ অস্পষ্ট।
+
+### রাউন্ড থেকে প্রশ্ন তৈরি করা
+
+সবচেয়ে ভালো প্রশ্নগুলো তালিকা থেকে আসে না — আলোচনা থেকে আসে। কেউ যদি বলেন "আমরা এখন দ্রুত বাড়ছি", তখন স্বাভাবিক প্রশ্ন: "বাড়ার সাথে সাথে কোন প্রক্রিয়াটা সবচেয়ে আগে ভেঙেছে?" এই প্রশ্ন সাজানো হতে পারে না, তাই এটা সবচেয়ে বেশি ওজন বহন করে।
+
+তাই রাউন্ড চলাকালে **দুটো জিনিস টুকে রাখুন** যেগুলো নিয়ে পরে জিজ্ঞেস করবেন।
+
+## অনুশীলন
+
+- আপনার নিজের তিনটে প্রশ্ন লিখুন, আর প্রতিটার পাশে লিখুন **উত্তরটা কী হলে আপনি পদটা নেবেন না**। যেটার উত্তরে কিছু বদলায় না, সেটা কেটে দিন।
+- চার ধরনের ইন্টারভিউয়ারের (ম্যানেজার, সহকর্মী, স্কিপ, HR) জন্য আলাদা করে দুটো করে প্রশ্ন বাছুন।
+- আপনার প্রশ্নগুলো জোরে বলুন ও রেকর্ড করুন — পড়ে শোনাচ্ছে, নাকি স্বাভাবিক কথা মনে হচ্ছে?
+- শেষ যে ইন্টারভিউ দিয়েছেন (বা যেকোনো আলোচনা) মনে করে একটা প্রশ্ন তৈরি করুন **সেখানে বলা কোনো কথা থেকে**। এটাই সবচেয়ে কঠিন অনুশীলন, আর সবচেয়ে কাজের।
+- "আপনি নিজে এখানে কতদিন, আর কী আপনাকে ধরে রেখেছে?" — এই প্রশ্নটা কাউকে করে দেখুন, আর উত্তরের সুরটা লক্ষ করুন।
+
+## মূল নিয়ম
+
+- "কোনো প্রশ্ন নেই" বলবেন না। অন্তত দুটো সবসময় হাতে থাকুক।
+- ভালো প্রশ্নের চিহ্ন — উত্তরটা আপনার সিদ্ধান্ত বদলাতে পারে।
+- যে উত্তর গুগলে পাওয়া যায়, সেটা জিজ্ঞেস করবেন না।
+- কাকে জিজ্ঞেস করছেন সেটা মাথায় রাখুন — ভুল লোককে ভুল প্রশ্ন সময় নষ্ট।
+- রাউন্ডে বলা কথা থেকে অন্তত একটা প্রশ্ন তৈরি করুন। ওটাই সবচেয়ে ওজনদার।
+- দুটো-তিনটে যথেষ্ট। সাতটা প্রশ্ন জেরা মনে হয়।
+- উত্তরে নির্দিষ্ট উদাহরণ না এলে সেটাই তথ্য।
+- বেতন ও নীতি রিক্রুটারের সাথে, প্রথম রাউন্ডে নয়।9:X
+e:X
+e:C
+0:{"buildId":"aQifbzyxcymAU-Lsuyxj1","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"৪. প্রশ্ন ব্যাংক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০৪.০২"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"আপনি যে প্রশ্নগুলো করবেন"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","061-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/061/","className":"chip chip--accent self-start","children":["দিন ","০৬১"," · ","আপনার প্রশ্ন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"interviewer-কে আপনি যা জিজ্ঞেস করবেন — ৫টা প্রশ্ন ইংরেজিতে, রিমোট টিমের জন্য: async কীভাবে চলে, কোন সময়ে meeting, প্রথম তিন মাসে কী আশা, code review কীভাবে, দূর থেকে onboarding; ডক মিলিয়ে (ডক ০৪.০২)"}]]}]]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"ViewportBoundary"]
+17:I[97367,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"MetadataBoundary"]
+18:I[27201,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"IconMark"]
+19:I[39756,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"default"]
+1a:I[37457,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/04-01/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০৪.০১ ঘন-ঘন আসা প্রশ্ন"}]]}],["$","$L2",null,{"href":"/doc/04-03/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০৪.০৩ কোম্পানিভেদে ভিন্নতা"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/behavioural_interview_remote_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০৪.০২ · আপনি যে প্রশ্নগুলো করবেন — রিমোট behavioural"}],["$","meta","1",{"name":"description","content":"বাংলাদেশে বসে বিদেশি রিমোট কোম্পানির behavioural প্রশ্নের জন্য — ছয়টা STAR story ইংরেজিতে, একটা লিখে বোঝানো নিয়ে, ১৮০ দিনের plan-এর story-র ঘরে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/behavioural_interview_remote_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

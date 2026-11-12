@@ -1,0 +1,103 @@
+1:"$Sreact.fragment"
+2:I[22016,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js","/behavioural_interview_remote_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js","/behavioural_interview_remote_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T25d4,## সংজ্ঞা
+
+**Drill** হলো প্রশ্ন ব্যাংক ব্যবহারের সঠিক পদ্ধতি — **এলোমেলো প্রশ্ন, নোট বন্ধ, জোরে উত্তর, তারপর যাচাই।**
+
+তিনটে শর্ত, আর প্রতিটার আলাদা কারণ:
+
+- **এলোমেলো** — আসল ইন্টারভিউয়ে প্রশ্ন গুছিয়ে আসে না। গুছিয়ে অনুশীলন করলে যেটা শেখা হয় তা হলো তালিকার ক্রম, প্রশ্ন চেনা নয়।
+- **নোট বন্ধ** — মনে করার চেষ্টাটাই স্মৃতি শক্ত করে। দেখে বললে সেই চেষ্টাটাই বাদ পড়ে।
+- **জোরে** — মাথার ভেতরে সব উত্তরই মসৃণ শোনায়।
+
+লক্ষ্য উত্তর নিখুঁত করা নয়। লক্ষ্য হলো **প্রশ্ন থেকে signal, signal থেকে story** — এই পথটা দ্রুত করা, যাতে ইন্টারভিউতে ওই তিন সেকেন্ডে বাছাই হয়ে যায়।
+
+## কেন এটা কঠিন
+
+**ক্রমে পড়া সহজ আর আরামদায়ক।** তালিকা ধরে নামতে নামতে প্রতিটা প্রশ্ন চেনা লাগে, আর চেনা লাগাকে মস্তিষ্ক প্রস্তুতি বলে ভুল করে। কিন্তু চেনা লাগা আর মনে করতে পারা এক জিনিস নয় — আর ইন্টারভিউতে দ্বিতীয়টা লাগে।
+
+**একই signal-এর প্রশ্ন পরপর করলে বাছাইয়ের অনুশীলনই হয় না।** পাঁচটা conflict-এর প্রশ্ন পরপর করলে ষষ্ঠবার আপনি প্রশ্ন না শুনেই conflict-এর গল্প শুরু করবেন। আসল দক্ষতাটা হলো **কোন প্রশ্নে কোনটা লাগবে সেটা চেনা** — আর ওটা শেখা যায় শুধু মিশিয়ে অনুশীলন করলে।
+
+**Drill-এ আটকে গেলে খারাপ লাগে, তাই মানুষ থেমে যান।** অথচ আটকে যাওয়াটাই drill-এর ফল — ওটা বলে দিচ্ছে কোন ঘরটা দুর্বল। যে drill-এ কোথাও আটকাননি, সেটা সম্ভবত খুব সহজ ছিল।
+
+**প্রস্তুতি ভালো হলে নতুন সমস্যা আসে** — তৈরি গল্পটা বলার তাড়া। প্রশ্ন অর্ধেক শুনেই মাথায় গল্প চলে আসে, আর তারপর উত্তরটা প্রশ্নের সাথে মেলানোর চেষ্টা শুরু হয়। Drill-এর একটা কাজ এই তাড়াটা ধরা।
+
+## কীভাবে কাজ করে
+
+### মৌলিক drill — ১৫ মিনিট
+
+1. প্রশ্ন ব্যাংক থেকে **এলোমেলো ৫টা** প্রশ্ন তুলুন (চোখ বন্ধ করে আঙুল রাখা, বা কাউকে দিয়ে বাছানো)।
+2. দুটো পরপর একই ঘরের হলে একটা বদলান।
+3. প্রতিটার জন্য: প্রশ্ন পড়ুন → **থামুন, জোরে বলুন কোন signal আর কোন story** → তারপর ৯০ সেকেন্ডে উত্তর দিন, রেকর্ড চালু রেখে।
+4. পাঁচটা শেষ হলে গুনুন — কতবার একই story এসেছে, আর কোথায় আটকেছেন।
+
+মাঝখানের ধাপটা — **উত্তরের আগে জোরে signal ও story বলা** — এই drill-এর মূল অংশ। ওটা বাদ দিলে এটা শুধু কথা বলার অনুশীলন হয়ে যায়।
+
+### ফল কীভাবে পড়বেন
+
+| যা দেখলেন | যা বোঝায় | পরের কাজ |
+|---|---|---|
+| পাঁচটায় তিনবার একই story | ম্যাপ ভারসাম্যহীন | `02-stories/06-story-signal-map.md` |
+| Signal ঠিক করতে দেরি | ঘর চেনা হয়নি | `01-signals/` আবার |
+| Story আছে, কিন্তু বলতে আটকালাম | ঝালাই বাকি | `03-delivery/04-rehearsal-schedule.md` |
+| কোনো গল্পই নেই | ফাঁকা ঘর | `02-stories/01-story-inventory.md` |
+| সময় ছাড়িয়ে গেল | ছাঁটাই বাকি | `03-delivery/01-timing-and-pacing.md` |
+
+Drill-এর আসল মূল্য এখানেই — এটা উত্তর উন্নত করে না, **কোথায় কাজ বাকি সেটা বলে দেয়।**
+
+### কঠিন করার তিনটে উপায়
+
+- **ঠান্ডা শুরু** — দিনের যেকোনো সময়, কোনো প্রস্তুতি ছাড়া, একটা প্রশ্ন তুলে সঙ্গে সঙ্গে উত্তর।
+- **Follow-up যোগ** — প্রতিটা উত্তরের পর নিজেকে একটা follow-up করুন (`03-delivery/02-follow-up-questions.md`-এর চারটে পরিবার থেকে)।
+- **নিষিদ্ধ story** — একটা drill-এ ঠিক করুন আপনার সবচেয়ে প্রিয় গল্পটা ব্যবহার করবেন না। অস্বস্তিকর, আর সেজন্যই কার্যকর।
+
+### কতবার
+
+সপ্তাহে একটা drill যথেষ্ট — `03-delivery/04-rehearsal-schedule.md`-এর দ্বিতীয় বসায়। এর বেশি করলে প্রশ্নগুলো চেনা হয়ে যায় আর drill-এর ধার কমে।
+
+**Drill ঝালাইয়ের বিকল্প নয়।** ঝালাই একটা story-কে ভালো করে; drill বলে দেয় কোন story-টা কখন লাগবে। দুটো আলাদা কাজ, দুটোই দরকার।
+
+## অনুশীলন
+
+- একটা ১৫ মিনিটের drill চালান — এলোমেলো ৫টা প্রশ্ন, প্রতিটার আগে জোরে signal ও story বলে, তারপর ৯০ সেকেন্ডের উত্তর, রেকর্ড সহ।
+- Drill শেষে উপরের টেবিল ধরে ফল পড়ুন, আর পরের কাজটা এক লাইনে লিখুন।
+- একটা drill চালান যেখানে আপনার প্রিয় story ব্যবহার করা নিষিদ্ধ। কটা প্রশ্নে আটকালেন গুনুন।
+- কাউকে বলুন আপনার জন্য পাঁচটা প্রশ্ন বেছে দিতে, আগে থেকে না জানিয়ে। নিজের বাছা প্রশ্ন কখনোই যথেষ্ট এলোমেলো হয় না।
+- প্রতিটা উত্তরের পর নিজেকে একটা follow-up করুন, আর জোরে উত্তর দিন — থেমে গেলে কার্ডের "যেখানে আটকাই" ঘরে যোগ করুন।
+
+## মূল নিয়ম
+
+- এলোমেলো তুলুন, ক্রমে পড়বেন না। চেনা লাগা প্রস্তুতি নয়।
+- একই ঘরের প্রশ্ন পরপর নয় — মিশিয়ে করাই আসল অনুশীলন।
+- উত্তরের আগে জোরে বলুন কোন signal, কোন story। এই ধাপটাই drill-টাকে drill বানায়।
+- নোট বন্ধ। দেখে বললে মনে করার চেষ্টাটাই বাদ পড়ে।
+- আটকে যাওয়া drill-এর ফল, ব্যর্থতা নয়। যে drill-এ আটকাননি, সেটা সহজ ছিল।
+- পাঁচটায় দুবারের বেশি একই story এলে ম্যাপ ভারসাম্যহীন।
+- সপ্তাহে একটা drill। বেশি করলে প্রশ্ন চেনা হয়ে ধার কমে।
+- Drill আর ঝালাই আলাদা কাজ — একটা বাছাই শেখায়, অন্যটা বলা।9:X
+e:X
+e:C
+0:{"buildId":"aQifbzyxcymAU-Lsuyxj1","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"৪. প্রশ্ন ব্যাংক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০৪.০৪"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"প্রশ্ন ব্যাংক কীভাবে ব্যবহার করবেন"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","022-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/022/","className":"chip chip--accent self-start","children":["দিন ","০২২"," · ","ছয় story, এলোমেলো"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"ছয়টা story এলোমেলো প্রশ্নে — প্রশ্ন ব্যাংক থেকে ৬টা প্রশ্ন এলোমেলো তুলে, নোট বন্ধ, প্রতিটার উত্তর ইংরেজিতে রেকর্ড (ডক ০৪.০১ · ডক ০৪.০৪)"}]]}],["$","li","148-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/148/","className":"chip chip--accent self-start","children":["দিন ","১৪৮"," · ","আট প্রশ্ন, এলোমেলো"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**৮টা প্রশ্ন এলোমেলো**, আগে কখনো না তোলা — ৬টা প্রশ্ন ব্যাংক থেকে, আর রিমোটের দুটো: *\"How do you stay effective working remotely?\"* · *\"You're blocked and your team is asleep — what do you do?\"*; নোট বন্ধ, প্রতিটায় ৯০ সেকেন্ড, একই ধরনের দুটো পরপর নয়; রেকর্ড (ডক ০৪.০১ · ডক ০৪.০৪)"}]]}]]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"ViewportBoundary"]
+17:I[97367,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"MetadataBoundary"]
+18:I[27201,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"IconMark"]
+19:I[39756,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"default"]
+1a:I[37457,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/04-03/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০৪.০৩ কোম্পানিভেদে ভিন্নতা"}]]}],["$","span",null,{}]]}]
+6:["$","script","script-0",{"src":"/behavioural_interview_remote_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০৪.০৪ · প্রশ্ন ব্যাংক কীভাবে ব্যবহার করবেন — রিমোট behavioural"}],["$","meta","1",{"name":"description","content":"বাংলাদেশে বসে বিদেশি রিমোট কোম্পানির behavioural প্রশ্নের জন্য — ছয়টা STAR story ইংরেজিতে, একটা লিখে বোঝানো নিয়ে, ১৮০ দিনের plan-এর story-র ঘরে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/behavioural_interview_remote_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

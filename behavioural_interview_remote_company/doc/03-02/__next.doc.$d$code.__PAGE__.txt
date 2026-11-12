@@ -1,0 +1,92 @@
+1:"$Sreact.fragment"
+2:I[22016,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js","/behavioural_interview_remote_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js","/behavioural_interview_remote_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T28ae,## সংজ্ঞা
+
+**Follow-up** হলো প্রথম উত্তরের পর আসা প্রশ্নগুলো — "আর যদি সে রাজি না হতো?", "তখন কী করতেন?", "ওটা কীভাবে মেপেছিলেন?"
+
+গুরুত্বপূর্ণ কথাটা হলো: **আসল যাচাই এখানেই হয়।** প্রথম প্রশ্নটা জায়গা খোলার জন্য, আর ওটার উত্তর আপনি তৈরি করে এসেছেন — ইন্টারভিউয়ার সেটা জানেন। তিনি জানতে চান তৈরি অংশটা শেষ হলে কী থাকে।
+
+তাই follow-up কোনো বিঘ্ন নয়, দুর্বলতার লক্ষণও নয়। **Follow-up আসা মানে তিনি আগ্রহী।** যে উত্তরে কোনো follow-up আসেনি, সেটা সাধারণত ভালো লক্ষণ নয়।
+
+## কেন এটা কঠিন
+
+**মুখস্থ উত্তর ঠিক এখানেই ভাঙে।** আপনি যদি বাক্য মনে রেখে থাকেন, ঘটনা নয়, তাহলে ক্রম ভেঙে গেলে আর কিছু থাকে না। Follow-up-এর কাজই ক্রম ভাঙা — তাই প্রস্তুতি মানে বাক্য নয়, ঘটনাটা সত্যিই মনে রাখা (`02-stories/03-story-template.md`-এর ল্যান্ডমার্ক)।
+
+**প্রশ্নটা আক্রমণ মনে হয়।** "কিন্তু ওটা তো এভাবেও করা যেত, তাই না?" — শুনে রক্ষণাত্মক হয়ে যাওয়া স্বাভাবিক। অথচ বেশিরভাগ ক্ষেত্রে এটা আক্রমণ নয়, তিনি দেখছেন আপনি নিজের সিদ্ধান্ত নিয়ে নতুন তথ্যের সামনে কী করেন। রক্ষণাত্মক উত্তর নিজেই একটা খারাপ signal, উত্তরের বিষয়বস্তু যাই হোক।
+
+**বানানো অংশটা এখানেই ফাটে।** যদি আপনি ভূমিকা একটু বড় করে বলে থাকেন বা সংখ্যাটা আন্দাজে বলে থাকেন, follow-up দুই স্তর গভীরে গিয়ে ঠিক ওই জায়গাটাতেই পৌঁছায়। এটা কাকতালীয় নয় — অস্পষ্ট জায়গাগুলোই স্বাভাবিকভাবে পরের প্রশ্ন টানে।
+
+**"জানি না" বলতে ভয়।** ফলে মানুষ আন্দাজে উত্তর দেন, আর সেটা দ্বিতীয় follow-up-এ ধরা পড়ে। একটা সৎ "ওটা আমি তখন মাপিনি" যেকোনো বানানো সংখ্যার চেয়ে ভালো।
+
+## কীভাবে কাজ করে
+
+**Follow-up-এর চারটে পরিবার, আর প্রতিটার আলাদা উত্তর-কৌশল:**
+
+| ধরন | নমুনা | যা চাইছেন | কীভাবে দেবেন |
+|---|---|---|---|
+| **গভীরে** | "ওটা ঠিক কীভাবে করলেন?" | বিস্তারিত সত্যি কি না | এক স্তর নিচে নামুন, কারিগরি বিবরণে যান |
+| **বিকল্প** | "অন্যভাবে করা যেত না?" | আপনি বিকল্প ভেবেছিলেন কি | হ্যাঁ বলুন, তারপর কেন বাছেননি |
+| **দৃষ্টিভঙ্গি** | "সে কী বলত?" | সহানুভূতি, আত্ম-সচেতনতা | তার যুক্তি সৎভাবে বলুন |
+| **প্রতি-উদাহরণ** | "আর যদি ব্যর্থ হতো?" | চাপে চিন্তা | ভান না করে সত্যিই ভাবুন |
+
+**"অন্যভাবে করা যেত না?" — সবচেয়ে বেশি আসে, আর সবচেয়ে বেশি ভুল হয়।** সঠিক উত্তরের আকার: *"হ্যাঁ, ওটা একটা বিকল্প ছিল — আমি ওটা বাদ দিয়েছিলাম কারণ X। তবে আজ যদি Y জানতাম, হয়তো ওদিকেই যেতাম।"* এক বাক্যে স্বীকৃতি, এক বাক্যে যুক্তি, এক বাক্যে খোলা মন। রক্ষণাত্মক বা আত্মসমর্পণ — কোনোটাই নয়।
+
+**ভাবার সময় নেওয়া বৈধ।** "এক সেকেন্ড ভাবি" বলে দুই সেকেন্ড চুপ থাকা পেশাদার শোনায়। সঙ্গে সঙ্গে বলতে শুরু করে মাঝপথে গুছিয়ে নেওয়ার চেয়ে ভালো।
+
+**"জানি না" বলার তিনটে ভালো রূপ:**
+
+- "ওটা আমি তখন মাপিনি — যা দেখে বুঝেছিলাম সেটা হলো…"
+- "মনে করতে পারছি না ঠিক সংখ্যাটা, তবে ক্রমটা ছিল…"
+- "ওই অংশটা আমার ছিল না, আমার জানা অংশটা হলো…"
+
+তিনটেই সীমা স্বীকার করে, তারপর যা জানেন সেদিকে ফেরায়। ইন্টারভিউয়াররা এটাকে দুর্বলতা নয়, নির্ভুলতা হিসেবে পড়েন।
+
+**প্রশ্ন যদি দিক বদলায়, আপনিও বদলান।** প্রথম উত্তরটা আঁকড়ে ধরবেন না। Follow-up যেদিকে যাচ্ছে সেটাই আসল signal (`01-signals/01-what-is-a-signal.md`) — তিনি ownership মাপছিলেন ভেবে শুরু করেছিলেন, কিন্তু follow-up যদি অন্য পক্ষ নিয়ে হয়, তাহলে এখন conflict মাপা হচ্ছে। জোর সরিয়ে নিন।
+
+**একই story-তে আটকে থাকবেন না।** পরপর তিনটে follow-up একই ঘটনার ভেতরে গেলে এক পর্যায়ে বলা যায়: "এই ধরনের আরেকটা ঘটনা আছে যেখানে উল্টোটা হয়েছিল — সেটা বলব?" এতে দেখা যায় আপনার ভাণ্ডার একটা গল্পে সীমিত নয়।
+
+## অনুশীলন
+
+- আপনার প্রতিটা story-কার্ডে তিনটে সম্ভাব্য follow-up আর তাদের এক-লাইনের উত্তর লিখুন — চারটে পরিবারের অন্তত তিনটে থেকে।
+- কাউকে দিয়ে (বা রেকর্ডারে প্রশ্ন বাজিয়ে) একটা story-র পর পরপর তিনটে follow-up করান, নোট ছাড়া জোরে উত্তর দিন।
+- "অন্যভাবে করা যেত না?" প্রশ্নটার উত্তর তিন বাক্যের ছকে লিখুন — স্বীকৃতি / যুক্তি / খোলা মন। তারপর জোরে বলুন।
+- ইচ্ছে করে এমন একটা follow-up নিজেকে করুন যার উত্তর আপনি জানেন না, আর তিনটে "জানি না"-র রূপের একটা ব্যবহার করে উত্তর দিন।
+- রেকর্ডিং শুনে খুঁজুন কোথায় গলার স্বর রক্ষণাত্মক হয়েছে। ওই জায়গাটা আবার বলুন, শান্ত সুরে।
+- একটা follow-up-এর পর ইচ্ছে করে অন্য story-তে সরে যাওয়ার বাক্যটা অনুশীলন করুন।
+
+## মূল নিয়ম
+
+- Follow-up আসা ভালো লক্ষণ। এটা যাচাই, আক্রমণ নয়।
+- বাক্য নয়, ঘটনা মনে রাখুন — ক্রম ভাঙলে বাক্য কাজে আসে না।
+- "হ্যাঁ, ওটাও বিকল্প ছিল" দিয়ে শুরু করুন, তারপর কেন বাছেননি।
+- "জানি না" বলুন, তারপর যা জানেন সেদিকে ফেরান। আন্দাজে সংখ্যা নয়।
+- ভাবার জন্য দুই সেকেন্ড নেওয়া পেশাদার। সঙ্গে সঙ্গে বলা নয়।
+- Follow-up দিক বদলালে জোরও বদলান। প্রথম উত্তর আঁকড়ে ধরবেন না।
+- রক্ষণাত্মক সুর নিজেই একটা খারাপ signal — বিষয়বস্তু যাই হোক।
+- তিনটের বেশি follow-up একই গল্পে গেলে অন্য গল্প প্রস্তাব করুন।9:X
+e:X
+e:C
+0:{"buildId":"aQifbzyxcymAU-Lsuyxj1","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"৩. ডেলিভারি"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০৩.০২"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Follow-up প্রশ্ন সামলানো"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","015-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/015/","className":"chip chip--accent self-start","children":["দিন ","০১৫"," · ","STAR #৫ — লিখে বোঝানো"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"story #১–#৪: প্রতিটায় *\"What would you do differently?\"* — নোট বন্ধ করে উত্তর (ডক ০৩.০২)"}]]}],["$","li","058-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/058/","className":"chip chip--accent self-start","children":["দিন ","০৫৮"," · ","follow-up প্রশ্নে টেকা"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"story #১–#৩ — প্রতিটায় তিনটা follow-up নিজেকে জিজ্ঞেস করে উত্তর: *\"Why did you choose that?\" · \"What was the result, exactly?\" · \"What would you do differently?\"*; রেকর্ড, তারপর যে follow-up-এ থামলেন সেটা আবার, ধীরে (ডক ০৩.০২)"}]]}]]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"ViewportBoundary"]
+17:I[97367,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"MetadataBoundary"]
+18:I[27201,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"IconMark"]
+19:I[39756,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"default"]
+1a:I[37457,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/03-01/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০৩.০১ Timing ও pacing"}]]}],["$","$L2",null,{"href":"/doc/03-03/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০৩.০৩ যে ভুলগুলোয় ক্যান্ডিডেট বাদ পড়ে"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/behavioural_interview_remote_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০৩.০২ · Follow-up প্রশ্ন সামলানো — রিমোট behavioural"}],["$","meta","1",{"name":"description","content":"বাংলাদেশে বসে বিদেশি রিমোট কোম্পানির behavioural প্রশ্নের জন্য — ছয়টা STAR story ইংরেজিতে, একটা লিখে বোঝানো নিয়ে, ১৮০ দিনের plan-এর story-র ঘরে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/behavioural_interview_remote_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

@@ -1,0 +1,104 @@
+1:"$Sreact.fragment"
+2:I[82484,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js","/behavioural_interview_remote_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+3:T2447,## লক্ষ্য
+
+> **ছয়টা STAR story লেখা, ৯০ সেকেন্ডে জোরে বলা, আর যেকোনো behavioural প্রশ্নে খাটানো।**
+
+১৮০ দিনের plan-এর ব্লক ১-এর মাইলফলক **ছয়টা STAR story** ইংরেজিতে, একটা **লিখে বোঝানো** নিয়ে (plan-এর দিন ০৩০-এর মধ্যে), আর শেষ ব্লকের কাজ **ছয় story যেকোনো প্রশ্নে খাটানো**। মাঝের কাজের দিনগুলো দুইয়ের সেতু — এলোমেলো প্রশ্ন, follow-up, তিন দৈর্ঘ্য, দরজাভেদে জোর। প্রশ্ন মুখস্থ নয়; কয়েকটা শক্ত story, যেগুলো ঘুরিয়ে-ফিরিয়ে বেশিরভাগ প্রশ্নে চলে। 🧠 (Pareto · Chunk the subject)
+
+## সত্যের উৎস
+
+এই সাইট নতুন কোনো লক্ষ্য, সংখ্যা বা কাজ যোগ করে না — plan-এর story-র কাজ হুবহু এখানে সরানো। তথ্য বদলালে এই ক্রমে:
+
+1. `brainstorming/ASSUMPTIONS.md`
+2. `brainstorming/` — `behavioural.md`, `application-to-offer.md` (ধাপ ৫ — Behavioral রাউন্ড)
+3. `switch_in_6_month_remote_company/` — ঐ plan-এর দিন ০০৬–১৫৪-এর story-র কাজ; এই সাইটের দিন = plan-এর দিন − ৫
+4. এই ফোল্ডার — `docs/`; আর `guide/` = `behavioural_interview`-এর ২৫টা ডক হুবহু
+
+**স্বাধীন পথ।** বাকি দুই পথ আলাদা সাইটে — [`behavioural_interview_local_company`](https://sojibrd.github.io/behavioural_interview_local_company/), [`behavioural_interview_global_company`](https://sojibrd.github.io/behavioural_interview_global_company/)। প্রতিটা শূন্য থেকে শুরু; এই সাইট শেষ করা ওদের শর্ত নয়। তিন পথেই ছয়টা story, পথ বদলালে বদলায় জোর — লোকালে কোম্পানির ধরন, রিমোটে লিখে বোঝানো আর ইংরেজি, গ্লোবালে ফলের সংখ্যা আর follow-up-এর গভীরতা।
+
+## কীভাবে পড়বেন
+
+- ১৭৫ দিন, ৬টা ব্লক — plan-এর ৩০ দিনের ব্লকের সাথে মিলিয়ে। যে দিনে story-র কাজ নেই, সেটা "বিরতি"।
+- কাজের দিনে এক-দুটো `- [ ]` কাজ, আর শেষে **দিন শেষে** প্রশ্ন — হ্যাঁ/না।
+- `২৫′` = মিনিট।
+- `(ডক ০২.০২)` = `guide/`-এর স্তর ০২-এর ডক ০২ — এই সাইটেই পাতা, কাজের নিচে লিংক। ডক পড়া কাজ নয়; কাজ হলো পড়ে **বন্ধ করে** নিজের story দিয়ে বলা।
+- 🧠 (নাম) = কাজটা `learning_to_learn`-এর কোন নীতি থেকে; chip চাপলে এক লাইনে কেন।
+- 🔁 = এই কাজ শেষ করার দিন থেকে **১, ৩, ৭, ২১ দিন পরে** না দেখে আবার। তারিখ সাইট নিজে হিসাব করে।
+- ⚑ = মাইলফলক। নির্ধারিত দিনে না হলে শেষ না হওয়া পর্যন্ত হোমে থাকে।
+
+## "আজ" মানে ক্যালেন্ডারের আজ
+
+ফাইলে তারিখ নেই, শুধু দিনের নম্বর; দিন ০০১ = plan-এর দিন ০০৬ = **শনিবার** ধরে লেখা। প্রথমবার সাইট খুললে শুরুর তারিখ জিজ্ঞেস করে — plan-এর সাথে চালালে plan-এর দিন ০০৬-এর তারিখ দিন। তারপর থেকে দিন = শুরু থেকে কত দিন।
+
+- **plan পেছায় না।** কাল বাদ পড়লে আজ আজকের কাজ, দুটো নয়।
+- **বাদ পড়া কাজ ফেরে না**, শুধু ⚑ জমে থাকে।
+- **ঘুম কেটে পূরণ নয়।** 🧠 (Sleep · Efficiency trumps grit)
+- **যেদিন interview, সেদিন interview-ই কাজ।** রাতে ৫ লাইনের নোট।
+
+---
+
+## সপ্তাহের ছন্দ
+
+এই সাইটের নিজের সময় নেই — ১৮০ দিনের plan-এর সপ্তাহে ৭ ঘণ্টার মধ্যেই। plan-এর যে দিনে story-র কাজ ছিল, সেই ঘরই এখানে: বেশিরভাগ **বুধ** (plan-এর প্রস্তুতির ঘর — STAR, README, লেখা) আর **শনি** (লম্বা বসা)। বাকি দিন বিরতি।
+
+রোজের ইংরেজির ১৫′ plan-এই থাকে — ওখানে story জোরে বলা আর রেকর্ড; লেখা আর drill এখানে। 🧠 (System vs goal · It pays to be not busy)
+
+---
+
+## STAR story-র বসা
+
+1. ইংরেজিতে **বুলেট** — পুরো স্ক্রিপ্ট নয়, স্ক্রিপ্ট মুখস্থ করতে ইচ্ছে করে।
+2. সময় ভাগ: Situation + Task ২০% · **Action ৬০%** · Result ২০%। "we" নয়, "I"।
+3. ফোনে রেকর্ড, **৯০ সেকেন্ডের** মধ্যে। শুনে দেখুন কোথায় থামছেন।
+4. অফিসের কাজ থেকে; নিজের প্রজেক্ট থেকে ছয়টার মধ্যে বড়জোর দুটো। রিমোটের জন্য অন্তত একটা story **লিখে বোঝানো** নিয়ে — PR description, ডক, বা async সিদ্ধান্ত।
+
+**ঝালাইয়ের দিন:** নোট বন্ধ, আগে একটা দুর্বলতা বাছুন (Situation ছোট করা · "we" কমানো · শেষটা পরিষ্কার), বলুন, রেকর্ড, ফলটা সংখ্যায় (৪০s → ২২s)।
+
+## ঝালাই
+
+- 🔁 কাজে টিক দিলে ঐ **আসল তারিখ** থেকে ১ → ৩ → ৭ → ২১ দিন।
+- প্রতিটা ঝালাইয়ে দুটো উত্তর: **মনে ছিল** (পরের ধাপে) বা **আটকে গেছি** (আবার ১ দিনে)। আটকে যাওয়া শাস্তি নয়, তথ্য।
+- ২১ দিনের ধাপ পার হলে ঝালাই শেষ — ওটা এখন স্থির।
+- এক দিনে অনেক জমলে কঠিনগুলো আগে, সহজগুলো কাল।
+
+## ডকের পাতা
+
+"ডক" পাতায় `behavioural_interview`-এর ২৫টা ডক, পাঁচ স্তরে — কোনটা এই পথের কোন দিনে আসে। বাকিগুলো ঋণ নয়, মজুদ। পাতাটা রেফারেন্স; রোজ শুরু "আজ" থেকে। 🧠 (Pareto)
+
+---
+
+## যা করবেন না
+
+- **স্ক্রিপ্ট মুখস্থ নয়।** বুলেট থেকে বলা — মুখস্থ স্ক্রিপ্ট follow-up-এ ভাঙে।
+- **অন্যের নমুনা উত্তর নয়।** story নিজের কাজ থেকে; অন্যের গল্প follow-up-এ ধরা পড়ে।
+- **ডক শেষ করে তারপর story নয়।** ডক পড়া ইনপুট — story লেখা দিন ০০১ থেকে।
+- **এই সাইটে নতুন ফিচার নয়।** ইচ্ছে হলে এক লাইনে লিখে রাখুন, বানাবেন না।
+
+## দিন ১৭৫-এর পরে
+
+- plan-এর mock interview #৩ (behavioral, plan-এর দিন ১৬০) আর #৪ (দিন ১৭৪) — plan-এই।
+- 🔁 ঝালাই হোমে আসতেই থাকবে, যতদিন বাকি।
+- বাকি দুই পথ আলাদা, স্বাধীন সাইটে — এই পথ শেষ করা শর্ত নয়।7:X
+c:X
+c:C
+0:{"buildId":"aQifbzyxcymAU-Lsuyxj1","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — রিমোট কোম্পানির behavioural"}],["$","p",null,{"className":"t-body measure text-sm","children":"১৭৫ দিন · ছয়টা STAR story · ১৮০ দিনের plan-এর story-র ঘর"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L2",null,{"className":"measure","children":"$3"}]}]],["$L4"],"$L5"]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":"$L8","isPartial":"$@9","staleTime":"$7","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$7","varyParams":"$c"}],"isUpgradeableISRFallback":false,"a":"$@d","rootVaryParams":null,"needsRuntimeRequest":"$@e"}
+f:I[97367,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"OutletBoundary"]
+10:"$Sreact.suspense"
+12:I[97367,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"ViewportBoundary"]
+13:I[97367,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"MetadataBoundary"]
+14:I[27201,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"IconMark"]
+15:I[39756,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"default"]
+16:I[37457,["/behavioural_interview_remote_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_remote_company/_next/static/chunks/3vu3x3q1eh7pd.js"],"default"]
+4:["$","script","script-0",{"src":"/behavioural_interview_remote_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+5:["$","$Lf",null,{"children":["$","$10",null,{"name":"Next.MetadataOutlet","children":"$@11"}]}]
+8:["$","$1","h",{"children":[null,["$","$L12",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$10",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"নিয়ম — রিমোট behavioural"}],["$","meta","1",{"name":"description","content":"বাংলাদেশে বসে বিদেশি রিমোট কোম্পানির behavioural প্রশ্নের জন্য — ছয়টা STAR story ইংরেজিতে, একটা লিখে বোঝানো নিয়ে, ১৮০ দিনের plan-এর story-র ঘরে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/behavioural_interview_remote_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L14","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+a:["$","$1","c",{"children":[null,["$","$L15",null,{"parallelRouterKey":"children","template":["$","$L16",null,{}]}]]}]
+e:true
+11:null
+7:300
+7:C
+d:0
+9:"$undefined"
+b:"$undefined"
+6:"$undefined"
