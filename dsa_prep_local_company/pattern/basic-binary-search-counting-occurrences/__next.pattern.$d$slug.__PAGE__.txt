@@ -1,0 +1,65 @@
+1:"$Sreact.fragment"
+2:I[22016,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js","/dsa_prep_local_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_local_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js","/dsa_prep_local_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_local_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:I[76270,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js","/dsa_prep_local_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_local_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T5c8,**Demo: Find First and Last Position of Element** — [LC 34](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) _(Medium — Google/Meta/Apple High)_
+
+**Statement (Demo):** sorted integer array `nums` ও integer `target` দেওয়া — `target`-এর starting ও ending position `[first, last]` হিসেবে return করুন। না থাকলে `[-1, -1]`। O(log n) time-এ করতে হবে।
+উদাহরণ: `nums=[5,7,7,8,8,10], target=8` → `[3,4]` | ⚡ `n ≤ 10⁵`, `-10⁹ ≤ nums[i] ≤ 10⁹`
+
+**Approach:** দুইবার binary search — একবার left-biased (match পেলে বামে চাপুন), একবার right-biased (match পেলে ডানে চাপুন)। এটাই "counting occurrences"-এরও ভিত্তি: `last - first + 1`।
+
+```js
+function searchRange(nums, target) {
+  const bound = (isFirst) => {
+    let lo = 0,
+      hi = nums.length - 1,
+      ans = -1;
+    while (lo <= hi) {
+      const mid = (lo + hi) >> 1;
+      if (nums[mid] === target) {
+        ans = mid;
+        if (isFirst)
+          hi = mid - 1; // আরও বামে খুঁজুন
+        else lo = mid + 1; // আরও ডানে খুঁজুন
+      } else if (nums[mid] < target) lo = mid + 1;
+      else hi = mid - 1;
+    }
+    return ans;
+  };
+  return [bound(true), bound(false)];
+}
+```
+
+**Complexity:** Time O(log n), Space O(1)10:X
+15:X
+15:C
+0:{"buildId":"Y5dFsdwq5XmEY3nWHijeS","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/patterns/","className":"t-accent","children":"প্যাটার্ন"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":["টপিক ",2," · ","Binary Search"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":["2.1"," ","Basic Binary Search ও Counting Occurrences"]}]]}],["$","section",null,{"className":"callout callout--accent p-4","children":[["$","div",null,{"className":"t-label mb-1","children":"চিনবেন কীভাবে"}],["$","$L3",null,{"inline":true,"className":"t-body text-sm","children":"sorted array, \"find efficiently\", \"first/last occurrence\", \"count of X in range\""}]]}],["$","details",null,{"className":"surface-panel p-4 sm:p-6","children":[["$","summary",null,{"className":"t-label cursor-pointer select-none","children":"Demo · approach · কোড — আগে নিজে চেষ্টা, আটকালে খুলুন"}],["$","$L3",null,{"className":"measure mt-4","children":"$4"}]]}],"$undefined",["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"প্রবলেম"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","lc35",{"id":"lc35","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"Search Insert Position"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","012",{"href":"/day/012/","className":"chip chip--accent","children":["plan · দিন ","০১২"]}]],false,["$","a",null,{"href":"https://leetcode.com/problems/search-insert-position/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 35",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],"",["$","$L3",null,{"className":"text-sm","children":"Statement: sorted unique integer array `nums` ও integer `target` দেওয়া — `target` থাকলে তার index, না থাকলে in-order insert করলে যে index হবে সেটা return করুন। O(log n) time।  \nউদাহরণ: `nums=[1,3,5,6], target=5` → `2` | ⚡ `n ≤ 10⁴`, `-10⁴ ≤ nums[i], target ≤ 10⁴`"}],["$","$L5",null,{"problemKey":"lc35"}]]}],["$","li","lc704",{"id":"lc704","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":["$L6","$L7","$L8","$L9"]}],"$La"]}],false,false]}],"$Lb"],["$Lc","$Ld"],"$Le"]}],"isPartial":"$@f","staleTime":"$10","varyParams":null},{"rsc":"$L11","isPartial":"$@12","staleTime":"$10","varyParams":null},{"rsc":"$L13","isPartial":"$@14","staleTime":"$10","varyParams":"$15"},{"rsc":"$L16","isPartial":"$@17","staleTime":"$10","varyParams":"$15"}],"isUpgradeableISRFallback":false,"a":"$@18","rootVaryParams":null,"needsRuntimeRequest":"$@19"}
+1a:I[97367,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js"],"OutletBoundary"]
+1b:"$Sreact.suspense"
+1d:I[97367,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js"],"ViewportBoundary"]
+1e:I[97367,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js"],"MetadataBoundary"]
+1f:I[27201,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js"],"IconMark"]
+20:I[39756,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js"],"default"]
+21:I[37457,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js"],"default"]
+6:["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"Binary Search"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","011",{"href":"/day/011/","className":"chip chip--accent","children":["plan · দিন ","০১১"]}]],false,["$","a",null,{"href":"https://leetcode.com/problems/binary-search/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 704",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}]
+7:["$","$L3",null,{"inline":true,"className":"t-caption","children":"_(টেমপ্লেট মুখস্থ লেখার প্র্যাকটিস)_"}]
+8:["$","$L3",null,{"className":"text-sm","children":"Statement: ascending order-এ sorted integer array `nums` ও integer `target` দেওয়া — `target`-এর index return করুন। না থাকলে `-1`। O(log n) time।  \nউদাহরণ: `nums=[-1,0,3,5,9,12], target=9` → `4` | ⚡ `n ≤ 10⁴`, `-10⁴ ≤ nums[i], target ≤ 10⁴`"}]
+9:["$","$L5",null,{"problemKey":"lc704"}]
+a:["$","li","lc4",{"id":"lc4","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"Median of Two Sorted Arrays"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[],false,["$","a",null,{"href":"https://leetcode.com/problems/median-of-two-sorted-arrays/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 4",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],["$","$L3",null,{"inline":true,"className":"t-caption","children":"_(Hard — Google/Apple High; ছোট array-তে partition search)_"}],["$","$L3",null,{"className":"text-sm","children":"Statement: দুটো sorted array `nums1` (size m) ও `nums2` (size n) দেওয়া — দুটো merge করলে যে sorted array হবে তার median বের করুন। O(log(m+n)) time।  \nউদাহরণ: `nums1=[1,3], nums2=[2]` → `2.0` | ⚡ `m,n ≤ 1000`, `-10⁶ ≤ nums[i] ≤ 10⁶`"}],["$","$L5",null,{"problemKey":"lc4"}]]}]
+b:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"প্যাটার্ন","children":[["$","$L2",null,{"href":"/pattern/matrix-traversal/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"1.7 Matrix Traversal"}]]}],["$","$L2",null,{"href":"/pattern/binary-search-on-answer/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"2.2 Binary Search on Answer"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+c:["$","script","script-0",{"src":"/dsa_prep_local_company/_next/static/chunks/0bza-gg8kwbbi.js","async":true}]
+d:["$","script","script-1",{"src":"/dsa_prep_local_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+e:["$","$L1a",null,{"children":["$","$1b",null,{"name":"Next.MetadataOutlet","children":"$@1c"}]}]
+11:["$","$1","h",{"children":[null,["$","$L1d",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1e",null,{"children":["$","$1b",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"2.1 Basic Binary Search ও Counting Occurrences — লোকাল DSA"}],["$","meta","1",{"name":"description","content":"বাংলাদেশি কোম্পানির DSA রাউন্ডের জন্য টপিক ১–৫ থেকে ৩০টা প্রবলেম — দিনে একটা, ঝালাইসহ, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/dsa_prep_local_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1f","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+13:["$","$1","c",{"children":[null,["$","$L20",null,{"parallelRouterKey":"children","template":["$","$L21",null,{}]}]]}]
+16:["$","$1","c",{"children":[null,["$","$L20",null,{"parallelRouterKey":"children","template":["$","$L21",null,{}]}]]}]
+19:true
+1c:null
+10:300
+10:C
+18:0
+12:"$undefined"
+14:"$undefined"
+17:"$undefined"
+f:"$undefined"

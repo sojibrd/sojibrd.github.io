@@ -1,0 +1,72 @@
+1:"$Sreact.fragment"
+2:I[22016,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js","/dsa_prep_local_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_local_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js","/dsa_prep_local_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_local_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T705,**Demo: Minimum Window Substring** — [LC 76](https://leetcode.com/problems/minimum-window-substring/) _(Hard — Google/Meta/Apple High)_
+
+**Statement (Demo):** string `s` ও `t` দেওয়া — `s`-এর সবচেয়ে ছোট substring বের করুন যাতে `t`-এর সব character (সংখ্যা সহ) থাকে। যদি না থাকে, `""` return করুন।
+উদাহরণ: `s="ADOBECODEBANC", t="ABC"` → `"BANC"` | ⚡ `len(s), len(t) ≤ 10⁵`
+
+**Approach:** `t`-এর প্রতিটা char-এর দরকারি count একটা map-এ রাখুন। ডান দিকে window বাড়ান; সব char পাওয়া গেলে (`missing === 0`) বাম দিক থেকে যত পারা যায় ছোট করুন আর best উত্তর আপডেট করুন। ছোট করতে গিয়ে কোনো দরকারি char হারালে আবার ডানে বাড়ানো শুরু।
+
+```js
+function minWindow(s, t) {
+  const need = new Map();
+  for (const c of t) need.set(c, (need.get(c) || 0) + 1);
+  let missing = t.length,
+    l = 0,
+    best = [0, Infinity];
+  for (let r = 0; r < s.length; r++) {
+    const c = s[r];
+    if (need.has(c)) {
+      if (need.get(c) > 0) missing--;
+      need.set(c, need.get(c) - 1);
+    }
+    while (missing === 0) {
+      // valid window → shrink
+      if (r - l < best[1] - best[0]) best = [l, r];
+      const d = s[l];
+      if (need.has(d)) {
+        need.set(d, need.get(d) + 1);
+        if (need.get(d) > 0) missing++;
+      }
+      l++;
+    }
+  }
+  return best[1] === Infinity ? "" : s.slice(best[0], best[1] + 1);
+}
+```
+
+**Complexity:** Time O(|s| + |t|), Space O(|t|)10:X
+15:X
+15:C
+0:{"buildId":"Y5dFsdwq5XmEY3nWHijeS","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/patterns/","className":"t-accent","children":"প্যাটার্ন"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":["টপিক ",1," · ","Arrays & Strings"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":["1.2"," ","Sliding Window"]}]]}],["$","section",null,{"className":"callout callout--accent p-4","children":[["$","div",null,{"className":"t-label mb-1","children":"চিনবেন কীভাবে"}],["$","$L3",null,{"inline":true,"className":"t-body text-sm","children":"\"longest/shortest substring/subarray with X\", contiguous, \"subarray of size k\", max/min sum — O(n²) nested loop-কে O(n) window-এ নামানো"}]]}],["$","details",null,{"className":"surface-panel p-4 sm:p-6","children":[["$","summary",null,{"className":"t-label cursor-pointer select-none","children":"Demo · approach · কোড — আগে নিজে চেষ্টা, আটকালে খুলুন"}],["$","$L3",null,{"className":"measure mt-4","children":"$4"}]]}],"$undefined",["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"প্রবলেম"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","lc3",{"id":"lc3","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"Longest Substring Without Repeating Characters"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","009",{"href":"/day/009/","className":"chip chip--accent","children":["plan · দিন ","০০৯"]}]],false,["$","a",null,{"href":"https://leetcode.com/problems/longest-substring-without-repeating-characters/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 3",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],["$","$L3",null,{"inline":true,"className":"t-caption","children":"_(hashing-ও লাগে — primary এখানেই)_"}],["$","$L3",null,{"className":"text-sm","children":"Statement: string `s` দেওয়া — repeating character ছাড়া সবচেয়ে দীর্ঘ substring-এর দৈর্ঘ্য বের করুন।  \nউদাহরণ: `\"abcabcbb\"` → `3` (\"abc\") | ⚡ `len ≤ 5×10⁴`"}],"$L5"]}],"$L6","$L7","$L8","$L9"]}],false,"$La"]}],"$Lb"],["$Lc","$Ld"],"$Le"]}],"isPartial":"$@f","staleTime":"$10","varyParams":null},{"rsc":"$L11","isPartial":"$@12","staleTime":"$10","varyParams":null},{"rsc":"$L13","isPartial":"$@14","staleTime":"$10","varyParams":"$15"},{"rsc":"$L16","isPartial":"$@17","staleTime":"$10","varyParams":"$15"}],"isUpgradeableISRFallback":false,"a":"$@18","rootVaryParams":null,"needsRuntimeRequest":"$@19"}
+1a:I[76270,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js","/dsa_prep_local_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_local_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+1b:I[97367,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js"],"OutletBoundary"]
+1c:"$Sreact.suspense"
+1e:I[97367,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js"],"ViewportBoundary"]
+1f:I[97367,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js"],"MetadataBoundary"]
+20:I[27201,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js"],"IconMark"]
+21:I[39756,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js"],"default"]
+22:I[37457,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js"],"default"]
+5:["$","$L1a",null,{"problemKey":"lc3"}]
+6:["$","li","lc424",{"id":"lc424","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"Longest Repeating Character Replacement"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[],false,["$","a",null,{"href":"https://leetcode.com/problems/longest-repeating-character-replacement/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 424",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],"",["$","$L3",null,{"className":"text-sm","children":"Statement: uppercase string `s` ও integer `k` দেওয়া — সর্বোচ্চ `k`টা character পরিবর্তন করে সবচেয়ে দীর্ঘ same-letter substring-এর দৈর্ঘ্য বের করুন।  \nউদাহরণ: `s=\"AABABBA\", k=1` → `4` | ⚡ `len ≤ 10⁵`"}],["$","$L1a",null,{"problemKey":"lc424"}]]}]
+7:["$","li","lc904",{"id":"lc904","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"Fruit Into Baskets"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[],false,["$","a",null,{"href":"https://leetcode.com/problems/fruit-into-baskets/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 904",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],["$","$L3",null,{"inline":true,"className":"t-caption","children":"_(at most 2 distinct)_"}],["$","$L3",null,{"className":"text-sm","children":"Statement: `fruits` array দেওয়া যেখানে `fruits[i]` = i-তম গাছের ফলের ধরন। দুটো basket নিয়ে যেকোনো একটানা গাছ থেকে সর্বোচ্চ কতটা ফল নেওয়া যায় বলুন (প্রতি basket-এ এক ধরনের ফল)।  \nউদাহরণ: `[1,2,1,2,3]` → `4` | ⚡ `n ≤ 10⁵`"}],["$","$L1a",null,{"problemKey":"lc904"}]]}]
+8:["$","li","lc209",{"id":"lc209","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"Minimum Size Subarray Sum"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","010",{"href":"/day/010/","className":"chip chip--accent","children":["plan · দিন ","০১০"]}]],false,["$","a",null,{"href":"https://leetcode.com/problems/minimum-size-subarray-sum/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 209",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],"",["$","$L3",null,{"className":"text-sm","children":"Statement: positive integer `target` ও array `nums` দেওয়া — যোগফল `≥ target` এমন সবচেয়ে ছোট contiguous subarray-এর দৈর্ঘ্য বের করুন। না থাকলে `0`।  \nউদাহরণ: `target=7, nums=[2,3,1,2,4,3]` → `2` ([4,3]) | ⚡ `n ≤ 10⁵`"}],["$","$L1a",null,{"problemKey":"lc209"}]]}]
+9:["$","li","lc438",{"id":"lc438","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"Find All Anagrams in a String"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[],false,["$","a",null,{"href":"https://leetcode.com/problems/find-all-anagrams-in-a-string/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 438",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],["$","$L3",null,{"inline":true,"className":"t-caption","children":"_(fixed-size window + freq compare)_"}],["$","$L3",null,{"className":"text-sm","children":"Statement: string `s` ও `p` দেওয়া — `s`-এ `p`-এর সব anagram-এর starting index-গুলো বের করুন।  \nউদাহরণ: `s=\"cbaebabacd\", p=\"abc\"` → `[0,6]` | ⚡ `len(s),len(p) ≤ 3×10⁴`"}],["$","$L1a",null,{"problemKey":"lc438"}]]}]
+a:["$","div",null,{"className":"seam-t flex flex-col gap-1 pt-3","children":[["$","span",null,{"className":"t-label","children":"আরও দেখুন"}],[["$","$L3","_Sliding Window Maximum → দেখুন **4.4** (Stacks & Queues — monotonic deque)_",{"inline":true,"className":"t-caption","children":"_Sliding Window Maximum → দেখুন **4.4** (Stacks & Queues — monotonic deque)_"}]]]}]
+b:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"প্যাটার্ন","children":[["$","$L2",null,{"href":"/pattern/two-pointers/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"1.1 Two Pointers"}]]}],["$","$L2",null,{"href":"/pattern/prefix-sum/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"1.3 Prefix Sum"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+c:["$","script","script-0",{"src":"/dsa_prep_local_company/_next/static/chunks/0bza-gg8kwbbi.js","async":true}]
+d:["$","script","script-1",{"src":"/dsa_prep_local_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+e:["$","$L1b",null,{"children":["$","$1c",null,{"name":"Next.MetadataOutlet","children":"$@1d"}]}]
+11:["$","$1","h",{"children":[null,["$","$L1e",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1f",null,{"children":["$","$1c",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"1.2 Sliding Window — লোকাল DSA"}],["$","meta","1",{"name":"description","content":"বাংলাদেশি কোম্পানির DSA রাউন্ডের জন্য টপিক ১–৫ থেকে ৩০টা প্রবলেম — দিনে একটা, ঝালাইসহ, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/dsa_prep_local_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L20","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+13:["$","$1","c",{"children":[null,["$","$L21",null,{"parallelRouterKey":"children","template":["$","$L22",null,{}]}]]}]
+16:["$","$1","c",{"children":[null,["$","$L21",null,{"parallelRouterKey":"children","template":["$","$L22",null,{}]}]]}]
+19:true
+1d:null
+10:300
+10:C
+18:0
+12:"$undefined"
+14:"$undefined"
+17:"$undefined"
+f:"$undefined"

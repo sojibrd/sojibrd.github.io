@@ -1,0 +1,61 @@
+1:"$Sreact.fragment"
+2:I[22016,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js","/dsa_prep_local_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_local_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js","/dsa_prep_local_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_local_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T66d,**Demo: Search in Rotated Sorted Array** — [LC 33](https://leetcode.com/problems/search-in-rotated-sorted-array/) _(Medium — Amazon/Meta/Google High)_
+
+**Statement (Demo):** unique elements বিশিষ্ট একটি sorted array nums কোনো একটি pivot index-এ rotate করা হয়েছে (যেমন: [0,1,2,4,5,6,7] হয়ে গেছে [4,5,6,7,0,1,2])। এই rotated array-তে একটি target মান খুঁজুন। যদি target থাকে তবে তার index return করুন, অন্যথায় -1 return করুন। runtime complexity অবশ্যই O(log n) হতে হবে।
+উদাহরণ: nums = [4,5,6,7,0,1,2], target = 0 → 4 | ⚡ n ≤ 5000, -10⁴ ≤ nums[i], target ≤ 10⁴
+
+**Approach:** প্রতি ধাপে দেখুন কোন অর্ধেক sorted (`nums[lo] <= nums[mid]` হলে বাম)। target সেই sorted অর্ধেকের range-এ পড়লে সেদিকে যান, নাহলে অন্য দিকে।
+
+```js
+function search(nums, target) {
+  let lo = 0,
+    hi = nums.length - 1;
+  while (lo <= hi) {
+    const mid = (lo + hi) >> 1;
+    if (nums[mid] === target) return mid;
+    if (nums[lo] <= nums[mid]) {
+      // বাম অর্ধেক sorted
+      if (nums[lo] <= target && target < nums[mid]) hi = mid - 1;
+      else lo = mid + 1;
+    } else {
+      // ডান অর্ধেক sorted
+      if (nums[mid] < target && target <= nums[hi]) lo = mid + 1;
+      else hi = mid - 1;
+    }
+  }
+  return -1;
+}
+```
+
+**Complexity:** Time O(log n), Space O(1)c:X
+11:X
+11:C
+0:{"buildId":"Y5dFsdwq5XmEY3nWHijeS","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/patterns/","className":"t-accent","children":"প্যাটার্ন"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":["টপিক ",2," · ","Binary Search"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":["2.4"," ","Bitonic / Rotated Array"]}]]}],["$","section",null,{"className":"callout callout--accent p-4","children":[["$","div",null,{"className":"t-label mb-1","children":"চিনবেন কীভাবে"}],["$","$L3",null,{"inline":true,"className":"t-body text-sm","children":"\"rotated sorted array\", \"peak/mountain element\", \"bitonic\" — array পুরো sorted না হলেও **অর্ধেকটা সবসময় sorted**, সেটা দিয়েই decide করুন কোন দিকে যাবেন"}]]}],["$","details",null,{"className":"surface-panel p-4 sm:p-6","children":[["$","summary",null,{"className":"t-label cursor-pointer select-none","children":"Demo · approach · কোড — আগে নিজে চেষ্টা, আটকালে খুলুন"}],["$","$L3",null,{"className":"measure mt-4","children":"$4"}]]}],"$undefined",["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"প্রবলেম"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","lc153",{"id":"lc153","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"Find Minimum in Rotated Sorted Array"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","015",{"href":"/day/015/","className":"chip chip--accent","children":["plan · দিন ","০১৫"]}]],false,["$","a",null,{"href":"https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 153",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],"",["$","$L3",null,{"className":"text-sm","children":"Statement: unique elements বিশিষ্ট sorted array nums (সাইজ n) ১ থেকে n বার rotate করা হয়েছে। এই rotated array থেকে ন্যূনতম (minimum) উপাদানটি খুঁজে বের করুন। O(log n) টাইম লিমিটে করতে হবে।  \nউদাহরণ: nums = [3,4,5,1,2] → 1 | ⚡ n ≤ 5000, -5000 ≤ nums[i] ≤ 5000"}],"$L5"]}],"$L6"]}],false,false]}],"$L7"],["$L8","$L9"],"$La"]}],"isPartial":"$@b","staleTime":"$c","varyParams":null},{"rsc":"$Ld","isPartial":"$@e","staleTime":"$c","varyParams":null},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$c","varyParams":"$11"},{"rsc":"$L12","isPartial":"$@13","staleTime":"$c","varyParams":"$11"}],"isUpgradeableISRFallback":false,"a":"$@14","rootVaryParams":null,"needsRuntimeRequest":"$@15"}
+16:I[76270,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js","/dsa_prep_local_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_local_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+17:I[97367,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js"],"OutletBoundary"]
+18:"$Sreact.suspense"
+1a:I[97367,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js"],"ViewportBoundary"]
+1b:I[97367,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js"],"MetadataBoundary"]
+1c:I[27201,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js"],"IconMark"]
+1d:I[39756,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js"],"default"]
+1e:I[37457,["/dsa_prep_local_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_local_company/_next/static/chunks/1pc-zzgk61p4e.js"],"default"]
+5:["$","$L16",null,{"problemKey":"lc153"}]
+6:["$","li","lc162",{"id":"lc162","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"Find Peak Element"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","038",{"href":"/day/038/","className":"chip chip--accent","children":["plan · দিন ","০৩৮"]}]],false,["$","a",null,{"href":"https://leetcode.com/problems/find-peak-element/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 162",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],["$","$L3",null,{"inline":true,"className":"t-caption","children":"_(ঢালের দিক দেখে অর্ধেক বাদ)_"}],["$","$L3",null,{"className":"text-sm","children":"Statement: একটি 0-indexed integer array nums দেওয়া আছে। একটি peak element খুঁজে তার index রিটার্ন করুন (peak element হলো যা তার আশেপাশের প্রতিবেশীদের চেয়ে কঠোরভাবে বড়, অর্থাৎ nums[i] > nums[i-1] এবং nums[i] > nums[i+1])। O(log n) টাইমে করতে হবে।  \nউদাহরণ: nums = [1,2,3,1] → 2 | ⚡ n ≤ 1000, -2³¹ ≤ nums[i] ≤ 2³¹ - 1"}],["$","$L16",null,{"problemKey":"lc162"}]]}]
+7:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"প্যাটার্ন","children":[["$","$L2",null,{"href":"/pattern/allocation-problems/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"2.3 Allocation Problems"}]]}],["$","$L2",null,{"href":"/pattern/fast-slow-pointers/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"3.1 Fast & Slow Pointers"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+8:["$","script","script-0",{"src":"/dsa_prep_local_company/_next/static/chunks/0bza-gg8kwbbi.js","async":true}]
+9:["$","script","script-1",{"src":"/dsa_prep_local_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+a:["$","$L17",null,{"children":["$","$18",null,{"name":"Next.MetadataOutlet","children":"$@19"}]}]
+d:["$","$1","h",{"children":[null,["$","$L1a",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1b",null,{"children":["$","$18",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"2.4 Bitonic / Rotated Array — লোকাল DSA"}],["$","meta","1",{"name":"description","content":"বাংলাদেশি কোম্পানির DSA রাউন্ডের জন্য টপিক ১–৫ থেকে ৩০টা প্রবলেম — দিনে একটা, ঝালাইসহ, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/dsa_prep_local_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1c","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+f:["$","$1","c",{"children":[null,["$","$L1d",null,{"parallelRouterKey":"children","template":["$","$L1e",null,{}]}]]}]
+12:["$","$1","c",{"children":[null,["$","$L1d",null,{"parallelRouterKey":"children","template":["$","$L1e",null,{}]}]]}]
+15:true
+19:null
+c:300
+c:C
+14:0
+e:"$undefined"
+10:"$undefined"
+13:"$undefined"
+b:"$undefined"
