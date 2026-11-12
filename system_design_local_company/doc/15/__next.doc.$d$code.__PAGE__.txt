@@ -1,0 +1,111 @@
+1:"$Sreact.fragment"
+2:I[22016,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js","/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js"],""]
+3:I[82484,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js","/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js"],"default"]
+4:T262c,Distributed system-এর component গুলো একে অপরের সাথে কীভাবে কথা বলবে — এটা একটা মৌলিক ডিজাইন সিদ্ধান্ত। নিচের স্তরে আছে transport protocol (TCP/UDP), তার উপরে application protocol (HTTP), আর তার উপরে API-র শৈলী (REST, GraphQL, RPC)।
+
+---
+
+# Transport ও Application Protocol
+
+## TCP
+
+Transmission Control Protocol — **connection-oriented ও নির্ভরযোগ্য**। ডেটা পাঠানোর আগে three-way handshake দিয়ে সংযোগ স্থাপন করে, প্রতিটা packet-এর প্রাপ্তিস্বীকার (ACK) নেয়, হারানো packet পুনরায় পাঠায়, এবং packet গুলোকে সঠিক ক্রমে সাজিয়ে দেয়। সেই সাথে flow control ও congestion control দিয়ে নেটওয়ার্ককে ডুবিয়ে দেওয়া থেকে বিরত থাকে।
+
+- **সুবিধা**: যা পাঠানো হয়েছে তা পৌঁছাবে, এবং সঠিক ক্রমে পৌঁছাবে।
+- **খরচ**: handshake-এর কারণে শুরুতে বাড়তি round trip, retransmission-এর কারণে অনিয়মিত latency, এবং **head-of-line blocking** — একটা packet হারালে তার পরের সবগুলো আটকে থাকে।
+- **ব্যবহার**: HTTP, ডেটাবেস সংযোগ, ফাইল স্থানান্তর — অর্থাৎ যেখানে নির্ভুলতা অপরিহার্য (প্রায় সব)।
+
+## UDP
+
+User Datagram Protocol — **connectionless ও অনির্ভরযোগ্য**। কোনো handshake নেই, ACK নেই, retransmission নেই, ক্রমের নিশ্চয়তা নেই। শুধু packet ছুড়ে দেওয়া হয়।
+
+- **সুবিধা**: ন্যূনতম overhead ও সর্বনিম্ন latency; broadcast ও multicast সমর্থন করে।
+- **খরচ**: নির্ভরযোগ্যতা যদি লাগে, সেটা application-কেই তৈরি করতে হবে।
+- **ব্যবহার**: DNS, ভিডিও কল ও VoIP, live streaming, online gaming, metric/log পাঠানো — যেখানে দেরিতে আসা ডেটার চেয়ে হারানো ডেটাই ভালো।
+
+## HTTP
+
+Web-এর application-layer protocol — একটা request/response ভিত্তিক, **stateless** protocol। প্রতিটা request স্বয়ংসম্পূর্ণ; server আগের request-এর কথা মনে রাখে না (state রাখতে cookie/token লাগে)। এই statelessness-ই horizontal scaling সহজ করে দিয়েছে।
+
+সংস্করণগুলোর বিবর্তনটা জানা দরকার:
+- **HTTP/1.1** — প্রতি connection-এ একসাথে একটা request; browser তাই ৬টা সমান্তরাল connection খোলে।
+- **HTTP/2** — একটা connection-এ multiplexing (একসাথে অনেক request), header compression, server push। TCP-স্তরে head-of-line blocking রয়ে যায়।
+- **HTTP/3** — TCP-র বদলে QUIC (UDP-র উপর) ব্যবহার করে, ফলে head-of-line blocking দূর হয় এবং সংযোগ স্থাপন দ্রুততর হয়।
+
+---
+
+# API শৈলী
+
+## REST
+
+Representational State Transfer — resource-কেন্দ্রিক একটা architectural style। প্রতিটা resource-এর একটা URL থাকে, আর HTTP method দিয়ে কাজ প্রকাশ করা হয় (`GET` পড়া, `POST` তৈরি, `PUT/PATCH` বদলানো, `DELETE` মোছা)। Status code দিয়ে ফলাফল বোঝানো হয়।
+
+- **সুবিধা**: সর্বত্র বোঝা যায়, কোনো বিশেষ tooling লাগে না, HTTP-র caching ও proxy অবকাঠামো সরাসরি কাজে লাগে, stateless হওয়ায় scale করা সহজ।
+- **অসুবিধা**: **over-fetching** (দরকারের চেয়ে বেশি field আসে) ও **under-fetching** (একটা স্ক্রিনের জন্য ৫টা call করতে হয়)। জটিল বা nested ডেটার জন্য অদক্ষ।
+- **কখন**: পাবলিক API, CRUD-প্রধান সেবা, সাধারণ web ও mobile backend। **সন্দেহ হলে এটাই ডিফল্ট।**
+
+## GraphQL
+
+একটা query ভাষা, যেখানে client নিজেই বলে দেয় ঠিক কোন কোন field তার দরকার, এবং একটামাত্র request-এ সম্পর্কিত ডেটাও একসাথে আনতে পারে। সাধারণত একটাই endpoint (`/graphql`) থাকে, আর একটা strongly-typed schema পুরো API-র চুক্তি নির্ধারণ করে।
+
+- **সুবিধা**: over/under-fetching সমস্যা দূর হয়, front-end টিম backend-এর পরিবর্তন ছাড়াই নতুন প্রয়োজন মেটাতে পারে, schema থেকে স্বয়ংক্রিয় ডকুমেন্টেশন ও type পাওয়া যায়।
+- **অসুবিধা**: HTTP caching কঠিন (সব কিছু POST), একটা দুষ্ট query দিয়ে server-কে ডোবানো সম্ভব (query depth/complexity সীমিত করতে হয়), backend-এ **N+1 query** সমস্যা খুব সহজেই তৈরি হয় (DataLoader-এর মতো batching লাগে)।
+- **কখন**: বিভিন্ন ধরনের client (web + mobile + TV) যাদের ডেটার চাহিদা ভিন্ন, বা জটিল সম্পর্কযুক্ত ডেটা।
+
+## RPC
+
+Remote Procedure Call — মূল ধারণাটা হলো দূরের একটা function কল করাকে স্থানীয় function কলের মতো দেখানো। REST যেখানে resource-কেন্দ্রিক, RPC সেখানে **action-কেন্দ্রিক** (`createUser`, `sendEmail`, `calculateTax`)।
+
+- **সুবিধা**: এমন কাজের জন্য স্বাভাবিক যেগুলো CRUD-এ ভালোভাবে মেলে না, এবং সাধারণত দ্রুত ও সংক্ষিপ্ত।
+- **অসুবিধা**: HTTP-র semantics (method, status code, caching) হারিয়ে যায়; client ও server শক্তভাবে যুক্ত (tightly coupled) হয়ে পড়ে, তাই পাবলিক API-র জন্য কম উপযুক্ত।
+
+## gRPC
+
+Google-এর তৈরি আধুনিক RPC framework — HTTP/2-র উপর চলে এবং **Protocol Buffers** দিয়ে ডেটা binary আকারে serialize করে। `.proto` ফাইলে service ও message সংজ্ঞায়িত করলে সেখান থেকেই client ও server-এর কোড তৈরি হয়ে যায়।
+
+- **সুবিধা**: JSON-এর তুলনায় অনেক ছোট payload ও দ্রুত (de)serialization, strongly typed contract, ভাষা-নিরপেক্ষ কোড জেনারেশন, এবং চার ধরনের streaming (unary, server, client, bidirectional)।
+- **অসুবিধা**: binary বলে মানুষের পড়ার অযোগ্য (debugging কঠিন), browser থেকে সরাসরি ব্যবহার করা যায় না (gRPC-Web proxy লাগে), HTTP caching সুবিধা নেই।
+- **কখন**: **service-to-service অভ্যন্তরীণ যোগাযোগে এটাই সেরা পছন্দ** — যেখানে performance গুরুত্বপূর্ণ এবং দুই প্রান্তই আপনার নিয়ন্ত্রণে।
+
+---
+
+## দ্রুত সিদ্ধান্তের ছক
+
+| পরিস্থিতি | পছন্দ |
+|---|---|
+| পাবলিক API, বাইরের ডেভেলপার | REST |
+| ভেতরের microservice-এর মধ্যে | gRPC |
+| বিভিন্ন চাহিদার একাধিক front-end | GraphQL |
+| Server থেকে client-এ realtime push | WebSocket / SSE |
+| একমুখী realtime update (notification, feed) | SSE (সহজতর) |
+| দ্বিমুখী realtime (chat, gaming, collaboration) | WebSocket |
+| দীর্ঘ কাজ, ফলাফল পরে | Async + polling/webhook |
+
+---
+
+পূর্ববর্তী: [Asynchronism](14-asynchronism.md) · পরবর্তী: [Idempotent Operations](16-idempotent-operations.md)9:X
+e:X
+e:C
+0:{"buildId":"27zGXYGE3LrRiWgVujnSy","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"15"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Communication"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","002-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/002/","className":"chip chip--accent self-start","children":["দিন ","০০২"," · ","API কীভাবে ডিজাইন করতেন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"`srdtube` কোন API ডাকে — `search.list` আর `videos.list`: কোন method, কোন parameter, কোন status code এলে সাইট কী দেখায়; REST আর status code-এর অংশ পড়ে বন্ধ করে ৫ লাইন (ডক ১৫)"}]]}],["$","li","017-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/017/","className":"chip chip--accent self-start","children":["দিন ","০১৭"," · ","কোন সিদ্ধান্ত কেন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"সেকশন ৩ — **সিদ্ধান্ত**, টেবিলে (কী · কেন · খরচ): ৫০-id-এর batch, auto-pagination বন্ধ, কোডে fallback API key; প্রতিটায় খরচটা সৎভাবে (ডক ১৫)"}]]}],["$","li","025-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/025/","className":"chip chip--accent self-start","children":["দিন ","০২৫"," · ","API আর monitoring"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"বাকি দুটো — *\"API কীভাবে ডিজাইন করতেন?\"* · *\"সমস্যা হলে বুঝবেন কীভাবে?\"* — doc বন্ধ, প্রতিটা ২ মিনিট, রেকর্ড (ডক ১৫ · ডক ১৮)"}]]}]]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"ViewportBoundary"]
+17:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"MetadataBoundary"]
+18:I[27201,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"IconMark"]
+19:I[39756,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default"]
+1a:I[37457,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/14/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"14 Asynchronism"}]]}],["$","$L2",null,{"href":"/doc/16/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"16 Idempotent Operations"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক 15 · Communication — লোকাল system design"}],["$","meta","1",{"name":"description","content":"বাংলাদেশি কোম্পানির কারিগরি আলোচনার system design অংশের জন্য — সাতটা ডক আর নিজের প্রজেক্টের একটা design doc, ২৮ দিনে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/system_design_local_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

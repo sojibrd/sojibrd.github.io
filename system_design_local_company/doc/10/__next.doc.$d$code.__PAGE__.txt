@@ -1,0 +1,65 @@
+1:"$Sreact.fragment"
+2:I[22016,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js","/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js"],""]
+3:I[82484,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js","/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js"],"default"]
+4:T178f,Web server layer থেকে application layer আলাদা করলে দুটো স্তর স্বাধীনভাবে scale করা যায়। Web server (বা API gateway) সংযোগ, TLS, static content ও routing সামলায়; application server-রা ব্যবসায়িক যুক্তি চালায়। Read ট্রাফিক বাড়লে শুধু web layer বাড়ান, ভারী computation বাড়লে শুধু application layer বাড়ান।
+
+এই আলাদা করার আরেকটা সুফল হলো **stateless** design-কে বাধ্যতামূলক করা। Application server-এ কোনো session বা local state না থাকলে যেকোনো request যেকোনো server-এ যেতে পারে — আর তখনই horizontal scaling সত্যিকারের কাজ করে। State যায় Redis-এর মতো shared store বা database-এ।
+
+## Microservices
+
+Microservices architecture-এ অ্যাপটাকে ছোট ছোট, স্বাধীনভাবে deploy করা যায় এমন service-এ ভাগ করা হয়, যাদের প্রত্যেকের নিজস্ব ব্যবসায়িক দায়িত্ব ও (আদর্শভাবে) নিজস্ব database থাকে। যেমন — User service, Order service, Payment service, Notification service।
+
+**সুবিধা**:
+- প্রতিটা service আলাদা করে deploy ও scale করা যায় — যে অংশে চাপ, শুধু সেটা বাড়ান।
+- টিমগুলো স্বাধীনভাবে কাজ করতে পারে, প্রতি service-এ আলাদা ভাষা/প্রযুক্তি বাছাই সম্ভব।
+- Fault isolation — একটা service মরলে (ভালো ডিজাইন থাকলে) পুরো সিস্টেম পড়ে না।
+
+**খরচ (এগুলোকে হালকাভাবে নেবেন না)**:
+- **Distributed system-এর জটিলতা** — network failure, partial failure, retry, timeout, tracing — সব এসে যায়।
+- **Data consistency** — একাধিক service-এর মধ্যে transaction করতে হলে Saga-র মতো প্যাটার্ন লাগে; সহজ `JOIN` আর করা যায় না।
+- **Availability গুণিতকভাবে কমে** — request path-এ ৫টা service, প্রতিটা 99.9% হলে মোট 99.5%।
+- **Operational overhead** — CI/CD, monitoring, service mesh, on-call — সবই বহুগুণ।
+
+**বাস্তব পরামর্শ**: প্রায় সব সফল বড় সিস্টেম শুরু হয়েছে **modular monolith** দিয়ে, তারপর যেখানে সত্যিকারের প্রয়োজন হয়েছে সেই অংশটা service হিসেবে বের করা হয়েছে। প্রথম দিনেই microservice দিয়ে শুরু করা বেশিরভাগ টিমের জন্য ভুল সিদ্ধান্ত — কারণ শুরুতে আপনি জানেনই না সঠিক সীমারেখা কোথায়।
+
+## Service Discovery
+
+Service গুলো যখন স্বয়ংক্রিয়ভাবে scale up/down হয়, container পুনরায় চালু হয়, IP বদলায় — তখন "Order service এখন কোথায় চলছে?" এই প্রশ্নের উত্তর hardcode করা অসম্ভব। Service discovery এই সমস্যার সমাধান।
+
+একটা **service registry** (Consul, etcd, ZooKeeper, বা Kubernetes-এর নিজস্ব ব্যবস্থা) রাখে কোন service-এর কোন instance কোন address-এ চলছে। Instance গুলো চালু হলে নিজেদের register করে এবং নিয়মিত **heartbeat/health check** পাঠায়; সাড়া না দিলে registry থেকে বাদ পড়ে।
+
+খোঁজার দুটো ধরন:
+
+- **Client-side discovery**: client নিজে registry-তে জিজ্ঞেস করে instance-এর তালিকা নেয়, তারপর নিজেই একটা বাছে (load balancing client-এ)। কম network hop, কিন্তু প্রতিটা client-এ discovery logic লাগে।
+- **Server-side discovery**: client শুধু একটা স্থির address-এ (load balancer বা Kubernetes Service) request পাঠায়, সেটাই সঠিক instance-এ পাঠিয়ে দেয়। Client সহজ থাকে — এটাই আজকের প্রচলিত পদ্ধতি।
+
+**Health check** এখানে কেন্দ্রীয়। দুই ধরনের check আলাদা রাখা জরুরি — **liveness** (process কি বেঁচে আছে? না থাকলে restart করো) এবং **readiness** (এটা কি এখন ট্রাফিক নিতে প্রস্তুত? না হলে শুধু ট্রাফিক বন্ধ করো, মেরো না)। এই দুটো গুলিয়ে ফেললে সাময়িকভাবে ব্যস্ত service গুলো অকারণে restart হতে থাকে।
+
+---
+
+পূর্ববর্তী: [Content Delivery Networks](09-content-delivery-networks.md) · পরবর্তী: [Load Balancers](11-load-balancers.md)9:X
+e:X
+e:C
+0:{"buildId":"27zGXYGE3LrRiWgVujnSy","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"10"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Application Layer"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","div",null,{"className":"surface-well t-caption p-4 text-center","children":"এই পথের কোনো দিনে এই ডক নেই — জেনেশুনে বাদ, দরকার হলে পরে। 🧠 Pareto principle"}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"ViewportBoundary"]
+17:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"MetadataBoundary"]
+18:I[27201,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"IconMark"]
+19:I[39756,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default"]
+1a:I[37457,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/09/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"09 Content Delivery Networks (CDN)"}]]}],["$","$L2",null,{"href":"/doc/11/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"11 Load Balancers"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক 10 · Application Layer — লোকাল system design"}],["$","meta","1",{"name":"description","content":"বাংলাদেশি কোম্পানির কারিগরি আলোচনার system design অংশের জন্য — সাতটা ডক আর নিজের প্রজেক্টের একটা design doc, ২৮ দিনে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/system_design_local_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

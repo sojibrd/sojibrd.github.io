@@ -1,0 +1,74 @@
+1:"$Sreact.fragment"
+2:I[22016,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js","/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js"],""]
+3:I[82484,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js","/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js"],"default"]
+4:T18f4,CDN হলো ভৌগোলিকভাবে ছড়িয়ে থাকা proxy server-এর একটা নেটওয়ার্ক, যারা user-এর কাছাকাছি থেকে content সার্ভ করে। মূল যুক্তিটা পদার্থবিজ্ঞানের — আলোর গতি ধ্রুবক। ঢাকার একজন user যদি ভার্জিনিয়ার server থেকে ফাইল নেয়, শুধু round trip-এই ~250ms চলে যাবে, আপনার server যত দ্রুতই হোক। কিন্তু সিঙ্গাপুরের edge node থেকে দিলে সেটা ~40ms।
+
+CDN তিনটা জিনিস একসাথে দেয়:
+- **কম latency** — content user-এর কাছাকাছি থাকে।
+- **কম origin load** — বেশিরভাগ request আপনার server পর্যন্ত পৌঁছায়ই না, তাই bandwidth ও compute খরচ নাটকীয়ভাবে কমে।
+- **বেশি availability** — origin ডাউন থাকলেও CDN cached content দিতে পারে; DDoS ট্রাফিকও edge-এ শোষিত হয়।
+
+ঐতিহাসিকভাবে CDN শুধু static file (ছবি, CSS, JS, ভিডিও) এর জন্য ছিল, কিন্তু আধুনিক CDN dynamic content-ও accelerate করে (TLS termination ও optimized backbone routing দিয়ে) এবং edge-এ কোড চালাতে পারে।
+
+## Push CDN
+
+আপনি **নিজে** content CDN-এ আপলোড করেন এবং কখন কী থাকবে তা নিয়ন্ত্রণ করেন। Content বদলালে আপনাকেই আবার push করতে হয় বা invalidate করতে হয়।
+
+- **সুবিধা**: প্রথম user-ও cache hit পায় (কোনো "cold start" নেই), origin-এ ট্রাফিক প্রায় শূন্য, ঠিক কী কী distribute হচ্ছে তার পূর্ণ নিয়ন্ত্রণ।
+- **অসুবিধা**: আপলোড ও invalidation-এর logic আপনাকে লিখতে হয়; সব content সব edge-এ রাখা হয় বলে storage খরচ বেশি।
+- **কখন উপযুক্ত**: ছোট বা মাঝারি আকারের content set যা কদাচিৎ বদলায় — সাইটের static asset, app-এর release build, বড় software download।
+
+## Pull CDN
+
+CDN **নিজে থেকে** origin থেকে content টেনে আনে। প্রথম user যখন কোনো ফাইল চায়, edge-এ সেটা না থাকলে (cache miss) CDN আপনার origin থেকে এনে user-কে দেয় এবং কপি রেখে দেয়। পরের user-রা cache hit পায়। TTL শেষ হলে কপিটা বাতিল হয় বা revalidate হয়।
+
+- **সুবিধা**: setup প্রায় শূন্য — শুধু origin দেখিয়ে দিন। যেটা চাওয়া হয় শুধু সেটাই cache হয়, তাই storage কম লাগে। নতুন content স্বয়ংক্রিয়ভাবে চলে আসে।
+- **অসুবিধা**: প্রথম request ধীর (cache miss), আর ভুল TTL দিলে user পুরনো content দেখতে পারে। Origin অবশ্যই available থাকতে হবে।
+- **কখন উপযুক্ত**: বেশিরভাগ ওয়েবসাইট, বিশাল content library (যার অল্প অংশই জনপ্রিয়), ঘন ঘন বদলানো site। **বাস্তবে ৯০%+ ক্ষেত্রে এটাই সঠিক পছন্দ।**
+
+## Cache Invalidation ও Versioning
+
+CDN ব্যবহারে সবচেয়ে বড় বাস্তব সমস্যা হলো — content আপডেট করলাম, কিন্তু user পুরনোটাই দেখছে। দুটো সমাধান আছে:
+
+**১. Purge/Invalidate API** — CDN-কে বলা "এই URL-টা ভুলে যাও"। কাজ করে, কিন্তু সব edge-এ ছড়াতে সময় লাগে এবং অনেক provider-এ rate limit থাকে।
+
+**২. Cache busting / versioned URL** — ফাইলের নামে content hash বসিয়ে দিন: `app.a3f9c2.js`। Content বদলালে নামই বদলে যায়, তাই invalidation-এর দরকারই পড়ে না, আর TTL এক বছর রাখা যায়। এটাই আধুনিক পদ্ধতি এবং সবচেয়ে নির্ভরযোগ্য।
+
+## গুরুত্বপূর্ণ HTTP Cache Header
+
+CDN-এর আচরণ মূলত origin-এর পাঠানো header দিয়ে নিয়ন্ত্রিত হয়:
+
+- `Cache-Control: public, max-age=31536000, immutable` — versioned static asset-এর জন্য।
+- `Cache-Control: no-store` — ব্যক্তিগত/সংবেদনশীল response, কখনো cache হবে না।
+- `s-maxage` — শুধু CDN-এর জন্য আলাদা TTL (browser-এর থেকে ভিন্ন রাখা যায়)।
+- `stale-while-revalidate` — TTL শেষ হলেও পুরনোটা দিয়ে দাও, পেছনে নতুনটা আনো। Latency-র জন্য চমৎকার।
+- `Vary` — কোন header-এর ভিত্তিতে আলাদা cache entry হবে (যেমন `Accept-Encoding`)। সাবধান: `Vary: Cookie` দিলে cache প্রায় অকেজো হয়ে যায়।
+
+---
+
+পূর্ববর্তী: [Domain Name System](08-domain-name-system.md) · পরবর্তী: [Application Layer](10-application-layer.md)9:X
+e:X
+e:C
+0:{"buildId":"27zGXYGE3LrRiWgVujnSy","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"09"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Content Delivery Networks (CDN)"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","010-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/010/","className":"chip chip--accent self-start","children":["দিন ","০১০"," · ","CDN"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"`srdtube`-এর JS আর CSS কোথা থেকে আসে — GitHub Pages-এর CDN; কী cache হয়, নতুন deploy-এ ফাইলের নাম বদলায় কেন; frontend ইঞ্জিনিয়ারের সবচেয়ে কাছের ডক (ডক ০৯)"}]]}],["$","li","019-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/019/","className":"chip chip--accent self-start","children":["দিন ","০১৯"," · ","গঠন"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"সেকশন ৫ — **গঠন:** browser → GitHub Pages (static ফাইল, CDN) → YouTube API; ASCII-তে তিন বাক্স, তীরের পাশে কী যায়; তারপর কাগজে না দেখে একবার (ডক ০৯)"}]]}]]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"ViewportBoundary"]
+17:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"MetadataBoundary"]
+18:I[27201,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"IconMark"]
+19:I[39756,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default"]
+1a:I[37457,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/08/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"08 Domain Name System (DNS)"}]]}],["$","$L2",null,{"href":"/doc/10/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"10 Application Layer"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক 09 · Content Delivery Networks (CDN) — লোকাল system design"}],["$","meta","1",{"name":"description","content":"বাংলাদেশি কোম্পানির কারিগরি আলোচনার system design অংশের জন্য — সাতটা ডক আর নিজের প্রজেক্টের একটা design doc, ২৮ দিনে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/system_design_local_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

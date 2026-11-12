@@ -1,0 +1,21 @@
+1:"$Sreact.fragment"
+2:I[73531,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js","/system_design_local_company/_next/static/chunks/0z3r7my67r9c6.js"],"default"]
+3:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"ViewportBoundary"]
+9:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"MetadataBoundary"]
+a:I[27201,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"IconMark"]
+c:I[39756,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default"]
+d:I[37457,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default"]
+7:X
+f:X
+f:C
+0:{"buildId":"27zGXYGE3LrRiWgVujnSy","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"সিঙ্ক"}],["$","p",null,{"className":"t-body measure text-sm","children":"একাধিক ডিভাইসে একই progress দেখতে এই key ব্যবহার করুন।"}]]}],["$","$L2",null,{}]],[["$","script","script-0",{"src":"/system_design_local_company/_next/static/chunks/0z3r7my67r9c6.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"সিঙ্ক — লোকাল system design"}],["$","meta","1",{"name":"description","content":"বাংলাদেশি কোম্পানির কারিগরি আলোচনার system design অংশের জন্য — সাতটা ডক আর নিজের প্রজেক্টের একটা design doc, ২৮ দিনে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/system_design_local_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$La","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":"$@b","staleTime":"$7","varyParams":null},{"rsc":["$","$1","c",{"children":[null,["$","$Lc",null,{"parallelRouterKey":"children","template":["$","$Ld",null,{}]}]]}],"isPartial":"$@e","staleTime":"$7","varyParams":"$f"}],"isUpgradeableISRFallback":false,"a":"$@10","rootVaryParams":null,"needsRuntimeRequest":"$@11"}
+5:null
+11:true
+7:300
+7:C
+10:0
+b:"$undefined"
+e:"$undefined"
+6:"$undefined"

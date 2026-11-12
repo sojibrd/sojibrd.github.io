@@ -1,0 +1,136 @@
+1:"$Sreact.fragment"
+2:I[22016,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js","/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js"],""]
+3:I[82484,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js","/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js"],"default"]
+4:T3ae4,প্রায় প্রতিটা সিস্টেমের চূড়ান্ত bottleneck হলো database. Application server গুলো stateless হলে সহজেই বাড়ানো যায়, কিন্তু state যেখানে থাকে সেটাকে scale করাই system design-এর সবচেয়ে কঠিন অংশ। এই কারণে ডেটা সংরক্ষণের সিদ্ধান্তগুলো architecture-এর সবচেয়ে ব্যয়বহুল ও কঠিনভাবে বদলানো সিদ্ধান্ত।
+
+## SQL vs NoSQL
+
+**RDBMS (SQL)** — ডেটা table-এ সারি ও কলামে, আগে থেকে নির্ধারিত schema, এবং SQL দিয়ে শক্তিশালী query (JOIN, aggregation)। এর মূল প্রতিশ্রুতি **ACID**:
+
+- **Atomicity** — transaction পুরোটা হবে অথবা কিছুই হবে না।
+- **Consistency** — transaction শেষে database সবসময় বৈধ অবস্থায় থাকবে (constraint ভাঙবে না)।
+- **Isolation** — একসাথে চলা transaction গুলো একে অপরকে বিভ্রান্ত করবে না।
+- **Durability** — commit হয়ে গেলে ডেটা টিকে থাকবে, বিদ্যুৎ চলে গেলেও।
+
+**NoSQL** — flexible বা schema-less, সাধারণত horizontal scaling-কে মাথায় রেখে তৈরি, এবং প্রায়ই **BASE** (Basically Available, Soft state, Eventually consistent) মডেল অনুসরণ করে। JOIN সাধারণত নেই — বদলে ডেটা denormalize করে "যেভাবে পড়া হবে সেভাবেই" সংরক্ষণ করা হয়।
+
+**কীভাবে বাছবেন**
+
+SQL বেছে নিন যখন — ডেটার মধ্যে জটিল সম্পর্ক আছে, transaction-এর নির্ভুলতা অপরিহার্য (আর্থিক, inventory), query-র ধরন আগে থেকে জানা নেই (ad-hoc reporting), অথবা ডেটার আকার একটা বড় মেশিনে ধরে যায়।
+
+NoSQL বেছে নিন যখন — বিপুল write throughput দরকার, ডেটার আকার একক মেশিনের সীমা ছাড়ায়, schema দ্রুত বদলায় বা অসম, access pattern খুব সরল ও আগে থেকে জানা (key দিয়ে পড়া), অথবা যা লাগবে তা হলো সীমাহীন horizontal scale।
+
+**একটা সতর্কতা**: আধুনিক PostgreSQL/MySQL অবিশ্বাস্যভাবে দ্রুত এবং JSON column-এর মাধ্যমে অনেকটা NoSQL-এর নমনীয়তাও দেয়। "আমাদের scale লাগবে" ভেবে দিনের শুরুতেই NoSQL বেছে নেওয়া একটা সাধারণ ও ব্যয়বহুল ভুল। **সন্দেহ হলে relational দিয়ে শুরু করুন।**
+
+---
+
+# RDBMS Scaling কৌশল
+
+Relational database একটা মেশিনে চলতে চলতে যখন সীমায় পৌঁছায়, তখন নিচের কৌশলগুলো — সাধারণত এই ক্রমেই — প্রয়োগ করা হয়।
+
+## Replication
+
+একই ডেটার একাধিক কপি রাখা। **Master-Slave** (primary সব write নেয়, replica-রা read সার্ভ করে) সবচেয়ে প্রচলিত, কারণ বেশিরভাগ অ্যাপ read-heavy। **Master-Master** write-ও ছড়ায় কিন্তু conflict resolution-এর জটিলতা আনে। বিস্তারিত: [Availability Patterns](06-availability-patterns.md)।
+
+মনে রাখার মূল বিষয় — replication **read scale করে, write নয়**, এবং **replication lag**-এর কারণে replica থেকে পড়লে সামান্য পুরনো ডেটা পেতে পারেন। তাই লেখার পরপরই পড়া দরকার হলে ওই query টা primary-তে পাঠান।
+
+## Federation (Functional Partitioning)
+
+Database কে **function অনুযায়ী** ভাগ করা — একটা database-এ user, আরেকটায় product, আরেকটায় forum। প্রতিটা এখন ছোট, তাই বেশি ডেটা memory/cache-এ ধরে, write ট্রাফিক তিন ভাগে ভাগ হয়, আর প্রতিটাকে আলাদা করে scale করা যায়।
+
+- **অসুবিধা**: দুই database-এর table-এর মধ্যে JOIN করা যায় না, তাই application-এ ডেটা জোড়া লাগাতে হয়। একাধিক database জুড়ে transaction-ও কঠিন।
+- এটাই বাস্তবে microservice-এ যাওয়ার প্রথম ধাপ, এবং sharding-এর চেয়ে অনেক সহজ — তাই আগে এটা বিবেচনা করুন।
+
+## Sharding (Horizontal Partitioning)
+
+একই table-এর সারিগুলোকে একাধিক database-এ ভাগ করা — যেমন user ID-র ভিত্তিতে user 1–1M একটা shard-এ, 1M–2M আরেকটায়। এটাই write scale করার প্রকৃত উপায়, এবং সবচেয়ে জটিল।
+
+**Shard key নির্বাচনই সবচেয়ে গুরুত্বপূর্ণ সিদ্ধান্ত।** ভালো shard key ডেটা ও ট্রাফিক সমানভাবে ছড়ায় এবং বেশিরভাগ query একটামাত্র shard-এ সীমাবদ্ধ রাখে। খারাপ key দিলে **hotspot** তৈরি হয় (একটা shard-এ ৮০% ট্রাফিক) — যা sharding-এর পুরো উদ্দেশ্যই ব্যর্থ করে।
+
+সাধারণ কৌশল: **range-based** (সহজ, কিন্তু hotspot-প্রবণ), **hash-based** (সমান বণ্টন, কিন্তু range query অসম্ভব), **directory-based** (একটা lookup table shard ঠিক করে — নমনীয়, কিন্তু lookup নিজেই একটা bottleneck ও SPOF)।
+
+**খরচ**: cross-shard JOIN ও aggregation অত্যন্ত ব্যয়বহুল; distributed transaction প্রায় অসম্ভব; shard পুনর্বণ্টন (resharding) একটা বড় অপারেশন — তাই **consistent hashing** বা প্রচুর virtual shard আগে থেকে তৈরি রাখা বুদ্ধিমানের কাজ। Sharding-কে শেষ অস্ত্র হিসেবে দেখুন, প্রথম নয়।
+
+## Denormalization
+
+Normalization ডেটার পুনরাবৃত্তি এড়ায়, কিন্তু পড়ার সময় ব্যয়বহুল JOIN বাধ্যতামূলক করে। Denormalization হলো ইচ্ছাকৃতভাবে কিছু ডেটা একাধিক জায়গায় রেখে দেওয়া, যাতে read-এ JOIN না লাগে — যেমন `orders` table-এ `user_name` কপি করে রাখা, বা comment সংখ্যা গুনে না রেখে একটা counter column-এ রাখা।
+
+**Trade-off**: read দ্রুত হয়, কিন্তু write জটিল ও ধীর হয় (একই ডেটা একাধিক জায়গায় আপডেট করতে হয়) এবং ডেটা অসামঞ্জস্যপূর্ণ হওয়ার ঝুঁকি তৈরি হয়। Read:write অনুপাত যত বেশি, denormalization তত বেশি যুক্তিযুক্ত। Sharded সিস্টেমে এটা প্রায় অনিবার্য, কারণ cross-shard JOIN সম্ভব নয়। **Materialized view** এই কাজটা database-এর ভেতরেই করার একটা পরিচ্ছন্ন উপায়।
+
+## SQL Tuning
+
+Architecture বদলানোর আগে সবচেয়ে সস্তা ও কার্যকর কাজটা প্রায়ই এটাই। মাপুন, তারপর ঠিক করুন — অনুমান করে নয়।
+
+- **প্রথমে মাপুন**: slow query log চালু করুন, `EXPLAIN`/`EXPLAIN ANALYZE` দিয়ে query plan দেখুন। খুঁজুন full table scan, ভুল index ব্যবহার, ও ভুল row estimate।
+- **Index**: `WHERE`, `JOIN`, `ORDER BY`-তে ব্যবহৃত column-এ index দিন। একাধিক column-এ query হলে **composite index** দিন (ক্রম গুরুত্বপূর্ণ)। মনে রাখুন index পড়া দ্রুত করে কিন্তু প্রতিটা write ধীর করে ও জায়গা নেয় — তাই অপ্রয়োজনীয় index বাদ দিন।
+- **Query ঠিক করুন**: `SELECT *` এড়িয়ে দরকারি column নিন। **N+1 query** সমস্যা খুঁজে বের করুন (ORM-এর সবচেয়ে সাধারণ ফাঁদ) — একটা `JOIN` বা batch fetch দিয়ে বদলান। বিশাল `OFFSET`-এর বদলে keyset (cursor) pagination ব্যবহার করুন।
+- **Schema**: উপযুক্ত সবচেয়ে ছোট data type বাছুন, বড় VARCHAR-এর বদলে ENUM/lookup, আর খুব বড় table-এ **partitioning** বিবেচনা করুন।
+- **Connection pooling** ব্যবহার করুন — প্রতিটা নতুন database connection ব্যয়বহুল।
+
+---
+
+# NoSQL-এর ধরনসমূহ
+
+## Key-Value Store
+
+সবচেয়ে সরল মডেল: একটা key, একটা value (যা database-এর কাছে অস্বচ্ছ blob)। O(1) সময়ে read/write, অসাধারণ throughput, সহজে shard করা যায়।
+
+- **সীমাবদ্ধতা**: value-র ভেতরের কিছু দিয়ে query করা যায় না, শুধু key দিয়েই খোঁজা যায়।
+- **ব্যবহার**: cache, session store, rate limiter, feature flag, leaderboard, shopping cart।
+- **উদাহরণ**: Redis, Memcached, DynamoDB, etcd।
+
+## Document Store
+
+Key-value-র উন্নত রূপ — value টা একটা structured document (JSON/BSON/XML), এবং database সেটার ভেতরটা বোঝে। ফলে document-এর field দিয়ে query ও index করা যায়।
+
+- **সুবিধা**: flexible schema (প্রতিটা document আলাদা গঠনের হতে পারে), object-oriented কোডের সাথে স্বাভাবিকভাবে মেলে, একটা entity-র সব ডেটা একসাথে থাকায় read দ্রুত।
+- **সীমাবদ্ধতা**: জটিল JOIN দুর্বল বা অনুপস্থিত; schema-হীনতা মানে বৈধতার দায় application-এর ঘাড়ে।
+- **ব্যবহার**: content management, product catalog, user profile, event log।
+- **উদাহরণ**: MongoDB, CouchDB, Firestore, Elasticsearch।
+
+## Wide Column Store
+
+ডেটা row key ও column family দিয়ে সংগঠিত; প্রতিটা row-তে ভিন্ন ভিন্ন column থাকতে পারে (লক্ষ লক্ষ column পর্যন্ত)। ডিজাইনই করা হয়েছে বিশাল write throughput ও পাহাড়সমান ডেটার জন্য, এবং একাধিক datacenter-এ ছড়ানোর জন্য।
+
+- **সুবিধা**: অসাধারণ write performance ও linear scalability, কোনো single point of failure নেই (masterless), tunable consistency।
+- **সীমাবদ্ধতা**: **query pattern আগে থেকে জেনে schema বানাতে হয়** — এখানে ডেটা মডেল query-কে অনুসরণ করে, উল্টোটা নয়। Ad-hoc query কার্যত অসম্ভব।
+- **ব্যবহার**: time-series ও IoT ডেটা, message history, activity feed, বিশাল আকারের logging।
+- **উদাহরণ**: Cassandra, HBase, ScyllaDB, Bigtable।
+
+## Graph Databases
+
+ডেটাকে node (entity) ও edge (সম্পর্ক) হিসেবে সংরক্ষণ করে, যেখানে সম্পর্ক নিজেই প্রথম শ্রেণির নাগরিক। যে query গুলো SQL-এ বহুস্তরের recursive JOIN দাবি করে, এখানে সেগুলো স্বাভাবিক ও দ্রুত।
+
+- **সুবিধা**: গভীর সম্পর্ক traverse করা অত্যন্ত দ্রুত ("আমার বন্ধুর বন্ধুরা যারা এই শহরে থাকে"), সম্পর্কের মডেল স্বজ্ঞাত।
+- **সীমাবদ্ধতা**: horizontal scaling কঠিন (graph কে ভাগ করা কঠিন), তুলনামূলকভাবে বিশেষায়িত ও কম প্রচলিত।
+- **ব্যবহার**: social network, recommendation engine, fraud detection, knowledge graph, network topology।
+- **উদাহরণ**: Neo4j, Amazon Neptune, ArangoDB।
+
+---
+
+পূর্ববর্তী: [Load Balancers](11-load-balancers.md) · পরবর্তী: [Caching](13-caching.md)9:X
+e:X
+e:C
+0:{"buildId":"27zGXYGE3LrRiWgVujnSy","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"12"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Databases"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","003-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/003/","className":"chip chip--accent self-start","children":["দিন ","০০৩"," · ","database"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"`srdtube`-এ database নেই — কেন নেই, এক লাইনে; থাকলে SQL না NoSQL, কোন column-এ index, কেন; অফিসের কাজের একটা টেবিল দিয়ে মিলিয়ে ৫ লাইন (ডক ১২)"}]]}],["$","li","018-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/018/","className":"chip chip--accent self-start","children":["দিন ","০১৮"," · ","যা বাদ দিলাম"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"সেকশন ৪ — **যা ইচ্ছাকৃতভাবে বাদ:** backend, database, login, cache — প্রতিটায় কেন বাদ আর **কখন ফিরবেন** (যেমন \"quota বারবার শেষ হলে cache\") (ডক ১২ · ডক ১৩)"}]]}]]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"ViewportBoundary"]
+17:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"MetadataBoundary"]
+18:I[27201,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"IconMark"]
+19:I[39756,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default"]
+1a:I[37457,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/11/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"11 Load Balancers"}]]}],["$","$L2",null,{"href":"/doc/13/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"13 Caching"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক 12 · Databases — লোকাল system design"}],["$","meta","1",{"name":"description","content":"বাংলাদেশি কোম্পানির কারিগরি আলোচনার system design অংশের জন্য — সাতটা ডক আর নিজের প্রজেক্টের একটা design doc, ২৮ দিনে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/system_design_local_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

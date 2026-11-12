@@ -1,0 +1,111 @@
+1:"$Sreact.fragment"
+2:I[41681,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default"]
+3:I[39756,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default"]
+4:I[37457,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default"]
+b:I[68027,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default",1]
+:HL["/system_design_local_company/_next/static/chunks/0rjck_o2q5l_u.css","style"]
+:HL["/system_design_local_company/_next/static/media/490cbca7f386131e-s.p.1zrwl0c4yv3pr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/4b23c5ee480ee380-s.p.0qqufx6vw52v_.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/520c929efec0b33f-s.p.3arxh35s5-kc0.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/5e4d537aaa9e154b-s.p.1ewykk74tw0il.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/6a1d08cf467f0848-s.p.240fzfer9e_rh.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/6ea8d1bb8ea4af7a-s.p.1kk_wfe381bov.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/70bc3e132a0a741e-s.p.3t6q91iet4nsy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/70c15719a04fff13-s.p.376yc-xi7tht7.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+9:X
+0:{"P":null,"c":["","doc","18",""],"q":"","i":false,"f":[[["",{"children":["doc",{"children":[["code","18","d",[]],{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/system_design_local_company/_next/static/chunks/0rjck_o2q5l_u.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"bn","className":"archivo_aabc0850-module__cplg6G__variable archivo_black_cc57a6c8-module__12WbNa__variable barlow_semi_condensed_66b51823-module__HKMkGa__variable jetbrains_mono_ce945e87-module__HTLkQq__variable noto_sans_bengali_ae4f5577-module__v5t5fW__variable h-full antialiased","children":["$","body",null,{"className":"surface-app flex min-h-full flex-col","children":[["$","a",null,{"href":"#main-content","className":"control control--primary sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 px-3 py-1.5 text-xs","children":"মূল কনটেন্টে যান"}],["$","$L2",null,{"blocks":[{"num":1,"slug":"seven-questions","name":"সাতটা প্রশ্ন, নিজের প্রজেক্টে","range":"দিন ০০১–০১৪ · ডক ০৯, ১১–১৫, ১৮ · functional লেভেল","dip":false,"check":"সাতটা ডকের প্রতিটায় নিজের প্রজেক্টের একটা উদাহরণ লেখা, আর দুটো simulation-এর functional লেভেল কাগজে আঁকা?","days":[{"num":1,"code":"001","label":"০০১","title":"ছয় সেকশনের ছাঁচ","taskIds":["d001-z07vjb","d001-1ilczbt"]},{"num":2,"code":"002","label":"০০২","title":"API কীভাবে ডিজাইন করতেন","taskIds":["d002-16r2alq"]},{"num":3,"code":"003","label":"০০৩","title":"database","taskIds":["d003-1oj7loz"]},{"num":4,"code":"004","label":"০০৪","title":"cache কোথায়","taskIds":["d004-yhwbsv"]},{"num":5,"code":"005","label":"০০৫","title":"সবচেয়ে সহজ কাজ-করা ডিজাইন","taskIds":["d005-hi0tqd"]},{"num":6,"code":"006","label":"০০৬","title":"সপ্তাহের চারটা, না দেখে","taskIds":["d006-um7uyd"]},{"num":7,"code":"007","label":"০০৭","title":"সপ্তাহের হিসাব","taskIds":["d007-1djddpp"]},{"num":8,"code":"008","label":"০০৮","title":"ট্রাফিক বাড়লে","taskIds":["d008-1cocy6n"]},{"num":9,"code":"009","label":"০০৯","title":"queue কেন","taskIds":["d009-97hhyw"]},{"num":10,"code":"010","label":"০১০","title":"CDN","taskIds":["d010-fdqeip"]},{"num":11,"code":"011","label":"০১১","title":"সমস্যা হলে বুঝবেন কীভাবে","taskIds":["d011-wh1g35"]},{"num":12,"code":"012","label":"০১২","title":"rate limiter-এর সহজ রূপ","taskIds":["d012-1ykz0to"]},{"num":13,"code":"013","label":"০১৩","title":"সাতটা ডক, এলোমেলো","taskIds":["d013-1vst2tu"]},{"num":14,"code":"014","label":"০১৪","title":"ব্লক ১-এর হিসাব","taskIds":["d014-u0h65f"]}]},{"num":2,"slug":"design-doc","name":"srdtube-এর design doc","range":"দিন ০১৫–০২৮ · ছয় সেকশন · চারটা লোকাল প্রশ্ন মুখে","dip":true,"check":"ছয় সেকশনের design doc `srdtube`-এর `DESIGN.md`-এ, আর চারটা লোকাল প্রশ্নের রেকর্ডিং — সহজ উত্তর আগে?","days":[{"num":15,"code":"015","label":"০১৫","title":"কী বানিয়েছি","taskIds":["d015-1yqg5jc"]},{"num":16,"code":"016","label":"০১৬","title":"কতজন ধরে","taskIds":["d016-u7jkmu"]},{"num":17,"code":"017","label":"০১৭","title":"কোন সিদ্ধান্ত কেন","taskIds":["d017-1knuunn"]},{"num":18,"code":"018","label":"০১৮","title":"যা বাদ দিলাম","taskIds":["d018-1mlaczd"]},{"num":19,"code":"019","label":"০১৯","title":"গঠন","taskIds":["d019-1nno4ei"]},{"num":20,"code":"020","label":"০২০","title":"পাঁচ সেকশন, না দেখে","taskIds":["d020-acaoaj"]},{"num":21,"code":"021","label":"০২১","title":"সপ্তাহের হিসাব","taskIds":["d021-gpckxb"]},{"num":22,"code":"022","label":"০২২","title":"কোথায় ভাঙবে","taskIds":["d022-1xsmcne"]},{"num":23,"code":"023","label":"০২৩","title":"দশ গুণ ব্যবহারকারী","taskIds":["d023-nxkfo8"]},{"num":24,"code":"024","label":"০২৪","title":"ট্রাফিক আর cache","taskIds":["d024-1vlzsp"]},{"num":25,"code":"025","label":"০২৫","title":"API আর monitoring","taskIds":["d025-1p15gy8"]},{"num":26,"code":"026","label":"০২৬","title":"দশ মিনিট টানা","taskIds":["d026-2o0tad"]},{"num":27,"code":"027","label":"০২৭","title":"এলোমেলো তিনটা","taskIds":["d027-h5cvy"]},{"num":28,"code":"028","label":"০২৮","title":"থামা","taskIds":["d028-4mf85n"]}]}],"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],"$L5"],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]}]]}],{"children":["$L6",{"children":["$L7",{"children":["$L8",{},null,false,null]},null,false,"$9"]},null,false,"$9"]},null,false,null],"$La",false]],"m":"$undefined","G":["$b",["$Lc"]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"27zGXYGE3LrRiWgVujnSy"}
+e:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"OutletBoundary"]
+f:"$Sreact.suspense"
+11:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"ViewportBoundary"]
+13:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"MetadataBoundary"]
+5:["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]
+6:["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+7:["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+8:["$","$1","c",{"children":["$Ld",[["$","script","script-0",{"src":"/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js","async":true,"nonce":"$undefined"}]],["$","$Le",null,{"children":["$","$f",null,{"name":"Next.MetadataOutlet","children":"$@10"}]}]]}]
+a:["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$f",null,{"name":"Next.Metadata","children":"$L14"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","link","0",{"rel":"stylesheet","href":"/system_design_local_company/_next/static/chunks/0rjck_o2q5l_u.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+15:I[22016,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js","/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js"],""]
+16:I[82484,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js","/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js"],"default"]
+9:C
+17:T32df,যে সিস্টেমকে আপনি দেখতে পান না, সেটাকে আপনি চালাতেও পারেন না। Monitoring হলো চলমান সিস্টেম থেকে সংকেত সংগ্রহ, সংরক্ষণ ও বিশ্লেষণ করার ব্যবস্থা — যাতে সমস্যা user-এর আগে আপনি জানতে পারেন, এবং সমস্যা হলে কারণটা দ্রুত খুঁজে পান।
+
+Monitoring-এর তিনটা স্তম্ভ (three pillars of observability):
+
+- **Metrics** — সংখ্যায় প্রকাশিত সময়ভিত্তিক ডেটা (request rate, error rate, latency, CPU)। সস্তা, দীর্ঘদিন রাখা যায়, alert-এর জন্য আদর্শ। বলে "কিছু একটা ভুল"।
+- **Logs** — নির্দিষ্ট ঘটনার বিস্তারিত রেকর্ড। ব্যয়বহুল কিন্তু সমৃদ্ধ। বলে "ঠিক কী ঘটেছিল"।
+- **Traces** — একটা request-এর পুরো যাত্রাপথ, প্রতিটা service-এ কত সময় লেগেছে তার হিসাবসহ। Microservice-এ অপরিহার্য। বলে "কোথায় সময়টা গেল"।
+
+একটা কার্যকর কাঠামো হলো **Four Golden Signals**: Latency, Traffic, Errors, Saturation. প্রতিটা service-এর জন্য এই চারটা থাকলে বেশিরভাগ সমস্যা ধরা পড়ে।
+
+## Health Monitoring
+
+সিস্টেমের প্রতিটা component চালু ও কার্যক্ষম আছে কি না — সবচেয়ে মৌলিক স্তর। বাস্তবায়ন হয় **health endpoint** দিয়ে (`/health`), যা load balancer ও orchestrator নিয়মিত ডাকে।
+
+আগে বলা পার্থক্যটা এখানেও কেন্দ্রীয় — **liveness** (process বেঁচে আছে? না থাকলে restart) বনাম **readiness** (এখন ট্রাফিক নিতে পারবে? না পারলে শুধু ট্রাফিক সরাও)।
+
+একটা ভালো health check শুধু `200 OK` ফেরত দেয় না, বরং গুরুত্বপূর্ণ নির্ভরতাগুলোও পরখ করে (database সংযোগ, cache, জরুরি downstream)। তবে সাবধান — health check-এ সব নির্ভরতা যাচাই করলে একটা তুচ্ছ downstream ব্যর্থতা আপনার পুরো fleet-কে "অসুস্থ" ঘোষণা করে সিস্টেম বন্ধ করে দিতে পারে। তাই জরুরি ও ঐচ্ছিক নির্ভরতা আলাদা করুন।
+
+## Availability Monitoring
+
+সেবাটা প্রকৃতপক্ষে কতটা সময় ব্যবহারযোগ্য ছিল — অর্থাৎ uptime। এখানে দুটো দৃষ্টিকোণ থাকা দরকার:
+
+- **Synthetic monitoring (black-box)** — বাইরে থেকে বিভিন্ন অঞ্চল থেকে নিয়মিত কৃত্রিম request পাঠিয়ে দেখা সেবাটা সাড়া দিচ্ছে কি না। এটা user-এর অভিজ্ঞতার সবচেয়ে কাছাকাছি, এবং ট্রাফিক কম থাকলেও কাজ করে।
+- **Real User Monitoring (RUM)** — প্রকৃত user-দের browser/app থেকে ডেটা সংগ্রহ। প্রকৃত অভিজ্ঞতা দেখায়, কিন্তু user না থাকলে ডেটাও নেই।
+
+এখানেই **SLI / SLO / SLA** ধারণাগুলো আসে: SLI হলো আপনি যা মাপছেন (সফল request-এর শতাংশ), SLO হলো আপনার অভ্যন্তরীণ লক্ষ্য (৯৯.৯%), আর SLA হলো গ্রাহকের সাথে চুক্তিবদ্ধ প্রতিশ্রুতি (সাধারণত SLO-র চেয়ে শিথিল)। SLO থেকে পাওয়া **error budget** একটা শক্তিশালী ধারণা — ৯৯.৯% লক্ষ্য মানে মাসে ৪৩ মিনিট ব্যর্থতার অনুমতি আছে; সেই বাজেট থাকলে দ্রুত release করুন, ফুরিয়ে গেলে স্থিতিশীলতায় মন দিন।
+
+## Performance Monitoring
+
+সিস্টেম কত দ্রুত কাজ করছে এবং প্রবণতা কোন দিকে যাচ্ছে। মূল metric গুলো — request latency (p50/p95/p99), throughput, database query time, cache hit rate, queue depth ও queue-তে অপেক্ষার সময়, এবং resource ব্যবহার (CPU, memory, disk I/O, network)।
+
+দুটো নীতি মনে রাখুন। প্রথমত, **গড় নয়, percentile দেখুন** ([Latency vs Throughput](03-latency-vs-throughput.md))। দ্বিতীয়ত, **প্রবণতা ঘটনার চেয়ে গুরুত্বপূর্ণ** — আজ p99 ৩০০ms হওয়াটা তত জরুরি নয়, যতটা জরুরি হলো গত সপ্তাহে সেটা ১০০ms ছিল। এই ধীর অবনতিই আগাম সতর্কতা দেয়, এবং **capacity planning**-এর ভিত্তি তৈরি করে।
+
+Distributed tracing এখানে অপরিহার্য — একটা ধীর request-এর trace দেখলে সাথে সাথে বোঝা যায় সময়টা কোন service বা কোন query-তে গেছে।
+
+## Security Monitoring
+
+নিরাপত্তা-সংক্রান্ত ঘটনা শনাক্ত ও নথিভুক্ত করা: ব্যর্থ login-এর অস্বাভাবিক হার (brute force), অস্বাভাবিক ভৌগোলিক অবস্থান থেকে প্রবেশ, অনুমতিহীন resource-এ প্রবেশের চেষ্টা, privilege বৃদ্ধি, ডেটা রপ্তানির অস্বাভাবিক পরিমাণ, ও ট্রাফিকের হঠাৎ অস্বাভাবিক ধরন।
+
+এর কেন্দ্রে থাকে **audit log** — কে, কখন, কী করল, কোথা থেকে। এটা শুধু নিরাপত্তা নয়, compliance-এর (GDPR, PCI-DSS, SOC 2) জন্যও বাধ্যতামূলক। Audit log **অপরিবর্তনীয় (immutable)** ও আলাদা জায়গায় রাখা উচিত, যাতে সিস্টেমে প্রবেশ করা আক্রমণকারী নিজের চিহ্ন মুছতে না পারে।
+
+গুরুত্বপূর্ণ সতর্কতা: log-এ কখনো password, token, API key, পূর্ণ card নম্বর বা ব্যক্তিগত সংবেদনশীল ডেটা লিখবেন না। Log সংগ্রহের পথেই এগুলো ছেঁকে ফেলার ব্যবস্থা রাখুন।
+
+## Usage Monitoring
+
+কে সিস্টেম ব্যবহার করছে, কীভাবে, এবং কতটা — এটা প্রযুক্তিগত ও ব্যবসায়িক দুই দিকেই কাজে লাগে। কোন feature আসলে ব্যবহৃত হচ্ছে, কোন API endpoint কতটা ডাকা হচ্ছে, কোন গ্রাহক কতটা resource খাচ্ছে, user কোথায় ঝরে পড়ছে।
+
+ব্যবহারিক প্রয়োগ: বিলিং ও metering, capacity planning, rate limit নির্ধারণ, ও পণ্যের সিদ্ধান্ত (কোনো feature কেউ ব্যবহার না করলে সেটা রক্ষণাবেক্ষণ করার মানে নেই)। প্রতি-গ্রাহক ব্যবহারের হিসাব **Noisy Neighbor** সমস্যা শনাক্তেও সাহায্য করে।
+
+## Instrumentation
+
+উপরের সব কিছুর ভিত্তি — application-এর ভেতর থেকে ডেটা নির্গত করার প্রকৃত কাজটা। কোডে metric counter, timer, structured log ও trace span যোগ করা।
+
+কিছু ব্যবহারিক নির্দেশনা:
+- **Structured logging** ব্যবহার করুন (JSON), প্লেইন টেক্সট নয় — তাহলেই খোঁজা ও বিশ্লেষণ সম্ভব।
+- **Correlation ID / trace ID** প্রতিটা request-এর সাথে সব service ও সব log line-এ বয়ে নিয়ে যান। এটা ছাড়া distributed debugging প্রায় অসম্ভব।
+- **Cardinality-র প্রতি সতর্ক থাকুন** — metric-এর label-এ user ID বা request ID দিলে metric store বিস্ফোরিত হবে। উচ্চ-cardinality ডেটা log ও trace-এ যাবে, metric-এ নয়।
+- **Sampling** ব্যবহার করুন — বড় স্কেলে ১০০% trace সংরক্ষণ অসম্ভব ব্যয়বহুল; তবে error ও ধীর request গুলো সবসময় রাখুন।
+- **OpenTelemetry**-র মতো মান ব্যবহার করুন, যাতে vendor বদলানো সহজ থাকে।
+
+## Visualization & Alerts
+
+সংগৃহীত ডেটা কাজে লাগে তখনই যখন তা মানুষের কাছে সঠিক সময়ে পৌঁছায়।
+
+**Dashboard** তিন স্তরে সাজান: একটা উঁচু-স্তরের ব্যবসায়িক দৃশ্য (order rate, revenue), একটা service-স্তরের golden signals দৃশ্য, এবং প্রয়োজনে গভীরে যাওয়ার বিস্তারিত দৃশ্য। প্রতিটা dashboard-এর একটা নির্দিষ্ট প্রশ্নের উত্তর দেওয়ার কথা — ৫০টা graph-এর একটা দেয়াল কোনো প্রশ্নেরই উত্তর দেয় না।
+
+**Alert**-এর ক্ষেত্রে একটাই সোনালি নিয়ম: **মানুষকে জাগানোর মতো alert কেবল সেটাই হওয়া উচিত, যেটার জন্য মানুষের তাৎক্ষণিক পদক্ষেপ দরকার।** তাই —
+
+- **উপসর্গে alert করুন, কারণে নয়** — "user-রা checkout করতে পারছে না" (ভালো) বনাম "CPU ৮০%" (খারাপ, কারণ CPU বেশি হলেও user ঠিক থাকতে পারে)।
+- **Alert fatigue-ই সবচেয়ে বড় শত্রু** — অতিরিক্ত ও অকেজো alert মানুষকে সব alert উপেক্ষা করতে শেখায়, ফলে আসল সমস্যাটাও মিস হয়।
+- প্রতিটা alert-এর সাথে একটা **runbook** থাকুক — কী হয়েছে, কী দেখতে হবে, কী করতে হবে।
+- জরুরি নয় এমন সংকেতকে page না করে ticket বা dashboard-এ পাঠান।
+
+---
+
+পূর্ববর্তী: [Performance Antipatterns](17-performance-antipatterns.md) · পরবর্তী: [Cloud Design Patterns — Design & Implementation](19-design-and-implementation-patterns.md)d:[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L15",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"18"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Monitoring"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","011-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L15",null,{"href":"/day/011/","className":"chip chip--accent self-start","children":["দিন ","০১১"," · ","সমস্যা হলে বুঝবেন কীভাবে"]}],["$","$L16",null,{"inline":true,"className":"task-text text-sm","children":"`srdtube`-এ quota শেষ হলে আপনি কীভাবে জানবেন — এখন জানেন না; তিনটা সংকেত যা রাখতেন (error rate, একটা alert, ব্যবহারকারীর দেখা বার্তা) (ডক ১৮)"}]]}],["$","li","022-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L15",null,{"href":"/day/022/","className":"chip chip--accent self-start","children":["দিন ","০২২"," · ","কোথায় ভাঙবে"]}],["$","$L16",null,{"inline":true,"className":"task-text text-sm","children":"সেকশন ৬ — **যেখানে ভাঙবে:** quota শেষ, API key ফাঁস, ব্যবহারকারী ১০ গুণ — প্রতিটায় কী হয়, মেনে নেওয়া নাকি ঠিক করা; তারপর doc commit (ডক ১৮)"}]]}],["$","li","025-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L15",null,{"href":"/day/025/","className":"chip chip--accent self-start","children":["দিন ","০২৫"," · ","API আর monitoring"]}],["$","$L16",null,{"inline":true,"className":"task-text text-sm","children":"বাকি দুটো — *\"API কীভাবে ডিজাইন করতেন?\"* · *\"সমস্যা হলে বুঝবেন কীভাবে?\"* — doc বন্ধ, প্রতিটা ২ মিনিট, রেকর্ড (ডক ১৫ · ডক ১৮)"}]]}]]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L16",null,{"children":"$17"}]}],"$L18"]
+18:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L15",null,{"href":"/doc/17/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"17 Performance Antipatterns"}]]}],["$","$L15",null,{"href":"/doc/19/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"19 Cloud Design Patterns — Design & Implementation"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+19:I[27201,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"IconMark"]
+10:null
+14:[["$","title","0",{"children":"ডক 18 · Monitoring — লোকাল system design"}],["$","meta","1",{"name":"description","content":"বাংলাদেশি কোম্পানির কারিগরি আলোচনার system design অংশের জন্য — সাতটা ডক আর নিজের প্রজেক্টের একটা design doc, ২৮ দিনে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/system_design_local_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","3",{}]]

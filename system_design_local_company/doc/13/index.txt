@@ -1,0 +1,132 @@
+1:"$Sreact.fragment"
+2:I[41681,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default"]
+3:I[39756,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default"]
+4:I[37457,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default"]
+b:I[68027,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default",1]
+:HL["/system_design_local_company/_next/static/chunks/0rjck_o2q5l_u.css","style"]
+:HL["/system_design_local_company/_next/static/media/490cbca7f386131e-s.p.1zrwl0c4yv3pr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/4b23c5ee480ee380-s.p.0qqufx6vw52v_.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/520c929efec0b33f-s.p.3arxh35s5-kc0.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/5e4d537aaa9e154b-s.p.1ewykk74tw0il.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/6a1d08cf467f0848-s.p.240fzfer9e_rh.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/6ea8d1bb8ea4af7a-s.p.1kk_wfe381bov.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/70bc3e132a0a741e-s.p.3t6q91iet4nsy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/70c15719a04fff13-s.p.376yc-xi7tht7.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+9:X
+0:{"P":null,"c":["","doc","13",""],"q":"","i":false,"f":[[["",{"children":["doc",{"children":[["code","13","d",[]],{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/system_design_local_company/_next/static/chunks/0rjck_o2q5l_u.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"bn","className":"archivo_aabc0850-module__cplg6G__variable archivo_black_cc57a6c8-module__12WbNa__variable barlow_semi_condensed_66b51823-module__HKMkGa__variable jetbrains_mono_ce945e87-module__HTLkQq__variable noto_sans_bengali_ae4f5577-module__v5t5fW__variable h-full antialiased","children":["$","body",null,{"className":"surface-app flex min-h-full flex-col","children":[["$","a",null,{"href":"#main-content","className":"control control--primary sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 px-3 py-1.5 text-xs","children":"মূল কনটেন্টে যান"}],["$","$L2",null,{"blocks":[{"num":1,"slug":"seven-questions","name":"সাতটা প্রশ্ন, নিজের প্রজেক্টে","range":"দিন ০০১–০১৪ · ডক ০৯, ১১–১৫, ১৮ · functional লেভেল","dip":false,"check":"সাতটা ডকের প্রতিটায় নিজের প্রজেক্টের একটা উদাহরণ লেখা, আর দুটো simulation-এর functional লেভেল কাগজে আঁকা?","days":[{"num":1,"code":"001","label":"০০১","title":"ছয় সেকশনের ছাঁচ","taskIds":["d001-z07vjb","d001-1ilczbt"]},{"num":2,"code":"002","label":"০০২","title":"API কীভাবে ডিজাইন করতেন","taskIds":["d002-16r2alq"]},{"num":3,"code":"003","label":"০০৩","title":"database","taskIds":["d003-1oj7loz"]},{"num":4,"code":"004","label":"০০৪","title":"cache কোথায়","taskIds":["d004-yhwbsv"]},{"num":5,"code":"005","label":"০০৫","title":"সবচেয়ে সহজ কাজ-করা ডিজাইন","taskIds":["d005-hi0tqd"]},{"num":6,"code":"006","label":"০০৬","title":"সপ্তাহের চারটা, না দেখে","taskIds":["d006-um7uyd"]},{"num":7,"code":"007","label":"০০৭","title":"সপ্তাহের হিসাব","taskIds":["d007-1djddpp"]},{"num":8,"code":"008","label":"০০৮","title":"ট্রাফিক বাড়লে","taskIds":["d008-1cocy6n"]},{"num":9,"code":"009","label":"০০৯","title":"queue কেন","taskIds":["d009-97hhyw"]},{"num":10,"code":"010","label":"০১০","title":"CDN","taskIds":["d010-fdqeip"]},{"num":11,"code":"011","label":"০১১","title":"সমস্যা হলে বুঝবেন কীভাবে","taskIds":["d011-wh1g35"]},{"num":12,"code":"012","label":"০১২","title":"rate limiter-এর সহজ রূপ","taskIds":["d012-1ykz0to"]},{"num":13,"code":"013","label":"০১৩","title":"সাতটা ডক, এলোমেলো","taskIds":["d013-1vst2tu"]},{"num":14,"code":"014","label":"০১৪","title":"ব্লক ১-এর হিসাব","taskIds":["d014-u0h65f"]}]},{"num":2,"slug":"design-doc","name":"srdtube-এর design doc","range":"দিন ০১৫–০২৮ · ছয় সেকশন · চারটা লোকাল প্রশ্ন মুখে","dip":true,"check":"ছয় সেকশনের design doc `srdtube`-এর `DESIGN.md`-এ, আর চারটা লোকাল প্রশ্নের রেকর্ডিং — সহজ উত্তর আগে?","days":[{"num":15,"code":"015","label":"০১৫","title":"কী বানিয়েছি","taskIds":["d015-1yqg5jc"]},{"num":16,"code":"016","label":"০১৬","title":"কতজন ধরে","taskIds":["d016-u7jkmu"]},{"num":17,"code":"017","label":"০১৭","title":"কোন সিদ্ধান্ত কেন","taskIds":["d017-1knuunn"]},{"num":18,"code":"018","label":"০১৮","title":"যা বাদ দিলাম","taskIds":["d018-1mlaczd"]},{"num":19,"code":"019","label":"০১৯","title":"গঠন","taskIds":["d019-1nno4ei"]},{"num":20,"code":"020","label":"০২০","title":"পাঁচ সেকশন, না দেখে","taskIds":["d020-acaoaj"]},{"num":21,"code":"021","label":"০২১","title":"সপ্তাহের হিসাব","taskIds":["d021-gpckxb"]},{"num":22,"code":"022","label":"০২২","title":"কোথায় ভাঙবে","taskIds":["d022-1xsmcne"]},{"num":23,"code":"023","label":"০২৩","title":"দশ গুণ ব্যবহারকারী","taskIds":["d023-nxkfo8"]},{"num":24,"code":"024","label":"০২৪","title":"ট্রাফিক আর cache","taskIds":["d024-1vlzsp"]},{"num":25,"code":"025","label":"০২৫","title":"API আর monitoring","taskIds":["d025-1p15gy8"]},{"num":26,"code":"026","label":"০২৬","title":"দশ মিনিট টানা","taskIds":["d026-2o0tad"]},{"num":27,"code":"027","label":"০২৭","title":"এলোমেলো তিনটা","taskIds":["d027-h5cvy"]},{"num":28,"code":"028","label":"০২৮","title":"থামা","taskIds":["d028-4mf85n"]}]}],"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],"$L5"],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]}]]}],{"children":["$L6",{"children":["$L7",{"children":["$L8",{},null,false,null]},null,false,"$9"]},null,false,"$9"]},null,false,null],"$La",false]],"m":"$undefined","G":["$b",["$Lc"]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"27zGXYGE3LrRiWgVujnSy"}
+e:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"OutletBoundary"]
+f:"$Sreact.suspense"
+11:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"ViewportBoundary"]
+13:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"MetadataBoundary"]
+5:["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]
+6:["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+7:["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+8:["$","$1","c",{"children":["$Ld",[["$","script","script-0",{"src":"/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js","async":true,"nonce":"$undefined"}]],["$","$Le",null,{"children":["$","$f",null,{"name":"Next.MetadataOutlet","children":"$@10"}]}]]}]
+a:["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$f",null,{"name":"Next.Metadata","children":"$L14"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","link","0",{"rel":"stylesheet","href":"/system_design_local_company/_next/static/chunks/0rjck_o2q5l_u.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+15:I[22016,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js","/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js"],""]
+16:I[82484,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js","/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js"],"default"]
+9:C
+17:T2fb7,Caching হলো ব্যয়বহুলভাবে পাওয়া ডেটার একটা কপি দ্রুত-প্রবেশযোগ্য জায়গায় রেখে দেওয়া, যাতে পরের বার সেই খরচটা আর করতে না হয়। একক কৌশল হিসেবে এটাই সবচেয়ে বেশি performance দেয় — latency নাটকীয়ভাবে কমে, database-এর উপর চাপ কমে, এবং একই hardware দিয়ে অনেক বেশি throughput পাওয়া যায়।
+
+Caching কাজ করে দুটো বাস্তবতার কারণে: **temporal locality** (এইমাত্র যা চাওয়া হয়েছে তা আবার চাওয়ার সম্ভাবনা বেশি) এবং **অসম জনপ্রিয়তা** (সাধারণত ২০% ডেটাই ৮০% request পায়)।
+
+কিন্তু cache একটা মূল্য দাবি করে — **এটা আরেকটা জায়গা যেখানে সত্যের একটা কপি থাকে**, তাই staleness ও invalidation-এর সমস্যা এসে যায়। বিখ্যাত উক্তিটা অকারণে জনপ্রিয় হয়নি: "Computer science-এ কঠিন জিনিস দুটোই — cache invalidation আর নামকরণ।"
+
+---
+
+# Types of Caching (কোথায় cache করবেন)
+
+Request-এর পথে যত আগে cache hit হয়, তত সাশ্রয় — কারণ পরের সব ধাপই এড়ানো যায়।
+
+## Client Caching
+
+Browser বা mobile app-এর নিজের কাছেই ডেটা রাখা — HTTP cache, localStorage, বা app-এর নিজস্ব store। এটা সবচেয়ে দ্রুত (কোনো network call-ই নেই) এবং সম্পূর্ণ বিনামূল্যে server-এর দিক থেকে।
+
+নিয়ন্ত্রণ হয় HTTP header দিয়ে (`Cache-Control`, `ETag`, `Last-Modified`)। সীমাবদ্ধতা: একবার পাঠিয়ে দিলে আপনি আর সেটা মুছতে পারবেন না — তাই TTL সাবধানে দিন এবং versioned URL ব্যবহার করুন।
+
+## CDN Caching
+
+Edge server-এ content রাখা, user-এর ভৌগোলিক কাছাকাছি। Static asset-এর জন্য আদর্শ, এবং আধুনিক CDN dynamic content-ও cache করতে পারে। বিস্তারিত: [Content Delivery Networks](09-content-delivery-networks.md)।
+
+## Web Server Caching
+
+Reverse proxy (Nginx, Varnish) স্তরে পুরো HTTP response cache করা। Application-এর কোনো কোড না চালিয়েই response দেওয়া যায় — তাই সাশ্রয় বিশাল। সবচেয়ে ভালো কাজ করে সেই page গুলোতে যেগুলো সব user-এর জন্য একই (হোমপেজ, article, product page)।
+
+ব্যক্তিগতকৃত (personalized) page-এ সরাসরি কাজ করে না; তখন **Edge Side Includes (ESI)** বা "page cache করো, শুধু ব্যক্তিগত অংশটা আলাদা করে আনো" ধরনের কৌশল লাগে।
+
+## Database Caching
+
+বেশিরভাগ database নিজেই ভেতরে cache রাখে — buffer pool (ঘন ঘন পড়া page গুলো memory-তে), query plan cache, ইত্যাদি। এটা প্রায় বিনামূল্যে পাওয়া সুবিধা, কিন্তু আপনার কাজ হলো database-কে যথেষ্ট RAM দেওয়া যাতে working set memory-তে ধরে। Database-এর memory কম দিয়ে বাইরে বিশাল cache বসানোর চেয়ে অনেক সময় database-এর RAM বাড়ানোই ভালো সমাধান।
+
+## Application Caching
+
+Redis বা Memcached-এর মতো একটা in-memory store, যেখানে application ইচ্ছেমতো object রাখে — query-র ফলাফল, রেন্ডার করা fragment, session, computed value। এখানেই আপনার সবচেয়ে বেশি নিয়ন্ত্রণ, এবং system design আলোচনায় "cache" বললে সাধারণত এটাই বোঝানো হয়।
+
+কী cache করবেন তার তিনটা স্তর আছে: **query-level** (SQL query-র ফলাফল — সহজ কিন্তু invalidate করা কঠিন), **object-level** (পুরো domain object — সবচেয়ে ব্যবহারিক, এটাই পছন্দনীয়), এবং **fragment-level** (রেন্ডার করা HTML টুকরো)।
+
+Local in-process cache (একই server-এর memory-তে) সবচেয়ে দ্রুত, কিন্তু প্রতিটা server-এ আলাদা কপি হয় — তাই অসামঞ্জস্য ও কম hit rate। Distributed cache (Redis) সব server একই ডেটা দেখে, কিন্তু একটা network hop লাগে।
+
+---
+
+# Cache Strategies (কীভাবে লিখবেন ও পড়বেন)
+
+## Cache Aside (Lazy Loading)
+
+সবচেয়ে প্রচলিত প্যাটার্ন। Application নিজেই cache ও database দুটোর সাথে কথা বলে:
+
+```
+পড়া:   cache-এ আছে? → থাকলে দাও (hit)
+         না থাকলে (miss) → DB থেকে পড়ো → cache-এ রাখো → দাও
+লেখা:   DB-তে লেখো → cache-এর key টা মুছে দাও (invalidate)
+```
+
+- **সুবিধা**: শুধু যা চাওয়া হয় তাই cache হয় (memory-র দক্ষ ব্যবহার), cache মরে গেলেও সিস্টেম চলে (শুধু ধীর হয়), বাস্তবায়ন সরল।
+- **অসুবিধা**: প্রতিটা miss-এ তিনটা ধাপ, তাই প্রথম request ধীর। Cache আর DB সাময়িকভাবে অমিল হতে পারে।
+- লেখার সময় cache **update না করে delete করা** বেশি নিরাপদ — একসাথে চলা দুটো write-এর কারণে ভুল মান cache-এ আটকে যাওয়া (race condition) এড়ানো যায়।
+
+## Write-Through
+
+Application সবসময় cache-এ লেখে, আর cache নিজেই synchronously database-এ লিখে দেয়। লেখা তখনই সম্পন্ন যখন দুই জায়গাতেই লেখা হয়ে গেছে।
+
+- **সুবিধা**: cache কখনো stale হয় না — সবসময় সঙ্গতিপূর্ণ। পড়া সবসময় দ্রুত।
+- **অসুবিধা**: প্রতিটা write ধীর (দুই জায়গায় লিখতে হয়)। আর যে ডেটা কখনো পড়াই হবে না সেটাও cache-এ জায়গা নেয় — write-heavy কিন্তু কম-পড়া ডেটার জন্য অপচয়।
+- প্রায়ই cache-aside-এর সাথে মিলিয়ে ব্যবহার করা হয়।
+
+## Write-Behind (Write-Back)
+
+Application শুধু cache-এ লেখে এবং সাথে সাথে সফল response পায়; cache পরে **asynchronously** (সাধারণত ব্যাচ করে) database-এ লেখে।
+
+- **সুবিধা**: write latency অত্যন্ত কম এবং write throughput বিশাল। একই record বারবার বদলালে database-এ একবারই লেখা হয় — চমৎকার সাশ্রয়।
+- **অসুবিধা**: **ডেটা হারানোর ঝুঁকি** — database-এ লেখার আগে cache মরে গেলে ওই write গুলো চিরতরে হারায়। বাস্তবায়নও সবচেয়ে জটিল।
+- **ব্যবহার**: view counter, like count, analytics event — যেখানে বিপুল write আছে কিন্তু কয়েকটা ঘটনা হারানো সহনীয়।
+
+## Refresh Ahead
+
+Cache ভবিষ্যদ্বাণী করে যে কোন entry গুলো শিগগিরই আবার লাগবে, এবং TTL শেষ হওয়ার **আগেই** সেগুলো নিজে থেকে refresh করে নেয়।
+
+- **সুবিধা**: user কখনো cache miss-এর latency দেখে না; জনপ্রিয় key-র জন্য চমৎকার।
+- **অসুবিধা**: ভবিষ্যদ্বাণী ভুল হলে অপ্রয়োজনীয়ভাবে database-এ চাপ পড়ে। কোন key গুলো refresh হবে সেটা ঠিক করা কঠিন।
+- ব্যবহারিক রূপ: `stale-while-revalidate` — মেয়াদোত্তীর্ণ মানটা দিয়ে দাও, আর পেছনে নতুনটা এনে রাখো।
+
+---
+
+# যে সমস্যাগুলো জানা থাকা দরকার
+
+**Cache Stampede (Thundering Herd)** — একটা জনপ্রিয় key expire হওয়ামাত্র হাজারটা request একসাথে cache miss পেয়ে database-এ ঝাঁপিয়ে পড়ে। প্রতিরোধ: একটা lock দিয়ে শুধু একটা request-কে ডেটা আনতে দিন (বাকিরা অপেক্ষা করুক), TTL-এ এলোমেলো jitter যোগ করুন, বা refresh-ahead ব্যবহার করুন।
+
+**Cache Penetration** — এমন key বারবার চাওয়া যা database-এও নেই, ফলে প্রতিবার database-এ যাওয়া। প্রতিরোধ: "নেই" ফলাফলটাও অল্প সময়ের জন্য cache করুন (negative caching), বা Bloom filter ব্যবহার করুন।
+
+**Eviction Policy** — cache ভরে গেলে কাকে বাদ দেবেন? **LRU** (সবচেয়ে আগে ব্যবহৃত, সবচেয়ে প্রচলিত ও নিরাপদ ডিফল্ট), **LFU** (সবচেয়ে কম ব্যবহৃত), **TTL/FIFO**। ভুল policy-তে hit rate ধসে যায়।
+
+**Hit Rate নিরীক্ষা করুন** — cache-এর একমাত্র উদ্দেশ্য hit দেওয়া। Hit rate ৯০%-এর নিচে হলে প্রশ্ন করুন: TTL কি খুব কম? Key কি খুব বেশি specific? Cache-এর আকার কি অপর্যাপ্ত? Hit rate না মাপলে আপনি জানেনই না cache টা আদৌ কাজ করছে কি না।
+
+---
+
+পূর্ববর্তী: [Databases](12-databases.md) · পরবর্তী: [Asynchronism](14-asynchronism.md)d:[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L15",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"13"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Caching"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","004-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L15",null,{"href":"/day/004/","className":"chip chip--accent self-start","children":["দিন ","০০৪"," · ","cache কোথায়"]}],["$","$L16",null,{"inline":true,"className":"task-text text-sm","children":"cache কোথায় বসাতেন — browser, CDN, নাকি API-র সামনে; Cache-Aside এক লাইনে; ডেটা বাসি হয় কখন, আর `srdtube`-এ quota বাঁচাতে কোনটা আগে (ডক ১৩)"}]]}],["$","li","018-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L15",null,{"href":"/day/018/","className":"chip chip--accent self-start","children":["দিন ","০১৮"," · ","যা বাদ দিলাম"]}],["$","$L16",null,{"inline":true,"className":"task-text text-sm","children":"সেকশন ৪ — **যা ইচ্ছাকৃতভাবে বাদ:** backend, database, login, cache — প্রতিটায় কেন বাদ আর **কখন ফিরবেন** (যেমন \"quota বারবার শেষ হলে cache\") (ডক ১২ · ডক ১৩)"}]]}],["$","li","023-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L15",null,{"href":"/day/023/","className":"chip chip--accent self-start","children":["দিন ","০২৩"," · ","দশ গুণ ব্যবহারকারী"]}],["$","$L16",null,{"inline":true,"className":"task-text text-sm","children":"*\"ব্যবহারকারী ১০ গুণ হলে?\"* — doc বন্ধ, মুখে, রেকর্ড: সহজ উত্তর আগে (quota শেষ হবে, সাইট নিজে ভাঙবে না), তারপর দ্বিতীয় ধাপ (ছোট backend + cache); শেষে *\"আরও বিস্তারিত বলব?\"* (ডক ১১ · ডক ১৩)"}]]}],["$","li","024-3",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L15",null,{"href":"/day/024/","className":"chip chip--accent self-start","children":["দিন ","০২৪"," · ","ট্রাফিক আর cache"]}],["$","$L16",null,{"inline":true,"className":"task-text text-sm","children":"দুটো লোকাল প্রশ্ন — *\"ট্রাফিক বাড়লে?\"* · *\"cache কোথায় বসাতেন?\"* — doc বন্ধ, প্রতিটা ২ মিনিট, বাংলা-ইংরেজি মিশিয়ে যেমন interview-এ হয়; রেকর্ড (ডক ১১ · ডক ১৩)"}]]}]]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L16",null,{"children":"$17"}]}],"$L18"]
+18:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L15",null,{"href":"/doc/12/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"12 Databases"}]]}],["$","$L15",null,{"href":"/doc/14/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"14 Asynchronism"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+19:I[27201,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"IconMark"]
+10:null
+14:[["$","title","0",{"children":"ডক 13 · Caching — লোকাল system design"}],["$","meta","1",{"name":"description","content":"বাংলাদেশি কোম্পানির কারিগরি আলোচনার system design অংশের জন্য — সাতটা ডক আর নিজের প্রজেক্টের একটা design doc, ২৮ দিনে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/system_design_local_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","3",{}]]

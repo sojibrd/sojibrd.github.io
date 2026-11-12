@@ -1,0 +1,73 @@
+1:"$Sreact.fragment"
+2:I[22016,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js","/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js"],""]
+3:I[82484,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js","/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js"],"default"]
+4:T1a72,সব কাজ user-এর request-response cycle-এর ভেতরে করা যায় না বা উচিত নয়। ভিডিও encode করা, রিপোর্ট তৈরি করা, ১০,০০০ জনকে ইমেইল পাঠানো — এগুলো সেকেন্ড থেকে ঘণ্টা লাগতে পারে। এই কাজগুলো **background job** হিসেবে মূল request থেকে আলাদা করে চালানো হয়।
+
+মূল নীতি: **user-এর request শুধু ততটুকু করবে যতটুকু user-এর উত্তরের জন্য দরকার**, বাকিটা queue-তে ফেলে দ্রুত response দেবে। এতে latency কমে, web server-এর thread খালি থাকে, এবং ভারী কাজ আলাদাভাবে scale করা যায়।
+
+Background job সাধারণত দুইভাবে ট্রিগার হয় — কোনো ঘটনার প্রতিক্রিয়ায়, অথবা সময় ধরে।
+
+## Event-Driven
+
+কোনো ঘটনা ঘটলে job শুরু হয় — user একটা ফাইল আপলোড করল, একটা order তৈরি হলো, একটা message queue-তে এলো। Producer কাজটা একটা queue-তে রাখে, আর worker গুলো queue থেকে তুলে নিয়ে কাজ করে।
+
+**সুবিধা**: প্রায় সাথে সাথেই কাজ শুরু হয়, আর কাজের পরিমাণ অনুযায়ী worker সংখ্যা autoscale করা যায় (queue depth দেখে)।
+
+**নকশার বিবেচনা**: worker গুলো stateless হওয়া উচিত, যেকোনো worker যেকোনো job নিতে পারবে। কাজ ব্যর্থ হলে retry হবে — তাই job গুলোকে **idempotent** হতে হবে (একই job দুবার চললেও ফল একই)। বারবার ব্যর্থ job গুলো **dead-letter queue**-তে পাঠাতে হবে, নাহলে সেগুলো queue জ্যাম করে রাখবে।
+
+উদাহরণ: ছবি resize করা, ইমেইল/notification পাঠানো, search index আপডেট, webhook delivery, payment capture।
+
+## Schedule Driven
+
+কাজটা নির্দিষ্ট সময়ে বা নির্দিষ্ট বিরতিতে চলে — প্রতি রাত ২টায়, প্রতি ৫ মিনিটে, মাসের ১ তারিখে। ঐতিহ্যগতভাবে cron, আধুনিক পরিবেশে Kubernetes CronJob, cloud scheduler, বা Airflow-এর মতো workflow orchestrator।
+
+উদাহরণ: রাতের ব্যাচ রিপোর্ট, পুরনো ডেটা আর্কাইভ/পরিষ্কার, subscription নবায়ন ও বিলিং, ডেটা backup, cache warm-up, তৃতীয় পক্ষের সাথে reconciliation।
+
+**সাধারণ ফাঁদ**:
+- **Overlapping run**: আগের run শেষ হওয়ার আগেই পরেরটা শুরু হয়ে গেলে ডেটা নষ্ট হতে পারে। সমাধান: distributed lock বা "singleton" ফ্ল্যাগ।
+- **একাধিক server-এ ডুপ্লিকেট run**: তিনটা server-এ একই cron থাকলে কাজটা তিনবার হবে। সমাধান: leader election বা কেন্দ্রীয় scheduler।
+- **Thundering herd**: সব job রাত ১২:০০-তে চালু হলে database একসাথে চাপে পড়ে। সমাধান: সময় ছড়িয়ে দিন (jitter)।
+- **মিস হওয়া run**: server ডাউন থাকলে ওই run কি পরে চালাতে হবে? এই "catch-up" আচরণ আগে থেকে ঠিক করে নিন।
+
+## Returning Results
+
+Background job-এর সবচেয়ে অবহেলিত অংশ — ফলাফল user-কে কীভাবে জানাবেন? কারণ ততক্ষণে HTTP response চলে গেছে। প্রচলিত কৌশলগুলো:
+
+**১. Polling** — API সাথে সাথে একটা `jobId` ও `202 Accepted` ফেরত দেয়; client পরে `GET /jobs/{id}` করে status (`pending`/`running`/`done`/`failed`) জানতে চায়। সবচেয়ে সহজ ও নির্ভরযোগ্য, কিন্তু অপ্রয়োজনীয় request তৈরি করে। Polling interval-এ backoff ব্যবহার করুন।
+
+**২. Webhook / Callback** — কাজ শেষে সিস্টেম client-এর দেওয়া URL-এ POST করে। Server-to-server integration-এ আদর্শ, কিন্তু client-কে একটা public endpoint চালাতে হয় এবং delivery retry সামলাতে হয়।
+
+**৩. Push connection (WebSocket / SSE)** — ফলাফল সাথে সাথে browser-এ পাঠানো যায়, live progress bar দেখানো যায়। খরচ: persistent connection ধরে রাখতে হয়, যা scale করা তুলনামূলক জটিল।
+
+**৪. Shared store** — worker ফলাফল database বা object storage-এ লিখে রাখে, user পরে যেকোনো সময় গিয়ে দেখে (যেমন "আপনার রিপোর্ট প্রস্তুত" পেজ)। বড় ফলাফলের জন্য সবচেয়ে ভালো — queue বা response-এ বড় payload বহন করার দরকার হয় না।
+
+কোনটাই বেছে নিন, একটা জিনিস সবসময় রাখুন: **job-এর একটা স্থায়ী status record**। শুধু queue-তে রাখলে কাজটা হারিয়ে গেলে user কখনো জানবে না কী হয়েছে।
+
+---
+
+পূর্ববর্তী: [Availability Patterns](06-availability-patterns.md) · পরবর্তী: [Domain Name System](08-domain-name-system.md)9:X
+e:X
+e:C
+0:{"buildId":"27zGXYGE3LrRiWgVujnSy","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"07"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Background Jobs"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","div",null,{"className":"surface-well t-caption p-4 text-center","children":"এই পথের কোনো দিনে এই ডক নেই — জেনেশুনে বাদ, দরকার হলে পরে। 🧠 Pareto principle"}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"ViewportBoundary"]
+17:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"MetadataBoundary"]
+18:I[27201,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"IconMark"]
+19:I[39756,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default"]
+1a:I[37457,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/06/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"06 Availability Patterns"}]]}],["$","$L2",null,{"href":"/doc/08/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"08 Domain Name System (DNS)"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক 07 · Background Jobs — লোকাল system design"}],["$","meta","1",{"name":"description","content":"বাংলাদেশি কোম্পানির কারিগরি আলোচনার system design অংশের জন্য — সাতটা ডক আর নিজের প্রজেক্টের একটা design doc, ২৮ দিনে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/system_design_local_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

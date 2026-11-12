@@ -1,0 +1,122 @@
+1:"$Sreact.fragment"
+2:I[41681,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default"]
+3:I[39756,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default"]
+4:I[37457,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default"]
+b:I[68027,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"default",1]
+:HL["/system_design_local_company/_next/static/chunks/0rjck_o2q5l_u.css","style"]
+:HL["/system_design_local_company/_next/static/media/490cbca7f386131e-s.p.1zrwl0c4yv3pr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/4b23c5ee480ee380-s.p.0qqufx6vw52v_.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/520c929efec0b33f-s.p.3arxh35s5-kc0.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/5e4d537aaa9e154b-s.p.1ewykk74tw0il.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/6a1d08cf467f0848-s.p.240fzfer9e_rh.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/6ea8d1bb8ea4af7a-s.p.1kk_wfe381bov.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/70bc3e132a0a741e-s.p.3t6q91iet4nsy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/70c15719a04fff13-s.p.376yc-xi7tht7.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_local_company/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+9:X
+0:{"P":null,"c":["","doc","21",""],"q":"","i":false,"f":[[["",{"children":["doc",{"children":[["code","21","d",[]],{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/system_design_local_company/_next/static/chunks/0rjck_o2q5l_u.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"bn","className":"archivo_aabc0850-module__cplg6G__variable archivo_black_cc57a6c8-module__12WbNa__variable barlow_semi_condensed_66b51823-module__HKMkGa__variable jetbrains_mono_ce945e87-module__HTLkQq__variable noto_sans_bengali_ae4f5577-module__v5t5fW__variable h-full antialiased","children":["$","body",null,{"className":"surface-app flex min-h-full flex-col","children":[["$","a",null,{"href":"#main-content","className":"control control--primary sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 px-3 py-1.5 text-xs","children":"মূল কনটেন্টে যান"}],["$","$L2",null,{"blocks":[{"num":1,"slug":"seven-questions","name":"সাতটা প্রশ্ন, নিজের প্রজেক্টে","range":"দিন ০০১–০১৪ · ডক ০৯, ১১–১৫, ১৮ · functional লেভেল","dip":false,"check":"সাতটা ডকের প্রতিটায় নিজের প্রজেক্টের একটা উদাহরণ লেখা, আর দুটো simulation-এর functional লেভেল কাগজে আঁকা?","days":[{"num":1,"code":"001","label":"০০১","title":"ছয় সেকশনের ছাঁচ","taskIds":["d001-z07vjb","d001-1ilczbt"]},{"num":2,"code":"002","label":"০০২","title":"API কীভাবে ডিজাইন করতেন","taskIds":["d002-16r2alq"]},{"num":3,"code":"003","label":"০০৩","title":"database","taskIds":["d003-1oj7loz"]},{"num":4,"code":"004","label":"০০৪","title":"cache কোথায়","taskIds":["d004-yhwbsv"]},{"num":5,"code":"005","label":"০০৫","title":"সবচেয়ে সহজ কাজ-করা ডিজাইন","taskIds":["d005-hi0tqd"]},{"num":6,"code":"006","label":"০০৬","title":"সপ্তাহের চারটা, না দেখে","taskIds":["d006-um7uyd"]},{"num":7,"code":"007","label":"০০৭","title":"সপ্তাহের হিসাব","taskIds":["d007-1djddpp"]},{"num":8,"code":"008","label":"০০৮","title":"ট্রাফিক বাড়লে","taskIds":["d008-1cocy6n"]},{"num":9,"code":"009","label":"০০৯","title":"queue কেন","taskIds":["d009-97hhyw"]},{"num":10,"code":"010","label":"০১০","title":"CDN","taskIds":["d010-fdqeip"]},{"num":11,"code":"011","label":"০১১","title":"সমস্যা হলে বুঝবেন কীভাবে","taskIds":["d011-wh1g35"]},{"num":12,"code":"012","label":"০১২","title":"rate limiter-এর সহজ রূপ","taskIds":["d012-1ykz0to"]},{"num":13,"code":"013","label":"০১৩","title":"সাতটা ডক, এলোমেলো","taskIds":["d013-1vst2tu"]},{"num":14,"code":"014","label":"০১৪","title":"ব্লক ১-এর হিসাব","taskIds":["d014-u0h65f"]}]},{"num":2,"slug":"design-doc","name":"srdtube-এর design doc","range":"দিন ০১৫–০২৮ · ছয় সেকশন · চারটা লোকাল প্রশ্ন মুখে","dip":true,"check":"ছয় সেকশনের design doc `srdtube`-এর `DESIGN.md`-এ, আর চারটা লোকাল প্রশ্নের রেকর্ডিং — সহজ উত্তর আগে?","days":[{"num":15,"code":"015","label":"০১৫","title":"কী বানিয়েছি","taskIds":["d015-1yqg5jc"]},{"num":16,"code":"016","label":"০১৬","title":"কতজন ধরে","taskIds":["d016-u7jkmu"]},{"num":17,"code":"017","label":"০১৭","title":"কোন সিদ্ধান্ত কেন","taskIds":["d017-1knuunn"]},{"num":18,"code":"018","label":"০১৮","title":"যা বাদ দিলাম","taskIds":["d018-1mlaczd"]},{"num":19,"code":"019","label":"০১৯","title":"গঠন","taskIds":["d019-1nno4ei"]},{"num":20,"code":"020","label":"০২০","title":"পাঁচ সেকশন, না দেখে","taskIds":["d020-acaoaj"]},{"num":21,"code":"021","label":"০২১","title":"সপ্তাহের হিসাব","taskIds":["d021-gpckxb"]},{"num":22,"code":"022","label":"০২২","title":"কোথায় ভাঙবে","taskIds":["d022-1xsmcne"]},{"num":23,"code":"023","label":"০২৩","title":"দশ গুণ ব্যবহারকারী","taskIds":["d023-nxkfo8"]},{"num":24,"code":"024","label":"০২৪","title":"ট্রাফিক আর cache","taskIds":["d024-1vlzsp"]},{"num":25,"code":"025","label":"০২৫","title":"API আর monitoring","taskIds":["d025-1p15gy8"]},{"num":26,"code":"026","label":"০২৬","title":"দশ মিনিট টানা","taskIds":["d026-2o0tad"]},{"num":27,"code":"027","label":"০২৭","title":"এলোমেলো তিনটা","taskIds":["d027-h5cvy"]},{"num":28,"code":"028","label":"০২৮","title":"থামা","taskIds":["d028-4mf85n"]}]}],"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],"$L5"],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]}]]}],{"children":["$L6",{"children":["$L7",{"children":["$L8",{},null,false,null]},null,false,"$9"]},null,false,"$9"]},null,false,null],"$La",false]],"m":"$undefined","G":["$b",["$Lc"]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"27zGXYGE3LrRiWgVujnSy"}
+e:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"OutletBoundary"]
+f:"$Sreact.suspense"
+11:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"ViewportBoundary"]
+13:I[97367,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"MetadataBoundary"]
+5:["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]
+6:["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+7:["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+8:["$","$1","c",{"children":["$Ld",[["$","script","script-0",{"src":"/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js","async":true,"nonce":"$undefined"}]],["$","$Le",null,{"children":["$","$f",null,{"name":"Next.MetadataOutlet","children":"$@10"}]}]]}]
+a:["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$f",null,{"name":"Next.Metadata","children":"$L14"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","link","0",{"rel":"stylesheet","href":"/system_design_local_company/_next/static/chunks/0rjck_o2q5l_u.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+15:I[22016,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js","/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js"],""]
+16:I[82484,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js","/system_design_local_company/_next/static/chunks/0e2vlk28-rzwf.js"],"default"]
+9:C
+17:T3083,Distributed system-এ component গুলোকে যুক্ত করার সবচেয়ে স্থিতিস্থাপক উপায় হলো message। কিন্তু message-ভিত্তিক যোগাযোগ নিজস্ব সমস্যা আনে — ক্রম, পুনরাবৃত্তি, ব্যর্থতা, ভারসাম্যহীন লোড। নিচের প্যাটার্নগুলো সেই সমস্যাগুলোর পরীক্ষিত সমাধান।
+
+মূল ভিত্তি প্রথমে পড়ে নিন: [Asynchronism](14-asynchronism.md)।
+
+## Asynchronous Request-Reply
+
+Client একটা কাজ শুরু করে সাথে সাথে একটা "গ্রহণ করা হয়েছে" উত্তর পায় (`202 Accepted` + status URL), আর প্রকৃত ফলাফল পরে সংগ্রহ করে — polling, webhook বা push connection দিয়ে।
+
+**কেন**: দীর্ঘ কাজের জন্য HTTP connection ধরে রাখা অপচয় ও অনির্ভরযোগ্য (timeout, proxy-র সীমা)। এই প্যাটার্নে client অপেক্ষায় আটকে থাকে না, আর backend নিজের গতিতে কাজ করে। বিস্তারিত কৌশল: [Background Jobs — Returning Results](07-background-jobs.md)।
+
+## Claim Check
+
+বড় payload টা message-এ না পাঠিয়ে একটা external store-এ (S3, blob storage) রেখে দেওয়া, আর message-এ কেবল তার **রেফারেন্স** (claim check) পাঠানো। Consumer রেফারেন্স ব্যবহার করে ডেটা নিজে টেনে আনে।
+
+**কেন**: প্রায় সব message broker-এর message আকারের কঠোর সীমা আছে (SQS-এ 256 KB, Kafka-তে সাধারণত 1 MB)। বড় payload বহন করলে broker ধীর হয়, খরচ বাড়ে, এবং সব consumer-কে অপ্রয়োজনীয় ডেটা টানতে হয়।
+
+**ব্যবহার**: ছবি/ভিডিও প্রক্রিয়াকরণ, বড় ফাইল আপলোড pipeline, বিশাল ডেটা রপ্তানি।
+
+## Choreography
+
+কেন্দ্রীয় কোনো নিয়ন্ত্রক (orchestrator) ছাড়াই service গুলো ঘটনা প্রকাশ ও ঘটনায় প্রতিক্রিয়া জানানোর মাধ্যমে একটা প্রক্রিয়া সম্পন্ন করে। প্রতিটা service জানে "এই ঘটনা ঘটলে আমার কী করার আছে" — পুরো প্রবাহটা কেউ একা জানে না।
+
+**সুবিধা**: service গুলো শিথিলভাবে যুক্ত, নতুন service যোগ করতে পুরনো কারও কোড বদলাতে হয় না, কোনো কেন্দ্রীয় bottleneck বা single point of failure নেই।
+
+**অসুবিধা**: পুরো ব্যবসায়িক প্রক্রিয়াটা কোথাও স্পষ্টভাবে লেখা নেই — ফলে বোঝা ও debug করা কঠিন। প্রক্রিয়াটা এখন কোথায় দাঁড়িয়ে আছে সেটা জানার জন্য distributed tracing অপরিহার্য।
+
+**তুলনা**: Orchestration-এ একজন কেন্দ্রীয় সমন্বয়কারী সবাইকে নির্দেশ দেয় — বোঝা ও নিয়ন্ত্রণ সহজ, কিন্তু coupling বেশি। জটিল ব্যবসায়িক প্রক্রিয়ায় orchestration সাধারণত বেশি ব্যবহারিক; সরল ঘটনাপ্রবাহে choreography ভালো।
+
+## Competing Consumers
+
+একই queue থেকে একাধিক consumer একসাথে message তুলে নেয়; প্রতিটা message ঠিক একজন consumer পায়।
+
+**কেন**: এটাই queue-ভিত্তিক কাজ বণ্টনের মৌলিক রূপ — consumer সংখ্যা বাড়িয়ে সহজে throughput বাড়ানো যায় (queue depth দেখে autoscale)। একটা consumer মরে গেলে তার অসমাপ্ত message অন্যরা তুলে নেয়, তাই স্থিতিস্থাপকতাও পাওয়া যায়।
+
+**দরকারি শর্ত**: consumer গুলো **idempotent** হতে হবে (message পুনরায় সরবরাহ হতে পারে), এবং message-এর ক্রম রক্ষিত হবে না — ক্রম দরকার হলে Sequential Convoy দেখুন।
+
+## Pipes and Filters
+
+একটা জটিল প্রক্রিয়াকে স্বাধীন ধাপে ভেঙে queue দিয়ে যুক্ত করা, যেখানে প্রতিটা ধাপ আলাদাভাবে scale ও পুনঃব্যবহারযোগ্য। বিস্তারিত: [Design & Implementation Patterns](19-design-and-implementation-patterns.md)।
+
+## Priority Queue
+
+Message গুলোকে গুরুত্ব অনুযায়ী আলাদা করে, বেশি গুরুত্বপূর্ণগুলো আগে প্রক্রিয়া করা।
+
+**বাস্তবায়ন**: সবচেয়ে সরল ও নির্ভরযোগ্য উপায় হলো **আলাদা আলাদা queue** (high/normal/low) এবং high queue-তে বেশি consumer বরাদ্দ করা — একটামাত্র queue-তে priority field ব্যবহারের চেয়ে এটা অনেক সহজে scale করে।
+
+**সতর্কতা**: **starvation** — উচ্চ অগ্রাধিকারের কাজ অবিরত আসতে থাকলে নিম্ন অগ্রাধিকারের কাজ কখনো চলবেই না। তাই নিম্ন queue-র জন্যও ন্যূনতম ক্ষমতা সংরক্ষিত রাখুন, বা অপেক্ষার সময় বাড়ার সাথে অগ্রাধিকার বাড়ান (aging)।
+
+## Publisher/Subscriber
+
+Publisher একটা ঘটনা প্রকাশ করে, আর যত subscriber আগ্রহী সবাই তার একটা করে কপি পায়। Publisher জানেই না কারা শুনছে।
+
+**কেন**: একটা ঘটনায় একাধিক প্রতিক্রিয়া দরকার হলে (order তৈরি হলে → ইমেইল পাঠাও, inventory কমাও, analytics-এ লেখো, warehouse-কে জানাও) নতুন প্রতিক্রিয়া যোগ করতে publisher-এর কোডে হাত দিতে হয় না। এটাই event-driven architecture-এর মেরুদণ্ড।
+
+**খরচ**: কে কী শুনছে তা কোথাও কেন্দ্রীয়ভাবে দেখা যায় না, তাই প্রভাব বোঝা কঠিন; event schema বদলানো ঝুঁকিপূর্ণ (versioning পরিকল্পনা আগেই করুন)।
+
+## Queue-Based Load Leveling
+
+Service-এর সামনে একটা queue বসিয়ে হঠাৎ আসা ট্রাফিকের ঢেউকে সমতল করা। Producer যত দ্রুতই পাঠাক, consumer নিজের স্থির ক্ষমতায় কাজ করে যায়।
+
+**কেন**: এটা ছাড়া ট্রাফিকের চূড়ায় (peak) service ভেঙে পড়ে, আর সেই চূড়ার জন্য সবসময় ক্ষমতা কিনে রাখলে খরচ অপচয়। Queue থাকলে গড় ক্ষমতার জন্য পরিকল্পনা করাই যথেষ্ট।
+
+**শর্ত**: কাজটা asynchronous হতে হবে, এবং চূড়ার সময় বাড়তি latency গ্রহণযোগ্য হতে হবে। Queue-র একটা সর্বোচ্চ সীমা ও পূর্ণ হলে কী হবে তার পরিকল্পনা রাখুন ([Back Pressure](14-asynchronism.md))।
+
+## Scheduler Agent Supervisor
+
+বিতরণকৃত কাজকে নির্ভরযোগ্যভাবে সম্পন্ন করার জন্য তিনটা ভূমিকায় ভাগ করা:
+
+- **Scheduler** — কাজের ধাপগুলো সাজায় ও অগ্রগতির অবস্থা রেকর্ড করে।
+- **Agent** — একেকটা দূরবর্তী কাজ প্রকৃতপক্ষে সম্পাদন করে (timeout ও retry সহ)।
+- **Supervisor** — অবস্থার রেকর্ড নজরে রেখে আটকে যাওয়া বা ব্যর্থ ধাপ শনাক্ত করে, এবং পুনরায় চেষ্টা বা ক্ষতিপূরণমূলক পদক্ষেপ (Compensating Transaction) শুরু করে।
+
+**কেন**: বহু ধাপের দীর্ঘ প্রক্রিয়ায় (order → payment → inventory → shipping) যেকোনো ধাপ যেকোনো সময় ব্যর্থ হতে পারে, এবং কেউ যদি সক্রিয়ভাবে নজর না রাখে তাহলে প্রক্রিয়াগুলো নীরবে অর্ধসমাপ্ত অবস্থায় আটকে থাকে। Supervisor-ই সেই সক্রিয় প্রহরী।
+
+## Sequential Convoy
+
+সম্পর্কিত message গুলোর ক্রম রক্ষা করা, একই সাথে অসম্পর্কিত message গুলো সমান্তরালে প্রক্রিয়া করতে দেওয়া।
+
+**সমস্যাটা**: বিশুদ্ধ Competing Consumers-এ ক্রমের কোনো নিশ্চয়তা নেই — "account তৈরি" এর আগেই "account আপডেট" প্রক্রিয়া হয়ে যেতে পারে। কিন্তু সবকিছু একটা consumer দিয়ে ক্রমানুসারে করালে throughput ধসে যায়।
+
+**সমাধান**: একটা **partition/group key** ব্যবহার করুন (যেমন `orderId` বা `userId`) — একই key-র সব message একই partition ও একই consumer-এ যাবে, তাই তাদের ভেতর ক্রম রক্ষিত হবে; ভিন্ন key-র message গুলো সমান্তরালে চলবে। Kafka-র partition key ও SQS FIFO-র message group ID ঠিক এই কাজটাই করে।
+
+**সতর্কতা**: key-র বণ্টন অসম হলে একটা partition-এ hotspot তৈরি হবে — shard key নির্বাচনের মতোই সাবধানে বাছুন।
+
+---
+
+পূর্ববর্তী: [Data Management Patterns](20-data-management-patterns.md) · পরবর্তী: [Reliability — Availability](22-availability.md)d:[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L15",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"21"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Cloud Design Patterns — Messaging"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","div",null,{"className":"surface-well t-caption p-4 text-center","children":"এই পথের কোনো দিনে এই ডক নেই — জেনেশুনে বাদ, দরকার হলে পরে। 🧠 Pareto principle"}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L16",null,{"children":"$17"}]}],"$L18"]
+18:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L15",null,{"href":"/doc/20/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"20 Cloud Design Patterns — Data Management"}]]}],["$","$L15",null,{"href":"/doc/22/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"22 Reliability Patterns — Availability"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+19:I[27201,["/system_design_local_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_local_company/_next/static/chunks/2-xlc2yslzpp5.js"],"IconMark"]
+10:null
+14:[["$","title","0",{"children":"ডক 21 · Cloud Design Patterns — Messaging — লোকাল system design"}],["$","meta","1",{"name":"description","content":"বাংলাদেশি কোম্পানির কারিগরি আলোচনার system design অংশের জন্য — সাতটা ডক আর নিজের প্রজেক্টের একটা design doc, ২৮ দিনে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/system_design_local_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","3",{}]]
