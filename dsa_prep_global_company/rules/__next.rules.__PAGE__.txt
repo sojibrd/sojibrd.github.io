@@ -1,0 +1,152 @@
+1:"$Sreact.fragment"
+2:I[82484,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js","/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+3:T389d,## লক্ষ্য
+
+> **১৬৮ দিনে ১১০টা প্রবলেম, দিনে একটা, ৩০′ ঘড়িতে, ইংরেজিতে জোরে ভেবে — টপিক ১–৫-এর ভিত্তি থেকে সব ১০ টপিক, hard প্রবলেমসহ, আর শেষ দুই সপ্তাহ mock।**
+
+FAANG-এ DSA ছাঁকনি নয়, **নির্ণায়ক।** ৪–৫টা রাউন্ড, প্রতিটায় ৪৫ মিনিটে একটা বা দুটো প্রবলেম, আর সারাক্ষণ একজন মানুষ শুনছেন আপনি কীভাবে ভাবছেন। সঠিক উত্তর অর্ধেক নম্বর; বাকি অর্ধেক — প্রশ্ন করা, trade-off বলা, নিজের কোড নিজে test করা। তাই প্রথম প্রবলেম থেকেই interview-এর পাঁচ ধাপ। 🧠 (Everything is a game · Skill stacking)
+
+## সত্যের উৎস
+
+1. `brainstorming/ASSUMPTIONS.md`
+2. `brainstorming/` — `dsa.md` (তিন পথ · FAANG-এ কী ভালো), `after-joining.md` (ধাপ ১১)
+3. এই ফোল্ডার — `docs/` আর `patterns/` (৫১টা প্যাটার্ন, ইংরেজিতে; টপিক ৬ নতুন লেখা, `dsa_prep`-এ ওটা ফাঁকা লিংক ছিল)
+
+**স্বাধীন পথ।** আগে অন্য কোনো DSA সাইট শেষ করতে হয় না — এই সাইট টপিক ১–৫-এর প্রথম প্রবলেম থেকে শেখায়। প্রথম ৫০টা `dsa_prep_remote_company`-এর একই ৫০টা (তার প্রথম ৩০টা `dsa_prep_local_company`-এর); ওগুলো করা থাকলে চেনা লাগবে, কিন্তু interview-এর পাঁচ ধাপ তবু নতুন — বাদ দেবেন না।
+
+**কখন:** এই পথ রোডম্যাপের কোনো stage-এ **নেই** — "লক্ষ্য নয়, দিক"। শুরুর তারিখ ⏳ আপনার উত্তর বাকি — সাইট প্রথমবার খুললে জিজ্ঞেস করবে।
+
+## কীভাবে পড়বেন
+
+- ১৬৮ দিন, ১০টা ব্লক। প্রতিটা দিনে কয়েকটা `- [ ]` কাজ, শেষে **দিন শেষে** প্রশ্ন।
+- `(LC 42 · ১.১ …)` — প্যাটার্ন লেখা: প্রথমবার শিখছেন।
+- `(LC 49)` — প্যাটার্ন লেখা নেই: আগে নিজে নাম বলুন; লিংক টিক দেওয়ার পরে দেখায়। ব্লক ৩ পুরোটা এভাবে, আর ব্লক ৯-এর একটা। 🧠 (Interleaving)
+- 🔥 Must-do — প্যাটার্নের পাতায় দেখায়; company-frequency ডেটা থেকে, **এই পথেই** ঠিক ছাঁকনি।
+- 🧠, 🔁, ⚑ — লোকাল আর রিমোট সাইটের মতোই। ⏳ = আপনার উত্তর বাকি।
+
+## "আজ" মানে ক্যালেন্ডারের আজ
+
+ফাইলে শুধু দিনের নম্বর, দিন ০০১ = সোমবার ধরে লেখা; শুরুর তারিখ সাইটে একবার। plan পেছায় না, বাদ পড়া দিন ফেরে না, শুধু ⚑ জমে থাকে।
+
+---
+
+## সপ্তাহের ছন্দ
+
+সপ্তাহে ৭ ঘণ্টার হিসাবে লেখা — DSA দিনে **৩০′**, সাথে ইংরেজিতে ব্যাখ্যার **১৫′**।
+
+| দিন | ব্লক ১–৯ | ব্লক ১০ | সময় |
+|---|---|---|---|
+| সোম–শুক্র | নতুন প্রবলেম ১টা, interview-এর পাঁচ ধাপে · ইংরেজিতে ব্যাখ্যা | দুর্বল ১০টা, মুখে বলা, design প্রশ্ন | ৩০′ + ১৫′ |
+| শনি | সপ্তাহের প্রবলেম না দেখে — pattern, approach, complexity | — | ১৫′ |
+| প্রতি চতুর্থ শনি (দিন ০২৭, ০৫৫, ০৮৩, ১১১, ১৩৯) | ⚑ mock | দুই শনিতেই ⚑ mock (দিন ১৬০, ১৬৭) | ৬০′ |
+| রবি | সপ্তাহের হিসাব | একই | ১০′ |
+
+🧠 (System vs goal · It pays to be not busy)
+
+---
+
+## Interview-এর বসা — ৩০′
+
+FAANG interviewer যে ক্রমে শোনেন, সেই ক্রমে অনুশীলন:
+
+1. **Clarify (৩′)** — ইংরেজিতে জোরে দুটো প্রশ্ন: input খালি হতে পারে? duplicate? কত বড়? constraint দেখে complexity-র লক্ষ্য। 🧠 (Everything is a game)
+2. **Brute force (২′)** — সহজ সমাধান আর তার complexity মুখে, কোড নয়।
+3. **Optimize (৫′)** — কোন ক্লু দেখে কোন প্যাটার্ন; approach এক বাক্যে। 🧠 (Chunking · Trunk based knowledge)
+4. **Code (১৫′)** — জোরে বলতে বলতে। সাদা editor, AI বন্ধ। 🧠 (Test yourself · Deep work)
+5. **Test (৫′)** — নিজের কোড একটা ছোট উদাহরণে হাতে চালান, তারপর edge case। interviewer বলার আগে নিজে bug ধরা = নম্বর।
+6. **৩০′ পেরোলে থামুন।** সমাধান দেখুন, বন্ধ করুন, নোটে "Where I got stuck", কাল ঝালাইয়ে ফাঁকা editor। 🧠 (Have an endpoint · Failures don't count)
+7. **পরে এক মিনিট:** আরেকভাবে হয়? interviewer-এর follow-up প্রায় সবসময় এটাই। 🧠 (Einstellung)
+
+**প্রথম কয়েক সপ্তাহে পাঁচ ধাপ ৩০′-এ আঁটবে না।** ১০′ আটকালে উঠে হাঁটুন, ২০′-এ demo খুলুন — পড়ে **বন্ধ করে** নিজে লিখুন। 🧠 (Focus vs Diffuse · Efficiency trumps grit)
+
+**আটকালে চুপ নয়:** *"I'm considering two approaches — a heap and sorting. Let me think about which one fits the constraint."* ভুল দিকে গিয়েও জোরে ভাবা চুপ থাকার চেয়ে বেশি নম্বর পায়।
+
+## Constraint পড়া
+
+| দেখলে | ভাবুন |
+|---|---|
+| N ≤ 20 | brute force / **backtracking** / bitmask DP |
+| N ≤ 100 | O(n³) চলতে পারে |
+| N ≤ 1,000 | O(n²) — **DP টেবিল**, pair comparison |
+| N ≤ 10⁵ | O(n log n) বা O(n) — sort / heap / hashmap / prefix |
+| N ≤ 10⁶ | O(n) one-pass, memory-ও খেয়াল |
+| Sorted input | **binary search** / **two pointers** |
+| অনেক range query | **prefix sum** (static) / segment tree (update সহ) |
+| Weighted graph + shortest | **Dijkstra** |
+| Unweighted shortest path | **BFS** |
+| Top K / Kth | **heap** (Kth হলে quickselect-ও) |
+| সব possibility / combination | **backtracking** |
+| min/max over choices, "number of ways" | **DP** |
+
+## Mock — মাসে একবার
+
+- **৬০′ = ৪৫′ mock + ১৫′ হিসাব।** দিন ০২৭, ০৫৫, ০৮৩, ১১১, ১৩৯-এ — এ পর্যন্ত যা শেষ, তার থেকে একটা, আগে না দেখে; রেকর্ড চালু। শেষে রেকর্ডিং থেকে তিনটা জিনিস: কোথায় চুপ হলেন, কোথায় clarify বাদ গেল, test করেছেন কি না। 🧠 (Feedback)
+- **সঙ্গী:** ⏳ — সে interviewer হবে, আপনি candidate; পরের বার উল্টো। interviewer হওয়াও অনুশীলন — ভালো উত্তর কেমন শোনায়, বোঝা যায়। 🧠 (Community)
+- **ব্লক ১০:** দুই শনিবারেই mock (দিন ১৬০, ১৬৭); শেষটা phone screen-এর মতো — দুটো সহজ-মাঝারি, ৪৫′-এ।
+
+## ঝালাই
+
+- 🔁 কাজে টিক দিলে আসল তারিখ থেকে ১ → ৩ → ৭ → ২১ দিন। 🧠 (Spaced repetition revisited)
+- ঝালাই = ফাঁকা editor, **১৫′,** ইংরেজিতে জোরে। hard-এ ১৫′-এ কোড না হলে শুধু approach বলুন — সেটাও ঝালাই।
+- এক দিনে অনেক জমলে Must-do আর hard আগে।
+
+## প্যাটার্নের পাতা
+
+ক্লু আগে, demo ভাঁজ করা, তারপর প্রবলেম — 🔥 Must-do চিহ্নসহ। প্রবলেমের তালিকার বাইরের প্রবলেমগুলো (demo-র মতো) plan-এ আছে; পাতার "Demo" সারিতে নোট আর দিনের লিংক। 🧠 (Trunk based knowledge)
+
+---
+
+## `learning_to_learn` — কোনটা কোথায়
+
+| ডক | এই plan-এ যেভাবে |
+|---|---|
+| **Principle** | Learning vs Winning — hard প্রবলেম বেছে নেওয়া। The obstacle — ব্লক ৬-এর hard। The dip — ব্লক ৬–৮, সবচেয়ে লম্বা মাঝখান। Compound learning — ১৬৮ দিন। Failures don't count — mock-এর রেকর্ডিং। It's all in the frame, Choice vs Chore — রবিবারের হিসাব। Pareto — Must-do আগে। Skill stacking — DSA + ইংরেজি + system design। Productivity time, What is success?, Happiness factors, Self learning paradigm — ব্লকের শুরু আর থামার দিনে। |
+| **Lies** | 10,000 hours rule — ১১০-এ থামা। Follow your passion — hard ভালো লাগার অপেক্ষা নয়। You can avoid risk — "আরও প্রস্তুত হয়ে" নয়। Trust this one person — একটা "Blind 75" তালিকার অন্ধ অনুসরণ নয়। |
+| **Pillars** | Everything is a game — interview-এর পাঁচ ধাপ। Feynman — ইংরেজিতে ৩ লাইন। Trunk based knowledge — ৫১টা প্যাটার্ন। Efficiency trumps grit — ৩০′-এ থামা। |
+| **Science** | Focus vs Diffuse, Be bored, Sleep, Brain training, Feedback, Procrastination, Long and short memory, Active learning, Motivation, Goals, It pays to be not busy, Chunking, Deliberate practice, Spaced repetition, Energy saving with habits, Be adventurous, Have an endpoint — দিনের 🧠 chip-এ। |
+| **Techniques** | Pomodoro, Deep work, Parkinson's law — ৩০′। Chunk the subject — এক ব্লক এক বিষয়। Interleaving — ব্লক ৩ আর mock। Einstellung — follow-up। Community — mock-এর সঙ্গী। Method of loci — ৫১টা প্যাটার্নের ঘর। The power of senses — কাগজে DP টেবিল। Create a roadmap, Deliberate practice revisited, Spaced repetition revisited, Habits revisited, System vs goal, Pareto principle revisited, Stakes & Rewards, Concepts vs Facts, Test yourself, The first 20 hours — দিনের কাজে। |
+
+---
+
+## যা উপেক্ষা করবেন
+
+- **Simulation আর animation** — interview-তে animation দেখে কেউ পাস করে না।
+- **টপিকের ক্রমে একটানা** — ব্লকের ভেতরে প্যাটার্ন লেখা থাকে, কিন্তু শনিবারের কাজ আর mock সবসময় মিশিয়ে।
+- **বাংলা ক্লু** — এই পথে সব ইংরেজিতে।
+- **পরিশিষ্টের টপিক** — segment tree, KMP, Manacher — interview-তে কম আসে; ১১০-এর পরে, দরকার হলে।
+
+## যা করবেন না
+
+- **১১০টার পরে নতুন নয়।** আরও প্রবলেম নয়, আরও mock। 🧠 (10,000 hours rule)
+- **Must-do বাদ দিয়ে Bonus নয়।**
+- **mock এড়িয়ে একা প্রবলেম নয়।** একা পারা আর কারও সামনে পারা আলাদা দক্ষতা।
+- **DSA-র অপেক্ষায় system design আর behavioural বন্ধ নয়** — ওগুলো অন্য প্রজেক্টে, সমান্তরালে।
+- **এই সাইটে নতুন ফিচার নয়।**
+
+## দিন ১৬৮-এর পরে
+
+- সোম–শুক্রের DSA সময় = আজকের ঝালাই, আর সপ্তাহে একটা mock — interview-এর তারিখ না আসা পর্যন্ত।
+- interview-এর দুই সপ্তাহ আগে: ব্লক ১০ আবার, নতুন প্রবলেম নয়।
+- প্রতিটা আসল interview-এর পরে ৫ লাইন: কী প্রশ্ন, কোথায় আটকালেন, পরের বার কী আলাদা। এই নোটগুলোই আসল সিলেবাস। 🧠 (Feedback · Failures don't count)7:X
+c:X
+c:C
+0:{"buildId":"GAzrmO5hdUGs6vSjmkgjr","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — গ্লোবাল কোম্পানির DSA"}],["$","p",null,{"className":"t-body measure text-sm","children":"১৬৮ দিন · ১১০টা প্রবলেম · শূন্য থেকে · সব ১০ টপিক · mock"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L2",null,{"className":"measure","children":"$3"}]}]],["$L4"],"$L5"]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":"$L8","isPartial":"$@9","staleTime":"$7","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$7","varyParams":"$c"}],"isUpgradeableISRFallback":false,"a":"$@d","rootVaryParams":null,"needsRuntimeRequest":"$@e"}
+f:I[97367,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"OutletBoundary"]
+10:"$Sreact.suspense"
+12:I[97367,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"ViewportBoundary"]
+13:I[97367,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"MetadataBoundary"]
+14:I[27201,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"IconMark"]
+15:I[39756,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"default"]
+16:I[37457,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"default"]
+4:["$","script","script-0",{"src":"/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+5:["$","$Lf",null,{"children":["$","$10",null,{"name":"Next.MetadataOutlet","children":"$@11"}]}]
+8:["$","$1","h",{"children":[null,["$","$L12",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$10",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"নিয়ম — গ্লোবাল DSA"}],["$","meta","1",{"name":"description","content":"FAANG-স্তরের DSA রাউন্ডের জন্য ১১০টা প্রবলেম — শূন্য থেকে সব ১০ টপিক, interview-এর পাঁচ ধাপে, hard আর mock, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/dsa_prep_global_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L14","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+a:["$","$1","c",{"children":[null,["$","$L15",null,{"parallelRouterKey":"children","template":["$","$L16",null,{}]}]]}]
+e:true
+11:null
+7:300
+7:C
+d:0
+9:"$undefined"
+b:"$undefined"
+6:"$undefined"

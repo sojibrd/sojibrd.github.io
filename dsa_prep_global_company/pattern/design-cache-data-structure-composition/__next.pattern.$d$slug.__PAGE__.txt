@@ -1,0 +1,66 @@
+1:"$Sreact.fragment"
+2:I[22016,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js","/dsa_prep_global_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js","/dsa_prep_global_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:I[76270,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js","/dsa_prep_global_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T516,**Demo: LRU Cache** — [LC 146](https://leetcode.com/problems/lru-cache/) _(Medium — Amazon/Meta/Google High)_
+
+**Statement (Demo):** Design a Least Recently Used cache with `get(key)` and `put(key, value)`, both O(1). When capacity is exceeded, evict the least recently used key.
+Example: `capacity=2`: `put(1,1)`, `put(2,2)`, `get(1)` → `1`, `put(3,3)` (evicts key 2) | ⚡ at most 2×10⁵ calls
+
+**Approach:** Conceptually a HashMap + doubly linked list — O(1) lookup plus O(1) reordering. In JS, `Map` remembers insertion order, so one structure does both: on `get`, delete and re-set to move the key to the "recent" end; past capacity, delete the first key. (Be ready to explain the DLL version in the interview.)
+
+```js
+class LRUCache {
+  constructor(capacity) {
+    this.capacity = capacity;
+    this.map = new Map(); // insertion order = recency
+  }
+  get(key) {
+    if (!this.map.has(key)) return -1;
+    const val = this.map.get(key);
+    this.map.delete(key);
+    this.map.set(key, val); // mark as most recent
+    return val;
+  }
+  put(key, value) {
+    if (this.map.has(key)) this.map.delete(key);
+    this.map.set(key, value);
+    if (this.map.size > this.capacity)
+      this.map.delete(this.map.keys().next().value); // evict least recent
+  }
+}
+```
+
+**Complexity:** get/put O(1)11:X
+16:X
+16:C
+0:{"buildId":"GAzrmO5hdUGs6vSjmkgjr","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/patterns/","className":"t-accent","children":"প্যাটার্ন"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":["টপিক ",10," · ","Greedy, Trie & Design"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":["10.3"," ","Design (Cache & Data Structure Composition)"]}]]}],["$","section",null,{"className":"callout callout--accent p-4","children":[["$","div",null,{"className":"t-label mb-1","children":"চিনবেন কীভাবে"}],["$","$L3",null,{"inline":true,"className":"t-body text-sm","children":"\"design/implement X with O(1) operations\" — the answer is a **combination** of structures: HashMap + doubly linked list, map + heap, and so on"}]]}],["$","details",null,{"className":"surface-panel p-4 sm:p-6","children":[["$","summary",null,{"className":"t-label cursor-pointer select-none","children":"Demo · approach · কোড — আগে নিজে চেষ্টা, আটকালে খুলুন"}],["$","$L3",null,{"className":"measure mt-4","children":"$4"}]]}],["$","section",null,{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":["Demo · ","LRU Cache"]}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","149",{"href":"/day/149/","className":"chip chip--accent","children":["plan · দিন ","১৪৯"]}]],["$","a",null,{"href":"https://leetcode.com/problems/lru-cache/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 146",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],["$","$L5",null,{"problemKey":"lc146"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"প্রবলেম"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","lc460",{"id":"lc460","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"LFU Cache"}],"$L6"]}],"$L7","$L8","$L9"]}],"$La"]}],false,"$Lb"]}],"$Lc"],["$Ld","$Le"],"$Lf"]}],"isPartial":"$@10","staleTime":"$11","varyParams":null},{"rsc":"$L12","isPartial":"$@13","staleTime":"$11","varyParams":null},{"rsc":"$L14","isPartial":"$@15","staleTime":"$11","varyParams":"$16"},{"rsc":"$L17","isPartial":"$@18","staleTime":"$11","varyParams":"$16"}],"isUpgradeableISRFallback":false,"a":"$@19","rootVaryParams":null,"needsRuntimeRequest":"$@1a"}
+1b:I[97367,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"OutletBoundary"]
+1c:"$Sreact.suspense"
+1e:I[97367,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"ViewportBoundary"]
+1f:I[97367,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"MetadataBoundary"]
+20:I[27201,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"IconMark"]
+21:I[39756,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"default"]
+22:I[37457,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"default"]
+6:["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","150",{"href":"/day/150/","className":"chip chip--accent","children":["plan · দিন ","১৫০"]}]],["$","span",null,{"className":"chip chip--alert","children":"🔥 Must-do"}],["$","a",null,{"href":"https://leetcode.com/problems/lfu-cache/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 460",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]
+7:["$","$L3",null,{"inline":true,"className":"t-caption","children":"_(Hard — Amazon/Meta/Uber High; map of frequency → recency-ordered bucket, plus a minFreq pointer)_"}]
+8:["$","$L3",null,{"className":"text-sm","children":"Statement: Design a Least Frequently Used cache with O(1) `get` and `put`. On a frequency tie, evict the least recently used key.  \nExample: `capacity=2`: `put(1,1), put(2,2), get(1)` (key 1 now has frequency 2), `put(3,3)` (evicts key 2, the lower frequency) | ⚡ at most 2×10⁵ calls"}]
+9:["$","$L5",null,{"problemKey":"lc460"}]
+a:["$","li","lc68",{"id":"lc68","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"Text Justification"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","152",{"href":"/day/152/","className":"chip chip--accent","children":["plan · দিন ","১৫২"]}]],["$","span",null,{"className":"chip chip--alert","children":"🔥 Must-do"}],["$","a",null,{"href":"https://leetcode.com/problems/text-justification/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 68",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],["$","$L3",null,{"inline":true,"className":"t-caption","children":"_(Hard — Apple High; not an algorithm but careful simulation — a mine of edge cases)_"}],["$","$L3",null,{"className":"text-sm","children":"Statement: Given `words` and `maxWidth`, format the text so each line has exactly `maxWidth` characters and is fully justified; the last line is left-justified.  \nExample: `words=[\"This\",\"is\",\"an\",\"example\",\"of\",\"text\",\"justification.\"], maxWidth=16` → `[\"This    is    an\",\"example  of text\",\"justification.  \"]` | ⚡ `words.length ≤ 300`"}],["$","$L5",null,{"problemKey":"lc68"}]]}]
+b:["$","div",null,{"className":"seam-t flex flex-col gap-1 pt-3","children":[["$","span",null,{"className":"t-label","children":"আরও দেখুন"}],[["$","$L3","_Min Stack, Queue using Stacks → **4.3**; Serialize/Deserialize Binary Tree → **5.1**; Median from Data Stream → **6.3**; Task Scheduler → **6.4**_",{"inline":true,"className":"t-caption","children":"_Min Stack, Queue using Stacks → **4.3**; Serialize/Deserialize Binary Tree → **5.1**; Median from Data Stream → **6.3**; Task Scheduler → **6.4**_"}]]]}]
+c:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"প্যাটার্ন","children":[["$","$L2",null,{"href":"/pattern/trie-prefix-tree/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"10.2 Trie (Prefix Tree)"}]]}],["$","span",null,{}]]}]
+d:["$","script","script-0",{"src":"/dsa_prep_global_company/_next/static/chunks/0bza-gg8kwbbi.js","async":true}]
+e:["$","script","script-1",{"src":"/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+f:["$","$L1b",null,{"children":["$","$1c",null,{"name":"Next.MetadataOutlet","children":"$@1d"}]}]
+12:["$","$1","h",{"children":[null,["$","$L1e",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1f",null,{"children":["$","$1c",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"10.3 Design (Cache & Data Structure Composition) — গ্লোবাল DSA"}],["$","meta","1",{"name":"description","content":"FAANG-স্তরের DSA রাউন্ডের জন্য ১১০টা প্রবলেম — শূন্য থেকে সব ১০ টপিক, interview-এর পাঁচ ধাপে, hard আর mock, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/dsa_prep_global_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L20","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+14:["$","$1","c",{"children":[null,["$","$L21",null,{"parallelRouterKey":"children","template":["$","$L22",null,{}]}]]}]
+17:["$","$1","c",{"children":[null,["$","$L21",null,{"parallelRouterKey":"children","template":["$","$L22",null,{}]}]]}]
+1a:true
+1d:null
+11:300
+11:C
+19:0
+13:"$undefined"
+15:"$undefined"
+18:"$undefined"
+10:"$undefined"

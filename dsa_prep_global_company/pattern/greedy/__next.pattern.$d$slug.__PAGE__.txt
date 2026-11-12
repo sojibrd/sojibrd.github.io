@@ -1,0 +1,56 @@
+1:"$Sreact.fragment"
+2:I[22016,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js","/dsa_prep_global_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js","/dsa_prep_global_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:I[76270,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js","/dsa_prep_global_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T41e,**Demo: Candy** — [LC 135](https://leetcode.com/problems/candy/) _(Hard — Google/Amazon High)_
+
+**Statement (Demo):** Children stand in a line with `ratings`. Give candies so that (1) every child gets at least one, and (2) a child with a higher rating than a neighbour gets more candies than that neighbour. Return the minimum total.
+Example: `ratings=[1,0,2]` → `5` (2, 1, 2) | ⚡ `n ≤ 2×10⁴`
+
+**Approach:** Two passes — left→right: if the rating rises, give one more than the previous child; right→left: if the rating rises from the right, take the max to fix it. Both neighbour constraints are then satisfied.
+
+```js
+function candy(ratings) {
+  const n = ratings.length;
+  const candies = new Array(n).fill(1);
+  for (let i = 1; i < n; i++)
+    if (ratings[i] > ratings[i - 1]) candies[i] = candies[i - 1] + 1;
+  for (let i = n - 2; i >= 0; i--)
+    if (ratings[i] > ratings[i + 1])
+      candies[i] = Math.max(candies[i], candies[i + 1] + 1);
+  return candies.reduce((a, b) => a + b, 0);
+}
+```
+
+**Complexity:** Time O(n), Space O(n)10:X
+15:X
+15:C
+0:{"buildId":"GAzrmO5hdUGs6vSjmkgjr","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/patterns/","className":"t-accent","children":"প্যাটার্ন"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":["টপিক ",10," · ","Greedy, Trie & Design"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":["10.1"," ","Greedy"]}]]}],["$","section",null,{"className":"callout callout--accent p-4","children":[["$","div",null,{"className":"t-label mb-1","children":"চিনবেন কীভাবে"}],["$","$L3",null,{"inline":true,"className":"t-body text-sm","children":"\"minimize/maximize\" where you can argue **local best = global best** — activity selection, scheduling, \"pick the largest that fits\". When unsure, compare with DP: if greedy is wrong, a counterexample exists (coin change breaks greedy → 9.3)"}]]}],["$","details",null,{"className":"surface-panel p-4 sm:p-6","children":[["$","summary",null,{"className":"t-label cursor-pointer select-none","children":"Demo · approach · কোড — আগে নিজে চেষ্টা, আটকালে খুলুন"}],["$","$L3",null,{"className":"measure mt-4","children":"$4"}]]}],["$","section",null,{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":["Demo · ","Candy"]}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","144",{"href":"/day/144/","className":"chip chip--accent","children":["plan · দিন ","১৪৪"]}]],["$","a",null,{"href":"https://leetcode.com/problems/candy/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 135",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],["$","$L5",null,{"problemKey":"lc135"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"প্রবলেম"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","gfg-activity-selection",{"id":"gfg-activity-selection","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"Activity Selection"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[],false,["$","a",null,{"href":"https://www.geeksforgeeks.org/activity-selection-problem-greedy-algo-1/","target":"_blank","rel":"noreferrer","className":"chip","children":["GfG","$L6"]}]]}]]}],"$L7","$L8","$L9"]}]]}],false,"$La"]}],"$Lb"],["$Lc","$Ld"],"$Le"]}],"isPartial":"$@f","staleTime":"$10","varyParams":null},{"rsc":"$L11","isPartial":"$@12","staleTime":"$10","varyParams":null},{"rsc":"$L13","isPartial":"$@14","staleTime":"$10","varyParams":"$15"},{"rsc":"$L16","isPartial":"$@17","staleTime":"$10","varyParams":"$15"}],"isUpgradeableISRFallback":false,"a":"$@18","rootVaryParams":null,"needsRuntimeRequest":"$@19"}
+1a:I[97367,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"OutletBoundary"]
+1b:"$Sreact.suspense"
+1d:I[97367,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"ViewportBoundary"]
+1e:I[97367,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"MetadataBoundary"]
+1f:I[27201,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"IconMark"]
+20:I[39756,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"default"]
+21:I[37457,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"default"]
+6:["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]
+7:["$","$L3",null,{"inline":true,"className":"t-caption","children":"_(sort by end time — the original greedy problem)_"}]
+8:["$","$L3",null,{"className":"text-sm","children":"Statement: Given the `start` and `end` times of `n` activities, return the maximum number one person can do if they cannot do two at once.  \nExample: `start=[1,3,0,5,8,5], end=[2,4,6,7,9,9]` → `4` | ⚡ `n ≤ 10⁵`"}]
+9:["$","$L5",null,{"problemKey":"gfg-activity-selection"}]
+a:["$","div",null,{"className":"seam-t flex flex-col gap-1 pt-3","children":[["$","span",null,{"className":"t-label","children":"আরও দেখুন"}],[["$","$L3","_Non-overlapping Intervals (greedy form) → primary **1.5**; Task Scheduler and Refueling Stops (greedy + heap) → primary **6.4**_",{"inline":true,"className":"t-caption","children":"_Non-overlapping Intervals (greedy form) → primary **1.5**; Task Scheduler and Refueling Stops (greedy + heap) → primary **6.4**_"}]]]}]
+b:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"প্যাটার্ন","children":[["$","$L2",null,{"href":"/pattern/bitmask-digit-dp/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"9.11 Bitmask / Digit DP"}]]}],["$","$L2",null,{"href":"/pattern/trie-prefix-tree/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"10.2 Trie (Prefix Tree)"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+c:["$","script","script-0",{"src":"/dsa_prep_global_company/_next/static/chunks/0bza-gg8kwbbi.js","async":true}]
+d:["$","script","script-1",{"src":"/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+e:["$","$L1a",null,{"children":["$","$1b",null,{"name":"Next.MetadataOutlet","children":"$@1c"}]}]
+11:["$","$1","h",{"children":[null,["$","$L1d",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1e",null,{"children":["$","$1b",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"10.1 Greedy — গ্লোবাল DSA"}],["$","meta","1",{"name":"description","content":"FAANG-স্তরের DSA রাউন্ডের জন্য ১১০টা প্রবলেম — শূন্য থেকে সব ১০ টপিক, interview-এর পাঁচ ধাপে, hard আর mock, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/dsa_prep_global_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1f","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+13:["$","$1","c",{"children":[null,["$","$L20",null,{"parallelRouterKey":"children","template":["$","$L21",null,{}]}]]}]
+16:["$","$1","c",{"children":[null,["$","$L20",null,{"parallelRouterKey":"children","template":["$","$L21",null,{}]}]]}]
+19:true
+1c:null
+10:300
+10:C
+18:0
+12:"$undefined"
+14:"$undefined"
+17:"$undefined"
+f:"$undefined"

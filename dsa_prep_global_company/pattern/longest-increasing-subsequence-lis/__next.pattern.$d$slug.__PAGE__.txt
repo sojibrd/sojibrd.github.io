@@ -1,0 +1,56 @@
+1:"$Sreact.fragment"
+2:I[22016,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js","/dsa_prep_global_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js","/dsa_prep_global_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:I[76270,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js","/dsa_prep_global_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T423,**Demo: Longest Increasing Subsequence** — [LC 300](https://leetcode.com/problems/longest-increasing-subsequence/) _(Medium — Google/Meta/Microsoft High)_
+
+**Statement (Demo):** Given an integer array `nums`, return the length of its longest strictly increasing subsequence, in O(n log n).
+Example: `nums=[10,9,2,5,3,7,101,18]` → `4` (2→3→7→101) | ⚡ `n ≤ 2500`, `-10⁴ ≤ nums[i] ≤ 10⁴`
+
+**Approach (O(n log n), patience sorting):** `tails[i]` = the **smallest possible last value** of an increasing subsequence of length i+1 — this array stays sorted. For each number, binary search the first position `>= x` and replace it (append if none).
+
+```js
+function lengthOfLIS(nums) {
+  const tails = [];
+  for (const x of nums) {
+    let lo = 0,
+      hi = tails.length;
+    while (lo < hi) {
+      // first tails[i] >= x
+      const mid = (lo + hi) >> 1;
+      if (tails[mid] < x) lo = mid + 1;
+      else hi = mid;
+    }
+    tails[lo] = x; // replace or append
+  }
+  return tails.length;
+}
+```
+
+**Complexity:** Time O(n log n), Space O(n)b:X
+10:X
+10:C
+0:{"buildId":"GAzrmO5hdUGs6vSjmkgjr","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/patterns/","className":"t-accent","children":"প্যাটার্ন"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":["টপিক ",9," · ","Dynamic Programming"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":["9.5"," ","Longest Increasing Subsequence (LIS)"]}]]}],["$","section",null,{"className":"callout callout--accent p-4","children":[["$","div",null,{"className":"t-label mb-1","children":"চিনবেন কীভাবে"}],["$","$L3",null,{"inline":true,"className":"t-body text-sm","children":"\"longest increasing/chain\", envelope/box nesting — everyone knows the O(n²) DP; seniors are expected to reach O(n log n)"}]]}],["$","details",null,{"className":"surface-panel p-4 sm:p-6","children":[["$","summary",null,{"className":"t-label cursor-pointer select-none","children":"Demo · approach · কোড — আগে নিজে চেষ্টা, আটকালে খুলুন"}],["$","$L3",null,{"className":"measure mt-4","children":"$4"}]]}],["$","section",null,{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":["Demo · ","Longest Increasing Subsequence"]}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","131",{"href":"/day/131/","className":"chip chip--accent","children":["plan · দিন ","১৩১"]}]],["$","a",null,{"href":"https://leetcode.com/problems/longest-increasing-subsequence/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 300",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],["$","$L5",null,{"problemKey":"lc300"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"প্রবলেম"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[]}],["$","div",null,{"className":"surface-well t-caption p-4 text-center","children":"এই প্যাটার্নে আলাদা প্রবলেম নেই — demo-ই মূল প্রবলেম।"}],["$","div",null,{"className":"seam-t flex flex-col gap-1 pt-3","children":[["$","span",null,{"className":"t-label","children":"আরও দেখুন"}],[["$","$L3","_(The demo is the core — also write the O(n²) DP version; it is what you need to reconstruct the actual subsequence.)_",{"inline":true,"className":"t-caption","children":"_(The demo is the core — also write the O(n²) DP version; it is what you need to reconstruct the actual subsequence.)_"}]]]}]]}],"$L6"],["$L7","$L8"],"$L9"]}],"isPartial":"$@a","staleTime":"$b","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$b","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$b","varyParams":"$10"},{"rsc":"$L11","isPartial":"$@12","staleTime":"$b","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@13","rootVaryParams":null,"needsRuntimeRequest":"$@14"}
+15:I[97367,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"OutletBoundary"]
+16:"$Sreact.suspense"
+18:I[97367,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"ViewportBoundary"]
+19:I[97367,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"MetadataBoundary"]
+1a:I[27201,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"IconMark"]
+1b:I[39756,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"default"]
+1c:I[37457,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"default"]
+6:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"প্যাটার্ন","children":[["$","$L2",null,{"href":"/pattern/longest-common-subsequence-lcs/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"9.4 Longest Common Subsequence (LCS)"}]]}],["$","$L2",null,{"href":"/pattern/edit-distance/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"9.6 Edit Distance"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/dsa_prep_global_company/_next/static/chunks/0bza-gg8kwbbi.js","async":true}]
+8:["$","script","script-1",{"src":"/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+9:["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]
+c:["$","$1","h",{"children":[null,["$","$L18",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L19",null,{"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"9.5 Longest Increasing Subsequence (LIS) — গ্লোবাল DSA"}],["$","meta","1",{"name":"description","content":"FAANG-স্তরের DSA রাউন্ডের জন্য ১১০টা প্রবলেম — শূন্য থেকে সব ১০ টপিক, interview-এর পাঁচ ধাপে, hard আর mock, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/dsa_prep_global_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1a","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+e:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+11:["$","$1","c",{"children":[null,["$","$L1b",null,{"parallelRouterKey":"children","template":["$","$L1c",null,{}]}]]}]
+14:true
+17:null
+b:300
+b:C
+13:0
+d:"$undefined"
+f:"$undefined"
+12:"$undefined"
+a:"$undefined"

@@ -1,0 +1,59 @@
+1:"$Sreact.fragment"
+2:I[22016,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js","/dsa_prep_global_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js","/dsa_prep_global_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+5:I[76270,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js","/dsa_prep_global_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T48a,**Demo: Merge k Sorted Lists** — [LC 23](https://leetcode.com/problems/merge-k-sorted-lists/) _(Hard — Amazon/Meta/Google High)_
+
+**Statement (Demo):** Given an array of `k` sorted linked lists, merge them into one sorted linked list and return its head.
+Example: `lists=[[1,4,5],[1,3,4],[2,6]]` → `[1,1,2,3,4,4,5,6]` | ⚡ `k ≤ 10⁴`, total nodes `≤ 10⁴`
+
+**Approach:** Put the head of every non-empty list into a min-heap ordered by value. Pop the smallest node, attach it to the result (dummy node, see 3.2), and push that node's `next`. The heap never holds more than k nodes. (`MinHeap` → 6.1.)
+
+```js
+function mergeKLists(lists) {
+  const heap = new MinHeap((a, b) => a.val - b.val);
+  for (const head of lists) if (head) heap.push(head);
+  const dummy = { next: null };
+  let tail = dummy;
+  while (heap.size) {
+    const node = heap.pop(); // smallest current head
+    tail.next = node;
+    tail = node;
+    if (node.next) heap.push(node.next); // its successor joins the race
+  }
+  return dummy.next;
+}
+```
+
+**Complexity:** Time O(N log k) for N total nodes, Space O(k) _(divide-and-conquer pairwise merging is the heap-free alternative)_10:X
+15:X
+15:C
+0:{"buildId":"GAzrmO5hdUGs6vSjmkgjr","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/patterns/","className":"t-accent","children":"প্যাটার্ন"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":["টপিক ",6," · ","Heaps / Priority Queues"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":["6.2"," ","K-way Merge"]}]]}],["$","section",null,{"className":"callout callout--accent p-4","children":[["$","div",null,{"className":"t-label mb-1","children":"চিনবেন কীভাবে"}],["$","$L3",null,{"inline":true,"className":"t-body text-sm","children":"\"merge k sorted lists/arrays\", \"smallest range covering k lists\", \"kth smallest in a sorted matrix\" — a heap holds the current head of each list; pop the smallest, push its successor"}]]}],["$","details",null,{"className":"surface-panel p-4 sm:p-6","children":[["$","summary",null,{"className":"t-label cursor-pointer select-none","children":"Demo · approach · কোড — আগে নিজে চেষ্টা, আটকালে খুলুন"}],["$","$L3",null,{"className":"measure mt-4","children":"$4"}]]}],["$","section",null,{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":["Demo · ","Merge k Sorted Lists"]}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","099",{"href":"/day/099/","className":"chip chip--accent","children":["plan · দিন ","০৯৯"]}]],["$","a",null,{"href":"https://leetcode.com/problems/merge-k-sorted-lists/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 23",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],["$","$L5",null,{"problemKey":"lc23"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"প্রবলেম"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","lc378",{"id":"lc378","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"Kth Smallest Element in a Sorted Matrix"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","100",{"href":"/day/100/","className":"chip chip--accent","children":["plan · দিন ","১০০"]}]],"$L6","$L7"]}]]}],"$L8","$L9","$La"]}]]}],false,false]}],"$Lb"],["$Lc","$Ld"],"$Le"]}],"isPartial":"$@f","staleTime":"$10","varyParams":null},{"rsc":"$L11","isPartial":"$@12","staleTime":"$10","varyParams":null},{"rsc":"$L13","isPartial":"$@14","staleTime":"$10","varyParams":"$15"},{"rsc":"$L16","isPartial":"$@17","staleTime":"$10","varyParams":"$15"}],"isUpgradeableISRFallback":false,"a":"$@18","rootVaryParams":null,"needsRuntimeRequest":"$@19"}
+1a:I[97367,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"OutletBoundary"]
+1b:"$Sreact.suspense"
+1d:I[97367,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"ViewportBoundary"]
+1e:I[97367,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"MetadataBoundary"]
+1f:I[27201,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"IconMark"]
+20:I[39756,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"default"]
+21:I[37457,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"default"]
+6:["$","span",null,{"className":"chip chip--alert","children":"🔥 Must-do"}]
+7:["$","a",null,{"href":"https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 378",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]
+8:["$","$L3",null,{"inline":true,"className":"t-caption","children":"_(each row is a sorted list — k-way merge, or binary search on the value)_"}]
+9:["$","$L3",null,{"className":"text-sm","children":"Statement: Given an `n × n` matrix whose rows and columns are sorted ascending, return the `k`-th smallest element in sorted order.  \nExample: `matrix=[[1,5,9],[10,11,13],[12,13,15]], k=8` → `13` | ⚡ `n ≤ 300`"}]
+a:["$","$L5",null,{"problemKey":"lc378"}]
+b:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"প্যাটার্ন","children":[["$","$L2",null,{"href":"/pattern/top-k-elements/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"6.1 Top K Elements"}]]}],["$","$L2",null,{"href":"/pattern/two-heaps/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"6.3 Two Heaps"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+c:["$","script","script-0",{"src":"/dsa_prep_global_company/_next/static/chunks/0bza-gg8kwbbi.js","async":true}]
+d:["$","script","script-1",{"src":"/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+e:["$","$L1a",null,{"children":["$","$1b",null,{"name":"Next.MetadataOutlet","children":"$@1c"}]}]
+11:["$","$1","h",{"children":[null,["$","$L1d",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1e",null,{"children":["$","$1b",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"6.2 K-way Merge — গ্লোবাল DSA"}],["$","meta","1",{"name":"description","content":"FAANG-স্তরের DSA রাউন্ডের জন্য ১১০টা প্রবলেম — শূন্য থেকে সব ১০ টপিক, interview-এর পাঁচ ধাপে, hard আর mock, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/dsa_prep_global_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1f","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+13:["$","$1","c",{"children":[null,["$","$L20",null,{"parallelRouterKey":"children","template":["$","$L21",null,{}]}]]}]
+16:["$","$1","c",{"children":[null,["$","$L20",null,{"parallelRouterKey":"children","template":["$","$L21",null,{}]}]]}]
+19:true
+1c:null
+10:300
+10:C
+18:0
+12:"$undefined"
+14:"$undefined"
+17:"$undefined"
+f:"$undefined"

@@ -1,0 +1,98 @@
+1:"$Sreact.fragment"
+2:I[22016,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js","/dsa_prep_global_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js","/dsa_prep_global_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T807,**Demo: Kth Largest Element in an Array** — [LC 215](https://leetcode.com/problems/kth-largest-element-in-an-array/) _(Medium — Amazon/Meta/Google High)_
+
+**Statement (Demo):** Given an integer array `nums` and an integer `k`, return the `k`-th largest element in sorted order (not the k-th distinct).
+Example: `nums=[3,2,1,5,6,4], k=2` → `5` | ⚡ `1 ≤ k ≤ n ≤ 10⁵`, `-10⁴ ≤ nums[i] ≤ 10⁴`
+
+**Approach:** JavaScript has no built-in heap, so write a small `MinHeap` once — every heap pattern (6.x, Dijkstra in 8.6) reuses it. Keep a min-heap of the k largest seen so far: push each number, and when the size passes k, pop the smallest. The top is then the k-th largest.
+
+```js
+class MinHeap {
+  constructor(compare = (a, b) => a - b) {
+    this.data = [];
+    this.compare = compare;
+  }
+  get size() {
+    return this.data.length;
+  }
+  peek() {
+    return this.data[0];
+  }
+  push(value) {
+    const d = this.data;
+    d.push(value);
+    let i = d.length - 1;
+    while (i > 0) {
+      const parent = (i - 1) >> 1;
+      if (this.compare(d[i], d[parent]) >= 0) break;
+      [d[i], d[parent]] = [d[parent], d[i]]; // sift up
+      i = parent;
+    }
+  }
+  pop() {
+    const d = this.data;
+    const top = d[0];
+    const last = d.pop();
+    if (d.length) {
+      d[0] = last;
+      let i = 0;
+      for (;;) {
+        const l = 2 * i + 1,
+          r = l + 1;
+        let smallest = i;
+        if (l < d.length && this.compare(d[l], d[smallest]) < 0) smallest = l;
+        if (r < d.length && this.compare(d[r], d[smallest]) < 0) smallest = r;
+        if (smallest === i) break;
+        [d[i], d[smallest]] = [d[smallest], d[i]]; // sift down
+        i = smallest;
+      }
+    }
+    return top;
+  }
+}
+
+function findKthLargest(nums, k) {
+  const heap = new MinHeap();
+  for (const x of nums) {
+    heap.push(x);
+    if (heap.size > k) heap.pop(); // drop the smallest — keep the k largest
+  }
+  return heap.peek();
+}
+```
+
+**Complexity:** Time O(n log k), Space O(k) _(quickselect gives O(n) average — mention it as a follow-up)_d:X
+12:X
+12:C
+0:{"buildId":"GAzrmO5hdUGs6vSjmkgjr","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/patterns/","className":"t-accent","children":"প্যাটার্ন"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":["টপিক ",6," · ","Heaps / Priority Queues"]}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":["6.1"," ","Top K Elements"]}]]}],["$","section",null,{"className":"callout callout--accent p-4","children":[["$","div",null,{"className":"t-label mb-1","children":"চিনবেন কীভাবে"}],["$","$L3",null,{"inline":true,"className":"t-body text-sm","children":"\"k largest/smallest\", \"kth largest\", \"k most frequent\", \"k closest\" — keep a heap of size k instead of sorting everything: O(n log k)"}]]}],["$","details",null,{"className":"surface-panel p-4 sm:p-6","children":[["$","summary",null,{"className":"t-label cursor-pointer select-none","children":"Demo · approach · কোড — আগে নিজে চেষ্টা, আটকালে খুলুন"}],["$","$L3",null,{"className":"measure mt-4","children":"$4"}]]}],["$","section",null,{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":["Demo · ","Kth Largest Element in an Array"]}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","054",{"href":"/day/054/","className":"chip chip--accent","children":["plan · দিন ","০৫৪"]}]],"$L5"]}]]}],"$L6"]}],"$L7","$L8"],["$L9","$La"],"$Lb"]}],"isPartial":"$@c","staleTime":"$d","varyParams":null},{"rsc":"$Le","isPartial":"$@f","staleTime":"$d","varyParams":null},{"rsc":"$L10","isPartial":"$@11","staleTime":"$d","varyParams":"$12"},{"rsc":"$L13","isPartial":"$@14","staleTime":"$d","varyParams":"$12"}],"isUpgradeableISRFallback":false,"a":"$@15","rootVaryParams":null,"needsRuntimeRequest":"$@16"}
+17:I[76270,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js","/dsa_prep_global_company/_next/static/chunks/0bza-gg8kwbbi.js","/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+1a:I[97367,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"OutletBoundary"]
+1b:"$Sreact.suspense"
+1d:I[97367,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"ViewportBoundary"]
+1e:I[97367,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"MetadataBoundary"]
+1f:I[27201,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"IconMark"]
+20:I[39756,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"default"]
+21:I[37457,["/dsa_prep_global_company/_next/static/chunks/02kkpmz2my6ts.js","/dsa_prep_global_company/_next/static/chunks/2uifz3grfhzxq.js"],"default"]
+5:["$","a",null,{"href":"https://leetcode.com/problems/kth-largest-element-in-an-array/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 215",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]
+6:["$","$L17",null,{"problemKey":"lc215"}]
+7:["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"প্রবলেম"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","lc347",{"id":"lc347","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"Top K Frequent Elements"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","057",{"href":"/day/057/","className":"chip chip--accent","children":["plan · দিন ","০৫৭"]}]],["$","span",null,{"className":"chip chip--alert","children":"🔥 Must-do"}],["$","a",null,{"href":"https://leetcode.com/problems/top-k-frequent-elements/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 347",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],["$","$L3",null,{"inline":true,"className":"t-caption","children":"_(count with a map, then a size-k heap on counts — or bucket sort for O(n))_"}],["$","$L3",null,{"className":"text-sm","children":"Statement: Given an integer array `nums` and an integer `k`, return the `k` most frequent elements, in any order.  \nExample: `nums=[1,1,1,2,2,3], k=2` → `[1,2]` | ⚡ `n ≤ 10⁵`, answer is unique"}],["$","$L17",null,{"problemKey":"lc347"}]]}],["$","li","lc973",{"id":"lc973","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"K Closest Points to Origin"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","058",{"href":"/day/058/","className":"chip chip--accent","children":["plan · দিন ","০৫৮"]}]],["$","span",null,{"className":"chip chip--alert","children":"🔥 Must-do"}],["$","a",null,{"href":"https://leetcode.com/problems/k-closest-points-to-origin/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 973",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],["$","$L3",null,{"inline":true,"className":"t-caption","children":"_(max-heap of size k on squared distance)_"}],["$","$L3",null,{"className":"text-sm","children":"Statement: Given `points` on a plane and an integer `k`, return the `k` points closest to the origin `(0, 0)` by Euclidean distance, in any order.  \nExample: `points=[[1,3],[-2,2]], k=1` → `[[-2,2]]` | ⚡ `1 ≤ k ≤ n ≤ 10⁴`"}],["$","$L17",null,{"problemKey":"lc973"}]]}],["$","li","lc703",{"id":"lc703","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"Kth Largest Element in a Stream"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[],false,["$","a",null,{"href":"https://leetcode.com/problems/kth-largest-element-in-a-stream/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 703",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],["$","$L3",null,{"inline":true,"className":"t-caption","children":"_(the demo, but the numbers keep arriving)_"}],["$","$L3",null,{"className":"text-sm","children":"Statement: Design `KthLargest(k, nums)` whose `add(val)` inserts a number and returns the current `k`-th largest of everything added so far.  \nExample: `k=3, nums=[4,5,8,2]`; `add(3)=4, add(5)=5, add(10)=5` | ⚡ at most 10⁴ calls"}],["$","$L17",null,{"problemKey":"lc703"}]]}],"$L18"]}],false,"$L19"]}]
+8:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"প্যাটার্ন","children":[["$","$L2",null,{"href":"/pattern/lowest-common-ancestor-lca/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"5.5 Lowest Common Ancestor (LCA)"}]]}],["$","$L2",null,{"href":"/pattern/k-way-merge/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"6.2 K-way Merge"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+9:["$","script","script-0",{"src":"/dsa_prep_global_company/_next/static/chunks/0bza-gg8kwbbi.js","async":true}]
+a:["$","script","script-1",{"src":"/dsa_prep_global_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+b:["$","$L1a",null,{"children":["$","$1b",null,{"name":"Next.MetadataOutlet","children":"$@1c"}]}]
+e:["$","$1","h",{"children":[null,["$","$L1d",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L1e",null,{"children":["$","$1b",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"6.1 Top K Elements — গ্লোবাল DSA"}],["$","meta","1",{"name":"description","content":"FAANG-স্তরের DSA রাউন্ডের জন্য ১১০টা প্রবলেম — শূন্য থেকে সব ১০ টপিক, interview-এর পাঁচ ধাপে, hard আর mock, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/dsa_prep_global_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1f","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+10:["$","$1","c",{"children":[null,["$","$L20",null,{"parallelRouterKey":"children","template":["$","$L21",null,{}]}]]}]
+13:["$","$1","c",{"children":[null,["$","$L20",null,{"parallelRouterKey":"children","template":["$","$L21",null,{}]}]]}]
+16:true
+18:["$","li","lc1046",{"id":"lc1046","className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","div",null,{"className":"flex flex-wrap items-baseline justify-between gap-2","children":[["$","span",null,{"className":"task-text text-sm font-semibold","children":"Last Stone Weight"}],["$","span",null,{"className":"flex flex-wrap gap-1.5","children":[[["$","$L2","059",{"href":"/day/059/","className":"chip chip--accent","children":["plan · দিন ","০৫৯"]}]],false,["$","a",null,{"href":"https://leetcode.com/problems/last-stone-weight/","target":"_blank","rel":"noreferrer","className":"chip","children":["LC 1046",["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":10,"height":10,"children":[["$","path",null,{"d":"M7 17 17 7"}],["$","path",null,{"d":"M7 7h10v10"}]]}]]}]]}]]}],["$","$L3",null,{"inline":true,"className":"t-caption","children":"_(max-heap simulation — the easiest heap problem)_"}],["$","$L3",null,{"className":"text-sm","children":"Statement: Each turn, smash the two heaviest stones `x ≤ y`: if equal both vanish, otherwise one stone of weight `y - x` remains. Return the last stone's weight, or `0`.  \nExample: `stones=[2,7,4,1,8,1]` → `1` | ⚡ `n ≤ 30`, `1 ≤ stones[i] ≤ 1000`"}],["$","$L17",null,{"problemKey":"lc1046"}]]}]
+19:["$","div",null,{"className":"seam-t flex flex-col gap-1 pt-3","children":[["$","span",null,{"className":"t-label","children":"আরও দেখুন"}],[["$","$L3","_Sliding Window Maximum with a heap → compare with the deque in **4.4**_",{"inline":true,"className":"t-caption","children":"_Sliding Window Maximum with a heap → compare with the deque in **4.4**_"}]]]}]
+1c:null
+d:300
+d:C
+15:0
+f:"$undefined"
+11:"$undefined"
+14:"$undefined"
+c:"$undefined"
