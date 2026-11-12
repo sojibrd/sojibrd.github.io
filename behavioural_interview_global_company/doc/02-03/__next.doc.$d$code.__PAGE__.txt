@@ -1,0 +1,109 @@
+1:"$Sreact.fragment"
+2:I[22016,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js","/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js","/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T2765,## সংজ্ঞা
+
+**Story টেমপ্লেট** হলো একটা নির্দিষ্ট ছক, যেটা আপনার প্রতিটি story-র জন্য একবার ভরবেন — আর যেটা ভরা থাকলে ইন্টারভিউতে উত্তর তৈরি করতে হয় না, শুধু পথটা হাঁটতে হয়।
+
+টেমপ্লেটটা **বলার স্ক্রিপ্ট নয়**। স্ক্রিপ্ট লিখলে মুখস্থ হয়, আর মুখস্থ উত্তর প্রথম follow-up-এ ভেঙে পড়ে। এটা বরং একটা কার্ড — ঘটনাটার কঙ্কাল, যেটা দেখে যেকোনো দিন আপনি ঘটনাটা নতুন করে বলতে পারবেন।
+
+এক পাতার বেশি নয়। ৬–৮টা story মানে ৬–৮টা কার্ড।
+
+## কেন এটা কঠিন
+
+**টেমপ্লেট ভরতে বসে মানুষ প্রবন্ধ লিখে ফেলেন।** তিন পাতার গুছানো লেখা তৈরি হয়, পড়তে ভালো লাগে, আর মুখে বলার সময় এক লাইনও কাজে আসে না। কারণ লেখা আর বলা আলাদা — লেখার সময় বাক্য সাজানো যায়, বলার সময় শুধু **বিন্দু** মনে থাকে।
+
+**ঘরগুলো অসমানভাবে ভরে।** Situation-এর ঘর উপচে পড়ে, আর "কোন দুটো বিকল্প ছিল" ঘরটা খালি থাকে — কারণ প্রথমটা মনে করা সহজ, দ্বিতীয়টার জন্য ভাবতে হয়। অথচ মাপা হচ্ছে দ্বিতীয়টা দিয়েই।
+
+**Follow-up-এর ঘরটা কেউ ভরে না।** ফলে ইন্টারভিউতে প্রথম উত্তরটা মসৃণ হয়, তারপর "আর যদি সে রাজি না হতো?" প্রশ্নে থমকে যেতে হয়। যে প্রশ্নগুলো প্রায় নিশ্চিতভাবে আসবে, সেগুলোর উত্তর আগে থেকে না ভাবা মানে ইচ্ছে করে অপ্রস্তুত থাকা।
+
+**কার্ড বানানোর পর ওটা আর খোলা হয় না।** টেমপ্লেট ভরা শেষ মানে কাজ শেষ — এই ভুল ধারণাতেই বেশিরভাগ প্রস্তুতি থেমে যায়। কার্ড হলো অনুশীলনের কাঁচামাল, অনুশীলনের বিকল্প নয়।
+
+## কীভাবে কাজ করে
+
+প্রতিটি story-র জন্য এই ছক, `docs/`-এর বাইরে নিজের একটা ফাইলে:
+
+```
+## [story-র ছোট নাম — যেমন: "Release আটকে দেওয়া"]
+
+শিরোনাম (১ লাইন, যেভাবে উত্তর শুরু করবেন)
+  →
+
+কখন / কোথায়        →  (এক লাইন, প্রেক্ষাপট)
+কাঁটাটা কী ছিল       →  (যে জায়গায় দুটো পথ ছিল)
+বিকল্প ১             →
+বিকল্প ২             →
+কেন এটা বাছলাম       →  (ভিত্তিটা কী ছিল)
+আমি কী করলাম        →  (৩–৪টি বিন্দু, বাক্য নয়)
+কাকে জানিয়েছিলাম    →
+ফল                  →  (সংখ্যা বা দিক)
+কী শিখলাম           →  (এক লাইন)
+
+signal: প্রধান ●  →       অন্য ○  →
+
+সম্ভাব্য follow-up:
+  - "…?"  →  (এক লাইনের উত্তর)
+  - "…?"  →
+  - "…?"  →
+
+যেখানে আটকাই        →  (রেকর্ডিং শুনে যোগ করুন)
+```
+
+**ঘরগুলো নিয়ে কয়েকটা কথা:**
+
+**শিরোনাম** — ১৫ শব্দের কম, আর ঘটনাটার ফলাফলের ইঙ্গিত থাকা ভালো। এটা উত্তরের প্রথম বাক্য, আর এটাই ঠিক করে দেয় ইন্টারভিউয়ার বাকিটা কীভাবে শুনবেন।
+
+**কাঁটা, বিকল্প, ভিত্তি** — এই তিনটে ঘর টেমপ্লেটের কেন্দ্র। তিনটে ভরতে না পারলে ঘটনাটা এখনো story নয়, আর ওটা নিয়ে সময় দেওয়ার আগে inventory-তে ফিরে অন্য ঘটনা দেখা ভালো।
+
+**"আমি কী করলাম" বিন্দুতে লিখুন, বাক্যে নয়।** বাক্য লিখলে মুখস্থ হওয়ার ঝুঁকি; বিন্দু লিখলে প্রতিবার নতুন করে বলা হয়। তিন-চারটের বেশি বিন্দু মানে গল্পটা দুই মিনিটে ধরবে না।
+
+**Follow-up-এর ঘরে অন্তত তিনটে।** সাধারণত এই তিনটে ধরনের: *"অন্যরকম করলে?"* (judgement), *"সে কী বলত?"* (দৃষ্টিভঙ্গি), *"আবার হলে?"* (growth)। প্রতিটার উত্তর এক লাইনে — বিস্তারিত নয়, দিকটা ঠিক থাকলেই যথেষ্ট।
+
+**"যেখানে আটকাই" ঘরটা পরে ভরবে।** রেকর্ডিং শুনে যে জায়গাগুলোয় থেমে যান, সেগুলো এখানে যোগ হবে। এই ঘরটাই পরের ঝালাইয়ে আপনার লক্ষ্য ঠিক করে দেবে — বিস্তারিত `03-delivery/04-rehearsal-schedule.md`-এ।
+
+**ফাইলটা কোথায় রাখবেন:** নিজের ব্যক্তিগত জায়গায়, এই রেফারেন্সের ভেতরে নয়। আর ক্লায়েন্টের নাম, ভেতরের সংখ্যা বা NDA-তে পড়ে এমন কিছু কার্ডে তুলবেন না — ঘটনাটা বলার উপায় নাম না নিয়েও আছে।
+
+## অনুশীলন
+
+- একটা story-র জন্য পুরো ছকটা ভরুন, কিন্তু **"আমি কী করলাম" ঘরে বাক্য নয়, বিন্দু** লিখুন। বাক্য লিখে ফেললে কেটে বিন্দুতে নামান।
+- কাঁটা / বিকল্প ১ / বিকল্প ২ / কেন এটা বাছলাম — এই চারটে ঘর আলাদা করে দেখুন। কোনোটা খালি থাকলে ঘটনাটা নিয়ে এখনই এগোবেন না, inventory-তে ফিরুন।
+- Follow-up-এর ঘরে তিনটে প্রশ্ন লিখুন ও প্রতিটার এক লাইনের উত্তর দিন। তারপর কাউকে বলুন ওগুলোর একটা জিজ্ঞেস করতে, আর জোরে উত্তর দিন।
+- কার্ডটা সরিয়ে রেখে পুরো story-টা ২ মিনিটে বলুন। কার্ড দেখে বলা অনুশীলন নয়।
+- বলা শেষে কার্ডের "যেখানে আটকাই" ঘরে অন্তত একটা জিনিস লিখুন। প্রতিবার বলার পর এই ঘরটা বাড়বে।
+- বাকি story-গুলোর কার্ড একই ছকে বানান — একই ক্রম, একই ঘর। ছক বদলালে তুলনা করা যায় না।
+
+## মূল নিয়ম
+
+- কার্ড বানান, স্ক্রিপ্ট নয়। মুখস্থ উত্তর follow-up-এ ভেঙে পড়ে।
+- এক story, এক পাতা। বেশি হলে ওটা প্রবন্ধ হয়ে গেছে।
+- কাঁটা, বিকল্প আর ভিত্তি — এই তিন ঘর খালি থাকলে ঘটনাটা এখনো story নয়।
+- "আমি কী করলাম" বিন্দুতে লিখুন, তিন-চারটের বেশি নয়।
+- Follow-up-এর ঘর আগে ভরুন। ওগুলো ইন্টারভিউতে নিশ্চিতভাবে আসবে।
+- কার্ড দেখে অনুশীলন করবেন না — সরিয়ে রেখে বলুন।
+- "যেখানে আটকাই" ঘরটা প্রতিবার বলার পর বাড়ান। ওটাই পরের ঝালাইয়ের লক্ষ্য।
+- গোপন তথ্য কার্ডে তুলবেন না।9:X
+e:X
+e:C
+0:{"buildId":"KMap7lBoUf7_ZDMhH05NZ","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"২. স্টোরি"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০২.০৩"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Story টেমপ্লেট"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","div",null,{"className":"surface-well t-caption p-4 text-center","children":"এই পথের কোনো দিনে এই ডক নেই — জেনেশুনে বাদ, দরকার হলে পরে। 🧠 Pareto principle"}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"ViewportBoundary"]
+17:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"MetadataBoundary"]
+18:I[27201,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"IconMark"]
+19:I[39756,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"default"]
+1a:I[37457,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/02-02/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০২.০২ STAR কাঠামো"}]]}],["$","$L2",null,{"href":"/doc/02-04/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০২.০৪ একটা story শুরু থেকে শেষ পর্যন্ত"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০২.০৩ · Story টেমপ্লেট — গ্লোবাল behavioural"}],["$","meta","1",{"name":"description","content":"big tech মানের কোম্পানির behavioral round-এর জন্য — ছয়টা STAR story, ফল সংখ্যায়, follow-up-এর গভীরে, ১৮০ দিনের plan-এর story-র ঘরে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/behavioural_interview_global_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

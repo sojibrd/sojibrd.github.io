@@ -1,0 +1,94 @@
+1:"$Sreact.fragment"
+2:I[22016,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js","/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js","/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T2ea6,## সংজ্ঞা
+
+**Signal** হলো সেই জিনিসটা যা ইন্টারভিউয়ার আপনার উত্তর থেকে মাপতে চাইছে — প্রশ্নের আক্ষরিক বিষয় নয়।
+
+"Tell me about a time you had a conflict with a coworker" — এই প্রশ্নের বিষয় ঝগড়া। কিন্তু মাপা হচ্ছে অন্য কিছু: আপনি কি মতভেদকে ব্যক্তিগত আক্রমণ বানান, নাকি সমস্যায় আটকে রাখেন? আপনি কি অন্য পক্ষের যুক্তিটা বুঝেছিলেন, নাকি শুধু নিজেরটা জোরে বলেছিলেন? ঘটনাটা কীভাবে মিটল, আর মিটে যাওয়ার পর সম্পর্কটা কোথায় দাঁড়াল?
+
+ইন্টারভিউয়ার আপনার গল্প শুনতে চাইছেন না। তিনি একটা পূর্বাভাস তৈরি করতে চাইছেন — **টিমে ঢোকার পর আপনি কেমন আচরণ করবেন।** অতীতের আচরণ ভবিষ্যতের আচরণের সবচেয়ে ভালো পূর্বাভাস, তাই অতীত নিয়ে প্রশ্ন। গল্পটা উপলক্ষ মাত্র।
+
+এক লাইনে: **প্রশ্ন হলো জানালা, signal হলো ঘরের ভেতরের জিনিস।**
+
+## কেন এটা কঠিন
+
+**প্রশ্নটা সৎ-ভাবে জিজ্ঞেস করা হয় না।** কেউ বলে না "আমি দেখতে চাই আপনি দায় নেন না অন্যের ঘাড়ে চাপান"। বলা হয় "Tell me about a project that didn't go well"। প্রশ্নের ভাষা আর মাপার জিনিস আলাদা — এই ফাঁকটাই বেশিরভাগ ক্যান্ডিডেট ধরতে পারেন না।
+
+**ফলে উত্তর চলে যায় ভুল দিকে।** প্রশ্নের আক্ষরিক অর্থ ধরে মানুষ ঘটনার বিবরণ দিতে থাকেন — কে কী বলল, কবে কী হলো, প্রজেক্টটা কত বড় ছিল। সব সত্যি, সব অপ্রাসঙ্গিক। ইন্টারভিউয়ার দশ মিনিট শুনে যা খুঁজছিলেন তার কিছুই পান না।
+
+**দ্বিতীয় ফাঁদ — একই প্রশ্ন ভিন্ন signal মাপতে পারে।** "Tell me about a time you failed" প্রশ্নটা কেউ করেন accountability মাপতে (দায় নেন কি না), কেউ করেন growth মাপতে (শিখেছেন কি না), কেউ করেন judgement মাপতে (ব্যর্থতাটা আগে থেকে আঁচ করা যেত কি না)। কোনটা মাপা হচ্ছে সেটা বোঝা যায় **follow-up প্রশ্ন থেকে**। প্রথম উত্তরটা তাই একটা অনুমান; follow-up-এ দিক ঠিক করতে হয়।
+
+**তৃতীয়ত, নিজের উত্তর নিজে বিচার করা যায় না।** আপনি জানেন ঘটনাটায় আপনি কী ভেবেছিলেন, কেন ওই সিদ্ধান্তটা নিয়েছিলেন। আপনার মাথায় signal-টা স্পষ্ট। কিন্তু ইন্টারভিউয়ার শুধু আপনার বলা শব্দগুলো পান — আর ওখানে signal-টা প্রায়ই অনুপস্থিত, কারণ আপনার কাছে ওটা এত স্পষ্ট যে বলার দরকার মনে হয়নি।
+
+## কীভাবে কাজ করে
+
+ইন্টারভিউয়ার প্রশ্ন করেন না, **hypothesis পরীক্ষা করেন**। মনে একটা প্রশ্ন থাকে — "এই লোক কি কঠিন খবর আগে জানায়, নাকি চাপা দেয়?" — আর সেটা যাচাই করার জন্য একটা প্রশ্ন বেছে নেন।
+
+তাই প্রতিটি প্রশ্নের তিনটে স্তর:
+
+| স্তর | উদাহরণ |
+|---|---|
+| **যা জিজ্ঞেস করা হলো** | "Tell me about a time you missed a deadline." |
+| **যা আসলে মাপা হচ্ছে** | Deadline মিস হওয়ার আগে আপনি কাকে, কখন জানিয়েছিলেন |
+| **যা বললে পাস** | আপনি নিজে সমস্যাটা আঁচ করেছিলেন, আগেভাগে জানিয়েছিলেন, বিকল্প দিয়েছিলেন |
+
+**Signal চেনার তিনটে সূত্র:**
+
+**১. ক্রিয়াপদের দিকে তাকান।** প্রশ্নের মূল ক্রিয়াটাই প্রায়ই signal — *disagreed*, *failed*, *convinced*, *decided*, *didn't have enough information*। বিশেষ্য (project, team, deadline) হলো মঞ্চসজ্জা; ক্রিয়াটা হলো মাপার জিনিস।
+
+**২. "কেন এই প্রশ্নটা করলেন" ভাবুন।** যে কোম্পানি দ্রুত বাড়ছে, তারা ambiguity মাপে। যে টিমে অনেক stakeholder, তারা influence মাপে। যে কোম্পানিতে on-call ভারী, তারা ownership মাপে। প্রশ্নটা শূন্য থেকে আসেনি — ওটা তাদের বাস্তব সমস্যা থেকে এসেছে।
+
+**৩. Follow-up-ই আসল প্রশ্ন।** প্রথম প্রশ্ন দিয়ে জায়গাটা খোলা হয়; আসল যাচাই হয় দ্বিতীয়-তৃতীয় প্রশ্নে — "আর যদি সে রাজি না হতো?", "তখন কী করতেন?", "ঐ সিদ্ধান্তটা এখন নিলে বদলাতেন?"। Follow-up যেদিকে যাচ্ছে, signal সেদিকেই।
+
+**একটা প্রশ্নের ব্যবচ্ছেদ:**
+
+> *"Tell me about a time you had to work with someone difficult."*
+
+- **যা নয়:** ঐ লোকটা কতটা অসহ্য ছিল তার বিবরণ। এটা লিখলে উল্টো signal যায় — আপনি সমস্যা অন্যের ঘাড়ে চাপান।
+- **যা মাপা হচ্ছে:** অসুবিধাটা সত্ত্বেও কাজটা এগোল কি না, আর ওটা এগোনোর জন্য **আপনি** কী বদলেছিলেন।
+- **যেখানে বেশিরভাগ মানুষ ফেল করেন:** ৮০% সময় দেন অন্য পক্ষের বর্ণনায়, ২০% নিজের কাজে। অনুপাতটা উল্টো হওয়া দরকার।
+
+এই স্তরের ব্যবধানটাই এই পুরো রেফারেন্সের ভিত্তি। পরের ছয়টা অধ্যায়ে একেকটা signal ধরে বিস্তারিত — কীভাবে চিনবেন, কী থাকলে পাস, কী থাকলে ফেল।
+
+## অনুশীলন
+
+- নিচের পাঁচটা প্রশ্ন কাগজে লিখুন, প্রতিটির পাশে **এক লাইনে** লিখুন কী মাপা হচ্ছে বলে মনে হয় — তারপর লেখাটা ঢেকে রাখুন, পরের অধ্যায়গুলো পড়ার পর মিলিয়ে দেখবেন: *"Tell me about a time you disagreed with your manager."* / *"Describe a project that failed."* / *"Tell me about a time you had to make a decision without all the information."* / *"Tell me about a time you received difficult feedback."* / *"Describe a time you had to convince someone who didn't report to you."*
+- আপনার শেষ ইন্টারভিউয়ে (বা শোনা কোনো ইন্টারভিউয়ে) যে প্রশ্নটা এসেছিল সেটা লিখে তিন স্তরে ভাগ করুন — যা জিজ্ঞেস করা হয়েছিল / যা মাপা হচ্ছিল / আপনি যা উত্তর দিয়েছিলেন। তৃতীয় লাইনটা দ্বিতীয়টার সাথে মিলেছিল কি না লিখুন।
+- একটা প্রশ্ন বেছে নিন, তার **দুটো ভিন্ন signal** কল্পনা করুন, আর প্রতিটির জন্য উত্তরে কোন কথাটা যোগ করতে হতো তা এক লাইনে লিখুন।
+- কোনো পরিচিতকে (বা ফোন রেকর্ডারকে) উপরের যেকোনো একটা প্রশ্ন করতে বলুন, জোরে উত্তর দিন — ৬০ সেকেন্ডে। তারপর শুনে গুনুন: কত সেকেন্ড গেল পরিস্থিতির বর্ণনায়, আর কত সেকেন্ড আপনি কী করলেন তাতে।
+
+## মূল নিয়ম
+
+- প্রতিটি প্রশ্নে উত্তর দেওয়ার আগে নিজেকে জিজ্ঞেস করুন — **এখানে আসলে কী মাপা হচ্ছে।**
+- প্রশ্নের ক্রিয়াপদ ধরুন, বিশেষ্য নয়। ক্রিয়াতেই signal থাকে।
+- ঘটনার বিবরণ নয়, **নিজের সিদ্ধান্ত ও কাজ** বলুন। মঞ্চসজ্জায় ২০%-এর বেশি সময় নয়।
+- অন্য পক্ষকে খারাপ দেখানো মানে নিজের সম্পর্কে উল্টো signal পাঠানো।
+- Follow-up প্রশ্ন এলে ধরে নিন দিক বদলাতে বলা হচ্ছে — প্রথম উত্তরটা আঁকড়ে ধরবেন না।
+- যে জিনিসটা আপনার কাছে "স্পষ্ট, বলার দরকার নেই" — সেটাই প্রায়ই signal। বলুন।
+- একই ঘটনা ভিন্ন signal-এ ভিন্নভাবে বলতে হয়। গল্প এক, জোর আলাদা।9:X
+e:X
+e:C
+0:{"buildId":"KMap7lBoUf7_ZDMhH05NZ","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"১. সিগন্যাল"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০১.০১"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Signal কী — প্রশ্নের পেছনের প্রশ্ন"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","131-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/131/","className":"chip chip--accent self-start","children":["দিন ","১৩১"," · ","ছয় signal, ৩০ সেকেন্ড"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"ছয় signal কাগজে উল্টে — দায়িত্ব, মতবিরোধ, ব্যর্থতা, অস্পষ্টতা, প্রভাব, শেখা; একটা তুলে ৩০ সেকেন্ডের story, ছয়টাই, রেকর্ড (ডক ০১.০১)"}]]}]]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"ViewportBoundary"]
+17:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"MetadataBoundary"]
+18:I[27201,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"IconMark"]
+19:I[39756,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"default"]
+1a:I[37457,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/00-02/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০০.০২ এই রেফারেন্স কীভাবে ব্যবহার করবেন"}]]}],["$","$L2",null,{"href":"/doc/01-02/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০১.০২ Ownership"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০১.০১ · Signal কী — প্রশ্নের পেছনের প্রশ্ন — গ্লোবাল behavioural"}],["$","meta","1",{"name":"description","content":"big tech মানের কোম্পানির behavioral round-এর জন্য — ছয়টা STAR story, ফল সংখ্যায়, follow-up-এর গভীরে, ১৮০ দিনের plan-এর story-র ঘরে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/behavioural_interview_global_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

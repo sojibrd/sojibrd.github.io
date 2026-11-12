@@ -1,0 +1,105 @@
+1:"$Sreact.fragment"
+2:I[22016,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js","/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js","/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T2d65,## সংজ্ঞা
+
+**Story → Signal ম্যাপ** হলো একটা টেবিল — সারিতে আপনার ৬–৮টা story, কলামে ছয়টা signal, আর ঘরে চিহ্ন: এই story এই signal-এ চলে কি না।
+
+উদ্দেশ্য দুটো, আর দুটোই ব্যবহারিক:
+
+1. **ফাঁক দেখা** — কোন signal-এর জন্য আপনার হাতে কিছু নেই। খালি কলাম মানে ওই প্রশ্নটা এলে আপনি ফাঁকা।
+2. **প্রশ্ন থেকে story-তে দ্রুত পৌঁছানো** — ইন্টারভিউতে ভাবার সময় তিন সেকেন্ড। ম্যাপটা আগে থেকে মাথায় থাকলে ওই তিন সেকেন্ডে বাছাই হয়ে যায়।
+
+ভালো ম্যাপের চেহারা: **প্রতিটি signal-এ অন্তত দুটো story, প্রতিটি story অন্তত দুটো signal-এ।** এক-এক মিল হলে তালিকাটা ভঙ্গুর — একটা story ব্যবহার হয়ে গেলে ওই signal-এ আর কিছু থাকে না।
+
+## কেন এটা কঠিন
+
+**একই ঘটনা একাধিক signal-এ চলে, কিন্তু একই বলায় নয়।** যে ঘটনায় আপনি একটা release আটকে দিয়েছিলেন, সেটা ownership-এর গল্পও, conflict-এর গল্পও, judgement-এর গল্পও। কিন্তু তিনটে ক্ষেত্রে **জোর তিন জায়গায়** — ownership-এ জোর পড়বে আপনি দায়িত্ব না থাকা সত্ত্বেও থামালেন তাতে, conflict-এ জোর পড়বে যে মানুষটা রাজি ছিল না তাকে কীভাবে সামলালেন তাতে। একই কথা তিনবার বললে দুবার ভুল জায়গায় পড়বে।
+
+**"এই story সব প্রশ্নেই চলে" — এটা প্রায় সবসময় ভুল।** যে ঘটনাটা আপনার সবচেয়ে প্রিয়, সেটাই সব প্রশ্নে ঠেলে ঢোকানোর প্রবণতা তৈরি হয়। ইন্টারভিউয়ার তৃতীয়বার একই প্রজেক্টের নাম শুনলে লেখেন — *একটা ঘটনা ছাড়া বলার কিছু নেই।*
+
+**প্যানেলের কথা মাথায় থাকে না।** একটা loop-এ তিন-চারজন আলাদা করে কথা বলেন, তারপর একসাথে বসেন। তিনজনকে একই story বললে ওটা ধরা পড়ে, আর দুর্বল দেখায়। ম্যাপে যদি প্রতি signal-এ একটামাত্র story থাকে, এই সমস্যাটা এড়ানোর উপায়ই থাকে না।
+
+**ফাঁক নিজে থেকে চোখে পড়ে না।** ৮টা story লেখা হয়ে গেলে মনে হয় প্রস্তুতি হয়েছে। কিন্তু ৮টাই যদি delivery আর ownership-এর হয় — আর একটাও conflict বা influence-এর না হয় — তাহলে অর্ধেক রাউন্ডে আপনি খালি হাতে। টেবিলে না বসানো পর্যন্ত এটা দেখা যায় না।
+
+## কীভাবে কাজ করে
+
+**ম্যাপটা এরকম দেখতে:**
+
+| Story | Ownership | Conflict | Failure | Ambiguity | Influence | Growth |
+|---|---|---|---|---|---|---|
+| Release আটকে দেওয়া | ● | ○ | | | ○ | |
+| Migration, তথ্য ছাড়া শুরু | ○ | | | ● | | ○ |
+| ভুল সিদ্ধান্ত, rollback | | | ● | ○ | | ● |
+| … | | | | | | |
+
+**●** = প্রধান, এই signal-এ এটাই প্রথম পছন্দ · **○** = চলে, জোর বদলে
+
+প্রতি কলামে অন্তত একটা ● আর একটা ○ থাকা দরকার। পুরো কলাম খালি মানে এখনই `01-story-inventory.md`-এ ফিরে যাওয়া দরকার — এই টেবিলে ফাঁকা ঘর ভরানোর জন্য story বানানো যায় না, খুঁজে আনতে হয়।
+
+**জোর বদলানো মানে কী — আর কী নয়**
+
+একটা ঘটনা, দুটো signal:
+
+> **Ownership-এ:** "কেউ বলেনি যে এটা আমার দেখার কথা। কিন্তু লগে জিনিসটা আমি দেখেছিলাম, আর লঞ্চের আগে কেউ ধরবে না বুঝেই থামানোর কথা তুলেছিলাম।"
+>
+> **Conflict-এ:** "PM-এর সাথে আমার সরাসরি মতভেদ হয়েছিল — তাঁর কাছে তারিখটা বড় ছিল, আমার কাছে ঝুঁকিটা। আমি ওঁর তারিখের চাপটা আগে বুঝে নিয়ে তারপর ঝুঁকিটা সংখ্যায় দেখিয়েছিলাম, যাতে আলোচনাটা মতামতের লড়াই না থেকে যায়।"
+
+একই ঘটনা, একই তথ্য। বদলেছে শুধু **কোন অংশটা বিস্তারিত বলা হলো আর কোনটা এক বাক্যে সারা হলো।**
+
+যেটা বদলাবেন না: **ঘটনা।** ভিন্ন signal-এর জন্য বিবরণ বাড়ানো, ভূমিকা বড় করা, বা ফল ঘুরিয়ে দেওয়া — এটাই সবচেয়ে বিপজ্জনক ভুল। Follow-up প্রশ্ন কয়েক স্তর গভীরে যায়, আর বানানো অংশটা ঠিক ওখানেই ভেঙে পড়ে। জোর বদলানো বৈধ; তথ্য বদলানো নয়।
+
+**ম্যাপ বানানোর ধাপ**
+
+1. সারিতে story, কলামে ছয়টা signal — টেবিলটা আঁকুন।
+2. প্রতিটি story-র জন্য একটাই ● দিন (যেখানে ওটা সবচেয়ে শক্তিশালী), তারপর ○ দিন যেখানে জোর বদলে চলে।
+3. কলাম গুনুন। খালি বা এক-চিহ্নের কলামগুলো দাগান — এগুলোই আপনার দুর্বলতা।
+4. প্রতিটি ○-এর পাশে **এক লাইনে** লিখুন ওই signal-এ বলার সময় কোন অংশটা বড় করবেন। না লিখলে ইন্টারভিউতে ওটা মনে আসবে না।
+5. প্রতিটি ● story-র জন্য একটা **ব্যাকআপ** ঠিক করুন — প্যানেলের দ্বিতীয় জনের জন্য।
+
+**ইন্টারভিউতে ব্যবহারের নিয়ম:** প্রশ্ন শুনে আগে signal ঠিক করুন, তারপর ম্যাপ থেকে story। উল্টো করলে — অর্থাৎ আগে প্রিয় story মাথায় এলে — সেটাকে প্রশ্নের সাথে মেলানোর চেষ্টা শুরু হয়, আর ওখান থেকেই উত্তর বেঁকে যায়।
+
+আর যে story ইতিমধ্যে ওই loop-এ ব্যবহার করেছেন, সেটার পাশে মনে মনে দাগ দিন। পরের ঘরে ঢোকার আগে এক সেকেন্ড — আজ কোনগুলো বলা হয়ে গেছে।
+
+## অনুশীলন
+
+- ছয় কলামের টেবিলটা আঁকুন, আপনার সব story বসান, প্রতিটায় ● আর ○ দিন।
+- কলাম গুনে খালি বা এক-চিহ্নের কলামগুলো দাগান। প্রতিটার জন্য `01-story-inventory.md`-এর প্রশ্নগুলো নিয়ে আবার বসুন, নতুন ঘটনা তুলুন।
+- একটা ○ ঘর বেছে নিন, ওই story-টা সেই signal-এর জন্য জোরে বলুন — তারপর ● signal-এর জন্য আবার বলুন। দুটো রেকর্ড শুনে মিলিয়ে দেখুন সত্যিই জোর বদলেছে, নাকি একই কথা বলেছেন।
+- প্রতিটি ○-এর পাশে এক লাইনে লিখুন কোন অংশটা বড় করবেন। খালি ঘর রাখবেন না।
+- কাউকে বলুন এলোমেলো পাঁচটা প্রশ্ন করতে; প্রতিটার পর **story বলার আগে** শুধু বলুন কোনটা বাছছেন ও কেন। পাঁচটায় যদি দুবারের বেশি একই story আসে, ম্যাপ ভারসাম্যহীন।
+
+## মূল নিয়ম
+
+- প্রতি signal-এ অন্তত দুটো story, প্রতি story অন্তত দুটো signal-এ।
+- খালি কলাম মানে প্রস্তুতি অসম্পূর্ণ — ওটা নতুন ঘটনা খোঁজার সংকেত, ম্যাপ কষে মেলানোর নয়।
+- প্রশ্ন → signal → story। এই ক্রম উল্টাবেন না।
+- একই signal-এ জোর বদলান; **তথ্য কখনো নয়**। Follow-up ঠিক বানানো জায়গাটাতেই আঘাত করে।
+- এক loop-এ একই story দুজনকে নয়। প্রতিটা প্রধান story-র একটা ব্যাকআপ রাখুন।
+- ○-এর জোর আগে থেকে লিখে রাখুন — ইন্টারভিউর মুহূর্তে ওটা তৈরি হয় না।
+- যে story সব প্রশ্নে চলে বলে মনে হচ্ছে, সেটা আসলে কোনোটাতেই ভালো চলছে না।9:X
+e:X
+e:C
+0:{"buildId":"KMap7lBoUf7_ZDMhH05NZ","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"২. স্টোরি"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০২.০৬"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Story → Signal ম্যাপিং"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","040-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/040/","className":"chip chip--accent self-start","children":["দিন ","০৪০"," · ","story → signal"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"story → signal ম্যাপ — দায়িত্ব, মতবিরোধ, ব্যর্থতা, অস্পষ্টতা, প্রভাব, শেখা; প্রতিটায় অন্তত একটা story? ফাঁক কোথায় — ডক মিলিয়ে (ডক ০২.০৬)"}]]}]]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"ViewportBoundary"]
+17:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"MetadataBoundary"]
+18:I[27201,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"IconMark"]
+19:I[39756,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"default"]
+1a:I[37457,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/02-05/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০২.০৫ Story কখন যথেষ্ট ভালো"}]]}],["$","$L2",null,{"href":"/doc/02-07/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০২.০৭ Result ও metric — প্রমাণ ছাড়া গল্প নয়"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০২.০৬ · Story → Signal ম্যাপিং — গ্লোবাল behavioural"}],["$","meta","1",{"name":"description","content":"big tech মানের কোম্পানির behavioral round-এর জন্য — ছয়টা STAR story, ফল সংখ্যায়, follow-up-এর গভীরে, ১৮০ দিনের plan-এর story-র ঘরে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/behavioural_interview_global_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

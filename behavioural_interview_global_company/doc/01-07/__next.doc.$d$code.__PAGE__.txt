@@ -1,0 +1,100 @@
+1:"$Sreact.fragment"
+2:I[22016,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js","/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js","/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T2a4a,## সংজ্ঞা
+
+**Growth** signal মাপে: **আপনি কি বদলান — এবং কীসে বদলান?**
+
+দুটো আলাদা জিনিস এর ভেতরে:
+
+- **Feedback গ্রহণ** — কঠিন কথা শুনলে আপনি কী করেন। রক্ষণাত্মক হন, ভদ্রভাবে উপেক্ষা করেন, নাকি কাজে লাগান।
+- **নিজে থেকে শেখা** — কেউ না বললেও নিজের দুর্বলতা ধরতে পারেন কি না, আর তা নিয়ে কিছু করেন কি না।
+
+এই signal-টা কোম্পানির কাছে বিশেষভাবে দামি, কারণ এটা ভবিষ্যৎ সম্পর্কে বলে। আজকের দক্ষতা দিয়ে আজকের কাজ হয়; যে শেখে, সে দুই বছর পরেও কাজে লাগে। সিনিয়র পদে এটাই প্রায়ই নির্ধারক signal।
+
+## কেন এটা কঠিন
+
+**যে feedback-টা মনে আছে, সেটা সাধারণত যেটা আপনি মেনে নিয়েছিলেন।** যেগুলো অন্যায় মনে হয়েছিল, মন সেগুলো ঠেলে সরিয়ে রাখে — অথচ ইন্টারভিউতে ওগুলোই সবচেয়ে কাজের গল্প, কারণ ওখানেই দেখা যায় আপনি অস্বস্তি সামলাতে পারেন কি না।
+
+**"আমি সব feedback-ই স্বাগত জানাই" — কেউ বিশ্বাস করে না।** প্রতিটি মানুষেরই প্রথম প্রতিক্রিয়ায় একটু রক্ষণাত্মকতা থাকে। ওটা স্বীকার করে নিয়ে তারপর কী করেছিলেন বলা অনেক বেশি বিশ্বাসযোগ্য — "প্রথম শুনে খারাপ লেগেছিল, দুদিন পর আবার ভেবে দেখলাম কথাটার একটা ভিত্তি আছে।"
+
+**Feedback-এর গল্প প্রায়ই দক্ষতার গল্প হয়ে যায়।** "আমাকে বলা হয়েছিল React শিখতে, আমি শিখে নিয়েছিলাম" — এটা growth-এর দুর্বল রূপ, কারণ কারিগরি দক্ষতা শেখা সহজ অংশ। শক্ত গল্পগুলো **আচরণ** নিয়ে: আপনি খুব দ্রুত সিদ্ধান্তে পৌঁছান, আপনি লিখিত যোগাযোগে অস্পষ্ট, আপনি মিটিংয়ে বাকিদের কথা শেষ করতে দেন না।
+
+**বদলটা পরিমাপযোগ্য নয়।** "এখন আমি ভালো শুনি" — এটা দাবি। প্রমাণ হলো: আপনি নির্দিষ্ট কী অভ্যাস চালু করেছিলেন, আর পরে কেউ সেটা লক্ষ্য করেছিল কি না।
+
+## কীভাবে কাজ করে
+
+**প্রশ্ন যেভাবে আসে:**
+
+- *"Tell me about a time you received difficult feedback."*
+- *"What is the most useful criticism you have received?"*
+- *"Tell me about a skill you had to build from scratch."*
+- *"How have you changed as an engineer in the last two years?"*
+
+**যা বললে পাস, যা বললে ফেল:**
+
+| ✅ যা খুঁজছেন | ❌ যা উল্টো পড়ে |
+|---|---|
+| আচরণ নিয়ে feedback | শুধু কারিগরি দক্ষতার ঘাটতি |
+| প্রথম প্রতিক্রিয়াটা সৎভাবে বলা | "আমি সবসময় feedback ভালোবাসি" |
+| নির্দিষ্ট অভ্যাস চালু করা | "আরও মনোযোগী হওয়ার চেষ্টা করেছি" |
+| পরে কেউ বদলটা লক্ষ্য করেছিল | নিজের মূল্যায়নেই শেষ |
+| এখনো কাজ চলছে এমন দিক বলা | সব সমস্যা মিটে গেছে বলা |
+
+**গল্পটা যেভাবে দাঁড়ায়:**
+
+1. **Feedback-টা হুবহু বলুন** — যতটা সম্ভব তার ভাষায়। নরম করে বললে ধারটা চলে যায়, আর গল্পটা সুবিধাজনক শোনায়।
+2. **প্রথম প্রতিক্রিয়া স্বীকার করুন** — খারাপ লেগেছিল, বা একমত হননি। এই সততাটাই উত্তরটাকে বিশ্বাসযোগ্য করে।
+3. **কীভাবে যাচাই করলেন** — আরও কয়েকজনকে জিজ্ঞেস করেছিলেন? নিজের পুরনো কাজ ফিরে দেখেছিলেন? কথাটা সত্যি কি না বোঝার একটা পদ্ধতি থাকা দরকার, শুধু মেনে নেওয়া নয়।
+4. **নির্দিষ্ট কী বদলালেন** — অভ্যাসের স্তরে। "প্রতিটা design doc পাঠানোর আগে একজনকে দিয়ে পড়াতাম" ধরনের কিছু, "আরও ভালো লিখতাম" নয়।
+5. **প্রমাণ** — পরে কেউ কী বলেছিল, বা কোন ফলটা বদলেছিল।
+
+**সবচেয়ে শক্তিশালী সংযোজন — যেটায় এখনো কাজ চলছে।** "এই জায়গাটায় আমি এখনো দুর্বল, আর এখন এই ব্যবস্থাটা রাখি" বলতে পারা একই সাথে আত্ম-সচেতনতা ও সততা দেখায়। যে ক্যান্ডিডেট দাবি করেন সব দুর্বলতা মিটে গেছে, তাঁকে নিয়ে ইন্টারভিউয়ার বরং বেশি সন্দিহান হন।
+
+**নিজে থেকে শেখার গল্পে** জোর দিন **কীভাবে শিখলেন** তাতে — কোথা থেকে শুরু করলেন, কী বাদ দিলেন, কীভাবে বুঝলেন শেখা হয়েছে। শেখার পদ্ধতি থাকা মানে পরের বারও আপনি শিখতে পারবেন; শুধু একটা কোর্স শেষ করা সেটা বলে না।
+
+**Follow-up সাধারণত যেদিকে যায়:** *"এখন আপনার সবচেয়ে বড় দুর্বলতা কী?"* — এটা growth-এর গল্পের সরাসরি সম্প্রসারণ। প্রস্তুত রাখুন একটা সত্যিকারের দুর্বলতা, সাথে সেটা সামলানোর বর্তমান ব্যবস্থা।
+
+## অনুশীলন
+
+- এমন একটা feedback মনে করুন যেটা শুনে আপনার খারাপ লেগেছিল। কথাটা **হুবহু** লিখুন, নরম না করে। নরম করার ইচ্ছে হলে সেটাই ইঙ্গিত যে গল্পটা কাজের।
+- আপনার প্রথম প্রতিক্রিয়াটা এক বাক্যে লিখুন, সৎভাবে। এই বাক্যটা উত্তরে থাকবে।
+- লিখুন কীভাবে যাচাই করেছিলেন কথাটা ঠিক কি না। যাচাই না করে থাকলে সেটাও লিখুন — এবং এখন কীভাবে যাচাই করতেন।
+- আপনার চালু করা বদলটা **অভ্যাসের ভাষায়** লিখুন: কখন, কী, কতবার। "আরও ভালো করব" জাতীয় বাক্য থাকলে কেটে নির্দিষ্ট করুন।
+- একটা কারিগরি নয় এমন feedback-এর গল্প খুঁজুন (আচরণ, যোগাযোগ, সিদ্ধান্তের গতি)। শুধু দক্ষতার গল্প থাকলে তালিকাটা দুর্বল।
+- জোরে বলুন ও রেকর্ড করুন, তারপর নিজেকে follow-up করুন: *"এখন আপনার সবচেয়ে বড় দুর্বলতা কী?"* — উত্তরটা যেন সাজানো না শোনায়।
+
+## মূল নিয়ম
+
+- Feedback-টা হুবহু বলুন। নরম করলে গল্পের ধার নষ্ট হয়।
+- প্রথম প্রতিক্রিয়ায় অস্বস্তি ছিল — স্বীকার করুন। এতেই উত্তরটা বিশ্বাসযোগ্য হয়।
+- মেনে নেওয়া নয়, **যাচাই করা** দেখান। কথাটা সত্যি কি না কীভাবে বুঝলেন।
+- বদল অভ্যাসের ভাষায় বলুন — কখন, কী, কতবার।
+- প্রমাণ দিন বাইরে থেকে: পরে কে কী লক্ষ্য করেছিল।
+- আচরণের feedback বাছুন, শুধু দক্ষতার ঘাটতি নয়।
+- এখনো কাজ চলছে এমন একটা দিক রাখুন। সব মিটে গেছে বলা উল্টো ফল দেয়।9:X
+e:X
+e:C
+0:{"buildId":"KMap7lBoUf7_ZDMhH05NZ","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"১. সিগন্যাল"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০১.০৭"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Growth ও Feedback গ্রহণ"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","div",null,{"className":"surface-well t-caption p-4 text-center","children":"এই পথের কোনো দিনে এই ডক নেই — জেনেশুনে বাদ, দরকার হলে পরে। 🧠 Pareto principle"}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"ViewportBoundary"]
+17:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"MetadataBoundary"]
+18:I[27201,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"IconMark"]
+19:I[39756,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"default"]
+1a:I[37457,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/01-06/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০১.০৬ Influence without authority"}]]}],["$","$L2",null,{"href":"/doc/02-01/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০২.০১ Story inventory — নিজের ঘটনা বের করা"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০১.০৭ · Growth ও Feedback গ্রহণ — গ্লোবাল behavioural"}],["$","meta","1",{"name":"description","content":"big tech মানের কোম্পানির behavioral round-এর জন্য — ছয়টা STAR story, ফল সংখ্যায়, follow-up-এর গভীরে, ১৮০ দিনের plan-এর story-র ঘরে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/behavioural_interview_global_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

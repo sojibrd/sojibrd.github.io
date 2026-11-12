@@ -1,0 +1,97 @@
+1:"$Sreact.fragment"
+2:I[22016,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js","/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js","/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T2a79,## সংজ্ঞা
+
+**Ambiguity** signal মাপে: **যখন কেউ বলে দেয়নি কী করতে হবে, বা তথ্য অসম্পূর্ণ, তখন আপনি কীভাবে এগোন?**
+
+মাপা হচ্ছে তিনটে জিনিস:
+
+- **থমকে যান কি না** — নির্দেশের অপেক্ষায় বসে থাকেন, নাকি নিজেই পথ বের করেন।
+- **কীভাবে অনিশ্চয়তা কমান** — কী প্রশ্ন করেন, কোথায় খোঁজেন, কোনটা আগে যাচাই করেন।
+- **অনুমান নিয়ে সৎ থাকেন কি না** — কোনটা জানা আর কোনটা অনুমান, সেটা আলাদা করে বলেন কি না।
+
+দ্রুত বাড়ছে এমন কোম্পানিগুলো এটা সবচেয়ে বেশি মাপে, কারণ সেখানে কাজ প্রায়ই আসে অস্পষ্ট এক লাইনে, আর যে লোক প্রতিবার স্পষ্ট নির্দেশের অপেক্ষা করে, তার জন্য কারো সময় থাকে না।
+
+## কেন এটা কঠিন
+
+**এই গল্পগুলো মনে পড়ে না, কারণ অস্পষ্টতাটা তখন ঘটনা মনে হয়নি।** আপনি শুধু কাজ করে গিয়েছিলেন। ফলে inventory-তে এই ঘরটা প্রায়ই খালি থাকে — অথচ ঘটনাগুলো আছে, শুধু "ambiguity" তকমা লাগিয়ে সাজানো নেই।
+
+**দুটো বিপরীত ফাঁদ, দুটোই সমান ক্ষতিকর।** একদিকে — "আমি ম্যানেজারকে জিজ্ঞেস করে স্পষ্ট করে নিয়েছিলাম" বলে থেমে যাওয়া। প্রশ্ন করা ভালো, কিন্তু গল্পটা ওখানেই শেষ হলে signal হয় অন্যের উপর নির্ভরতা। অন্যদিকে — "আমি নিজেই ঠিক করে বানিয়ে ফেলেছিলাম" বলে সব একা সিদ্ধান্ত নেওয়া, যার signal হয় বেপরোয়া।
+
+**আসল উত্তর মাঝখানে:** আপনি কতটা নিজে ঠিক করলেন, কতটা যাচাই করে নিলেন, আর **কোন ভিত্তিতে সীমাটা টানলেন** — যে সিদ্ধান্ত পরে বদলানো সহজ সেটা নিজে নেওয়া, আর যেটা বদলানো কঠিন সেটা যাচাই করে নেওয়া।
+
+**অনুমানগুলো গল্পে অদৃশ্য থাকে।** কাজ করার সময় আপনি ডজনখানেক অনুমান করেছিলেন, কিন্তু বলার সময় সেগুলো তথ্যের মতো শোনায়। ইন্টারভিউয়ার ঠিক এই জায়গাটাই খোঁচাবেন — "ওটা আপনি জানতেন, নাকি ধরে নিয়েছিলেন?"
+
+## কীভাবে কাজ করে
+
+**প্রশ্ন যেভাবে আসে:**
+
+- *"Tell me about a time you had to make a decision without all the information."*
+- *"Describe a project where the requirements were unclear."*
+- *"Tell me about a time you had to figure something out on your own."*
+- *"How do you start when nobody knows what the right answer is?"*
+
+**যা বললে পাস, যা বললে ফেল:**
+
+| ✅ যা খুঁজছেন | ❌ যা উল্টো পড়ে |
+|---|---|
+| অস্পষ্টতাটা নির্দিষ্ট করে বলা | "সব কিছুই অস্পষ্ট ছিল" |
+| ছোট করে শুরু করে দ্রুত যাচাই | মাসখানেক পরিকল্পনা, তারপর বড় লঞ্চ |
+| কোনটা ফিরিয়ে আনা যায় সেই হিসাব | সব সিদ্ধান্ত সমান ওজনে নেওয়া |
+| অনুমান লিখে রেখে সবাইকে জানানো | অনুমান মাথায় রেখে এগোনো |
+| ভুল প্রমাণিত হলে দ্রুত মোড় নেওয়া | প্রথম পরিকল্পনা আঁকড়ে থাকা |
+
+**ব্যবহারিক কাঠামো — চারটে পদক্ষেপ:**
+
+1. **অস্পষ্টতাটার নাম দিন।** "কী বানাব সেটা জানতাম না" নয় — "কে ব্যবহার করবে সেটাই ঠিক ছিল না, ফলে সাফল্য কী দিয়ে মাপব তাও ঠিক ছিল না।" নির্দিষ্ট করে বলতে পারা মানে আপনি তখন সত্যিই ভেবেছিলেন।
+2. **কী জানতেন, কী জানতেন না, আলাদা করুন।** তালিকা করা — এটাই প্রথম কাজ, আর বলার সময়ও এটাই সবচেয়ে পরিষ্কার শোনায়।
+3. **সবচেয়ে সস্তা যাচাইটা আগে করুন।** একটা প্রশ্ন, একটা prototype, একজন ব্যবহারকারীর সাথে কথা — যেটা এক দিনে অনিশ্চয়তার সবচেয়ে বড় অংশটা কমায়।
+4. **ফিরিয়ে আনার খরচ দিয়ে সিদ্ধান্ত ভাগ করুন।** সহজে বদলানো যায় এমন সিদ্ধান্ত নিজে নিন আর এগোন; বদলানো কঠিন এমন সিদ্ধান্তে থামুন ও যাচাই করুন। এই একটা বাক্য বললেই আপনি বেশিরভাগ ক্যান্ডিডেটের চেয়ে এগিয়ে যাবেন।
+
+**অনুমান লিখে জানানোর অভ্যাসটা আলাদা করে বলুন।** "আমি তিনটে অনুমান লিখে টিমে পাঠিয়ে দিয়েছিলাম, আর বলেছিলাম কোনোটা ভুল হলে জানাতে" — এটা একই সাথে ambiguity, communication আর ownership তিনটেই দেখায়।
+
+**Follow-up সাধারণত যেদিকে যায়:** *"অনুমানটা ভুল হলে কী হতো?"* বা *"কখন বুঝতেন যে ভুল পথে যাচ্ছেন?"* — দুটোই জিজ্ঞেস করছে আপনি আগে থেকে একটা check point ঠিক করেছিলেন কি না। উত্তরে একটা নির্দিষ্ট সংকেত বা তারিখের নাম নিতে পারলে সবচেয়ে ভালো।
+
+## অনুশীলন
+
+- এমন একটা ঘটনা খুঁজুন যেখানে শুরুতে আপনি জানতেন না কীভাবে এগোবেন। অস্পষ্টতাটা **এক নির্দিষ্ট বাক্যে** লিখুন — "সব অস্পষ্ট ছিল" চলবে না।
+- ওই ঘটনার জন্য দুটো তালিকা লিখুন: তখন কী জানতাম / কী জানতাম না। দ্বিতীয় তালিকার কোনটা আপনি আসলে **অনুমান করে** এগিয়েছিলেন, দাগ দিন।
+- লিখুন প্রথম কোন কাজটা অনিশ্চয়তা সবচেয়ে বেশি কমিয়েছিল, আর সেটা করতে কত সময় লেগেছিল। এক দিনের বেশি লাগলে ভাবুন সস্তা কোনো যাচাই ছিল কি না।
+- আপনার সিদ্ধান্তগুলো দুই ভাগে ভাগ করুন — সহজে ফেরানো যায় / কঠিন। দ্বিতীয় ভাগে আপনি থেমেছিলেন কি না লিখুন।
+- ঘটনাটা ২ মিনিটে জোরে বলুন। শুনে যাচাই করুন — অনুমানগুলো আপনি অনুমান বলেই বলেছেন, নাকি তথ্যের মতো শুনিয়েছেন।
+
+## মূল নিয়ম
+
+- অস্পষ্টতাটার নাম দিন, নির্দিষ্ট করে। "সব অস্পষ্ট ছিল" কোনো উত্তর নয়।
+- জানা আর অনুমান আলাদা করে বলুন — গল্পেও, তখনকার কাজেও।
+- সবচেয়ে সস্তা যাচাইটা আগে। মাসের পরিকল্পনা নয়, দিনের পরীক্ষা।
+- ফিরিয়ে আনার খরচ দিয়ে সিদ্ধান্ত ভাগ করুন — এই বাক্যটা উত্তরে থাকুক।
+- অনুমান লিখে জানানোর কথা বলুন। নীরব অনুমান কোনো signal দেয় না।
+- শুধু "জিজ্ঞেস করে নিয়েছিলাম" বলে থামবেন না — তারপর আপনি কী ঠিক করলেন, সেটাই মাপা হচ্ছে।
+- ভুল পথে যাচ্ছেন কিনা বোঝার check point আগে থেকে ঠিক করা ছিল কি — উত্তর তৈরি রাখুন।9:X
+e:X
+e:C
+0:{"buildId":"KMap7lBoUf7_ZDMhH05NZ","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"১. সিগন্যাল"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০১.০৫"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Ambiguity ও অসম্পূর্ণ তথ্য"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","008-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/008/","className":"chip chip--accent self-start","children":["দিন ","০০৮"," · ","STAR #৩"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"STAR #৩ — **অস্পষ্ট পরিস্থিতি:** অসম্পূর্ণ requirement নিয়ে কাজ শুরু করতে হয়েছিল এমন কোনো ফিচার (ডক ০২.০২ · ডক ০১.০৫)"}]]}]]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"ViewportBoundary"]
+17:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"MetadataBoundary"]
+18:I[27201,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"IconMark"]
+19:I[39756,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"default"]
+1a:I[37457,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/01-04/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০১.০৪ Failure ও Mistake"}]]}],["$","$L2",null,{"href":"/doc/01-06/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০১.০৬ Influence without authority"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০১.০৫ · Ambiguity ও অসম্পূর্ণ তথ্য — গ্লোবাল behavioural"}],["$","meta","1",{"name":"description","content":"big tech মানের কোম্পানির behavioral round-এর জন্য — ছয়টা STAR story, ফল সংখ্যায়, follow-up-এর গভীরে, ১৮০ দিনের plan-এর story-র ঘরে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/behavioural_interview_global_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

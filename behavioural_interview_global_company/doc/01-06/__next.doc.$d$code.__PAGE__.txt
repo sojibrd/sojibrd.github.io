@@ -1,0 +1,99 @@
+1:"$Sreact.fragment"
+2:I[22016,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js","/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js","/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T29d2,## সংজ্ঞা
+
+**Influence** signal মাপে: **যাকে আপনি আদেশ দিতে পারেন না, তাকে কীভাবে রাজি করান?**
+
+শব্দগুচ্ছটার শেষ অংশ — *without authority* — ই আসল। আপনার অধীনে কেউ নেই, তবু কাজটা এগোতে হবে: পাশের টিমের কেউ আপনার নির্ভরতা ঠিক করবে, PM একটা ঝুঁকি মেনে নেবে, সিনিয়র কেউ পথ বদলাবে।
+
+মাপা হচ্ছে:
+
+- আপনি অন্য পক্ষের **প্রণোদনা** বুঝেছিলেন কি না — সে কী চায়, কীসে তার ক্ষতি।
+- যুক্তিটা **তার ভাষায়** সাজিয়েছিলেন, নাকি নিজের ভাষায় বলেছিলেন।
+- রাজি করানোর পথটা — তথ্য, ছোট পরীক্ষা, জোট, নাকি শুধু জোরাজুরি।
+- না হলে কী করেছিলেন।
+
+## কেন এটা কঠিন
+
+**বেশিরভাগ মানুষ influence-এর গল্প বলতে গিয়ে authority-র গল্প বলেন।** "আমি ম্যানেজারকে বলেছিলাম, তিনি বলে দিয়েছিলেন" — এখানে influence আপনার নয়, ম্যানেজারের। Escalate করা বৈধ পদক্ষেপ, কিন্তু গল্পের কেন্দ্র ওটা হলে signal উল্টে যায়।
+
+**"আমি ভালো যুক্তি দিয়েছিলাম, তাই রাজি হয়েছিল" — এটা প্রায়ই অসম্পূর্ণ।** মানুষ যুক্তিতে রাজি হয় কম, নিজের প্রণোদনায় রাজি হয় বেশি। যিনি রাজি হয়েছিলেন, তাঁর দিক থেকে এতে কী লাভ ছিল — এই প্রশ্নের উত্তর গল্পে না থাকলে গল্পটা অর্ধেক।
+
+**কারিগরি ভাষায় ব্যবসার সিদ্ধান্ত চাওয়া।** "আমি বললাম আমাদের tech debt কমাতে হবে" — PM-এর কাছে এটা কোনো যুক্তি নয়। "প্রতি release-এ গড়ে দুই দিন এই জায়গাটায় যাচ্ছে, দুই sprint দিলে ওটা প্রায় শূন্য হবে" — এটা যুক্তি, কারণ এটা তাঁর হিসাবের একক ব্যবহার করছে।
+
+**না বলার গল্পটা বলা হয় না।** সব influence সফল হয় না। যেখানে আপনি রাজি করাতে পারেননি, সেখানে আপনি কী করেছিলেন — মেনে নিয়েছিলেন, নাকি নীরবে বিরক্ত ছিলেন, নাকি ছোট আকারে প্রমাণ করে ফিরে এসেছিলেন? এই গল্পটা প্রায়ই সফল গল্পের চেয়ে বেশি বলে।
+
+## কীভাবে কাজ করে
+
+**প্রশ্ন যেভাবে আসে:**
+
+- *"Tell me about a time you convinced someone who did not report to you."*
+- *"Describe a time you had to get buy-in from another team."*
+- *"Tell me about an idea of yours that was rejected."*
+- *"How do you handle it when you think the team is going the wrong way?"*
+
+**যা বললে পাস, যা বললে ফেল:**
+
+| ✅ যা খুঁজছেন | ❌ যা উল্টো পড়ে |
+|---|---|
+| অন্য পক্ষের প্রণোদনা বলা | শুধু নিজের যুক্তি বলা |
+| তার এককে যুক্তি সাজানো | কারিগরি ভাষায় ব্যবসার আবেদন |
+| ছোট প্রমাণ দিয়ে শুরু | বড় প্রস্তাব, এক মিটিংয়ে সিদ্ধান্ত চাওয়া |
+| আগে থেকে একজন-দুজনের সাথে কথা | সরাসরি বড় মিটিংয়ে তোলা |
+| না হলে পরের পদক্ষেপ | "তারা শুনল না, তাই ছেড়ে দিলাম" |
+
+**কার্যকর পথটা সাধারণত এই ক্রমে:**
+
+1. **তাকে কী চিন্তায় রাখে সেটা বের করুন।** জিজ্ঞেস করে, বা তার লক্ষ্যগুলো দেখে। এই ধাপটা বাদ দিলে বাকিটা অনুমাননির্ভর।
+2. **তার এককে যুক্তি বানান** — সময়, খরচ, ঝুঁকি, গ্রাহকের অভিযোগ। আপনার একক নয়।
+3. **প্রমাণের বোঝা হালকা করুন।** পুরো প্রস্তাবে "হ্যাঁ" চাওয়ার বদলে এক সপ্তাহের একটা পরীক্ষায় "হ্যাঁ" চান। ছোট হ্যাঁ পাওয়া সহজ, আর ফল এলে বড় হ্যাঁ নিজে থেকেই আসে।
+4. **মিটিংয়ের আগে কথা বলুন।** বড় ঘরে প্রথমবার প্রস্তাব তোলা মানে সবার সামনে সবাইকে অবস্থান নিতে বাধ্য করা — আর তখন মানুষ রক্ষণাত্মক হয়। আগে একজন-দুজনের সাথে আলাদা কথা বলা প্রায়ই পুরো ফলাফল বদলে দেয়।
+5. **না হলে নামিয়ে আনুন, ছাড়বেন না।** "পুরোটা না হলে অন্তত এই অংশটা" — বা সময় চান, তথ্য জোগাড় করুন, পরে ফিরুন।
+
+**পদমর্যাদা নয়, বিশ্বাসযোগ্যতাই মুদ্রা।** আগে যে জায়গায় আপনি ঠিক প্রমাণিত হয়েছেন, সেখানে পরের বার আপনার কথার ওজন বেশি। গল্পে এটা দেখানো যায় — কেন সে আপনার কথা শুনল, তার একটা কারণ থাকা ভালো।
+
+**Follow-up সাধারণত যেদিকে যায়:** *"যদি রাজি না হতো, তাহলে কী করতেন?"* — প্রস্তুত উত্তর থাকা দরকার, আর সেটা "escalate করতাম" হলে বলুন কখন এবং কীভাবে, কারণ সময়মতো escalate করাও পরিপক্বতা। শুধু সেটাই একমাত্র পরিকল্পনা হলে দুর্বল।
+
+## অনুশীলন
+
+- একটা ঘটনা নিন যেখানে আপনি কাউকে রাজি করিয়েছিলেন। লিখুন **তার দিক থেকে** এতে কী লাভ বা ঝুঁকি ছিল — এক অনুচ্ছেদ। লিখতে না পারলে আপনি সম্ভবত শুধু জোর দিয়েছিলেন, রাজি করাননি।
+- আপনার যুক্তিটা যে এককে সাজিয়েছিলেন তা লিখুন, তারপর সেটা **তার এককে** অনুবাদ করে আবার লিখুন। দুটো পাশাপাশি রেখে পার্থক্য দেখুন।
+- ঘটনাটায় খুঁজুন — আপনি কি বড় "হ্যাঁ" চেয়েছিলেন, নাকি ছোট? ছোট চাওয়ার একটা বিকল্প এখন লিখুন, যেভাবে চাইলে এক সপ্তাহে প্রমাণ হতো।
+- এমন একটা ঘটনা খুঁজুন যেখানে আপনি **রাজি করাতে পারেননি**, আর তারপর কী করেছিলেন তা লিখুন। এটা তালিকায় না থাকলে আলাদা করে খুঁজুন।
+- দুটো গল্পই জোরে বলুন — সফলটা আর ব্যর্থটা। রেকর্ড শুনে গুনুন, অন্য পক্ষের প্রণোদনার কথা কত সেকেন্ড ছিল।
+
+## মূল নিয়ম
+
+- অন্য পক্ষ কী চায় — গল্পে এটা না থাকলে ওটা influence-এর গল্প নয়।
+- তার এককে যুক্তি দিন: সময়, খরচ, ঝুঁকি, গ্রাহক। আপনার এককে নয়।
+- বড় "হ্যাঁ"-র বদলে ছোট "হ্যাঁ" চান — একটা পরীক্ষা, একটা সপ্তাহ।
+- বড় মিটিংয়ের আগে আলাদা করে কথা বলুন। সেটাও গল্পের অংশ।
+- Escalation একটা পদক্ষেপ, গল্পের কেন্দ্র নয়। কেন্দ্র হলে influence আপনার নয়।
+- ব্যর্থ influence-এর একটা গল্প হাতে রাখুন — "তাই ছেড়ে দিলাম" ছাড়া শেষ করুন।
+- সে কেন আপনার কথা শুনল — একটা কারণ বলতে পারা ভালো।9:X
+e:X
+e:C
+0:{"buildId":"KMap7lBoUf7_ZDMhH05NZ","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"১. সিগন্যাল"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০১.০৬"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Influence without authority"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","117-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/117/","className":"chip chip--accent self-start","children":["দিন ","১১৭"," · ","প্রভাবের story"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"*\"Tell me about a time you influenced a decision without authority\"* — দিন ০৪৫-এর ম্যাপে \"প্রভাব\" signal-এর story বদলে; ইংরেজিতে বুলেট, ফল সংখ্যায় (ডক ০১.০৬)"}]]}]]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"ViewportBoundary"]
+17:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"MetadataBoundary"]
+18:I[27201,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"IconMark"]
+19:I[39756,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"default"]
+1a:I[37457,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/01-05/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০১.০৫ Ambiguity ও অসম্পূর্ণ তথ্য"}]]}],["$","$L2",null,{"href":"/doc/01-07/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০১.০৭ Growth ও Feedback গ্রহণ"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০১.০৬ · Influence without authority — গ্লোবাল behavioural"}],["$","meta","1",{"name":"description","content":"big tech মানের কোম্পানির behavioral round-এর জন্য — ছয়টা STAR story, ফল সংখ্যায়, follow-up-এর গভীরে, ১৮০ দিনের plan-এর story-র ঘরে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/behavioural_interview_global_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

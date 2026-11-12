@@ -1,0 +1,110 @@
+1:"$Sreact.fragment"
+2:I[22016,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js","/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js","/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T2e36,## সংজ্ঞা
+
+Behavioural round-এর কাঠামো সব জায়গায় একই — অতীত ঘটনা, signal, follow-up। কিন্তু **কোন signal-গুলো বেশি ওজন পাবে, আর উত্তর কীভাবে যাচাই হবে**, সেটা কোম্পানিভেদে আলাদা।
+
+এই অধ্যায় নির্দিষ্ট কোম্পানির তালিকা নয় — সেসব দ্রুত পুরনো হয়ে যায়। এটা **কয়েকটা ধরন**, আর প্রতিটার সাথে মিলিয়ে প্রস্তুতি কোথায় বদলাবে।
+
+মনে রাখার মতো কথাটা: **story বদলায় না, জোর বদলায়।** আলাদা কোম্পানির জন্য আলাদা গল্প বানাতে হয় না; একই ম্যাপ থেকে ভিন্ন কলামে বেশি ওজন পড়ে।
+
+## কেন এটা কঠিন
+
+**"সব ইন্টারভিউ একরকম" ধরে নিলে ওজন ভুল জায়গায় পড়ে।** যে কোম্পানি লিখিত নীতিমালা ধরে নম্বর দেয়, সেখানে গল্পের কাঠামো ও প্রমাণ অনেক বেশি গুরুত্বপূর্ণ; যে ছোট টিম একসাথে কাজ করার লোক খুঁজছে, সেখানে সাবলীলতা ও সততার সুর বেশি গুরুত্বপূর্ণ। একই প্রস্তুতি দুই জায়গায় সমান কাজ করে না।
+
+**উল্টো ভুলটাও সমান ক্ষতিকর — প্রতিটা কোম্পানির জন্য আলাদা প্রস্তুতি।** এতে সময় ফুরিয়ে যায়, আর কোনোটাই ভালো তৈরি হয় না। ভিত্তিটা এক রেখে উপরে সামান্য সমন্বয়ই যথেষ্ট।
+
+**গবেষণা প্রায়ই ভুল জিনিস খোঁজে।** মানুষ কোম্পানির ইতিহাস বা পণ্যের তালিকা মুখস্থ করেন, অথচ যেটা দরকার সেটা হলো — **এই টিমের কাজের চেহারা কী, আর তাতে কোন আচরণ বেশি দরকারি।**
+
+## কীভাবে কাজ করে
+
+### ধরন ১ — লিখিত নীতিমালা ধরে যাচাই
+
+কিছু বড় কোম্পানি প্রকাশ্যে নিজেদের আচরণগত নীতির তালিকা রাখে, আর ইন্টারভিউয়াররা সরাসরি সেগুলোর বিপরীতে নম্বর দেন। প্রায়ই একাধিক রাউন্ডে ভাগ করা থাকে কে কোন নীতি যাচাই করবেন।
+
+**প্রস্তুতি কোথায় বদলাবে:**
+- তাঁদের প্রকাশিত তালিকাটা পড়ুন, আর **আপনার ম্যাপের কলামগুলোর সাথে মেলান** — কোন নীতির জন্য আপনার হাতে কিছু নেই।
+- কাঠামো কঠোর রাখুন। এই ধরনে এলোমেলো উত্তর সবচেয়ে বেশি ক্ষতি করে, কারণ নোট নেওয়া হচ্ছে ঘর ধরে।
+- **সংখ্যা ও নিজের অংশ** আলাদা করে বলা এখানে সবচেয়ে বেশি জরুরি।
+- প্রতি নীতির জন্য অন্তত দুটো story — একই গল্প দুই রাউন্ডে বলা এখানে ধরা পড়ে।
+
+### ধরন ২ — ছোট বা দ্রুত বাড়ন্ত টিম
+
+কাঠামো কম, কথোপকথন বেশি। প্রশ্ন প্রায়ই আসে আলোচনার ভেতর থেকে, আলাদা তালিকা ধরে নয়।
+
+**প্রস্তুতি কোথায় বদলাবে:**
+- **Ambiguity ও ownership** সবচেয়ে ভারী কলাম। কেউ বলে দেয়নি — এমন অবস্থায় আপনি কী করেন, এটাই মূল প্রশ্ন।
+- পরিধির চেয়ে **গতি ও সিদ্ধান্ত** বেশি গুরুত্ব পায়। "ছয় মাসের প্রজেক্ট" নয়, "দুই সপ্তাহে যাচাই করে ফেলেছিলাম"।
+- আনুষ্ঠানিক STAR ভঙ্গি এখানে আড়ষ্ট শোনাতে পারে — কাঠামো মাথায় রাখুন, সুর কথোপকথনের।
+- তাঁরা প্রায়ই দেখেন **আপনি একা কাজ করতে পারেন কি না**, কারণ হাত ধরে চালানোর লোক নেই।
+
+### ধরন ৩ — ক্লায়েন্ট-মুখী বা পরামর্শক প্রতিষ্ঠান
+
+কাজের একটা বড় অংশ বাইরের মানুষের সাথে — তাই **conflict, influence ও যোগাযোগ** সবচেয়ে ভারী।
+
+**প্রস্তুতি কোথায় বদলাবে:**
+- এমন story দরকার যেখানে অন্য পক্ষ **আপনার প্রতিষ্ঠানের বাইরের** কেউ।
+- "না" বলার গল্প, প্রত্যাশা সামলানোর গল্প, খারাপ খবর দেওয়ার গল্প — এই তিনটে হাতে রাখুন।
+- উপস্থাপনার মান নিজেই একটা signal এখানে, কারণ আপনি ক্লায়েন্টের সামনে বসবেন।
+
+### ধরন ৪ — প্রতিষ্ঠিত, স্থিতিশীল সংগঠন
+
+প্রক্রিয়া ভারী, পরিবর্তন ধীর, অংশীদার অনেক।
+
+**প্রস্তুতি কোথায় বদলাবে:**
+- **Influence without authority** সবচেয়ে ভারী — এখানে কাজ এগোয় রাজি করিয়ে, দ্রুত করে ফেলে নয়।
+- ধৈর্য ও দীর্ঘমেয়াদি কাজের গল্প কাজে দেয়, যেখানে কয়েক মাস ধরে কিছু এগিয়েছে।
+- "নিয়ম ভেঙে দ্রুত করে ফেলেছিলাম" ধরনের গল্প সাবধানে — এখানে ওটা উল্টো পড়তে পারে। বললে সাথে বলুন কীভাবে ঝুঁকি সামলেছিলেন আর কাকে জানিয়েছিলেন।
+
+### গবেষণা কীভাবে করবেন — ৩০ মিনিট
+
+1. **চাকরির বিজ্ঞাপন আবার পড়ুন**, কিন্তু দক্ষতার তালিকা নয় — **দায়িত্বের বাক্যগুলো**। "cross-team alignment" লেখা থাকলে influence ভারী; "ambiguous problems" লেখা থাকলে ambiguity।
+2. **প্রকাশ্য নীতিমালা থাকলে পড়ুন**, আর ম্যাপের সাথে মেলান।
+3. **টিমের আকার ও বয়স** আন্দাজ করুন — ধরন ১–৪-এর কোনটা।
+4. **আপনার ম্যাপে দুটো কলাম দাগান** যেগুলো এখানে সবচেয়ে ভারী, আর ওই দুটোর story আগে ঝালাই করুন।
+
+এটুকুই যথেষ্ট। এর বেশি গবেষণা সাধারণত প্রস্তুতির বদলে উদ্বেগ কমানোর কাজ করে।
+
+## অনুশীলন
+
+- আপনার লক্ষ্য একটা কোম্পানির বিজ্ঞাপন খুলুন, দায়িত্বের বাক্যগুলো আলাদা করে লিখুন, আর প্রতিটার পাশে signal-এর নাম বসান।
+- আপনার ম্যাপে সেই দুটো কলাম দাগান যেগুলো এখানে ভারী। ওই কলামে দুটো story আছে কি না যাচাই করুন।
+- উপরের চারটে ধরনের মধ্যে আপনার লক্ষ্য কোনটায় পড়ে ঠিক করুন, আর ওই ধরনের নির্দেশ অনুযায়ী একটা story-র জোর বদলে আবার বলুন।
+- একই story-র দুটো সংস্করণ জোরে বলুন — একটা কাঠামোগত (ধরন ১), একটা কথোপকথনের সুরে (ধরন ২)। রেকর্ড শুনে পার্থক্যটা যাচাই করুন।
+- ক্লায়েন্ট বা বাইরের পক্ষের সাথে আপনার কোনো গল্প আছে কি না দেখুন। না থাকলে inventory-তে খুঁজুন — ধরন ৩-এ ওটা ছাড়া চলে না।
+
+## মূল নিয়ম
+
+- Story বদলাবেন না, জোর বদলান। প্রতিটা কোম্পানির জন্য নতুন গল্প বানাবেন না।
+- বিজ্ঞাপনের **দায়িত্বের বাক্য** পড়ুন, দক্ষতার তালিকা নয় — signal ওখানেই লেখা থাকে।
+- লিখিত নীতিমালা থাকলে ম্যাপের সাথে মেলান, আর প্রতি নীতিতে দুটো story রাখুন।
+- ছোট টিমে গতি ও সিদ্ধান্ত, বড় সংগঠনে ধৈর্য ও influence।
+- আনুষ্ঠানিক ভঙ্গি সব জায়গায় কাজ করে না — কাঠামো মাথায়, সুর পরিবেশ অনুযায়ী।
+- "নিয়ম ভেঙে দ্রুত করেছিলাম" গল্পটা পরিবেশ বুঝে বলুন, আর ঝুঁকি সামলানোর অংশটা সাথে রাখুন।
+- ৩০ মিনিটের গবেষণাই যথেষ্ট। তার বেশি সাধারণত উদ্বেগ কমানোর কাজ।9:X
+e:X
+e:C
+0:{"buildId":"KMap7lBoUf7_ZDMhH05NZ","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"৪. প্রশ্ন ব্যাংক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০৪.০৩"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"কোম্পানিভেদে ভিন্নতা"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","110-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/110/","className":"chip chip--accent self-start","children":["দিন ","১১০"," · ","কোম্পানিভেদে story"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"big tech-এর behavioral কী শুনতে চায় — ৩টা প্রশ্ন, প্রতিটায় কোন story আর কোন সংখ্যা; ডক মিলিয়ে (ডক ০৪.০৩)"}]]}]]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"ViewportBoundary"]
+17:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"MetadataBoundary"]
+18:I[27201,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"IconMark"]
+19:I[39756,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"default"]
+1a:I[37457,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/04-02/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০৪.০২ আপনি যে প্রশ্নগুলো করবেন"}]]}],["$","$L2",null,{"href":"/doc/04-04/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০৪.০৪ প্রশ্ন ব্যাংক কীভাবে ব্যবহার করবেন"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০৪.০৩ · কোম্পানিভেদে ভিন্নতা — গ্লোবাল behavioural"}],["$","meta","1",{"name":"description","content":"big tech মানের কোম্পানির behavioral round-এর জন্য — ছয়টা STAR story, ফল সংখ্যায়, follow-up-এর গভীরে, ১৮০ দিনের plan-এর story-র ঘরে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/behavioural_interview_global_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

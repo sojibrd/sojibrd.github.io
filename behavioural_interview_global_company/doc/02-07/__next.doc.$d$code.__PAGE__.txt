@@ -1,0 +1,97 @@
+1:"$Sreact.fragment"
+2:I[22016,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js","/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js"],""]
+3:I[82484,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js","/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+4:T29dd,## সংজ্ঞা
+
+**Result** হলো story-র শেষ অংশ, যেখানে আপনি দেখান **আপনার কাজের পর কী বদলেছিল**।
+
+তিনটে জিনিস এখানে বসে, আর ক্রমটা গুরুত্বপূর্ণ:
+
+1. **কী হলো** — ঘটনার পরিণতি, যতটা সম্ভব নির্দিষ্ট।
+2. **কীভাবে জানলেন** — কোন সংখ্যা, কার প্রতিক্রিয়া, কোন পরিবর্তন এটা বলছে।
+3. **কী শিখলেন** — এক লাইন, আর সেটা পরে কোথায় কাজে লেগেছিল।
+
+Result ছাড়া story একটা প্রচেষ্টার বিবরণ। ইন্টারভিউয়ার আপনার প্রচেষ্টা নয়, আপনার **প্রভাব** নোট করছেন — কারণ পরে ঘরে বসে তাঁকে বলতে হবে "এই লোক এসে কী বদলাবে"।
+
+## কেন এটা কঠিন
+
+**অনেক কাজের পরিষ্কার সংখ্যা থাকে না।** আপনি একটা সমস্যা ঠেকিয়েছিলেন — যেটা ঘটেনি, তার সংখ্যা কী? আপনি একজনের সাথে সম্পর্ক ঠিক করেছিলেন — ওটা কীসে মাপা যায়? সংখ্যা না পেয়ে বেশিরভাগ মানুষ দুটোর একটা করেন: হয় Result বাদ দেন, নয় বানিয়ে একটা শতাংশ বসিয়ে দেন। দুটোই ক্ষতিকর।
+
+**টিমের সংখ্যা নিজের বলে চালানো।** "আমরা latency ৪০% কমিয়েছিলাম" — আপনি যদি ওই কাজের একটা অংশ করে থাকেন, তাহলে এই বাক্যটা প্রথম follow-up-এই ফাটবে: "আপনার অংশটা ঠিক কোনটা ছিল?" ভালো ক্যান্ডিডেট নিজে থেকেই সীমাটা এঁকে দেন।
+
+**"সবাই খুশি হয়েছিল" — এটা দাবি, প্রমাণ নয়।** একইরকম ফাঁপা: "প্রজেক্টটা সফল হয়েছিল", "ভালো feedback পেয়েছিলাম", "জিনিসটা অনেক ভালো হয়েছিল"। এগুলো শোনায় ভালো, নোটে লেখার মতো কিছু থাকে না।
+
+**সংখ্যার ফাঁদ উল্টো দিকেও আছে।** যে সংখ্যাটা আপনি দিচ্ছেন সেটা যদি নিজে ব্যাখ্যা করতে না পারেন — কীভাবে মাপা হলো, তুলনাটা কীসের সাথে — তাহলে ওটা না দেওয়াই ভালো। একটা অরক্ষিত সংখ্যা পুরো গল্পের বিশ্বাসযোগ্যতা নামিয়ে দেয়।
+
+## কীভাবে কাজ করে
+
+**সংখ্যা না থাকলে যা ব্যবহার করবেন — অগ্রাধিকারের ক্রমে:**
+
+| স্তর | রূপ | উদাহরণ |
+|---|---|---|
+| ১ | সরাসরি সংখ্যা | "দুই সপ্তাহের কাজ তিন দিনে নামল" |
+| ২ | আগে/পরে তুলনা | "আগে প্রতি release-এ এটা ভাঙত, তারপর আর ভাঙেনি" |
+| ৩ | পরিসর বা দিক | "ঘণ্টাখানেকের কাজ, সপ্তাহে দুবার করে বাঁচল" |
+| ৪ | তৃতীয় পক্ষের প্রতিক্রিয়া | "পরের কোয়ার্টারে PM নিজেই এই প্রক্রিয়াটা অন্য টিমে নিয়েছিল" |
+| ৫ | টিকে থাকা | "ওই চেকটা এখনো চালু আছে" |
+
+স্তর ১ না পেলে ২, তারপর ৩ — নিচে নামা লজ্জার কিছু নয়। **স্তর ৪ আর ৫ প্রায়ই সংখ্যার চেয়ে বিশ্বাসযোগ্য**, কারণ ওগুলো বাইরের সাক্ষ্য। যে জিনিস আপনি চলে যাওয়ার পরেও টিকে আছে, সেটা যেকোনো শতাংশের চেয়ে শক্ত প্রমাণ।
+
+**নিজের অংশটা এঁকে দিন।** সবচেয়ে পরিষ্কার রূপ: টিমের ফলটা বলুন, তারপর নিজের অংশটা আলাদা করুন।
+
+> "টিম হিসেবে আমরা build সময় অর্ধেকে নামিয়েছিলাম। আমার অংশটা ছিল caching-এর দিকটা — ওটা একাই প্রায় এক-তৃতীয়াংশ এনেছিল।"
+
+এটা বিনয় নয়, নির্ভুলতা — আর ইন্টারভিউয়াররা ঠিক এটাই খোঁজেন।
+
+**যা ঘটেনি তার Result কীভাবে বলবেন।** প্রতিরোধের গল্পে (আপনি একটা সমস্যা আটকেছিলেন) সংখ্যা নেই, কারণ ক্ষতিটা হয়নি। তখন **এড়ানো খরচটা** বলুন, অনুমান হিসেবেই — কিন্তু ভিত্তিসহ: "ওটা লঞ্চ হয়ে গেলে ডেটা ঠিক করতে হতো, আর আগের বার একই ধরনের জিনিসে আমাদের দুই দিন গিয়েছিল।" অনুমানকে অনুমান বলেই বলুন; ওটাই সততা, আর ওটাই নিরাপদ।
+
+**ব্যর্থতার গল্পে Result-এর জায়গা নেয় শিক্ষা।** কিন্তু শিক্ষাটাও প্রমাণ চায় — "পরের প্রজেক্টে আমি এটা চালু করেছিলাম, আর ওই সমস্যাটা আর হয়নি।" শুধু "শিক্ষা পেয়েছি" অর্ধেক উত্তর।
+
+**দৈর্ঘ্য:** Result ২৫ সেকেন্ডের বেশি নয়। এক-দুই বাক্যে ফল, এক বাক্যে শিক্ষা। এখানে লম্বা করলে উত্তরটা আত্মপ্রচার শোনাতে শুরু করে।
+
+**যা কখনো বলবেন না:** এমন সংখ্যা যেটা আপনি মনে করতে পারছেন না, বা ব্যাখ্যা করতে পারবেন না। "মনে হয় ৩০% মতো হবে" — এই এক বাক্যে গল্পটা দুর্বল হয়ে যায়। জানা না থাকলে সরাসরি বলুন কীভাবে বুঝেছিলেন উন্নতি হয়েছে।
+
+## অনুশীলন
+
+- আপনার প্রতিটি story-র Result অংশটা আলাদা করে লিখুন, আর প্রতিটার পাশে লিখুন সেটা উপরের কোন স্তরে পড়ছে (১–৫)।
+- যেগুলো স্তর ৫-এও পড়ছে না, সেগুলোর জন্য খুঁজুন — কেউ কি পরে কিছু বলেছিল? জিনিসটা কি এখনো চালু আছে? একটা বাইরের সাক্ষ্য বের করুন।
+- আপনার লেখা প্রতিটা সংখ্যার পাশে এক লাইনে লিখুন **কীভাবে মাপা হয়েছিল**। যেটার উত্তর নেই, সেই সংখ্যাটা উত্তর থেকে বাদ দিন।
+- কোনো story-তে "আমরা" দিয়ে ফল বলা থাকলে সেটা দুই বাক্যে ভাগ করুন — টিমের ফল, তারপর আপনার অংশ।
+- একটা প্রতিরোধের গল্প (যেখানে কিছু ঘটেনি) নিন, আর এড়ানো খরচটা ভিত্তিসহ এক বাক্যে লিখুন।
+- Result অংশটা জোরে বলুন, টাইমার দিয়ে। ২৫ সেকেন্ড ছাড়ালে কাটুন।
+
+## মূল নিয়ম
+
+- প্রতিটি story-র একটা Result থাকতেই হবে। প্রচেষ্টা কোনো ফল নয়।
+- সংখ্যা না থাকলে দিক দিন, তারপর বাইরের সাক্ষ্য — কিন্তু কিছু একটা দিন।
+- যে সংখ্যা ব্যাখ্যা করতে পারবেন না, সেটা বলবেন না।
+- টিমের ফল আর নিজের অংশ আলাদা করে বলুন — নিজে থেকে, জিজ্ঞেস করার আগে।
+- "সবাই খুশি হয়েছিল" কোনো Result নয়।
+- অনুমানকে অনুমান বলুন, আর তার ভিত্তিটা দিন।
+- যেটা আপনি চলে যাওয়ার পরেও টিকে আছে — সেটাই সবচেয়ে শক্ত প্রমাণ।
+- Result ২৫ সেকেন্ড। লম্বা হলে আত্মপ্রচার শোনায়।9:X
+e:X
+e:C
+0:{"buildId":"KMap7lBoUf7_ZDMhH05NZ","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"২. স্টোরি"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"০২.০৭"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Result ও metric — প্রমাণ ছাড়া গল্প নয়"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","div",null,{"className":"surface-well t-caption p-4 text-center","children":"এই পথের কোনো দিনে এই ডক নেই — জেনেশুনে বাদ, দরকার হলে পরে। 🧠 Pareto principle"}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"ViewportBoundary"]
+17:I[97367,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"MetadataBoundary"]
+18:I[27201,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"IconMark"]
+19:I[39756,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"default"]
+1a:I[37457,["/behavioural_interview_global_company/_next/static/chunks/3d1u2elw4yrcu.js","/behavioural_interview_global_company/_next/static/chunks/2asrd904y0rw2.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/02-06/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"০২.০৬ Story → Signal ম্যাপিং"}]]}],["$","$L2",null,{"href":"/doc/03-01/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"০৩.০১ Timing ও pacing"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/behavioural_interview_global_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক ০২.০৭ · Result ও metric — প্রমাণ ছাড়া গল্প নয় — গ্লোবাল behavioural"}],["$","meta","1",{"name":"description","content":"big tech মানের কোম্পানির behavioral round-এর জন্য — ছয়টা STAR story, ফল সংখ্যায়, follow-up-এর গভীরে, ১৮০ দিনের plan-এর story-র ঘরে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/behavioural_interview_global_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"
