@@ -1,9 +1,10 @@
 # sojibrd.github.io — Agent Instructions
 
-ব্যক্তিগত portfolio। workspace-এর একমাত্র সাইট যেটা **Next.js নয়** — plain static HTML/CSS, কোনো build, `package.json` বা Actions workflow নেই। GitHub Pages সরাসরি `master`-এর ফাইলগুলোই পরিবেশন করে, তাই **push করলেই লাইভ**।
+ব্যক্তিগত portfolio। workspace-এর একমাত্র সাইট যেটা **Next.js নয়** — plain static HTML/CSS, কোনো build বা `package.json` নেই। ~~Actions workflow নেই, GitHub Pages সরাসরি `master`-এর ফাইলগুলোই পরিবেশন করে~~ — ২০২৬-১১-১২ থেকে `.github/workflows/deploy.yml` প্রতিটা push-এ পুরো repo (`.git`, `.github` বাদে) Pages-এ তোলে, Pages-এর Source "GitHub Actions"; তাই এখনো **push করলেই লাইভ**।
 
 - **repo public, আর root-এর প্রতিটা ফাইল লাইভ URL-এ পড়া যায়** — `index.html` থেকে লিংক না থাকলেও (`https://sojibrd.github.io/<ফাইলের-নাম>`)। এখানে কিছু রাখার আগে ধরে নিন যেকেউ সেটা পড়তে পারবে।
 - এই repo-তে **শুধু সাইটের জিনিস** — পেজ, স্টাইল, অ্যাসেট। নোট, ডেটা ডাম্প, training data, CV বা ব্যক্তিগত ডক এখানে নয়; সেগুলোর জায়গা `brainstorming/`। ২০২৬-০৯-২১-এ এমন ১৫টা ফাইল `brainstorming/unrelated/`-এ সরানো হয়েছে।
 - বর্তমান ফাইল: `index.html` (portfolio), `requirements-mcq-tool.html` (System Design Requirements Analyzer — স্বতন্ত্র টুল, `index.html` থেকে লিংক করা নেই), `favicon.svg`, `prompt/` (`ai_prompt_reference`-এর static export — `BASE_PATH=/prompt npm run build` দিয়ে বানিয়ে `out/` এখানে কপি করা; হাতে edit করবেন না), `.nojekyll` (না থাকলে Pages `prompt/_next/` বাদ দেয়)।
+- **১৯টা সাইটের ফোল্ডার** (২০২৬-১১-১২) — `dsa_prep_local_company/`, `learning_to_learn/` ইত্যাদি, প্রতিটা ঐ নামের private repo-র build। সাইটের repo-র `deploy.yml` build করে ফোল্ডারটা পুরো বদলে deploy key দিয়ে push করে (commit "Publish <repo> (<sha>)", লেখক `github-actions[bot]`)। **হাতে edit করবেন না** — পরের push মুছে দেবে; বদল সাইটের নিজের repo-তে। ঐ নামের repo public হয়ে তার নিজের Pages চালু হলে সেটা এই ফোল্ডারকে ঢেকে দেয়। **এখানে হাতে কিছু বদলানোর আগে `git pull`** — bot প্রতিটা সাইট-deploy-এ commit করে, তাই লোকাল কপি প্রায় সবসময় পিছিয়ে থাকে আর pull ছাড়া push আটকায় (২০২৬-১১-১২-এ প্রথমবার)।
 - সাইট **dark-only**, কিন্তু এখানে বাকি সাইটগুলোর theme contract (`--t-*` টোকেন, role class) **প্রযোজ্য নয়** — স্টাইল `index.html`-এর ভেতরেই। ছাঁচ মেলাতে গিয়ে Next.js-এর কনভেনশন টেনে আনবেন না।
 - `README.md`-এ লাইভ প্রজেক্টের তালিকা বদলালে root `README.md`-এর টেবিলও মিলিয়ে নিন।
