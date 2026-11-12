@@ -1,0 +1,62 @@
+1:"$Sreact.fragment"
+2:I[22016,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js","/system_design_remote_company/_next/static/chunks/0e2vlk28-rzwf.js"],""]
+3:I[82484,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js","/system_design_remote_company/_next/static/chunks/0e2vlk28-rzwf.js"],"default"]
+4:T1770,System Design হলো এমন একটা প্রক্রিয়া যেখানে আপনি একটা সফটওয়্যার সিস্টেমের architecture, components, modules, interfaces এবং data flow আগে থেকে ঠিক করে নেন — কোড লেখার আগেই। ছোট অ্যাপে এটা অনেকটা স্বয়ংক্রিয়ভাবে হয়ে যায়, কিন্তু যখন সিস্টেমকে লক্ষ লক্ষ user, terabyte scale data আর ২৪/৭ availability সামলাতে হয়, তখন ডিজাইনের সিদ্ধান্তগুলোই ঠিক করে দেয় সিস্টেমটা টিকবে নাকি ভেঙে পড়বে।
+
+গুরুত্বপূর্ণ কথা হলো — system design-এ কোনো "সঠিক উত্তর" নেই, আছে **trade-off**। আপনি consistency বাড়ালে availability কমবে, latency কমাতে গেলে খরচ বাড়বে, সবকিছু microservice করলে operational complexity বাড়বে। ভালো ডিজাইনার সেই ব্যক্তি নন যিনি সব প্যাটার্ন মুখস্থ জানেন, বরং যিনি জানেন কোন context-এ কোন trade-off গ্রহণযোগ্য।
+
+## What is System Design?
+
+System Design বলতে বোঝায় একটা সিস্টেমের requirement থেকে শুরু করে তার concrete architecture পর্যন্ত পৌঁছানোর কাজ। এর মধ্যে থাকে —
+
+- **High-Level Design (HLD)**: বড় বড় component গুলো কী কী (web server, load balancer, database, cache, queue), তারা কীভাবে একে অপরের সাথে কথা বলে, ডেটা কোন পথে যায়।
+- **Low-Level Design (LLD)**: প্রতিটা component-এর ভেতরের class, schema, API contract, algorithm.
+
+দুটো স্তরের গুরুত্ব আলাদা। HLD ভুল হলে পুরো সিস্টেম নতুন করে লিখতে হয়; LLD ভুল হলে সাধারণত একটা module refactor করলেই চলে। তাই ডিজাইন সেশনের বেশিরভাগ সময় HLD-তে যাওয়া উচিত।
+
+একটা সিস্টেমকে সাধারণত তিনটা মাত্রায় বিচার করা হয়: **Scalability** (লোড বাড়লে কী হয়), **Reliability** (কিছু ভেঙে গেলে কী হয়), এবং **Maintainability** (নতুন ডেভেলপার এসে বদলাতে পারবে কি না)। প্রতিটা ডিজাইন সিদ্ধান্তকে এই তিনটার বিরুদ্ধে যাচাই করা যায়।
+
+## How to approach System Design?
+
+একটা structured approach থাকলে খোলা প্রশ্নেও দিশা হারাতে হয় না। নিচের ধাপগুলো ইন্টারভিউ ও বাস্তব — দুই জায়গাতেই কাজ করে।
+
+**১. Requirements স্পষ্ট করুন।** Functional requirement (সিস্টেম কী করবে) আর non-functional requirement (কত দ্রুত, কতজন user, কতটা available) আলাদা করে লিখুন। এই ধাপ বাদ দিলে আপনি ভুল সমস্যার সমাধান করবেন।
+
+**২. Scale অনুমান করুন (Back-of-the-envelope estimation)।** দৈনিক active user কত, প্রতি সেকেন্ডে কত request (QPS), প্রতিটা record কত বাইট, ৫ বছরে মোট storage কত। এই সংখ্যাগুলোই ঠিক করে দেবে আপনার একটা database লাগবে নাকি sharded cluster লাগবে।
+
+**৩. API আর data model ঠিক করুন।** কোন endpoint গুলো লাগবে, তাদের input/output কী। তারপর entity গুলো ও তাদের সম্পর্ক। এখানেই SQL vs NoSQL-এর সিদ্ধান্ত আসে।
+
+**৪. High-level architecture আঁকুন।** Client → CDN → Load Balancer → Application Servers → Cache → Database — এই কঙ্কালটা দিয়ে শুরু করে আপনার সমস্যা অনুযায়ী component যোগ/বাদ দিন।
+
+**৫. Bottleneck খুঁজে গভীরে যান।** কোন জায়গায় প্রথম চাপ পড়বে? সেই অংশটা scale করুন — read-heavy হলে cache ও read replica, write-heavy হলে sharding ও queue। প্রতিটা পরিবর্তনের সাথে যে trade-off আসছে সেটা জোরে বলুন।
+
+**৬. Failure নিয়ে ভাবুন।** একটা server মরে গেলে? একটা region ডাউন হলে? Network partition হলে? Single point of failure কোথায়? এই প্রশ্নগুলোর উত্তরই একটা ডিজাইনকে "কাগজে সুন্দর" থেকে "প্রোডাকশনে টেকসই"-তে রূপান্তরিত করে।
+
+---
+
+পরবর্তী: [Performance vs Scalability](02-performance-vs-scalability.md)9:X
+e:X
+e:C
+0:{"buildId":"hRnCIdxs5Cq3Tmu8Nrehh","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"01"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Introduction"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","div",null,{"className":"surface-well t-caption p-4 text-center","children":"এই পথের কোনো দিনে এই ডক নেই — জেনেশুনে বাদ, দরকার হলে পরে। 🧠 Pareto principle"}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"ViewportBoundary"]
+17:I[97367,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"MetadataBoundary"]
+18:I[27201,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"IconMark"]
+19:I[39756,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"default"]
+1a:I[37457,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","span",null,{}],["$","$L2",null,{"href":"/doc/02/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"02 Performance vs Scalability"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/system_design_remote_company/_next/static/chunks/0e2vlk28-rzwf.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক 01 · Introduction — রিমোট system design"}],["$","meta","1",{"name":"description","content":"বিদেশি রিমোট কোম্পানির লিখিত আর আলোচনামূলক design রাউন্ডের জন্য — দশটা ডক, frontend system design আর ইংরেজিতে তিনটা লেখা (দুটো প্রকাশিত), ৫৬ দিনে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/system_design_remote_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

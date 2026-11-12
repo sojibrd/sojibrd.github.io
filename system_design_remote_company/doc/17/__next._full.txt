@@ -1,0 +1,126 @@
+1:"$Sreact.fragment"
+2:I[41681,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"default"]
+9:I[68027,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"default",1]
+:HL["/system_design_remote_company/_next/static/chunks/0rjck_o2q5l_u.css","style"]
+:HL["/system_design_remote_company/_next/static/media/490cbca7f386131e-s.p.1zrwl0c4yv3pr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_remote_company/_next/static/media/4b23c5ee480ee380-s.p.0qqufx6vw52v_.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_remote_company/_next/static/media/520c929efec0b33f-s.p.3arxh35s5-kc0.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_remote_company/_next/static/media/5e4d537aaa9e154b-s.p.1ewykk74tw0il.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_remote_company/_next/static/media/6a1d08cf467f0848-s.p.240fzfer9e_rh.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_remote_company/_next/static/media/6ea8d1bb8ea4af7a-s.p.1kk_wfe381bov.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_remote_company/_next/static/media/70bc3e132a0a741e-s.p.3t6q91iet4nsy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_remote_company/_next/static/media/70c15719a04fff13-s.p.376yc-xi7tht7.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_remote_company/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+7:X
+0:{"P":null,"c":["","doc","17",""],"q":"","i":false,"f":[[["",{"children":["doc",{"children":[["code","17","d",[]],{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/system_design_remote_company/_next/static/chunks/0rjck_o2q5l_u.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"bn","className":"archivo_aabc0850-module__cplg6G__variable archivo_black_cc57a6c8-module__12WbNa__variable barlow_semi_condensed_66b51823-module__HKMkGa__variable jetbrains_mono_ce945e87-module__HTLkQq__variable noto_sans_bengali_ae4f5577-module__v5t5fW__variable h-full antialiased","children":["$","body",null,{"className":"surface-app flex min-h-full flex-col","children":[["$","a",null,{"href":"#main-content","className":"control control--primary sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 px-3 py-1.5 text-xs","children":"মূল কনটেন্টে যান"}],["$","$L2",null,{"blocks":[{"num":1,"slug":"decisions","name":"সিদ্ধান্ত, ইংরেজিতে","range":"দিন ০০১–০১৪ · ডক ১৫ · ১২ · ১৩ · ০৪ · ১১ · functional লেভেল","dip":false,"check":"পাঁচটা ডকের প্রতিটায় ইংরেজিতে তিন লাইনের একটা সিদ্ধান্ত, আর একটা কোম্পানির ফিচারের ৫ লাইন?","days":[{"num":1,"code":"001","label":"০০১","title":"ছয় সেকশনের ছাঁচ","taskIds":["d001-9b5ma4"]},{"num":2,"code":"002","label":"০০২","title":"API-র সিদ্ধান্ত","taskIds":["d002-74qjwe"]},{"num":3,"code":"003","label":"০০৩","title":"data model","taskIds":["d003-1ebsrl9"]},{"num":4,"code":"004","label":"০০৪","title":"cache-এর সিদ্ধান্ত","taskIds":["d004-r0agne"]},{"num":5,"code":"005","label":"০০৫","title":"সহজ ডিজাইন","taskIds":["d005-ax50wt"]},{"num":6,"code":"006","label":"০০৬","title":"সপ্তাহের চারটা, না দেখে","taskIds":["d006-18ml15d"]},{"num":7,"code":"007","label":"০০৭","title":"সপ্তাহের হিসাব","taskIds":["d007-1vr239o"]},{"num":8,"code":"008","label":"০০৮","title":"availability না consistency","taskIds":["d008-1p4k9o7"]},{"num":9,"code":"009","label":"০০৯","title":"load balancer কখন","taskIds":["d009-hk83p2"]},{"num":10,"code":"010","label":"০১০","title":"rate limiter-এর সহজ রূপ","taskIds":["d010-frbvcr"]},{"num":11,"code":"011","label":"০১১","title":"\"Why this and not the alternative?\"","taskIds":["d011-vghscr"]},{"num":12,"code":"012","label":"০১২","title":"ওদের একটা ফিচার","taskIds":["d012-ef0wu7"]},{"num":13,"code":"013","label":"০১৩","title":"পাঁচ ডক, এলোমেলো","taskIds":["d013-11xzzgu"]},{"num":14,"code":"014","label":"০১৪","title":"ব্লক ১-এর হিসাব","taskIds":["d014-15eyj9v"]}]},{"num":2,"slug":"async-reliable","name":"async আর reliable","range":"দিন ০১৫–০২৮ · ডক ১৪ · ০৭ · ১৬ · ০৯ · ১৮ · reliable লেভেল","dip":true,"check":"দশটা ডকের এক পাতার মানচিত্র, আর দুটো simulation-এর reliable লেভেলে \"কেন এই অংশ যোগ হলো\" লেখা?","days":[{"num":15,"code":"015","label":"০১৫","title":"queue কেন","taskIds":["d015-1ltj6ww"]},{"num":16,"code":"016","label":"০১৬","title":"background job","taskIds":["d016-1izxckq"]},{"num":17,"code":"017","label":"০১৭","title":"দুবার চাপলে","taskIds":["d017-vnver1"]},{"num":18,"code":"018","label":"০১৮","title":"URL shortener, reliable","taskIds":["d018-nz3xv7"]},{"num":19,"code":"019","label":"০১৯","title":"rate limiter, reliable","taskIds":["d019-1xgkoka"]},{"num":20,"code":"020","label":"০২০","title":"সপ্তাহের পাঁচটা, না দেখে","taskIds":["d020-1iz8ubf"]},{"num":21,"code":"021","label":"০২১","title":"সপ্তাহের হিসাব","taskIds":["d021-1pywfhl"]},{"num":22,"code":"022","label":"০২২","title":"CDN আর static ফাইল","taskIds":["d022-ao2egt"]},{"num":23,"code":"023","label":"০২৩","title":"নীরব ব্যর্থতা","taskIds":["d023-bs3qwq"]},{"num":24,"code":"024","label":"০২৪","title":"ট্রেড-অফ, আবার","taskIds":["d024-e4b78r"]},{"num":25,"code":"025","label":"০২৫","title":"দশ ডকের মানচিত্র","taskIds":["d025-89vizj"]},{"num":26,"code":"026","label":"০২৬","title":"হালকা দিন — কাল plan-এর mock","taskIds":[]},{"num":27,"code":"027","label":"০২৭","title":"plan-এর mock-এর দিন","taskIds":[]},{"num":28,"code":"028","label":"০২৮","title":"ব্লক ২-এর হিসাব","taskIds":["d028-k43eht"]}]},{"num":3,"slug":"frontend-design","name":"frontend system design","range":"দিন ০২৯–০৪২ · ছয় ধাপ · autocomplete · news feed · file upload","dip":false,"check":"তিনটা UI ছয় ধাপে লেখা, আর এলোমেলো একটা ২০′-এ ইংরেজিতে বলা?","days":[{"num":29,"code":"029","label":"০২৯","title":"ছয় ধাপ","taskIds":["d029-8s19u8"]},{"num":30,"code":"030","label":"০৩০","title":"state কোথায়","taskIds":["d030-1epjhg6"]},{"num":31,"code":"031","label":"০৩১","title":"autocomplete — ১","taskIds":["d031-kr603o"]},{"num":32,"code":"032","label":"০৩২","title":"autocomplete — ২","taskIds":["d032-1ibkz2p"]},{"num":33,"code":"033","label":"০৩৩","title":"autocomplete, মুখে","taskIds":["d033-qz1ajg"]},{"num":34,"code":"034","label":"০৩৪","title":"সপ্তাহের UI, না দেখে","taskIds":["d034-1d1no3d"]},{"num":35,"code":"035","label":"০৩৫","title":"সপ্তাহের হিসাব","taskIds":["d035-1alie5w"]},{"num":36,"code":"036","label":"০৩৬","title":"news feed — ১","taskIds":["d036-1sr1ask"]},{"num":37,"code":"037","label":"০৩৭","title":"optimistic like","taskIds":["d037-i3qusy"]},{"num":38,"code":"038","label":"০৩৮","title":"লম্বা তালিকা","taskIds":["d038-yiudiw"]},{"num":39,"code":"039","label":"০৩৯","title":"file upload","taskIds":["d039-gutw9s"]},{"num":40,"code":"040","label":"০৪০","title":"এলোমেলো UI","taskIds":["d040-7o7ekk"]},{"num":41,"code":"041","label":"০৪১","title":"তিন UI, এক লাইন","taskIds":["d041-1wmqpo4"]},{"num":42,"code":"042","label":"০৪২","title":"ব্লক ৩-এর হিসাব","taskIds":["d042-1bqzs2u"]}]},{"num":4,"slug":"written-design","name":"লিখে বোঝানো","range":"দিন ০৪৩–০৫৬ · srdtube-এর ইংরেজি design doc · frontend design note · ওদের ফিচার","dip":false,"check":"তিনটা ইংরেজি লেখা — দুটো প্রকাশিত — আর একটা কোম্পানির ফিচারের ১০ মিনিটের রেকর্ডিং?","days":[{"num":43,"code":"043","label":"০৪৩","title":"What I built, Scale","taskIds":["d043-10jtzqz"]},{"num":44,"code":"044","label":"০৪৪","title":"Decisions","taskIds":["d044-1r5it2f"]},{"num":45,"code":"045","label":"০৪৫","title":"Left out, Architecture","taskIds":["d045-sr85tj"]},{"num":46,"code":"046","label":"০৪৬","title":"Where it breaks","taskIds":["d046-1xpjds2"]},{"num":47,"code":"047","label":"০৪৭","title":"প্রকাশ","taskIds":["d047-5v9o7c"]},{"num":48,"code":"048","label":"০৪৮","title":"doc, না দেখে","taskIds":["d048-6detv"]},{"num":49,"code":"049","label":"০৪৯","title":"সপ্তাহের হিসাব","taskIds":["d049-18cugd5"]},{"num":50,"code":"050","label":"০৫০","title":"frontend design note — ১","taskIds":["d050-19vax0g"]},{"num":51,"code":"051","label":"০৫১","title":"frontend design note — ২","taskIds":["d051-iggg7"]},{"num":52,"code":"052","label":"০৫২","title":"take-home-এর design note","taskIds":["d052-1rv9x1g"]},{"num":53,"code":"053","label":"০৫৩","title":"ওদের ফিচার, লিখে","taskIds":["d053-1bguyjj"]},{"num":54,"code":"054","label":"০৫৪","title":"ওদের ফিচার, মুখে","taskIds":["d054-if3n3q"]},{"num":55,"code":"055","label":"০৫৫","title":"তিন লেখা, তিন বাক্য","taskIds":["d055-ad3brf"]},{"num":56,"code":"056","label":"০৫৬","title":"থামা","taskIds":["d056-17i8weo"]}]}],"children":"$L3"}]]}]}]]}],{"children":["$L4",{"children":["$L5",{"children":["$L6",{},null,false,null]},null,false,"$7"]},null,false,"$7"]},null,false,null],"$L8",false]],"m":"$undefined","G":["$9",["$La"]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"hRnCIdxs5Cq3Tmu8Nrehh"}
+b:I[39756,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"default"]
+c:I[37457,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"default"]
+e:I[97367,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"OutletBoundary"]
+f:"$Sreact.suspense"
+11:I[97367,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"ViewportBoundary"]
+13:I[97367,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"MetadataBoundary"]
+3:["$","$Lb",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Lc",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]
+4:["$","$1","c",{"children":[null,["$","$Lb",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Lc",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+5:["$","$1","c",{"children":[null,["$","$Lb",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Lc",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+6:["$","$1","c",{"children":["$Ld",[["$","script","script-0",{"src":"/system_design_remote_company/_next/static/chunks/0e2vlk28-rzwf.js","async":true,"nonce":"$undefined"}]],["$","$Le",null,{"children":["$","$f",null,{"name":"Next.MetadataOutlet","children":"$@10"}]}]]}]
+8:["$","$1","h",{"children":[null,["$","$L11",null,{"children":"$L12"}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$f",null,{"name":"Next.Metadata","children":"$L14"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+a:["$","link","0",{"rel":"stylesheet","href":"/system_design_remote_company/_next/static/chunks/0rjck_o2q5l_u.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+15:I[22016,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js","/system_design_remote_company/_next/static/chunks/0e2vlk28-rzwf.js"],""]
+16:I[82484,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js","/system_design_remote_company/_next/static/chunks/0e2vlk28-rzwf.js"],"default"]
+7:C
+17:T3365,Antipattern হলো এমন কোড বা ডিজাইন যা দেখতে যুক্তিসঙ্গত এবং ছোট স্কেলে নিখুঁতভাবে কাজ করে, কিন্তু লোড বাড়ার সাথে সাথে সিস্টেমকে ধসিয়ে দেয়। নিচের দশটা সবচেয়ে ঘন ঘন দেখা যায় (Microsoft-এর performance antipattern তালিকা অনুসরণে)।
+
+এদের চেনার মূল্য বিশাল — কারণ প্রায় প্রতিটা "আমাদের সিস্টেম হঠাৎ ধীর হয়ে গেছে" সমস্যার মূলে এদের কেউ না কেউ থাকে।
+
+## Busy Database
+
+Database server-কে এমন কাজ করানো যা application layer-এ করলেই চলত — ভারী stored procedure, জটিল ব্যবসায়িক যুক্তি, trigger-এর জাল, বা ডেটা রূপান্তর।
+
+**কেন খারাপ**: database সাধারণত সিস্টেমের সবচেয়ে ব্যয়বহুল ও সবচেয়ে কঠিনভাবে scale করা যায় এমন উপাদান। Application server সস্তা ও অসীমভাবে বাড়ানো যায়; database তা নয়। Database-এর CPU সেই কাজে ব্যয় করা উচিত যা কেবল সে-ই করতে পারে।
+
+**সমাধান**: গণনা ও ব্যবসায়িক যুক্তি application layer-এ সরান। তবে ভারসাম্য রাখুন — ডেটা ফিল্টার ও aggregation database-এই করা উচিত, নাহলে আপনি Extraneous Fetching-এ পড়বেন।
+
+## Busy Frontend
+
+ব্যয়বহুল কাজ user-এর request-response cycle-এর ভেতরেই (বা UI thread-এ) চালানো — যেমন request-এর মধ্যেই ভিডিও encode করা বা রিপোর্ট বানানো।
+
+**কেন খারাপ**: user দীর্ঘক্ষণ অপেক্ষা করে ও timeout হয়; thread/connection আটকে থাকায় server-এর সমান্তরাল ক্ষমতা ধসে যায়; ট্রাফিক সামান্য বাড়লেই সব thread ফুরিয়ে যায়।
+
+**সমাধান**: ভারী কাজ [background job](07-background-jobs.md)-এ পাঠান, সাথে সাথে `202 Accepted` ও একটা job ID দিন। কাজটা যদি সত্যিই সাথে সাথে দরকার হয়, তাহলে সেটাকে দ্রুত করার উপায় খুঁজুন — precompute করে রাখুন।
+
+## Chatty I/O
+
+একটা যৌক্তিক কাজ সম্পন্ন করতে বহু ছোট ছোট request পাঠানো — ১০০টা আলাদা database query, ৫০টা আলাদা API call, বা একটা ফাইল বাইট-বাই-বাইট পড়া।
+
+**কেন খারাপ**: প্রতিটা I/O-তে network latency, connection ব্যবস্থাপনা ও protocol overhead যোগ হয়। ৫০টা call × ২০ms = ১ সেকেন্ড, যদিও প্রকৃত কাজ হয়তো ৫ms।
+
+**সবচেয়ে প্রচলিত রূপ — N+1 query**: একটা query দিয়ে ১০০টা order আনা, তারপর প্রতিটার customer আনতে আরও ১০০টা query।
+
+**সমাধান**: batch করুন ও একসাথে আনুন — `JOIN`, `WHERE id IN (...)`, ORM-এর eager loading, GraphQL-এ DataLoader, বা একটা coarse-grained API endpoint যা একবারেই সব দেয়।
+
+## Retry Storm
+
+কোনো service ধীর বা ব্যর্থ হলে সব client একসাথে retry শুরু করে, ফলে ইতিমধ্যেই কষ্টে থাকা service-এর উপর চাপ বহুগুণ বেড়ে যায়। বহুস্তরের সিস্টেমে retry গুণিতক হয় — তিন স্তরে ৩টা করে retry মানে মূল service-এ ২৭ গুণ ট্রাফিক।
+
+**কেন খারাপ**: এটা একটা positive feedback loop — service সেরে উঠতে চাইলেই retry-র ঢেউ তাকে আবার ফেলে দেয়। ফলে সাময়িক সমস্যা স্থায়ী outage-এ পরিণত হয়।
+
+**সমাধান**: **exponential backoff + jitter** (jitter অপরিহার্য, নাহলে সবাই একই মুহূর্তে আবার আসবে); retry সংখ্যা সীমিত করুন; **circuit breaker** ব্যবহার করুন যাতে ব্যর্থ service-কে সেরে ওঠার সুযোগ দেওয়া হয়; শুধু একটা স্তরে retry করুন, প্রতি স্তরে নয়।
+
+## No Caching
+
+একই ডেটা বারবার নতুন করে গণনা বা fetch করা, যদিও সেটা কদাচিৎ বদলায়।
+
+**কেন খারাপ**: অপ্রয়োজনীয় latency, database-এ অপ্রয়োজনীয় লোড, এবং বেশি খরচ। জনপ্রিয় ডেটা যদি cache না হয়, তাহলে জনপ্রিয়তাই আপনার সিস্টেমের শত্রু হয়ে দাঁড়ায়।
+
+**সমাধান**: পরিচয় করান একটা cache স্তর ([Caching](13-caching.md)) — বিশেষত read-heavy ও কদাচিৎ-বদলানো ডেটার জন্য। তবে বিপরীত antipattern-ও আছে: সব কিছু cache করলে invalidation-এর জটিলতা ও বাসি ডেটার সমস্যা আসে। যা ঘন ঘন পড়া হয় এবং কদাচিৎ বদলায় — শুধু সেটাই cache করুন।
+
+## Improper Instantiation
+
+প্রতিবার নতুন করে এমন object তৈরি করা যা একবার তৈরি করে বারবার ব্যবহার করার কথা — যেমন প্রতি request-এ নতুন `HttpClient`, নতুন database connection, নতুন ORM context বা নতুন serializer।
+
+**কেন খারাপ**: এই object গুলো তৈরি করা ব্যয়বহুল (TLS handshake, DNS lookup, buffer বরাদ্দ)। সবচেয়ে কুখ্যাত উদাহরণ — .NET-এ প্রতি request-এ নতুন `HttpClient` তৈরি করলে socket exhaustion হয়, কারণ বন্ধ socket গুলো `TIME_WAIT`-এ আটকে থাকে।
+
+**সমাধান**: এমন object গুলোকে singleton হিসেবে বা pool থেকে ব্যবহার করুন — connection pool, HTTP client factory, thread pool। উল্টো দিকে সতর্ক থাকুন: shared object গুলো thread-safe হতে হবে।
+
+## Monolithic Persistence
+
+সব রকম ডেটা একটামাত্র data store-এ ঠেসে দেওয়া — লেনদেনের ডেটা, session, log, analytics event, বড় blob — সব একই database-এ।
+
+**কেন খারাপ**: বিভিন্ন ধরনের ডেটার চাহিদা সম্পূর্ণ ভিন্ন। বিশাল পরিমাণ log লেখা আপনার order table-এর সাথে একই disk ও lock-এর জন্য প্রতিযোগিতা করে, ফলে গুরুত্বপূর্ণ লেনদেন ধীর হয়ে যায়।
+
+**সমাধান**: **Polyglot persistence** — প্রতিটা কাজের জন্য উপযুক্ত store: লেনদেনে relational, session ও cache-এ Redis, log ও search-এ Elasticsearch, ফাইল ও ছবি object storage-এ, analytics-এ data warehouse। অন্তত ভিন্ন workload গুলোকে ভিন্ন database instance-এ আলাদা করুন ([Federation](12-databases.md))।
+
+## Noisy Neighbor
+
+একজন tenant, একজন user বা একটা কাজ shared resource-এর অসম অংশ দখল করে ফেলে, ফলে বাকি সবাই ভোগে। যেমন একজন client-এর ভারী API ব্যবহার সবার জন্য সিস্টেম ধীর করে দেয়, বা একটা report query পুরো database-এর CPU খেয়ে ফেলে।
+
+**কেন খারাপ**: একজনের আচরণ সবার অভিজ্ঞতা নষ্ট করে, এবং সমস্যাটা নির্ণয় করা কঠিন — কারণ ভুক্তভোগীদের নিজেদের কোনো দোষ নেই।
+
+**সমাধান**: প্রতি-tenant **rate limiting ও quota**; resource সীমা (CPU/memory cap, query timeout); গুরুত্বপূর্ণ ও ভারী workload-এর জন্য আলাদা pool বা queue (**Bulkhead** প্যাটার্ন); বড় গ্রাহকদের জন্য প্রয়োজনে সম্পূর্ণ আলাদা infrastructure।
+
+## Synchronous I/O
+
+I/O চলাকালীন thread টাকে অবরুদ্ধ করে বসিয়ে রাখা, যদিও সে ওই সময়ে অন্য কাজ করতে পারত।
+
+**কেন খারাপ**: thread ব্যয়বহুল (প্রতিটাতে memory ও context-switch খরচ)। I/O-র জন্য অপেক্ষারত thread-এ pool ভরে গেলে server নতুন request নিতে পারে না — যদিও CPU প্রায় পুরোপুরি অলস। এভাবেই একটা ধীর downstream পুরো service-কে অচল করে দেয়।
+
+**সমাধান**: async/await ও non-blocking I/O ব্যবহার করুন — I/O-র সময় thread টা মুক্ত হয়ে অন্য request সামলাতে পারে। **সব স্তরে async রাখুন** — মাঝপথে একটা blocking call (বা `.Result`/`.wait()`) পুরো সুবিধা নষ্ট করে দেয়, এমনকি deadlock ঘটাতে পারে।
+
+## Extraneous Fetching
+
+প্রয়োজনের চেয়ে বেশি ডেটা আনা — `SELECT *` করে ৫০টা column আনা যেখানে ২টা লাগত, পুরো table এনে application-এ filter করা, বা ১০,০০০ সারি এনে শুধু গুনে দেখা।
+
+**কেন খারাপ**: বাড়তি network bandwidth, বেশি memory, ধীর serialization, এবং index থাকা সত্ত্বেও অকার্যকর query plan। বিশেষভাবে ক্ষতিকর যখন filter করার কাজটা database-এর বদলে application-এ হয়।
+
+**সমাধান**: কেবল প্রয়োজনীয় column নির্বাচন করুন; filter, sort ও aggregation database-কে দিয়ে করান (`WHERE`, `COUNT`, `SUM`); সবসময় **pagination** ব্যবহার করুন এবং কোনো unbounded query চলতে দেবেন না; projection/DTO ব্যবহার করুন।
+
+লক্ষ্য করুন এটা **Chatty I/O**-র ঠিক বিপরীত মেরু — একদিকে অতি-বেশি ছোট call, অন্যদিকে অতি-বড় call। সঠিক উত্তরটা মাঝখানে, আর সেটা খুঁজে পাওয়া যায় মেপে।
+
+---
+
+পূর্ববর্তী: [Idempotent Operations](16-idempotent-operations.md) · পরবর্তী: [Monitoring](18-monitoring.md)d:[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L15",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"17"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Performance Antipatterns"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","div",null,{"className":"surface-well t-caption p-4 text-center","children":"এই পথের কোনো দিনে এই ডক নেই — জেনেশুনে বাদ, দরকার হলে পরে। 🧠 Pareto principle"}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L16",null,{"children":"$17"}]}],"$L18"]
+18:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L15",null,{"href":"/doc/16/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"16 Idempotent Operations"}]]}],["$","$L15",null,{"href":"/doc/18/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"18 Monitoring"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+19:I[27201,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"IconMark"]
+10:null
+14:[["$","title","0",{"children":"ডক 17 · Performance Antipatterns — রিমোট system design"}],["$","meta","1",{"name":"description","content":"বিদেশি রিমোট কোম্পানির লিখিত আর আলোচনামূলক design রাউন্ডের জন্য — দশটা ডক, frontend system design আর ইংরেজিতে তিনটা লেখা (দুটো প্রকাশিত), ৫৬ দিনে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/system_design_remote_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L19","3",{}]]

@@ -1,0 +1,76 @@
+1:"$Sreact.fragment"
+2:I[22016,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js","/system_design_remote_company/_next/static/chunks/0e2vlk28-rzwf.js"],""]
+3:I[82484,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js","/system_design_remote_company/_next/static/chunks/0e2vlk28-rzwf.js"],"default"]
+4:T17ce,DNS হলো ইন্টারনেটের ফোনবুক — এটা মানুষের পড়ার উপযোগী নাম (`www.example.com`) কে মেশিনের বোঝার উপযোগী IP address-এ (`93.184.216.34`) অনুবাদ করে। প্রতিটা web request-এর সবচেয়ে প্রথম ধাপ এটাই, তাই DNS ধীর বা অচল হলে আপনার পুরো সিস্টেম অচল — server গুলো নিখুঁতভাবে চললেও।
+
+## Lookup কীভাবে কাজ করে
+
+DNS একটা hierarchical, distributed database। একটা lookup সাধারণত এই পথে যায়:
+
+```
+Browser cache → OS cache → Router cache → ISP-র Recursive Resolver
+    → Root nameserver (. )        →  ".com" কোথায় জিজ্ঞেস করো
+    → TLD nameserver (.com)       →  "example.com"-এর মালিক কে
+    → Authoritative nameserver    →  আসল IP address
+```
+
+প্রতিটা স্তরে **cache** আছে, তাই বাস্তবে বেশিরভাগ lookup প্রথম দু-এক ধাপেই শেষ হয়ে যায়। এই cache কতক্ষণ থাকবে তা নির্ধারণ করে record-এর **TTL (Time To Live)**।
+
+TTL একটা গুরুত্বপূর্ণ trade-off: বেশি TTL (যেমন ২৪ ঘণ্টা) মানে দ্রুত resolution ও কম DNS ট্রাফিক, কিন্তু IP বদলাতে চাইলে সারা দুনিয়ার cache আপডেট হতে একদিন লাগবে। কম TTL (যেমন ৬০ সেকেন্ড) মানে দ্রুত failover সম্ভব, কিন্তু বেশি lookup ও সামান্য বেশি latency। সাধারণ কৌশল: পরিকল্পিত migration-এর কয়েক দিন আগে TTL কমিয়ে দিন, migration শেষে আবার বাড়িয়ে দিন।
+
+## গুরুত্বপূর্ণ Record Types
+
+| Record | কাজ |
+|---|---|
+| **A** | নামকে IPv4 address-এ map করে |
+| **AAAA** | নামকে IPv6 address-এ map করে |
+| **CNAME** | একটা নামকে আরেকটা নামে map করে (alias) — যেমন `www` → `example.com` |
+| **MX** | ডোমেইনের ইমেইল কোন server-এ যাবে |
+| **NS** | এই ডোমেইনের authoritative nameserver কারা |
+| **TXT** | যেকোনো টেক্সট — SPF, DKIM, ডোমেইন verification |
+
+লক্ষণীয়: root domain (`example.com`) এ CNAME ব্যবহার করা যায় না (RFC অনুযায়ী)। এই কারণেই cloud provider-রা `ALIAS`/`ANAME` নামে বিশেষ record দেয়, যা CNAME-এর মতো আচরণ করে কিন্তু A record হিসেবে resolve হয়।
+
+## DNS দিয়ে Traffic Routing
+
+DNS শুধু নাম-অনুবাদ নয়, এটা একটা **প্রথম স্তরের load balancer**-ও। একই নামের বিপরীতে একাধিক উত্তর দিয়ে বা বুদ্ধিমান উত্তর দিয়ে ট্রাফিক পরিচালনা করা যায়:
+
+- **Round Robin**: একই নামের জন্য একাধিক A record ঘুরিয়ে ঘুরিয়ে দেওয়া। সহজ, কিন্তু server-এর স্বাস্থ্য বা লোড বোঝে না, আর cache-এর কারণে বণ্টন অসম হয়।
+- **Weighted**: ৯০% ট্রাফিক পুরনো version-এ, ১০% নতুনে — canary deployment-এর জন্য কার্যকর।
+- **Latency-based / Geo-based**: user-এর সবচেয়ে কাছের বা দ্রুততম region-এর IP ফেরত দেওয়া। Multi-region architecture-এর ভিত্তি।
+- **Failover**: health check ব্যর্থ হলে primary-র বদলে secondary IP দেওয়া। TTL-এর কারণে এটা তাৎক্ষণিক নয় — এটাই DNS-based failover-এর মূল সীমাবদ্ধতা।
+
+## নিরাপত্তা ও নির্ভরযোগ্যতা
+
+DNS মূলত UDP-র উপর plaintext-এ চলে, তাই এটা আক্রমণের সহজ লক্ষ্য। **DNS spoofing/cache poisoning**-এ আক্রমণকারী ভুয়া উত্তর ঢুকিয়ে user-কে অন্য server-এ পাঠায়; **DNSSEC** cryptographic signature দিয়ে উত্তরের সত্যতা যাচাই করে এটা প্রতিরোধ করে। গোপনীয়তার জন্য **DoH (DNS over HTTPS)** ও **DoT (DNS over TLS)** query গুলো encrypt করে।
+
+নির্ভরযোগ্যতার দিক থেকে সবচেয়ে বড় শিক্ষা ২০১৬ সালের Dyn DDoS আক্রমণ — একটামাত্র DNS provider-এর উপর নির্ভরশীল হওয়ায় Twitter, GitHub, Netflix সহ ইন্টারনেটের বড় একটা অংশ অচল হয়ে গিয়েছিল। তাই গুরুত্বপূর্ণ সিস্টেমে **একাধিক DNS provider** ব্যবহার করা উচিত।
+
+---
+
+পূর্ববর্তী: [Background Jobs](07-background-jobs.md) · পরবর্তী: [Content Delivery Networks](09-content-delivery-networks.md)9:X
+e:X
+e:C
+0:{"buildId":"hRnCIdxs5Cq3Tmu8Nrehh","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"08"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Domain Name System (DNS)"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","div",null,{"className":"surface-well t-caption p-4 text-center","children":"এই পথের কোনো দিনে এই ডক নেই — জেনেশুনে বাদ, দরকার হলে পরে। 🧠 Pareto principle"}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"ViewportBoundary"]
+17:I[97367,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"MetadataBoundary"]
+18:I[27201,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"IconMark"]
+19:I[39756,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"default"]
+1a:I[37457,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/07/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"07 Background Jobs"}]]}],["$","$L2",null,{"href":"/doc/09/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"09 Content Delivery Networks (CDN)"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/system_design_remote_company/_next/static/chunks/0e2vlk28-rzwf.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক 08 · Domain Name System (DNS) — রিমোট system design"}],["$","meta","1",{"name":"description","content":"বিদেশি রিমোট কোম্পানির লিখিত আর আলোচনামূলক design রাউন্ডের জন্য — দশটা ডক, frontend system design আর ইংরেজিতে তিনটা লেখা (দুটো প্রকাশিত), ৫৬ দিনে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/system_design_remote_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

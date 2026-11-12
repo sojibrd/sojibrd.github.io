@@ -1,0 +1,150 @@
+1:"$Sreact.fragment"
+2:I[41681,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"default"]
+8:I[68027,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"default",1]
+:HL["/system_design_remote_company/_next/static/chunks/0rjck_o2q5l_u.css","style"]
+:HL["/system_design_remote_company/_next/static/media/490cbca7f386131e-s.p.1zrwl0c4yv3pr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_remote_company/_next/static/media/4b23c5ee480ee380-s.p.0qqufx6vw52v_.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_remote_company/_next/static/media/520c929efec0b33f-s.p.3arxh35s5-kc0.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_remote_company/_next/static/media/5e4d537aaa9e154b-s.p.1ewykk74tw0il.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_remote_company/_next/static/media/6a1d08cf467f0848-s.p.240fzfer9e_rh.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_remote_company/_next/static/media/6ea8d1bb8ea4af7a-s.p.1kk_wfe381bov.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_remote_company/_next/static/media/70bc3e132a0a741e-s.p.3t6q91iet4nsy.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_remote_company/_next/static/media/70c15719a04fff13-s.p.376yc-xi7tht7.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/system_design_remote_company/_next/static/media/75affa71d1e2f6a7-s.p.17-aodiw50953.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+6:X
+0:{"P":null,"c":["","rules",""],"q":"","i":false,"f":[[["",{"children":["rules",{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/system_design_remote_company/_next/static/chunks/0rjck_o2q5l_u.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"bn","className":"archivo_aabc0850-module__cplg6G__variable archivo_black_cc57a6c8-module__12WbNa__variable barlow_semi_condensed_66b51823-module__HKMkGa__variable jetbrains_mono_ce945e87-module__HTLkQq__variable noto_sans_bengali_ae4f5577-module__v5t5fW__variable h-full antialiased","children":["$","body",null,{"className":"surface-app flex min-h-full flex-col","children":[["$","a",null,{"href":"#main-content","className":"control control--primary sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 px-3 py-1.5 text-xs","children":"মূল কনটেন্টে যান"}],["$","$L2",null,{"blocks":[{"num":1,"slug":"decisions","name":"সিদ্ধান্ত, ইংরেজিতে","range":"দিন ০০১–০১৪ · ডক ১৫ · ১২ · ১৩ · ০৪ · ১১ · functional লেভেল","dip":false,"check":"পাঁচটা ডকের প্রতিটায় ইংরেজিতে তিন লাইনের একটা সিদ্ধান্ত, আর একটা কোম্পানির ফিচারের ৫ লাইন?","days":[{"num":1,"code":"001","label":"০০১","title":"ছয় সেকশনের ছাঁচ","taskIds":["d001-9b5ma4"]},{"num":2,"code":"002","label":"০০২","title":"API-র সিদ্ধান্ত","taskIds":["d002-74qjwe"]},{"num":3,"code":"003","label":"০০৩","title":"data model","taskIds":["d003-1ebsrl9"]},{"num":4,"code":"004","label":"০০৪","title":"cache-এর সিদ্ধান্ত","taskIds":["d004-r0agne"]},{"num":5,"code":"005","label":"০০৫","title":"সহজ ডিজাইন","taskIds":["d005-ax50wt"]},{"num":6,"code":"006","label":"০০৬","title":"সপ্তাহের চারটা, না দেখে","taskIds":["d006-18ml15d"]},{"num":7,"code":"007","label":"০০৭","title":"সপ্তাহের হিসাব","taskIds":["d007-1vr239o"]},{"num":8,"code":"008","label":"০০৮","title":"availability না consistency","taskIds":["d008-1p4k9o7"]},{"num":9,"code":"009","label":"০০৯","title":"load balancer কখন","taskIds":["d009-hk83p2"]},{"num":10,"code":"010","label":"০১০","title":"rate limiter-এর সহজ রূপ","taskIds":["d010-frbvcr"]},{"num":11,"code":"011","label":"০১১","title":"\"Why this and not the alternative?\"","taskIds":["d011-vghscr"]},{"num":12,"code":"012","label":"০১২","title":"ওদের একটা ফিচার","taskIds":["d012-ef0wu7"]},{"num":13,"code":"013","label":"০১৩","title":"পাঁচ ডক, এলোমেলো","taskIds":["d013-11xzzgu"]},{"num":14,"code":"014","label":"০১৪","title":"ব্লক ১-এর হিসাব","taskIds":["d014-15eyj9v"]}]},{"num":2,"slug":"async-reliable","name":"async আর reliable","range":"দিন ০১৫–০২৮ · ডক ১৪ · ০৭ · ১৬ · ০৯ · ১৮ · reliable লেভেল","dip":true,"check":"দশটা ডকের এক পাতার মানচিত্র, আর দুটো simulation-এর reliable লেভেলে \"কেন এই অংশ যোগ হলো\" লেখা?","days":[{"num":15,"code":"015","label":"০১৫","title":"queue কেন","taskIds":["d015-1ltj6ww"]},{"num":16,"code":"016","label":"০১৬","title":"background job","taskIds":["d016-1izxckq"]},{"num":17,"code":"017","label":"০১৭","title":"দুবার চাপলে","taskIds":["d017-vnver1"]},{"num":18,"code":"018","label":"০১৮","title":"URL shortener, reliable","taskIds":["d018-nz3xv7"]},{"num":19,"code":"019","label":"০১৯","title":"rate limiter, reliable","taskIds":["d019-1xgkoka"]},{"num":20,"code":"020","label":"০২০","title":"সপ্তাহের পাঁচটা, না দেখে","taskIds":["d020-1iz8ubf"]},{"num":21,"code":"021","label":"০২১","title":"সপ্তাহের হিসাব","taskIds":["d021-1pywfhl"]},{"num":22,"code":"022","label":"০২২","title":"CDN আর static ফাইল","taskIds":["d022-ao2egt"]},{"num":23,"code":"023","label":"০২৩","title":"নীরব ব্যর্থতা","taskIds":["d023-bs3qwq"]},{"num":24,"code":"024","label":"০২৪","title":"ট্রেড-অফ, আবার","taskIds":["d024-e4b78r"]},{"num":25,"code":"025","label":"০২৫","title":"দশ ডকের মানচিত্র","taskIds":["d025-89vizj"]},{"num":26,"code":"026","label":"০২৬","title":"হালকা দিন — কাল plan-এর mock","taskIds":[]},{"num":27,"code":"027","label":"০২৭","title":"plan-এর mock-এর দিন","taskIds":[]},{"num":28,"code":"028","label":"০২৮","title":"ব্লক ২-এর হিসাব","taskIds":["d028-k43eht"]}]},{"num":3,"slug":"frontend-design","name":"frontend system design","range":"দিন ০২৯–০৪২ · ছয় ধাপ · autocomplete · news feed · file upload","dip":false,"check":"তিনটা UI ছয় ধাপে লেখা, আর এলোমেলো একটা ২০′-এ ইংরেজিতে বলা?","days":[{"num":29,"code":"029","label":"০২৯","title":"ছয় ধাপ","taskIds":["d029-8s19u8"]},{"num":30,"code":"030","label":"০৩০","title":"state কোথায়","taskIds":["d030-1epjhg6"]},{"num":31,"code":"031","label":"০৩১","title":"autocomplete — ১","taskIds":["d031-kr603o"]},{"num":32,"code":"032","label":"০৩২","title":"autocomplete — ২","taskIds":["d032-1ibkz2p"]},{"num":33,"code":"033","label":"০৩৩","title":"autocomplete, মুখে","taskIds":["d033-qz1ajg"]},{"num":34,"code":"034","label":"০৩৪","title":"সপ্তাহের UI, না দেখে","taskIds":["d034-1d1no3d"]},{"num":35,"code":"035","label":"০৩৫","title":"সপ্তাহের হিসাব","taskIds":["d035-1alie5w"]},{"num":36,"code":"036","label":"০৩৬","title":"news feed — ১","taskIds":["d036-1sr1ask"]},{"num":37,"code":"037","label":"০৩৭","title":"optimistic like","taskIds":["d037-i3qusy"]},{"num":38,"code":"038","label":"০৩৮","title":"লম্বা তালিকা","taskIds":["d038-yiudiw"]},{"num":39,"code":"039","label":"০৩৯","title":"file upload","taskIds":["d039-gutw9s"]},{"num":40,"code":"040","label":"০৪০","title":"এলোমেলো UI","taskIds":["d040-7o7ekk"]},{"num":41,"code":"041","label":"০৪১","title":"তিন UI, এক লাইন","taskIds":["d041-1wmqpo4"]},{"num":42,"code":"042","label":"০৪২","title":"ব্লক ৩-এর হিসাব","taskIds":["d042-1bqzs2u"]}]},{"num":4,"slug":"written-design","name":"লিখে বোঝানো","range":"দিন ০৪৩–০৫৬ · srdtube-এর ইংরেজি design doc · frontend design note · ওদের ফিচার","dip":false,"check":"তিনটা ইংরেজি লেখা — দুটো প্রকাশিত — আর একটা কোম্পানির ফিচারের ১০ মিনিটের রেকর্ডিং?","days":[{"num":43,"code":"043","label":"০৪৩","title":"What I built, Scale","taskIds":["d043-10jtzqz"]},{"num":44,"code":"044","label":"০৪৪","title":"Decisions","taskIds":["d044-1r5it2f"]},{"num":45,"code":"045","label":"০৪৫","title":"Left out, Architecture","taskIds":["d045-sr85tj"]},{"num":46,"code":"046","label":"০৪৬","title":"Where it breaks","taskIds":["d046-1xpjds2"]},{"num":47,"code":"047","label":"০৪৭","title":"প্রকাশ","taskIds":["d047-5v9o7c"]},{"num":48,"code":"048","label":"০৪৮","title":"doc, না দেখে","taskIds":["d048-6detv"]},{"num":49,"code":"049","label":"০৪৯","title":"সপ্তাহের হিসাব","taskIds":["d049-18cugd5"]},{"num":50,"code":"050","label":"০৫০","title":"frontend design note — ১","taskIds":["d050-19vax0g"]},{"num":51,"code":"051","label":"০৫১","title":"frontend design note — ২","taskIds":["d051-iggg7"]},{"num":52,"code":"052","label":"০৫২","title":"take-home-এর design note","taskIds":["d052-1rv9x1g"]},{"num":53,"code":"053","label":"০৫৩","title":"ওদের ফিচার, লিখে","taskIds":["d053-1bguyjj"]},{"num":54,"code":"054","label":"০৫৪","title":"ওদের ফিচার, মুখে","taskIds":["d054-if3n3q"]},{"num":55,"code":"055","label":"০৫৫","title":"তিন লেখা, তিন বাক্য","taskIds":["d055-ad3brf"]},{"num":56,"code":"056","label":"০৫৬","title":"থামা","taskIds":["d056-17i8weo"]}]}],"children":"$L3"}]]}]}]]}],{"children":["$L4",{"children":["$L5",{},null,false,null]},null,false,"$6"]},null,false,null],"$L7",false]],"m":"$undefined","G":["$8",["$L9"]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"hRnCIdxs5Cq3Tmu8Nrehh"}
+a:I[39756,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"default"]
+b:I[37457,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"default"]
+c:I[82484,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js","/system_design_remote_company/_next/static/chunks/0e2vlk28-rzwf.js"],"default"]
+10:I[97367,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"ViewportBoundary"]
+12:I[97367,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"MetadataBoundary"]
+13:"$Sreact.suspense"
+3:["$","$La",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Lb",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]
+4:["$","$1","c",{"children":[null,["$","$La",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Lb",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+d:T370b,## লক্ষ্য
+
+> **৫৬ দিনে দশটা ডকের সিদ্ধান্ত ইংরেজিতে লেখা, তিনটা UI-র frontend system design, আর তিনটা ইংরেজি লেখা — `srdtube`-এর design doc আর frontend design note প্রকাশিত, একটা কোম্পানির ফিচারের note নিজের কাছে — তারপর নতুন কিছু নয়।**
+
+রিমোট কোম্পানিতে system design সাধারণত আলাদা ৪৫ মিনিটের রাউন্ড নয়। দুই রূপে আসে:
+- **লিখিত** — take-home-এর সাথে "কেন এই সিদ্ধান্ত" বা ছোট design note। পাঁচ টাইমজোনের টিম সিদ্ধান্ত লিখেই রাখে।
+- **আলোচনামূলক** — *"We need to build this feature — how would you approach it?"* — **ওদের আসল প্রোডাক্ট** নিয়ে, কল্পনার Twitter নয়।
+
+তাই এখানে পরীক্ষা **লিখে বোঝানো** আর **frontend-এর সিদ্ধান্তের কারণ বলা।** লোকালে design doc ছিল প্রস্তুতি; রিমোটে ওটাই জমা দেওয়ার মতো কাজের নমুনা। 🧠 (Skill stacking · Pareto)
+
+## সত্যের উৎস
+
+1. `brainstorming/ASSUMPTIONS.md`
+2. `brainstorming/` — `system-design.md` (তিন পথ · রিমোটে কী উপেক্ষা), `which-market.md` (রিমোট কোম্পানি), `application-to-offer.md` (ধাপ ৪ — কারিগরি রাউন্ড)
+3. `switch_in_6_month_remote_company/` — ঐ plan-এর দিন ০৭৮–১৩৩-এর সোম–শুক্রের ৩০′-এর ঘর এই সাইটের দিন ০০১–০৫৬
+4. এই ফোল্ডার — `docs/`
+
+**স্বাধীন পথ।** আগে অন্য কোনো system design সাইট শেষ করতে হয় না — এই সাইট ছয় সেকশনের ছাঁচ থেকেই শুরু করে। [লোকাল](https://sojibrd.github.io/system_design_local_company/)-এর সাতটা ডক এখানকার দশটার ভেতরে, কিন্তু কাজের ধরন আলাদা: সব লেখা ইংরেজিতে, আর frontend system design নতুন — ওটা এই সাইটের ২৫টা ডকের কোথাও নেই।
+
+**কখন:** শুরুর তারিখ ⏳ আপনার উত্তর বাকি — সাইট প্রথমবার খুললে জিজ্ঞেস করবে। plan-এর সাথে চালালে = plan-এর দিন ০৭৮-এর তারিখ।
+
+## কীভাবে পড়বেন
+
+- ৫৬ দিন, ৪টা ব্লক। প্রতিটা দিনে এক-দুটো `- [ ]` কাজ, আর শেষে **দিন শেষে** প্রশ্ন — হ্যাঁ/না।
+- `২০′` = মিনিট।
+- `(ডক ১৩)` = এই সাইটের ডক; `(sim url-shortener · reliable)` = simulator-এর সিস্টেম আর লেভেল। কাজের নিচে লিংক।
+- 🧠 (নাম) = কাজটা `learning_to_learn`-এর কোন নীতি থেকে; chip চাপলে এক লাইনে কেন।
+- 🔁 = এই কাজ শেষ করার দিন থেকে **১, ৩, ৭, ২১ দিন পরে** না দেখে আবার।
+- ⚑ = মাইলফলক। নির্ধারিত দিনে না হলে শেষ না হওয়া পর্যন্ত হোমে থাকে।
+- ⏳ = আপনার উত্তর বাকি।
+
+## "আজ" মানে ক্যালেন্ডারের আজ
+
+ফাইলে শুধু দিনের নম্বর, দিন ০০১ = সোমবার ধরে লেখা। শুরুর তারিখ সাইটে একবার বসান; তারপর plan পেছায় না। বাদ পড়া দিন ফেরে না, শুধু ⚑ জমে থাকে। ঘুম কেটে পূরণ নয়। 🧠 (Sleep)
+
+---
+
+## সপ্তাহের ছন্দ
+
+রিমোট plan-এর সপ্তাহে ৭ ঘণ্টার মধ্যেই — এই সাইট DSA শেষে খালি হওয়া **সোম–শুক্রের ৩০′-এর ঘর**।
+
+| দিন | এই সাইটের কাজ | সময় |
+|---|---|---|
+| সোম–শুক্র | আগে DSA আর plan-এর আজকের ঝালাই (থাকলে, ১৫′-এর মধ্যে) · তারপর এই সাইটের একটা কাজ | ৩০′-এর ভেতরে — কাজ ~২০′ |
+| শনি | সপ্তাহের লেখা না দেখে — এক লাইন করে, ইংরেজিতে জোরে | ১৫′ |
+| রবি | সপ্তাহের হিসাব — কোথায় আটকালেন, পরের সপ্তাহের একটা দুর্বলতা | ১০′ |
+
+শনি-রবির হালকা কাজ plan-এ আলাদা ঘর পায় না; সময় পেলে করুন। plan-এর দিন ০৭৮-এ ঘর ছোট (তালিকা ভরার দিন), দিন ১০৩ হালকা আর দিন ১০৪ mock-এর — ঐ দিনগুলোয় এখানে কাজ কম বা নেই। 🧠 (System vs goal · It pays to be not busy)
+
+---
+
+## বসা — ২০′
+
+1. **বসার আগে এক লাইন:** আজ কোন দুর্বলতায় কাজ — আগের রবিবারের হিসাব থেকে। 🧠 (Deliberate practice revisited)
+2. **টাইমার,** ফোন অন্য ঘরে, AI বন্ধ। 🧠 (Have an endpoint · Deep work)
+3. **সব লেখা ইংরেজিতে, বুলেটে।** বাংলায় ভেবে অনুবাদ করলে লেখায় সেটা ধরা পড়ে; ছোট বাক্যে সরাসরি ইংরেজিতে। 🧠 (Skill stacking)
+4. **ডকের দিনে:** দরকারি অংশটুকু পড়ে **বন্ধ** — তারপর নিজের কাজের একটা সিদ্ধান্ত, ADR-এর তিন লাইনে: *Context · Decision · Consequence*। 🧠 (Active learning · Test yourself)
+5. **সিদ্ধান্তের কারণ, গভীরতা নয়।** রিমোট টিম দেখতে চায় কেন এটা বাছলেন আর কী বাদ দিলেন — কোন tool-এর নাম মুখস্থ, সেটা নয়। 🧠 (Concepts vs Facts)
+6. **টিক দিন** — ঝালাই নিজে থেকে আসবে।
+
+## frontend system design — ছয় ধাপ
+
+*"Design the UI for X"* এলে এই ক্রমে:
+
+1. **চাহিদা** — কী দেখায়, কী করা যায়, কোন ডিভাইসে, কত ডেটা
+2. **component** — গাছ, কোনটা কী পায়
+3. **state কোথায়** — component, store/service, নাকি URL
+4. **ডেটা আনা ও cache** — কখন আনে, পাতা ধরে, বাসি কখন, দুবার request ঠেকানো
+5. **optimistic update লাগে কি** — সঙ্গে সঙ্গে দেখানো আর ব্যর্থ হলে ফেরানো
+6. **performance আর accessibility** — লম্বা তালিকা, keyboard, screen reader
+
+আঁকার চেয়ে বেশি জরুরি প্রতিটা ধাপের **কারণ** বলা।
+
+## design doc — ছয় সেকশন
+
+ছাঁচ: **What I built → Scale → Decisions → What I deliberately left out → Architecture → Where it breaks.** শেষে রিমোট আলোচনার তিন প্রশ্নের উত্তর: *"Why this and not the alternative?" · "What did you deliberately leave out?" · "Availability or consistency here — which, and why?"*
+
+## ঝালাই
+
+- 🔁 কাজে টিক দিলে ঐ **আসল তারিখ** থেকে ১ → ৩ → ৭ → ২১ দিন। 🧠 (Spaced repetition revisited)
+- **ঝালাইয়ের বসা:** কাজের লেখা দেখে, নোট বন্ধ — ইংরেজিতে এক মিনিট জোরে। ১৫′-এর বেশি নয়।
+- দুটো উত্তর: **মনে ছিল** (পরের ধাপে) বা **আটকে গেছি** (আবার ১ দিনে)। আটকে যাওয়া শাস্তি নয়, তথ্য।
+
+---
+
+## `learning_to_learn` — কোনটা কোথায়
+
+| ডক | এই সাইটে যেভাবে |
+|---|---|
+| **Principle** | Pareto — দশটা ডক, তিনটা লেখা। Learning vs Winning — ইংরেজিতে লিখতে আটকানো। The obstacle — frontend design, যা ডকে নেই। The dip — ব্লক ২, সপ্তাহ ৪। Compound learning — দিনে একটা সিদ্ধান্ত। Failures don't count, It's all in the frame, Choice vs Chore — রবিবারের হিসাব। Skill stacking — design + লেখা + ইংরেজি। Productivity time, Self learning paradigm, What is success?, Happiness factors — ব্লক আর থামার দিনে। |
+| **Lies** | 10,000 hours rule — তিনটা লেখায় থামা। You can avoid risk — "আরও পড়ে তারপর আবেদন" নয়। Trust this one person — কারও ডিজাইন মুখস্থ নয়। Follow your passion — লেখা ভালো লাগার অপেক্ষা নয়। |
+| **Pillars** | Everything is a game — ছয় ধাপ। Feynman — ADR-এর তিন লাইন। Trunk based knowledge — ছয় সেকশন। Efficiency trumps grit — টাইমারে থামা। |
+| **Science** | Focus vs Diffuse, Be bored, Sleep, Feedback, Procrastination, Motivation, Long and short memory, Active learning, Goals, It pays to be not busy, Chunking, Deliberate practice, Spaced repetition, Energy saving with habits, Be adventurous, Have an endpoint, Brain training — প্রতিটা দিনের 🧠 chip-এ। |
+| **Techniques** | Interleaving — এলোমেলো UI। Parkinson's law, Pomodoro, Deep work — টাইমার। Test yourself — doc বন্ধ। Method of loci — ছয় ধাপের ঘর। Einstellung, Chunk the subject, Create a roadmap, Deliberate practice revisited, Spaced repetition revisited, Community, Habits revisited, System vs goal, The power of senses, Pareto principle revisited, Stakes & Rewards, Concepts vs Facts, The first 20 hours — দিনের কাজে। |
+
+---
+
+## যা উপেক্ষা করবেন
+
+- **ডক ১৯–২৫ আর ০২–০৬-এর তত্ত্ব** — ব্যতিক্রম **ডক ০৪**, কারণ বাস্তব ফিচার আলোচনায় availability বনাম consistency সত্যিই আসে।
+- **কাল্পনিক বড় সিস্টেম** — Twitter, Uber। আলোচনা হয় ওদের প্রোডাক্ট নিয়ে।
+- **মুখস্থ সংখ্যা** — "একটা server সেকেন্ডে কত request নেয়" FAANG-এর জিনিস; রিমোটে সংখ্যা লাগলে জিজ্ঞেস করে নেওয়াই স্বাভাবিক।
+- **simulation-এর scalable লেভেল** — রিমোট প্রোডাক্ট টিমের বেশিরভাগ কাজ ঐ স্কেলে পৌঁছায় না; functional আর reliable রাখুন।
+
+## যা করবেন না
+
+- **তিনটা লেখার পরে নতুন নয়।** 🧠 (10,000 hours rule)
+- **বাংলায় লিখে পরে অনুবাদ নয়।**
+- **নিখুঁত হওয়ার অপেক্ষায় প্রকাশ আটকে রাখা নয়।** প্রকাশিত doc-ই রেফারেলের বিকল্প। 🧠 (Have an endpoint)
+- **system design শেষের অপেক্ষায় আবেদন আটকে রাখা নয়।**
+- **এই সাইটে নতুন ফিচার নয়।**
+
+## দিন ৫৬-এর পরে
+
+- রিমোট plan-এর সোম–শুক্রের ৩০′ = **আজকের ঝালাই** — এই সাইটের ঝালাই-তালিকাও তার অংশ।
+- plan-এর দিন ১৪০ আর ১৪৭-এ `srdtube`-এর doc মুখে, doc বন্ধ রেখে; আবেদনের চিঠিতে প্রকাশিত doc-এর লিংক।
+- গ্লোবালের পথ (`system_design_global_company`) আলাদা, স্বাধীন — সেখানে কাজ ঘড়ির নিচে মুখে, আট সিস্টেম।5:["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — রিমোট কোম্পানির system design"}],["$","p",null,{"className":"t-body measure text-sm","children":"৫৬ দিন · দশটা ডক · frontend system design · ইংরেজিতে তিনটা লেখা, দুটো প্রকাশিত · তারপর থামা"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$Lc",null,{"className":"measure","children":"$d"}]}]],["$Le"],"$Lf"]}]
+7:["$","$1","h",{"children":[null,["$","$L10",null,{"children":"$L11"}],["$","div",null,{"hidden":true,"children":["$","$L12",null,{"children":["$","$13",null,{"name":"Next.Metadata","children":"$L14"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+9:["$","link","0",{"rel":"stylesheet","href":"/system_design_remote_company/_next/static/chunks/0rjck_o2q5l_u.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+15:I[97367,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"OutletBoundary"]
+6:C
+e:["$","script","script-0",{"src":"/system_design_remote_company/_next/static/chunks/0e2vlk28-rzwf.js","async":true,"nonce":"$undefined"}]
+f:["$","$L15",null,{"children":["$","$13",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]
+11:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+17:I[27201,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"IconMark"]
+14:[["$","title","0",{"children":"নিয়ম — রিমোট system design"}],["$","meta","1",{"name":"description","content":"বিদেশি রিমোট কোম্পানির লিখিত আর আলোচনামূলক design রাউন্ডের জন্য — দশটা ডক, frontend system design আর ইংরেজিতে তিনটা লেখা (দুটো প্রকাশিত), ৫৬ দিনে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/system_design_remote_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L17","3",{}]]
+16:null

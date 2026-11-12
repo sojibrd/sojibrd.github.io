@@ -1,0 +1,23 @@
+1:"$Sreact.fragment"
+2:I[55607,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js","/system_design_remote_company/_next/static/chunks/2308lp6tve0ig.js","/system_design_remote_company/_next/static/chunks/0e2vlk28-rzwf.js"],"default"]
+3:I[22016,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js","/system_design_remote_company/_next/static/chunks/2308lp6tve0ig.js","/system_design_remote_company/_next/static/chunks/0e2vlk28-rzwf.js"],""]
+4:I[97367,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"OutletBoundary"]
+5:"$Sreact.suspense"
+9:I[97367,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"ViewportBoundary"]
+a:I[97367,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"MetadataBoundary"]
+b:I[27201,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"IconMark"]
+d:I[39756,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"default"]
+e:I[37457,["/system_design_remote_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_remote_company/_next/static/chunks/3di3gz-awjjbb.js"],"default"]
+8:X
+10:X
+10:C
+0:{"buildId":"hRnCIdxs5Cq3Tmu8Nrehh","data":[{"rsc":["$","$1","c",{"children":[[null,["$","$L2",null,{"day":{"num":56,"code":"056","label":"০৫৬","title":"থামা","tasks":[{"id":"d056-17i8weo","text":"থামার সিদ্ধান্ত লিখুন — তিনটার পরে নতুন লেখা নয়; এখন থেকে ঝালাই, আর আবেদনের চিঠিতে doc-এর লিংক। নিজেকে ছোট একটা পুরস্কার","minutes":10,"principles":["Have an endpoint","10,000 hours rule","Stakes & Rewards"],"milestone":true,"repeat":false,"sources":[]}],"check":"থামার সিদ্ধান্ত লেখা?","blockSlug":"written-design","blockName":"লিখে বোঝানো","dip":false},"blockName":"লিখে বোঝানো","blockSlug":"written-design","totalDays":56}],["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"দিন","children":[["$","$L3",null,{"href":"/day/055/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"দিন ০৫৫ · তিন লেখা, তিন বাক্য"}]]}],["$","span",null,{}]]}]],[["$","script","script-0",{"src":"/system_design_remote_company/_next/static/chunks/2308lp6tve0ig.js","async":true}],["$","script","script-1",{"src":"/system_design_remote_company/_next/static/chunks/0e2vlk28-rzwf.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"isPartial":"$@7","staleTime":"$8","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L9",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$La",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"দিন ০৫৬ · থামা — রিমোট system design"}],["$","meta","1",{"name":"description","content":"বিদেশি রিমোট কোম্পানির লিখিত আর আলোচনামূলক design রাউন্ডের জন্য — দশটা ডক, frontend system design আর ইংরেজিতে তিনটা লেখা (দুটো প্রকাশিত), ৫৬ দিনে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/system_design_remote_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$Lb","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":"$@c","staleTime":"$8","varyParams":null},{"rsc":["$","$1","c",{"children":[null,["$","$Ld",null,{"parallelRouterKey":"children","template":["$","$Le",null,{}]}]]}],"isPartial":"$@f","staleTime":"$8","varyParams":"$10"},{"rsc":["$","$1","c",{"children":[null,["$","$Ld",null,{"parallelRouterKey":"children","template":["$","$Le",null,{}]}]]}],"isPartial":"$@11","staleTime":"$8","varyParams":"$10"}],"isUpgradeableISRFallback":false,"a":"$@12","rootVaryParams":null,"needsRuntimeRequest":"$@13"}
+6:null
+13:true
+8:300
+8:C
+12:0
+c:"$undefined"
+f:"$undefined"
+11:"$undefined"
+7:"$undefined"
