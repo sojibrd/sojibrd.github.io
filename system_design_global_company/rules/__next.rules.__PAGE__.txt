@@ -1,0 +1,133 @@
+1:"$Sreact.fragment"
+2:I[82484,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js","/system_design_global_company/_next/static/chunks/0e2vlk28-rzwf.js"],"default"]
+3:T359c,## লক্ষ্য
+
+> **১৬৮ দিনে আট সিস্টেমের ইংরেজি design doc, প্রতিটা ৪৫′ টাইমারে মুখে, ছয়টা UI-র frontend design ২০′-এ — আর এলোমেলো তুলে যেকোনোটা বলতে পারা।**
+
+big tech-এর system design রাউন্ড **৪৫ মিনিট, মুখে, ঘড়ির নিচে;** frontend পদে তার পাশে আলাদা frontend design রাউন্ড। ২৫টা ডক পড়া জ্ঞান দেয়; রাউন্ডে মাপা হয় **পারফরম্যান্স** — প্রশ্ন আর scope আগে, সহজ কাজ-করা ডিজাইন তারপর, ধাপে ধাপে বড়, আর শেষে নিজে থেকে "কোথায় ভাঙবে"। তাই এখানে গোনা হয় লেখা design doc আর রেকর্ড করা ৪৫ মিনিট — পড়া ডক নয়। 🧠 (Active learning · Everything is a game)
+
+## সত্যের উৎস
+
+1. `brainstorming/ASSUMPTIONS.md`
+2. `brainstorming/` — `system-design.md` (তিন পথ · FAANG-এ কী ভালো)
+3. `switch_in_6_month_global_company/` — ঐ plan-এর দিন ০০৮–১৭৫-এর system design-এর ঘর এই সাইটের দিন ০০১–১৬৮
+4. এই ফোল্ডার — `docs/`
+
+**স্বাধীন পথ।** আগে অন্য কোনো system design সাইট শেষ করতে হয় না — এই সাইট ছয় সেকশনের ছাঁচ থেকেই শুরু করে। [লোকাল](https://sojibrd.github.io/system_design_local_company/) আর [রিমোট](https://sojibrd.github.io/system_design_remote_company/) আলাদা সাইট, আর সেখানে কাজের ধরন আলাদা: লোকালে নিজের সিস্টেম ব্যাখ্যা, রিমোটে লিখে বোঝানো। এখানে ঘড়ির নিচে মুখে — ২৫টা ডক মুখস্থ করেও এই রাউন্ড পার হয় না, যদি বলার অনুশীলন না থাকে।
+
+**কখন:** শুরুর তারিখ ⏳ আপনার উত্তর বাকি — সাইট প্রথমবার খুললে জিজ্ঞেস করবে। plan-এর সাথে চালালে = plan-এর দিন ০০৮-এর তারিখ।
+
+## কীভাবে পড়বেন
+
+- ১৬৮ দিন, ৬টা ব্লক, প্রতিটা ২৮ দিনের। **প্রতিটা ক্যালেন্ডার দিন আছে, কিন্তু প্রতিটা দিনে কাজ নেই** — কাজ শুধু plan-এর যে দিনে design-এর ঘর (বেশিরভাগ মঙ্গল ২৫′, বৃহস্পতি ২৫′, শনি ৬০′, রবি ৪৫′)। বাকি দিন "বিরতি" — সেদিন হোমে শুধু ঝালাই, থাকলে।
+- ব্লকের নিচের লাইনে plan-এর কোন দিনগুলো, লেখা আছে। কাজের লেখায় "দিন ০৩৭" মানে **এই সাইটের** দিন।
+- `৪৫′` = মিনিট।
+- `(ডক ১৩)` = এই সাইটের ডক; `(sim url-shortener · scalable)` = simulator-এর সিস্টেম আর লেভেল। কাজের নিচে লিংক।
+- 🧠 (নাম) = কাজটা `learning_to_learn`-এর কোন নীতি থেকে; chip চাপলে এক লাইনে কেন।
+- 🔁 = এই কাজ শেষ করার দিন থেকে **১, ৩, ৭, ২১ দিন পরে** না দেখে আবার।
+- ⚑ = মাইলফলক। নির্ধারিত দিনে না হলে শেষ না হওয়া পর্যন্ত হোমে থাকে।
+- ⏳ = আপনার উত্তর বাকি।
+
+## "আজ" মানে ক্যালেন্ডারের আজ
+
+ফাইলে শুধু দিনের নম্বর, দিন ০০১ = সোমবার ধরে লেখা। শুরুর তারিখ সাইটে একবার বসান; তারপর plan পেছায় না। বাদ পড়া দিন ফেরে না, শুধু ⚑ জমে থাকে। ঘুম কেটে পূরণ নয়। **যেদিন interview, সেদিন interview-ই কাজ।** 🧠 (Sleep)
+
+---
+
+## সপ্তাহের ছন্দ
+
+গ্লোবাল plan-এর সপ্তাহে ৭ ঘণ্টার মধ্যেই — এই সাইট ঐ plan-এর **system design-এর ঘর**; DSA-র ৩০′ চলে [গ্লোবাল DSA](https://sojibrd.github.io/dsa_prep_global_company/)-এ, পাশাপাশি।
+
+| plan-এর ঘর | এই সাইটে সাধারণত |
+|---|---|
+| মঙ্গল ২৫′ | অনুমান, scoping, রেকর্ডিং থেকে একটা জিনিস |
+| বৃহস্পতি ২৫′ | frontend design — একটা UI, ছয় ধাপে |
+| শনি ৬০′ | design doc লেখা, বা ৪৫′-এ মুখে |
+| রবি ৪৫′ | ৪৫′-এ মুখে, বা design doc — আবেদনের রবিবারে ঘর নেই |
+
+গ্লোবাল DSA-র ⚑ mock-এর শনিবারে (plan-এর দিন ০৩৪, ০৬২, ০৯০, ১১৮, ১৪৬, ১৬৭) এখানে কাজ নেই; plan-এর নিজের mock-এর দিনেও না (দিন ১০৪, ১৩৯, ১৬০, ১৭৪)। 🧠 (System vs goal · It pays to be not busy)
+
+---
+
+## design doc — ছয় সেকশন
+
+ছাঁচ, ইংরেজিতে বুলেট, এই ক্রমে:
+
+1. **What I'm building** — functional আর non-functional
+2. **Scale estimate** — কতজন, সেকেন্ডে কত লেখা আর পড়া, কত জায়গা; সব সিদ্ধান্ত এখান থেকে
+3. **Decisions** — কী · কেন · খরচ
+4. **What I deliberately left out** — scoping; interviewer সবচেয়ে বেশি নম্বর দেন যখন নিজে থেকে বলেন কী আলোচনার বাইরে
+5. **Architecture** — functional → reliable → scalable; প্রতিটা অংশ কেন লাগছে
+6. **Where it breaks** — প্রশ্নটা প্রায় নিশ্চিতভাবে আসে; আগে থেকে ভাবা থাকলে উত্তর তৈরি
+
+## ৪৫′-এর বসা
+
+1. **লেখা বন্ধ,** টাইমার ৪৫′, ইংরেজিতে জোরে, কাগজে আঁকতে আঁকতে; ফোনে রেকর্ড। 🧠 (Test yourself · Deep work)
+2. **প্রথম দুই মিনিট শুধু প্রশ্ন আর scope** — *"Before I start, let me make sure I understand the scope…"* 🧠 (Pareto)
+3. **প্রথমেই বড় নয়।** সহজ কাজ-করা ডিজাইন, তারপর ধাপে ধাপে; যারা প্রথমেই queue আর sharding আঁকে, তারা দেখাতে পারে না কেন লাগছে। 🧠 (Everything is a game)
+4. **শেষ ৫ মিনিটে নিজে থেকে "কোথায় ভাঙবে",** তারপর নিজেকে একটা follow-up। 🧠 (Einstellung)
+5. **রেকর্ডিং শুনে তিনটা জিনিস:** কোথায় চুপ, scope শুরুতে এসেছে কি, "ভাঙবে" নিজে থেকে এসেছে কি। লেখা ডিজাইন আর বলা ডিজাইনের ফারাক ঐ রেকর্ডিংয়েই ধরা পড়ে। 🧠 (Feedback)
+
+## frontend design — ছয় ধাপ
+
+চাহিদা → component → state কোথায় → ডেটা আনা ও cache → performance → accessibility। ছয়টা UI: autocomplete, news feed, infinite feed, file upload, chat, video player — প্রতিটা backend-এর কোন সিস্টেমের সাথে মেলে, সেটাও বলুন। আঁকার চেয়ে বেশি জরুরি প্রতিটা সিদ্ধান্তের কারণ।
+
+## আট সিস্টেম
+
+URL shortener আর rate limiter (আগে থেকে তিন লেভেলে করা — শুধু বলা), `srdtube` (নিজের), chat, news feed, file storage, ride sharing, video streaming।
+
+## ঝালাই
+
+- 🔁 কাজে টিক দিলে ঐ **আসল তারিখ** থেকে ১ → ৩ → ৭ → ২১ দিন। 🧠 (Spaced repetition revisited)
+- **ঝালাইয়ের বসা:** কাজের লেখা দেখে, doc বন্ধ — ইংরেজিতে জোরে, ১৫′-এর বেশি নয়। ৪৫′-এর কাজের ঝালাই মানে পুরো ৪৫′ নয় — প্রথম ১০ মিনিট।
+- দুটো উত্তর: **মনে ছিল** (পরের ধাপে) বা **আটকে গেছি** (আবার ১ দিনে)। আটকে যাওয়া শাস্তি নয়, তথ্য।
+
+---
+
+## `learning_to_learn` — কোনটা কোথায়
+
+| ডক | এই সাইটে যেভাবে |
+|---|---|
+| **Principle** | Pareto — আট সিস্টেম, scoping। Learning vs Winning — চুপ হয়ে যাওয়া অংশ ধরা। The obstacle — follow-up। The dip — ব্লক ৩–৬। Compound learning — তিন রেকর্ডিং মিলিয়ে। Failures don't count, It's all in the frame, Choice vs Chore — রেকর্ডিংয়ের হিসাব। Skill stacking — design + ইংরেজি + বলা। Productivity time, Self learning paradigm, What is success?, Happiness factors — ব্লক আর থামার দিনে। |
+| **Lies** | 10,000 hours rule — আটে থামা। You can avoid risk — "আরও পড়ে তারপর" নয়। Trust this one person — কারও ডিজাইন মুখস্থ নয়। Follow your passion — ৪৫′ ভালো লাগার অপেক্ষা নয়। |
+| **Pillars** | Everything is a game — রাউন্ডের ক্রম। Feynman — ৮ লাইনে ধারণা। Trunk based knowledge — ছয় সেকশন, আট সিস্টেমের পাতা। Efficiency trumps grit — টাইমারে থামা। |
+| **Science** | Focus vs Diffuse, Be bored, Sleep, Feedback, Procrastination, Motivation, Long and short memory, Active learning, Goals, It pays to be not busy, Chunking, Deliberate practice, Spaced repetition, Energy saving with habits, Be adventurous, Have an endpoint, Brain training — প্রতিটা দিনের 🧠 chip-এ। |
+| **Techniques** | Interleaving — এলোমেলো সিস্টেম আর UI। Parkinson's law, Pomodoro, Deep work — টাইমার। Test yourself — doc বন্ধ। Einstellung — "কোথায় ভাঙবে"-র দুই বিকল্প। Chunk the subject, Create a roadmap, Deliberate practice revisited, Spaced repetition revisited, Community, Habits revisited, System vs goal, The power of senses, Method of loci, Pareto principle revisited, Stakes & Rewards, Concepts vs Facts, The first 20 hours — দিনের কাজে। |
+
+---
+
+## যা করবেন না
+
+- **design doc না লিখে ডক পড়া নয়।** ২৫টা ডক রেফারেন্স হিসেবে যথেষ্ট — "ডক" পাতায় কোনটা কোন দিনে লাগে।
+- **প্রথমেই বড় আঁকা নয়।**
+- **নিজে সিস্টেম বেছে ৪৫′ নয়** ব্লক ৫ থেকে — কাগজ উল্টে। interview-এ আপনি বাছেন না।
+- **আটের পরে নতুন সিস্টেম নয়।** 🧠 (10,000 hours rule)
+- **system design শেষের অপেক্ষায় আবেদন বন্ধ নয়।** DSA, design আর আবেদন তিনটা সমান্তরালে।
+- **এই সাইটে নতুন ফিচার নয়।**
+
+## দিন ১৬৮-এর পরে
+
+- plan-এর design-এর ঘর = এই সাইটের **আজকের ঝালাই**, আর সপ্তাহে একটা mock — offer না আসা পর্যন্ত।
+- দিন ১৭৭-এ plan-এ আট সিস্টেমের পাতা না দেখে আবার; সেটা plan-এর শেষ সপ্তাহের ঝালাই।7:X
+c:X
+c:C
+0:{"buildId":"b9UnQH9Tzv8u-xuNjnYim","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — গ্লোবাল কোম্পানির system design"}],["$","p",null,{"className":"t-body measure text-sm","children":"১৬৮ দিন · আট সিস্টেম লেখা আর মুখে · ছয়টা UI · ঘড়ির নিচে, ইংরেজিতে"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L2",null,{"className":"measure","children":"$3"}]}]],["$L4"],"$L5"]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":"$L8","isPartial":"$@9","staleTime":"$7","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$7","varyParams":"$c"}],"isUpgradeableISRFallback":false,"a":"$@d","rootVaryParams":null,"needsRuntimeRequest":"$@e"}
+f:I[97367,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"OutletBoundary"]
+10:"$Sreact.suspense"
+12:I[97367,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"ViewportBoundary"]
+13:I[97367,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"MetadataBoundary"]
+14:I[27201,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"IconMark"]
+15:I[39756,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"default"]
+16:I[37457,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"default"]
+4:["$","script","script-0",{"src":"/system_design_global_company/_next/static/chunks/0e2vlk28-rzwf.js","async":true}]
+5:["$","$Lf",null,{"children":["$","$10",null,{"name":"Next.MetadataOutlet","children":"$@11"}]}]
+8:["$","$1","h",{"children":[null,["$","$L12",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$10",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"নিয়ম — গ্লোবাল system design"}],["$","meta","1",{"name":"description","content":"big tech-এর ৪৫ মিনিটের system design আর frontend design রাউন্ডের জন্য — আট সিস্টেম লেখা আর ঘড়ির নিচে মুখে, ছয়টা UI, ১৬৮ দিনে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/system_design_global_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L14","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+a:["$","$1","c",{"children":[null,["$","$L15",null,{"parallelRouterKey":"children","template":["$","$L16",null,{}]}]]}]
+e:true
+11:null
+7:300
+7:C
+d:0
+9:"$undefined"
+b:"$undefined"
+6:"$undefined"

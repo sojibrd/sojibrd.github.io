@@ -1,0 +1,78 @@
+1:"$Sreact.fragment"
+2:I[22016,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js","/system_design_global_company/_next/static/chunks/0e2vlk28-rzwf.js"],""]
+3:I[82484,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js","/system_design_global_company/_next/static/chunks/0e2vlk28-rzwf.js"],"default"]
+4:T2010,Synchronous সিস্টেমে caller অপেক্ষা করে থাকে যতক্ষণ না কাজটা শেষ হয়। এটা সহজ, কিন্তু দুটো বড় দুর্বলতা আছে — ধীর কাজ user-কে আটকে রাখে, আর downstream service ধীর বা ডাউন হলে সেই ব্যর্থতা সরাসরি user পর্যন্ত ছড়ায়।
+
+Asynchronism এই সংযোগটা ছিঁড়ে দেয়। কাজটা একটা queue-তে রেখে সাথে সাথে user-কে উত্তর দেওয়া হয়, আর প্রকৃত কাজ পেছনে চলে। এতে তিনটা জিনিস পাওয়া যায়: **কম latency** (user অপেক্ষা করে না), **স্থিতিস্থাপকতা** (consumer ডাউন থাকলে message queue-তে জমা থাকে, হারায় না), এবং **load leveling** (হঠাৎ ট্রাফিক বাড়লে queue শুষে নেয়, backend স্থির গতিতে কাজ করে যায়)।
+
+খরচও আছে — সিস্টেম আর সরল থাকে না। "কাজটা হয়েছে কি না" জানা কঠিন হয়, eventual consistency মেনে নিতে হয়, message duplicate বা ভুল ক্রমে আসতে পারে, এবং debugging কঠিন হয়ে যায়।
+
+## Message Queues
+
+Message queue হলো producer ও consumer-এর মাঝখানে বসা একটা buffer। Producer message পাঠায়, queue সেটা টিকিয়ে রাখে, consumer নিজের সুবিধামতো তুলে নেয়। মূল অবদান — **decoupling**: producer জানে না consumer কে, কোথায়, বা আদৌ এখন চালু আছে কি না।
+
+দুটো মৌলিক আকৃতি:
+
+- **Point-to-point (queue)** — প্রতিটা message ঠিক একজন consumer পায়। কাজ ভাগ করে নেওয়ার (work distribution) জন্য। যেমন RabbitMQ-র queue, AWS SQS।
+- **Publish/Subscribe (topic)** — প্রতিটা message সব subscriber পায়। একই ঘটনায় একাধিক সিস্টেমের প্রতিক্রিয়া দরকার হলে। যেমন Kafka topic, AWS SNS।
+
+**Delivery guarantee** নিয়ে সচেতন থাকুন:
+- *At-most-once* — হারাতে পারে, ডুপ্লিকেট হবে না।
+- *At-least-once* — হারাবে না, কিন্তু ডুপ্লিকেট হতে পারে। **এটাই বাস্তবে সবচেয়ে প্রচলিত**, তাই consumer-কে **idempotent** হতে হবে ([Idempotent Operations](16-idempotent-operations.md))।
+- *Exactly-once* — আকাঙ্ক্ষিত, কিন্তু প্রকৃতপক্ষে ব্যয়বহুল ও সীমিত পরিসরে সম্ভব। বেশিরভাগ সিস্টেমে "at-least-once + idempotency" দিয়েই কার্যত exactly-once অর্জন করা হয়।
+
+আরও দুটো জরুরি বিষয়: **Dead Letter Queue** — বারবার ব্যর্থ হওয়া message আলাদা queue-তে সরিয়ে রাখুন, নাহলে একটা বিষাক্ত message পুরো pipeline আটকে দেবে। আর **ordering** — বেশিরভাগ queue globally ক্রম রক্ষা করে না; দরকার হলে partition/ordering key ব্যবহার করুন (একই key-র message একই partition-এ যাবে)।
+
+## Task Queues
+
+Task queue হলো message queue-র উপর তৈরি একটা উচ্চস্তরের বিমূর্ততা, যা বিশেষভাবে "background-এ কোনো function চালাও" এই কাজের জন্য বানানো। এটা serialization, worker pool, retry policy, scheduling, ও ফলাফল সংরক্ষণ — সবই সামলে দেয়।
+
+উদাহরণ: Celery (Python), Sidekiq (Ruby), BullMQ (Node), Hangfire (.NET)।
+
+ভালো task queue ব্যবহারের কিছু নিয়ম:
+- **Task ছোট ও idempotent রাখুন** — retry অনিবার্য।
+- **Task-এ পুরো object নয়, ID পাঠান** — worker চলার সময় সর্বশেষ ডেটা নিজে পড়ে নেবে; payload ছোট থাকবে এবং বাসি ডেটা এড়ানো যাবে।
+- **অগ্রাধিকার অনুযায়ী আলাদা queue** — ধীর ব্যাচের কাজ যেন জরুরি ইমেইল আটকে না দেয়।
+- **Retry-তে exponential backoff + jitter** ব্যবহার করুন, নাহলে ব্যর্থ downstream-এ retry storm হবে।
+
+## Back Pressure
+
+Producer যখন consumer-এর প্রক্রিয়াকরণের ক্ষমতার চেয়ে দ্রুত কাজ পাঠায়, তখন queue বাড়তেই থাকে। এর পরিণতি ভয়াবহ: memory শেষ হয়ে যায়, queue-তে অপেক্ষার সময় এত বাড়ে যে message গুলো পৌঁছানোর আগেই অপ্রাসঙ্গিক হয়ে যায়, এবং শেষে পুরো সিস্টেম ধসে পড়ে।
+
+Back pressure হলো সেই ব্যবস্থা যেখানে সিস্টেম **পেছনের দিকে সংকেত পাঠায় — "আস্তে!"**। কৌশলগুলো:
+
+- **Queue-র সীমা বেঁধে দিন** এবং পূর্ণ হলে নতুন কাজ স্পষ্টভাবে প্রত্যাখ্যান করুন (`503 Service Unavailable` বা `429 Too Many Requests` + `Retry-After`)। ধীরে ধীরে মরে যাওয়ার চেয়ে দ্রুত ও সৎভাবে "না" বলা অনেক ভালো।
+- **Rate limiting / throttling** — প্রবেশমুখেই আগমনের হার সীমিত করুন।
+- **Load shedding** — চাপের সময় কম গুরুত্বপূর্ণ কাজ (যেমন analytics, recommendation) ফেলে দিয়ে মূল কাজটা বাঁচান।
+- **Autoscaling** — queue depth-এর ভিত্তিতে consumer সংখ্যা বাড়ান। কার্যকর, কিন্তু তাৎক্ষণিক নয় — তাই এটাই একমাত্র প্রতিরক্ষা হতে পারে না।
+
+**নীতি হিসেবে মনে রাখুন**: সীমাহীন queue একটা লুকানো বোমা। প্রতিটা queue-র একটা সর্বোচ্চ আকার ও পূর্ণ হলে কী হবে তার একটা সুস্পষ্ট উত্তর থাকা উচিত। আর queue-র দৈর্ঘ্য ও অপেক্ষার সময় (queue age) সবসময় নিরীক্ষণে রাখুন — এগুলোই সিস্টেমের অসুস্থতার সবচেয়ে আগাম সংকেত।
+
+---
+
+পূর্ববর্তী: [Caching](13-caching.md) · পরবর্তী: [Communication](15-communication.md)9:X
+e:X
+e:C
+0:{"buildId":"b9UnQH9Tzv8u-xuNjnYim","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"14"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Asynchronism"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","048-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/048/","className":"chip chip--accent self-start","children":["দিন ","০৪৮"," · ","চারটা ধারণা, ডক বন্ধ"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"চারটা ধারণা — **caching, load balancing, consistency, message queue** — প্রতিটা ইংরেজিতে ৮ লাইনে, **ডক বন্ধ করে**; আটকালে তবেই ডক খুলুন, তারপর বন্ধ করে আবার লিখুন। ২৫টা ডক পড়া ইনপুট, এটা আউটপুট (ডক ১৩ · ডক ১১ · ডক ০৫ · ডক ১৪)"}]]}],["$","li","056-1",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/056/","className":"chip chip--accent self-start","children":["দিন ","০৫৬"," · ","design doc — chat"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**chat — design doc, ইংরেজিতে, ছয় সেকশন:** কী বানাচ্ছি (এক-এক বার্তা, group?) → স্কেলের অনুমান (দিন ০৩০-এর সংখ্যা) → সিদ্ধান্ত (সংযোগ কীভাবে খোলা থাকে, বার্তা কোথায় জমা, পৌঁছানো নিশ্চিত কীভাবে) → যা বাদ দিলাম → গঠন → কোথায় ভাঙবে; functional আগে, তারপর reliable, তারপর scalable (ডক ১৪ · ডক ১৫)"}]]}],["$","li","104-2",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/104/","className":"chip chip--accent self-start","children":["দিন ","১০৪"," · ","design doc — ride sharing"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"**ride sharing — design doc, ইংরেজিতে, ছয় সেকশন:** কী বানাচ্ছি (যাত্রী ডাকে, কাছের চালক মেলে) → স্কেলের অনুমান (দিন ১০০) → সিদ্ধান্ত (চালকের অবস্থান কীভাবে জমা আর খোঁজা, মেলানো কোথায় হয়) → যা বাদ দিলাম → গঠন → কোথায় ভাঙবে (ডক ১২ · ডক ১৪)"}]]}]]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"ViewportBoundary"]
+17:I[97367,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"MetadataBoundary"]
+18:I[27201,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"IconMark"]
+19:I[39756,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"default"]
+1a:I[37457,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/13/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"13 Caching"}]]}],["$","$L2",null,{"href":"/doc/15/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"15 Communication"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/system_design_global_company/_next/static/chunks/0e2vlk28-rzwf.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক 14 · Asynchronism — গ্লোবাল system design"}],["$","meta","1",{"name":"description","content":"big tech-এর ৪৫ মিনিটের system design আর frontend design রাউন্ডের জন্য — আট সিস্টেম লেখা আর ঘড়ির নিচে মুখে, ছয়টা UI, ১৬৮ দিনে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/system_design_global_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

@@ -1,0 +1,93 @@
+1:"$Sreact.fragment"
+2:I[22016,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js","/system_design_global_company/_next/static/chunks/0e2vlk28-rzwf.js"],""]
+3:I[82484,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js","/system_design_global_company/_next/static/chunks/0e2vlk28-rzwf.js"],"default"]
+4:T2aab,নিরাপত্তা কোনো আলাদা feature নয় — এটা architecture-এর সব স্তরে বোনা থাকতে হয়। এই অধ্যায়ের তিনটা প্যাটার্ন তিনটা মৌলিক প্রশ্নের উত্তর দেয়: **কে আপনি?** (Federated Identity), **আপনি কি ভেতরে ঢুকতে পারবেন?** (Gatekeeper), এবং **আপনি ঠিক কতটুকু ছুঁতে পারবেন?** (Valet Key)।
+
+পুরো অধ্যায় জুড়ে দুটো নীতি ফিরে আসবে — **least privilege** (যতটুকু দরকার ঠিক ততটুকুই অনুমতি) এবং **defense in depth** (একটা স্তর ভেদ হলেও পরের স্তর আটকাবে)।
+
+## Federated Identity
+
+Authentication-এর দায়িত্ব একটা বিশ্বস্ত বাইরের identity provider-এর (IdP) হাতে ছেড়ে দেওয়া — Google, Microsoft Entra ID, Okta, বা প্রতিষ্ঠানের নিজস্ব SSO। আপনার application কেবল IdP-র দেওয়া token যাচাই করে, নিজে কখনো password দেখেও না, রাখেও না।
+
+**সুবিধা**:
+- আপনি password সংরক্ষণ করছেন না, তাই password ফাঁস হওয়ার ঝুঁকিও নেই — নিরাপত্তার সবচেয়ে বড় দায়টাই সরে যায়।
+- User-দের জন্য single sign-on; একই পরিচয়ে সব অ্যাপে প্রবেশ।
+- MFA, conditional access, ডিভাইস যাচাই, ও কর্মী চলে গেলে সব অ্যাক্সেস তাৎক্ষণিক বাতিল — সবই কেন্দ্রীয়ভাবে IdP-তে।
+- Enterprise গ্রাহকরা প্রায়ই SSO বাধ্যতামূলক করে, তাই এটা ব্যবসায়িক প্রয়োজনও।
+
+**প্রযুক্তি**: **OAuth 2.0** (authorization — "এই অ্যাপ আমার হয়ে কী করতে পারবে") এবং **OpenID Connect** (authentication — "আমি কে", OAuth-এর উপর নির্মিত)। Enterprise পরিবেশে **SAML**-ও বহুল প্রচলিত। সাধারণত পরিচয় বহন করে একটা **JWT**।
+
+**সতর্কতা**:
+- IdP-র উপর নির্ভরতা মানে IdP ডাউন হলে কেউ login করতে পারবে না — একে একটা গুরুত্বপূর্ণ dependency হিসেবেই ধরুন।
+- **Token যাচাই সঠিকভাবে করুন** — signature, issuer, audience ও মেয়াদ — চারটাই। এখানকার শিথিলতাই বেশিরভাগ auth দুর্বলতার উৎস।
+- Access token-এর মেয়াদ ছোট রাখুন, refresh token নিরাপদে সংরক্ষণ করুন ও rotate করুন।
+- Authentication (কে আপনি) আর authorization (আপনি কী করতে পারবেন) গুলিয়ে ফেলবেন না — IdP প্রথমটা দেয়, দ্বিতীয়টার দায়িত্ব সাধারণত আপনার।
+
+## Gatekeeper
+
+Client ও আপনার মূল application/storage-এর মাঝখানে একটা উৎসর্গীকৃত প্রহরী instance বসানো, যা সব request যাচাই ও পরিশোধন (sanitize) করে তবেই ভেতরে পাঠায়। মূল সিস্টেম সরাসরি ইন্টারনেট থেকে অদৃশ্য থাকে।
+
+Gatekeeper-এর সবচেয়ে গুরুত্বপূর্ণ বৈশিষ্ট্য হলো — এটা **ন্যূনতম অধিকার নিয়ে চলে** এবং সংবেদনশীল ডেটা বা credential-এ তার সরাসরি প্রবেশাধিকার নেই। তাই gatekeeper ভেদ হলেও আক্রমণকারী সরাসরি ডেটা পায় না; তাকে আরও একটা স্তর ভাঙতে হয় — এটাই defense in depth-এর বাস্তব রূপ।
+
+**Gatekeeper যা করে**: input যাচাই ও পরিশোধন, authentication ও authorization প্রয়োগ, rate limiting ও throttling, দূষিত payload (SQL injection, XSS) শনাক্তকরণ, TLS termination, এবং সব প্রবেশপ্রচেষ্টার log রাখা।
+
+**বাস্তব রূপ**: API Gateway, WAF (Web Application Firewall), reverse proxy, এবং [Gateway Offloading](19-design-and-implementation-patterns.md) প্যাটার্ন।
+
+**সতর্কতা**: gatekeeper যেন bottleneck বা single point of failure না হয় (redundant রাখুন); আর সবচেয়ে গুরুত্বপূর্ণ — **gatekeeper-এর উপস্থিতি ভেতরের service গুলোকে যাচাই করা থেকে অব্যাহতি দেয় না**। ভেতরের service গুলোও নিজেদের input যাচাই করবে ও পরিচয় দাবি করবে, কারণ ভেতরের নেটওয়ার্ককে বিশ্বস্ত ধরে নেওয়া (perimeter security) আজকের দিনে একটা পরিত্যক্ত ধারণা — বর্তমান মান হলো **zero trust**।
+
+## Valet Key
+
+Client-কে একটা সীমিত ক্ষমতার, স্বল্পমেয়াদি token দেওয়া, যা দিয়ে সে নির্দিষ্ট একটা resource-এ **সরাসরি** প্রবেশ করতে পারে — আপনার application server-কে মধ্যস্থতা করতে না দিয়ে। সবচেয়ে পরিচিত রূপ হলো object storage-এর **pre-signed URL**।
+
+কাজের ধারা: client আপনার API-কে বলে "আমি এই ফাইলটা আপলোড করতে চাই" → API অনুমতি যাচাই করে একটা ৫ মিনিটের মেয়াদি pre-signed URL তৈরি করে দেয় → client সরাসরি সেই URL-এ storage-এ আপলোড করে → শেষে API-কে জানায়।
+
+**কেন এটা নিরাপত্তা ও কর্মক্ষমতা দুটোই দেয়**:
+- বড় ফাইল আপনার server-এর bandwidth, memory ও thread খরচ করে না — একটা ৫ GB আপলোড আর আপনার API-র সমস্যা নয়।
+- Storage-এর মূল credential কখনো client-এর কাছে যায় না; যা যায় তা হলো একটামাত্র resource-এর জন্য একটা ক্ষণস্থায়ী অনুমতি।
+
+**নিরাপত্তার নিয়ম**:
+- **মেয়াদ যতটা সম্ভব ছোট রাখুন** — মিনিটে মাপুন, ঘণ্টায় নয়। একবার ইস্যু করা token সাধারণত প্রত্যাহার করা যায় না, তাই মেয়াদই আপনার প্রধান নিয়ন্ত্রণ।
+- **অনুমতি সংকীর্ণ করুন** — কেবল এই একটা নির্দিষ্ট object, এবং কেবল পড়া বা কেবল লেখা। "পুরো bucket-এ পূর্ণ অধিকার" ধরনের token একটা দুর্ঘটনার অপেক্ষা।
+- সম্ভব হলে token-এই ফাইলের সর্বোচ্চ আকার ও content type বেঁধে দিন।
+- Token ইস্যু করার আগে **সবসময় ব্যবসায়িক অনুমতি যাচাই করুন** — এই user কি সত্যিই এই ফাইলটা স্পর্শ করার অধিকারী?
+- আপলোড শেষ হওয়ার পর ফাইলটা যাচাই করুন (ধরন, আকার, ভাইরাস স্ক্যান) — client-এর দাবি বিশ্বাস করবেন না।
+
+---
+
+## যে মৌলিক বিষয়গুলো এই প্যাটার্নগুলোর বাইরেও দরকার
+
+- **সবকিছু encrypt করুন** — চলার পথে (TLS 1.2+) ও সংরক্ষণে (encryption at rest)।
+- **Secret ব্যবস্থাপনা** — password, API key ও certificate কখনো কোড বা configuration-এ নয়; secret manager-এ রাখুন এবং নিয়মিত rotate করুন।
+- **Least privilege সর্বত্র** — প্রতিটা service-এর নিজস্ব পরিচয় থাকুক, এবং তার ঠিক যতটুকু দরকার ততটুকুই অনুমতি।
+- **কখনো নিজের crypto লিখবেন না** — পরীক্ষিত library ব্যবহার করুন।
+- **Dependency আপডেট রাখুন** — বেশিরভাগ বাস্তব breach ঘটে জানা ও patch-প্রাপ্ত দুর্বলতার মাধ্যমে, নতুন কোনো চমকপ্রদ আক্রমণে নয়।
+- **সব কিছু log করুন, সংবেদনশীল কিছু নয়** — কে কী করল তার audit trail রাখুন, কিন্তু password, token বা ব্যক্তিগত ডেটা কখনো log-এ লিখবেন না ([Monitoring — Security Monitoring](18-monitoring.md))।
+
+---
+
+পূর্ববর্তী: [Resiliency](24-resiliency.md) · [সূচিপত্রে ফিরে যান](README.md)9:X
+e:X
+e:C
+0:{"buildId":"b9UnQH9Tzv8u-xuNjnYim","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"25"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Reliability Patterns — Security"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","div",null,{"className":"surface-well t-caption p-4 text-center","children":"এই পথের কোনো দিনে এই ডক নেই — জেনেশুনে বাদ, দরকার হলে পরে। 🧠 Pareto principle"}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"ViewportBoundary"]
+17:I[97367,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"MetadataBoundary"]
+18:I[27201,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"IconMark"]
+19:I[39756,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"default"]
+1a:I[37457,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/24/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"24 Reliability Patterns — Resiliency"}]]}],["$","span",null,{}]]}]
+6:["$","script","script-0",{"src":"/system_design_global_company/_next/static/chunks/0e2vlk28-rzwf.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক 25 · Reliability Patterns — Security — গ্লোবাল system design"}],["$","meta","1",{"name":"description","content":"big tech-এর ৪৫ মিনিটের system design আর frontend design রাউন্ডের জন্য — আট সিস্টেম লেখা আর ঘড়ির নিচে মুখে, ছয়টা UI, ১৬৮ দিনে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/system_design_global_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

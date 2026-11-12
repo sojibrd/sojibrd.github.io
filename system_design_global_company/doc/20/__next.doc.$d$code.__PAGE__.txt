@@ -1,0 +1,95 @@
+1:"$Sreact.fragment"
+2:I[22016,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js","/system_design_global_company/_next/static/chunks/0e2vlk28-rzwf.js"],""]
+3:I[82484,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js","/system_design_global_company/_next/static/chunks/0e2vlk28-rzwf.js"],"default"]
+4:T28cc,ডেটা ব্যবস্থাপনা cloud application-এর সবচেয়ে গুরুত্বপূর্ণ দিক, এবং এটাই সবচেয়ে বেশি non-functional requirement (performance, scalability, consistency, availability) প্রভাবিত করে। নিচের প্যাটার্নগুলো ডেটা কোথায়, কীভাবে ও কতগুলো রূপে রাখা হবে — সেই প্রশ্নগুলোর উত্তর দেয়।
+
+## Cache-Aside
+
+ডেটা চাহিদামতো cache-এ তোলা: প্রথমে cache দেখো, না পেলে data store থেকে পড়ে cache-এ রেখে দাও; লেখার সময় data store-এ লিখে cache entry টা বাতিল করে দাও।
+
+**কেন**: সবচেয়ে ব্যবহৃত caching প্যাটার্ন — সরল, memory-দক্ষ, এবং cache মরে গেলেও সিস্টেম চলতে থাকে (শুধু ধীর হয়)। বিস্তারিত ও সমস্যাগুলো: [Caching](13-caching.md)।
+
+## Event Sourcing
+
+Application-এর বর্তমান অবস্থা সংরক্ষণ না করে, সেই অবস্থায় পৌঁছানোর **সব ঘটনার ধারাবাহিক তালিকা** সংরক্ষণ করা। বর্তমান অবস্থা পাওয়া যায় ঘটনাগুলো ক্রমানুসারে প্রয়োগ করে (replay)।
+
+উদাহরণ: ব্যাংক ব্যালান্স `500` রাখার বদলে রাখা হয় — `জমা 1000`, `উত্তোলন 300`, `উত্তোলন 200`।
+
+**সুবিধা**: সম্পূর্ণ ও অপরিবর্তনীয় audit trail (compliance-এর জন্য অমূল্য); অতীতের যেকোনো মুহূর্তের অবস্থা পুনর্গঠন করা যায় (time travel debugging); একই ঘটনার ধারা থেকে ভিন্ন ভিন্ন read model তৈরি করা যায়; ঘটনা প্রকাশের মাধ্যমে অন্য সিস্টেমকে সহজে জানানো যায়।
+
+**খরচ**: query করা কঠিন (বর্তমান অবস্থা সরাসরি নেই — তাই snapshot লাগে); event schema সময়ের সাথে বদলালে পুরনো event গুলো সামলানোর কৌশল লাগে (versioning); ঘটনা মুছে ফেলা যায় না বলে GDPR-এর "ভুলে যাওয়ার অধিকার" জটিল হয়ে যায়; পুরো দলের চিন্তার ধরন বদলাতে হয়।
+
+**কখন**: audit ও ইতিহাস যেখানে ব্যবসায়িকভাবে গুরুত্বপূর্ণ — আর্থিক লেনদেন, order ব্যবস্থাপনা, inventory। সাধারণ CRUD অ্যাপে এটা অতিরিক্ত জটিলতা মাত্র।
+
+## CQRS (Command Query Responsibility Segregation)
+
+Read ও write আলাদা model দিয়ে সামলানো। Write পক্ষ (command) ব্যবসায়িক নিয়ম, validation ও normalization নিয়ে ব্যস্ত; read পক্ষ (query) denormalized ও পড়ার জন্য অপ্টিমাইজ করা।
+
+দুই পক্ষ একই database ভাগ করতে পারে (সরল রূপ), অথবা সম্পূর্ণ আলাদা store ব্যবহার করতে পারে — যেখানে write store থেকে read store-এ ডেটা asynchronously প্রবাহিত হয়।
+
+**সুবিধা**: read ও write স্বাধীনভাবে scale করা যায় (সাধারণত read ১০০ গুণ বেশি); প্রতিটা পক্ষ নিজের জন্য সেরা ডেটা মডেল ও store বেছে নিতে পারে; জটিল domain-এ কোড অনেক পরিচ্ছন্ন হয়।
+
+**খরচ**: দুটো model রক্ষণাবেক্ষণ; আলাদা store হলে **eventual consistency** মেনে নিতে হয় — অর্থাৎ লেখার পরপরই পড়লে সেটা নাও দেখা যেতে পারে, এবং UI-কে সেভাবেই ডিজাইন করতে হয়।
+
+**কখন**: read ও write-এর চাহিদা যখন নাটকীয়ভাবে ভিন্ন, বা domain যখন জটিল। প্রায়ই Event Sourcing-এর সাথে জোড়া লাগানো হয়, তবে দুটো স্বাধীন প্যাটার্ন। **সাধারণ অ্যাপে এটা ব্যবহার করবেন না** — এটা একটা বিশেষায়িত সমাধান।
+
+## Index Table
+
+যে field গুলো দিয়ে ঘন ঘন খোঁজা হয় কিন্তু primary key নয়, সেগুলোর জন্য আলাদা "index" table বা collection তৈরি করা, যা ওই field থেকে মূল record-এর key-তে map করে।
+
+**কখন**: এমন data store-এ যেখানে secondary index নেই বা ব্যয়বহুল — বেশিরভাগ key-value ও wide-column store। যেমন user-দের `userId` দিয়ে রাখা হয়েছে, কিন্তু `email` দিয়েও খুঁজতে হবে — তখন `email → userId` একটা আলাদা table।
+
+**খরচ**: মূল ডেটা বদলালে index table-ও আপডেট করতে হয়, তাই write ধীর ও জটিল হয় এবং সাময়িক অসামঞ্জস্যের ঝুঁকি থাকে।
+
+## Materialized View
+
+একটা query-র ফলাফল আগে থেকে গণনা করে সংরক্ষণ করে রাখা, যাতে পড়ার সময় ব্যয়বহুল JOIN ও aggregation করতে না হয়।
+
+**কেন**: ড্যাশবোর্ড ও রিপোর্টের মতো ভারী query, যেগুলো প্রতিবার চালানো ব্যয়বহুল কিন্তু ফলাফল ঘন ঘন বদলায় না। Read latency নাটকীয়ভাবে কমে।
+
+**খরচ**: ডেটা বাসি হয়ে যেতে পারে — তাই কখন ও কীভাবে refresh হবে সেটা ঠিক করতে হয় (নির্দিষ্ট সময় পরপর, নাকি প্রতিটা পরিবর্তনে)। এটা মূলত [Denormalization](12-databases.md)-এরই একটা কাঠামোবদ্ধ রূপ, এবং CQRS-এর read model প্রায়ই এভাবেই তৈরি হয়।
+
+## Sharding
+
+একই ধরনের ডেটাকে একাধিক store-এ অনুভূমিকভাবে ভাগ করা, যাতে একক store-এর সীমা ছাড়িয়ে যাওয়া যায় এবং write scale করা যায়। Shard key নির্বাচনই এখানে সবচেয়ে গুরুত্বপূর্ণ ও সবচেয়ে কঠিনভাবে বদলানো সিদ্ধান্ত। বিস্তারিত: [Databases](12-databases.md)।
+
+## Static Content Hosting
+
+স্থির ফাইলগুলো application server থেকে না দিয়ে বিশেষায়িত storage থেকে সরাসরি পরিবেশন করা — খরচ ও লোড দুটোই নাটকীয়ভাবে কমে। বিস্তারিত: [Design & Implementation Patterns](19-design-and-implementation-patterns.md)।
+
+## Valet Key
+
+Client-কে সীমিত ক্ষমতার একটা সাময়িক token (যেমন pre-signed URL) দেওয়া, যা দিয়ে সে সরাসরি storage-এর নির্দিষ্ট resource-এ প্রবেশ করতে পারে — আপনার application server-এর মধ্য দিয়ে না গিয়েই।
+
+**কেন**: একটা ৫ GB ভিডিও আপলোড যদি আপনার API server-এর ভেতর দিয়ে যায়, তাহলে সেটা bandwidth, memory ও thread — সবই গিলে খায়। Valet key দিয়ে ডেটা সরাসরি client ও storage-এর মধ্যে যায়, আর আপনার server শুধু অনুমতি দেওয়ার হালকা কাজটা করে।
+
+**নিরাপত্তার নিয়ম**: token-এর মেয়াদ যতটা সম্ভব ছোট রাখুন; অনুমতি সংকীর্ণ করুন (কেবল এই একটা ফাইল, কেবল লেখা বা কেবল পড়া); প্রয়োজনে ফাইলের আকার ও ধরনের সীমা token-এই বেঁধে দিন। মেয়াদ শেষ হওয়ার আগে token প্রত্যাহার করা সাধারণত কঠিন — তাই মেয়াদই আপনার প্রধান নিয়ন্ত্রণ।
+
+---
+
+পূর্ববর্তী: [Design & Implementation Patterns](19-design-and-implementation-patterns.md) · পরবর্তী: [Messaging Patterns](21-messaging-patterns.md)9:X
+e:X
+e:C
+0:{"buildId":"b9UnQH9Tzv8u-xuNjnYim","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"20"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Cloud Design Patterns — Data Management"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","div",null,{"className":"surface-well t-caption p-4 text-center","children":"এই পথের কোনো দিনে এই ডক নেই — জেনেশুনে বাদ, দরকার হলে পরে। 🧠 Pareto principle"}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"ViewportBoundary"]
+17:I[97367,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"MetadataBoundary"]
+18:I[27201,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"IconMark"]
+19:I[39756,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"default"]
+1a:I[37457,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/19/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"19 Cloud Design Patterns — Design & Implementation"}]]}],["$","$L2",null,{"href":"/doc/21/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"21 Cloud Design Patterns — Messaging"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/system_design_global_company/_next/static/chunks/0e2vlk28-rzwf.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক 20 · Cloud Design Patterns — Data Management — গ্লোবাল system design"}],["$","meta","1",{"name":"description","content":"big tech-এর ৪৫ মিনিটের system design আর frontend design রাউন্ডের জন্য — আট সিস্টেম লেখা আর ঘড়ির নিচে মুখে, ছয়টা UI, ১৬৮ দিনে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/system_design_global_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"

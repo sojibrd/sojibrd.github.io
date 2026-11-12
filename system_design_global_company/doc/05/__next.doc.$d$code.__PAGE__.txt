@@ -1,0 +1,70 @@
+1:"$Sreact.fragment"
+2:I[22016,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js","/system_design_global_company/_next/static/chunks/0e2vlk28-rzwf.js"],""]
+3:I[82484,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js","/system_design_global_company/_next/static/chunks/0e2vlk28-rzwf.js"],"default"]
+4:T1575,একই ডেটার একাধিক কপি থাকলে প্রশ্ন আসে — write করার পর read করলে কী পাওয়া যাবে? এর উত্তরের উপর ভিত্তি করে তিনটা মূল consistency model আছে। এদের মধ্যে বাছাই মানে **guarantee বনাম latency/availability**-র বিনিময়।
+
+## Weak Consistency
+
+Write করার পর read-এ সেই ডেটা পাওয়ার **কোনো নিশ্চয়তা নেই**। কিছু read পেতে পারে, কিছু নাও পেতে পারে; কোনো নির্দিষ্ট সময়সীমাও নেই। সিস্টেম "best effort" চেষ্টা করে।
+
+শুনতে দুর্বল লাগলেও কিছু ক্ষেত্রে এটাই সঠিক পছন্দ — যেখানে পুরনো/হারানো ডেটার মূল্য প্রায় শূন্য এবং গতিই সব। উদাহরণ: VoIP ও video call (কয়েকটা packet হারালে সমস্যা নেই, কিন্তু বিলম্ব অসহনীয়), realtime multiplayer game-এর position update, live streaming। এখানে হারানো ডেটার জন্য অপেক্ষা করার চেয়ে পরবর্তী ডেটা নিয়ে এগিয়ে যাওয়াই ভালো।
+
+## Eventual Consistency
+
+Write করার পর read-এ ডেটা পাওয়া যাবে — সাধারণত **milliseconds থেকে seconds-এর মধ্যে**। নতুন write অবশেষে (eventually) সব replica-তে পৌঁছাবে, এবং নতুন write বন্ধ হলে সব replica একই অবস্থায় মিলে যাবে।
+
+এটাই বড় স্কেলের সবচেয়ে ব্যবহৃত model, কারণ এটা high availability দেয়। DNS, email, CDN, social feed, S3-এর মতো object store — সব eventual consistency-তে চলে।
+
+সমস্যা হলো user-এর কাছে এটা মাঝে মাঝে ভাঙা মনে হয়: আপনি একটা comment লিখলেন, page refresh করলেন, comment নেই। এই কারণে বাস্তব সিস্টেমে কিছু বাড়তি guarantee যোগ করা হয় —
+
+- **Read-your-writes consistency**: একজন user নিজের করা write সবসময় দেখবে (সাধারণত তার request গুলো primary-তে বা একই replica-তে পাঠিয়ে)।
+- **Monotonic reads**: user কখনো সময়ে পিছিয়ে যাবে না — একবার নতুন ডেটা দেখলে পরে পুরনো দেখবে না।
+- **Consistent prefix reads**: ঘটনাগুলো যে ক্রমে ঘটেছে সেই ক্রমেই দেখা যাবে (প্রশ্নের আগে উত্তর দেখা যাবে না)।
+
+## Strong Consistency
+
+Write করার পর প্রতিটা read **অবশ্যই** সেই ডেটা পাবে। ডেটা synchronously replicate হয় বা read-এ quorum লাগে। বাইরে থেকে সিস্টেমটাকে একটা single-copy database-এর মতো দেখায়।
+
+**খরচ**: প্রতিটা write-এ একাধিক node-এর সাথে coordination দরকার, তাই latency বেশি; আর যথেষ্ট node না পৌঁছালে write fail করে, তাই availability কম।
+
+**কখন লাগে**: আর্থিক লেনদেন, inventory decrement, seat booking, unique constraint (username/email), distributed lock ও configuration store।
+
+## কীভাবে অর্জিত হয়: Quorum
+
+Replicated store-এ consistency নিয়ন্ত্রণ করার সাধারণ কৌশল হলো quorum। N = মোট replica, W = লিখতে যত node-এ সফল হতে হবে, R = পড়তে যত node থেকে পড়তে হবে।
+
+```
+W + R > N  →  strong consistency (read আর write-এর মধ্যে অন্তত একটা common node)
+W + R ≤ N  →  eventual consistency, কিন্তু দ্রুত
+```
+
+উদাহরণ: N=3, W=2, R=2 → strongly consistent এবং একটা node মরলেও চলে। W=1, R=1 → খুব দ্রুত ও available, কিন্তু stale read সম্ভব। Cassandra ও DynamoDB-তে এই মানগুলো **প্রতি query-তে** ঠিক করা যায় — অর্থাৎ একই database-এ গুরুত্বপূর্ণ লেখায় strong আর সাধারণ লেখায় eventual ব্যবহার করা সম্ভব।
+
+---
+
+পূর্ববর্তী: [Availability vs Consistency](04-availability-vs-consistency.md) · পরবর্তী: [Availability Patterns](06-availability-patterns.md)9:X
+e:X
+e:C
+0:{"buildId":"b9UnQH9Tzv8u-xuNjnYim","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","div",null,{"className":"t-label flex flex-wrap items-center gap-2","children":[["$","$L2",null,{"href":"/docs/","className":"t-accent","children":"ডক"}],["$","span",null,{"children":"•"}],["$","span",null,{"children":"05"}]]}],["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"Consistency Patterns"}]]}],["$","section",null,{"className":"surface-panel flex flex-col gap-4 p-4 sm:p-6","children":[["$","h2",null,{"className":"t-title text-base sm:text-lg","children":"এই পথে যেখানে আসে"}],["$","ul",null,{"className":"flex flex-col gap-3","children":[["$","li","048-0",{"className":"surface-raised flex flex-col gap-2 p-3 sm:p-4","children":[["$","$L2",null,{"href":"/day/048/","className":"chip chip--accent self-start","children":["দিন ","০৪৮"," · ","চারটা ধারণা, ডক বন্ধ"]}],["$","$L3",null,{"inline":true,"className":"task-text text-sm","children":"চারটা ধারণা — **caching, load balancing, consistency, message queue** — প্রতিটা ইংরেজিতে ৮ লাইনে, **ডক বন্ধ করে**; আটকালে তবেই ডক খুলুন, তারপর বন্ধ করে আবার লিখুন। ২৫টা ডক পড়া ইনপুট, এটা আউটপুট (ডক ১৩ · ডক ১১ · ডক ০৫ · ডক ১৪)"}]]}]]}]]}],["$","article",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L3",null,{"children":"$4"}]}],"$L5"],["$L6"],"$L7"]}],"isPartial":"$@8","staleTime":"$9","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$9","varyParams":null},{"rsc":"$Lc","isPartial":"$@d","staleTime":"$9","varyParams":"$e"},{"rsc":"$Lf","isPartial":"$@10","staleTime":"$9","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+13:I[97367,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"ViewportBoundary"]
+17:I[97367,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"MetadataBoundary"]
+18:I[27201,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"IconMark"]
+19:I[39756,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"default"]
+1a:I[37457,["/system_design_global_company/_next/static/chunks/1q4lvhp8b2p03.js","/system_design_global_company/_next/static/chunks/1o8cs7b69sfum.js"],"default"]
+5:["$","nav",null,{"className":"grid grid-cols-2 gap-2","aria-label":"ডক","children":[["$","$L2",null,{"href":"/doc/04/","className":"control justify-start px-3 py-2 text-xs","children":[["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M19 12H5"}],["$","path",null,{"d":"m12 19-7-7 7-7"}]]}],["$","span",null,{"className":"truncate","children":"04 Availability vs Consistency"}]]}],["$","$L2",null,{"href":"/doc/06/","className":"control justify-end px-3 py-2 text-xs","children":[["$","span",null,{"className":"truncate","children":"06 Availability Patterns"}],["$","svg",null,{"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","aria-hidden":true,"width":13,"height":13,"children":[["$","path",null,{"d":"M5 12h14"}],["$","path",null,{"d":"m12 5 7 7-7 7"}]]}]]}]]}]
+6:["$","script","script-0",{"src":"/system_design_global_company/_next/static/chunks/0e2vlk28-rzwf.js","async":true}]
+7:["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]
+a:["$","$1","h",{"children":[null,["$","$L16",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L17",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ডক 05 · Consistency Patterns — গ্লোবাল system design"}],["$","meta","1",{"name":"description","content":"big tech-এর ৪৫ মিনিটের system design আর frontend design রাউন্ডের জন্য — আট সিস্টেম লেখা আর ঘড়ির নিচে মুখে, ছয়টা UI, ১৬৮ দিনে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/system_design_global_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L18","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+f:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+12:true
+15:null
+9:300
+9:C
+11:0
+b:"$undefined"
+d:"$undefined"
+10:"$undefined"
+8:"$undefined"
