@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-2:I[82484,["/switch_in_6_month_global_company/_next/static/chunks/1fo35igr36231.js","/switch_in_6_month_global_company/_next/static/chunks/06zg692j7ulzb.js","/switch_in_6_month_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
+2:I[82484,["/switch_in_6_month_global_company/_next/static/chunks/0m3-bqcjirxq2.js","/switch_in_6_month_global_company/_next/static/chunks/10vqomr8dw3xd.js","/switch_in_6_month_global_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
 3:T6b66,## লক্ষ্য
 
 > **১৮০ দিনে big tech মানের কোম্পানিতে — দেশে থেকে, রিমোটে — ১০টা আবেদন, আর অন্তত ৩টা interview process সম্পূর্ণ।**
@@ -201,14 +201,14 @@ FAANG (Google, Meta, Amazon…) বাংলাদেশ থেকে রিম�
 - **না এলে** DSA-র ঝালাই, সপ্তাহে একটা mock, আর দুই সপ্তাহে একটা আবেদন চলতে থাকবে — **সই না হওয়া পর্যন্ত।**7:X
 c:X
 c:C
-0:{"buildId":"r1BCRs43Yd3QtDWG73iDQ","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — ১৮০ দিন, গ্লোবাল"}],["$","p",null,{"className":"t-body measure text-sm","children":"১৮০ দিন · ৩০ দিনের ৬টা ব্লক · দেশে থেকে big tech মানের কোম্পানিতে রিমোট"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L2",null,{"className":"measure","children":"$3"}]}]],["$L4"],"$L5"]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":"$L8","isPartial":"$@9","staleTime":"$7","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$7","varyParams":"$c"}],"isUpgradeableISRFallback":false,"a":"$@d","rootVaryParams":null,"needsRuntimeRequest":"$@e"}
-f:I[97367,["/switch_in_6_month_global_company/_next/static/chunks/1fo35igr36231.js","/switch_in_6_month_global_company/_next/static/chunks/06zg692j7ulzb.js"],"OutletBoundary"]
+0:{"buildId":"RqjKUQ4UC7-CRqPfZ_wRN","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — ১৮০ দিন, গ্লোবাল"}],["$","p",null,{"className":"t-body measure text-sm","children":"১৮০ দিন · ৩০ দিনের ৬টা ব্লক · দেশে থেকে big tech মানের কোম্পানিতে রিমোট"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L2",null,{"className":"measure","children":"$3"}]}]],["$L4"],"$L5"]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":"$L8","isPartial":"$@9","staleTime":"$7","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$7","varyParams":"$c"}],"isUpgradeableISRFallback":false,"a":"$@d","rootVaryParams":null,"needsRuntimeRequest":"$@e"}
+f:I[97367,["/switch_in_6_month_global_company/_next/static/chunks/0m3-bqcjirxq2.js","/switch_in_6_month_global_company/_next/static/chunks/10vqomr8dw3xd.js"],"OutletBoundary"]
 10:"$Sreact.suspense"
-12:I[97367,["/switch_in_6_month_global_company/_next/static/chunks/1fo35igr36231.js","/switch_in_6_month_global_company/_next/static/chunks/06zg692j7ulzb.js"],"ViewportBoundary"]
-13:I[97367,["/switch_in_6_month_global_company/_next/static/chunks/1fo35igr36231.js","/switch_in_6_month_global_company/_next/static/chunks/06zg692j7ulzb.js"],"MetadataBoundary"]
-14:I[27201,["/switch_in_6_month_global_company/_next/static/chunks/1fo35igr36231.js","/switch_in_6_month_global_company/_next/static/chunks/06zg692j7ulzb.js"],"IconMark"]
-15:I[39756,["/switch_in_6_month_global_company/_next/static/chunks/1fo35igr36231.js","/switch_in_6_month_global_company/_next/static/chunks/06zg692j7ulzb.js"],"default"]
-16:I[37457,["/switch_in_6_month_global_company/_next/static/chunks/1fo35igr36231.js","/switch_in_6_month_global_company/_next/static/chunks/06zg692j7ulzb.js"],"default"]
+12:I[97367,["/switch_in_6_month_global_company/_next/static/chunks/0m3-bqcjirxq2.js","/switch_in_6_month_global_company/_next/static/chunks/10vqomr8dw3xd.js"],"ViewportBoundary"]
+13:I[97367,["/switch_in_6_month_global_company/_next/static/chunks/0m3-bqcjirxq2.js","/switch_in_6_month_global_company/_next/static/chunks/10vqomr8dw3xd.js"],"MetadataBoundary"]
+14:I[27201,["/switch_in_6_month_global_company/_next/static/chunks/0m3-bqcjirxq2.js","/switch_in_6_month_global_company/_next/static/chunks/10vqomr8dw3xd.js"],"IconMark"]
+15:I[39756,["/switch_in_6_month_global_company/_next/static/chunks/0m3-bqcjirxq2.js","/switch_in_6_month_global_company/_next/static/chunks/10vqomr8dw3xd.js"],"default"]
+16:I[37457,["/switch_in_6_month_global_company/_next/static/chunks/0m3-bqcjirxq2.js","/switch_in_6_month_global_company/_next/static/chunks/10vqomr8dw3xd.js"],"default"]
 4:["$","script","script-0",{"src":"/switch_in_6_month_global_company/_next/static/chunks/1t000xs0g969t.js","async":true}]
 5:["$","$Lf",null,{"children":["$","$10",null,{"name":"Next.MetadataOutlet","children":"$@11"}]}]
 8:["$","$1","h",{"children":[null,["$","$L12",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$10",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"নিয়ম — ৬ মাসে গ্লোবাল বদল"}],["$","meta","1",{"name":"description","content":"দেশে থেকে big tech মানের কোম্পানিতে রিমোট — ১০টা আবেদন আর ৩টা সম্পূর্ণ interview process, ১৮০ দিন, প্রতিদিনের কাজ, ঝালাই আর learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/switch_in_6_month_global_company/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L14","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
