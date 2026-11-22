@@ -1,6 +1,6 @@
 1:"$Sreact.fragment"
 2:I[82484,["/learning_to_learn/_next/static/chunks/13g-ihezj7pyj.js","/learning_to_learn/_next/static/chunks/3q2x31ab8m3ey.js","/learning_to_learn/_next/static/chunks/11ivih73p9oq1.js"],"default"]
-3:T1c57,## লক্ষ্য
+3:T1c5d,## লক্ষ্য
 
 > **৬৯ দিনে `learning_to_learn`-এর প্রতিটা বিষয় একবার নিজের কাজে খাটানো — পড়ে নয়, করে — আর নীতিগুলো ঝালাইয়ে মনে রাখা।**
 
@@ -12,7 +12,7 @@
 
 1. `topics/` — ৭টা ডক, বুকমার্ক থেকে রূপান্তরিত। সাইটে আগের route-এই (`/principle/`, `/techniques/` …), বিষয়ের anchor-সহ — বাকি সাইটগুলোর 🧠 chip এখানেই নামে।
 2. `docs/` — এই plan: নিয়ম আর ৬টা ব্লক, ডকের ক্রমে।
-3. `notes/` আর `review-queue.md` — `/learning-to-learn` skill-এর জায়গা; সাইট ছোঁয় না।
+3. `notes/` আর `review-queue.md` — `/my-learning-to-learn` skill-এর জায়গা; সাইট ছোঁয় না।
 
 ## কীভাবে পড়বেন
 
@@ -55,7 +55,7 @@
 
 "বিষয়" পাতায় ৭টা ডক; প্রতিটা বিষয়ের পাশে কোন দিনে ওটা আসে। Examples-এর নিজের দিন নেই — ওর দৃশ্যগুলো ব্লকের শেষ দিনে। পাতাগুলো রেফারেন্স; রোজ শুরু "আজ" থেকে।
 
-## `/learning-to-learn` skill-এর সাথে
+## `/my-learning-to-learn` skill-এর সাথে
 
 skill নতুন কোনো বিষয় শেখায় (একটা framework, একটা ধারণা) — নোট রাখে `notes/`-এ, ঝালাই `review-queue.md`-এ। এই সাইট শেখায় **শেখার নীতিগুলো নিজেই**। দুটো আলাদা; এক জিনিস দুই জায়গায় নয়।
 
@@ -73,7 +73,7 @@ skill নতুন কোনো বিষয় শেখায় (একটা
 - বাকি সাইটের 🧠 chip চাপলে এই সাইটের বিষয়ের পাতায় নামে — নীতিটা ওখানে আবার দেখা।7:X
 c:X
 c:C
-0:{"buildId":"91pHZ3PmyvH2htJT2xgGG","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — শেখা কীভাবে শিখতে হয়"}],["$","p",null,{"className":"t-body measure text-sm","children":"৬৯ দিন · ৫৭টা নীতি আর ১২টা লিংক · দিনে একটা"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L2",null,{"className":"measure","children":"$3"}]}]],["$L4"],"$L5"]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":"$L8","isPartial":"$@9","staleTime":"$7","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$7","varyParams":"$c"}],"isUpgradeableISRFallback":false,"a":"$@d","rootVaryParams":null,"needsRuntimeRequest":"$@e"}
+0:{"buildId":"VwCNzOLFrVBS3Xd9hAmjU","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — শেখা কীভাবে শিখতে হয়"}],["$","p",null,{"className":"t-body measure text-sm","children":"৬৯ দিন · ৫৭টা নীতি আর ১২টা লিংক · দিনে একটা"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L2",null,{"className":"measure","children":"$3"}]}]],["$L4"],"$L5"]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":"$L8","isPartial":"$@9","staleTime":"$7","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$7","varyParams":"$c"}],"isUpgradeableISRFallback":false,"a":"$@d","rootVaryParams":null,"needsRuntimeRequest":"$@e"}
 f:I[97367,["/learning_to_learn/_next/static/chunks/13g-ihezj7pyj.js","/learning_to_learn/_next/static/chunks/3q2x31ab8m3ey.js"],"OutletBoundary"]
 10:"$Sreact.suspense"
 12:I[97367,["/learning_to_learn/_next/static/chunks/13g-ihezj7pyj.js","/learning_to_learn/_next/static/chunks/3q2x31ab8m3ey.js"],"ViewportBoundary"]
