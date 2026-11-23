@@ -1,6 +1,6 @@
 1:"$Sreact.fragment"
 2:I[82484,["/switch_in_6_month_local_company/_next/static/chunks/0m3-bqcjirxq2.js","/switch_in_6_month_local_company/_next/static/chunks/2puqq_uftenr3.js","/switch_in_6_month_local_company/_next/static/chunks/1t000xs0g969t.js"],"default"]
-3:T4e68,## লক্ষ্য
+3:T5368,## লক্ষ্য
 
 > **১৮০ দিনে বাংলাদেশি কোম্পানিতে ২০টা আবেদন, আর অন্তত ৫টা interview process সম্পূর্ণ।**
 
@@ -96,6 +96,10 @@ plan পেছায় না। শুরু থেকে আজ ৫১তম 
 
 দিন ০০৬–১৫৪-এর story-র কাজ চলে [লোকাল behavioural](https://sojibrd.github.io/behavioural_interview_local_company/)-এ — কোন দিনে কোন story, বসার চার ধাপ, ঝালাই আর `behavioural_interview`-এর ২৫টা ডক সব ওখানে (ঐ সাইটের দিন ০০১ = এই plan-এর দিন ০০৬; ব্যবহারকারীর সিদ্ধান্ত ২০২৬-০৯-১৫)। রোজের ইংরেজির ১৫′-এ story জোরে বলা আর mock interview এই plan-এই। এখানে টিক দিন শুধু ঘরটা বসা হয়েছে কি না তার জন্য।
 
+### সফট স্কিল — আলাদা ঘর নেই
+
+সফট স্কিলের অনুশীলন এই plan-এর ঘরেই — রোজের ১৫′ মুখে ইংরেজি আর interview-প্রস্তুতি; আলাদা সময় নেই (ব্যবহারকারীর সিদ্ধান্ত ২০২৬-১১-২৪)। [`soft_skill_learning`](https://sojibrd.github.io/soft_skill_learning/) plan, কিন্তু তার দিন গোনা থামানো — তার drill এই ঘরেই, আর গাইড পড়া কাজ গোনা হয় না। সবচেয়ে কাছের তিনটা অধ্যায়: ১৫′-এর জন্য [Speaking English](https://sojibrd.github.io/soft_skill_learning/doc/03-03/), interview-প্রস্তুতির জন্য [Communication](https://sojibrd.github.io/soft_skill_learning/doc/03-02/), offer-এর দরাদরির জন্য [Persuasion ও Negotiation](https://sojibrd.github.io/soft_skill_learning/doc/04-02/)। ঐ ঘরের কাজে কোনো drill মিললে সেটাই করুন; এই plan-এ নতুন কাজ যোগ হয়নি।
+
 ### ঝালাই — কীভাবে চলে
 
 - 🔁 কাজে টিক দিলে ঐ **আসল তারিখ** থেকে ১ → ৩ → ৭ → ২১ দিন।
@@ -164,7 +168,7 @@ plan পেছায় না। শুরু থেকে আজ ৫১তম 
 - **না এলে** সপ্তাহের ছন্দ চলতে থাকবে — **সই না হওয়া পর্যন্ত আবেদন থামাবেন না।**7:X
 c:X
 c:C
-0:{"buildId":"HcrvW4bZwqw9HaLnn1Y9x","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — ১৮০ দিন"}],["$","p",null,{"className":"t-body measure text-sm","children":"১৮০ দিন · ৩০ দিনের ৬টা ব্লক · বাংলাদেশি কোম্পানি"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L2",null,{"className":"measure","children":"$3"}]}]],["$L4"],"$L5"]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":"$L8","isPartial":"$@9","staleTime":"$7","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$7","varyParams":"$c"}],"isUpgradeableISRFallback":false,"a":"$@d","rootVaryParams":null,"needsRuntimeRequest":"$@e"}
+0:{"buildId":"4FZYAyPQBu0guheq9m-BK","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — ১৮০ দিন"}],["$","p",null,{"className":"t-body measure text-sm","children":"১৮০ দিন · ৩০ দিনের ৬টা ব্লক · বাংলাদেশি কোম্পানি"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L2",null,{"className":"measure","children":"$3"}]}]],["$L4"],"$L5"]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":"$L8","isPartial":"$@9","staleTime":"$7","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$7","varyParams":"$c"}],"isUpgradeableISRFallback":false,"a":"$@d","rootVaryParams":null,"needsRuntimeRequest":"$@e"}
 f:I[97367,["/switch_in_6_month_local_company/_next/static/chunks/0m3-bqcjirxq2.js","/switch_in_6_month_local_company/_next/static/chunks/2puqq_uftenr3.js"],"OutletBoundary"]
 10:"$Sreact.suspense"
 12:I[97367,["/switch_in_6_month_local_company/_next/static/chunks/0m3-bqcjirxq2.js","/switch_in_6_month_local_company/_next/static/chunks/2puqq_uftenr3.js"],"ViewportBoundary"]
