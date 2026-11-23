@@ -1,6 +1,6 @@
 1:"$Sreact.fragment"
-2:I[82484,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
-3:T3e06,## লক্ষ্য
+2:I[82484,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0kovd4jbajip3.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
+3:T3e65,## লক্ষ্য
 
 > **১০৮ দিনে গাইডের ১০৪টা drill-এর প্রতিটা অন্তত একবার করা — নিজের সাথে, চিন্তায়, একজন মানুষের সাথে, অনেক মানুষের সাথে; Senior-এর drill আসল জীবনে, Lead আর Staff-এর drill তাদের আজ-করা-যায় এমন রূপে — আর প্রতিটা স্তরের মূল নিয়ম গাইড না খুলে ইংরেজিতে মুখে বলতে পারা, ঝালাইসহ।**
 
@@ -45,7 +45,7 @@
 
 এই সাইট plan, ফাঁদ নয় (ব্যবহারকারী, ২০২৬-১১-২৪) — কিন্তু আলাদা সময় নেই। অনুশীলন চলে ১৮০ দিনের [switch plan](https://sojibrd.github.io/switch_in_6_month_local_company/)-এর ঘরে — রোজের ১৫′ মুখে ইংরেজি আর interview-প্রস্তুতি; ঐ ঘরের কাজে কোনো drill মিললে সেটা, এই গাইডের অধ্যায় থেকে। নিয়মটা switch plan-এর নিয়মে, "সফট স্কিল — আলাদা ঘর নেই"।
 
-তাই এই সাইটের দিন গোনা থামানো — plan-এর কোনো ঘর থেকে আলাদা সময় কাটা হয়নি, আর নতুন শুরুর তারিখের প্রস্তাব নেই। `brainstorming/soft-technical-and-ai-skill.md`-এর ফাঁদের লাইনের নিচে এই সাইট ব্যতিক্রম হিসেবে লেখা; অমিলটা `brainstorming/thought-map.md`-এ মীমাংসিত।
+তাই এই সাইটের দিন গোনা থামানো — হোমে আজকের drill-এর বদলে থামার নোটিশ, আর plan-এর কোনো ঘর থেকে আলাদা সময় কাটা হয়নি, আর নতুন শুরুর তারিখের প্রস্তাব নেই। `brainstorming/soft-technical-and-ai-skill.md`-এর ফাঁদের লাইনের নিচে এই সাইট ব্যতিক্রম হিসেবে লেখা; অমিলটা `brainstorming/thought-map.md`-এ মীমাংসিত।
 
 ---
 
@@ -113,14 +113,14 @@
 - পদ বদলালে Lead আর Staff-এর drill এবার তাদের পুরো রূপে, `সুযোগ এলে:` থেকে।7:X
 c:X
 c:C
-0:{"buildId":"c4nUxzm9KvqiojuFf0Uym","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — সফট স্কিল, পরের স্তরে, drill ধরে"}],["$","p",null,{"className":"t-body measure text-sm","children":"১০৮ দিন · ১০৪টা drill আর ৪টা ⚑ · দিনে একটা, ১০′"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L2",null,{"className":"measure","children":"$3"}]}]],["$L4"],"$L5"]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":"$L8","isPartial":"$@9","staleTime":"$7","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$7","varyParams":"$c"}],"isUpgradeableISRFallback":false,"a":"$@d","rootVaryParams":null,"needsRuntimeRequest":"$@e"}
-f:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"OutletBoundary"]
+0:{"buildId":"A0r03fhAgHvJT_OrwuQgz","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — সফট স্কিল, পরের স্তরে, drill ধরে"}],["$","p",null,{"className":"t-body measure text-sm","children":"১০৮ দিন · ১০৪টা drill আর ৪টা ⚑ · দিনে একটা, ১০′"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L2",null,{"className":"measure","children":"$3"}]}]],["$L4"],"$L5"]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":"$L8","isPartial":"$@9","staleTime":"$7","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$7","varyParams":"$c"}],"isUpgradeableISRFallback":false,"a":"$@d","rootVaryParams":null,"needsRuntimeRequest":"$@e"}
+f:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0kovd4jbajip3.js"],"OutletBoundary"]
 10:"$Sreact.suspense"
-12:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"ViewportBoundary"]
-13:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"MetadataBoundary"]
-14:I[27201,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"IconMark"]
-15:I[39756,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
-16:I[37457,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"default"]
+12:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0kovd4jbajip3.js"],"ViewportBoundary"]
+13:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0kovd4jbajip3.js"],"MetadataBoundary"]
+14:I[27201,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0kovd4jbajip3.js"],"IconMark"]
+15:I[39756,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0kovd4jbajip3.js"],"default"]
+16:I[37457,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0kovd4jbajip3.js"],"default"]
 4:["$","script","script-0",{"src":"/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js","async":true}]
 5:["$","$Lf",null,{"children":["$","$10",null,{"name":"Next.MetadataOutlet","children":"$@11"}]}]
 8:["$","$1","h",{"children":[null,["$","$L12",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L13",null,{"children":["$","$10",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"নিয়ম — সফট স্কিল"}],["$","meta","1",{"name":"description","content":"সফট স্কিলের ১০৪টা drill, ১০৮ দিনে — Senior থেকে Staff, রিমোট আর ইংরেজিসহ; দিনে একটা, আজ একবার, আসল কথোপকথনে; চার স্তরে নির্ভরতার ক্রমে, learning to learn-এর নীতিতে।"}],["$","link","2",{"rel":"icon","href":"/soft_skill_learning/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L14","3",{}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
