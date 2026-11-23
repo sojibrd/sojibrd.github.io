@@ -1,6 +1,6 @@
 1:"$Sreact.fragment"
 2:I[82484,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js","/soft_skill_learning/_next/static/chunks/1t000xs0g969t.js"],"default"]
-3:T3dcd,## লক্ষ্য
+3:T3e06,## লক্ষ্য
 
 > **১০৮ দিনে গাইডের ১০৪টা drill-এর প্রতিটা অন্তত একবার করা — নিজের সাথে, চিন্তায়, একজন মানুষের সাথে, অনেক মানুষের সাথে; Senior-এর drill আসল জীবনে, Lead আর Staff-এর drill তাদের আজ-করা-যায় এমন রূপে — আর প্রতিটা স্তরের মূল নিয়ম গাইড না খুলে ইংরেজিতে মুখে বলতে পারা, ঝালাইসহ।**
 
@@ -41,11 +41,11 @@
 - **বাদ পড়া drill ফেরে না** — গাইডে থাকে, দিন ১০৮-এর পরে ধরতে পারেন।
 - **ঘুম কেটে পূরণ নয়।** 🧠 (The science of sleep)
 
-## কখন বসবেন ⏳
+## কখন বসবেন — switch plan-এর ঘরে
 
-এই সাইটের দিনের ১০′ ১৮০ দিনের plan-এর সপ্তাহে ৭ ঘণ্টার **ভেতরে, নাকি বাইরে** — ⏳ আপনার উত্তর বাকি। `emberjs_learning`, `nextjs_learning`, `nestjs_learning` আর `postgres_learning`-এর সাথে একসাথে চলবে, নাকি পরপর — সেটাও ⏳।
+এই সাইট plan, ফাঁদ নয় (ব্যবহারকারী, ২০২৬-১১-২৪) — কিন্তু আলাদা সময় নেই। অনুশীলন চলে ১৮০ দিনের [switch plan](https://sojibrd.github.io/switch_in_6_month_local_company/)-এর ঘরে — রোজের ১৫′ মুখে ইংরেজি আর interview-প্রস্তুতি; ঐ ঘরের কাজে কোনো drill মিললে সেটা, এই গাইডের অধ্যায় থেকে। নিয়মটা switch plan-এর নিয়মে, "সফট স্কিল — আলাদা ঘর নেই"।
 
-`brainstorming/soft-technical-and-ai-skill.md` বলে, soft skill-এর জন্য সাইট বানানো একটা ফাঁদ — soft skill বাড়ে শুধু বলে আর লিখে; আর সপ্তাহের ৭ ঘণ্টায় soft skill-এর ভাগ রোজ ১৫′ ইংরেজি আর এক ঘণ্টা interview প্রস্তুতি। এই সাইট ঐ ভাগের বদলি নয়। অমিলটা `brainstorming/thought-map.md`-এ লেখা, ⏳। উত্তর না আসা পর্যন্ত plan-এর কোনো ঘর থেকে সময় কাটা হয়নি, আর শুরুর তারিখের কোনো প্রস্তাব নেই।
+তাই এই সাইটের দিন গোনা থামানো — plan-এর কোনো ঘর থেকে আলাদা সময় কাটা হয়নি, আর নতুন শুরুর তারিখের প্রস্তাব নেই। `brainstorming/soft-technical-and-ai-skill.md`-এর ফাঁদের লাইনের নিচে এই সাইট ব্যতিক্রম হিসেবে লেখা; অমিলটা `brainstorming/thought-map.md`-এ মীমাংসিত।
 
 ---
 
@@ -113,7 +113,7 @@
 - পদ বদলালে Lead আর Staff-এর drill এবার তাদের পুরো রূপে, `সুযোগ এলে:` থেকে।7:X
 c:X
 c:C
-0:{"buildId":"GGCo_JbUoaNXxHYmQHM67","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — সফট স্কিল, পরের স্তরে, drill ধরে"}],["$","p",null,{"className":"t-body measure text-sm","children":"১০৮ দিন · ১০৪টা drill আর ৪টা ⚑ · দিনে একটা, ১০′"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L2",null,{"className":"measure","children":"$3"}]}]],["$L4"],"$L5"]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":"$L8","isPartial":"$@9","staleTime":"$7","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$7","varyParams":"$c"}],"isUpgradeableISRFallback":false,"a":"$@d","rootVaryParams":null,"needsRuntimeRequest":"$@e"}
+0:{"buildId":"c4nUxzm9KvqiojuFf0Uym","data":[{"rsc":["$","$1","c",{"children":[[["$","header",null,{"className":"flex flex-col gap-2","children":[["$","h1",null,{"className":"t-title text-2xl sm:text-3xl","children":"নিয়ম — সফট স্কিল, পরের স্তরে, drill ধরে"}],["$","p",null,{"className":"t-body measure text-sm","children":"১০৮ দিন · ১০৪টা drill আর ৪টা ⚑ · দিনে একটা, ১০′"}]]}],["$","section",null,{"className":"surface-panel p-4 sm:p-6 md:p-8","children":["$","$L2",null,{"className":"measure","children":"$3"}]}]],["$L4"],"$L5"]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":"$L8","isPartial":"$@9","staleTime":"$7","varyParams":null},{"rsc":"$La","isPartial":"$@b","staleTime":"$7","varyParams":"$c"}],"isUpgradeableISRFallback":false,"a":"$@d","rootVaryParams":null,"needsRuntimeRequest":"$@e"}
 f:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"OutletBoundary"]
 10:"$Sreact.suspense"
 12:I[97367,["/soft_skill_learning/_next/static/chunks/3d1u2elw4yrcu.js","/soft_skill_learning/_next/static/chunks/0ov711a-t8tfo.js"],"ViewportBoundary"]
